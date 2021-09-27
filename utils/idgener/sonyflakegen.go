@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/Golang-Tools/jwthelper/machineid"
+	"github.com/Golang-Tools/jwthelper/utils/machineid"
 	"github.com/sony/sonyflake"
 )
 

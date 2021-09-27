@@ -1,0 +1,43 @@
+syntax = "proto3";
+package jwt;
+option go_package = "./jwt_pb";
+
+enum EncryptionAlgorithm {
+    UNKNOWN = 0;
+    RS256 = 1;
+	RS384 = 2;
+	RS512 = 3;
+	ES256 = 4;
+	ES384 = 5;
+	ES512 = 6;
+	HS256 = 7;
+	HS384 = 8;
+	HS512 = 9;
+}
+
+message SignerMeta {
+    EncryptionAlgorithm algo = 1;
+    string iss =2;       
+	int64 defaultTTL = 3;   //单位s
+	int64 defaultEffectiveInterval = 4; //单位s
+	string jtiGen = 5;                  
+}
+
+message VerifierMeta {
+    EncryptionAlgorithm algo = 1;
+    string defaultAUD =2;       
+	repeated string defaultISSRange = 3;   
+}
+
+message Token {
+    string AccessToken = 1;
+    string RefreshToken = 2;
+}
+message ResponseStatus {
+    enum Stat {
+        SUCCEED = 0;
+        FAILED = 1;
+    }
+    Stat status = 1;
+    string message = 2;
+}

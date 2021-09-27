@@ -1,0 +1,32 @@
+syntax = "proto3";
+package jwt.signer;
+option go_package = "./jwtsigner_pb";
+import "pbschema/jwt.proto";
+service JwtService {
+    //查看jwt服务元信息的算法
+    rpc Meta (MetaRequest) returns (MetaResponse){}
+    // Sign 为JSON字符串签名
+    rpc Sign (SignRequest) returns (SignResponse){}
+}
+
+
+message MetaRequest {}
+message MetaResponse {
+    jwt.ResponseStatus status=1;
+    jwt.SignerMeta data = 2;
+}
+message SignRequest {
+    string sub = 1; //设置主题,一般用于放用户id
+    int64 exp = 2; //超时时间,秒级时间戳
+    int64 nbf = 3; //生效时间,秒级时间戳
+    int32 refresh = 4; //>=0设置RefreshToken,单位是hour
+    bytes payload = 5; //其他负载,请以json格式传输
+    repeated string aud = 6; //设置签名接收方,一般是app名或者url
+    
+}
+
+message SignResponse {
+    jwt.ResponseStatus status=1;
+    jwt.Token token = 2;
+}
+

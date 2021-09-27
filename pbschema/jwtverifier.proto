@@ -1,0 +1,30 @@
+syntax = "proto3";
+package jwt.verifier;
+option go_package = "./jwtverifier_pb";
+import "pbschema/jwt.proto";
+service JwtService {
+    //查看jwt服务元信息的算法
+    rpc Meta (MetaRequest) returns (MetaResponse){}
+    // Verify 将token解析到的负载转码为JSON字符串返回
+    rpc Verify (VerifyRequest) returns (VerifyResponse){}
+}
+
+message MetaRequest {}
+message MetaResponse {
+    jwt.ResponseStatus status=1;
+    jwt.VerifierMeta data = 2;
+}
+
+message VerifyRequest {
+    jwt.Token token = 1; //要校验的token
+    string check_match_user = 2; //校验用户id是否符合这个字段填写的值
+    string check_match_aud = 3; // 校验token的aud是不是包含这个字段中指定的值
+    repeated string check_match_iss = 4; //校验token的签发人是否在这个字段给定的范围中
+}
+
+
+
+message VerifyResponse {
+    jwt.ResponseStatus status=1;
+    bytes payload = 2;
+}

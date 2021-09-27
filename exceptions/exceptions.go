@@ -20,32 +20,61 @@ var ErrLoadPrivateKey = errors.New("couldn't read private key")
 // ErrLoadPublicKey 公钥无法阅读
 var ErrLoadPublicKey = errors.New("couldn't read public key")
 
-// ErrVerifyToken 校验token错误
-var ErrVerifyToken = errors.New("verify Token error")
+var (
+	//ErrAccessTokenNotFound 未找到access_token
+	ErrAccessTokenNotFound = errors.New("access token not found")
+)
 
-// //ErrLoadKey 密码无法加载
-// var ErrLoadKey = errors.New("couldn't read key")
+/** 校验错误
+ */
+var (
+	// ErrValidationErrorUnknown 校验token时产生的未知错误错误
+	ErrValidationErrorUnknown = errors.New("unknown verify Token error")
+	// ErrValidationErrorMalformed 令牌格式错误
+	ErrValidationErrorMalformed = errors.New("token is malformed")
+	//ErrValidationErrorUnverifiable 由于签名问题无法验证令牌
+	ErrValidationErrorUnverifiable = errors.New("token could not be verified because of signing problems")
+	//ErrValidationErrorSignatureInvalid 签名验证失败
+	ErrValidationErrorSignatureInvalid = errors.New("signature validation failed")
 
-// var TokenInvalidError error = errors.New("Token is invalid")
-// var VerifyTokenError error = errors.New("Verify Token error")
+	// Standard Claim validation errors
+	//ErrValidationErrorAudience AUD校验错误
+	ErrValidationErrorAudience = errors.New("AUD validation failed")
+	//ErrValidationErrorSubject SUB校验错误
+	ErrValidationErrorSubject = errors.New("SUB validation failed")
+	//ErrValidationErrorExpired 令牌超时
+	ErrValidationErrorExpired = errors.New("EXP validation failed")
+	//ErrValidationErrorIssuedAt 令牌签发时间错误
+	ErrValidationErrorIssuedAt = errors.New("IAT validation failed")
+	//ErrValidationErrorIssuer 令牌签发人错误
+	ErrValidationErrorIssuer = errors.New("ISS validation failed")
+	//ErrValidationErrorNotValidYet 令牌未到可用时间
+	ErrValidationErrorNotValidYet = errors.New("NBF validation failed")
+	//ErrValidationErrorId JTI验证失败
+	ErrValidationErrorId = errors.New("JTI validation failed")
+	//ErrValidationErrorClaimsInvalid 通用的声明校验错误
+	ErrValidationErrorClaimsInvalid = errors.New("generic claims validation error")
+	//ErrValidationErrorCanNotHandle 未能处理的错误
+	ErrValidationErrorCanNotHandle = errors.New("claims validation error can not handle")
+)
 
-// // ErrConfigParams 配置参数错误
-// var ErrConfigParams = errors.New("config params error")
+/** refresh_token校验错误
+* refresh_token作为access_token的伴生物应该和access_token的sub以及aud完全一致;iss可以不一致,但如果有指定iss范围应该都在同一个范围内
+ */
+var (
+	// ErrRefreshTokenSUBNotMatch refresh_token的sub和access_token的sub不一致
+	ErrRefreshTokenSUBNotMatch = errors.New("refresh token sub not match")
+	// ErrRefreshTokenAudNotMatch refresh_token的sub和access_token的aud范围不一致
+	ErrRefreshTokenAudNotMatch = errors.New("refresh token aud not match")
+	// ErrRefreshTokenIssNotInRange refresh_token的iss不在参数范围内
+	ErrRefreshTokenIssNotInRange = errors.New("refresh token iss not in range")
+	// ErrRefreshTokenNotHaveEXP refresh_token没有设置exp
+	ErrRefreshTokenNotHaveEXP = errors.New("refresh token not have exp")
 
-// // ErrExpOutOfRange 过期时间超出范围
-// var ErrExpOutOfRange = errors.New("exp is out of range")
+	// ErrRefreshTokenValidationError refresh_token的校验错误
+	ErrRefreshTokenValidationError = errors.New("refresh token not validate")
+	// ErrRefreshTokenParseError refresh_token的解析错误
+	ErrRefreshTokenParseError = errors.New("refresh token can not parse")
+)
 
-// // //ErrProxyNotInited 数据库代理未初始化错误
-// // var ErrProxyNotInited = errors.New("proxy not inited yet")
 
-// // //ErrProxyAlreadyInited 代理已经被初始化过了
-// // var ErrProxyAlreadyInited = errors.New("proxy already inited yet")
-
-// // ErrUnexpectedAlgo 算法类型错误
-// var ErrUnexpectedAlgo = errors.New("unknown algo type key")
-
-// // ErrParseClaimsToJSON 无法加载JSON
-// var ErrParseClaimsToJSON = errors.New("couldn't parse claims JSON")
-
-// // ErrSignToken 签名错误
-// var ErrSignToken = errors.New("Error signing token")
