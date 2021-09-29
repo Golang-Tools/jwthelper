@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Package: github.com/Golang-Tools/jwthelper/exceptions</title>
+<link href="../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="package-details"><code><span style="font-size:xx-large;">package <b>exceptions</b></span>
+
+<span class="title">Import Path</span>
+	<a href="../../../../index.html#pkg-github.com/Golang-Tools/jwthelper/exceptions">github.com/Golang-Tools/jwthelper/exceptions</a><i> (on <a href="https://pkg.go.dev/github.com/Golang-Tools/jwthelper/exceptions" target="_blank">go.dev</a>)</i>
+
+<span class="title">Dependency Relation</span>
+	imports <a href="../../../../dep/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html">one package</a>, and imported by <a href="../../../../dep/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#imported-by">2 packages</a>
+
+<div id="files"><span class="title">Involved Source Files</span>
+
+	<input type='checkbox' checked class="fold" id="file-0-fold-content"><label for="file-0-fold-content">   <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#doc">#d</a> <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html">exceptions.go</a></label><span id='file-0-fold-content-items' class="fold-items">
+		exceptions 定义异常</span></div>
+<div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (total 27, all are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-ErrAccessTokenNotFound">	<input type='checkbox' class="fold" id="ErrAccessTokenNotFound-fold-content"><label for="ErrAccessTokenNotFound-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-25">ErrAccessTokenNotFound</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrAccessTokenNotFound-fold-content-docs' class="fold-docs">
+		ErrAccessTokenNotFound 未找到access_token
+
+</span></div><div class="anchor value-res" id="name-ErrAlgoType">	<input type='checkbox' class="fold" id="ErrAlgoType-fold-content"><label for="ErrAlgoType-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-9">ErrAlgoType</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrAlgoType-fold-content-docs' class="fold-docs">
+		ErrAlgoType 算法类型不支持
+
+</span></div><div class="anchor value-res" id="name-ErrAlgoTypeNotMatch">	<input type='checkbox' class="fold" id="ErrAlgoTypeNotMatch-fold-content"><label for="ErrAlgoTypeNotMatch-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-15">ErrAlgoTypeNotMatch</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrAlgoTypeNotMatch-fold-content-docs' class="fold-docs">
+		ErrAlgoTypeNotMatch 算法类型和验证器不匹配
+
+</span></div><div class="anchor value-res" id="name-ErrLoadPrivateKey">	<input type='checkbox' class="fold" id="ErrLoadPrivateKey-fold-content"><label for="ErrLoadPrivateKey-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-18">ErrLoadPrivateKey</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrLoadPrivateKey-fold-content-docs' class="fold-docs">
+		ErrLoadPrivateKey 私钥无法阅读
+
+</span></div><div class="anchor value-res" id="name-ErrLoadPublicKey">	<input type='checkbox' class="fold" id="ErrLoadPublicKey-fold-content"><label for="ErrLoadPublicKey-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-21">ErrLoadPublicKey</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrLoadPublicKey-fold-content-docs' class="fold-docs">
+		ErrLoadPublicKey 公钥无法阅读
+
+</span></div><div class="anchor value-res" id="name-ErrRefreshTokenAudNotMatch">	<input type='checkbox' class="fold" id="ErrRefreshTokenAudNotMatch-fold-content"><label for="ErrRefreshTokenAudNotMatch-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-73">ErrRefreshTokenAudNotMatch</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrRefreshTokenAudNotMatch-fold-content-docs' class="fold-docs">
+		ErrRefreshTokenAudNotMatch refresh_token的sub和access_token的aud范围不一致
+
+</span></div><div class="anchor value-res" id="name-ErrRefreshTokenIssNotInRange">	<input type='checkbox' class="fold" id="ErrRefreshTokenIssNotInRange-fold-content"><label for="ErrRefreshTokenIssNotInRange-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-77">ErrRefreshTokenIssNotInRange</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrRefreshTokenIssNotInRange-fold-content-docs' class="fold-docs">
+		ErrRefreshTokenIssNotInRange refresh_token的iss不在参数范围内
+
+</span></div><div class="anchor value-res" id="name-ErrRefreshTokenJtiNotMatch">	<input type='checkbox' class="fold" id="ErrRefreshTokenJtiNotMatch-fold-content"><label for="ErrRefreshTokenJtiNotMatch-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-75">ErrRefreshTokenJtiNotMatch</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrRefreshTokenJtiNotMatch-fold-content-docs' class="fold-docs">
+		ErrRefreshTokenJtiNotMatch refresh_token的jti和access_token的不一致
+
+</span></div><div class="anchor value-res" id="name-ErrRefreshTokenNotHaveEXP">	<input type='checkbox' class="fold" id="ErrRefreshTokenNotHaveEXP-fold-content"><label for="ErrRefreshTokenNotHaveEXP-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-79">ErrRefreshTokenNotHaveEXP</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrRefreshTokenNotHaveEXP-fold-content-docs' class="fold-docs">
+		ErrRefreshTokenNotHaveEXP refresh_token没有设置exp
+
+</span></div><div class="anchor value-res" id="name-ErrRefreshTokenParseError">	<input type='checkbox' class="fold" id="ErrRefreshTokenParseError-fold-content"><label for="ErrRefreshTokenParseError-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-84">ErrRefreshTokenParseError</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrRefreshTokenParseError-fold-content-docs' class="fold-docs">
+		ErrRefreshTokenParseError refresh_token的解析错误
+
+</span></div><div class="anchor value-res" id="name-ErrRefreshTokenSUBNotMatch">	<input type='checkbox' class="fold" id="ErrRefreshTokenSUBNotMatch-fold-content"><label for="ErrRefreshTokenSUBNotMatch-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-71">ErrRefreshTokenSUBNotMatch</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrRefreshTokenSUBNotMatch-fold-content-docs' class="fold-docs">
+		ErrRefreshTokenSUBNotMatch refresh_token的sub和access_token的sub不一致
+
+</span></div><div class="anchor value-res" id="name-ErrRefreshTokenValidationError">	<input type='checkbox' class="fold" id="ErrRefreshTokenValidationError-fold-content"><label for="ErrRefreshTokenValidationError-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-82">ErrRefreshTokenValidationError</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrRefreshTokenValidationError-fold-content-docs' class="fold-docs">
+		ErrRefreshTokenValidationError refresh_token的校验错误
+
+</span></div><div class="anchor value-res" id="name-ErrSignWithRefreshTokenNeedSUB">	<input type='checkbox' class="fold" id="ErrSignWithRefreshTokenNeedSUB-fold-content"><label for="ErrSignWithRefreshTokenNeedSUB-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-30">ErrSignWithRefreshTokenNeedSUB</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrSignWithRefreshTokenNeedSUB-fold-content-docs' class="fold-docs">
+		ErrSignWithRefreshTokenNeedSUB 签名带refresh token的jwt必须带有参数sub
+
+</span></div><div class="anchor value-res" id="name-ErrUnsupportAlgoType">	<input type='checkbox' class="fold" id="ErrUnsupportAlgoType-fold-content"><label for="ErrUnsupportAlgoType-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-12">ErrUnsupportAlgoType</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrUnsupportAlgoType-fold-content-docs' class="fold-docs">
+		ErrUnsupportAlgoType 算法类型在当前场景下不被支持
+
+</span></div><div class="anchor value-res" id="name-ErrValidationErrorAudience">	<input type='checkbox' class="fold" id="ErrValidationErrorAudience-fold-content"><label for="ErrValidationErrorAudience-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-47">ErrValidationErrorAudience</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrValidationErrorAudience-fold-content-docs' class="fold-docs">
+		Standard Claim validation errors
+		ErrValidationErrorAudience AUD校验错误
+
+</span></div><div class="anchor value-res" id="name-ErrValidationErrorCanNotHandle">	<input type='checkbox' class="fold" id="ErrValidationErrorCanNotHandle-fold-content"><label for="ErrValidationErrorCanNotHandle-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-63">ErrValidationErrorCanNotHandle</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrValidationErrorCanNotHandle-fold-content-docs' class="fold-docs">
+		ErrValidationErrorCanNotHandle 未能处理的错误
+
+</span></div><div class="anchor value-res" id="name-ErrValidationErrorClaimsInvalid">	<input type='checkbox' class="fold" id="ErrValidationErrorClaimsInvalid-fold-content"><label for="ErrValidationErrorClaimsInvalid-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-61">ErrValidationErrorClaimsInvalid</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrValidationErrorClaimsInvalid-fold-content-docs' class="fold-docs">
+		ErrValidationErrorClaimsInvalid 通用的声明校验错误
+
+</span></div><div class="anchor value-res" id="name-ErrValidationErrorExpired">	<input type='checkbox' class="fold" id="ErrValidationErrorExpired-fold-content"><label for="ErrValidationErrorExpired-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-51">ErrValidationErrorExpired</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrValidationErrorExpired-fold-content-docs' class="fold-docs">
+		ErrValidationErrorExpired 令牌超时
+
+</span></div><div class="anchor value-res" id="name-ErrValidationErrorId">	<input type='checkbox' class="fold" id="ErrValidationErrorId-fold-content"><label for="ErrValidationErrorId-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-59">ErrValidationErrorId</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrValidationErrorId-fold-content-docs' class="fold-docs">
+		ErrValidationErrorId JTI验证失败
+
+</span></div><div class="anchor value-res" id="name-ErrValidationErrorIssuedAt">	<input type='checkbox' class="fold" id="ErrValidationErrorIssuedAt-fold-content"><label for="ErrValidationErrorIssuedAt-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-53">ErrValidationErrorIssuedAt</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrValidationErrorIssuedAt-fold-content-docs' class="fold-docs">
+		ErrValidationErrorIssuedAt 令牌签发时间错误
+
+</span></div><div class="anchor value-res" id="name-ErrValidationErrorIssuer">	<input type='checkbox' class="fold" id="ErrValidationErrorIssuer-fold-content"><label for="ErrValidationErrorIssuer-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-55">ErrValidationErrorIssuer</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrValidationErrorIssuer-fold-content-docs' class="fold-docs">
+		ErrValidationErrorIssuer 令牌签发人错误
+
+</span></div><div class="anchor value-res" id="name-ErrValidationErrorMalformed">	<input type='checkbox' class="fold" id="ErrValidationErrorMalformed-fold-content"><label for="ErrValidationErrorMalformed-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-39">ErrValidationErrorMalformed</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrValidationErrorMalformed-fold-content-docs' class="fold-docs">
+		ErrValidationErrorMalformed 令牌格式错误
+
+</span></div><div class="anchor value-res" id="name-ErrValidationErrorNotValidYet">	<input type='checkbox' class="fold" id="ErrValidationErrorNotValidYet-fold-content"><label for="ErrValidationErrorNotValidYet-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-57">ErrValidationErrorNotValidYet</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrValidationErrorNotValidYet-fold-content-docs' class="fold-docs">
+		ErrValidationErrorNotValidYet 令牌未到可用时间
+
+</span></div><div class="anchor value-res" id="name-ErrValidationErrorSignatureInvalid">	<input type='checkbox' class="fold" id="ErrValidationErrorSignatureInvalid-fold-content"><label for="ErrValidationErrorSignatureInvalid-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-43">ErrValidationErrorSignatureInvalid</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrValidationErrorSignatureInvalid-fold-content-docs' class="fold-docs">
+		ErrValidationErrorSignatureInvalid 签名验证失败
+
+</span></div><div class="anchor value-res" id="name-ErrValidationErrorSubject">	<input type='checkbox' class="fold" id="ErrValidationErrorSubject-fold-content"><label for="ErrValidationErrorSubject-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-49">ErrValidationErrorSubject</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrValidationErrorSubject-fold-content-docs' class="fold-docs">
+		ErrValidationErrorSubject SUB校验错误
+
+</span></div><div class="anchor value-res" id="name-ErrValidationErrorUnknown">	<input type='checkbox' class="fold" id="ErrValidationErrorUnknown-fold-content"><label for="ErrValidationErrorUnknown-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-37">ErrValidationErrorUnknown</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrValidationErrorUnknown-fold-content-docs' class="fold-docs">
+		ErrValidationErrorUnknown 校验token时产生的未知错误错误
+
+</span></div><div class="anchor value-res" id="name-ErrValidationErrorUnverifiable">	<input type='checkbox' class="fold" id="ErrValidationErrorUnverifiable-fold-content"><label for="ErrValidationErrorUnverifiable-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/exceptions/exceptions.go.html#line-41">ErrValidationErrorUnverifiable</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrValidationErrorUnverifiable-fold-content-docs' class="fold-docs">
+		ErrValidationErrorUnverifiable 由于签名问题无法验证令牌
+
+</span></div></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

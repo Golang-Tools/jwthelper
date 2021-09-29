@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Package: github.com/Golang-Tools/jwthelper</title>
+<link href="../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="package-details"><code><span style="font-size:xx-large;">package <b>jwthelper</b></span>
+
+<span class="title">Import Path</span>
+	<a href="../../../index.html#pkg-github.com/Golang-Tools/jwthelper">github.com/Golang-Tools/jwthelper</a><i> (on <a href="https://pkg.go.dev/github.com/Golang-Tools/jwthelper" target="_blank">go.dev</a>)</i>
+
+<span class="title">Dependency Relation</span>
+	imports <a href="../../../dep/github.com/Golang-Tools^b0a0c/jwthelper.html">15 packages</a>, and imported by 0 packages
+
+<div id="files"><span class="title">Involved Source Files</span>
+
+	<span class="nodocs">      <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/jwthelper.go.html">jwthelper.go</a></span>
+	<span class="nodocs">      <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signer.go.html">signer.go</a></span>
+	<span class="nodocs">      <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html">signeroptions.go</a></span>
+	<input type='checkbox' checked class="fold" id="file-3-fold-content"><label for="file-3-fold-content">   <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/universal.go.html#doc">#d</a> <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/universal.go.html">universal.go</a></label><span id='file-3-fold-content-items' class="fold-items">
+		jwthelper 定义该项目下的各种对象接口
+</span>
+	<input type='checkbox' checked class="fold" id="file-4-fold-content"><label for="file-4-fold-content">   <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#doc">#d</a> <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html">verifier.go</a></label><span id='file-4-fold-content-items' class="fold-items">
+		verifier jwt校验器
+</span>
+	<span class="nodocs">      <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html">verifieroptions.go</a></span></div>
+<div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 11, in which 8 are exported)</i></span></span>
+
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Signer" data-popularity="275">	<input type='checkbox' class="fold" id="Signer-fold-content"><label for="Signer-fold-content"> type <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signer.go.html#line-15">Signer</a> <i>(struct)</i></label><span id='Signer-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="Signer-fold-fields"><label for="Signer-fold-fields">Fields (<i>total 3, none are exported</i>)</label><span id='Signer-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Signer-showhide-fields"><i><label for="Signer-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="Signer-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signer.go.html#line-16">algo</a> <i><a href="../golang-jwt/jwt/v4.html">jwt</a>.<a href="../golang-jwt/jwt/v4.html#name-SigningMethod">SigningMethod</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signer.go.html#line-17">key</a> <i>interface{}</i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signer.go.html#line-18">opts</a> <i><a href="#name-SignerOptions">SignerOptions</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="Signer-fold-methods"><label for="Signer-fold-methods">Methods (<i>total 3, in which 2 are exported</i>)</label><span id='Signer-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Signer-fold-method-Meta"><label for="Signer-fold-method-Meta">(*T) <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signer.go.html#line-56">Meta</a>() *<a href="jwthelper/jwt_pb.html">jwt_pb</a>.<a href="jwthelper/jwt_pb.html#name-SignerMeta">SignerMeta</a></label><span id='Signer-fold-method-Meta-docs' class="fold-docs">
+				Meta 获取签名器元数据
+</span></span><span>
+			<input type='checkbox' class="fold" id="Signer-fold-method-Sign"><label for="Signer-fold-method-Sign">(*T) <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signer.go.html#line-170">Sign</a>(payload interface{}, opts ...<a href="jwthelper/signoptions.html">signoptions</a>.<a href="jwthelper/signoptions.html#name-SignOption">SignOption</a>) (*<a href="jwthelper/jwt_pb.html">jwt_pb</a>.<a href="jwthelper/jwt_pb.html#name-Token">Token</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='Signer-fold-method-Sign-docs' class="fold-docs">
+				Sign 签名一个token
+				@Params payload interface{} 负载对象,需要是可以用json解析的对象
+				@Params opts ...signoptions.SignOption 签名的设置项,详见signoptions模块
+				@Returns *jwt_pb.Token jwt的token对象,其中AccessToken是jwt主体token,如果成功一定会有,如果设置了`WithRefreshExpAt`或者`WithRefreshTTL`则会创建一个伴生的RefreshToken用于自动刷新
+</span></span>
+			<input type='checkbox' class="showhide" id="Signer-showhide-methods"><i><label for="Signer-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="Signer-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signer.go.html#line-66">signany</a>(claims <a href="../golang-jwt/jwt/v4.html">jwt</a>.<a href="../golang-jwt/jwt/v4.html#name-MapClaims">MapClaims</a>, opts ...<a href="jwthelper/signoptions.html">signoptions</a>.<a href="jwthelper/signoptions.html#name-SignOption">SignOption</a>) (*<a href="jwthelper/jwt_pb.html">jwt_pb</a>.<a href="jwthelper/jwt_pb.html#name-Token">Token</a>, <a href="../../builtin.html#name-error">error</a>)</span></i></span></span>
+		<input type='checkbox' class="fold" id="Signer-fold-impls"><label for="Signer-fold-impls">Implements (<i>at least one exported</i>)</label><span id='Signer-fold-impls-items' class="fold-items"><span>
+			*T : <a href="#name-UniversalJwtSigner">UniversalJwtSigner</a></span></span>
+		<input type='checkbox' class="fold" id="Signer-fold-results"><label for="Signer-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Signer-fold-results-items' class="fold-items"><span>
+			func <a href="#name-NewSigner">NewSigner</a>(opts ...<a href="#name-SignerOption">SignerOption</a>) (*<b>Signer</b>, <a href="../../builtin.html#name-error">error</a>)</span></span>
+
+</span></div><div class="anchor type-res" id="name-SignerOption" data-popularity="910">	<input type='checkbox' class="fold" id="SignerOption-fold-content"><label for="SignerOption-fold-content"> type <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-32">SignerOption</a> <b><i>(interface)</i></b></label><span id='SignerOption-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="SignerOption-fold-methods"><label for="SignerOption-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='SignerOption-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-33">Apply</a>(*<a href="#name-SignerOptions">SignerOptions</a>)</span></span></span>
+		<input type='checkbox' class="fold" id="SignerOption-fold-impledby"><label for="SignerOption-fold-impledby">Implemented By (<i>at least one unexported</i>)</label><span id='SignerOption-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="SignerOption-showhide-impedBys"><i><label for="SignerOption-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="SignerOption-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*<a href="#name-funcSignerOption">funcSignerOption</a></i></span></span>
+		<input type='checkbox' class="fold" id="SignerOption-fold-results"><label for="SignerOption-fold-results">As Outputs Of (<i>at least 9, all are exported</i>)</label><span id='SignerOption-fold-results-items' class="fold-items"><span>
+			func <a href="#name-WithDefaultEffectiveInterval">WithDefaultEffectiveInterval</a>(defaultEffectiveInterval <a href="../../time.html">time</a>.<a href="../../time.html#name-Duration">Duration</a>) <b>SignerOption</b></span><span>
+			func <a href="#name-WithDefaultTTL">WithDefaultTTL</a>(defaultTTL <a href="../../time.html">time</a>.<a href="../../time.html#name-Duration">Duration</a>) <b>SignerOption</b></span><span>
+			func <a href="#name-WithPemPrivateKey">WithPemPrivateKey</a>(keybytes []<a href="../../builtin.html#name-byte">byte</a>) <b>SignerOption</b></span><span>
+			func <a href="#name-WithPemPrivateKeyFromFile">WithPemPrivateKeyFromFile</a>(keyPath <a href="../../builtin.html#name-string">string</a>) <b>SignerOption</b></span><span>
+			func <a href="#name-WithSignAlgo">WithSignAlgo</a>(algo <a href="jwthelper/jwt_pb.html">jwt_pb</a>.<a href="jwthelper/jwt_pb.html#name-EncryptionAlgorithm">EncryptionAlgorithm</a>) <b>SignerOption</b></span><span>
+			func <a href="#name-WithSignIss">WithSignIss</a>(iss <a href="../../builtin.html#name-string">string</a>) <b>SignerOption</b></span><span>
+			func <a href="#name-WithSignJtiGen">WithSignJtiGen</a>(jtiGen <a href="jwthelper/utils/idgener.html">idgener</a>.<a href="jwthelper/utils/idgener.html#name-IDGen">IDGen</a>) <b>SignerOption</b></span><span>
+			func <a href="#name-WithSignSecretKey">WithSignSecretKey</a>(keybytes []<a href="../../builtin.html#name-byte">byte</a>) <b>SignerOption</b></span><span>
+			func <a href="#name-WithSignSecretKeyFromFile">WithSignSecretKeyFromFile</a>(keyPath <a href="../../builtin.html#name-string">string</a>) <b>SignerOption</b></span></span>
+		<input type='checkbox' class="fold" id="SignerOption-fold-params"><label for="SignerOption-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='SignerOption-fold-params-items' class="fold-items"><span>
+			func <a href="#name-NewSigner">NewSigner</a>(opts ...<b>SignerOption</b>) (*<a href="#name-Signer">Signer</a>, <a href="../../builtin.html#name-error">error</a>)</span></span>
+
+</span></div><div class="anchor type-res" id="name-SignerOptions" data-popularity="40">	<input type='checkbox' class="fold" id="SignerOptions-fold-content"><label for="SignerOptions-fold-content"> type <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-15">SignerOptions</a> <i>(struct)</i></label><span id='SignerOptions-fold-content-docs' class="fold-docs">
+		签名器初始化选项
+
+		<input type='checkbox' class="fold" id="SignerOptions-fold-fields"><label for="SignerOptions-fold-fields">Fields (<i>total 6, all are exported</i>)</label><span id='SignerOptions-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-16">Algo</a> <i><a href="jwthelper/jwt_pb.html">jwt_pb</a>.<a href="jwthelper/jwt_pb.html#name-EncryptionAlgorithm">EncryptionAlgorithm</a></i></span></span><span>
+			<input type='checkbox' class="fold" id="SignerOptions-fold-field-DefaultEffectiveInterval"><label for="SignerOptions-fold-field-DefaultEffectiveInterval"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-20">DefaultEffectiveInterval</a> <i><a href="../../time.html">time</a>.<a href="../../time.html#name-Duration">Duration</a></i></label><span id='SignerOptions-fold-field-DefaultEffectiveInterval-docs' class="fold-docs">
+				// 默认token生效离签发时间间隔
+</span></span><span>
+			<input type='checkbox' class="fold" id="SignerOptions-fold-field-DefaultTTL"><label for="SignerOptions-fold-field-DefaultTTL"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-19">DefaultTTL</a> <i><a href="../../time.html">time</a>.<a href="../../time.html#name-Duration">Duration</a></i></label><span id='SignerOptions-fold-field-DefaultTTL-docs' class="fold-docs">
+				// 默认token超时
+</span></span><span>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-18">Iss</a> <i><a href="../../builtin.html#name-string">string</a></i></span></span><span>
+			<input type='checkbox' class="fold" id="SignerOptions-fold-field-JtiGen"><label for="SignerOptions-fold-field-JtiGen"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-21">JtiGen</a> <i><a href="jwthelper/utils/idgener.html">idgener</a>.<a href="jwthelper/utils/idgener.html#name-IDGen">IDGen</a></i></label><span id='SignerOptions-fold-field-JtiGen-docs' class="fold-docs">
+				// jti的生成器
+</span></span><span>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-17">Key</a> <i>[]<a href="../../builtin.html#name-byte">byte</a></i></span></span></span>
+		<input type='checkbox' class="fold" id="SignerOptions-fold-params"><label for="SignerOptions-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='SignerOptions-fold-params-items' class="fold-items"><span>
+			func <a href="#name-SignerOption">SignerOption</a>.<a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-33">Apply</a>(*<b>SignerOptions</b>)</span></span>
+		<input type='checkbox' class="fold" id="SignerOptions-fold-values"><label for="SignerOptions-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='SignerOptions-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-DefaultSignerOptions">DefaultSignerOptions</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-UniversalJwtSigner" data-popularity="250">	<input type='checkbox' class="fold" id="UniversalJwtSigner-fold-content"><label for="UniversalJwtSigner-fold-content"> type <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/universal.go.html#line-12">UniversalJwtSigner</a> <b><i>(interface)</i></b></label><span id='UniversalJwtSigner-fold-content-docs' class="fold-docs">
+		UniversalJwtSigner 通用jwt的签名器
+
+		<input type='checkbox' class="fold" id="UniversalJwtSigner-fold-methods"><label for="UniversalJwtSigner-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='UniversalJwtSigner-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="UniversalJwtSigner-fold-method-Meta"><label for="UniversalJwtSigner-fold-method-Meta">( T) <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/universal.go.html#line-14">Meta</a>() *<a href="jwthelper/jwt_pb.html">jwt_pb</a>.<a href="jwthelper/jwt_pb.html#name-SignerMeta">SignerMeta</a></label><span id='UniversalJwtSigner-fold-method-Meta-docs' class="fold-docs">
+				Meta 查看签名器元信息
+</span></span><span>
+			<input type='checkbox' class="fold" id="UniversalJwtSigner-fold-method-Sign"><label for="UniversalJwtSigner-fold-method-Sign">( T) <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/universal.go.html#line-16">Sign</a>(payload interface{}, opts ...<a href="jwthelper/signoptions.html">signoptions</a>.<a href="jwthelper/signoptions.html#name-SignOption">SignOption</a>) (*<a href="jwthelper/jwt_pb.html">jwt_pb</a>.<a href="jwthelper/jwt_pb.html#name-Token">Token</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='UniversalJwtSigner-fold-method-Sign-docs' class="fold-docs">
+				Sign 签名一个token
+</span></span></span>
+		<input type='checkbox' class="fold" id="UniversalJwtSigner-fold-impledby"><label for="UniversalJwtSigner-fold-impledby">Implemented By (<i>at least one exported</i>)</label><span id='UniversalJwtSigner-fold-impledby-items' class="fold-items"><span>
+			*<a href="#name-Signer">Signer</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-UniversalJwtVerifier" data-popularity="100">	<input type='checkbox' class="fold" id="UniversalJwtVerifier-fold-content"><label for="UniversalJwtVerifier-fold-content"> type <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/universal.go.html#line-20">UniversalJwtVerifier</a> <b><i>(interface)</i></b></label><span id='UniversalJwtVerifier-fold-content-docs' class="fold-docs">
+		UniversalJwtVerifier 通用jwt的签名器
+
+		<input type='checkbox' class="fold" id="UniversalJwtVerifier-fold-methods"><label for="UniversalJwtVerifier-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='UniversalJwtVerifier-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="UniversalJwtVerifier-fold-method-Meta"><label for="UniversalJwtVerifier-fold-method-Meta">( T) <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/universal.go.html#line-22">Meta</a>() *<a href="jwthelper/jwt_pb.html">jwt_pb</a>.<a href="jwthelper/jwt_pb.html#name-VerifierMeta">VerifierMeta</a></label><span id='UniversalJwtVerifier-fold-method-Meta-docs' class="fold-docs">
+				Meta 查看签名器元信息
+</span></span><span>
+			<input type='checkbox' class="fold" id="UniversalJwtVerifier-fold-method-Verify"><label for="UniversalJwtVerifier-fold-method-Verify">( T) <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/universal.go.html#line-24">Verify</a>(token *<a href="jwthelper/jwt_pb.html">jwt_pb</a>.<a href="jwthelper/jwt_pb.html#name-Token">Token</a>, payload interface{}, opts ...<a href="jwthelper/signoptions.html">signoptions</a>.<a href="jwthelper/signoptions.html#name-SignOption">SignOption</a>) (<a href="../../builtin.html#name-string">string</a>, <a href="../../time.html">time</a>.<a href="../../time.html#name-Duration">Duration</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='UniversalJwtVerifier-fold-method-Verify-docs' class="fold-docs">
+				校验一个签名是否复合
+</span></span></span>
+
+</span></div><div class="anchor type-res" id="name-Verifier" data-popularity="275">	<input type='checkbox' class="fold" id="Verifier-fold-content"><label for="Verifier-fold-content"> type <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-17">Verifier</a> <i>(struct)</i></label><span id='Verifier-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="Verifier-fold-fields"><label for="Verifier-fold-fields">Fields (<i>total 3, none are exported</i>)</label><span id='Verifier-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Verifier-showhide-fields"><i><label for="Verifier-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="Verifier-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-18">asymmetric</a> <i><a href="../../builtin.html#name-bool">bool</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-20">key</a> <i>interface{}</i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-19">opts</a> <i><a href="#name-VerifierOptions">VerifierOptions</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="Verifier-fold-methods"><label for="Verifier-fold-methods">Methods (<i>total 4, in which 2 are exported</i>)</label><span id='Verifier-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Verifier-fold-method-Meta"><label for="Verifier-fold-method-Meta">(*T) <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-57">Meta</a>() *<a href="jwthelper/jwt_pb.html">jwt_pb</a>.<a href="jwthelper/jwt_pb.html#name-VerifierMeta">VerifierMeta</a></label><span id='Verifier-fold-method-Meta-docs' class="fold-docs">
+				Meta 获取签名器元数据
+</span></span><span>
+			<input type='checkbox' class="fold" id="Verifier-fold-method-Verify"><label for="Verifier-fold-method-Verify">(*T) <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-330">Verify</a>(token *<a href="jwthelper/jwt_pb.html">jwt_pb</a>.<a href="jwthelper/jwt_pb.html#name-Token">Token</a>, payload interface{}, opts ...<a href="jwthelper/verifyoptions.html">verifyoptions</a>.<a href="jwthelper/verifyoptions.html#name-VerifyOption">VerifyOption</a>) (<a href="../../builtin.html#name-string">string</a>, <a href="../../time.html">time</a>.<a href="../../time.html#name-Duration">Duration</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='Verifier-fold-method-Verify-docs' class="fold-docs">
+				* Verify 用Verifier对象验签
+
+				下面是情况矩阵
+				| access_token是否存在 | access_token是否通过校验 | access_token是否过期 | refresh_token是否存在 | refresh_token是否通过校验 | refresh_token是否过期 | payload |jti| timeleft                | err                            |
+				| -------------------- | ------------------------ | -------------------- | --------------------- | ------------------------- | --------------------- | ------- |---| ----------------------- | ------------------------------ |
+				| 否                   | ---                      | ---                  | ---                   | ---                       | ---                   | 不赋值  | 空|0                       | ErrAccessTokenNotFound         |
+				| 是                   | 否                       | ---                  | ---                   | ---                       | ---                   | 不赋值  | 空|0                       | access_校验不通过的错误        |
+				| 是                   | 是                       | 否                   | 否                    | ---                       | ---                   | 赋值    |有值 |access_token的剩余时间  | 无                             |
+				| 是                   | 是                       | 否                   | 是                    | 否                        | ---                   | 赋值    | 有值|0                       | refresh_token校验不通过的错误  |
+				| 是                   | 是                       | 否                   | 是                    | 是                        | 是                    | 赋值    | 有值|0                       | ErrRefreshTokenValidationError |
+				| 是                   | 是                       | 否                   | 是                    | 是                        | 否                    | 赋值    | 有值|refresh_token的剩余时间 | nil                            |
+				| 是                   | 是                       | 是                   | 否                    | ---                       | ---                   | 赋值    |有值 |0                       | ErrValidationErrorExpired      |
+				| 是                   | 是                       | 是                   | 是                    | 否                        | ---                   | 赋值    | 有值|0                       | refresh_token校验不通过的错误  |
+				| 是                   | 是                       | 是                   | 是                    | 是                        | 是                    | 赋值    | 有值|0                       | ErrRefreshTokenValidationError |
+				| 是                   | 是                       | 是                   | 是                    | 是                        | 否                    | 赋值    | 有值|refresh_token的剩余时间 | ErrValidationErrorExpired      |
+
+				注意`refresh_token`的校验项包括
+
+				+ 是否可以解析为json
+				+ 是否包含`exp`字段
+				+ `sub`字段是否存在
+				+ `sub`字段是否和access_token中的一致
+				+ 当不指定`WithNotCheckRefreshTokenJTI`时`jti`字段必须和access_token中的一致
+				+ 当不指定`WithNotCheckRefreshTokenAUD`且access_token中有`aud`时则校验是否一致
+				+ 当指定`WithIssMustIn`选项时校验`iss`是否在指定范围
+
+				@Params token jwt.Token 待校验的token
+				@Params payload interface{} 校验出结果的用户负载写入的内容,注意只能是指针
+				@Params opts ...verifyoptions.VerifyOption
+				@Returns string token的jti
+				@Returns time.Duration 验证成功返回token的剩余时间,如果为0则表示token没有设置过期,如果token有refresh_token则时间为refresh_token的剩余时间,否则是access_token的剩余时间
+				@Returns error 各种验证失败的错误,注意当access_token过期但有refresh_token且refresh_token未过期时一样会报错exceptions.ErrValidationErrorExpired
+</span></span>
+			<input type='checkbox' class="showhide" id="Verifier-showhide-methods"><i><label for="Verifier-showhide-methods" class="show-inline">/* 2 unexporteds ... */</label><label for="Verifier-showhide-methods" class="hide-inline">/* 2 unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Verifier-fold-method-checkRefreshToken"><label for="Verifier-fold-method-checkRefreshToken">(*T) <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-212">checkRefreshToken</a>(refreshtokenData <a href="../../builtin.html#name-string">string</a>, share *<a href="#name-accessTokenShare">accessTokenShare</a>, opts *<a href="jwthelper/verifyoptions.html">verifyoptions</a>.<a href="jwthelper/verifyoptions.html#name-VerifyOptions">VerifyOptions</a>) (<a href="../../time.html">time</a>.<a href="../../time.html#name-Duration">Duration</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='Verifier-fold-method-checkRefreshToken-docs' class="fold-docs">
+				checkRefreshToken 校验伴生的refreshtoken是否相符
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Verifier-fold-method-verifyAccessToken"><label for="Verifier-fold-method-verifyAccessToken">(*T) <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-155">verifyAccessToken</a>(accesstokenData <a href="../../builtin.html#name-string">string</a>, payload interface{}, opts *<a href="jwthelper/verifyoptions.html">verifyoptions</a>.<a href="jwthelper/verifyoptions.html#name-VerifyOptions">VerifyOptions</a>) (*<a href="#name-accessTokenShare">accessTokenShare</a>, <a href="../../time.html">time</a>.<a href="../../time.html#name-Duration">Duration</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='Verifier-fold-method-verifyAccessToken-docs' class="fold-docs">
+				verifyAccessToken 如果只是超时一样会进入校验流程同时给payload赋值,返回第一位设置为sub
+</span></i></span></span>
+		<input type='checkbox' class="fold" id="Verifier-fold-results"><label for="Verifier-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Verifier-fold-results-items' class="fold-items"><span>
+			func <a href="#name-NewVerifier">NewVerifier</a>(opts ...<a href="#name-VerifierOption">VerifierOption</a>) (*<b>Verifier</b>, <a href="../../builtin.html#name-error">error</a>)</span></span>
+
+</span></div><div class="anchor type-res" id="name-VerifierOption" data-popularity="760">	<input type='checkbox' class="fold" id="VerifierOption-fold-content"><label for="VerifierOption-fold-content"> type <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-22">VerifierOption</a> <b><i>(interface)</i></b></label><span id='VerifierOption-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="VerifierOption-fold-methods"><label for="VerifierOption-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='VerifierOption-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-23">Apply</a>(*<a href="#name-VerifierOptions">VerifierOptions</a>)</span></span></span>
+		<input type='checkbox' class="fold" id="VerifierOption-fold-impledby"><label for="VerifierOption-fold-impledby">Implemented By (<i>at least one unexported</i>)</label><span id='VerifierOption-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="VerifierOption-showhide-impedBys"><i><label for="VerifierOption-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="VerifierOption-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*<a href="#name-funcVerifierOption">funcVerifierOption</a></i></span></span>
+		<input type='checkbox' class="fold" id="VerifierOption-fold-results"><label for="VerifierOption-fold-results">As Outputs Of (<i>at least 7, all are exported</i>)</label><span id='VerifierOption-fold-results-items' class="fold-items"><span>
+			func <a href="#name-WithDefaultAUD">WithDefaultAUD</a>(aud <a href="../../builtin.html#name-string">string</a>) <b>VerifierOption</b></span><span>
+			func <a href="#name-WithDefaultISSRange">WithDefaultISSRange</a>(iss ...<a href="../../builtin.html#name-string">string</a>) <b>VerifierOption</b></span><span>
+			func <a href="#name-WithPemPublicKey">WithPemPublicKey</a>(keybytes []<a href="../../builtin.html#name-byte">byte</a>) <b>VerifierOption</b></span><span>
+			func <a href="#name-WithPemPublicKeyFromFile">WithPemPublicKeyFromFile</a>(keyPath <a href="../../builtin.html#name-string">string</a>) <b>VerifierOption</b></span><span>
+			func <a href="#name-WithVerifyAlgo">WithVerifyAlgo</a>(algo <a href="jwthelper/jwt_pb.html">jwt_pb</a>.<a href="jwthelper/jwt_pb.html#name-EncryptionAlgorithm">EncryptionAlgorithm</a>) <b>VerifierOption</b></span><span>
+			func <a href="#name-WithVerifySecretKey">WithVerifySecretKey</a>(keybytes []<a href="../../builtin.html#name-byte">byte</a>) <b>VerifierOption</b></span><span>
+			func <a href="#name-WithVerifySecretKeyFromFile">WithVerifySecretKeyFromFile</a>(keyPath <a href="../../builtin.html#name-string">string</a>) <b>VerifierOption</b></span></span>
+		<input type='checkbox' class="fold" id="VerifierOption-fold-params"><label for="VerifierOption-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='VerifierOption-fold-params-items' class="fold-items"><span>
+			func <a href="#name-NewVerifier">NewVerifier</a>(opts ...<b>VerifierOption</b>) (*<a href="#name-Verifier">Verifier</a>, <a href="../../builtin.html#name-error">error</a>)</span></span>
+
+</span></div><div class="anchor type-res" id="name-VerifierOptions" data-popularity="40">	<input type='checkbox' class="fold" id="VerifierOptions-fold-content"><label for="VerifierOptions-fold-content"> type <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-9">VerifierOptions</a> <i>(struct)</i></label><span id='VerifierOptions-fold-content-docs' class="fold-docs">
+		签名校验器初始化选项
+
+		<input type='checkbox' class="fold" id="VerifierOptions-fold-fields"><label for="VerifierOptions-fold-fields">Fields (<i>total 4, all are exported</i>)</label><span id='VerifierOptions-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-10">Algo</a> <i><a href="jwthelper/jwt_pb.html">jwt_pb</a>.<a href="jwthelper/jwt_pb.html#name-EncryptionAlgorithm">EncryptionAlgorithm</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-11">DefaultAUD</a> <i><a href="../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-12">DefaultISSRange</a> <i>[]<a href="../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-13">Key</a> <i>[]<a href="../../builtin.html#name-byte">byte</a></i></span></span></span>
+		<input type='checkbox' class="fold" id="VerifierOptions-fold-params"><label for="VerifierOptions-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='VerifierOptions-fold-params-items' class="fold-items"><span>
+			func <a href="#name-VerifierOption">VerifierOption</a>.<a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-23">Apply</a>(*<b>VerifierOptions</b>)</span></span>
+		<input type='checkbox' class="fold" id="VerifierOptions-fold-values"><label for="VerifierOptions-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='VerifierOptions-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-DefaultVerifierOptions">DefaultVerifierOptions</a></span></span>
+
+</span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 3 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 3 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-accessTokenShare" data-popularity="185">	<input type='checkbox' class="fold" id="accessTokenShare-fold-content"><label for="accessTokenShare-fold-content"> type <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-66">accessTokenShare</a> <i>(struct)</i></label><span id='accessTokenShare-fold-content-docs' class="fold-docs">
+		accessTokenShare access_token共享给refresh_token的信息
+
+		<input type='checkbox' class="fold" id="accessTokenShare-fold-fields"><label for="accessTokenShare-fold-fields">Fields (<i>total 4, all are exported</i>)</label><span id='accessTokenShare-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-70">Aud</a> <i>[]<a href="../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-68">Iss</a> <i><a href="../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-69">Jti</a> <i><a href="../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-67">Sub</a> <i><a href="../../builtin.html#name-string">string</a></i></span></span></span>
+		<input type='checkbox' class="fold" id="accessTokenShare-fold-results"><label for="accessTokenShare-fold-results">As Outputs Of (<i>at least 2, neither is exported</i>)</label><span id='accessTokenShare-fold-results-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="accessTokenShare-showhide-inputofs"><i><label for="accessTokenShare-showhide-inputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="accessTokenShare-showhide-inputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			func <a href="#name-checkClaims">checkClaims</a>(claims <a href="../golang-jwt/jwt/v4.html">jwt</a>.<a href="../golang-jwt/jwt/v4.html#name-MapClaims">MapClaims</a>, payload interface{}, opts *<a href="jwthelper/verifyoptions.html">verifyoptions</a>.<a href="jwthelper/verifyoptions.html#name-VerifyOptions">VerifyOptions</a>) (*<b>accessTokenShare</b>, <a href="../../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func (*<a href="#name-Verifier">Verifier</a>).<a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-155">verifyAccessToken</a>(accesstokenData <a href="../../builtin.html#name-string">string</a>, payload interface{}, opts *<a href="jwthelper/verifyoptions.html">verifyoptions</a>.<a href="jwthelper/verifyoptions.html#name-VerifyOptions">VerifyOptions</a>) (*<b>accessTokenShare</b>, <a href="../../time.html">time</a>.<a href="../../time.html#name-Duration">Duration</a>, <a href="../../builtin.html#name-error">error</a>)</i></span></span>
+		<input type='checkbox' class="fold" id="accessTokenShare-fold-params"><label for="accessTokenShare-fold-params">As Inputs Of (<i>at least one unexported</i>)</label><span id='accessTokenShare-fold-params-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="accessTokenShare-showhide-outputofs"><i><label for="accessTokenShare-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="accessTokenShare-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func (*<a href="#name-Verifier">Verifier</a>).<a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-212">checkRefreshToken</a>(refreshtokenData <a href="../../builtin.html#name-string">string</a>, share *<b>accessTokenShare</b>, opts *<a href="jwthelper/verifyoptions.html">verifyoptions</a>.<a href="jwthelper/verifyoptions.html#name-VerifyOptions">VerifyOptions</a>) (<a href="../../time.html">time</a>.<a href="../../time.html#name-Duration">Duration</a>, <a href="../../builtin.html#name-error">error</a>)</i></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-funcSignerOption" data-popularity="175">	<input type='checkbox' class="fold" id="funcSignerOption-fold-content"><label for="funcSignerOption-fold-content"> type <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-37">funcSignerOption</a> <i>(struct)</i></label><span id='funcSignerOption-fold-content-docs' class="fold-docs">
+		func (emptyOption) apply(*SignOptions) {}
+
+		<input type='checkbox' class="fold" id="funcSignerOption-fold-fields"><label for="funcSignerOption-fold-fields">Fields (<i>only one, which is unexported</i>)</label><span id='funcSignerOption-fold-fields-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="funcSignerOption-showhide-fields"><i><label for="funcSignerOption-showhide-fields" class="show-inline">/* one unexported ... */</label><label for="funcSignerOption-showhide-fields" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-38">f</a> <i>func(*<a href="#name-SignerOptions">SignerOptions</a>)</i></span></i></span></span>
+		<input type='checkbox' class="fold" id="funcSignerOption-fold-methods"><label for="funcSignerOption-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='funcSignerOption-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">(*T) <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-41">Apply</a>(do *<a href="#name-SignerOptions">SignerOptions</a>)</span></span></span>
+		<input type='checkbox' class="fold" id="funcSignerOption-fold-impls"><label for="funcSignerOption-fold-impls">Implements (<i>at least one exported</i>)</label><span id='funcSignerOption-fold-impls-items' class="fold-items"><span>
+			*T : <a href="#name-SignerOption">SignerOption</a></span></span>
+		<input type='checkbox' class="fold" id="funcSignerOption-fold-results"><label for="funcSignerOption-fold-results">As Outputs Of (<i>at least one unexported</i>)</label><span id='funcSignerOption-fold-results-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="funcSignerOption-showhide-inputofs"><i><label for="funcSignerOption-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="funcSignerOption-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func <a href="#name-newFuncSignerOption">newFuncSignerOption</a>(f func(*<a href="#name-SignerOptions">SignerOptions</a>)) *<b>funcSignerOption</b></i></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-funcVerifierOption" data-popularity="175">	<input type='checkbox' class="fold" id="funcVerifierOption-fold-content"><label for="funcVerifierOption-fold-content"> type <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-27">funcVerifierOption</a> <i>(struct)</i></label><span id='funcVerifierOption-fold-content-docs' class="fold-docs">
+		func (emptyOption) apply(*SignOptions) {}
+
+		<input type='checkbox' class="fold" id="funcVerifierOption-fold-fields"><label for="funcVerifierOption-fold-fields">Fields (<i>only one, which is unexported</i>)</label><span id='funcVerifierOption-fold-fields-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="funcVerifierOption-showhide-fields"><i><label for="funcVerifierOption-showhide-fields" class="show-inline">/* one unexported ... */</label><label for="funcVerifierOption-showhide-fields" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-28">f</a> <i>func(*<a href="#name-VerifierOptions">VerifierOptions</a>)</i></span></i></span></span>
+		<input type='checkbox' class="fold" id="funcVerifierOption-fold-methods"><label for="funcVerifierOption-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='funcVerifierOption-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">(*T) <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-31">Apply</a>(do *<a href="#name-VerifierOptions">VerifierOptions</a>)</span></span></span>
+		<input type='checkbox' class="fold" id="funcVerifierOption-fold-impls"><label for="funcVerifierOption-fold-impls">Implements (<i>at least one exported</i>)</label><span id='funcVerifierOption-fold-impls-items' class="fold-items"><span>
+			*T : <a href="#name-VerifierOption">VerifierOption</a></span></span>
+		<input type='checkbox' class="fold" id="funcVerifierOption-fold-results"><label for="funcVerifierOption-fold-results">As Outputs Of (<i>at least one unexported</i>)</label><span id='funcVerifierOption-fold-results-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="funcVerifierOption-showhide-inputofs"><i><label for="funcVerifierOption-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="funcVerifierOption-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func <a href="#name-newFuncVerifierOption">newFuncVerifierOption</a>(f func(*<a href="#name-VerifierOptions">VerifierOptions</a>)) *<b>funcVerifierOption</b></i></span></span>
+
+</span></div></div>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 21, in which 18 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-NewSigner">	<input type='checkbox' class="fold" id="NewSigner-fold-content"><label for="NewSigner-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signer.go.html#line-22">NewSigner</a>(opts ...<a href="#name-SignerOption">SignerOption</a>) (*<a href="#name-Signer">Signer</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='NewSigner-fold-content-docs' class="fold-docs">
+		NewSigner 创建一个签名器对象
+
+</span></div><div class="anchor value-res" id="name-NewVerifier">	<input type='checkbox' class="fold" id="NewVerifier-fold-content"><label for="NewVerifier-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-24">NewVerifier</a>(opts ...<a href="#name-VerifierOption">VerifierOption</a>) (*<a href="#name-Verifier">Verifier</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='NewVerifier-fold-content-docs' class="fold-docs">
+		NewVerifier 创建一个签名校验器对象
+
+</span></div><div class="anchor value-res" id="name-WithDefaultAUD">	<input type='checkbox' class="fold" id="WithDefaultAUD-fold-content"><label for="WithDefaultAUD-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-49">WithDefaultAUD</a>(aud <a href="../../builtin.html#name-string">string</a>) <a href="#name-VerifierOption">VerifierOption</a></label><span id='WithDefaultAUD-fold-content-docs' class="fold-docs">
+		WithDefaultAUD 签名校验器的创建参数,设置解析器默认的aud
+
+</span></div><div class="anchor value-res" id="name-WithDefaultEffectiveInterval">	<input type='checkbox' class="fold" id="WithDefaultEffectiveInterval-fold-content"><label for="WithDefaultEffectiveInterval-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-66">WithDefaultEffectiveInterval</a>(defaultEffectiveInterval <a href="../../time.html">time</a>.<a href="../../time.html#name-Duration">Duration</a>) <a href="#name-SignerOption">SignerOption</a></label><span id='WithDefaultEffectiveInterval-fold-content-docs' class="fold-docs">
+		WithDefaultEffectiveInterval 签名器的创建参数,设置jwt签发者所谓默认令牌开始生效间隔
+
+</span></div><div class="anchor value-res" id="name-WithDefaultISSRange">	<input type='checkbox' class="fold" id="WithDefaultISSRange-fold-content"><label for="WithDefaultISSRange-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-56">WithDefaultISSRange</a>(iss ...<a href="../../builtin.html#name-string">string</a>) <a href="#name-VerifierOption">VerifierOption</a></label><span id='WithDefaultISSRange-fold-content-docs' class="fold-docs">
+		WithDefaultISSRange 签名校验器的创建参数,设置解析器默认的iss范围
+
+</span></div><div class="anchor value-res" id="name-WithDefaultTTL">	<input type='checkbox' class="fold" id="WithDefaultTTL-fold-content"><label for="WithDefaultTTL-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-59">WithDefaultTTL</a>(defaultTTL <a href="../../time.html">time</a>.<a href="../../time.html#name-Duration">Duration</a>) <a href="#name-SignerOption">SignerOption</a></label><span id='WithDefaultTTL-fold-content-docs' class="fold-docs">
+		WithDefaultTTL 签名器的创建参数,设置jwt签发者的默认令牌存在时长,注意过期时间为开始生效时间+令牌存在时长
+
+</span></div><div class="anchor value-res" id="name-WithPemPrivateKey">	<input type='checkbox' class="fold" id="WithPemPrivateKey-fold-content"><label for="WithPemPrivateKey-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-108">WithPemPrivateKey</a>(keybytes []<a href="../../builtin.html#name-byte">byte</a>) <a href="#name-SignerOption">SignerOption</a></label><span id='WithPemPrivateKey-fold-content-docs' class="fold-docs">
+		WithPemPrivateKey 签名器的创建参数,非对称加密设置以pem格式保存的私钥
+
+</span></div><div class="anchor value-res" id="name-WithPemPrivateKeyFromFile">	<input type='checkbox' class="fold" id="WithPemPrivateKeyFromFile-fold-content"><label for="WithPemPrivateKeyFromFile-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-115">WithPemPrivateKeyFromFile</a>(keyPath <a href="../../builtin.html#name-string">string</a>) <a href="#name-SignerOption">SignerOption</a></label><span id='WithPemPrivateKeyFromFile-fold-content-docs' class="fold-docs">
+		WithPemPrivateKeyFromFile 签名器的创建参数,非对称加密设置以pem格式保存的私钥
+
+</span></div><div class="anchor value-res" id="name-WithPemPublicKey">	<input type='checkbox' class="fold" id="WithPemPublicKey-fold-content"><label for="WithPemPublicKey-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-84">WithPemPublicKey</a>(keybytes []<a href="../../builtin.html#name-byte">byte</a>) <a href="#name-VerifierOption">VerifierOption</a></label><span id='WithPemPublicKey-fold-content-docs' class="fold-docs">
+		WithPemPublicKey 签名校验器的创建参数,非对称加密设置以pem格式保存的公钥
+
+</span></div><div class="anchor value-res" id="name-WithPemPublicKeyFromFile">	<input type='checkbox' class="fold" id="WithPemPublicKeyFromFile-fold-content"><label for="WithPemPublicKeyFromFile-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-91">WithPemPublicKeyFromFile</a>(keyPath <a href="../../builtin.html#name-string">string</a>) <a href="#name-VerifierOption">VerifierOption</a></label><span id='WithPemPublicKeyFromFile-fold-content-docs' class="fold-docs">
+		WithPemPublicKeyFromFile 签名校验器的创建参数,非对称加密设置以pem格式保存的公钥
+
+</span></div><div class="anchor value-res" id="name-WithSignAlgo">	<input type='checkbox' class="fold" id="WithSignAlgo-fold-content"><label for="WithSignAlgo-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-80">WithSignAlgo</a>(algo <a href="jwthelper/jwt_pb.html">jwt_pb</a>.<a href="jwthelper/jwt_pb.html#name-EncryptionAlgorithm">EncryptionAlgorithm</a>) <a href="#name-SignerOption">SignerOption</a></label><span id='WithSignAlgo-fold-content-docs' class="fold-docs">
+		WithSignAlgo 签名器的创建参数,设置jwt签发id生成器,如果Iss以机器ID开头则会任务Iss是默认格式,会更新默认Iss的后半段为算法名
+
+</span></div><div class="anchor value-res" id="name-WithSignIss">	<input type='checkbox' class="fold" id="WithSignIss-fold-content"><label for="WithSignIss-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-52">WithSignIss</a>(iss <a href="../../builtin.html#name-string">string</a>) <a href="#name-SignerOption">SignerOption</a></label><span id='WithSignIss-fold-content-docs' class="fold-docs">
+		WithSignIss 签名器的创建参数,设置jwt签发者标识
+
+</span></div><div class="anchor value-res" id="name-WithSignJtiGen">	<input type='checkbox' class="fold" id="WithSignJtiGen-fold-content"><label for="WithSignJtiGen-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-73">WithSignJtiGen</a>(jtiGen <a href="jwthelper/utils/idgener.html">idgener</a>.<a href="jwthelper/utils/idgener.html#name-IDGen">IDGen</a>) <a href="#name-SignerOption">SignerOption</a></label><span id='WithSignJtiGen-fold-content-docs' class="fold-docs">
+		WithSignJtiGen 签名器的创建参数,设置jwt签发id生成器
+
+</span></div><div class="anchor value-res" id="name-WithSignSecretKey">	<input type='checkbox' class="fold" id="WithSignSecretKey-fold-content"><label for="WithSignSecretKey-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-90">WithSignSecretKey</a>(keybytes []<a href="../../builtin.html#name-byte">byte</a>) <a href="#name-SignerOption">SignerOption</a></label><span id='WithSignSecretKey-fold-content-docs' class="fold-docs">
+		WithSignSecretKey 签名器的创建参数,对称加密设置密码
+
+</span></div><div class="anchor value-res" id="name-WithSignSecretKeyFromFile">	<input type='checkbox' class="fold" id="WithSignSecretKeyFromFile-fold-content"><label for="WithSignSecretKeyFromFile-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-97">WithSignSecretKeyFromFile</a>(keyPath <a href="../../builtin.html#name-string">string</a>) <a href="#name-SignerOption">SignerOption</a></label><span id='WithSignSecretKeyFromFile-fold-content-docs' class="fold-docs">
+		WithSignSecretKeyFromFile 签名器的创建参数,对称加密从指定文件读取内容作为密码
+
+</span></div><div class="anchor value-res" id="name-WithVerifyAlgo">	<input type='checkbox' class="fold" id="WithVerifyAlgo-fold-content"><label for="WithVerifyAlgo-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-42">WithVerifyAlgo</a>(algo <a href="jwthelper/jwt_pb.html">jwt_pb</a>.<a href="jwthelper/jwt_pb.html#name-EncryptionAlgorithm">EncryptionAlgorithm</a>) <a href="#name-VerifierOption">VerifierOption</a></label><span id='WithVerifyAlgo-fold-content-docs' class="fold-docs">
+		WithVerifyAlgo 签名校验器的创建参数,设置jwt签发id生成器,如果Iss以机器ID开头则会任务Iss是默认格式,会更新默认Iss的后半段为算法名
+
+</span></div><div class="anchor value-res" id="name-WithVerifySecretKey">	<input type='checkbox' class="fold" id="WithVerifySecretKey-fold-content"><label for="WithVerifySecretKey-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-66">WithVerifySecretKey</a>(keybytes []<a href="../../builtin.html#name-byte">byte</a>) <a href="#name-VerifierOption">VerifierOption</a></label><span id='WithVerifySecretKey-fold-content-docs' class="fold-docs">
+		WithVerifySecretKey 签名校验器的创建参数,对称加密的解密密码
+
+</span></div><div class="anchor value-res" id="name-WithVerifySecretKeyFromFile">	<input type='checkbox' class="fold" id="WithVerifySecretKeyFromFile-fold-content"><label for="WithVerifySecretKeyFromFile-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-73">WithVerifySecretKeyFromFile</a>(keyPath <a href="../../builtin.html#name-string">string</a>) <a href="#name-VerifierOption">VerifierOption</a></label><span id='WithVerifySecretKeyFromFile-fold-content-docs' class="fold-docs">
+		WithVerifySecretKeyFromFile 签名校验器的创建参数,对称加密从指定文件读取内容作为密码
+
+</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 3 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 3 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-checkClaims"><i>	<input type='checkbox' class="fold" id="checkClaims-fold-content"><label for="checkClaims-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-75">checkClaims</a>(claims <a href="../golang-jwt/jwt/v4.html">jwt</a>.<a href="../golang-jwt/jwt/v4.html#name-MapClaims">MapClaims</a>, payload interface{}, opts *<a href="jwthelper/verifyoptions.html">verifyoptions</a>.<a href="jwthelper/verifyoptions.html#name-VerifyOptions">VerifyOptions</a>) (*<a href="#name-accessTokenShare">accessTokenShare</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='checkClaims-fold-content-docs' class="fold-docs">
+		checkClaims 校验claims,并提取出负载和sub
+		校验顺序是sub&gt;aud&gt;iss
+
+</span></i></div><div class="anchor value-res hidden" id="name-newFuncSignerOption"><i>	<span class="nodocs"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-45">newFuncSignerOption</a>(f func(*<a href="#name-SignerOptions">SignerOptions</a>)) *<a href="#name-funcSignerOption">funcSignerOption</a></span></i></div><div class="anchor value-res hidden" id="name-newFuncVerifierOption"><i>	<span class="nodocs"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-35">newFuncVerifierOption</a>(f func(*<a href="#name-VerifierOptions">VerifierOptions</a>)) *<a href="#name-funcVerifierOption">funcVerifierOption</a></span></i></div></div>
+<div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (total 3, in which 2 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-DefaultSignerOptions">	<span class="nodocs">  var <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signeroptions.go.html#line-24">DefaultSignerOptions</a> <a href="#name-SignerOptions">SignerOptions</a></span></div><div class="anchor value-res" id="name-DefaultVerifierOptions">	<span class="nodocs">  var <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifieroptions.go.html#line-16">DefaultVerifierOptions</a> <a href="#name-VerifierOptions">VerifierOptions</a></span></div>	<input type='checkbox' class="showhide" id="unexported-variables-showhide"><i><label for="unexported-variables-showhide" class="show-inline">/* one unexported ... */</label><label for="unexported-variables-showhide" class="hide-inline">/* one unexported: */</label></i><div class="anchor value-res hidden" id="name-json"><i>	<span class="nodocs">  var <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/jwthelper.go.html#line-7">json</a> <a href="../json-iterator/go.html">jsoniter</a>.<a href="../json-iterator/go.html#name-API">API</a></span></i></div></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

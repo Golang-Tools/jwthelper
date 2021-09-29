@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: exceptions.go in package github.com/Golang-Tools/jwthelper/exceptions</title>
+<link href="../../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	exceptions.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html">github.com/Golang-Tools/jwthelper/exceptions</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0
+{background: brown; color: #eed;}
+</style><input id="i0" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<div class="anchor" id="doc"><span class="codeline" id="line-1"><code><span class="comment">//exceptions 定义异常</span></code></span></div><span class="codeline" id="line-2"><code><span class="keyword">package</span> exceptions</code></span>
+<span class="codeline" id="line-3"><code></code></span>
+<span class="codeline" id="line-4"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-5"><code>	<label for="i0"><span class="lit-string i0">"errors"</span></label></code></span>
+<span class="codeline" id="line-6"><code>)</code></span>
+<span class="codeline" id="line-7"><code></code></span>
+<span class="codeline" id="line-8"><code><span class="comment">//ErrAlgoType 算法类型不支持</span></code></span>
+<span class="codeline" id="line-9"><code><span class="keyword">var</span> <a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrAlgoType" class="ident">ErrAlgoType</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"unknown algo type key"</span>)</code></span>
+<span class="codeline" id="line-10"><code></code></span>
+<span class="codeline" id="line-11"><code><span class="comment">//ErrUnsupportAlgoType 算法类型在当前场景下不被支持</span></code></span>
+<span class="codeline" id="line-12"><code><span class="keyword">var</span> <a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrUnsupportAlgoType" class="ident">ErrUnsupportAlgoType</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"algo type not support in this satuation"</span>)</code></span>
+<span class="codeline" id="line-13"><code></code></span>
+<span class="codeline" id="line-14"><code><span class="comment">//ErrAlgoTypeNotMatch 算法类型和验证器不匹配</span></code></span>
+<span class="codeline" id="line-15"><code><span class="keyword">var</span> <a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrAlgoTypeNotMatch" class="ident">ErrAlgoTypeNotMatch</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"algo type not match"</span>)</code></span>
+<span class="codeline" id="line-16"><code></code></span>
+<span class="codeline" id="line-17"><code><span class="comment">//ErrLoadPrivateKey 私钥无法阅读</span></code></span>
+<span class="codeline" id="line-18"><code><span class="keyword">var</span> <a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrLoadPrivateKey" class="ident">ErrLoadPrivateKey</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"couldn't read private key"</span>)</code></span>
+<span class="codeline" id="line-19"><code></code></span>
+<span class="codeline" id="line-20"><code><span class="comment">// ErrLoadPublicKey 公钥无法阅读</span></code></span>
+<span class="codeline" id="line-21"><code><span class="keyword">var</span> <a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrLoadPublicKey" class="ident">ErrLoadPublicKey</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"couldn't read public key"</span>)</code></span>
+<span class="codeline" id="line-22"><code></code></span>
+<span class="codeline" id="line-23"><code><span class="keyword">var</span> (</code></span>
+<span class="codeline" id="line-24"><code>	<span class="comment">//ErrAccessTokenNotFound 未找到access_token</span></code></span>
+<span class="codeline" id="line-25"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrAccessTokenNotFound" class="ident">ErrAccessTokenNotFound</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"access token not found"</span>)</code></span>
+<span class="codeline" id="line-26"><code>)</code></span>
+<span class="codeline" id="line-27"><code></code></span>
+<span class="codeline" id="line-28"><code><span class="keyword">var</span> (</code></span>
+<span class="codeline" id="line-29"><code>	<span class="comment">//ErrSignWithRefreshTokenNeedSUB 签名带refresh token的jwt必须带有参数sub</span></code></span>
+<span class="codeline" id="line-30"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrSignWithRefreshTokenNeedSUB" class="ident">ErrSignWithRefreshTokenNeedSUB</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"sign with refresh token need SUB"</span>)</code></span>
+<span class="codeline" id="line-31"><code>)</code></span>
+<span class="codeline" id="line-32"><code></code></span>
+<span class="codeline" id="line-33"><code><span class="comment">/** 校验错误</span></code></span>
+<span class="codeline" id="line-34"><code><span class="comment"> */</span></code></span>
+<span class="codeline" id="line-35"><code><span class="keyword">var</span> (</code></span>
+<span class="codeline" id="line-36"><code>	<span class="comment">// ErrValidationErrorUnknown 校验token时产生的未知错误错误</span></code></span>
+<span class="codeline" id="line-37"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrValidationErrorUnknown" class="ident">ErrValidationErrorUnknown</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"unknown verify Token error"</span>)</code></span>
+<span class="codeline" id="line-38"><code>	<span class="comment">// ErrValidationErrorMalformed 令牌格式错误</span></code></span>
+<span class="codeline" id="line-39"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrValidationErrorMalformed" class="ident">ErrValidationErrorMalformed</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"token is malformed"</span>)</code></span>
+<span class="codeline" id="line-40"><code>	<span class="comment">//ErrValidationErrorUnverifiable 由于签名问题无法验证令牌</span></code></span>
+<span class="codeline" id="line-41"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrValidationErrorUnverifiable" class="ident">ErrValidationErrorUnverifiable</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"token could not be verified because of signing problems"</span>)</code></span>
+<span class="codeline" id="line-42"><code>	<span class="comment">//ErrValidationErrorSignatureInvalid 签名验证失败</span></code></span>
+<span class="codeline" id="line-43"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrValidationErrorSignatureInvalid" class="ident">ErrValidationErrorSignatureInvalid</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"signature validation failed"</span>)</code></span>
+<span class="codeline" id="line-44"><code></code></span>
+<span class="codeline" id="line-45"><code>	<span class="comment">// Standard Claim validation errors</span></code></span>
+<span class="codeline" id="line-46"><code><span class="comment">	//ErrValidationErrorAudience AUD校验错误</span></code></span>
+<span class="codeline" id="line-47"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrValidationErrorAudience" class="ident">ErrValidationErrorAudience</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"AUD validation failed"</span>)</code></span>
+<span class="codeline" id="line-48"><code>	<span class="comment">//ErrValidationErrorSubject SUB校验错误</span></code></span>
+<span class="codeline" id="line-49"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrValidationErrorSubject" class="ident">ErrValidationErrorSubject</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"SUB validation failed"</span>)</code></span>
+<span class="codeline" id="line-50"><code>	<span class="comment">//ErrValidationErrorExpired 令牌超时</span></code></span>
+<span class="codeline" id="line-51"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrValidationErrorExpired" class="ident">ErrValidationErrorExpired</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"EXP validation failed"</span>)</code></span>
+<span class="codeline" id="line-52"><code>	<span class="comment">//ErrValidationErrorIssuedAt 令牌签发时间错误</span></code></span>
+<span class="codeline" id="line-53"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrValidationErrorIssuedAt" class="ident">ErrValidationErrorIssuedAt</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"IAT validation failed"</span>)</code></span>
+<span class="codeline" id="line-54"><code>	<span class="comment">//ErrValidationErrorIssuer 令牌签发人错误</span></code></span>
+<span class="codeline" id="line-55"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrValidationErrorIssuer" class="ident">ErrValidationErrorIssuer</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"ISS validation failed"</span>)</code></span>
+<span class="codeline" id="line-56"><code>	<span class="comment">//ErrValidationErrorNotValidYet 令牌未到可用时间</span></code></span>
+<span class="codeline" id="line-57"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrValidationErrorNotValidYet" class="ident">ErrValidationErrorNotValidYet</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"NBF validation failed"</span>)</code></span>
+<span class="codeline" id="line-58"><code>	<span class="comment">//ErrValidationErrorId JTI验证失败</span></code></span>
+<span class="codeline" id="line-59"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrValidationErrorId" class="ident">ErrValidationErrorId</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"JTI validation failed"</span>)</code></span>
+<span class="codeline" id="line-60"><code>	<span class="comment">//ErrValidationErrorClaimsInvalid 通用的声明校验错误</span></code></span>
+<span class="codeline" id="line-61"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrValidationErrorClaimsInvalid" class="ident">ErrValidationErrorClaimsInvalid</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"generic claims validation error"</span>)</code></span>
+<span class="codeline" id="line-62"><code>	<span class="comment">//ErrValidationErrorCanNotHandle 未能处理的错误</span></code></span>
+<span class="codeline" id="line-63"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrValidationErrorCanNotHandle" class="ident">ErrValidationErrorCanNotHandle</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"claims validation error can not handle"</span>)</code></span>
+<span class="codeline" id="line-64"><code>)</code></span>
+<span class="codeline" id="line-65"><code></code></span>
+<span class="codeline" id="line-66"><code><span class="comment">/** refresh_token校验错误</span></code></span>
+<span class="codeline" id="line-67"><code><span class="comment">* refresh_token作为access_token的伴生物应该和access_token的sub以及aud完全一致;iss可以不一致,但如果有指定iss范围应该都在同一个范围内</span></code></span>
+<span class="codeline" id="line-68"><code><span class="comment"> */</span></code></span>
+<span class="codeline" id="line-69"><code><span class="keyword">var</span> (</code></span>
+<span class="codeline" id="line-70"><code>	<span class="comment">// ErrRefreshTokenSUBNotMatch refresh_token的sub和access_token的sub不一致</span></code></span>
+<span class="codeline" id="line-71"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrRefreshTokenSUBNotMatch" class="ident">ErrRefreshTokenSUBNotMatch</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"refresh token sub not match"</span>)</code></span>
+<span class="codeline" id="line-72"><code>	<span class="comment">// ErrRefreshTokenAudNotMatch refresh_token的sub和access_token的aud范围不一致</span></code></span>
+<span class="codeline" id="line-73"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrRefreshTokenAudNotMatch" class="ident">ErrRefreshTokenAudNotMatch</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"refresh token aud not match"</span>)</code></span>
+<span class="codeline" id="line-74"><code>	<span class="comment">//ErrRefreshTokenJtiNotMatch refresh_token的jti和access_token的不一致</span></code></span>
+<span class="codeline" id="line-75"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrRefreshTokenJtiNotMatch" class="ident">ErrRefreshTokenJtiNotMatch</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"refresh token jti not match"</span>)</code></span>
+<span class="codeline" id="line-76"><code>	<span class="comment">// ErrRefreshTokenIssNotInRange refresh_token的iss不在参数范围内</span></code></span>
+<span class="codeline" id="line-77"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrRefreshTokenIssNotInRange" class="ident">ErrRefreshTokenIssNotInRange</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"refresh token iss not in range"</span>)</code></span>
+<span class="codeline" id="line-78"><code>	<span class="comment">// ErrRefreshTokenNotHaveEXP refresh_token没有设置exp</span></code></span>
+<span class="codeline" id="line-79"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrRefreshTokenNotHaveEXP" class="ident">ErrRefreshTokenNotHaveEXP</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"refresh token not have exp"</span>)</code></span>
+<span class="codeline" id="line-80"><code></code></span>
+<span class="codeline" id="line-81"><code>	<span class="comment">// ErrRefreshTokenValidationError refresh_token的校验错误</span></code></span>
+<span class="codeline" id="line-82"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrRefreshTokenValidationError" class="ident">ErrRefreshTokenValidationError</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"refresh token not validate"</span>)</code></span>
+<span class="codeline" id="line-83"><code>	<span class="comment">// ErrRefreshTokenParseError refresh_token的解析错误</span></code></span>
+<span class="codeline" id="line-84"><code>	<a href="../../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/exceptions.html#name-ErrRefreshTokenParseError" class="ident">ErrRefreshTokenParseError</a> = <a href="../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"refresh token can not parse"</span>)</code></span>
+<span class="codeline" id="line-85"><code>)</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

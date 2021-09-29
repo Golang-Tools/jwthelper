@@ -25,6 +25,11 @@ var (
 	ErrAccessTokenNotFound = errors.New("access token not found")
 )
 
+var (
+	//ErrSignWithRefreshTokenNeedSUB 签名带refresh token的jwt必须带有参数sub
+	ErrSignWithRefreshTokenNeedSUB = errors.New("sign with refresh token need SUB")
+)
+
 /** 校验错误
  */
 var (
@@ -66,6 +71,8 @@ var (
 	ErrRefreshTokenSUBNotMatch = errors.New("refresh token sub not match")
 	// ErrRefreshTokenAudNotMatch refresh_token的sub和access_token的aud范围不一致
 	ErrRefreshTokenAudNotMatch = errors.New("refresh token aud not match")
+	//ErrRefreshTokenJtiNotMatch refresh_token的jti和access_token的不一致
+	ErrRefreshTokenJtiNotMatch = errors.New("refresh token jti not match")
 	// ErrRefreshTokenIssNotInRange refresh_token的iss不在参数范围内
 	ErrRefreshTokenIssNotInRange = errors.New("refresh token iss not in range")
 	// ErrRefreshTokenNotHaveEXP refresh_token没有设置exp
@@ -76,5 +83,3 @@ var (
 	// ErrRefreshTokenParseError refresh_token的解析错误
 	ErrRefreshTokenParseError = errors.New("refresh token can not parse")
 )
-
-

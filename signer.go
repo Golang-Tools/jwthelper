@@ -64,29 +64,49 @@ func (signer *Signer) Meta() *jwt_pb.SignerMeta {
 }
 
 func (signer *Signer) signany(claims jwt.MapClaims, opts ...signoptions.SignOption) (*jwt_pb.Token, error) {
-	result := jwt_pb.Token{}
-	if signer.opts.Iss != "" {
-		claims["iss"] = signer.opts.Iss
-	}
-	claims["iat"] = time.Now().Unix()
-	if signer.opts.JtiGen != nil {
-		jti, err := signer.opts.JtiGen.Next()
-		if err == nil {
-			claims["jti"] = jti
-		} else {
-			return nil, err
-		}
-	}
 	defaultopt := signoptions.DefaultSignOptions
 	for _, opt := range opts {
 		opt.Apply(&defaultopt)
 	}
+	// 构造iss
+	iss := ""
+	result := jwt_pb.Token{}
+	if signer.opts.Iss != "" {
+		iss = signer.opts.Iss
+	}
+	claims["iss"] = iss
+
+	// 构造iat
+	iat := time.Now().Unix()
+	claims["iat"] = iat
+	// 构造jti
+	var jti string
+	if defaultopt.Jti != "" {
+		jti = defaultopt.Jti
+		claims["jti"] = jti
+	} else {
+		if signer.opts.JtiGen != nil {
+			_jti, err := signer.opts.JtiGen.Next()
+			if err == nil {
+				jti = _jti
+				claims["jti"] = jti
+			} else {
+				return nil, err
+			}
+		}
+	}
+
+	sub := ""
 	if defaultopt.Sub != "" {
-		claims["sub"] = defaultopt.Sub
+		sub = defaultopt.Sub
+		claims["sub"] = sub
 	}
+	var aud []string = nil
 	if defaultopt.Aud != nil {
-		claims["aud"] = defaultopt.Aud
+		aud = defaultopt.Aud
+		claims["aud"] = aud
 	}
+
 	var nbr int64 = 0
 	if defaultopt.Nbf != 0 {
 		nbr = defaultopt.Nbf
@@ -97,7 +117,6 @@ func (signer *Signer) signany(claims jwt.MapClaims, opts ...signoptions.SignOpti
 	}
 	if defaultopt.Exp > 0 {
 		claims["exp"] = defaultopt.Exp
-
 	} else {
 		if signer.opts.DefaultTTL > 0 {
 			if nbr > 0 {
@@ -118,11 +137,21 @@ func (signer *Signer) signany(claims jwt.MapClaims, opts ...signoptions.SignOpti
 	result.AccessToken = accesstokenb
 	// 如果设置了刷新过期,则创建伴生刷新token
 	if defaultopt.RefreshExp > 0 {
-		refresh_claims := jwt.MapClaims{
-			"aud": defaultopt.Aud,
-			"sub": defaultopt.Sub,
-			"iss": signer.opts.Iss,
-			"exp": defaultopt.RefreshExp,
+		if sub == "" {
+			return nil, exceptions.ErrSignWithRefreshTokenNeedSUB
+		}
+		refresh_claims := jwt.MapClaims{"sub": sub, "iat": iat, "exp": defaultopt.RefreshExp}
+		if aud != nil {
+			refresh_claims["aud"] = aud
+		}
+		if iss != "" {
+			refresh_claims["iss"] = iss
+		}
+		if jti != "" {
+			refresh_claims["jti"] = jti
+		}
+		if nbr != 0 {
+			refresh_claims["nbr"] = nbr
 		}
 		refresh_token := jwt.NewWithClaims(signer.algo, refresh_claims)
 		refresh_tokenb, err := refresh_token.SignedString(signer.key)
@@ -139,7 +168,14 @@ func (signer *Signer) signany(claims jwt.MapClaims, opts ...signoptions.SignOpti
 //@Params opts ...signoptions.SignOption 签名的设置项,详见signoptions模块
 //@Returns *jwt_pb.Token jwt的token对象,其中AccessToken是jwt主体token,如果成功一定会有,如果设置了`WithRefreshExpAt`或者`WithRefreshTTL`则会创建一个伴生的RefreshToken用于自动刷新
 func (signer *Signer) Sign(payload interface{}, opts ...signoptions.SignOption) (*jwt_pb.Token, error) {
-	payloadb, err := json.Marshal(payload)
+	var payloadb []byte
+	var err error
+	if payload == nil {
+		payloadb, err = json.Marshal(map[string]interface{}{})
+	} else {
+		payloadb, err = json.Marshal(payload)
+	}
+
 	if err != nil {
 		return nil, err //ErrParseClaimsToJSON
 	}

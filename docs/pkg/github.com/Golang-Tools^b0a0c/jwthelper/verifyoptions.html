@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Package: github.com/Golang-Tools/jwthelper/verifyoptions</title>
+<link href="../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="package-details"><code><span style="font-size:xx-large;">package <b>verifyoptions</b></span>
+
+<span class="title">Import Path</span>
+	<a href="../../../../index.html#pkg-github.com/Golang-Tools/jwthelper/verifyoptions">github.com/Golang-Tools/jwthelper/verifyoptions</a><i> (on <a href="https://pkg.go.dev/github.com/Golang-Tools/jwthelper/verifyoptions" target="_blank">go.dev</a>)</i>
+
+<span class="title">Dependency Relation</span>
+	imports 0 packages, and imported by <a href="../../../../dep/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions.html#imported-by">one package</a>
+
+<div id="files"><span class="title">Involved Source Files</span>
+
+	<input type='checkbox' checked class="fold" id="file-0-fold-content"><label for="file-0-fold-content">   <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#doc">#d</a> <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html">verifyoptions.go</a></label><span id='file-0-fold-content-items' class="fold-items">
+		verifyoptions 签名校验器校验方法的参数</span></div>
+<div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 3, in which 2 are exported)</i></span></span>
+
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-VerifyOption" data-popularity="610">	<input type='checkbox' class="fold" id="VerifyOption-fold-content"><label for="VerifyOption-fold-content"> type <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#line-13">VerifyOption</a> <b><i>(interface)</i></b></label><span id='VerifyOption-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="VerifyOption-fold-methods"><label for="VerifyOption-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='VerifyOption-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#line-14">Apply</a>(*<a href="#name-VerifyOptions">VerifyOptions</a>)</span></span></span>
+		<input type='checkbox' class="fold" id="VerifyOption-fold-impledby"><label for="VerifyOption-fold-impledby">Implemented By (<i>at least one unexported</i>)</label><span id='VerifyOption-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="VerifyOption-showhide-impedBys"><i><label for="VerifyOption-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="VerifyOption-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*<a href="#name-funcVerifyOption">funcVerifyOption</a></i></span></span>
+		<input type='checkbox' class="fold" id="VerifyOption-fold-results"><label for="VerifyOption-fold-results">As Outputs Of (<i>at least 5, all are exported</i>)</label><span id='VerifyOption-fold-results-items' class="fold-items"><span>
+			func <a href="#name-WithAUDMustHas">WithAUDMustHas</a>(aud <a href="../../../builtin.html#name-string">string</a>) <b>VerifyOption</b></span><span>
+			func <a href="#name-WithIssMustIn">WithIssMustIn</a>(isss ...<a href="../../../builtin.html#name-string">string</a>) <b>VerifyOption</b></span><span>
+			func <a href="#name-WithNotCheckRefreshTokenAUD">WithNotCheckRefreshTokenAUD</a>() <b>VerifyOption</b></span><span>
+			func <a href="#name-WithNotCheckRefreshTokenJTI">WithNotCheckRefreshTokenJTI</a>() <b>VerifyOption</b></span><span>
+			func <a href="#name-WithSUBMustBe">WithSUBMustBe</a>(sub <a href="../../../builtin.html#name-string">string</a>) <b>VerifyOption</b></span></span>
+		<input type='checkbox' class="fold" id="VerifyOption-fold-params"><label for="VerifyOption-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='VerifyOption-fold-params-items' class="fold-items"><span>
+			func github.com/Golang-Tools/jwthelper.(*<a href="../jwthelper.html#name-Verifier">Verifier</a>).<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-330">Verify</a>(token *<a href="jwt_pb.html">jwt_pb</a>.<a href="jwt_pb.html#name-Token">Token</a>, payload interface{}, opts ...<b>VerifyOption</b>) (<a href="../../../builtin.html#name-string">string</a>, <a href="../../../time.html">time</a>.<a href="../../../time.html#name-Duration">Duration</a>, <a href="../../../builtin.html#name-error">error</a>)</span></span>
+
+</span></div><div class="anchor type-res" id="name-VerifyOptions" data-popularity="140">	<input type='checkbox' class="fold" id="VerifyOptions-fold-content"><label for="VerifyOptions-fold-content"> type <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#line-5">VerifyOptions</a> <i>(struct)</i></label><span id='VerifyOptions-fold-content-docs' class="fold-docs">
+		VerifyOptions 校验函数参数
+
+		<input type='checkbox' class="fold" id="VerifyOptions-fold-fields"><label for="VerifyOptions-fold-fields">Fields (<i>total 5, all are exported</i>)</label><span id='VerifyOptions-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="VerifyOptions-fold-field-CheckMatchAUD"><label for="VerifyOptions-fold-field-CheckMatchAUD"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#line-7">CheckMatchAUD</a> <i><a href="../../../builtin.html#name-string">string</a></i></label><span id='VerifyOptions-fold-field-CheckMatchAUD-docs' class="fold-docs">
+				// 校验token的aud是不是包含这个字段中指定的值
+</span></span><span>
+			<input type='checkbox' class="fold" id="VerifyOptions-fold-field-CheckMatchISS"><label for="VerifyOptions-fold-field-CheckMatchISS"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#line-8">CheckMatchISS</a> <i>[]<a href="../../../builtin.html#name-string">string</a></i></label><span id='VerifyOptions-fold-field-CheckMatchISS-docs' class="fold-docs">
+				// 校验token的签发人是否在这个字段给定的范围中
+</span></span><span>
+			<input type='checkbox' class="fold" id="VerifyOptions-fold-field-CheckMatchSUB"><label for="VerifyOptions-fold-field-CheckMatchSUB"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#line-6">CheckMatchSUB</a> <i><a href="../../../builtin.html#name-string">string</a></i></label><span id='VerifyOptions-fold-field-CheckMatchSUB-docs' class="fold-docs">
+				// 校验token的sub是否符合这个字段填写的值
+</span></span><span>
+			<input type='checkbox' class="fold" id="VerifyOptions-fold-field-NotCheckRefreshTokenAUD"><label for="VerifyOptions-fold-field-NotCheckRefreshTokenAUD"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#line-9">NotCheckRefreshTokenAUD</a> <i><a href="../../../builtin.html#name-bool">bool</a></i></label><span id='VerifyOptions-fold-field-NotCheckRefreshTokenAUD-docs' class="fold-docs">
+				// 是否校验RefreshToken中的AUD必须和对应AccessToken的一致
+</span></span><span>
+			<input type='checkbox' class="fold" id="VerifyOptions-fold-field-NotCheckRefreshTokenJTI"><label for="VerifyOptions-fold-field-NotCheckRefreshTokenJTI"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#line-10">NotCheckRefreshTokenJTI</a> <i><a href="../../../builtin.html#name-bool">bool</a></i></label><span id='VerifyOptions-fold-field-NotCheckRefreshTokenJTI-docs' class="fold-docs">
+				// 是否校验RefreshToken中的JTI必须和对应AccessToken的一致
+</span></span></span>
+		<input type='checkbox' class="fold" id="VerifyOptions-fold-params"><label for="VerifyOptions-fold-params">As Inputs Of (<i>at least 4, in which 1 are exported</i>)</label><span id='VerifyOptions-fold-params-items' class="fold-items"><span>
+			func <a href="#name-VerifyOption">VerifyOption</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#line-14">Apply</a>(*<b>VerifyOptions</b>)</span>
+			<input type='checkbox' class="showhide" id="VerifyOptions-showhide-outputofs"><i><label for="VerifyOptions-showhide-outputofs" class="show-inline">/* 3+ unexporteds ... */</label><label for="VerifyOptions-showhide-outputofs" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			func github.com/Golang-Tools/jwthelper.<a href="../jwthelper.html#name-checkClaims">checkClaims</a>(claims <a href="../../golang-jwt/jwt/v4.html">jwt</a>.<a href="../../golang-jwt/jwt/v4.html#name-MapClaims">MapClaims</a>, payload interface{}, opts *<b>VerifyOptions</b>) (*<a href="../jwthelper.html">jwthelper</a>.<a href="../jwthelper.html#name-accessTokenShare">accessTokenShare</a>, <a href="../../../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func github.com/Golang-Tools/jwthelper.(*<a href="../jwthelper.html#name-Verifier">Verifier</a>).<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-212">checkRefreshToken</a>(refreshtokenData <a href="../../../builtin.html#name-string">string</a>, share *<a href="../jwthelper.html">jwthelper</a>.<a href="../jwthelper.html#name-accessTokenShare">accessTokenShare</a>, opts *<b>VerifyOptions</b>) (<a href="../../../time.html">time</a>.<a href="../../../time.html#name-Duration">Duration</a>, <a href="../../../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func github.com/Golang-Tools/jwthelper.(*<a href="../jwthelper.html#name-Verifier">Verifier</a>).<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-155">verifyAccessToken</a>(accesstokenData <a href="../../../builtin.html#name-string">string</a>, payload interface{}, opts *<b>VerifyOptions</b>) (*<a href="../jwthelper.html">jwthelper</a>.<a href="../jwthelper.html#name-accessTokenShare">accessTokenShare</a>, <a href="../../../time.html">time</a>.<a href="../../../time.html#name-Duration">Duration</a>, <a href="../../../builtin.html#name-error">error</a>)</i></span></span>
+
+</span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* one unexported ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* one unexported: */</label></i><div class="anchor type-res hidden" id="name-funcVerifyOption" data-popularity="175">	<input type='checkbox' class="fold" id="funcVerifyOption-fold-content"><label for="funcVerifyOption-fold-content"> type <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#line-17">funcVerifyOption</a> <i>(struct)</i></label><span id='funcVerifyOption-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="funcVerifyOption-fold-fields"><label for="funcVerifyOption-fold-fields">Fields (<i>only one, which is unexported</i>)</label><span id='funcVerifyOption-fold-fields-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="funcVerifyOption-showhide-fields"><i><label for="funcVerifyOption-showhide-fields" class="show-inline">/* one unexported ... */</label><label for="funcVerifyOption-showhide-fields" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#line-18">f</a> <i>func(*<a href="#name-VerifyOptions">VerifyOptions</a>)</i></span></i></span></span>
+		<input type='checkbox' class="fold" id="funcVerifyOption-fold-methods"><label for="funcVerifyOption-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='funcVerifyOption-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#line-21">Apply</a>(do *<a href="#name-VerifyOptions">VerifyOptions</a>)</span></span></span>
+		<input type='checkbox' class="fold" id="funcVerifyOption-fold-impls"><label for="funcVerifyOption-fold-impls">Implements (<i>at least one exported</i>)</label><span id='funcVerifyOption-fold-impls-items' class="fold-items"><span>
+			*T : <a href="#name-VerifyOption">VerifyOption</a></span></span>
+		<input type='checkbox' class="fold" id="funcVerifyOption-fold-results"><label for="funcVerifyOption-fold-results">As Outputs Of (<i>at least one unexported</i>)</label><span id='funcVerifyOption-fold-results-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="funcVerifyOption-showhide-inputofs"><i><label for="funcVerifyOption-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="funcVerifyOption-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func <a href="#name-newFuncVerifyOption">newFuncVerifyOption</a>(f func(*<a href="#name-VerifyOptions">VerifyOptions</a>)) *<b>funcVerifyOption</b></i></span></span>
+
+</span></div></div>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 6, in which 5 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-WithAUDMustHas">	<input type='checkbox' class="fold" id="WithAUDMustHas-fold-content"><label for="WithAUDMustHas-fold-content"> func <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#line-39">WithAUDMustHas</a>(aud <a href="../../../builtin.html#name-string">string</a>) <a href="#name-VerifyOption">VerifyOption</a></label><span id='WithAUDMustHas-fold-content-docs' class="fold-docs">
+		WithAUDMusthas 校验token的aud中必须包含指定值
+
+</span></div><div class="anchor value-res" id="name-WithIssMustIn">	<input type='checkbox' class="fold" id="WithIssMustIn-fold-content"><label for="WithIssMustIn-fold-content"> func <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#line-46">WithIssMustIn</a>(isss ...<a href="../../../builtin.html#name-string">string</a>) <a href="#name-VerifyOption">VerifyOption</a></label><span id='WithIssMustIn-fold-content-docs' class="fold-docs">
+		WithAUDMusthas 校验token的iss必须在指定范围内
+
+</span></div><div class="anchor value-res" id="name-WithNotCheckRefreshTokenAUD">	<input type='checkbox' class="fold" id="WithNotCheckRefreshTokenAUD-fold-content"><label for="WithNotCheckRefreshTokenAUD-fold-content"> func <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#line-53">WithNotCheckRefreshTokenAUD</a>() <a href="#name-VerifyOption">VerifyOption</a></label><span id='WithNotCheckRefreshTokenAUD-fold-content-docs' class="fold-docs">
+		WithNotCheckRefreshTokenAUD 设置不校验RefreshToken中的AUD必须和对应AccessToken的一致
+
+</span></div><div class="anchor value-res" id="name-WithNotCheckRefreshTokenJTI">	<input type='checkbox' class="fold" id="WithNotCheckRefreshTokenJTI-fold-content"><label for="WithNotCheckRefreshTokenJTI-fold-content"> func <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#line-60">WithNotCheckRefreshTokenJTI</a>() <a href="#name-VerifyOption">VerifyOption</a></label><span id='WithNotCheckRefreshTokenJTI-fold-content-docs' class="fold-docs">
+		WithNotCheckRefreshTokenJTI 设置不校验RefreshToken中的JTI必须和对应AccessToken的一致
+
+</span></div><div class="anchor value-res" id="name-WithSUBMustBe">	<input type='checkbox' class="fold" id="WithSUBMustBe-fold-content"><label for="WithSUBMustBe-fold-content"> func <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#line-32">WithSUBMustBe</a>(sub <a href="../../../builtin.html#name-string">string</a>) <a href="#name-VerifyOption">VerifyOption</a></label><span id='WithSUBMustBe-fold-content-docs' class="fold-docs">
+		WithSUBMustBe 校验用户是否与给定值匹配
+
+</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* one unexported ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* one unexported: */</label></i><div class="anchor value-res hidden" id="name-newFuncVerifyOption"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifyoptions/verifyoptions.go.html#line-25">newFuncVerifyOption</a>(f func(*<a href="#name-VerifyOptions">VerifyOptions</a>)) *<a href="#name-funcVerifyOption">funcVerifyOption</a></span></i></div></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

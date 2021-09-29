@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Package: github.com/scylladb/go-set/strset</title>
+<link href="../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="package-details"><code><span style="font-size:xx-large;">package <b>strset</b></span>
+
+<span class="title">Import Path</span>
+	<a href="../../../../index.html#pkg-github.com/scylladb/go-set/strset">github.com/scylladb/go-set/strset</a><i> (on <a href="https://pkg.go.dev/github.com/scylladb/go-set/strset" target="_blank">go.dev</a>)</i>
+
+<span class="title">Dependency Relation</span>
+	imports <a href="../../../../dep/github.com/scylladb/go-set/strset.html">3 packages</a>, and imported by <a href="../../../../dep/github.com/scylladb/go-set/strset.html#imported-by">2 packages</a>
+
+<div id="files"><span class="title">Involved Source Files</span>
+
+	<span class="nodocs">      <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html">strset.go</a></span></div>
+<div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (only one, which is exported)</i></span></span>
+
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Set" data-popularity="1960">	<input type='checkbox' class="fold" id="Set-fold-content"><label for="Set-fold-content"> type <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-21">Set</a> <i>(struct)</i></label><span id='Set-fold-content-docs' class="fold-docs">
+		Set is the main set structure that holds all the data
+		and methods used to working with the set.
+
+		<input type='checkbox' class="fold" id="Set-fold-fields"><label for="Set-fold-fields">Fields (<i>only one, which is unexported</i>)</label><span id='Set-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Set-showhide-fields"><i><label for="Set-showhide-fields" class="show-inline">/* one unexported ... */</label><label for="Set-showhide-fields" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-22">m</a> <i>map[<a href="../../../builtin.html#name-string">string</a>]struct{}</i></span></i></span></span>
+		<input type='checkbox' class="fold" id="Set-fold-methods"><label for="Set-fold-methods">Methods (<i>total 18, all are exported</i>)</label><span id='Set-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Set-fold-method-Add"><label for="Set-fold-method-Add">(*T) <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-39">Add</a>(items ...<a href="../../../builtin.html#name-string">string</a>)</label><span id='Set-fold-method-Add-docs' class="fold-docs">
+				Add includes the specified items (one or more) to the Set. The underlying
+				Set s is modified. If passed nothing it silently returns.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Set-fold-method-Clear"><label for="Set-fold-method-Clear">(*T) <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-106">Clear</a>()</label><span id='Set-fold-method-Clear-docs' class="fold-docs">
+				Clear removes all items from the Set.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Set-fold-method-Copy"><label for="Set-fold-method-Copy">(*T) <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-164">Copy</a>() *<b>Set</b></label><span id='Set-fold-method-Copy-docs' class="fold-docs">
+				Copy returns a new Set with a copy of s.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Set-fold-method-Each"><label for="Set-fold-method-Each">(*T) <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-155">Each</a>(f func(item <a href="../../../builtin.html#name-string">string</a>) <a href="../../../builtin.html#name-bool">bool</a>)</label><span id='Set-fold-method-Each-docs' class="fold-docs">
+				Each traverses the items in the Set, calling the provided function for each
+				Set member. Traversal will continue until all items in the Set have been
+				visited, or if the closure returns false.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Set-fold-method-Has"><label for="Set-fold-method-Has">(*T) <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-77">Has</a>(items ...<a href="../../../builtin.html#name-string">string</a>) <a href="../../../builtin.html#name-bool">bool</a></label><span id='Set-fold-method-Has-docs' class="fold-docs">
+				Has looks for the existence of items passed. It returns false if nothing is
+				passed. For multiple items it returns true only if all of  the items exist.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Set-fold-method-HasAny"><label for="Set-fold-method-HasAny">(*T) <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-90">HasAny</a>(items ...<a href="../../../builtin.html#name-string">string</a>) <a href="../../../builtin.html#name-bool">bool</a></label><span id='Set-fold-method-HasAny-docs' class="fold-docs">
+				HasAny looks for the existence of any of the items passed.
+				It returns false if nothing is passed.
+				For multiple items it returns true if any of the items exist.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Set-fold-method-IsEmpty"><label for="Set-fold-method-IsEmpty">(*T) <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-111">IsEmpty</a>() <a href="../../../builtin.html#name-bool">bool</a></label><span id='Set-fold-method-IsEmpty-docs' class="fold-docs">
+				IsEmpty reports whether the Set is empty.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Set-fold-method-IsEqual"><label for="Set-fold-method-IsEqual">(*T) <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-116">IsEqual</a>(t *<b>Set</b>) <a href="../../../builtin.html#name-bool">bool</a></label><span id='Set-fold-method-IsEqual-docs' class="fold-docs">
+				IsEqual test whether s and t are the same in size and have the same items.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Set-fold-method-IsSubset"><label for="Set-fold-method-IsSubset">(*T) <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-132">IsSubset</a>(t *<b>Set</b>) <a href="../../../builtin.html#name-bool">bool</a></label><span id='Set-fold-method-IsSubset-docs' class="fold-docs">
+				IsSubset tests whether t is a subset of s.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Set-fold-method-IsSuperset"><label for="Set-fold-method-IsSuperset">(*T) <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-148">IsSuperset</a>(t *<b>Set</b>) <a href="../../../builtin.html#name-bool">bool</a></label><span id='Set-fold-method-IsSuperset-docs' class="fold-docs">
+				IsSuperset tests whether t is a superset of s.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Set-fold-method-List"><label for="Set-fold-method-List">(*T) <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-183">List</a>() []<a href="../../../builtin.html#name-string">string</a></label><span id='Set-fold-method-List-docs' class="fold-docs">
+				List returns a slice of all items. There is also StringSlice() and
+				IntSlice() methods for returning slices of type string or int.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Set-fold-method-Merge"><label for="Set-fold-method-Merge">(*T) <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-193">Merge</a>(t *<b>Set</b>)</label><span id='Set-fold-method-Merge-docs' class="fold-docs">
+				Merge is like Union, however it modifies the current Set it's applied on
+				with the given t Set.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Set-fold-method-Pop"><label for="Set-fold-method-Pop">(*T) <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-55">Pop</a>() <a href="../../../builtin.html#name-string">string</a></label><span id='Set-fold-method-Pop-docs' class="fold-docs">
+				Pop deletes and returns an item from the Set. The underlying Set s is
+				modified. If Set is empty, the zero value is returned.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Set-fold-method-Pop2"><label for="Set-fold-method-Pop2">(*T) <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-67">Pop2</a>() (<a href="../../../builtin.html#name-string">string</a>, <a href="../../../builtin.html#name-bool">bool</a>)</label><span id='Set-fold-method-Pop2-docs' class="fold-docs">
+				Pop2 tries to delete and return an item from the Set. The underlying Set s
+				is modified. The second value is a bool that is true if the item existed in
+				the set, and false if not. If Set is empty, the zero value and false are
+				returned.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Set-fold-method-Remove"><label for="Set-fold-method-Remove">(*T) <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-47">Remove</a>(items ...<a href="../../../builtin.html#name-string">string</a>)</label><span id='Set-fold-method-Remove-docs' class="fold-docs">
+				Remove deletes the specified items from the Set. The underlying Set s is
+				modified. If passed nothing it silently returns.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Set-fold-method-Separate"><label for="Set-fold-method-Separate">(*T) <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-201">Separate</a>(t *<b>Set</b>)</label><span id='Set-fold-method-Separate-docs' class="fold-docs">
+				Separate removes the Set items containing in t from Set s. Please aware that
+				it's not the opposite of Merge.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Set-fold-method-Size"><label for="Set-fold-method-Size">(*T) <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-101">Size</a>() <a href="../../../builtin.html#name-int">int</a></label><span id='Set-fold-method-Size-docs' class="fold-docs">
+				Size returns the number of items in a Set.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Set-fold-method-String"><label for="Set-fold-method-String">(*T) <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-173">String</a>() <a href="../../../builtin.html#name-string">string</a></label><span id='Set-fold-method-String-docs' class="fold-docs">
+				String returns a string representation of s
+</span></span></span>
+		<input type='checkbox' class="fold" id="Set-fold-impls"><label for="Set-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='Set-fold-impls-items' class="fold-items"><span>
+			*T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
+			<input type='checkbox' class="showhide" id="Set-showhide-impls"><i><label for="Set-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="Set-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="Set-fold-results"><label for="Set-fold-results">As Outputs Of (<i>at least 7, all are exported</i>)</label><span id='Set-fold-results-items' class="fold-items"><span>
+			func <a href="#name-Difference">Difference</a>(set1 *<b>Set</b>, sets ...*<b>Set</b>) *<b>Set</b></span><span>
+			func <a href="#name-Intersection">Intersection</a>(sets ...*<b>Set</b>) *<b>Set</b></span><span>
+			func <a href="#name-New">New</a>(ts ...<a href="../../../builtin.html#name-string">string</a>) *<b>Set</b></span><span>
+			func <a href="#name-NewWithSize">NewWithSize</a>(size <a href="../../../builtin.html#name-int">int</a>) *<b>Set</b></span><span>
+			func <a href="#name-SymmetricDifference">SymmetricDifference</a>(s *<b>Set</b>, t *<b>Set</b>) *<b>Set</b></span><span>
+			func <a href="#name-Union">Union</a>(sets ...*<b>Set</b>) *<b>Set</b></span><span>
+			func (*Set).<a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-164">Copy</a>() *<b>Set</b></span></span>
+		<input type='checkbox' class="fold" id="Set-fold-params"><label for="Set-fold-params">As Inputs Of (<i>at least 11, all are exported</i>)</label><span id='Set-fold-params-items' class="fold-items"><span>
+			func <a href="#name-Difference">Difference</a>(set1 *<b>Set</b>, sets ...*<b>Set</b>) *<b>Set</b></span><span>
+			func <a href="#name-Difference">Difference</a>(set1 *<b>Set</b>, sets ...*<b>Set</b>) *<b>Set</b></span><span>
+			func <a href="#name-Intersection">Intersection</a>(sets ...*<b>Set</b>) *<b>Set</b></span><span>
+			func <a href="#name-SymmetricDifference">SymmetricDifference</a>(s *<b>Set</b>, t *<b>Set</b>) *<b>Set</b></span><span>
+			func <a href="#name-SymmetricDifference">SymmetricDifference</a>(s *<b>Set</b>, t *<b>Set</b>) *<b>Set</b></span><span>
+			func <a href="#name-Union">Union</a>(sets ...*<b>Set</b>) *<b>Set</b></span><span>
+			func (*Set).<a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-116">IsEqual</a>(t *<b>Set</b>) <a href="../../../builtin.html#name-bool">bool</a></span><span>
+			func (*Set).<a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-132">IsSubset</a>(t *<b>Set</b>) <a href="../../../builtin.html#name-bool">bool</a></span><span>
+			func (*Set).<a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-148">IsSuperset</a>(t *<b>Set</b>) <a href="../../../builtin.html#name-bool">bool</a></span><span>
+			func (*Set).<a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-193">Merge</a>(t *<b>Set</b>)</span><span>
+			func (*Set).<a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-201">Separate</a>(t *<b>Set</b>)</span></span>
+
+</span></div></div>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 6, all are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-Difference">	<input type='checkbox' class="fold" id="Difference-fold-content"><label for="Difference-fold-content"> func <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-236">Difference</a>(set1 *<a href="#name-Set">Set</a>, sets ...*<a href="#name-Set">Set</a>) *<a href="#name-Set">Set</a></label><span id='Difference-fold-content-docs' class="fold-docs">
+		Difference returns a new set which contains items which are in in the first
+		set but not in the others.
+
+</span></div><div class="anchor value-res" id="name-Intersection">	<input type='checkbox' class="fold" id="Intersection-fold-content"><label for="Intersection-fold-content"> func <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-246">Intersection</a>(sets ...*<a href="#name-Set">Set</a>) *<a href="#name-Set">Set</a></label><span id='Intersection-fold-content-docs' class="fold-docs">
+		Intersection returns a new set which contains items that only exist in all
+		given sets.
+
+</span></div><div class="anchor value-res" id="name-New">	<input type='checkbox' class="fold" id="New-fold-content"><label for="New-fold-content"> func <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-26">New</a>(ts ...<a href="../../../builtin.html#name-string">string</a>) *<a href="#name-Set">Set</a></label><span id='New-fold-content-docs' class="fold-docs">
+		New creates and initializes a new Set.
+
+</span></div><div class="anchor value-res" id="name-NewWithSize">	<input type='checkbox' class="fold" id="NewWithSize-fold-content"><label for="NewWithSize-fold-content"> func <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-33">NewWithSize</a>(size <a href="../../../builtin.html#name-int">int</a>) *<a href="#name-Set">Set</a></label><span id='NewWithSize-fold-content-docs' class="fold-docs">
+		NewWithSize creates a new Set and gives make map a size hint.
+
+</span></div><div class="anchor value-res" id="name-SymmetricDifference">	<input type='checkbox' class="fold" id="SymmetricDifference-fold-content"><label for="SymmetricDifference-fold-content"> func <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-275">SymmetricDifference</a>(s *<a href="#name-Set">Set</a>, t *<a href="#name-Set">Set</a>) *<a href="#name-Set">Set</a></label><span id='SymmetricDifference-fold-content-docs' class="fold-docs">
+		SymmetricDifference returns a new set which s is the difference of items
+		which are in one of either, but not in both.
+
+</span></div><div class="anchor value-res" id="name-Union">	<input type='checkbox' class="fold" id="Union-fold-content"><label for="Union-fold-content"> func <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-209">Union</a>(sets ...*<a href="#name-Set">Set</a>) *<a href="#name-Set">Set</a></label><span id='Union-fold-content-docs' class="fold-docs">
+		Union is the merger of multiple sets. It returns a new set with all the
+		elements present in all the sets that are passed.
+
+</span></div></div>
+<div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (total 2, neither is exported)</i></span></span>
+
+	<input type='checkbox' class="showhide" id="unexported-variables-showhide"><i><label for="unexported-variables-showhide" class="show-inline">/* 2 unexporteds ... */</label><label for="unexported-variables-showhide" class="hide-inline">/* 2 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-keyExists"><i>	<input type='checkbox' class="fold" id="keyExists-fold-content"><label for="keyExists-fold-content">  var <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-15">keyExists</a> struct{}</label><span id='keyExists-fold-content-docs' class="fold-docs">
+		helpful to not write everywhere struct{}{}
+
+</span></i></div><div class="anchor value-res hidden" id="name-nonExistent"><i>	<span class="nodocs">  var <a href="../../../../src/github.com/scylladb/go-set/strset/strset.go.html#line-16">nonExistent</a> <a href="../../../builtin.html#name-string">string</a></span></i></div></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

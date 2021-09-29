@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: sonyflake.go in package github.com/sony/sonyflake</title>
+<link href="../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	sonyflake.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../pkg/github.com/sony/sonyflake.html">github.com/sony/sonyflake</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12],
+input[id=r13]:checked ~pre label[for=r13],
+input[id=r14]:checked ~pre label[for=r14],
+input[id=r15]:checked ~pre label[for=r15],
+input[id=r16]:checked ~pre label[for=r16],
+input[id=r17]:checked ~pre label[for=r17],
+input[id=r18]:checked ~pre label[for=r18],
+input[id=r19]:checked ~pre label[for=r19],
+input[id=r20]:checked ~pre label[for=r20],
+input[id=r21]:checked ~pre label[for=r21],
+input[id=r22]:checked ~pre label[for=r22],
+input[id=r23]:checked ~pre label[for=r23],
+input[id=r24]:checked ~pre label[for=r24],
+input[id=r25]:checked ~pre label[for=r25],
+input[id=r26]:checked ~pre label[for=r26],
+input[id=r27]:checked ~pre label[for=r27],
+input[id=r28]:checked ~pre label[for=r28],
+input[id=r29]:checked ~pre label[for=r29],
+input[id=r30]:checked ~pre label[for=r30],
+input[id=r31]:checked ~pre label[for=r31],
+input[id=r32]:checked ~pre label[for=r32],
+input[id=r33]:checked ~pre label[for=r33],
+input[id=r34]:checked ~pre label[for=r34],
+input[id=r35]:checked ~pre label[for=r35],
+input[id=r36]:checked ~pre label[for=r36],
+input[id=r37]:checked ~pre label[for=r37]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1,
+input[id=i2]:checked ~pre .i2,
+input[id=i3]:checked ~pre .i3
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="r13" type="radio" name="g"/>
+<input id="r14" type="radio" name="g"/>
+<input id="r15" type="radio" name="g"/>
+<input id="r16" type="radio" name="g"/>
+<input id="r17" type="radio" name="g"/>
+<input id="r18" type="radio" name="g"/>
+<input id="r19" type="radio" name="g"/>
+<input id="r20" type="radio" name="g"/>
+<input id="r21" type="radio" name="g"/>
+<input id="r22" type="radio" name="g"/>
+<input id="r23" type="radio" name="g"/>
+<input id="r24" type="radio" name="g"/>
+<input id="r25" type="radio" name="g"/>
+<input id="r26" type="radio" name="g"/>
+<input id="r27" type="radio" name="g"/>
+<input id="r28" type="radio" name="g"/>
+<input id="r29" type="radio" name="g"/>
+<input id="r30" type="radio" name="g"/>
+<input id="r31" type="radio" name="g"/>
+<input id="r32" type="radio" name="g"/>
+<input id="r33" type="radio" name="g"/>
+<input id="r34" type="radio" name="g"/>
+<input id="r35" type="radio" name="g"/>
+<input id="r36" type="radio" name="g"/>
+<input id="r37" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+<input id="i2" type="radio" name="i"/>
+<input id="i3" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<div class="anchor" id="doc"><span class="codeline" id="line-1"><code><span class="comment">// Package sonyflake implements Sonyflake, a distributed unique ID generator inspired by Twitter's Snowflake.</span></code></span>
+<span class="codeline" id="line-2"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-3"><code><span class="comment">// A Sonyflake ID is composed of</span></code></span>
+<span class="codeline" id="line-4"><code><span class="comment">//     39 bits for time in units of 10 msec</span></code></span>
+<span class="codeline" id="line-5"><code><span class="comment">//      8 bits for a sequence number</span></code></span>
+<span class="codeline" id="line-6"><code><span class="comment">//     16 bits for a machine id</span></code></span></div><span class="codeline" id="line-7"><code><span class="keyword">package</span> sonyflake</code></span>
+<span class="codeline" id="line-8"><code></code></span>
+<span class="codeline" id="line-9"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-10"><code>	<label for="i0"><span class="lit-string i0">"errors"</span></label></code></span>
+<span class="codeline" id="line-11"><code>	<label for="i1"><span class="lit-string i1">"net"</span></label></code></span>
+<span class="codeline" id="line-12"><code>	<label for="i2"><span class="lit-string i2">"sync"</span></label></code></span>
+<span class="codeline" id="line-13"><code>	<label for="i3"><span class="lit-string i3">"time"</span></label></code></span>
+<span class="codeline" id="line-14"><code>)</code></span>
+<span class="codeline" id="line-15"><code></code></span>
+<span class="codeline" id="line-16"><code><span class="comment">// These constants are the bit lengths of Sonyflake ID parts.</span></code></span>
+<span class="codeline" id="line-17"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-18"><code>	<a href="../../../../pkg/github.com/sony/sonyflake.html#name-BitLenTime" class="ident">BitLenTime</a>      = <span class="lit-number">39</span>                               <span class="comment">// bit length of time</span></code></span>
+<span class="codeline" id="line-19"><code>	<a href="../../../../pkg/github.com/sony/sonyflake.html#name-BitLenSequence" class="ident">BitLenSequence</a>  = <span class="lit-number">8</span>                                <span class="comment">// bit length of sequence number</span></code></span>
+<span class="codeline" id="line-20"><code>	<a href="../../../../pkg/github.com/sony/sonyflake.html#name-BitLenMachineID" class="ident">BitLenMachineID</a> = <span class="lit-number">63</span> - <a href="#line-18" class="ident">BitLenTime</a> - <a href="#line-19" class="ident">BitLenSequence</a> <span class="comment">// bit length of machine id</span></code></span>
+<span class="codeline" id="line-21"><code>)</code></span>
+<span class="codeline" id="line-22"><code></code></span>
+<span class="codeline" id="line-23"><code><span class="comment">// Settings configures Sonyflake:</span></code></span>
+<span class="codeline" id="line-24"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-25"><code><span class="comment">// StartTime is the time since which the Sonyflake time is defined as the elapsed time.</span></code></span>
+<span class="codeline" id="line-26"><code><span class="comment">// If StartTime is 0, the start time of the Sonyflake is set to "2014-09-01 00:00:00 +0000 UTC".</span></code></span>
+<span class="codeline" id="line-27"><code><span class="comment">// If StartTime is ahead of the current time, Sonyflake is not created.</span></code></span>
+<span class="codeline" id="line-28"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-29"><code><span class="comment">// MachineID returns the unique ID of the Sonyflake instance.</span></code></span>
+<span class="codeline" id="line-30"><code><span class="comment">// If MachineID returns an error, Sonyflake is not created.</span></code></span>
+<span class="codeline" id="line-31"><code><span class="comment">// If MachineID is nil, default MachineID is used.</span></code></span>
+<span class="codeline" id="line-32"><code><span class="comment">// Default MachineID returns the lower 16 bits of the private IP address.</span></code></span>
+<span class="codeline" id="line-33"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-34"><code><span class="comment">// CheckMachineID validates the uniqueness of the machine ID.</span></code></span>
+<span class="codeline" id="line-35"><code><span class="comment">// If CheckMachineID returns false, Sonyflake is not created.</span></code></span>
+<span class="codeline" id="line-36"><code><span class="comment">// If CheckMachineID is nil, no validation is done.</span></code></span>
+<span class="codeline" id="line-37"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/sony/sonyflake.html#name-Settings" class="ident">Settings</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-38"><code>	StartTime      <a href="../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../time/time.go.html#line-127" class="ident">Time</a></code></span>
+<span class="codeline" id="line-39"><code>	MachineID      <span class="keyword">func</span>() (<a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>, <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>)</code></span>
+<span class="codeline" id="line-40"><code>	CheckMachineID <span class="keyword">func</span>(<a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-41"><code>}</code></span>
+<span class="codeline" id="line-42"><code></code></span>
+<span class="codeline" id="line-43"><code><span class="comment">// Sonyflake is a distributed unique ID generator.</span></code></span>
+<span class="codeline" id="line-44"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/sony/sonyflake.html#name-Sonyflake" class="ident">Sonyflake</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-45"><code>	mutex       *<a href="../../../../pkg/sync.html" class="ident i2">sync</a>.<a href="../../../sync/mutex.go.html#line-25" class="ident">Mutex</a></code></span>
+<span class="codeline" id="line-46"><code>	startTime   <a href="../../../../pkg/builtin.html#name-int64" class="ident">int64</a></code></span>
+<span class="codeline" id="line-47"><code>	elapsedTime <a href="../../../../pkg/builtin.html#name-int64" class="ident">int64</a></code></span>
+<span class="codeline" id="line-48"><code>	sequence    <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-49"><code>	machineID   <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a></code></span>
+<span class="codeline" id="line-50"><code>}</code></span>
+<span class="codeline" id="line-51"><code></code></span>
+<span class="codeline" id="line-52"><code><span class="comment">// NewSonyflake returns a new Sonyflake configured with the given Settings.</span></code></span>
+<span class="codeline" id="line-53"><code><span class="comment">// NewSonyflake returns nil in the following cases:</span></code></span>
+<span class="codeline" id="line-54"><code><span class="comment">// - Settings.StartTime is ahead of the current time.</span></code></span>
+<span class="codeline" id="line-55"><code><span class="comment">// - Settings.MachineID returns an error.</span></code></span>
+<span class="codeline" id="line-56"><code><span class="comment">// - Settings.CheckMachineID returns false.</span></code></span>
+<span class="codeline" id="line-57"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../pkg/github.com/sony/sonyflake.html#name-NewSonyflake" class="ident">NewSonyflake</a></label>(<label for="r1" class="ident">st</label> <a href="#line-37" class="ident">Settings</a>) *<a href="#line-44" class="ident">Sonyflake</a> {</code></span>
+<span class="codeline" id="line-58"><code>	<label for="r2" class="ident">sf</label> := <a href="../../../../pkg/builtin.html#name-new" class="ident">new</a>(<a href="#line-44" class="ident">Sonyflake</a>)</code></span>
+<span class="codeline" id="line-59"><code>	<label for="r2" class="ident">sf</label>.<a href="#line-45" class="ident">mutex</a> = <a href="../../../../pkg/builtin.html#name-new" class="ident">new</a>(<a href="../../../../pkg/sync.html" class="ident i2">sync</a>.<a href="../../../sync/mutex.go.html#line-25" class="ident">Mutex</a>)</code></span>
+<span class="codeline" id="line-60"><code>	<label for="r2" class="ident">sf</label>.<a href="#line-48" class="ident">sequence</a> = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">1</span>&lt;&lt;<a href="#line-19" class="ident">BitLenSequence</a> - <span class="lit-number">1</span>)</code></span>
+<span class="codeline" id="line-61"><code></code></span>
+<span class="codeline" id="line-62"><code>	<span class="keyword">if</span> <label for="r1" class="ident">st</label>.<a href="#line-38" class="ident">StartTime</a>.<a href="../../../time/time.go.html#line-241" class="ident">After</a>(<a href="../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../time/time.go.html#line-1066" class="ident">Now</a>()) {</code></span>
+<span class="codeline" id="line-63"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-64"><code>	}</code></span>
+<span class="codeline" id="line-65"><code>	<span class="keyword">if</span> <label for="r1" class="ident">st</label>.<a href="#line-38" class="ident">StartTime</a>.<a href="../../../time/time.go.html#line-426" class="ident">IsZero</a>() {</code></span>
+<span class="codeline" id="line-66"><code>		<label for="r2" class="ident">sf</label>.<a href="#line-46" class="ident">startTime</a> = <a href="#line-110" class="ident">toSonyflakeTime</a>(<a href="../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../time/time.go.html#line-1342" class="ident">Date</a>(<span class="lit-number">2014</span>, <span class="lit-number">9</span>, <span class="lit-number">1</span>, <span class="lit-number">0</span>, <span class="lit-number">0</span>, <span class="lit-number">0</span>, <span class="lit-number">0</span>, <a href="../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../time/zoneinfo.go.html#line-67" class="ident">UTC</a>))</code></span>
+<span class="codeline" id="line-67"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-68"><code>		<label for="r2" class="ident">sf</label>.<a href="#line-46" class="ident">startTime</a> = <a href="#line-110" class="ident">toSonyflakeTime</a>(<label for="r1" class="ident">st</label>.<a href="#line-38" class="ident">StartTime</a>)</code></span>
+<span class="codeline" id="line-69"><code>	}</code></span>
+<span class="codeline" id="line-70"><code></code></span>
+<span class="codeline" id="line-71"><code>	<span class="keyword">var</span> <label for="r3" class="ident">err</label> <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a></code></span>
+<span class="codeline" id="line-72"><code>	<span class="keyword">if</span> <label for="r1" class="ident">st</label>.<a href="#line-39" class="ident">MachineID</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-73"><code>		<label for="r2" class="ident">sf</label>.<a href="#line-49" class="ident">machineID</a>, <label for="r3" class="ident">err</label> = <a href="#line-158" class="ident">lower16BitPrivateIP</a>()</code></span>
+<span class="codeline" id="line-74"><code>	} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-75"><code>		<label for="r2" class="ident">sf</label>.<a href="#line-49" class="ident">machineID</a>, <label for="r3" class="ident">err</label> = <label for="r1" class="ident">st</label>.<a href="#line-39" class="ident">MachineID</a>()</code></span>
+<span class="codeline" id="line-76"><code>	}</code></span>
+<span class="codeline" id="line-77"><code>	<span class="keyword">if</span> <label for="r3" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> || (<label for="r1" class="ident">st</label>.<a href="#line-40" class="ident">CheckMachineID</a> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; !<label for="r1" class="ident">st</label>.<a href="#line-40" class="ident">CheckMachineID</a>(<label for="r2" class="ident">sf</label>.<a href="#line-49" class="ident">machineID</a>)) {</code></span>
+<span class="codeline" id="line-78"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-79"><code>	}</code></span>
+<span class="codeline" id="line-80"><code></code></span>
+<span class="codeline" id="line-81"><code>	<span class="keyword">return</span> <label for="r2" class="ident">sf</label></code></span>
+<span class="codeline" id="line-82"><code>}</code></span>
+<span class="codeline" id="line-83"><code></code></span>
+<span class="codeline" id="line-84"><code><span class="comment">// NextID generates a next unique ID.</span></code></span>
+<span class="codeline" id="line-85"><code><span class="comment">// After the Sonyflake time overflows, NextID returns an error.</span></code></span>
+<span class="codeline" id="line-86"><code><span class="keyword">func</span> (<label for="r4" class="ident">sf</label> *<a href="#line-44" class="ident">Sonyflake</a>) <label for="r5" class="ident">NextID</label>() (<a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>, <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-87"><code>	<span class="keyword">const</span> <label for="r6" class="ident">maskSequence</label> = <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<span class="lit-number">1</span>&lt;&lt;<a href="#line-19" class="ident">BitLenSequence</a> - <span class="lit-number">1</span>)</code></span>
+<span class="codeline" id="line-88"><code></code></span>
+<span class="codeline" id="line-89"><code>	<label for="r4" class="ident">sf</label>.<a href="#line-45" class="ident">mutex</a>.<a href="../../../sync/mutex.go.html#line-72" class="ident">Lock</a>()</code></span>
+<span class="codeline" id="line-90"><code>	<span class="keyword">defer</span> <label for="r4" class="ident">sf</label>.<a href="#line-45" class="ident">mutex</a>.<a href="../../../sync/mutex.go.html#line-179" class="ident">Unlock</a>()</code></span>
+<span class="codeline" id="line-91"><code></code></span>
+<span class="codeline" id="line-92"><code>	<label for="r7" class="ident">current</label> := <a href="#line-114" class="ident">currentElapsedTime</a>(<label for="r4" class="ident">sf</label>.<a href="#line-46" class="ident">startTime</a>)</code></span>
+<span class="codeline" id="line-93"><code>	<span class="keyword">if</span> <label for="r4" class="ident">sf</label>.<a href="#line-47" class="ident">elapsedTime</a> &lt; <label for="r7" class="ident">current</label> {</code></span>
+<span class="codeline" id="line-94"><code>		<label for="r4" class="ident">sf</label>.<a href="#line-47" class="ident">elapsedTime</a> = <label for="r7" class="ident">current</label></code></span>
+<span class="codeline" id="line-95"><code>		<label for="r4" class="ident">sf</label>.<a href="#line-48" class="ident">sequence</a> = <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-96"><code>	} <span class="keyword">else</span> { <span class="comment">// sf.elapsedTime &gt;= current</span></code></span>
+<span class="codeline" id="line-97"><code>		<label for="r4" class="ident">sf</label>.<a href="#line-48" class="ident">sequence</a> = (<label for="r4" class="ident">sf</label>.<a href="#line-48" class="ident">sequence</a> + <span class="lit-number">1</span>) &amp; <label for="r6" class="ident">maskSequence</label></code></span>
+<span class="codeline" id="line-98"><code>		<span class="keyword">if</span> <label for="r4" class="ident">sf</label>.<a href="#line-48" class="ident">sequence</a> == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-99"><code>			<label for="r4" class="ident">sf</label>.<a href="#line-47" class="ident">elapsedTime</a>++</code></span>
+<span class="codeline" id="line-100"><code>			<label for="r8" class="ident">overtime</label> := <label for="r4" class="ident">sf</label>.<a href="#line-47" class="ident">elapsedTime</a> - <label for="r7" class="ident">current</label></code></span>
+<span class="codeline" id="line-101"><code>			<a href="../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../time/sleep.go.html#line-9" class="ident">Sleep</a>(<a href="#line-118" class="ident">sleepTime</a>((<label for="r8" class="ident">overtime</label>)))</code></span>
+<span class="codeline" id="line-102"><code>		}</code></span>
+<span class="codeline" id="line-103"><code>	}</code></span>
+<span class="codeline" id="line-104"><code></code></span>
+<span class="codeline" id="line-105"><code>	<span class="keyword">return</span> <label for="r4" class="ident">sf</label>.<a href="#line-123" class="ident">toID</a>()</code></span>
+<span class="codeline" id="line-106"><code>}</code></span>
+<span class="codeline" id="line-107"><code></code></span>
+<span class="codeline" id="line-108"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/sony/sonyflake.html#name-sonyflakeTimeUnit" class="ident">sonyflakeTimeUnit</a> = <span class="lit-number">1e7</span> <span class="comment">// nsec, i.e. 10 msec</span></code></span>
+<span class="codeline" id="line-109"><code></code></span>
+<span class="codeline" id="line-110"><code><span class="keyword">func</span> <label for="r9" class="ident"><a href="../../../../pkg/github.com/sony/sonyflake.html#name-toSonyflakeTime" class="ident">toSonyflakeTime</a></label>(<label for="r10" class="ident">t</label> <a href="../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../time/time.go.html#line-127" class="ident">Time</a>) <a href="../../../../pkg/builtin.html#name-int64" class="ident">int64</a> {</code></span>
+<span class="codeline" id="line-111"><code>	<span class="keyword">return</span> <label for="r10" class="ident">t</label>.<a href="../../../time/time.go.html#line-1081" class="ident">UTC</a>().<a href="../../../time/time.go.html#line-1137" class="ident">UnixNano</a>() / <a href="#line-108" class="ident">sonyflakeTimeUnit</a></code></span>
+<span class="codeline" id="line-112"><code>}</code></span>
+<span class="codeline" id="line-113"><code></code></span>
+<span class="codeline" id="line-114"><code><span class="keyword">func</span> <label for="r11" class="ident"><a href="../../../../pkg/github.com/sony/sonyflake.html#name-currentElapsedTime" class="ident">currentElapsedTime</a></label>(<label for="r12" class="ident">startTime</label> <a href="../../../../pkg/builtin.html#name-int64" class="ident">int64</a>) <a href="../../../../pkg/builtin.html#name-int64" class="ident">int64</a> {</code></span>
+<span class="codeline" id="line-115"><code>	<span class="keyword">return</span> <a href="#line-110" class="ident">toSonyflakeTime</a>(<a href="../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../time/time.go.html#line-1066" class="ident">Now</a>()) - <label for="r12" class="ident">startTime</label></code></span>
+<span class="codeline" id="line-116"><code>}</code></span>
+<span class="codeline" id="line-117"><code></code></span>
+<span class="codeline" id="line-118"><code><span class="keyword">func</span> <label for="r13" class="ident"><a href="../../../../pkg/github.com/sony/sonyflake.html#name-sleepTime" class="ident">sleepTime</a></label>(<label for="r14" class="ident">overtime</label> <a href="../../../../pkg/builtin.html#name-int64" class="ident">int64</a>) <a href="../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../time/time.go.html#line-583" class="ident">Duration</a> {</code></span>
+<span class="codeline" id="line-119"><code>	<span class="keyword">return</span> <a href="../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../time/time.go.html#line-583" class="ident">Duration</a>(<label for="r14" class="ident">overtime</label>)*<span class="lit-number">10</span>*<a href="../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../time/time.go.html#line-604" class="ident">Millisecond</a> -</code></span>
+<span class="codeline" id="line-120"><code>		<a href="../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../time/time.go.html#line-583" class="ident">Duration</a>(<a href="../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../time/time.go.html#line-1066" class="ident">Now</a>().<a href="../../../time/time.go.html#line-1081" class="ident">UTC</a>().<a href="../../../time/time.go.html#line-1137" class="ident">UnixNano</a>()%<a href="#line-108" class="ident">sonyflakeTimeUnit</a>)*<a href="../../../../pkg/time.html" class="ident i3">time</a>.<a href="../../../time/time.go.html#line-602" class="ident">Nanosecond</a></code></span>
+<span class="codeline" id="line-121"><code>}</code></span>
+<span class="codeline" id="line-122"><code></code></span>
+<span class="codeline" id="line-123"><code><span class="keyword">func</span> (<label for="r15" class="ident">sf</label> *<a href="#line-44" class="ident">Sonyflake</a>) <label for="r16" class="ident">toID</label>() (<a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>, <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-124"><code>	<span class="keyword">if</span> <label for="r15" class="ident">sf</label>.<a href="#line-47" class="ident">elapsedTime</a> &gt;= <span class="lit-number">1</span>&lt;&lt;<a href="#line-18" class="ident">BitLenTime</a> {</code></span>
+<span class="codeline" id="line-125"><code>		<span class="keyword">return</span> <span class="lit-number">0</span>, <a href="../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"over the time limit"</span>)</code></span>
+<span class="codeline" id="line-126"><code>	}</code></span>
+<span class="codeline" id="line-127"><code></code></span>
+<span class="codeline" id="line-128"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r15" class="ident">sf</label>.<a href="#line-47" class="ident">elapsedTime</a>)&lt;&lt;(<a href="#line-19" class="ident">BitLenSequence</a>+<a href="#line-20" class="ident">BitLenMachineID</a>) |</code></span>
+<span class="codeline" id="line-129"><code>		<a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r15" class="ident">sf</label>.<a href="#line-48" class="ident">sequence</a>)&lt;&lt;<a href="#line-20" class="ident">BitLenMachineID</a> |</code></span>
+<span class="codeline" id="line-130"><code>		<a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<label for="r15" class="ident">sf</label>.<a href="#line-49" class="ident">machineID</a>), <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-131"><code>}</code></span>
+<span class="codeline" id="line-132"><code></code></span>
+<span class="codeline" id="line-133"><code><span class="keyword">func</span> <label for="r17" class="ident"><a href="../../../../pkg/github.com/sony/sonyflake.html#name-privateIPv4" class="ident">privateIPv4</a></label>() (<a href="../../../../pkg/net.html" class="ident i1">net</a>.<a href="../../../net/ip.go.html#line-32" class="ident">IP</a>, <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-134"><code>	<label for="r18" class="ident">as</label>, <label for="r19" class="ident">err</label> := <a href="../../../../pkg/net.html" class="ident i1">net</a>.<a href="../../../net/interface.go.html#line-115" class="ident">InterfaceAddrs</a>()</code></span>
+<span class="codeline" id="line-135"><code>	<span class="keyword">if</span> <label for="r19" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-136"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <label for="r19" class="ident">err</label></code></span>
+<span class="codeline" id="line-137"><code>	}</code></span>
+<span class="codeline" id="line-138"><code></code></span>
+<span class="codeline" id="line-139"><code>	<span class="keyword">for</span> <label for="r20" class="ident">_</label>, <label for="r21" class="ident">a</label> := <span class="keyword">range</span> <label for="r18" class="ident">as</label> {</code></span>
+<span class="codeline" id="line-140"><code>		<label for="r22" class="ident">ipnet</label>, <label for="r23" class="ident">ok</label> := <label for="r21" class="ident">a</label>.(*<a href="../../../../pkg/net.html" class="ident i1">net</a>.<a href="../../../net/ip.go.html#line-41" class="ident">IPNet</a>)</code></span>
+<span class="codeline" id="line-141"><code>		<span class="keyword">if</span> !<label for="r23" class="ident">ok</label> || <label for="r22" class="ident">ipnet</label>.<a href="../../../net/ip.go.html#line-42" class="ident">IP</a>.<a href="../../../net/ip.go.html#line-121" class="ident">IsLoopback</a>() {</code></span>
+<span class="codeline" id="line-142"><code>			<span class="keyword">continue</span></code></span>
+<span class="codeline" id="line-143"><code>		}</code></span>
+<span class="codeline" id="line-144"><code></code></span>
+<span class="codeline" id="line-145"><code>		<label for="r24" class="ident">ip</label> := <label for="r22" class="ident">ipnet</label>.<a href="../../../net/ip.go.html#line-42" class="ident">IP</a>.<a href="../../../net/ip.go.html#line-189" class="ident">To4</a>()</code></span>
+<span class="codeline" id="line-146"><code>		<span class="keyword">if</span> <a href="#line-153" class="ident">isPrivateIPv4</a>(<label for="r24" class="ident">ip</label>) {</code></span>
+<span class="codeline" id="line-147"><code>			<span class="keyword">return</span> <label for="r24" class="ident">ip</label>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-148"><code>		}</code></span>
+<span class="codeline" id="line-149"><code>	}</code></span>
+<span class="codeline" id="line-150"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"no private ip address"</span>)</code></span>
+<span class="codeline" id="line-151"><code>}</code></span>
+<span class="codeline" id="line-152"><code></code></span>
+<span class="codeline" id="line-153"><code><span class="keyword">func</span> <label for="r25" class="ident"><a href="../../../../pkg/github.com/sony/sonyflake.html#name-isPrivateIPv4" class="ident">isPrivateIPv4</a></label>(<label for="r26" class="ident">ip</label> <a href="../../../../pkg/net.html" class="ident i1">net</a>.<a href="../../../net/ip.go.html#line-32" class="ident">IP</a>) <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-154"><code>	<span class="keyword">return</span> <label for="r26" class="ident">ip</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp;</code></span>
+<span class="codeline" id="line-155"><code>		(<label for="r26" class="ident">ip</label>[<span class="lit-number">0</span>] == <span class="lit-number">10</span> || <label for="r26" class="ident">ip</label>[<span class="lit-number">0</span>] == <span class="lit-number">172</span> &amp;&amp; (<label for="r26" class="ident">ip</label>[<span class="lit-number">1</span>] &gt;= <span class="lit-number">16</span> &amp;&amp; <label for="r26" class="ident">ip</label>[<span class="lit-number">1</span>] &lt; <span class="lit-number">32</span>) || <label for="r26" class="ident">ip</label>[<span class="lit-number">0</span>] == <span class="lit-number">192</span> &amp;&amp; <label for="r26" class="ident">ip</label>[<span class="lit-number">1</span>] == <span class="lit-number">168</span>)</code></span>
+<span class="codeline" id="line-156"><code>}</code></span>
+<span class="codeline" id="line-157"><code></code></span>
+<span class="codeline" id="line-158"><code><span class="keyword">func</span> <label for="r27" class="ident"><a href="../../../../pkg/github.com/sony/sonyflake.html#name-lower16BitPrivateIP" class="ident">lower16BitPrivateIP</a></label>() (<a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>, <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-159"><code>	<label for="r28" class="ident">ip</label>, <label for="r29" class="ident">err</label> := <a href="#line-133" class="ident">privateIPv4</a>()</code></span>
+<span class="codeline" id="line-160"><code>	<span class="keyword">if</span> <label for="r29" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-161"><code>		<span class="keyword">return</span> <span class="lit-number">0</span>, <label for="r29" class="ident">err</label></code></span>
+<span class="codeline" id="line-162"><code>	}</code></span>
+<span class="codeline" id="line-163"><code></code></span>
+<span class="codeline" id="line-164"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<label for="r28" class="ident">ip</label>[<span class="lit-number">2</span>])&lt;&lt;<span class="lit-number">8</span> + <a href="../../../../pkg/builtin.html#name-uint16" class="ident">uint16</a>(<label for="r28" class="ident">ip</label>[<span class="lit-number">3</span>]), <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-165"><code>}</code></span>
+<span class="codeline" id="line-166"><code></code></span>
+<span class="codeline" id="line-167"><code><span class="comment">// Decompose returns a set of Sonyflake ID parts.</span></code></span>
+<span class="codeline" id="line-168"><code><span class="keyword">func</span> <label for="r30" class="ident"><a href="../../../../pkg/github.com/sony/sonyflake.html#name-Decompose" class="ident">Decompose</a></label>(<label for="r31" class="ident">id</label> <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>) <span class="keyword">map</span>[<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>]<a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a> {</code></span>
+<span class="codeline" id="line-169"><code>	<span class="keyword">const</span> <label for="r32" class="ident">maskSequence</label> = <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>((<span class="lit-number">1</span>&lt;&lt;<a href="#line-19" class="ident">BitLenSequence</a> - <span class="lit-number">1</span>) &lt;&lt; <a href="#line-20" class="ident">BitLenMachineID</a>)</code></span>
+<span class="codeline" id="line-170"><code>	<span class="keyword">const</span> <label for="r33" class="ident">maskMachineID</label> = <a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>(<span class="lit-number">1</span>&lt;&lt;<a href="#line-20" class="ident">BitLenMachineID</a> - <span class="lit-number">1</span>)</code></span>
+<span class="codeline" id="line-171"><code></code></span>
+<span class="codeline" id="line-172"><code>	<label for="r34" class="ident">msb</label> := <label for="r31" class="ident">id</label> &gt;&gt; <span class="lit-number">63</span></code></span>
+<span class="codeline" id="line-173"><code>	<label for="r35" class="ident">time</label> := <label for="r31" class="ident">id</label> &gt;&gt; (<a href="#line-19" class="ident">BitLenSequence</a> + <a href="#line-20" class="ident">BitLenMachineID</a>)</code></span>
+<span class="codeline" id="line-174"><code>	<label for="r36" class="ident">sequence</label> := <label for="r31" class="ident">id</label> &amp; <label for="r32" class="ident">maskSequence</label> &gt;&gt; <a href="#line-20" class="ident">BitLenMachineID</a></code></span>
+<span class="codeline" id="line-175"><code>	<label for="r37" class="ident">machineID</label> := <label for="r31" class="ident">id</label> &amp; <label for="r33" class="ident">maskMachineID</label></code></span>
+<span class="codeline" id="line-176"><code>	<span class="keyword">return</span> <span class="keyword">map</span>[<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>]<a href="../../../../pkg/builtin.html#name-uint64" class="ident">uint64</a>{</code></span>
+<span class="codeline" id="line-177"><code>		<span class="lit-string">"id"</span>:         <label for="r31" class="ident">id</label>,</code></span>
+<span class="codeline" id="line-178"><code>		<span class="lit-string">"msb"</span>:        <label for="r34" class="ident">msb</label>,</code></span>
+<span class="codeline" id="line-179"><code>		<span class="lit-string">"time"</span>:       <label for="r35" class="ident">time</label>,</code></span>
+<span class="codeline" id="line-180"><code>		<span class="lit-string">"sequence"</span>:   <label for="r36" class="ident">sequence</label>,</code></span>
+<span class="codeline" id="line-181"><code>		<span class="lit-string">"machine-id"</span>: <label for="r37" class="ident">machineID</label>,</code></span>
+<span class="codeline" id="line-182"><code>	}</code></span>
+<span class="codeline" id="line-183"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

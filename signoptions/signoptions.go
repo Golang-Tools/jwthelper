@@ -1,3 +1,4 @@
+// signoptions 签名器签名方法的参数
 package signoptions
 
 import (
@@ -12,6 +13,7 @@ type SignOptions struct {
 	Aud        []string
 	Exp        int64 // 过期时间戳
 	Nbf        int64
+	Jti        string
 	RefreshExp int64 // >0时会设置refresh_token,其过期时间就是这个字段控制,这个字段也是时间戳
 }
 
@@ -113,5 +115,12 @@ func WithRefreshExpAt(exp time.Time) SignOption {
 func WithRefreshTTL(ttl time.Duration) SignOption {
 	return newFuncSignOption(func(o *SignOptions) {
 		o.RefreshExp = time.Now().Add(ttl).Unix()
+	})
+}
+
+//WithJTI 设置jwt的jti,不设置则会使用默认生成器创建
+func WithJTI(jti string) SignOption {
+	return newFuncSignOption(func(o *SignOptions) {
+		o.Jti = jti
 	})
 }

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: strset.go in package github.com/scylladb/go-set/strset</title>
+<link href="../../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	strset.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../pkg/github.com/scylladb/go-set/strset.html">github.com/scylladb/go-set/strset</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12],
+input[id=r13]:checked ~pre label[for=r13],
+input[id=r14]:checked ~pre label[for=r14],
+input[id=r15]:checked ~pre label[for=r15],
+input[id=r16]:checked ~pre label[for=r16],
+input[id=r17]:checked ~pre label[for=r17],
+input[id=r18]:checked ~pre label[for=r18],
+input[id=r19]:checked ~pre label[for=r19],
+input[id=r20]:checked ~pre label[for=r20],
+input[id=r21]:checked ~pre label[for=r21],
+input[id=r22]:checked ~pre label[for=r22],
+input[id=r23]:checked ~pre label[for=r23],
+input[id=r24]:checked ~pre label[for=r24],
+input[id=r25]:checked ~pre label[for=r25],
+input[id=r26]:checked ~pre label[for=r26],
+input[id=r27]:checked ~pre label[for=r27],
+input[id=r28]:checked ~pre label[for=r28],
+input[id=r29]:checked ~pre label[for=r29],
+input[id=r30]:checked ~pre label[for=r30],
+input[id=r31]:checked ~pre label[for=r31],
+input[id=r32]:checked ~pre label[for=r32],
+input[id=r33]:checked ~pre label[for=r33],
+input[id=r34]:checked ~pre label[for=r34],
+input[id=r35]:checked ~pre label[for=r35],
+input[id=r36]:checked ~pre label[for=r36],
+input[id=r37]:checked ~pre label[for=r37],
+input[id=r38]:checked ~pre label[for=r38],
+input[id=r39]:checked ~pre label[for=r39],
+input[id=r40]:checked ~pre label[for=r40],
+input[id=r41]:checked ~pre label[for=r41],
+input[id=r42]:checked ~pre label[for=r42],
+input[id=r43]:checked ~pre label[for=r43],
+input[id=r44]:checked ~pre label[for=r44],
+input[id=r45]:checked ~pre label[for=r45],
+input[id=r46]:checked ~pre label[for=r46],
+input[id=r47]:checked ~pre label[for=r47],
+input[id=r48]:checked ~pre label[for=r48],
+input[id=r49]:checked ~pre label[for=r49],
+input[id=r50]:checked ~pre label[for=r50],
+input[id=r51]:checked ~pre label[for=r51],
+input[id=r52]:checked ~pre label[for=r52],
+input[id=r53]:checked ~pre label[for=r53],
+input[id=r54]:checked ~pre label[for=r54],
+input[id=r55]:checked ~pre label[for=r55],
+input[id=r56]:checked ~pre label[for=r56],
+input[id=r57]:checked ~pre label[for=r57],
+input[id=r58]:checked ~pre label[for=r58],
+input[id=r59]:checked ~pre label[for=r59],
+input[id=r60]:checked ~pre label[for=r60],
+input[id=r61]:checked ~pre label[for=r61],
+input[id=r62]:checked ~pre label[for=r62],
+input[id=r63]:checked ~pre label[for=r63],
+input[id=r64]:checked ~pre label[for=r64],
+input[id=r65]:checked ~pre label[for=r65],
+input[id=r66]:checked ~pre label[for=r66],
+input[id=r67]:checked ~pre label[for=r67],
+input[id=r68]:checked ~pre label[for=r68],
+input[id=r69]:checked ~pre label[for=r69],
+input[id=r70]:checked ~pre label[for=r70],
+input[id=r71]:checked ~pre label[for=r71],
+input[id=r72]:checked ~pre label[for=r72],
+input[id=r73]:checked ~pre label[for=r73],
+input[id=r74]:checked ~pre label[for=r74],
+input[id=r75]:checked ~pre label[for=r75],
+input[id=r76]:checked ~pre label[for=r76],
+input[id=r77]:checked ~pre label[for=r77],
+input[id=r78]:checked ~pre label[for=r78],
+input[id=r79]:checked ~pre label[for=r79],
+input[id=r80]:checked ~pre label[for=r80],
+input[id=r81]:checked ~pre label[for=r81],
+input[id=r82]:checked ~pre label[for=r82],
+input[id=r83]:checked ~pre label[for=r83],
+input[id=r84]:checked ~pre label[for=r84],
+input[id=r85]:checked ~pre label[for=r85],
+input[id=r86]:checked ~pre label[for=r86],
+input[id=r87]:checked ~pre label[for=r87],
+input[id=r88]:checked ~pre label[for=r88],
+input[id=r89]:checked ~pre label[for=r89],
+input[id=r90]:checked ~pre label[for=r90],
+input[id=r91]:checked ~pre label[for=r91],
+input[id=r92]:checked ~pre label[for=r92],
+input[id=r93]:checked ~pre label[for=r93],
+input[id=r94]:checked ~pre label[for=r94],
+input[id=r95]:checked ~pre label[for=r95],
+input[id=r96]:checked ~pre label[for=r96],
+input[id=r97]:checked ~pre label[for=r97],
+input[id=r98]:checked ~pre label[for=r98],
+input[id=r99]:checked ~pre label[for=r99],
+input[id=r100]:checked ~pre label[for=r100],
+input[id=r101]:checked ~pre label[for=r101],
+input[id=r102]:checked ~pre label[for=r102],
+input[id=r103]:checked ~pre label[for=r103],
+input[id=r104]:checked ~pre label[for=r104],
+input[id=r105]:checked ~pre label[for=r105],
+input[id=r106]:checked ~pre label[for=r106],
+input[id=r107]:checked ~pre label[for=r107],
+input[id=r108]:checked ~pre label[for=r108],
+input[id=r109]:checked ~pre label[for=r109],
+input[id=r110]:checked ~pre label[for=r110],
+input[id=r111]:checked ~pre label[for=r111]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1,
+input[id=i2]:checked ~pre .i2
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="r13" type="radio" name="g"/>
+<input id="r14" type="radio" name="g"/>
+<input id="r15" type="radio" name="g"/>
+<input id="r16" type="radio" name="g"/>
+<input id="r17" type="radio" name="g"/>
+<input id="r18" type="radio" name="g"/>
+<input id="r19" type="radio" name="g"/>
+<input id="r20" type="radio" name="g"/>
+<input id="r21" type="radio" name="g"/>
+<input id="r22" type="radio" name="g"/>
+<input id="r23" type="radio" name="g"/>
+<input id="r24" type="radio" name="g"/>
+<input id="r25" type="radio" name="g"/>
+<input id="r26" type="radio" name="g"/>
+<input id="r27" type="radio" name="g"/>
+<input id="r28" type="radio" name="g"/>
+<input id="r29" type="radio" name="g"/>
+<input id="r30" type="radio" name="g"/>
+<input id="r31" type="radio" name="g"/>
+<input id="r32" type="radio" name="g"/>
+<input id="r33" type="radio" name="g"/>
+<input id="r34" type="radio" name="g"/>
+<input id="r35" type="radio" name="g"/>
+<input id="r36" type="radio" name="g"/>
+<input id="r37" type="radio" name="g"/>
+<input id="r38" type="radio" name="g"/>
+<input id="r39" type="radio" name="g"/>
+<input id="r40" type="radio" name="g"/>
+<input id="r41" type="radio" name="g"/>
+<input id="r42" type="radio" name="g"/>
+<input id="r43" type="radio" name="g"/>
+<input id="r44" type="radio" name="g"/>
+<input id="r45" type="radio" name="g"/>
+<input id="r46" type="radio" name="g"/>
+<input id="r47" type="radio" name="g"/>
+<input id="r48" type="radio" name="g"/>
+<input id="r49" type="radio" name="g"/>
+<input id="r50" type="radio" name="g"/>
+<input id="r51" type="radio" name="g"/>
+<input id="r52" type="radio" name="g"/>
+<input id="r53" type="radio" name="g"/>
+<input id="r54" type="radio" name="g"/>
+<input id="r55" type="radio" name="g"/>
+<input id="r56" type="radio" name="g"/>
+<input id="r57" type="radio" name="g"/>
+<input id="r58" type="radio" name="g"/>
+<input id="r59" type="radio" name="g"/>
+<input id="r60" type="radio" name="g"/>
+<input id="r61" type="radio" name="g"/>
+<input id="r62" type="radio" name="g"/>
+<input id="r63" type="radio" name="g"/>
+<input id="r64" type="radio" name="g"/>
+<input id="r65" type="radio" name="g"/>
+<input id="r66" type="radio" name="g"/>
+<input id="r67" type="radio" name="g"/>
+<input id="r68" type="radio" name="g"/>
+<input id="r69" type="radio" name="g"/>
+<input id="r70" type="radio" name="g"/>
+<input id="r71" type="radio" name="g"/>
+<input id="r72" type="radio" name="g"/>
+<input id="r73" type="radio" name="g"/>
+<input id="r74" type="radio" name="g"/>
+<input id="r75" type="radio" name="g"/>
+<input id="r76" type="radio" name="g"/>
+<input id="r77" type="radio" name="g"/>
+<input id="r78" type="radio" name="g"/>
+<input id="r79" type="radio" name="g"/>
+<input id="r80" type="radio" name="g"/>
+<input id="r81" type="radio" name="g"/>
+<input id="r82" type="radio" name="g"/>
+<input id="r83" type="radio" name="g"/>
+<input id="r84" type="radio" name="g"/>
+<input id="r85" type="radio" name="g"/>
+<input id="r86" type="radio" name="g"/>
+<input id="r87" type="radio" name="g"/>
+<input id="r88" type="radio" name="g"/>
+<input id="r89" type="radio" name="g"/>
+<input id="r90" type="radio" name="g"/>
+<input id="r91" type="radio" name="g"/>
+<input id="r92" type="radio" name="g"/>
+<input id="r93" type="radio" name="g"/>
+<input id="r94" type="radio" name="g"/>
+<input id="r95" type="radio" name="g"/>
+<input id="r96" type="radio" name="g"/>
+<input id="r97" type="radio" name="g"/>
+<input id="r98" type="radio" name="g"/>
+<input id="r99" type="radio" name="g"/>
+<input id="r100" type="radio" name="g"/>
+<input id="r101" type="radio" name="g"/>
+<input id="r102" type="radio" name="g"/>
+<input id="r103" type="radio" name="g"/>
+<input id="r104" type="radio" name="g"/>
+<input id="r105" type="radio" name="g"/>
+<input id="r106" type="radio" name="g"/>
+<input id="r107" type="radio" name="g"/>
+<input id="r108" type="radio" name="g"/>
+<input id="r109" type="radio" name="g"/>
+<input id="r110" type="radio" name="g"/>
+<input id="r111" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+<input id="i2" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="comment">// Copyright (C) 2017 ScyllaDB</span></code></span>
+<span class="codeline" id="line-2"><code><span class="comment">// Use of this source code is governed by a ALv2-style</span></code></span>
+<span class="codeline" id="line-3"><code><span class="comment">// license that can be found at https://github.com/scylladb/go-set/LICENSE.</span></code></span>
+<span class="codeline" id="line-4"><code></code></span>
+<span class="codeline" id="line-5"><code><span class="keyword">package</span> strset</code></span>
+<span class="codeline" id="line-6"><code></code></span>
+<span class="codeline" id="line-7"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-8"><code>	<label for="i0"><span class="lit-string i0">"fmt"</span></label></code></span>
+<span class="codeline" id="line-9"><code>	<label for="i1"><span class="lit-string i1">"math"</span></label></code></span>
+<span class="codeline" id="line-10"><code>	<label for="i2"><span class="lit-string i2">"strings"</span></label></code></span>
+<span class="codeline" id="line-11"><code>)</code></span>
+<span class="codeline" id="line-12"><code></code></span>
+<span class="codeline" id="line-13"><code><span class="keyword">var</span> (</code></span>
+<span class="codeline" id="line-14"><code>	<span class="comment">// helpful to not write everywhere struct{}{}</span></code></span>
+<span class="codeline" id="line-15"><code>	<a href="../../../../../pkg/github.com/scylladb/go-set/strset.html#name-keyExists" class="ident">keyExists</a>   = <span class="keyword">struct</span>{}{}</code></span>
+<span class="codeline" id="line-16"><code>	<a href="../../../../../pkg/github.com/scylladb/go-set/strset.html#name-nonExistent" class="ident">nonExistent</a> <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-17"><code>)</code></span>
+<span class="codeline" id="line-18"><code></code></span>
+<span class="codeline" id="line-19"><code><span class="comment">// Set is the main set structure that holds all the data</span></code></span>
+<span class="codeline" id="line-20"><code><span class="comment">// and methods used to working with the set.</span></code></span>
+<span class="codeline" id="line-21"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/scylladb/go-set/strset.html#name-Set" class="ident">Set</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-22"><code>	m <span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>]<span class="keyword">struct</span>{}</code></span>
+<span class="codeline" id="line-23"><code>}</code></span>
+<span class="codeline" id="line-24"><code></code></span>
+<span class="codeline" id="line-25"><code><span class="comment">// New creates and initializes a new Set.</span></code></span>
+<span class="codeline" id="line-26"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../../pkg/github.com/scylladb/go-set/strset.html#name-New" class="ident">New</a></label>(<label for="r1" class="ident">ts</label> ...<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>) *<a href="#line-21" class="ident">Set</a> {</code></span>
+<span class="codeline" id="line-27"><code>	<label for="r2" class="ident">s</label> := <a href="#line-33" class="ident">NewWithSize</a>(<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r1" class="ident">ts</label>))</code></span>
+<span class="codeline" id="line-28"><code>	<label for="r2" class="ident">s</label>.<a href="#line-39" class="ident">Add</a>(<label for="r1" class="ident">ts</label>...)</code></span>
+<span class="codeline" id="line-29"><code>	<span class="keyword">return</span> <label for="r2" class="ident">s</label></code></span>
+<span class="codeline" id="line-30"><code>}</code></span>
+<span class="codeline" id="line-31"><code></code></span>
+<span class="codeline" id="line-32"><code><span class="comment">// NewWithSize creates a new Set and gives make map a size hint.</span></code></span>
+<span class="codeline" id="line-33"><code><span class="keyword">func</span> <label for="r3" class="ident"><a href="../../../../../pkg/github.com/scylladb/go-set/strset.html#name-NewWithSize" class="ident">NewWithSize</a></label>(<label for="r4" class="ident">size</label> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>) *<a href="#line-21" class="ident">Set</a> {</code></span>
+<span class="codeline" id="line-34"><code>	<span class="keyword">return</span> &amp;<a href="#line-21" class="ident">Set</a>{<a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>(<span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>]<span class="keyword">struct</span>{}, <label for="r4" class="ident">size</label>)}</code></span>
+<span class="codeline" id="line-35"><code>}</code></span>
+<span class="codeline" id="line-36"><code></code></span>
+<span class="codeline" id="line-37"><code><span class="comment">// Add includes the specified items (one or more) to the Set. The underlying</span></code></span>
+<span class="codeline" id="line-38"><code><span class="comment">// Set s is modified. If passed nothing it silently returns.</span></code></span>
+<span class="codeline" id="line-39"><code><span class="keyword">func</span> (<label for="r5" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>) <label for="r6" class="ident">Add</label>(<label for="r7" class="ident">items</label> ...<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>) {</code></span>
+<span class="codeline" id="line-40"><code>	<span class="keyword">for</span> <label for="r8" class="ident">_</label>, <label for="r9" class="ident">item</label> := <span class="keyword">range</span> <label for="r7" class="ident">items</label> {</code></span>
+<span class="codeline" id="line-41"><code>		<label for="r5" class="ident">s</label>.<a href="#line-22" class="ident">m</a>[<label for="r9" class="ident">item</label>] = <a href="#line-15" class="ident">keyExists</a></code></span>
+<span class="codeline" id="line-42"><code>	}</code></span>
+<span class="codeline" id="line-43"><code>}</code></span>
+<span class="codeline" id="line-44"><code></code></span>
+<span class="codeline" id="line-45"><code><span class="comment">// Remove deletes the specified items from the Set. The underlying Set s is</span></code></span>
+<span class="codeline" id="line-46"><code><span class="comment">// modified. If passed nothing it silently returns.</span></code></span>
+<span class="codeline" id="line-47"><code><span class="keyword">func</span> (<label for="r10" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>) <label for="r11" class="ident">Remove</label>(<label for="r12" class="ident">items</label> ...<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>) {</code></span>
+<span class="codeline" id="line-48"><code>	<span class="keyword">for</span> <label for="r13" class="ident">_</label>, <label for="r14" class="ident">item</label> := <span class="keyword">range</span> <label for="r12" class="ident">items</label> {</code></span>
+<span class="codeline" id="line-49"><code>		<a href="../../../../../pkg/builtin.html#name-delete" class="ident">delete</a>(<label for="r10" class="ident">s</label>.<a href="#line-22" class="ident">m</a>, <label for="r14" class="ident">item</label>)</code></span>
+<span class="codeline" id="line-50"><code>	}</code></span>
+<span class="codeline" id="line-51"><code>}</code></span>
+<span class="codeline" id="line-52"><code></code></span>
+<span class="codeline" id="line-53"><code><span class="comment">// Pop deletes and returns an item from the Set. The underlying Set s is</span></code></span>
+<span class="codeline" id="line-54"><code><span class="comment">// modified. If Set is empty, the zero value is returned.</span></code></span>
+<span class="codeline" id="line-55"><code><span class="keyword">func</span> (<label for="r15" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>) <label for="r16" class="ident">Pop</label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-56"><code>	<span class="keyword">for</span> <label for="r17" class="ident">item</label> := <span class="keyword">range</span> <label for="r15" class="ident">s</label>.<a href="#line-22" class="ident">m</a> {</code></span>
+<span class="codeline" id="line-57"><code>		<a href="../../../../../pkg/builtin.html#name-delete" class="ident">delete</a>(<label for="r15" class="ident">s</label>.<a href="#line-22" class="ident">m</a>, <label for="r17" class="ident">item</label>)</code></span>
+<span class="codeline" id="line-58"><code>		<span class="keyword">return</span> <label for="r17" class="ident">item</label></code></span>
+<span class="codeline" id="line-59"><code>	}</code></span>
+<span class="codeline" id="line-60"><code>	<span class="keyword">return</span> <a href="#line-16" class="ident">nonExistent</a></code></span>
+<span class="codeline" id="line-61"><code>}</code></span>
+<span class="codeline" id="line-62"><code></code></span>
+<span class="codeline" id="line-63"><code><span class="comment">// Pop2 tries to delete and return an item from the Set. The underlying Set s</span></code></span>
+<span class="codeline" id="line-64"><code><span class="comment">// is modified. The second value is a bool that is true if the item existed in</span></code></span>
+<span class="codeline" id="line-65"><code><span class="comment">// the set, and false if not. If Set is empty, the zero value and false are</span></code></span>
+<span class="codeline" id="line-66"><code><span class="comment">// returned.</span></code></span>
+<span class="codeline" id="line-67"><code><span class="keyword">func</span> (<label for="r18" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>) <label for="r19" class="ident">Pop2</label>() (<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) {</code></span>
+<span class="codeline" id="line-68"><code>	<span class="keyword">for</span> <label for="r20" class="ident">item</label> := <span class="keyword">range</span> <label for="r18" class="ident">s</label>.<a href="#line-22" class="ident">m</a> {</code></span>
+<span class="codeline" id="line-69"><code>		<a href="../../../../../pkg/builtin.html#name-delete" class="ident">delete</a>(<label for="r18" class="ident">s</label>.<a href="#line-22" class="ident">m</a>, <label for="r20" class="ident">item</label>)</code></span>
+<span class="codeline" id="line-70"><code>		<span class="keyword">return</span> <label for="r20" class="ident">item</label>, <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-71"><code>	}</code></span>
+<span class="codeline" id="line-72"><code>	<span class="keyword">return</span> <a href="#line-16" class="ident">nonExistent</a>, <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-73"><code>}</code></span>
+<span class="codeline" id="line-74"><code></code></span>
+<span class="codeline" id="line-75"><code><span class="comment">// Has looks for the existence of items passed. It returns false if nothing is</span></code></span>
+<span class="codeline" id="line-76"><code><span class="comment">// passed. For multiple items it returns true only if all of  the items exist.</span></code></span>
+<span class="codeline" id="line-77"><code><span class="keyword">func</span> (<label for="r21" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>) <label for="r22" class="ident">Has</label>(<label for="r23" class="ident">items</label> ...<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-78"><code>	<label for="r24" class="ident">has</label> := <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-79"><code>	<span class="keyword">for</span> <label for="r25" class="ident">_</label>, <label for="r26" class="ident">item</label> := <span class="keyword">range</span> <label for="r23" class="ident">items</label> {</code></span>
+<span class="codeline" id="line-80"><code>		<span class="keyword">if</span> _, <label for="r24" class="ident">has</label> = <label for="r21" class="ident">s</label>.<a href="#line-22" class="ident">m</a>[<label for="r26" class="ident">item</label>]; !<label for="r24" class="ident">has</label> {</code></span>
+<span class="codeline" id="line-81"><code>			<span class="keyword">break</span></code></span>
+<span class="codeline" id="line-82"><code>		}</code></span>
+<span class="codeline" id="line-83"><code>	}</code></span>
+<span class="codeline" id="line-84"><code>	<span class="keyword">return</span> <label for="r24" class="ident">has</label></code></span>
+<span class="codeline" id="line-85"><code>}</code></span>
+<span class="codeline" id="line-86"><code></code></span>
+<span class="codeline" id="line-87"><code><span class="comment">// HasAny looks for the existence of any of the items passed.</span></code></span>
+<span class="codeline" id="line-88"><code><span class="comment">// It returns false if nothing is passed.</span></code></span>
+<span class="codeline" id="line-89"><code><span class="comment">// For multiple items it returns true if any of the items exist.</span></code></span>
+<span class="codeline" id="line-90"><code><span class="keyword">func</span> (<label for="r27" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>) <label for="r28" class="ident">HasAny</label>(<label for="r29" class="ident">items</label> ...<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-91"><code>	<label for="r30" class="ident">has</label> := <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-92"><code>	<span class="keyword">for</span> <label for="r31" class="ident">_</label>, <label for="r32" class="ident">item</label> := <span class="keyword">range</span> <label for="r29" class="ident">items</label> {</code></span>
+<span class="codeline" id="line-93"><code>		<span class="keyword">if</span> _, <label for="r30" class="ident">has</label> = <label for="r27" class="ident">s</label>.<a href="#line-22" class="ident">m</a>[<label for="r32" class="ident">item</label>]; <label for="r30" class="ident">has</label> {</code></span>
+<span class="codeline" id="line-94"><code>			<span class="keyword">break</span></code></span>
+<span class="codeline" id="line-95"><code>		}</code></span>
+<span class="codeline" id="line-96"><code>	}</code></span>
+<span class="codeline" id="line-97"><code>	<span class="keyword">return</span> <label for="r30" class="ident">has</label></code></span>
+<span class="codeline" id="line-98"><code>}</code></span>
+<span class="codeline" id="line-99"><code></code></span>
+<span class="codeline" id="line-100"><code><span class="comment">// Size returns the number of items in a Set.</span></code></span>
+<span class="codeline" id="line-101"><code><span class="keyword">func</span> (<label for="r33" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>) <label for="r34" class="ident">Size</label>() <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
+<span class="codeline" id="line-102"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r33" class="ident">s</label>.<a href="#line-22" class="ident">m</a>)</code></span>
+<span class="codeline" id="line-103"><code>}</code></span>
+<span class="codeline" id="line-104"><code></code></span>
+<span class="codeline" id="line-105"><code><span class="comment">// Clear removes all items from the Set.</span></code></span>
+<span class="codeline" id="line-106"><code><span class="keyword">func</span> (<label for="r35" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>) <label for="r36" class="ident">Clear</label>() {</code></span>
+<span class="codeline" id="line-107"><code>	<label for="r35" class="ident">s</label>.<a href="#line-22" class="ident">m</a> = <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>(<span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>]<span class="keyword">struct</span>{})</code></span>
+<span class="codeline" id="line-108"><code>}</code></span>
+<span class="codeline" id="line-109"><code></code></span>
+<span class="codeline" id="line-110"><code><span class="comment">// IsEmpty reports whether the Set is empty.</span></code></span>
+<span class="codeline" id="line-111"><code><span class="keyword">func</span> (<label for="r37" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>) <label for="r38" class="ident">IsEmpty</label>() <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-112"><code>	<span class="keyword">return</span> <label for="r37" class="ident">s</label>.<a href="#line-101" class="ident">Size</a>() == <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-113"><code>}</code></span>
+<span class="codeline" id="line-114"><code></code></span>
+<span class="codeline" id="line-115"><code><span class="comment">// IsEqual test whether s and t are the same in size and have the same items.</span></code></span>
+<span class="codeline" id="line-116"><code><span class="keyword">func</span> (<label for="r39" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>) <label for="r40" class="ident">IsEqual</label>(<label for="r41" class="ident">t</label> *<a href="#line-21" class="ident">Set</a>) <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-117"><code>	<span class="comment">// return false if they are no the same size</span></code></span>
+<span class="codeline" id="line-118"><code>	<span class="keyword">if</span> <label for="r39" class="ident">s</label>.<a href="#line-101" class="ident">Size</a>() != <label for="r41" class="ident">t</label>.<a href="#line-101" class="ident">Size</a>() {</code></span>
+<span class="codeline" id="line-119"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-120"><code>	}</code></span>
+<span class="codeline" id="line-121"><code></code></span>
+<span class="codeline" id="line-122"><code>	<label for="r42" class="ident">equal</label> := <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-123"><code>	<label for="r41" class="ident">t</label>.<a href="#line-155" class="ident">Each</a>(<span class="keyword">func</span>(<label for="r43" class="ident">item</label> <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-124"><code>		_, <label for="r42" class="ident">equal</label> = <label for="r39" class="ident">s</label>.<a href="#line-22" class="ident">m</a>[<label for="r43" class="ident">item</label>]</code></span>
+<span class="codeline" id="line-125"><code>		<span class="keyword">return</span> <label for="r42" class="ident">equal</label> <span class="comment">// if false, Each() will end</span></code></span>
+<span class="codeline" id="line-126"><code>	})</code></span>
+<span class="codeline" id="line-127"><code></code></span>
+<span class="codeline" id="line-128"><code>	<span class="keyword">return</span> <label for="r42" class="ident">equal</label></code></span>
+<span class="codeline" id="line-129"><code>}</code></span>
+<span class="codeline" id="line-130"><code></code></span>
+<span class="codeline" id="line-131"><code><span class="comment">// IsSubset tests whether t is a subset of s.</span></code></span>
+<span class="codeline" id="line-132"><code><span class="keyword">func</span> (<label for="r44" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>) <label for="r45" class="ident">IsSubset</label>(<label for="r46" class="ident">t</label> *<a href="#line-21" class="ident">Set</a>) <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-133"><code>	<span class="keyword">if</span> <label for="r44" class="ident">s</label>.<a href="#line-101" class="ident">Size</a>() &lt; <label for="r46" class="ident">t</label>.<a href="#line-101" class="ident">Size</a>() {</code></span>
+<span class="codeline" id="line-134"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-135"><code>	}</code></span>
+<span class="codeline" id="line-136"><code></code></span>
+<span class="codeline" id="line-137"><code>	<label for="r47" class="ident">subset</label> := <a href="../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-138"><code></code></span>
+<span class="codeline" id="line-139"><code>	<label for="r46" class="ident">t</label>.<a href="#line-155" class="ident">Each</a>(<span class="keyword">func</span>(<label for="r48" class="ident">item</label> <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-140"><code>		_, <label for="r47" class="ident">subset</label> = <label for="r44" class="ident">s</label>.<a href="#line-22" class="ident">m</a>[<label for="r48" class="ident">item</label>]</code></span>
+<span class="codeline" id="line-141"><code>		<span class="keyword">return</span> <label for="r47" class="ident">subset</label></code></span>
+<span class="codeline" id="line-142"><code>	})</code></span>
+<span class="codeline" id="line-143"><code></code></span>
+<span class="codeline" id="line-144"><code>	<span class="keyword">return</span> <label for="r47" class="ident">subset</label></code></span>
+<span class="codeline" id="line-145"><code>}</code></span>
+<span class="codeline" id="line-146"><code></code></span>
+<span class="codeline" id="line-147"><code><span class="comment">// IsSuperset tests whether t is a superset of s.</span></code></span>
+<span class="codeline" id="line-148"><code><span class="keyword">func</span> (<label for="r49" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>) <label for="r50" class="ident">IsSuperset</label>(<label for="r51" class="ident">t</label> *<a href="#line-21" class="ident">Set</a>) <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-149"><code>	<span class="keyword">return</span> <label for="r51" class="ident">t</label>.<a href="#line-132" class="ident">IsSubset</a>(<label for="r49" class="ident">s</label>)</code></span>
+<span class="codeline" id="line-150"><code>}</code></span>
+<span class="codeline" id="line-151"><code></code></span>
+<span class="codeline" id="line-152"><code><span class="comment">// Each traverses the items in the Set, calling the provided function for each</span></code></span>
+<span class="codeline" id="line-153"><code><span class="comment">// Set member. Traversal will continue until all items in the Set have been</span></code></span>
+<span class="codeline" id="line-154"><code><span class="comment">// visited, or if the closure returns false.</span></code></span>
+<span class="codeline" id="line-155"><code><span class="keyword">func</span> (<label for="r52" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>) <label for="r53" class="ident">Each</label>(<label for="r54" class="ident">f</label> <span class="keyword">func</span>(<label for="r55" class="ident">item</label> <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) {</code></span>
+<span class="codeline" id="line-156"><code>	<span class="keyword">for</span> <label for="r56" class="ident">item</label> := <span class="keyword">range</span> <label for="r52" class="ident">s</label>.<a href="#line-22" class="ident">m</a> {</code></span>
+<span class="codeline" id="line-157"><code>		<span class="keyword">if</span> !<label for="r54" class="ident">f</label>(<label for="r56" class="ident">item</label>) {</code></span>
+<span class="codeline" id="line-158"><code>			<span class="keyword">break</span></code></span>
+<span class="codeline" id="line-159"><code>		}</code></span>
+<span class="codeline" id="line-160"><code>	}</code></span>
+<span class="codeline" id="line-161"><code>}</code></span>
+<span class="codeline" id="line-162"><code></code></span>
+<span class="codeline" id="line-163"><code><span class="comment">// Copy returns a new Set with a copy of s.</span></code></span>
+<span class="codeline" id="line-164"><code><span class="keyword">func</span> (<label for="r57" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>) <label for="r58" class="ident">Copy</label>() *<a href="#line-21" class="ident">Set</a> {</code></span>
+<span class="codeline" id="line-165"><code>	<label for="r59" class="ident">u</label> := <a href="#line-33" class="ident">NewWithSize</a>(<label for="r57" class="ident">s</label>.<a href="#line-101" class="ident">Size</a>())</code></span>
+<span class="codeline" id="line-166"><code>	<span class="keyword">for</span> <label for="r60" class="ident">item</label> := <span class="keyword">range</span> <label for="r57" class="ident">s</label>.<a href="#line-22" class="ident">m</a> {</code></span>
+<span class="codeline" id="line-167"><code>		<label for="r59" class="ident">u</label>.<a href="#line-22" class="ident">m</a>[<label for="r60" class="ident">item</label>] = <a href="#line-15" class="ident">keyExists</a></code></span>
+<span class="codeline" id="line-168"><code>	}</code></span>
+<span class="codeline" id="line-169"><code>	<span class="keyword">return</span> <label for="r59" class="ident">u</label></code></span>
+<span class="codeline" id="line-170"><code>}</code></span>
+<span class="codeline" id="line-171"><code></code></span>
+<span class="codeline" id="line-172"><code><span class="comment">// String returns a string representation of s</span></code></span>
+<span class="codeline" id="line-173"><code><span class="keyword">func</span> (<label for="r61" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>) <label for="r62" class="ident"><a href="../../../../../imp/github.com/scylladb/go-set/strset.Set.html#name-.String" class="ident">String</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-174"><code>	<label for="r63" class="ident">v</label> := <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <span class="lit-number">0</span>, <label for="r61" class="ident">s</label>.<a href="#line-101" class="ident">Size</a>())</code></span>
+<span class="codeline" id="line-175"><code>	<span class="keyword">for</span> <label for="r64" class="ident">item</label> := <span class="keyword">range</span> <label for="r61" class="ident">s</label>.<a href="#line-22" class="ident">m</a> {</code></span>
+<span class="codeline" id="line-176"><code>		<label for="r63" class="ident">v</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r63" class="ident">v</label>, <a href="../../../../../pkg/fmt.html" class="ident i0">fmt</a>.<a href="../../../../fmt/print.go.html#line-217" class="ident">Sprintf</a>(<span class="lit-string">"%v"</span>, <label for="r64" class="ident">item</label>))</code></span>
+<span class="codeline" id="line-177"><code>	}</code></span>
+<span class="codeline" id="line-178"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i0">fmt</a>.<a href="../../../../fmt/print.go.html#line-217" class="ident">Sprintf</a>(<span class="lit-string">"[%s]"</span>, <a href="../../../../../pkg/strings.html" class="ident i2">strings</a>.<a href="../../../../strings/strings.go.html#line-421" class="ident">Join</a>(<label for="r63" class="ident">v</label>, <span class="lit-string">", "</span>))</code></span>
+<span class="codeline" id="line-179"><code>}</code></span>
+<span class="codeline" id="line-180"><code></code></span>
+<span class="codeline" id="line-181"><code><span class="comment">// List returns a slice of all items. There is also StringSlice() and</span></code></span>
+<span class="codeline" id="line-182"><code><span class="comment">// IntSlice() methods for returning slices of type string or int.</span></code></span>
+<span class="codeline" id="line-183"><code><span class="keyword">func</span> (<label for="r65" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>) <label for="r66" class="ident">List</label>() []<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-184"><code>	<label for="r67" class="ident">v</label> := <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>([]<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <span class="lit-number">0</span>, <label for="r65" class="ident">s</label>.<a href="#line-101" class="ident">Size</a>())</code></span>
+<span class="codeline" id="line-185"><code>	<span class="keyword">for</span> <label for="r68" class="ident">item</label> := <span class="keyword">range</span> <label for="r65" class="ident">s</label>.<a href="#line-22" class="ident">m</a> {</code></span>
+<span class="codeline" id="line-186"><code>		<label for="r67" class="ident">v</label> = <a href="../../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r67" class="ident">v</label>, <label for="r68" class="ident">item</label>)</code></span>
+<span class="codeline" id="line-187"><code>	}</code></span>
+<span class="codeline" id="line-188"><code>	<span class="keyword">return</span> <label for="r67" class="ident">v</label></code></span>
+<span class="codeline" id="line-189"><code>}</code></span>
+<span class="codeline" id="line-190"><code></code></span>
+<span class="codeline" id="line-191"><code><span class="comment">// Merge is like Union, however it modifies the current Set it's applied on</span></code></span>
+<span class="codeline" id="line-192"><code><span class="comment">// with the given t Set.</span></code></span>
+<span class="codeline" id="line-193"><code><span class="keyword">func</span> (<label for="r69" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>) <label for="r70" class="ident">Merge</label>(<label for="r71" class="ident">t</label> *<a href="#line-21" class="ident">Set</a>) {</code></span>
+<span class="codeline" id="line-194"><code>	<span class="keyword">for</span> <label for="r72" class="ident">item</label> := <span class="keyword">range</span> <label for="r71" class="ident">t</label>.<a href="#line-22" class="ident">m</a> {</code></span>
+<span class="codeline" id="line-195"><code>		<label for="r69" class="ident">s</label>.<a href="#line-22" class="ident">m</a>[<label for="r72" class="ident">item</label>] = <a href="#line-15" class="ident">keyExists</a></code></span>
+<span class="codeline" id="line-196"><code>	}</code></span>
+<span class="codeline" id="line-197"><code>}</code></span>
+<span class="codeline" id="line-198"><code></code></span>
+<span class="codeline" id="line-199"><code><span class="comment">// Separate removes the Set items containing in t from Set s. Please aware that</span></code></span>
+<span class="codeline" id="line-200"><code><span class="comment">// it's not the opposite of Merge.</span></code></span>
+<span class="codeline" id="line-201"><code><span class="keyword">func</span> (<label for="r73" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>) <label for="r74" class="ident">Separate</label>(<label for="r75" class="ident">t</label> *<a href="#line-21" class="ident">Set</a>) {</code></span>
+<span class="codeline" id="line-202"><code>	<span class="keyword">for</span> <label for="r76" class="ident">item</label> := <span class="keyword">range</span> <label for="r75" class="ident">t</label>.<a href="#line-22" class="ident">m</a> {</code></span>
+<span class="codeline" id="line-203"><code>		<a href="../../../../../pkg/builtin.html#name-delete" class="ident">delete</a>(<label for="r73" class="ident">s</label>.<a href="#line-22" class="ident">m</a>, <label for="r76" class="ident">item</label>)</code></span>
+<span class="codeline" id="line-204"><code>	}</code></span>
+<span class="codeline" id="line-205"><code>}</code></span>
+<span class="codeline" id="line-206"><code></code></span>
+<span class="codeline" id="line-207"><code><span class="comment">// Union is the merger of multiple sets. It returns a new set with all the</span></code></span>
+<span class="codeline" id="line-208"><code><span class="comment">// elements present in all the sets that are passed.</span></code></span>
+<span class="codeline" id="line-209"><code><span class="keyword">func</span> <label for="r77" class="ident"><a href="../../../../../pkg/github.com/scylladb/go-set/strset.html#name-Union" class="ident">Union</a></label>(<label for="r78" class="ident">sets</label> ...*<a href="#line-21" class="ident">Set</a>) *<a href="#line-21" class="ident">Set</a> {</code></span>
+<span class="codeline" id="line-210"><code>	<label for="r79" class="ident">maxPos</label> := -<span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-211"><code>	<label for="r80" class="ident">maxSize</label> := <span class="lit-number">0</span></code></span>
+<span class="codeline" id="line-212"><code>	<span class="keyword">for</span> <label for="r81" class="ident">i</label>, <label for="r82" class="ident">set</label> := <span class="keyword">range</span> <label for="r78" class="ident">sets</label> {</code></span>
+<span class="codeline" id="line-213"><code>		<span class="keyword">if</span> <label for="r83" class="ident">l</label> := <label for="r82" class="ident">set</label>.<a href="#line-101" class="ident">Size</a>(); <label for="r83" class="ident">l</label> &gt; <label for="r80" class="ident">maxSize</label> {</code></span>
+<span class="codeline" id="line-214"><code>			<label for="r80" class="ident">maxSize</label> = <label for="r83" class="ident">l</label></code></span>
+<span class="codeline" id="line-215"><code>			<label for="r79" class="ident">maxPos</label> = <label for="r81" class="ident">i</label></code></span>
+<span class="codeline" id="line-216"><code>		}</code></span>
+<span class="codeline" id="line-217"><code>	}</code></span>
+<span class="codeline" id="line-218"><code>	<span class="keyword">if</span> <label for="r80" class="ident">maxSize</label> == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-219"><code>		<span class="keyword">return</span> <a href="#line-26" class="ident">New</a>()</code></span>
+<span class="codeline" id="line-220"><code>	}</code></span>
+<span class="codeline" id="line-221"><code></code></span>
+<span class="codeline" id="line-222"><code>	<label for="r84" class="ident">u</label> := <label for="r78" class="ident">sets</label>[<label for="r79" class="ident">maxPos</label>].<a href="#line-164" class="ident">Copy</a>()</code></span>
+<span class="codeline" id="line-223"><code>	<span class="keyword">for</span> <label for="r85" class="ident">i</label>, <label for="r86" class="ident">set</label> := <span class="keyword">range</span> <label for="r78" class="ident">sets</label> {</code></span>
+<span class="codeline" id="line-224"><code>		<span class="keyword">if</span> <label for="r85" class="ident">i</label> == <label for="r79" class="ident">maxPos</label> {</code></span>
+<span class="codeline" id="line-225"><code>			<span class="keyword">continue</span></code></span>
+<span class="codeline" id="line-226"><code>		}</code></span>
+<span class="codeline" id="line-227"><code>		<span class="keyword">for</span> <label for="r87" class="ident">item</label> := <span class="keyword">range</span> <label for="r86" class="ident">set</label>.<a href="#line-22" class="ident">m</a> {</code></span>
+<span class="codeline" id="line-228"><code>			<label for="r84" class="ident">u</label>.<a href="#line-22" class="ident">m</a>[<label for="r87" class="ident">item</label>] = <a href="#line-15" class="ident">keyExists</a></code></span>
+<span class="codeline" id="line-229"><code>		}</code></span>
+<span class="codeline" id="line-230"><code>	}</code></span>
+<span class="codeline" id="line-231"><code>	<span class="keyword">return</span> <label for="r84" class="ident">u</label></code></span>
+<span class="codeline" id="line-232"><code>}</code></span>
+<span class="codeline" id="line-233"><code></code></span>
+<span class="codeline" id="line-234"><code><span class="comment">// Difference returns a new set which contains items which are in in the first</span></code></span>
+<span class="codeline" id="line-235"><code><span class="comment">// set but not in the others.</span></code></span>
+<span class="codeline" id="line-236"><code><span class="keyword">func</span> <label for="r88" class="ident"><a href="../../../../../pkg/github.com/scylladb/go-set/strset.html#name-Difference" class="ident">Difference</a></label>(<label for="r89" class="ident">set1</label> *<a href="#line-21" class="ident">Set</a>, <label for="r90" class="ident">sets</label> ...*<a href="#line-21" class="ident">Set</a>) *<a href="#line-21" class="ident">Set</a> {</code></span>
+<span class="codeline" id="line-237"><code>	<label for="r91" class="ident">s</label> := <label for="r89" class="ident">set1</label>.<a href="#line-164" class="ident">Copy</a>()</code></span>
+<span class="codeline" id="line-238"><code>	<span class="keyword">for</span> <label for="r92" class="ident">_</label>, <label for="r93" class="ident">set</label> := <span class="keyword">range</span> <label for="r90" class="ident">sets</label> {</code></span>
+<span class="codeline" id="line-239"><code>		<label for="r91" class="ident">s</label>.<a href="#line-201" class="ident">Separate</a>(<label for="r93" class="ident">set</label>)</code></span>
+<span class="codeline" id="line-240"><code>	}</code></span>
+<span class="codeline" id="line-241"><code>	<span class="keyword">return</span> <label for="r91" class="ident">s</label></code></span>
+<span class="codeline" id="line-242"><code>}</code></span>
+<span class="codeline" id="line-243"><code></code></span>
+<span class="codeline" id="line-244"><code><span class="comment">// Intersection returns a new set which contains items that only exist in all</span></code></span>
+<span class="codeline" id="line-245"><code><span class="comment">// given sets.</span></code></span>
+<span class="codeline" id="line-246"><code><span class="keyword">func</span> <label for="r94" class="ident"><a href="../../../../../pkg/github.com/scylladb/go-set/strset.html#name-Intersection" class="ident">Intersection</a></label>(<label for="r95" class="ident">sets</label> ...*<a href="#line-21" class="ident">Set</a>) *<a href="#line-21" class="ident">Set</a> {</code></span>
+<span class="codeline" id="line-247"><code>	<label for="r96" class="ident">minPos</label> := -<span class="lit-number">1</span></code></span>
+<span class="codeline" id="line-248"><code>	<label for="r97" class="ident">minSize</label> := <a href="../../../../../pkg/math.html" class="ident i1">math</a>.<a href="../../../../math/const.go.html#line-46" class="ident">MaxInt64</a></code></span>
+<span class="codeline" id="line-249"><code>	<span class="keyword">for</span> <label for="r98" class="ident">i</label>, <label for="r99" class="ident">set</label> := <span class="keyword">range</span> <label for="r95" class="ident">sets</label> {</code></span>
+<span class="codeline" id="line-250"><code>		<span class="keyword">if</span> <label for="r100" class="ident">l</label> := <label for="r99" class="ident">set</label>.<a href="#line-101" class="ident">Size</a>(); <label for="r100" class="ident">l</label> &lt; <label for="r97" class="ident">minSize</label> {</code></span>
+<span class="codeline" id="line-251"><code>			<label for="r97" class="ident">minSize</label> = <label for="r100" class="ident">l</label></code></span>
+<span class="codeline" id="line-252"><code>			<label for="r96" class="ident">minPos</label> = <label for="r98" class="ident">i</label></code></span>
+<span class="codeline" id="line-253"><code>		}</code></span>
+<span class="codeline" id="line-254"><code>	}</code></span>
+<span class="codeline" id="line-255"><code>	<span class="keyword">if</span> <label for="r97" class="ident">minSize</label> == <a href="../../../../../pkg/math.html" class="ident i1">math</a>.<a href="../../../../math/const.go.html#line-46" class="ident">MaxInt64</a> || <label for="r97" class="ident">minSize</label> == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-256"><code>		<span class="keyword">return</span> <a href="#line-26" class="ident">New</a>()</code></span>
+<span class="codeline" id="line-257"><code>	}</code></span>
+<span class="codeline" id="line-258"><code></code></span>
+<span class="codeline" id="line-259"><code>	<label for="r101" class="ident">t</label> := <label for="r95" class="ident">sets</label>[<label for="r96" class="ident">minPos</label>].<a href="#line-164" class="ident">Copy</a>()</code></span>
+<span class="codeline" id="line-260"><code>	<span class="keyword">for</span> <label for="r102" class="ident">i</label>, <label for="r103" class="ident">set</label> := <span class="keyword">range</span> <label for="r95" class="ident">sets</label> {</code></span>
+<span class="codeline" id="line-261"><code>		<span class="keyword">if</span> <label for="r102" class="ident">i</label> == <label for="r96" class="ident">minPos</label> {</code></span>
+<span class="codeline" id="line-262"><code>			<span class="keyword">continue</span></code></span>
+<span class="codeline" id="line-263"><code>		}</code></span>
+<span class="codeline" id="line-264"><code>		<span class="keyword">for</span> <label for="r104" class="ident">item</label> := <span class="keyword">range</span> <label for="r101" class="ident">t</label>.<a href="#line-22" class="ident">m</a> {</code></span>
+<span class="codeline" id="line-265"><code>			<span class="keyword">if</span> <label for="r105" class="ident">_</label>, <label for="r106" class="ident">has</label> := <label for="r103" class="ident">set</label>.<a href="#line-22" class="ident">m</a>[<label for="r104" class="ident">item</label>]; !<label for="r106" class="ident">has</label> {</code></span>
+<span class="codeline" id="line-266"><code>				<a href="../../../../../pkg/builtin.html#name-delete" class="ident">delete</a>(<label for="r101" class="ident">t</label>.<a href="#line-22" class="ident">m</a>, <label for="r104" class="ident">item</label>)</code></span>
+<span class="codeline" id="line-267"><code>			}</code></span>
+<span class="codeline" id="line-268"><code>		}</code></span>
+<span class="codeline" id="line-269"><code>	}</code></span>
+<span class="codeline" id="line-270"><code>	<span class="keyword">return</span> <label for="r101" class="ident">t</label></code></span>
+<span class="codeline" id="line-271"><code>}</code></span>
+<span class="codeline" id="line-272"><code></code></span>
+<span class="codeline" id="line-273"><code><span class="comment">// SymmetricDifference returns a new set which s is the difference of items</span></code></span>
+<span class="codeline" id="line-274"><code><span class="comment">// which are in one of either, but not in both.</span></code></span>
+<span class="codeline" id="line-275"><code><span class="keyword">func</span> <label for="r107" class="ident"><a href="../../../../../pkg/github.com/scylladb/go-set/strset.html#name-SymmetricDifference" class="ident">SymmetricDifference</a></label>(<label for="r108" class="ident">s</label> *<a href="#line-21" class="ident">Set</a>, <label for="r109" class="ident">t</label> *<a href="#line-21" class="ident">Set</a>) *<a href="#line-21" class="ident">Set</a> {</code></span>
+<span class="codeline" id="line-276"><code>	<label for="r110" class="ident">u</label> := <a href="#line-236" class="ident">Difference</a>(<label for="r108" class="ident">s</label>, <label for="r109" class="ident">t</label>)</code></span>
+<span class="codeline" id="line-277"><code>	<label for="r111" class="ident">v</label> := <a href="#line-236" class="ident">Difference</a>(<label for="r109" class="ident">t</label>, <label for="r108" class="ident">s</label>)</code></span>
+<span class="codeline" id="line-278"><code>	<span class="keyword">return</span> <a href="#line-209" class="ident">Union</a>(<label for="r110" class="ident">u</label>, <label for="r111" class="ident">v</label>)</code></span>
+<span class="codeline" id="line-279"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: universal.go in package github.com/Golang-Tools/jwthelper</title>
+<link href="../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	universal.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper.html">github.com/Golang-Tools/jwthelper</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1,
+input[id=i2]:checked ~pre .i2
+{background: brown; color: #eed;}
+</style><input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+<input id="i2" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<div class="anchor" id="doc"><span class="codeline" id="line-1"><code><span class="comment">//jwthelper 定义该项目下的各种对象接口</span></code></span></div><span class="codeline" id="line-2"><code><span class="keyword">package</span> jwthelper</code></span>
+<span class="codeline" id="line-3"><code></code></span>
+<span class="codeline" id="line-4"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-5"><code>	<label for="i0"><span class="lit-string i0">"time"</span></label></code></span>
+<span class="codeline" id="line-6"><code></code></span>
+<span class="codeline" id="line-7"><code>	<label for="i1"><span class="lit-string i1">"github.com/Golang-Tools/jwthelper/jwt_pb"</span></label></code></span>
+<span class="codeline" id="line-8"><code>	<label for="i2"><span class="lit-string i2">"github.com/Golang-Tools/jwthelper/signoptions"</span></label></code></span>
+<span class="codeline" id="line-9"><code>)</code></span>
+<span class="codeline" id="line-10"><code></code></span>
+<span class="codeline" id="line-11"><code><span class="comment">//UniversalJwtSigner 通用jwt的签名器</span></code></span>
+<span class="codeline" id="line-12"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper.html#name-UniversalJwtSigner" class="ident">UniversalJwtSigner</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-13"><code>	<span class="comment">//Meta 查看签名器元信息</span></code></span>
+<span class="codeline" id="line-14"><code>	<a href="../../../../imp/github.com/Golang-Tools^b0a0c/jwthelper.UniversalJwtSigner.html#name-Meta" class="ident">Meta</a>() *<a href="../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/jwt_pb.html" class="ident i1">jwt_pb</a>.<a href="jwt_pb/jwt.pb.go.html#line-139" class="ident">SignerMeta</a></code></span>
+<span class="codeline" id="line-15"><code>	<span class="comment">// Sign 签名一个token</span></code></span>
+<span class="codeline" id="line-16"><code>	<a href="../../../../imp/github.com/Golang-Tools^b0a0c/jwthelper.UniversalJwtSigner.html#name-Sign" class="ident">Sign</a>(payload <span class="keyword">interface</span>{}, opts ...<a href="../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/signoptions.html" class="ident i2">signoptions</a>.<a href="signoptions/signoptions.go.html#line-22" class="ident">SignOption</a>) (*<a href="../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/jwt_pb.html" class="ident i1">jwt_pb</a>.<a href="jwt_pb/jwt.pb.go.html#line-281" class="ident">Token</a>, <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>)</code></span>
+<span class="codeline" id="line-17"><code>}</code></span>
+<span class="codeline" id="line-18"><code></code></span>
+<span class="codeline" id="line-19"><code><span class="comment">//UniversalJwtVerifier 通用jwt的签名器</span></code></span>
+<span class="codeline" id="line-20"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper.html#name-UniversalJwtVerifier" class="ident">UniversalJwtVerifier</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-21"><code>	<span class="comment">//Meta 查看签名器元信息</span></code></span>
+<span class="codeline" id="line-22"><code>	<a href="../../../../imp/github.com/Golang-Tools^b0a0c/jwthelper.UniversalJwtVerifier.html#name-Meta" class="ident">Meta</a>() *<a href="../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/jwt_pb.html" class="ident i1">jwt_pb</a>.<a href="jwt_pb/jwt.pb.go.html#line-218" class="ident">VerifierMeta</a></code></span>
+<span class="codeline" id="line-23"><code>	<span class="comment">// 校验一个签名是否复合</span></code></span>
+<span class="codeline" id="line-24"><code>	<a href="../../../../imp/github.com/Golang-Tools^b0a0c/jwthelper.UniversalJwtVerifier.html#name-Verify" class="ident">Verify</a>(token *<a href="../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/jwt_pb.html" class="ident i1">jwt_pb</a>.<a href="jwt_pb/jwt.pb.go.html#line-281" class="ident">Token</a>, payload <span class="keyword">interface</span>{}, opts ...<a href="../../../../pkg/github.com/Golang-Tools^b0a0c/jwthelper/signoptions.html" class="ident i2">signoptions</a>.<a href="signoptions/signoptions.go.html#line-22" class="ident">SignOption</a>) (<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>, <a href="../../../../pkg/time.html" class="ident i0">time</a>.<a href="../../../time/time.go.html#line-583" class="ident">Duration</a>, <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>)</code></span>
+<span class="codeline" id="line-25"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>
