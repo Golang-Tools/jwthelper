@@ -14,126 +14,126 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// JwtServiceClient is the client API for JwtService service.
+// JwtsignerClient is the client API for Jwtsigner service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type JwtServiceClient interface {
+type JwtsignerClient interface {
 	//查看jwt服务元信息的算法
 	Meta(ctx context.Context, in *MetaRequest, opts ...grpc.CallOption) (*MetaResponse, error)
 	// Sign 为JSON字符串签名
 	Sign(ctx context.Context, in *SignRequest, opts ...grpc.CallOption) (*SignResponse, error)
 }
 
-type jwtServiceClient struct {
+type jwtsignerClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewJwtServiceClient(cc grpc.ClientConnInterface) JwtServiceClient {
-	return &jwtServiceClient{cc}
+func NewJwtsignerClient(cc grpc.ClientConnInterface) JwtsignerClient {
+	return &jwtsignerClient{cc}
 }
 
-func (c *jwtServiceClient) Meta(ctx context.Context, in *MetaRequest, opts ...grpc.CallOption) (*MetaResponse, error) {
+func (c *jwtsignerClient) Meta(ctx context.Context, in *MetaRequest, opts ...grpc.CallOption) (*MetaResponse, error) {
 	out := new(MetaResponse)
-	err := c.cc.Invoke(ctx, "/jwt.signer.JwtService/Meta", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/jwt.signer.jwtsigner/Meta", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *jwtServiceClient) Sign(ctx context.Context, in *SignRequest, opts ...grpc.CallOption) (*SignResponse, error) {
+func (c *jwtsignerClient) Sign(ctx context.Context, in *SignRequest, opts ...grpc.CallOption) (*SignResponse, error) {
 	out := new(SignResponse)
-	err := c.cc.Invoke(ctx, "/jwt.signer.JwtService/Sign", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/jwt.signer.jwtsigner/Sign", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// JwtServiceServer is the server API for JwtService service.
-// All implementations must embed UnimplementedJwtServiceServer
+// JwtsignerServer is the server API for Jwtsigner service.
+// All implementations must embed UnimplementedJwtsignerServer
 // for forward compatibility
-type JwtServiceServer interface {
+type JwtsignerServer interface {
 	//查看jwt服务元信息的算法
 	Meta(context.Context, *MetaRequest) (*MetaResponse, error)
 	// Sign 为JSON字符串签名
 	Sign(context.Context, *SignRequest) (*SignResponse, error)
-	mustEmbedUnimplementedJwtServiceServer()
+	mustEmbedUnimplementedJwtsignerServer()
 }
 
-// UnimplementedJwtServiceServer must be embedded to have forward compatible implementations.
-type UnimplementedJwtServiceServer struct {
+// UnimplementedJwtsignerServer must be embedded to have forward compatible implementations.
+type UnimplementedJwtsignerServer struct {
 }
 
-func (UnimplementedJwtServiceServer) Meta(context.Context, *MetaRequest) (*MetaResponse, error) {
+func (UnimplementedJwtsignerServer) Meta(context.Context, *MetaRequest) (*MetaResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Meta not implemented")
 }
-func (UnimplementedJwtServiceServer) Sign(context.Context, *SignRequest) (*SignResponse, error) {
+func (UnimplementedJwtsignerServer) Sign(context.Context, *SignRequest) (*SignResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Sign not implemented")
 }
-func (UnimplementedJwtServiceServer) mustEmbedUnimplementedJwtServiceServer() {}
+func (UnimplementedJwtsignerServer) mustEmbedUnimplementedJwtsignerServer() {}
 
-// UnsafeJwtServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to JwtServiceServer will
+// UnsafeJwtsignerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to JwtsignerServer will
 // result in compilation errors.
-type UnsafeJwtServiceServer interface {
-	mustEmbedUnimplementedJwtServiceServer()
+type UnsafeJwtsignerServer interface {
+	mustEmbedUnimplementedJwtsignerServer()
 }
 
-func RegisterJwtServiceServer(s grpc.ServiceRegistrar, srv JwtServiceServer) {
-	s.RegisterService(&JwtService_ServiceDesc, srv)
+func RegisterJwtsignerServer(s grpc.ServiceRegistrar, srv JwtsignerServer) {
+	s.RegisterService(&Jwtsigner_ServiceDesc, srv)
 }
 
-func _JwtService_Meta_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Jwtsigner_Meta_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(MetaRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(JwtServiceServer).Meta(ctx, in)
+		return srv.(JwtsignerServer).Meta(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/jwt.signer.JwtService/Meta",
+		FullMethod: "/jwt.signer.jwtsigner/Meta",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JwtServiceServer).Meta(ctx, req.(*MetaRequest))
+		return srv.(JwtsignerServer).Meta(ctx, req.(*MetaRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _JwtService_Sign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Jwtsigner_Sign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SignRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(JwtServiceServer).Sign(ctx, in)
+		return srv.(JwtsignerServer).Sign(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/jwt.signer.JwtService/Sign",
+		FullMethod: "/jwt.signer.jwtsigner/Sign",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JwtServiceServer).Sign(ctx, req.(*SignRequest))
+		return srv.(JwtsignerServer).Sign(ctx, req.(*SignRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// JwtService_ServiceDesc is the grpc.ServiceDesc for JwtService service.
+// Jwtsigner_ServiceDesc is the grpc.ServiceDesc for Jwtsigner service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var JwtService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "jwt.signer.JwtService",
-	HandlerType: (*JwtServiceServer)(nil),
+var Jwtsigner_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "jwt.signer.jwtsigner",
+	HandlerType: (*JwtsignerServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Meta",
-			Handler:    _JwtService_Meta_Handler,
+			Handler:    _Jwtsigner_Meta_Handler,
 		},
 		{
 			MethodName: "Sign",
-			Handler:    _JwtService_Sign_Handler,
+			Handler:    _Jwtsigner_Sign_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

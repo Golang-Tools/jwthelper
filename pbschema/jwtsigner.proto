@@ -2,7 +2,8 @@ syntax = "proto3";
 package jwt.signer;
 option go_package = "./jwtsigner_pb";
 import "pbschema/jwt.proto";
-service JwtService {
+
+service jwtsigner {
     //查看jwt服务元信息的算法
     rpc Meta (MetaRequest) returns (MetaResponse){}
     // Sign 为JSON字符串签名

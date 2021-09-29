@@ -1,5 +1,8 @@
 {
     "author": "mac",
     "env": "gomod",
-    "version": "0.0.0"
+    "version": "0.0.0",
+    "added_components": {
+        "cp_go_grpc@v0.0.3//simpleserv": "cmd/verifierrpc"
+    }
 }

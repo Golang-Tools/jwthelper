@@ -14,126 +14,126 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// JwtServiceClient is the client API for JwtService service.
+// JwtverifierClient is the client API for Jwtverifier service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type JwtServiceClient interface {
+type JwtverifierClient interface {
 	//查看jwt服务元信息的算法
 	Meta(ctx context.Context, in *MetaRequest, opts ...grpc.CallOption) (*MetaResponse, error)
 	// Verify 将token解析到的负载转码为JSON字符串返回
 	Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*VerifyResponse, error)
 }
 
-type jwtServiceClient struct {
+type jwtverifierClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewJwtServiceClient(cc grpc.ClientConnInterface) JwtServiceClient {
-	return &jwtServiceClient{cc}
+func NewJwtverifierClient(cc grpc.ClientConnInterface) JwtverifierClient {
+	return &jwtverifierClient{cc}
 }
 
-func (c *jwtServiceClient) Meta(ctx context.Context, in *MetaRequest, opts ...grpc.CallOption) (*MetaResponse, error) {
+func (c *jwtverifierClient) Meta(ctx context.Context, in *MetaRequest, opts ...grpc.CallOption) (*MetaResponse, error) {
 	out := new(MetaResponse)
-	err := c.cc.Invoke(ctx, "/jwt.verifier.JwtService/Meta", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/jwt.verifier.jwtverifier/Meta", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *jwtServiceClient) Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*VerifyResponse, error) {
+func (c *jwtverifierClient) Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*VerifyResponse, error) {
 	out := new(VerifyResponse)
-	err := c.cc.Invoke(ctx, "/jwt.verifier.JwtService/Verify", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/jwt.verifier.jwtverifier/Verify", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// JwtServiceServer is the server API for JwtService service.
-// All implementations must embed UnimplementedJwtServiceServer
+// JwtverifierServer is the server API for Jwtverifier service.
+// All implementations must embed UnimplementedJwtverifierServer
 // for forward compatibility
-type JwtServiceServer interface {
+type JwtverifierServer interface {
 	//查看jwt服务元信息的算法
 	Meta(context.Context, *MetaRequest) (*MetaResponse, error)
 	// Verify 将token解析到的负载转码为JSON字符串返回
 	Verify(context.Context, *VerifyRequest) (*VerifyResponse, error)
-	mustEmbedUnimplementedJwtServiceServer()
+	mustEmbedUnimplementedJwtverifierServer()
 }
 
-// UnimplementedJwtServiceServer must be embedded to have forward compatible implementations.
-type UnimplementedJwtServiceServer struct {
+// UnimplementedJwtverifierServer must be embedded to have forward compatible implementations.
+type UnimplementedJwtverifierServer struct {
 }
 
-func (UnimplementedJwtServiceServer) Meta(context.Context, *MetaRequest) (*MetaResponse, error) {
+func (UnimplementedJwtverifierServer) Meta(context.Context, *MetaRequest) (*MetaResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Meta not implemented")
 }
-func (UnimplementedJwtServiceServer) Verify(context.Context, *VerifyRequest) (*VerifyResponse, error) {
+func (UnimplementedJwtverifierServer) Verify(context.Context, *VerifyRequest) (*VerifyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Verify not implemented")
 }
-func (UnimplementedJwtServiceServer) mustEmbedUnimplementedJwtServiceServer() {}
+func (UnimplementedJwtverifierServer) mustEmbedUnimplementedJwtverifierServer() {}
 
-// UnsafeJwtServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to JwtServiceServer will
+// UnsafeJwtverifierServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to JwtverifierServer will
 // result in compilation errors.
-type UnsafeJwtServiceServer interface {
-	mustEmbedUnimplementedJwtServiceServer()
+type UnsafeJwtverifierServer interface {
+	mustEmbedUnimplementedJwtverifierServer()
 }
 
-func RegisterJwtServiceServer(s grpc.ServiceRegistrar, srv JwtServiceServer) {
-	s.RegisterService(&JwtService_ServiceDesc, srv)
+func RegisterJwtverifierServer(s grpc.ServiceRegistrar, srv JwtverifierServer) {
+	s.RegisterService(&Jwtverifier_ServiceDesc, srv)
 }
 
-func _JwtService_Meta_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Jwtverifier_Meta_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(MetaRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(JwtServiceServer).Meta(ctx, in)
+		return srv.(JwtverifierServer).Meta(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/jwt.verifier.JwtService/Meta",
+		FullMethod: "/jwt.verifier.jwtverifier/Meta",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JwtServiceServer).Meta(ctx, req.(*MetaRequest))
+		return srv.(JwtverifierServer).Meta(ctx, req.(*MetaRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _JwtService_Verify_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Jwtverifier_Verify_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(VerifyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(JwtServiceServer).Verify(ctx, in)
+		return srv.(JwtverifierServer).Verify(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/jwt.verifier.JwtService/Verify",
+		FullMethod: "/jwt.verifier.jwtverifier/Verify",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(JwtServiceServer).Verify(ctx, req.(*VerifyRequest))
+		return srv.(JwtverifierServer).Verify(ctx, req.(*VerifyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// JwtService_ServiceDesc is the grpc.ServiceDesc for JwtService service.
+// Jwtverifier_ServiceDesc is the grpc.ServiceDesc for Jwtverifier service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var JwtService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "jwt.verifier.JwtService",
-	HandlerType: (*JwtServiceServer)(nil),
+var Jwtverifier_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "jwt.verifier.jwtverifier",
+	HandlerType: (*JwtverifierServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Meta",
-			Handler:    _JwtService_Meta_Handler,
+			Handler:    _Jwtverifier_Meta_Handler,
 		},
 		{
 			MethodName: "Verify",
-			Handler:    _JwtService_Verify_Handler,
+			Handler:    _Jwtverifier_Verify_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

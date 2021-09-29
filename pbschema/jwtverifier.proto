@@ -2,7 +2,8 @@ syntax = "proto3";
 package jwt.verifier;
 option go_package = "./jwtverifier_pb";
 import "pbschema/jwt.proto";
-service JwtService {
+
+service jwtverifier {
     //查看jwt服务元信息的算法
     rpc Meta (MetaRequest) returns (MetaResponse){}
     // Verify 将token解析到的负载转码为JSON字符串返回
