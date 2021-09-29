@@ -14,6 +14,18 @@ import (
 //AlgoStrTOAlgoEnum 加密算法名转化为算法枚举值
 func AlgoStrTOAlgoEnum(methodstr string) (jwt_pb.EncryptionAlgorithm, error) {
 	switch strings.ToUpper(methodstr) {
+	case "HS256":
+		{
+			return jwt_pb.EncryptionAlgorithm_HS256, nil
+		}
+	case "HS384":
+		{
+			return jwt_pb.EncryptionAlgorithm_HS384, nil
+		}
+	case "HS512":
+		{
+			return jwt_pb.EncryptionAlgorithm_HS512, nil
+		}
 	case "RS256":
 		{
 			return jwt_pb.EncryptionAlgorithm_RS256, nil
@@ -34,28 +46,20 @@ func AlgoStrTOAlgoEnum(methodstr string) (jwt_pb.EncryptionAlgorithm, error) {
 		{
 			return jwt_pb.EncryptionAlgorithm_ES512, nil
 		}
-	case "HS256":
+	case "EdDSA":
 		{
-			return jwt_pb.EncryptionAlgorithm_HS256, nil
-		}
-	case "HS384":
-		{
-			return jwt_pb.EncryptionAlgorithm_HS384, nil
-		}
-	case "HS512":
-		{
-			return jwt_pb.EncryptionAlgorithm_HS512, nil
+			return jwt_pb.EncryptionAlgorithm_EdDSA, nil
 		}
 	default:
 		{
-			return 0, exceptions.ErrAlgoType
+			return jwt_pb.EncryptionAlgorithm_UNKNOWN, exceptions.ErrAlgoType
 		}
 	}
 }
 
 //IsAsymmetric 算法在非对称加密支持的算法范围
 func IsAsymmetric(method jwt_pb.EncryptionAlgorithm) bool {
-	if method == jwt_pb.EncryptionAlgorithm_RS256 || method == jwt_pb.EncryptionAlgorithm_RS384 || method == jwt_pb.EncryptionAlgorithm_RS512 || method == jwt_pb.EncryptionAlgorithm_ES256 || method == jwt_pb.EncryptionAlgorithm_ES384 || method == jwt_pb.EncryptionAlgorithm_ES512 {
+	if method == jwt_pb.EncryptionAlgorithm_RS256 || method == jwt_pb.EncryptionAlgorithm_RS384 || method == jwt_pb.EncryptionAlgorithm_RS512 || method == jwt_pb.EncryptionAlgorithm_ES256 || method == jwt_pb.EncryptionAlgorithm_ES384 || method == jwt_pb.EncryptionAlgorithm_ES512 || method == jwt_pb.EncryptionAlgorithm_EdDSA {
 		return true
 	}
 	return false
@@ -81,6 +85,15 @@ func IsEs(method jwt_pb.EncryptionAlgorithm) bool {
 // IsRs 判断文件是不是RS方法加密
 func IsRs(method jwt_pb.EncryptionAlgorithm) bool {
 	if method == jwt_pb.EncryptionAlgorithm_RS256 || method == jwt_pb.EncryptionAlgorithm_RS384 || method == jwt_pb.EncryptionAlgorithm_RS512 {
+		return true
+	} else {
+		return false
+	}
+}
+
+// IsEdDSA 判断文件是不是EdDSA方法加密
+func IsEdDSA(method jwt_pb.EncryptionAlgorithm) bool {
+	if method == jwt_pb.EncryptionAlgorithm_EdDSA {
 		return true
 	} else {
 		return false

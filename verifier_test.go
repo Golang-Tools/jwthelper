@@ -806,7 +806,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatch(t *testing.T) {
 func TestNewRSAVerifierrOpts(t *testing.T) {
 	verifier, err := NewVerifier(
 		WithVerifyAlgo(jwt_pb.EncryptionAlgorithm_RS256),
-		WithPemPublicKeyFromFile("autogen_rsa_pub.pem"),
+		WithPemPublicKeyFromFile("utils/keygener/newkey_rsa_pub.pem"),
 	)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init verifier error")
@@ -820,19 +820,129 @@ func TestNewRSAVerifierrOpts(t *testing.T) {
 	assert.Equal(t, []string{}, res.DefaultISSRange)
 }
 
+//TestNewESAVerifierrOpts  测试创建一个ecdsa算法的签名器
+func TestNewESAVerifierrOpts(t *testing.T) {
+	verifier, err := NewVerifier(
+		WithVerifyAlgo(jwt_pb.EncryptionAlgorithm_ES256),
+		WithPemPublicKeyFromFile("utils/keygener/newkey_ecdsa_pub.pem"),
+	)
+	if err != nil {
+		assert.FailNow(t, err.Error(), "init verifier error")
+	}
+	res := verifier.Meta()
+	t.Log("get algo", res.Algo.String())
+	assert.Equal(t, jwt_pb.EncryptionAlgorithm_ES256, res.Algo)
+	t.Log("get defaultAUD", res.DefaultAUD)
+	assert.Equal(t, "", res.DefaultAUD)
+	t.Log("get DefaultISSRange", res.DefaultISSRange)
+	assert.Equal(t, []string{}, res.DefaultISSRange)
+}
+
+//TestNewEdDSAAVerifierrOpts  测试创建一个ed25519算法的签名器
+func TestNewEdDSAAVerifierrOpts(t *testing.T) {
+	verifier, err := NewVerifier(
+		WithVerifyAlgo(jwt_pb.EncryptionAlgorithm_EdDSA),
+		WithPemPublicKeyFromFile("utils/keygener/newkey_ed25519_pub.pem"),
+	)
+	if err != nil {
+		assert.FailNow(t, err.Error(), "init verifier error")
+	}
+	res := verifier.Meta()
+	t.Log("get algo", res.Algo.String())
+	assert.Equal(t, jwt_pb.EncryptionAlgorithm_EdDSA, res.Algo)
+	t.Log("get defaultAUD", res.DefaultAUD)
+	assert.Equal(t, "", res.DefaultAUD)
+	t.Log("get DefaultISSRange", res.DefaultISSRange)
+	assert.Equal(t, []string{}, res.DefaultISSRange)
+}
+
 //TestRSAVerifierVerifyWithRefreshToken 测试校验rsa加密的带RefreshToken的签名
 //测试的两个token的负载一样,但签名时间不同,而且已经过期
 func TestRSAVerifierVerifyWithRefreshToken(t *testing.T) {
 	verifier, err := NewVerifier(
 		WithVerifyAlgo(jwt_pb.EncryptionAlgorithm_RS256),
-		WithPemPublicKeyFromFile("autogen_rsa_pub.pem"),
+		WithPemPublicKeyFromFile("utils/keygener/newkey_rsa_pub.pem"),
 	)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init verifier error")
 	}
 	signer, err := NewSigner(
 		WithSignAlgo(jwt_pb.EncryptionAlgorithm_RS256),
-		WithPemPrivateKeyFromFile("autogen_rsa.pem"),
+		WithPemPrivateKeyFromFile("utils/keygener/newkey_rsa.pem"),
+	)
+	if err != nil {
+		assert.FailNow(t, err.Error(), "init signer error")
+	}
+	token, err := signer.Sign(
+		nil,
+		signoptions.WithSub("test"),
+		signoptions.WithRefreshTTL(time.Hour*24),
+	)
+	if err != nil {
+		assert.FailNow(t, err.Error(), "signer.Sign should not get error ", err.Error())
+	}
+	payload := map[string]interface{}{}
+	jti, timeleft, err := verifier.Verify(token, &payload)
+	if err != nil {
+		assert.FailNow(t, err.Error(), "verifier.Verify should not get error ", err.Error())
+	}
+
+	t.Log("get payload", payload)
+	t.Log("get timeleft", timeleft)
+	assert.LessOrEqual(t, timeleft, time.Hour*24)
+	assert.NotEqual(t, "", jti)
+}
+
+//TestEcdsaVerifierVerifyWithRefreshToken 测试校验ecdsa加密的带RefreshToken的签名
+//测试的两个token的负载一样,但签名时间不同,而且已经过期
+func TestEcdsaVerifierVerifyWithRefreshToken(t *testing.T) {
+	verifier, err := NewVerifier(
+		WithVerifyAlgo(jwt_pb.EncryptionAlgorithm_ES256),
+		WithPemPublicKeyFromFile("utils/keygener/newkey_ecdsa_pub.pem"),
+	)
+	if err != nil {
+		assert.FailNow(t, err.Error(), "init verifier error")
+	}
+	signer, err := NewSigner(
+		WithSignAlgo(jwt_pb.EncryptionAlgorithm_ES256),
+		WithPemPrivateKeyFromFile("utils/keygener/newkey_ecdsa.pem"),
+	)
+	if err != nil {
+		assert.FailNow(t, err.Error(), "init signer error")
+	}
+	token, err := signer.Sign(
+		nil,
+		signoptions.WithSub("test"),
+		signoptions.WithRefreshTTL(time.Hour*24),
+	)
+	if err != nil {
+		assert.FailNow(t, err.Error(), "signer.Sign should not get error ", err.Error())
+	}
+	payload := map[string]interface{}{}
+	jti, timeleft, err := verifier.Verify(token, &payload)
+	if err != nil {
+		assert.FailNow(t, err.Error(), "verifier.Verify should not get error ", err.Error())
+	}
+
+	t.Log("get payload", payload)
+	t.Log("get timeleft", timeleft)
+	assert.LessOrEqual(t, timeleft, time.Hour*24)
+	assert.NotEqual(t, "", jti)
+}
+
+//TestEDsaVerifierVerifyWithRefreshToken 测试校验ed25519加密的带RefreshToken的签名
+//测试的两个token的负载一样,但签名时间不同,而且已经过期
+func TestEDsaVerifierVerifyWithRefreshToken(t *testing.T) {
+	verifier, err := NewVerifier(
+		WithVerifyAlgo(jwt_pb.EncryptionAlgorithm_EdDSA),
+		WithPemPublicKeyFromFile("utils/keygener/newkey_ed25519_pub.pem"),
+	)
+	if err != nil {
+		assert.FailNow(t, err.Error(), "init verifier error")
+	}
+	signer, err := NewSigner(
+		WithSignAlgo(jwt_pb.EncryptionAlgorithm_EdDSA),
+		WithPemPrivateKeyFromFile("utils/keygener/newkey_ed25519.pem"),
 	)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")

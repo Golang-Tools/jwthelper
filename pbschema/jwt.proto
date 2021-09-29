@@ -4,15 +4,16 @@ option go_package = "./jwt_pb";
 
 enum EncryptionAlgorithm {
     UNKNOWN = 0;
-    RS256 = 1;
-	RS384 = 2;
-	RS512 = 3;
-	ES256 = 4;
-	ES384 = 5;
-	ES512 = 6;
-	HS256 = 7;
-	HS384 = 8;
-	HS512 = 9;
+    HS256 = 1;
+	HS384 = 2;
+	HS512 = 3;
+    RS256 = 4;
+	RS384 = 5;
+	RS512 = 6;
+	ES256 = 7;
+	ES384 = 8;
+	ES512 = 9;
+    EdDSA = 10;
 }
 
 message SignerMeta {

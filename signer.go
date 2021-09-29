@@ -43,6 +43,12 @@ func NewSigner(opts ...SignerOption) (*Signer, error) {
 				return nil, err
 			}
 			s.key = key
+		} else if utils.IsEdDSA(s.opts.Algo) {
+			key, err := jwt.ParseEdPrivateKeyFromPEM(s.opts.Key)
+			if err != nil {
+				return nil, err
+			}
+			s.key = key
 		} else {
 			return nil, exceptions.ErrUnsupportAlgoType
 		}

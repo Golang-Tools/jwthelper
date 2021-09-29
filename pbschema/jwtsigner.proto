@@ -19,9 +19,10 @@ message SignRequest {
     string sub = 1; //设置主题,一般用于放用户id
     int64 exp = 2; //超时时间,秒级时间戳
     int64 nbf = 3; //生效时间,秒级时间戳
-    int32 refresh = 4; //>=0设置RefreshToken,单位是hour
+    int64 refreshexp = 4; //refresh_token的实效时间,秒级时间戳
     bytes payload = 5; //其他负载,请以json格式传输
-    repeated string aud = 6; //设置签名接收方,一般是app名或者url
+    string jti = 6; //设置token的id
+    repeated string aud = 7; //设置签名接收方,一般是app名或者url
     
 }
 
