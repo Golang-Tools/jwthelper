@@ -1164,7 +1164,7 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-423"><code></code></span>
 <span class="codeline" id="line-424"><code><span class="comment">// IsZero reports whether t represents the zero time instant,</span></code></span>
 <span class="codeline" id="line-425"><code><span class="comment">// January 1, year 1, 00:00:00 UTC.</span></code></span>
-<span class="codeline" id="line-426"><code><span class="keyword">func</span> (<label for="r43" class="ident">t</label> <a href="#line-127" class="ident">Time</a>) <label for="r44" class="ident">IsZero</label>() <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-426"><code><span class="keyword">func</span> (<label for="r43" class="ident">t</label> <a href="#line-127" class="ident">Time</a>) <label for="r44" class="ident"><a href="../../imp/time.Time.html#name-.IsZero" class="ident">IsZero</a></label>() <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
 <span class="codeline" id="line-427"><code>	<span class="keyword">return</span> <label for="r43" class="ident">t</label>.<a href="#line-168" class="ident">sec</a>() == <span class="lit-number">0</span> &amp;&amp; <label for="r43" class="ident">t</label>.<a href="#line-163" class="ident">nsec</a>() == <span class="lit-number">0</span></code></span>
 <span class="codeline" id="line-428"><code>}</code></span>
 <span class="codeline" id="line-429"><code></code></span>

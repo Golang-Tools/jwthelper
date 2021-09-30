@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Package: github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2</title>
+<link href="../../../../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="package-details"><code><span style="font-size:xx-large;">package <b>envoy_type_metadata_v2</b></span>
+
+<span class="title">Import Path</span>
+	<a href="../../../../../../../index.html#pkg-github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2">github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2</a><i> (on <a href="https://pkg.go.dev/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2" target="_blank">go.dev</a>)</i>
+
+<span class="title">Dependency Relation</span>
+	imports <a href="../../../../../../../dep/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2.html">18 packages</a>, and imported by <a href="../../../../../../../dep/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2.html#imported-by">one package</a>
+
+<div id="files"><span class="title">Involved Source Files</span>
+
+	<span class="nodocs">      <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html">metadata.pb.go</a></span>
+	<span class="nodocs">      <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html">metadata.pb.validate.go</a></span></div>
+<div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 21, in which 19 are exported)</i></span></span>
+
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-MetadataKey" data-popularity="875">	<input type='checkbox' class="fold" id="MetadataKey-fold-content"><label for="MetadataKey-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-53">MetadataKey</a> <i>(struct)</i></label><span id='MetadataKey-fold-content-docs' class="fold-docs">
+		MetadataKey provides a general interface using `key` and `path` to retrieve value from
+		:ref:`Metadata &lt;envoy_api_msg_core.Metadata&gt;`.
+
+		For example, for the following Metadata:
+
+		.. code-block:: yaml
+
+		   filter_metadata:
+		     envoy.xxx:
+		       prop:
+		         foo: bar
+		         xyz:
+		           hello: envoy
+
+		The following MetadataKey will retrieve a string value "bar" from the Metadata.
+
+		.. code-block:: yaml
+
+		   key: envoy.xxx
+		   path:
+		   - key: prop
+		   - key: foo
+
+		<input type='checkbox' class="fold" id="MetadataKey-fold-fields"><label for="MetadataKey-fold-fields">Fields (<i>total 5, in which 2 are exported</i>)</label><span id='MetadataKey-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKey-fold-field-Key"><label for="MetadataKey-fold-field-Key"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-60">Key</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='MetadataKey-fold-field-Key-docs' class="fold-docs">
+				The key name of Metadata to retrieve the Struct from the metadata.
+				Typically, it represents a builtin subsystem or custom extension.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKey-fold-field-Path"><label for="MetadataKey-fold-field-Path"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-67">Path</a> <i>[]*<a href="#name-MetadataKey_PathSegment">MetadataKey_PathSegment</a></i></label><span id='MetadataKey-fold-field-Path-docs' class="fold-docs">
+				The path to retrieve the Value from the Struct. It can be a prefix or a full path,
+				e.g. ``[prop, xyz]`` for a struct or ``[prop, foo]`` for a string in the example,
+				which depends on the particular scenario.
+
+				Note: Due to that only the key type segment is supported, the path can not specify a list
+				unless the list is the last segment.
+</span></span>
+			<input type='checkbox' class="showhide" id="MetadataKey-showhide-fields"><i><label for="MetadataKey-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="MetadataKey-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-55">sizeCache</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-SizeCache">SizeCache</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-54">state</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-MessageState">MessageState</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-56">unknownFields</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-UnknownFields">UnknownFields</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKey-fold-methods"><label for="MetadataKey-fold-methods">Methods (<i>total 8, all are exported</i>)</label><span id='MetadataKey-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKey-fold-method-Descriptor"><label for="MetadataKey-fold-method-Descriptor">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-98">Descriptor</a>() ([]<a href="../../../../../../builtin.html#name-byte">byte</a>, []<a href="../../../../../../builtin.html#name-int">int</a>)</label><span id='MetadataKey-fold-method-Descriptor-docs' class="fold-docs">
+				Deprecated: Use MetadataKey.ProtoReflect.Descriptor instead.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-102">GetKey</a>() <a href="../../../../../../builtin.html#name-string">string</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-109">GetPath</a>() []*<a href="#name-MetadataKey_PathSegment">MetadataKey_PathSegment</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-83">ProtoMessage</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-85">ProtoReflect</a>() <a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html#name-Message">Message</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-70">Reset</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-79">String</a>() <a href="../../../../../../builtin.html#name-string">string</a></span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKey-fold-method-Validate"><label for="MetadataKey-fold-method-Validate">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-39">Validate</a>() <a href="../../../../../../builtin.html#name-error">error</a></label><span id='MetadataKey-fold-method-Validate-docs' class="fold-docs">
+				Validate checks the field values on MetadataKey with the rules defined in
+				the proto definition for this message. If any rules are violated, an error
+				is returned.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKey-fold-impls"><label for="MetadataKey-fold-impls">Implements (<i>at least 8, in which 3 are exported</i>)</label><span id='MetadataKey-fold-impls-items' class="fold-items"><span>
+			*T : fmt.<a href="../../../../../../fmt.html#name-Stringer">Stringer</a></span><span>
+			*T : google.golang.org/protobuf/reflect/protoreflect.<a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html#name-ProtoMessage">ProtoMessage</a></span><span>
+			*T : google.golang.org/protobuf/runtime/protoiface.<a href="../../../../../../google.golang.org/protobuf/runtime/protoiface.html#name-MessageV1">MessageV1</a></span>
+			<input type='checkbox' class="showhide" id="MetadataKey-showhide-impls"><i><label for="MetadataKey-showhide-impls" class="show-inline">/* 5+ unexporteds ... */</label><label for="MetadataKey-showhide-impls" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : context.<a href="../../../../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/grpc/reflection.<a href="../../../../../../google.golang.org/grpc/reflection.html#name-protoMessage">protoMessage</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/protobuf/internal/impl.<a href="../../../../../../google.golang.org/protobuf/internal/impl.html#name-messageV1">messageV1</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : runtime.<a href="../../../../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKey-fold-results"><label for="MetadataKey-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='MetadataKey-fold-results-items' class="fold-items"><span>
+			func github.com/envoyproxy/go-control-plane/envoy/type/tracing/v2.(*<a href="../tracing/v2.html#name-CustomTag_Metadata">CustomTag_Metadata</a>).<a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/tracing/v2/custom_tag.pb.go.html#line-384">GetMetadataKey</a>() *<b>MetadataKey</b></span></span>
+
+</span></div><div class="anchor type-res" id="name-MetadataKey_PathSegment" data-popularity="875">	<input type='checkbox' class="fold" id="MetadataKey_PathSegment-fold-content"><label for="MetadataKey_PathSegment-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-231">MetadataKey_PathSegment</a> <i>(struct)</i></label><span id='MetadataKey_PathSegment-fold-content-docs' class="fold-docs">
+		Specifies the segment in a path to retrieve value from Metadata.
+		Currently it is only supported to specify the key, i.e. field name, as one segment of a path.
+
+		<input type='checkbox' class="fold" id="MetadataKey_PathSegment-fold-fields"><label for="MetadataKey_PathSegment-fold-fields">Fields (<i>total 4, in which 1 are exported</i>)</label><span id='MetadataKey_PathSegment-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKey_PathSegment-fold-field-Segment"><label for="MetadataKey_PathSegment-fold-field-Segment"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-238">Segment</a> <i><a href="#name-isMetadataKey_PathSegment_Segment">isMetadataKey_PathSegment_Segment</a></i></label><span id='MetadataKey_PathSegment-fold-field-Segment-docs' class="fold-docs">
+				Types that are assignable to Segment:
+					*MetadataKey_PathSegment_Key
+</span></span>
+			<input type='checkbox' class="showhide" id="MetadataKey_PathSegment-showhide-fields"><i><label for="MetadataKey_PathSegment-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="MetadataKey_PathSegment-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-233">sizeCache</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-SizeCache">SizeCache</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-232">state</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-MessageState">MessageState</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-234">unknownFields</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-UnknownFields">UnknownFields</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKey_PathSegment-fold-methods"><label for="MetadataKey_PathSegment-fold-methods">Methods (<i>total 8, all are exported</i>)</label><span id='MetadataKey_PathSegment-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKey_PathSegment-fold-method-Descriptor"><label for="MetadataKey_PathSegment-fold-method-Descriptor">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-269">Descriptor</a>() ([]<a href="../../../../../../builtin.html#name-byte">byte</a>, []<a href="../../../../../../builtin.html#name-int">int</a>)</label><span id='MetadataKey_PathSegment-fold-method-Descriptor-docs' class="fold-docs">
+				Deprecated: Use MetadataKey_PathSegment.ProtoReflect.Descriptor instead.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-280">GetKey</a>() <a href="../../../../../../builtin.html#name-string">string</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-273">GetSegment</a>() <a href="#name-isMetadataKey_PathSegment_Segment">isMetadataKey_PathSegment_Segment</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-254">ProtoMessage</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-256">ProtoReflect</a>() <a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html#name-Message">Message</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-241">Reset</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-250">String</a>() <a href="../../../../../../builtin.html#name-string">string</a></span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKey_PathSegment-fold-method-Validate"><label for="MetadataKey_PathSegment-fold-method-Validate">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-256">Validate</a>() <a href="../../../../../../builtin.html#name-error">error</a></label><span id='MetadataKey_PathSegment-fold-method-Validate-docs' class="fold-docs">
+				Validate checks the field values on MetadataKey_PathSegment with the rules
+				defined in the proto definition for this message. If any rules are
+				violated, an error is returned.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKey_PathSegment-fold-impls"><label for="MetadataKey_PathSegment-fold-impls">Implements (<i>at least 8, in which 3 are exported</i>)</label><span id='MetadataKey_PathSegment-fold-impls-items' class="fold-items"><span>
+			*T : fmt.<a href="../../../../../../fmt.html#name-Stringer">Stringer</a></span><span>
+			*T : google.golang.org/protobuf/reflect/protoreflect.<a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html#name-ProtoMessage">ProtoMessage</a></span><span>
+			*T : google.golang.org/protobuf/runtime/protoiface.<a href="../../../../../../google.golang.org/protobuf/runtime/protoiface.html#name-MessageV1">MessageV1</a></span>
+			<input type='checkbox' class="showhide" id="MetadataKey_PathSegment-showhide-impls"><i><label for="MetadataKey_PathSegment-showhide-impls" class="show-inline">/* 5+ unexporteds ... */</label><label for="MetadataKey_PathSegment-showhide-impls" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : context.<a href="../../../../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/grpc/reflection.<a href="../../../../../../google.golang.org/grpc/reflection.html#name-protoMessage">protoMessage</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/protobuf/internal/impl.<a href="../../../../../../google.golang.org/protobuf/internal/impl.html#name-messageV1">messageV1</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : runtime.<a href="../../../../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKey_PathSegment-fold-results"><label for="MetadataKey_PathSegment-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='MetadataKey_PathSegment-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-MetadataKey">MetadataKey</a>).<a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-109">GetPath</a>() []*<b>MetadataKey_PathSegment</b></span></span>
+
+</span></div><div class="anchor type-res" id="name-MetadataKey_PathSegment_Key" data-popularity="100">	<input type='checkbox' class="fold" id="MetadataKey_PathSegment_Key-fold-content"><label for="MetadataKey_PathSegment_Key-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-291">MetadataKey_PathSegment_Key</a> <i>(struct)</i></label><span id='MetadataKey_PathSegment_Key-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="MetadataKey_PathSegment_Key-fold-fields"><label for="MetadataKey_PathSegment_Key-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='MetadataKey_PathSegment_Key-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKey_PathSegment_Key-fold-field-Key"><label for="MetadataKey_PathSegment_Key-fold-field-Key"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v3/metadata.pb.go.html#line-293">Key</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='MetadataKey_PathSegment_Key-fold-field-Key-docs' class="fold-docs">
+				If specified, use the key to retrieve the value in a Struct.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKey_PathSegment_Key-fold-methods"><label for="MetadataKey_PathSegment_Key-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='MetadataKey_PathSegment_Key-fold-methods-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKey_PathSegment_Key-showhide-methods"><i><label for="MetadataKey_PathSegment_Key-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="MetadataKey_PathSegment_Key-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-296">isMetadataKey_PathSegment_Segment</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKey_PathSegment_Key-fold-impls"><label for="MetadataKey_PathSegment_Key-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='MetadataKey_PathSegment_Key-fold-impls-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKey_PathSegment_Key-showhide-impls"><i><label for="MetadataKey_PathSegment_Key-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="MetadataKey_PathSegment_Key-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : <a href="#name-isMetadataKey_PathSegment_Segment">isMetadataKey_PathSegment_Segment</a></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-MetadataKey_PathSegmentValidationError" data-popularity="350">	<input type='checkbox' class="fold" id="MetadataKey_PathSegmentValidationError-fold-content"><label for="MetadataKey_PathSegmentValidationError-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-285">MetadataKey_PathSegmentValidationError</a> <i>(struct)</i></label><span id='MetadataKey_PathSegmentValidationError-fold-content-docs' class="fold-docs">
+		MetadataKey_PathSegmentValidationError is the validation error returned by
+		MetadataKey_PathSegment.Validate if the designated constraints aren't met.
+
+		<input type='checkbox' class="fold" id="MetadataKey_PathSegmentValidationError-fold-fields"><label for="MetadataKey_PathSegmentValidationError-fold-fields">Fields (<i>total 4, none are exported</i>)</label><span id='MetadataKey_PathSegmentValidationError-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKey_PathSegmentValidationError-showhide-fields"><i><label for="MetadataKey_PathSegmentValidationError-showhide-fields" class="show-inline">/* 4 unexporteds ... */</label><label for="MetadataKey_PathSegmentValidationError-showhide-fields" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-81">cause</a> <i><a href="../../../../../../builtin.html#name-error">error</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-79">field</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-82">key</a> <i><a href="../../../../../../builtin.html#name-bool">bool</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-80">reason</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKey_PathSegmentValidationError-fold-methods"><label for="MetadataKey_PathSegmentValidationError-fold-methods">Methods (<i>total 6, all are exported</i>)</label><span id='MetadataKey_PathSegmentValidationError-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKey_PathSegmentValidationError-fold-method-Cause"><label for="MetadataKey_PathSegmentValidationError-fold-method-Cause">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-299">Cause</a>() <a href="../../../../../../builtin.html#name-error">error</a></label><span id='MetadataKey_PathSegmentValidationError-fold-method-Cause-docs' class="fold-docs">
+				Cause function returns cause value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKey_PathSegmentValidationError-fold-method-Error"><label for="MetadataKey_PathSegmentValidationError-fold-method-Error">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-310">Error</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKey_PathSegmentValidationError-fold-method-Error-docs' class="fold-docs">
+				Error satisfies the builtin error interface
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKey_PathSegmentValidationError-fold-method-ErrorName"><label for="MetadataKey_PathSegmentValidationError-fold-method-ErrorName">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-305">ErrorName</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKey_PathSegmentValidationError-fold-method-ErrorName-docs' class="fold-docs">
+				ErrorName returns error name.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKey_PathSegmentValidationError-fold-method-Field"><label for="MetadataKey_PathSegmentValidationError-fold-method-Field">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-293">Field</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKey_PathSegmentValidationError-fold-method-Field-docs' class="fold-docs">
+				Field function returns field value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKey_PathSegmentValidationError-fold-method-Key"><label for="MetadataKey_PathSegmentValidationError-fold-method-Key">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-302">Key</a>() <a href="../../../../../../builtin.html#name-bool">bool</a></label><span id='MetadataKey_PathSegmentValidationError-fold-method-Key-docs' class="fold-docs">
+				Key function returns key value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKey_PathSegmentValidationError-fold-method-Reason"><label for="MetadataKey_PathSegmentValidationError-fold-method-Reason">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-296">Reason</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKey_PathSegmentValidationError-fold-method-Reason-docs' class="fold-docs">
+				Reason function returns reason value.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKey_PathSegmentValidationError-fold-impls"><label for="MetadataKey_PathSegmentValidationError-fold-impls">Implements (<i>at least one exported</i>)</label><span id='MetadataKey_PathSegmentValidationError-fold-impls-items' class="fold-items"><span>
+			 T : <a href="../../../../../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-MetadataKeyValidationError" data-popularity="350">	<input type='checkbox' class="fold" id="MetadataKeyValidationError-fold-content"><label for="MetadataKeyValidationError-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-78">MetadataKeyValidationError</a> <i>(struct)</i></label><span id='MetadataKeyValidationError-fold-content-docs' class="fold-docs">
+		MetadataKeyValidationError is the validation error returned by
+		MetadataKey.Validate if the designated constraints aren't met.
+
+		<input type='checkbox' class="fold" id="MetadataKeyValidationError-fold-fields"><label for="MetadataKeyValidationError-fold-fields">Fields (<i>total 4, none are exported</i>)</label><span id='MetadataKeyValidationError-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKeyValidationError-showhide-fields"><i><label for="MetadataKeyValidationError-showhide-fields" class="show-inline">/* 4 unexporteds ... */</label><label for="MetadataKeyValidationError-showhide-fields" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-81">cause</a> <i><a href="../../../../../../builtin.html#name-error">error</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-79">field</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-82">key</a> <i><a href="../../../../../../builtin.html#name-bool">bool</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-80">reason</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKeyValidationError-fold-methods"><label for="MetadataKeyValidationError-fold-methods">Methods (<i>total 6, all are exported</i>)</label><span id='MetadataKeyValidationError-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKeyValidationError-fold-method-Cause"><label for="MetadataKeyValidationError-fold-method-Cause">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-92">Cause</a>() <a href="../../../../../../builtin.html#name-error">error</a></label><span id='MetadataKeyValidationError-fold-method-Cause-docs' class="fold-docs">
+				Cause function returns cause value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKeyValidationError-fold-method-Error"><label for="MetadataKeyValidationError-fold-method-Error">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-101">Error</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKeyValidationError-fold-method-Error-docs' class="fold-docs">
+				Error satisfies the builtin error interface
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKeyValidationError-fold-method-ErrorName"><label for="MetadataKeyValidationError-fold-method-ErrorName">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-98">ErrorName</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKeyValidationError-fold-method-ErrorName-docs' class="fold-docs">
+				ErrorName returns error name.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKeyValidationError-fold-method-Field"><label for="MetadataKeyValidationError-fold-method-Field">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-86">Field</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKeyValidationError-fold-method-Field-docs' class="fold-docs">
+				Field function returns field value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKeyValidationError-fold-method-Key"><label for="MetadataKeyValidationError-fold-method-Key">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-95">Key</a>() <a href="../../../../../../builtin.html#name-bool">bool</a></label><span id='MetadataKeyValidationError-fold-method-Key-docs' class="fold-docs">
+				Key function returns key value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKeyValidationError-fold-method-Reason"><label for="MetadataKeyValidationError-fold-method-Reason">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-89">Reason</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKeyValidationError-fold-method-Reason-docs' class="fold-docs">
+				Reason function returns reason value.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKeyValidationError-fold-impls"><label for="MetadataKeyValidationError-fold-impls">Implements (<i>at least one exported</i>)</label><span id='MetadataKeyValidationError-fold-impls-items' class="fold-items"><span>
+			 T : <a href="../../../../../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-MetadataKind" data-popularity="1025">	<input type='checkbox' class="fold" id="MetadataKind-fold-content"><label for="MetadataKind-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-117">MetadataKind</a> <i>(struct)</i></label><span id='MetadataKind-fold-content-docs' class="fold-docs">
+		Describes what kind of metadata.
+
+		<input type='checkbox' class="fold" id="MetadataKind-fold-fields"><label for="MetadataKind-fold-fields">Fields (<i>total 4, in which 1 are exported</i>)</label><span id='MetadataKind-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKind-fold-field-Kind"><label for="MetadataKind-fold-field-Kind"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-127">Kind</a> <i><a href="#name-isMetadataKind_Kind">isMetadataKind_Kind</a></i></label><span id='MetadataKind-fold-field-Kind-docs' class="fold-docs">
+				Types that are assignable to Kind:
+					*MetadataKind_Request_
+					*MetadataKind_Route_
+					*MetadataKind_Cluster_
+					*MetadataKind_Host_
+</span></span>
+			<input type='checkbox' class="showhide" id="MetadataKind-showhide-fields"><i><label for="MetadataKind-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="MetadataKind-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-119">sizeCache</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-SizeCache">SizeCache</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-118">state</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-MessageState">MessageState</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-120">unknownFields</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-UnknownFields">UnknownFields</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind-fold-methods"><label for="MetadataKind-fold-methods">Methods (<i>total 11, all are exported</i>)</label><span id='MetadataKind-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKind-fold-method-Descriptor"><label for="MetadataKind-fold-method-Descriptor">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-158">Descriptor</a>() ([]<a href="../../../../../../builtin.html#name-byte">byte</a>, []<a href="../../../../../../builtin.html#name-int">int</a>)</label><span id='MetadataKind-fold-method-Descriptor-docs' class="fold-docs">
+				Deprecated: Use MetadataKind.ProtoReflect.Descriptor instead.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-183">GetCluster</a>() *<a href="#name-MetadataKind_Cluster">MetadataKind_Cluster</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-190">GetHost</a>() *<a href="#name-MetadataKind_Host">MetadataKind_Host</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-162">GetKind</a>() <a href="#name-isMetadataKind_Kind">isMetadataKind_Kind</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-169">GetRequest</a>() *<a href="#name-MetadataKind_Request">MetadataKind_Request</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-176">GetRoute</a>() *<a href="#name-MetadataKind_Route">MetadataKind_Route</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-143">ProtoMessage</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-145">ProtoReflect</a>() <a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html#name-Message">Message</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-130">Reset</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-139">String</a>() <a href="../../../../../../builtin.html#name-string">string</a></span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind-fold-method-Validate"><label for="MetadataKind-fold-method-Validate">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-133">Validate</a>() <a href="../../../../../../builtin.html#name-error">error</a></label><span id='MetadataKind-fold-method-Validate-docs' class="fold-docs">
+				Validate checks the field values on MetadataKind with the rules defined in
+				the proto definition for this message. If any rules are violated, an error
+				is returned.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind-fold-impls"><label for="MetadataKind-fold-impls">Implements (<i>at least 8, in which 3 are exported</i>)</label><span id='MetadataKind-fold-impls-items' class="fold-items"><span>
+			*T : fmt.<a href="../../../../../../fmt.html#name-Stringer">Stringer</a></span><span>
+			*T : google.golang.org/protobuf/reflect/protoreflect.<a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html#name-ProtoMessage">ProtoMessage</a></span><span>
+			*T : google.golang.org/protobuf/runtime/protoiface.<a href="../../../../../../google.golang.org/protobuf/runtime/protoiface.html#name-MessageV1">MessageV1</a></span>
+			<input type='checkbox' class="showhide" id="MetadataKind-showhide-impls"><i><label for="MetadataKind-showhide-impls" class="show-inline">/* 5+ unexporteds ... */</label><label for="MetadataKind-showhide-impls" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : context.<a href="../../../../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/grpc/reflection.<a href="../../../../../../google.golang.org/grpc/reflection.html#name-protoMessage">protoMessage</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/protobuf/internal/impl.<a href="../../../../../../google.golang.org/protobuf/internal/impl.html#name-messageV1">messageV1</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : runtime.<a href="../../../../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind-fold-results"><label for="MetadataKind-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='MetadataKind-fold-results-items' class="fold-items"><span>
+			func github.com/envoyproxy/go-control-plane/envoy/type/tracing/v2.(*<a href="../tracing/v2.html#name-CustomTag_Metadata">CustomTag_Metadata</a>).<a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/tracing/v2/custom_tag.pb.go.html#line-377">GetKind</a>() *<b>MetadataKind</b></span></span>
+
+</span></div><div class="anchor type-res" id="name-MetadataKind_Cluster" data-popularity="775">	<input type='checkbox' class="fold" id="MetadataKind_Cluster-fold-content"><label for="MetadataKind_Cluster-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-377">MetadataKind_Cluster</a> <i>(struct)</i></label><span id='MetadataKind_Cluster-fold-content-docs' class="fold-docs">
+		Represents metadata from :ref:`the upstream cluster&lt;envoy_api_field_Cluster.metadata&gt;`.
+
+		<input type='checkbox' class="fold" id="MetadataKind_Cluster-fold-fields"><label for="MetadataKind_Cluster-fold-fields">Fields (<i>total 3, none are exported</i>)</label><span id='MetadataKind_Cluster-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKind_Cluster-showhide-fields"><i><label for="MetadataKind_Cluster-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="MetadataKind_Cluster-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-301">sizeCache</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-SizeCache">SizeCache</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-300">state</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-MessageState">MessageState</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-302">unknownFields</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-UnknownFields">UnknownFields</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Cluster-fold-methods"><label for="MetadataKind_Cluster-fold-methods">Methods (<i>total 6, all are exported</i>)</label><span id='MetadataKind_Cluster-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKind_Cluster-fold-method-Descriptor"><label for="MetadataKind_Cluster-fold-method-Descriptor">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-411">Descriptor</a>() ([]<a href="../../../../../../builtin.html#name-byte">byte</a>, []<a href="../../../../../../builtin.html#name-int">int</a>)</label><span id='MetadataKind_Cluster-fold-method-Descriptor-docs' class="fold-docs">
+				Deprecated: Use MetadataKind_Cluster.ProtoReflect.Descriptor instead.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-396">ProtoMessage</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-398">ProtoReflect</a>() <a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html#name-Message">Message</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-383">Reset</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-392">String</a>() <a href="../../../../../../builtin.html#name-string">string</a></span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_Cluster-fold-method-Validate"><label for="MetadataKind_Cluster-fold-method-Validate">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-476">Validate</a>() <a href="../../../../../../builtin.html#name-error">error</a></label><span id='MetadataKind_Cluster-fold-method-Validate-docs' class="fold-docs">
+				Validate checks the field values on MetadataKind_Cluster with the rules
+				defined in the proto definition for this message. If any rules are
+				violated, an error is returned.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Cluster-fold-impls"><label for="MetadataKind_Cluster-fold-impls">Implements (<i>at least 8, in which 3 are exported</i>)</label><span id='MetadataKind_Cluster-fold-impls-items' class="fold-items"><span>
+			*T : fmt.<a href="../../../../../../fmt.html#name-Stringer">Stringer</a></span><span>
+			*T : google.golang.org/protobuf/reflect/protoreflect.<a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html#name-ProtoMessage">ProtoMessage</a></span><span>
+			*T : google.golang.org/protobuf/runtime/protoiface.<a href="../../../../../../google.golang.org/protobuf/runtime/protoiface.html#name-MessageV1">MessageV1</a></span>
+			<input type='checkbox' class="showhide" id="MetadataKind_Cluster-showhide-impls"><i><label for="MetadataKind_Cluster-showhide-impls" class="show-inline">/* 5+ unexporteds ... */</label><label for="MetadataKind_Cluster-showhide-impls" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : context.<a href="../../../../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/grpc/reflection.<a href="../../../../../../google.golang.org/grpc/reflection.html#name-protoMessage">protoMessage</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/protobuf/internal/impl.<a href="../../../../../../google.golang.org/protobuf/internal/impl.html#name-messageV1">messageV1</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : runtime.<a href="../../../../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Cluster-fold-results"><label for="MetadataKind_Cluster-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='MetadataKind_Cluster-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-MetadataKind">MetadataKind</a>).<a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-183">GetCluster</a>() *<b>MetadataKind_Cluster</b></span></span>
+
+</span></div><div class="anchor type-res" id="name-MetadataKind_Cluster_" data-popularity="100">	<input type='checkbox' class="fold" id="MetadataKind_Cluster_-fold-content"><label for="MetadataKind_Cluster_-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-211">MetadataKind_Cluster_</a> <i>(struct)</i></label><span id='MetadataKind_Cluster_-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="MetadataKind_Cluster_-fold-fields"><label for="MetadataKind_Cluster_-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='MetadataKind_Cluster_-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKind_Cluster_-fold-field-Cluster"><label for="MetadataKind_Cluster_-fold-field-Cluster"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-213">Cluster</a> <i>*<a href="#name-MetadataKind_Cluster">MetadataKind_Cluster</a></i></label><span id='MetadataKind_Cluster_-fold-field-Cluster-docs' class="fold-docs">
+				Cluster kind of metadata.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Cluster_-fold-methods"><label for="MetadataKind_Cluster_-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='MetadataKind_Cluster_-fold-methods-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKind_Cluster_-showhide-methods"><i><label for="MetadataKind_Cluster_-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="MetadataKind_Cluster_-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-225">isMetadataKind_Kind</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Cluster_-fold-impls"><label for="MetadataKind_Cluster_-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='MetadataKind_Cluster_-fold-impls-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKind_Cluster_-showhide-impls"><i><label for="MetadataKind_Cluster_-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="MetadataKind_Cluster_-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : <a href="#name-isMetadataKind_Kind">isMetadataKind_Kind</a></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-MetadataKind_ClusterValidationError" data-popularity="350">	<input type='checkbox' class="fold" id="MetadataKind_ClusterValidationError-fold-content"><label for="MetadataKind_ClusterValidationError-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-486">MetadataKind_ClusterValidationError</a> <i>(struct)</i></label><span id='MetadataKind_ClusterValidationError-fold-content-docs' class="fold-docs">
+		MetadataKind_ClusterValidationError is the validation error returned by
+		MetadataKind_Cluster.Validate if the designated constraints aren't met.
+
+		<input type='checkbox' class="fold" id="MetadataKind_ClusterValidationError-fold-fields"><label for="MetadataKind_ClusterValidationError-fold-fields">Fields (<i>total 4, none are exported</i>)</label><span id='MetadataKind_ClusterValidationError-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKind_ClusterValidationError-showhide-fields"><i><label for="MetadataKind_ClusterValidationError-showhide-fields" class="show-inline">/* 4 unexporteds ... */</label><label for="MetadataKind_ClusterValidationError-showhide-fields" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-81">cause</a> <i><a href="../../../../../../builtin.html#name-error">error</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-79">field</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-82">key</a> <i><a href="../../../../../../builtin.html#name-bool">bool</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-80">reason</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_ClusterValidationError-fold-methods"><label for="MetadataKind_ClusterValidationError-fold-methods">Methods (<i>total 6, all are exported</i>)</label><span id='MetadataKind_ClusterValidationError-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKind_ClusterValidationError-fold-method-Cause"><label for="MetadataKind_ClusterValidationError-fold-method-Cause">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-500">Cause</a>() <a href="../../../../../../builtin.html#name-error">error</a></label><span id='MetadataKind_ClusterValidationError-fold-method-Cause-docs' class="fold-docs">
+				Cause function returns cause value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_ClusterValidationError-fold-method-Error"><label for="MetadataKind_ClusterValidationError-fold-method-Error">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-511">Error</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKind_ClusterValidationError-fold-method-Error-docs' class="fold-docs">
+				Error satisfies the builtin error interface
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_ClusterValidationError-fold-method-ErrorName"><label for="MetadataKind_ClusterValidationError-fold-method-ErrorName">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-506">ErrorName</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKind_ClusterValidationError-fold-method-ErrorName-docs' class="fold-docs">
+				ErrorName returns error name.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_ClusterValidationError-fold-method-Field"><label for="MetadataKind_ClusterValidationError-fold-method-Field">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-494">Field</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKind_ClusterValidationError-fold-method-Field-docs' class="fold-docs">
+				Field function returns field value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_ClusterValidationError-fold-method-Key"><label for="MetadataKind_ClusterValidationError-fold-method-Key">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-503">Key</a>() <a href="../../../../../../builtin.html#name-bool">bool</a></label><span id='MetadataKind_ClusterValidationError-fold-method-Key-docs' class="fold-docs">
+				Key function returns key value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_ClusterValidationError-fold-method-Reason"><label for="MetadataKind_ClusterValidationError-fold-method-Reason">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-497">Reason</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKind_ClusterValidationError-fold-method-Reason-docs' class="fold-docs">
+				Reason function returns reason value.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_ClusterValidationError-fold-impls"><label for="MetadataKind_ClusterValidationError-fold-impls">Implements (<i>at least one exported</i>)</label><span id='MetadataKind_ClusterValidationError-fold-impls-items' class="fold-items"><span>
+			 T : <a href="../../../../../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-MetadataKind_Host" data-popularity="775">	<input type='checkbox' class="fold" id="MetadataKind_Host-fold-content"><label for="MetadataKind_Host-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-417">MetadataKind_Host</a> <i>(struct)</i></label><span id='MetadataKind_Host-fold-content-docs' class="fold-docs">
+		Represents metadata from :ref:`the upstream
+		host&lt;envoy_api_field_endpoint.LbEndpoint.metadata&gt;`.
+
+		<input type='checkbox' class="fold" id="MetadataKind_Host-fold-fields"><label for="MetadataKind_Host-fold-fields">Fields (<i>total 3, none are exported</i>)</label><span id='MetadataKind_Host-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKind_Host-showhide-fields"><i><label for="MetadataKind_Host-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="MetadataKind_Host-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-301">sizeCache</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-SizeCache">SizeCache</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-300">state</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-MessageState">MessageState</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-302">unknownFields</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-UnknownFields">UnknownFields</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Host-fold-methods"><label for="MetadataKind_Host-fold-methods">Methods (<i>total 6, all are exported</i>)</label><span id='MetadataKind_Host-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKind_Host-fold-method-Descriptor"><label for="MetadataKind_Host-fold-method-Descriptor">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-451">Descriptor</a>() ([]<a href="../../../../../../builtin.html#name-byte">byte</a>, []<a href="../../../../../../builtin.html#name-int">int</a>)</label><span id='MetadataKind_Host-fold-method-Descriptor-docs' class="fold-docs">
+				Deprecated: Use MetadataKind_Host.ProtoReflect.Descriptor instead.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-436">ProtoMessage</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-438">ProtoReflect</a>() <a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html#name-Message">Message</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-423">Reset</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-432">String</a>() <a href="../../../../../../builtin.html#name-string">string</a></span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_Host-fold-method-Validate"><label for="MetadataKind_Host-fold-method-Validate">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-543">Validate</a>() <a href="../../../../../../builtin.html#name-error">error</a></label><span id='MetadataKind_Host-fold-method-Validate-docs' class="fold-docs">
+				Validate checks the field values on MetadataKind_Host with the rules defined
+				in the proto definition for this message. If any rules are violated, an
+				error is returned.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Host-fold-impls"><label for="MetadataKind_Host-fold-impls">Implements (<i>at least 8, in which 3 are exported</i>)</label><span id='MetadataKind_Host-fold-impls-items' class="fold-items"><span>
+			*T : fmt.<a href="../../../../../../fmt.html#name-Stringer">Stringer</a></span><span>
+			*T : google.golang.org/protobuf/reflect/protoreflect.<a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html#name-ProtoMessage">ProtoMessage</a></span><span>
+			*T : google.golang.org/protobuf/runtime/protoiface.<a href="../../../../../../google.golang.org/protobuf/runtime/protoiface.html#name-MessageV1">MessageV1</a></span>
+			<input type='checkbox' class="showhide" id="MetadataKind_Host-showhide-impls"><i><label for="MetadataKind_Host-showhide-impls" class="show-inline">/* 5+ unexporteds ... */</label><label for="MetadataKind_Host-showhide-impls" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : context.<a href="../../../../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/grpc/reflection.<a href="../../../../../../google.golang.org/grpc/reflection.html#name-protoMessage">protoMessage</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/protobuf/internal/impl.<a href="../../../../../../google.golang.org/protobuf/internal/impl.html#name-messageV1">messageV1</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : runtime.<a href="../../../../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Host-fold-results"><label for="MetadataKind_Host-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='MetadataKind_Host-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-MetadataKind">MetadataKind</a>).<a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-190">GetHost</a>() *<b>MetadataKind_Host</b></span></span>
+
+</span></div><div class="anchor type-res" id="name-MetadataKind_Host_" data-popularity="100">	<input type='checkbox' class="fold" id="MetadataKind_Host_-fold-content"><label for="MetadataKind_Host_-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-216">MetadataKind_Host_</a> <i>(struct)</i></label><span id='MetadataKind_Host_-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="MetadataKind_Host_-fold-fields"><label for="MetadataKind_Host_-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='MetadataKind_Host_-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKind_Host_-fold-field-Host"><label for="MetadataKind_Host_-fold-field-Host"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-218">Host</a> <i>*<a href="#name-MetadataKind_Host">MetadataKind_Host</a></i></label><span id='MetadataKind_Host_-fold-field-Host-docs' class="fold-docs">
+				Host kind of metadata.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Host_-fold-methods"><label for="MetadataKind_Host_-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='MetadataKind_Host_-fold-methods-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKind_Host_-showhide-methods"><i><label for="MetadataKind_Host_-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="MetadataKind_Host_-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-227">isMetadataKind_Kind</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Host_-fold-impls"><label for="MetadataKind_Host_-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='MetadataKind_Host_-fold-impls-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKind_Host_-showhide-impls"><i><label for="MetadataKind_Host_-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="MetadataKind_Host_-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : <a href="#name-isMetadataKind_Kind">isMetadataKind_Kind</a></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-MetadataKind_HostValidationError" data-popularity="350">	<input type='checkbox' class="fold" id="MetadataKind_HostValidationError-fold-content"><label for="MetadataKind_HostValidationError-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-553">MetadataKind_HostValidationError</a> <i>(struct)</i></label><span id='MetadataKind_HostValidationError-fold-content-docs' class="fold-docs">
+		MetadataKind_HostValidationError is the validation error returned by
+		MetadataKind_Host.Validate if the designated constraints aren't met.
+
+		<input type='checkbox' class="fold" id="MetadataKind_HostValidationError-fold-fields"><label for="MetadataKind_HostValidationError-fold-fields">Fields (<i>total 4, none are exported</i>)</label><span id='MetadataKind_HostValidationError-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKind_HostValidationError-showhide-fields"><i><label for="MetadataKind_HostValidationError-showhide-fields" class="show-inline">/* 4 unexporteds ... */</label><label for="MetadataKind_HostValidationError-showhide-fields" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-81">cause</a> <i><a href="../../../../../../builtin.html#name-error">error</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-79">field</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-82">key</a> <i><a href="../../../../../../builtin.html#name-bool">bool</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-80">reason</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_HostValidationError-fold-methods"><label for="MetadataKind_HostValidationError-fold-methods">Methods (<i>total 6, all are exported</i>)</label><span id='MetadataKind_HostValidationError-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKind_HostValidationError-fold-method-Cause"><label for="MetadataKind_HostValidationError-fold-method-Cause">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-567">Cause</a>() <a href="../../../../../../builtin.html#name-error">error</a></label><span id='MetadataKind_HostValidationError-fold-method-Cause-docs' class="fold-docs">
+				Cause function returns cause value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_HostValidationError-fold-method-Error"><label for="MetadataKind_HostValidationError-fold-method-Error">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-578">Error</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKind_HostValidationError-fold-method-Error-docs' class="fold-docs">
+				Error satisfies the builtin error interface
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_HostValidationError-fold-method-ErrorName"><label for="MetadataKind_HostValidationError-fold-method-ErrorName">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-573">ErrorName</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKind_HostValidationError-fold-method-ErrorName-docs' class="fold-docs">
+				ErrorName returns error name.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_HostValidationError-fold-method-Field"><label for="MetadataKind_HostValidationError-fold-method-Field">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-561">Field</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKind_HostValidationError-fold-method-Field-docs' class="fold-docs">
+				Field function returns field value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_HostValidationError-fold-method-Key"><label for="MetadataKind_HostValidationError-fold-method-Key">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-570">Key</a>() <a href="../../../../../../builtin.html#name-bool">bool</a></label><span id='MetadataKind_HostValidationError-fold-method-Key-docs' class="fold-docs">
+				Key function returns key value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_HostValidationError-fold-method-Reason"><label for="MetadataKind_HostValidationError-fold-method-Reason">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-564">Reason</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKind_HostValidationError-fold-method-Reason-docs' class="fold-docs">
+				Reason function returns reason value.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_HostValidationError-fold-impls"><label for="MetadataKind_HostValidationError-fold-impls">Implements (<i>at least one exported</i>)</label><span id='MetadataKind_HostValidationError-fold-impls-items' class="fold-items"><span>
+			 T : <a href="../../../../../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-MetadataKind_Request" data-popularity="775">	<input type='checkbox' class="fold" id="MetadataKind_Request-fold-content"><label for="MetadataKind_Request-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-299">MetadataKind_Request</a> <i>(struct)</i></label><span id='MetadataKind_Request-fold-content-docs' class="fold-docs">
+		Represents dynamic metadata associated with the request.
+
+		<input type='checkbox' class="fold" id="MetadataKind_Request-fold-fields"><label for="MetadataKind_Request-fold-fields">Fields (<i>total 3, none are exported</i>)</label><span id='MetadataKind_Request-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKind_Request-showhide-fields"><i><label for="MetadataKind_Request-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="MetadataKind_Request-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-301">sizeCache</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-SizeCache">SizeCache</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-300">state</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-MessageState">MessageState</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-302">unknownFields</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-UnknownFields">UnknownFields</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Request-fold-methods"><label for="MetadataKind_Request-fold-methods">Methods (<i>total 6, all are exported</i>)</label><span id='MetadataKind_Request-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKind_Request-fold-method-Descriptor"><label for="MetadataKind_Request-fold-method-Descriptor">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-333">Descriptor</a>() ([]<a href="../../../../../../builtin.html#name-byte">byte</a>, []<a href="../../../../../../builtin.html#name-int">int</a>)</label><span id='MetadataKind_Request-fold-method-Descriptor-docs' class="fold-docs">
+				Deprecated: Use MetadataKind_Request.ProtoReflect.Descriptor instead.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-318">ProtoMessage</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-320">ProtoReflect</a>() <a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html#name-Message">Message</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-305">Reset</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-314">String</a>() <a href="../../../../../../builtin.html#name-string">string</a></span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_Request-fold-method-Validate"><label for="MetadataKind_Request-fold-method-Validate">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-342">Validate</a>() <a href="../../../../../../builtin.html#name-error">error</a></label><span id='MetadataKind_Request-fold-method-Validate-docs' class="fold-docs">
+				Validate checks the field values on MetadataKind_Request with the rules
+				defined in the proto definition for this message. If any rules are
+				violated, an error is returned.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Request-fold-impls"><label for="MetadataKind_Request-fold-impls">Implements (<i>at least 8, in which 3 are exported</i>)</label><span id='MetadataKind_Request-fold-impls-items' class="fold-items"><span>
+			*T : fmt.<a href="../../../../../../fmt.html#name-Stringer">Stringer</a></span><span>
+			*T : google.golang.org/protobuf/reflect/protoreflect.<a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html#name-ProtoMessage">ProtoMessage</a></span><span>
+			*T : google.golang.org/protobuf/runtime/protoiface.<a href="../../../../../../google.golang.org/protobuf/runtime/protoiface.html#name-MessageV1">MessageV1</a></span>
+			<input type='checkbox' class="showhide" id="MetadataKind_Request-showhide-impls"><i><label for="MetadataKind_Request-showhide-impls" class="show-inline">/* 5+ unexporteds ... */</label><label for="MetadataKind_Request-showhide-impls" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : context.<a href="../../../../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/grpc/reflection.<a href="../../../../../../google.golang.org/grpc/reflection.html#name-protoMessage">protoMessage</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/protobuf/internal/impl.<a href="../../../../../../google.golang.org/protobuf/internal/impl.html#name-messageV1">messageV1</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : runtime.<a href="../../../../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Request-fold-results"><label for="MetadataKind_Request-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='MetadataKind_Request-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-MetadataKind">MetadataKind</a>).<a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-169">GetRequest</a>() *<b>MetadataKind_Request</b></span></span>
+
+</span></div><div class="anchor type-res" id="name-MetadataKind_Request_" data-popularity="100">	<input type='checkbox' class="fold" id="MetadataKind_Request_-fold-content"><label for="MetadataKind_Request_-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-201">MetadataKind_Request_</a> <i>(struct)</i></label><span id='MetadataKind_Request_-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="MetadataKind_Request_-fold-fields"><label for="MetadataKind_Request_-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='MetadataKind_Request_-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKind_Request_-fold-field-Request"><label for="MetadataKind_Request_-fold-field-Request"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-203">Request</a> <i>*<a href="#name-MetadataKind_Request">MetadataKind_Request</a></i></label><span id='MetadataKind_Request_-fold-field-Request-docs' class="fold-docs">
+				Request kind of metadata.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Request_-fold-methods"><label for="MetadataKind_Request_-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='MetadataKind_Request_-fold-methods-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKind_Request_-showhide-methods"><i><label for="MetadataKind_Request_-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="MetadataKind_Request_-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-221">isMetadataKind_Kind</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Request_-fold-impls"><label for="MetadataKind_Request_-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='MetadataKind_Request_-fold-impls-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKind_Request_-showhide-impls"><i><label for="MetadataKind_Request_-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="MetadataKind_Request_-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : <a href="#name-isMetadataKind_Kind">isMetadataKind_Kind</a></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-MetadataKind_RequestValidationError" data-popularity="350">	<input type='checkbox' class="fold" id="MetadataKind_RequestValidationError-fold-content"><label for="MetadataKind_RequestValidationError-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-352">MetadataKind_RequestValidationError</a> <i>(struct)</i></label><span id='MetadataKind_RequestValidationError-fold-content-docs' class="fold-docs">
+		MetadataKind_RequestValidationError is the validation error returned by
+		MetadataKind_Request.Validate if the designated constraints aren't met.
+
+		<input type='checkbox' class="fold" id="MetadataKind_RequestValidationError-fold-fields"><label for="MetadataKind_RequestValidationError-fold-fields">Fields (<i>total 4, none are exported</i>)</label><span id='MetadataKind_RequestValidationError-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKind_RequestValidationError-showhide-fields"><i><label for="MetadataKind_RequestValidationError-showhide-fields" class="show-inline">/* 4 unexporteds ... */</label><label for="MetadataKind_RequestValidationError-showhide-fields" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-81">cause</a> <i><a href="../../../../../../builtin.html#name-error">error</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-79">field</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-82">key</a> <i><a href="../../../../../../builtin.html#name-bool">bool</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-80">reason</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_RequestValidationError-fold-methods"><label for="MetadataKind_RequestValidationError-fold-methods">Methods (<i>total 6, all are exported</i>)</label><span id='MetadataKind_RequestValidationError-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKind_RequestValidationError-fold-method-Cause"><label for="MetadataKind_RequestValidationError-fold-method-Cause">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-366">Cause</a>() <a href="../../../../../../builtin.html#name-error">error</a></label><span id='MetadataKind_RequestValidationError-fold-method-Cause-docs' class="fold-docs">
+				Cause function returns cause value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_RequestValidationError-fold-method-Error"><label for="MetadataKind_RequestValidationError-fold-method-Error">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-377">Error</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKind_RequestValidationError-fold-method-Error-docs' class="fold-docs">
+				Error satisfies the builtin error interface
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_RequestValidationError-fold-method-ErrorName"><label for="MetadataKind_RequestValidationError-fold-method-ErrorName">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-372">ErrorName</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKind_RequestValidationError-fold-method-ErrorName-docs' class="fold-docs">
+				ErrorName returns error name.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_RequestValidationError-fold-method-Field"><label for="MetadataKind_RequestValidationError-fold-method-Field">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-360">Field</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKind_RequestValidationError-fold-method-Field-docs' class="fold-docs">
+				Field function returns field value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_RequestValidationError-fold-method-Key"><label for="MetadataKind_RequestValidationError-fold-method-Key">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-369">Key</a>() <a href="../../../../../../builtin.html#name-bool">bool</a></label><span id='MetadataKind_RequestValidationError-fold-method-Key-docs' class="fold-docs">
+				Key function returns key value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_RequestValidationError-fold-method-Reason"><label for="MetadataKind_RequestValidationError-fold-method-Reason">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-363">Reason</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKind_RequestValidationError-fold-method-Reason-docs' class="fold-docs">
+				Reason function returns reason value.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_RequestValidationError-fold-impls"><label for="MetadataKind_RequestValidationError-fold-impls">Implements (<i>at least one exported</i>)</label><span id='MetadataKind_RequestValidationError-fold-impls-items' class="fold-items"><span>
+			 T : <a href="../../../../../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-MetadataKind_Route" data-popularity="775">	<input type='checkbox' class="fold" id="MetadataKind_Route-fold-content"><label for="MetadataKind_Route-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-338">MetadataKind_Route</a> <i>(struct)</i></label><span id='MetadataKind_Route-fold-content-docs' class="fold-docs">
+		Represents metadata from :ref:`the route&lt;envoy_api_field_route.Route.metadata&gt;`.
+
+		<input type='checkbox' class="fold" id="MetadataKind_Route-fold-fields"><label for="MetadataKind_Route-fold-fields">Fields (<i>total 3, none are exported</i>)</label><span id='MetadataKind_Route-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKind_Route-showhide-fields"><i><label for="MetadataKind_Route-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="MetadataKind_Route-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-301">sizeCache</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-SizeCache">SizeCache</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-300">state</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-MessageState">MessageState</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-302">unknownFields</a> <i><a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../../../../../google.golang.org/protobuf/runtime/protoimpl.html#name-UnknownFields">UnknownFields</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Route-fold-methods"><label for="MetadataKind_Route-fold-methods">Methods (<i>total 6, all are exported</i>)</label><span id='MetadataKind_Route-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKind_Route-fold-method-Descriptor"><label for="MetadataKind_Route-fold-method-Descriptor">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-372">Descriptor</a>() ([]<a href="../../../../../../builtin.html#name-byte">byte</a>, []<a href="../../../../../../builtin.html#name-int">int</a>)</label><span id='MetadataKind_Route-fold-method-Descriptor-docs' class="fold-docs">
+				Deprecated: Use MetadataKind_Route.ProtoReflect.Descriptor instead.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-357">ProtoMessage</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-359">ProtoReflect</a>() <a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html#name-Message">Message</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-344">Reset</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-353">String</a>() <a href="../../../../../../builtin.html#name-string">string</a></span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_Route-fold-method-Validate"><label for="MetadataKind_Route-fold-method-Validate">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-409">Validate</a>() <a href="../../../../../../builtin.html#name-error">error</a></label><span id='MetadataKind_Route-fold-method-Validate-docs' class="fold-docs">
+				Validate checks the field values on MetadataKind_Route with the rules
+				defined in the proto definition for this message. If any rules are
+				violated, an error is returned.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Route-fold-impls"><label for="MetadataKind_Route-fold-impls">Implements (<i>at least 8, in which 3 are exported</i>)</label><span id='MetadataKind_Route-fold-impls-items' class="fold-items"><span>
+			*T : fmt.<a href="../../../../../../fmt.html#name-Stringer">Stringer</a></span><span>
+			*T : google.golang.org/protobuf/reflect/protoreflect.<a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html#name-ProtoMessage">ProtoMessage</a></span><span>
+			*T : google.golang.org/protobuf/runtime/protoiface.<a href="../../../../../../google.golang.org/protobuf/runtime/protoiface.html#name-MessageV1">MessageV1</a></span>
+			<input type='checkbox' class="showhide" id="MetadataKind_Route-showhide-impls"><i><label for="MetadataKind_Route-showhide-impls" class="show-inline">/* 5+ unexporteds ... */</label><label for="MetadataKind_Route-showhide-impls" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : context.<a href="../../../../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/grpc/reflection.<a href="../../../../../../google.golang.org/grpc/reflection.html#name-protoMessage">protoMessage</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/protobuf/internal/impl.<a href="../../../../../../google.golang.org/protobuf/internal/impl.html#name-messageV1">messageV1</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : runtime.<a href="../../../../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Route-fold-results"><label for="MetadataKind_Route-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='MetadataKind_Route-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-MetadataKind">MetadataKind</a>).<a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-176">GetRoute</a>() *<b>MetadataKind_Route</b></span></span>
+
+</span></div><div class="anchor type-res" id="name-MetadataKind_Route_" data-popularity="100">	<input type='checkbox' class="fold" id="MetadataKind_Route_-fold-content"><label for="MetadataKind_Route_-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-206">MetadataKind_Route_</a> <i>(struct)</i></label><span id='MetadataKind_Route_-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="MetadataKind_Route_-fold-fields"><label for="MetadataKind_Route_-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='MetadataKind_Route_-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKind_Route_-fold-field-Route"><label for="MetadataKind_Route_-fold-field-Route"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-208">Route</a> <i>*<a href="#name-MetadataKind_Route">MetadataKind_Route</a></i></label><span id='MetadataKind_Route_-fold-field-Route-docs' class="fold-docs">
+				Route kind of metadata.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Route_-fold-methods"><label for="MetadataKind_Route_-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='MetadataKind_Route_-fold-methods-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKind_Route_-showhide-methods"><i><label for="MetadataKind_Route_-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="MetadataKind_Route_-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-223">isMetadataKind_Kind</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_Route_-fold-impls"><label for="MetadataKind_Route_-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='MetadataKind_Route_-fold-impls-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKind_Route_-showhide-impls"><i><label for="MetadataKind_Route_-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="MetadataKind_Route_-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : <a href="#name-isMetadataKind_Kind">isMetadataKind_Kind</a></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-MetadataKind_RouteValidationError" data-popularity="350">	<input type='checkbox' class="fold" id="MetadataKind_RouteValidationError-fold-content"><label for="MetadataKind_RouteValidationError-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-419">MetadataKind_RouteValidationError</a> <i>(struct)</i></label><span id='MetadataKind_RouteValidationError-fold-content-docs' class="fold-docs">
+		MetadataKind_RouteValidationError is the validation error returned by
+		MetadataKind_Route.Validate if the designated constraints aren't met.
+
+		<input type='checkbox' class="fold" id="MetadataKind_RouteValidationError-fold-fields"><label for="MetadataKind_RouteValidationError-fold-fields">Fields (<i>total 4, none are exported</i>)</label><span id='MetadataKind_RouteValidationError-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKind_RouteValidationError-showhide-fields"><i><label for="MetadataKind_RouteValidationError-showhide-fields" class="show-inline">/* 4 unexporteds ... */</label><label for="MetadataKind_RouteValidationError-showhide-fields" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-81">cause</a> <i><a href="../../../../../../builtin.html#name-error">error</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-79">field</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-82">key</a> <i><a href="../../../../../../builtin.html#name-bool">bool</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-80">reason</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_RouteValidationError-fold-methods"><label for="MetadataKind_RouteValidationError-fold-methods">Methods (<i>total 6, all are exported</i>)</label><span id='MetadataKind_RouteValidationError-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKind_RouteValidationError-fold-method-Cause"><label for="MetadataKind_RouteValidationError-fold-method-Cause">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-433">Cause</a>() <a href="../../../../../../builtin.html#name-error">error</a></label><span id='MetadataKind_RouteValidationError-fold-method-Cause-docs' class="fold-docs">
+				Cause function returns cause value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_RouteValidationError-fold-method-Error"><label for="MetadataKind_RouteValidationError-fold-method-Error">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-444">Error</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKind_RouteValidationError-fold-method-Error-docs' class="fold-docs">
+				Error satisfies the builtin error interface
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_RouteValidationError-fold-method-ErrorName"><label for="MetadataKind_RouteValidationError-fold-method-ErrorName">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-439">ErrorName</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKind_RouteValidationError-fold-method-ErrorName-docs' class="fold-docs">
+				ErrorName returns error name.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_RouteValidationError-fold-method-Field"><label for="MetadataKind_RouteValidationError-fold-method-Field">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-427">Field</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKind_RouteValidationError-fold-method-Field-docs' class="fold-docs">
+				Field function returns field value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_RouteValidationError-fold-method-Key"><label for="MetadataKind_RouteValidationError-fold-method-Key">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-436">Key</a>() <a href="../../../../../../builtin.html#name-bool">bool</a></label><span id='MetadataKind_RouteValidationError-fold-method-Key-docs' class="fold-docs">
+				Key function returns key value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKind_RouteValidationError-fold-method-Reason"><label for="MetadataKind_RouteValidationError-fold-method-Reason">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-430">Reason</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKind_RouteValidationError-fold-method-Reason-docs' class="fold-docs">
+				Reason function returns reason value.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKind_RouteValidationError-fold-impls"><label for="MetadataKind_RouteValidationError-fold-impls">Implements (<i>at least one exported</i>)</label><span id='MetadataKind_RouteValidationError-fold-impls-items' class="fold-items"><span>
+			 T : <a href="../../../../../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-MetadataKindValidationError" data-popularity="350">	<input type='checkbox' class="fold" id="MetadataKindValidationError-fold-content"><label for="MetadataKindValidationError-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-201">MetadataKindValidationError</a> <i>(struct)</i></label><span id='MetadataKindValidationError-fold-content-docs' class="fold-docs">
+		MetadataKindValidationError is the validation error returned by
+		MetadataKind.Validate if the designated constraints aren't met.
+
+		<input type='checkbox' class="fold" id="MetadataKindValidationError-fold-fields"><label for="MetadataKindValidationError-fold-fields">Fields (<i>total 4, none are exported</i>)</label><span id='MetadataKindValidationError-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="MetadataKindValidationError-showhide-fields"><i><label for="MetadataKindValidationError-showhide-fields" class="show-inline">/* 4 unexporteds ... */</label><label for="MetadataKindValidationError-showhide-fields" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-81">cause</a> <i><a href="../../../../../../builtin.html#name-error">error</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-79">field</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-82">key</a> <i><a href="../../../../../../builtin.html#name-bool">bool</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-80">reason</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="MetadataKindValidationError-fold-methods"><label for="MetadataKindValidationError-fold-methods">Methods (<i>total 6, all are exported</i>)</label><span id='MetadataKindValidationError-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="MetadataKindValidationError-fold-method-Cause"><label for="MetadataKindValidationError-fold-method-Cause">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-215">Cause</a>() <a href="../../../../../../builtin.html#name-error">error</a></label><span id='MetadataKindValidationError-fold-method-Cause-docs' class="fold-docs">
+				Cause function returns cause value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKindValidationError-fold-method-Error"><label for="MetadataKindValidationError-fold-method-Error">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-224">Error</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKindValidationError-fold-method-Error-docs' class="fold-docs">
+				Error satisfies the builtin error interface
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKindValidationError-fold-method-ErrorName"><label for="MetadataKindValidationError-fold-method-ErrorName">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-221">ErrorName</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKindValidationError-fold-method-ErrorName-docs' class="fold-docs">
+				ErrorName returns error name.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKindValidationError-fold-method-Field"><label for="MetadataKindValidationError-fold-method-Field">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-209">Field</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKindValidationError-fold-method-Field-docs' class="fold-docs">
+				Field function returns field value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKindValidationError-fold-method-Key"><label for="MetadataKindValidationError-fold-method-Key">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-218">Key</a>() <a href="../../../../../../builtin.html#name-bool">bool</a></label><span id='MetadataKindValidationError-fold-method-Key-docs' class="fold-docs">
+				Key function returns key value.
+</span></span><span>
+			<input type='checkbox' class="fold" id="MetadataKindValidationError-fold-method-Reason"><label for="MetadataKindValidationError-fold-method-Reason">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.validate.go.html#line-212">Reason</a>() <a href="../../../../../../builtin.html#name-string">string</a></label><span id='MetadataKindValidationError-fold-method-Reason-docs' class="fold-docs">
+				Reason function returns reason value.
+</span></span></span>
+		<input type='checkbox' class="fold" id="MetadataKindValidationError-fold-impls"><label for="MetadataKindValidationError-fold-impls">Implements (<i>at least one exported</i>)</label><span id='MetadataKindValidationError-fold-impls-items' class="fold-items"><span>
+			 T : <a href="../../../../../../builtin.html#name-error">error</a></span></span>
+
+</span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 2 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 2 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-isMetadataKey_PathSegment_Segment" data-popularity="275">	<input type='checkbox' class="fold" id="isMetadataKey_PathSegment_Segment-fold-content"><label for="isMetadataKey_PathSegment_Segment-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-287">isMetadataKey_PathSegment_Segment</a> <b><i>(interface)</i></b></label><span id='isMetadataKey_PathSegment_Segment-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="isMetadataKey_PathSegment_Segment-fold-methods"><label for="isMetadataKey_PathSegment_Segment-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='isMetadataKey_PathSegment_Segment-fold-methods-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="isMetadataKey_PathSegment_Segment-showhide-methods"><i><label for="isMetadataKey_PathSegment_Segment-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="isMetadataKey_PathSegment_Segment-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-288">isMetadataKey_PathSegment_Segment</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="isMetadataKey_PathSegment_Segment-fold-impledby"><label for="isMetadataKey_PathSegment_Segment-fold-impledby">Implemented By (<i>at least one exported</i>)</label><span id='isMetadataKey_PathSegment_Segment-fold-impledby-items' class="fold-items"><span>
+			*<a href="#name-MetadataKey_PathSegment_Key">MetadataKey_PathSegment_Key</a></span></span>
+		<input type='checkbox' class="fold" id="isMetadataKey_PathSegment_Segment-fold-results"><label for="isMetadataKey_PathSegment_Segment-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='isMetadataKey_PathSegment_Segment-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-MetadataKey_PathSegment">MetadataKey_PathSegment</a>).<a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-273">GetSegment</a>() <b>isMetadataKey_PathSegment_Segment</b></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-isMetadataKind_Kind" data-popularity="725">	<input type='checkbox' class="fold" id="isMetadataKind_Kind-fold-content"><label for="isMetadataKind_Kind-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-197">isMetadataKind_Kind</a> <b><i>(interface)</i></b></label><span id='isMetadataKind_Kind-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="isMetadataKind_Kind-fold-methods"><label for="isMetadataKind_Kind-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='isMetadataKind_Kind-fold-methods-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="isMetadataKind_Kind-showhide-methods"><i><label for="isMetadataKind_Kind-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="isMetadataKind_Kind-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">( T) <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-198">isMetadataKind_Kind</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="isMetadataKind_Kind-fold-impledby"><label for="isMetadataKind_Kind-fold-impledby">Implemented By (<i>at least 4, all are exported</i>)</label><span id='isMetadataKind_Kind-fold-impledby-items' class="fold-items"><span>
+			*<a href="#name-MetadataKind_Cluster_">MetadataKind_Cluster_</a></span><span>
+			*<a href="#name-MetadataKind_Host_">MetadataKind_Host_</a></span><span>
+			*<a href="#name-MetadataKind_Request_">MetadataKind_Request_</a></span><span>
+			*<a href="#name-MetadataKind_Route_">MetadataKind_Route_</a></span></span>
+		<input type='checkbox' class="fold" id="isMetadataKind_Kind-fold-results"><label for="isMetadataKind_Kind-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='isMetadataKind_Kind-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-MetadataKind">MetadataKind</a>).<a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-162">GetKind</a>() <b>isMetadataKind_Kind</b></span></span>
+
+</span></div></div>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 3, none are exported)</i></span></span>
+
+	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 3 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 3 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-file_envoy_type_metadata_v2_metadata_proto_init"><i>	<span class="nodocs"> func <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-546">file_envoy_type_metadata_v2_metadata_proto_init</a>()</span></i></div><div class="anchor value-res hidden" id="name-file_envoy_type_metadata_v2_metadata_proto_rawDescGZIP"><i>	<span class="nodocs"> func <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-515">file_envoy_type_metadata_v2_metadata_proto_rawDescGZIP</a>() []<a href="../../../../../../builtin.html#name-byte">byte</a></span></i></div><div class="anchor value-res hidden" id="name-init"><i>	<span class="nodocs"> func <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-545">init</a>()</span></i></div></div>
+<div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (total 7, in which 1 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-File_envoy_type_metadata_v2_metadata_proto">	<span class="nodocs">  var <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-455">File_envoy_type_metadata_v2_metadata_proto</a> <a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="../../../../../../google.golang.org/protobuf/reflect/protoreflect.html#name-FileDescriptor">FileDescriptor</a></span></div>	<input type='checkbox' class="showhide" id="unexported-variables-showhide"><i><label for="unexported-variables-showhide" class="show-inline">/* 6 unexporteds ... */</label><label for="unexported-variables-showhide" class="hide-inline">/* 6 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-file_envoy_type_metadata_v2_metadata_proto_depIdxs"><i>	<span class="nodocs">  var <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-532">file_envoy_type_metadata_v2_metadata_proto_depIdxs</a> []<a href="../../../../../../builtin.html#name-int32">int32</a></span></i></div><div class="anchor value-res hidden" id="name-file_envoy_type_metadata_v2_metadata_proto_goTypes"><i>	<span class="nodocs">  var <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-523">file_envoy_type_metadata_v2_metadata_proto_goTypes</a> []interface{}</span></i></div><div class="anchor value-res hidden" id="name-file_envoy_type_metadata_v2_metadata_proto_msgTypes"><i>	<span class="nodocs">  var <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-522">file_envoy_type_metadata_v2_metadata_proto_msgTypes</a> []<a href="../../../../../../google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="../../../../../../google.golang.org/protobuf/internal/impl.html#name-MessageInfo">MessageInfo</a></span></i></div><div class="anchor value-res hidden" id="name-file_envoy_type_metadata_v2_metadata_proto_rawDesc"><i>	<span class="nodocs">  var <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-457">file_envoy_type_metadata_v2_metadata_proto_rawDesc</a> []<a href="../../../../../../builtin.html#name-byte">byte</a></span></i></div><div class="anchor value-res hidden" id="name-file_envoy_type_metadata_v2_metadata_proto_rawDescData"><i>	<span class="nodocs">  var <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-512">file_envoy_type_metadata_v2_metadata_proto_rawDescData</a> []<a href="../../../../../../builtin.html#name-byte">byte</a></span></i></div><div class="anchor value-res hidden" id="name-file_envoy_type_metadata_v2_metadata_proto_rawDescOnce"><i>	<span class="nodocs">  var <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/type/metadata/v2/metadata.pb.go.html#line-511">file_envoy_type_metadata_v2_metadata_proto_rawDescOnce</a> <a href="../../../../../../sync.html">sync</a>.<a href="../../../../../../sync.html#name-Once">Once</a></span></i></div></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -10,12 +10,23 @@
 <body onload="onPageLoad()"><div>
 <pre><code><span style="font-size:x-large;">type <a href="../../pkg/google.golang.org/grpc.html">google.golang.org/grpc</a>.<b><a href="../../src/google.golang.org/grpc/server.go.html#line-117">Server</a></b></span><span style="font-size:large;"> <i>(struct)</i></span>
 
-<code><span class="title">Method Implmentations<span class="title-stat"><i> (26 other methods implement nothing)</i></span></span>
+<code><span class="title">Method Implmentations<span class="title-stat"><i> (22 other methods implement nothing)</i></span></span>
 
+<div class="anchor" id="name-GetServiceInfo">	<a href="../../src/google.golang.org/grpc/server.go.html#line-682">GetServiceInfo</a>() map[<a href="../../pkg/builtin.html#name-string">string</a>]<a href="../../pkg/google.golang.org/grpc.html#name-ServiceInfo">ServiceInfo</a>
+		(*T).M : google.golang.org/grpc/reflection.<a href="../../pkg/google.golang.org/grpc/reflection.html#name-GRPCServer">GRPCServer</a>.<b><a href="../../src/google.golang.org/grpc/reflection/serverreflection.go.html#line-62">GetServiceInfo</a></b>
+		(*T).M : google.golang.org/grpc/xds.<a href="../../pkg/google.golang.org/grpc/xds.html#name-grpcServer">grpcServer</a>.<b><a href="../../src/google.golang.org/grpc/xds/server.go.html#line-74">GetServiceInfo</a></b></div>
+<div class="anchor" id="name-GracefulStop">	<a href="../../src/google.golang.org/grpc/server.go.html#line-1739">GracefulStop</a>()
+		(*T).M : google.golang.org/grpc/xds.<a href="../../pkg/google.golang.org/grpc/xds.html#name-grpcServer">grpcServer</a>.<b><a href="../../src/google.golang.org/grpc/xds/server.go.html#line-73">GracefulStop</a></b></div>
 <div class="anchor" id="name-RegisterService">	<a href="../../src/google.golang.org/grpc/server.go.html#line-625">RegisterService</a>(sd *<a href="../../pkg/google.golang.org/grpc.html#name-ServiceDesc">ServiceDesc</a>, ss interface{})
-		(*T).M : <a href="../../pkg/google.golang.org/grpc.html#name-ServiceRegistrar">ServiceRegistrar</a>.<b><a href="../../src/google.golang.org/grpc/server.go.html#line-618">RegisterService</a></b></div>
+		(*T).M : <a href="../../pkg/google.golang.org/grpc.html#name-ServiceRegistrar">ServiceRegistrar</a>.<b><a href="../../src/google.golang.org/grpc/server.go.html#line-618">RegisterService</a></b>
+		(*T).M : google.golang.org/grpc/reflection.<a href="../../pkg/google.golang.org/grpc/reflection.html#name-GRPCServer">GRPCServer</a>.<b><a href="../../src/google.golang.org/grpc/server.go.html#line-618">RegisterService</a></b>
+		(*T).M : google.golang.org/grpc/xds.<a href="../../pkg/google.golang.org/grpc/xds.html#name-grpcServer">grpcServer</a>.<b><a href="../../src/google.golang.org/grpc/xds/server.go.html#line-70">RegisterService</a></b></div>
+<div class="anchor" id="name-Serve">	<a href="../../src/google.golang.org/grpc/server.go.html#line-739">Serve</a>(lis <a href="../../pkg/net.html">net</a>.<a href="../../pkg/net.html#name-Listener">Listener</a>) <a href="../../pkg/builtin.html#name-error">error</a>
+		(*T).M : google.golang.org/grpc/xds.<a href="../../pkg/google.golang.org/grpc/xds.html#name-grpcServer">grpcServer</a>.<b><a href="../../src/google.golang.org/grpc/xds/server.go.html#line-71">Serve</a></b></div>
 <div class="anchor" id="name-ServeHTTP">	<a href="../../src/google.golang.org/grpc/server.go.html#line-966">ServeHTTP</a>(w <a href="../../pkg/net/http.html">http</a>.<a href="../../pkg/net/http.html#name-ResponseWriter">ResponseWriter</a>, r *<a href="../../pkg/net/http.html">http</a>.<a href="../../pkg/net/http.html#name-Request">Request</a>)
-		(*T).M : net/http.<a href="../../pkg/net/http.html#name-Handler">Handler</a>.<b><a href="../../src/net/http/server.go.html#line-87">ServeHTTP</a></b></div></code></pre><pre id="footer">
+		(*T).M : net/http.<a href="../../pkg/net/http.html#name-Handler">Handler</a>.<b><a href="../../src/net/http/server.go.html#line-87">ServeHTTP</a></b></div>
+<div class="anchor" id="name-Stop">	<a href="../../src/google.golang.org/grpc/server.go.html#line-1693">Stop</a>()
+		(*T).M : google.golang.org/grpc/xds.<a href="../../pkg/google.golang.org/grpc/xds.html#name-grpcServer">grpcServer</a>.<b><a href="../../src/google.golang.org/grpc/xds/server.go.html#line-72">Stop</a></b></div></code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>
 <td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
 <b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.

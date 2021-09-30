@@ -105,7 +105,7 @@
 			func crypto/x509.<a href="../x509.html#name-oidInExtensions">oidInExtensions</a>(oid <a href="../../encoding/asn1.html">asn1</a>.<a href="../../encoding/asn1.html#name-ObjectIdentifier">ObjectIdentifier</a>, extensions []<b>Extension</b>) <a href="../../builtin.html#name-bool">bool</a></i></span><span class="hidden"><i>
 			func crypto/x509.<a href="../x509.html#name-parseNameConstraintsExtension">parseNameConstraintsExtension</a>(out *<a href="../x509.html">x509</a>.<a href="../x509.html#name-Certificate">Certificate</a>, e <b>Extension</b>) (unhandled <a href="../../builtin.html#name-bool">bool</a>, err <a href="../../builtin.html#name-error">error</a>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-Name" data-popularity="350">	<input type='checkbox' class="fold" id="Name-fold-content"><label for="Name-fold-content"> type <a href="../../../src/crypto/x509/pkix/pkix.go.html#line-123">Name</a> <i>(struct)</i></label><span id='Name-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Name" data-popularity="400">	<input type='checkbox' class="fold" id="Name-fold-content"><label for="Name-fold-content"> type <a href="../../../src/crypto/x509/pkix/pkix.go.html#line-123">Name</a> <i>(struct)</i></label><span id='Name-fold-content-docs' class="fold-docs">
 		Name represents an X.509 distinguished name. This only includes the common
 		elements of a DN. Note that Name is only an approximation of the X.509
 		structure. If an accurate representation is needed, asn1.Unmarshal the raw
@@ -163,23 +163,25 @@
 				attributeTypeAndValue for each of the given values. See RFC 5280, A.1, and
 				search for AttributeTypeAndValue.
 </span></i></span></span>
-		<input type='checkbox' class="fold" id="Name-fold-impls"><label for="Name-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='Name-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Name-fold-impls"><label for="Name-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='Name-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="Name-showhide-impls"><i><label for="Name-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="Name-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Name-showhide-impls"><i><label for="Name-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="Name-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../runtime.html#name-stringer">stringer</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-RDNSequence" data-popularity="420">	<input type='checkbox' class="fold" id="RDNSequence-fold-content"><label for="RDNSequence-fold-content"> type <a href="../../../src/crypto/x509/pkix/pkix.go.html#line-24">RDNSequence</a> <i>([]T)</i></label><span id='RDNSequence-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-RDNSequence" data-popularity="470">	<input type='checkbox' class="fold" id="RDNSequence-fold-content"><label for="RDNSequence-fold-content"> type <a href="../../../src/crypto/x509/pkix/pkix.go.html#line-24">RDNSequence</a> <i>([]T)</i></label><span id='RDNSequence-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="RDNSequence-fold-methods"><label for="RDNSequence-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='RDNSequence-fold-methods-items' class="fold-items"><span>
 			<input type='checkbox' class="fold" id="RDNSequence-fold-method-String"><label for="RDNSequence-fold-method-String">( T) <a href="../../../src/crypto/x509/pkix/pkix.go.html#line-40">String</a>() <a href="../../builtin.html#name-string">string</a></label><span id='RDNSequence-fold-method-String-docs' class="fold-docs">
 				String returns a string representation of the sequence r,
 				roughly following the RFC 2253 Distinguished Names syntax.
 </span></span></span>
-		<input type='checkbox' class="fold" id="RDNSequence-fold-impls"><label for="RDNSequence-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='RDNSequence-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="RDNSequence-fold-impls"><label for="RDNSequence-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='RDNSequence-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="RDNSequence-showhide-impls"><i><label for="RDNSequence-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="RDNSequence-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="RDNSequence-showhide-impls"><i><label for="RDNSequence-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="RDNSequence-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="RDNSequence-fold-results"><label for="RDNSequence-fold-results">As Outputs Of (<i>at least 2, in which 1 are exported</i>)</label><span id='RDNSequence-fold-results-items' class="fold-items"><span>
 			func <a href="#name-Name">Name</a>.<a href="../../../src/crypto/x509/pkix/pkix.go.html#line-226">ToRDNSequence</a>() (ret <b>RDNSequence</b>)</span>

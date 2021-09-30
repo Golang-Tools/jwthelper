@@ -796,16 +796,17 @@
 		the encapsulated content should come from a trusted source,
 		as it will be included verbatim in the template output.
 
-</span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 10 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 10 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-attr" data-popularity="215">	<input type='checkbox' class="fold" id="attr-fold-content"><label for="attr-fold-content"> type <a href="../../src/html/template/context.go.html#line-245">attr</a> <a href="../builtin.html#name-uint8">uint8</a> <i>(basic type)</i></label><span id='attr-fold-content-docs' class="fold-docs">
+</span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 10 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 10 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-attr" data-popularity="265">	<input type='checkbox' class="fold" id="attr-fold-content"><label for="attr-fold-content"> type <a href="../../src/html/template/context.go.html#line-245">attr</a> <a href="../builtin.html#name-uint8">uint8</a> <i>(basic type)</i></label><span id='attr-fold-content-docs' class="fold-docs">
 		attr identifies the current HTML attribute when inside the attribute,
 		that is, starting from stateAttrName until stateTag/stateText (exclusive).
 
 		<input type='checkbox' class="fold" id="attr-fold-methods"><label for="attr-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='attr-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../src/html/template/attr_string.go.html#line-11">String</a>() <a href="../builtin.html#name-string">string</a></span></span></span>
-		<input type='checkbox' class="fold" id="attr-fold-impls"><label for="attr-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='attr-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="attr-fold-impls"><label for="attr-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='attr-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' checked class="showhide" id="attr-showhide-impls"><i><label for="attr-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="attr-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="attr-showhide-impls"><i><label for="attr-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="attr-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="attr-fold-values"><label for="attr-fold-values">As Types Of (<i>total 6, none are exported</i>)</label><span id='attr-fold-values-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="attr-showhide-values"><i><label for="attr-showhide-values" class="show-inline">/* 6 unexporteds ... */</label><label for="attr-showhide-values" class="hide-inline">/* 6 unexporteds: */</label></i><span class="hidden"><i>
@@ -834,7 +835,7 @@
 			const <a href="#name-contentTypeUnsafe">contentTypeUnsafe</a></i></span><span class="hidden"><i>
 			const <a href="#name-contentTypeURL">contentTypeURL</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-context" data-popularity="2390">	<input type='checkbox' class="fold" id="context-fold-content"><label for="context-fold-content"> type <a href="../../src/html/template/context.go.html#line-18">context</a> <i>(struct)</i></label><span id='context-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-context" data-popularity="2440">	<input type='checkbox' class="fold" id="context-fold-content"><label for="context-fold-content"> type <a href="../../src/html/template/context.go.html#line-18">context</a> <i>(struct)</i></label><span id='context-fold-content-docs' class="fold-docs">
 		context describes the state an HTML parser must be in when it reaches the
 		portion of HTML produced by evaluating a particular template node.
 
@@ -862,10 +863,11 @@
 				mangle produces an identifier that includes a suffix that distinguishes it
 				from template names mangled with different contexts.
 </span></i></span></span>
-		<input type='checkbox' class="fold" id="context-fold-impls"><label for="context-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='context-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="context-fold-impls"><label for="context-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='context-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' checked class="showhide" id="context-showhide-impls"><i><label for="context-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="context-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="context-showhide-impls"><i><label for="context-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="context-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="context-fold-results"><label for="context-fold-results">As Outputs Of (<i>at least 19, none are exported</i>)</label><span id='context-fold-results-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="context-showhide-inputofs"><i><label for="context-showhide-inputofs" class="show-inline">/* 19+ unexporteds ... */</label><label for="context-showhide-inputofs" class="hide-inline">/* 19+ unexporteds: */</label></i><span class="hidden"><i>
@@ -910,15 +912,16 @@
 			func <a href="#name-tText">tText</a>(c <b>context</b>, s []<a href="../builtin.html#name-byte">byte</a>) (<b>context</b>, <a href="../builtin.html#name-int">int</a>)</i></span><span class="hidden"><i>
 			func <a href="#name-tURL">tURL</a>(c <b>context</b>, s []<a href="../builtin.html#name-byte">byte</a>) (<b>context</b>, <a href="../builtin.html#name-int">int</a>)</i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-delim" data-popularity="215">	<input type='checkbox' class="fold" id="delim-fold-content"><label for="delim-fold-content"> type <a href="../../src/html/template/context.go.html#line-166">delim</a> <a href="../builtin.html#name-uint8">uint8</a> <i>(basic type)</i></label><span id='delim-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-delim" data-popularity="265">	<input type='checkbox' class="fold" id="delim-fold-content"><label for="delim-fold-content"> type <a href="../../src/html/template/context.go.html#line-166">delim</a> <a href="../builtin.html#name-uint8">uint8</a> <i>(basic type)</i></label><span id='delim-fold-content-docs' class="fold-docs">
 		delim is the delimiter that will end the current HTML attribute.
 
 		<input type='checkbox' class="fold" id="delim-fold-methods"><label for="delim-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='delim-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../src/html/template/delim_string.go.html#line-11">String</a>() <a href="../builtin.html#name-string">string</a></span></span></span>
-		<input type='checkbox' class="fold" id="delim-fold-impls"><label for="delim-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='delim-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="delim-fold-impls"><label for="delim-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='delim-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' checked class="showhide" id="delim-showhide-impls"><i><label for="delim-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="delim-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="delim-showhide-impls"><i><label for="delim-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="delim-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="delim-fold-values"><label for="delim-fold-values">As Types Of (<i>total 4, none are exported</i>)</label><span id='delim-fold-values-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="delim-showhide-values"><i><label for="delim-showhide-values" class="show-inline">/* 4 unexporteds ... */</label><label for="delim-showhide-values" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
@@ -927,7 +930,7 @@
 			const <a href="#name-delimSingleQuote">delimSingleQuote</a></i></span><span class="hidden"><i>
 			const <a href="#name-delimSpaceOrTagEnd">delimSpaceOrTagEnd</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-element" data-popularity="290">	<input type='checkbox' class="fold" id="element-fold-content"><label for="element-fold-content"> type <a href="../../src/html/template/context.go.html#line-223">element</a> <a href="../builtin.html#name-uint8">uint8</a> <i>(basic type)</i></label><span id='element-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-element" data-popularity="340">	<input type='checkbox' class="fold" id="element-fold-content"><label for="element-fold-content"> type <a href="../../src/html/template/context.go.html#line-223">element</a> <a href="../builtin.html#name-uint8">uint8</a> <i>(basic type)</i></label><span id='element-fold-content-docs' class="fold-docs">
 		element identifies the HTML element when inside a start tag or special body.
 		Certain HTML element (for example &lt;script&gt; and &lt;style&gt;) have bodies that are
 		treated differently from stateText so the element type is necessary to
@@ -936,10 +939,11 @@
 
 		<input type='checkbox' class="fold" id="element-fold-methods"><label for="element-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='element-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../src/html/template/element_string.go.html#line-11">String</a>() <a href="../builtin.html#name-string">string</a></span></span></span>
-		<input type='checkbox' class="fold" id="element-fold-impls"><label for="element-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='element-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="element-fold-impls"><label for="element-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='element-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' checked class="showhide" id="element-showhide-impls"><i><label for="element-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="element-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="element-showhide-impls"><i><label for="element-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="element-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="element-fold-results"><label for="element-fold-results">As Outputs Of (<i>at least one unexported</i>)</label><span id='element-fold-results-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="element-showhide-inputofs"><i><label for="element-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="element-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
@@ -1042,16 +1046,17 @@
 			<input type='checkbox' checked class="showhide" id="escaper-showhide-inputofs"><i><label for="escaper-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="escaper-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func <a href="#name-makeEscaper">makeEscaper</a>(n *<a href="#name-nameSpace">nameSpace</a>) <b>escaper</b></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-jsCtx" data-popularity="325">	<input type='checkbox' class="fold" id="jsCtx-fold-content"><label for="jsCtx-fold-content"> type <a href="../../src/html/template/context.go.html#line-205">jsCtx</a> <a href="../builtin.html#name-uint8">uint8</a> <i>(basic type)</i></label><span id='jsCtx-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-jsCtx" data-popularity="375">	<input type='checkbox' class="fold" id="jsCtx-fold-content"><label for="jsCtx-fold-content"> type <a href="../../src/html/template/context.go.html#line-205">jsCtx</a> <a href="../builtin.html#name-uint8">uint8</a> <i>(basic type)</i></label><span id='jsCtx-fold-content-docs' class="fold-docs">
 		jsCtx determines whether a '/' starts a regular expression literal or a
 		division operator.
 
 		<input type='checkbox' class="fold" id="jsCtx-fold-methods"><label for="jsCtx-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='jsCtx-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../src/html/template/jsctx_string.go.html#line-11">String</a>() <a href="../builtin.html#name-string">string</a></span></span></span>
-		<input type='checkbox' class="fold" id="jsCtx-fold-impls"><label for="jsCtx-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='jsCtx-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="jsCtx-fold-impls"><label for="jsCtx-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='jsCtx-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' checked class="showhide" id="jsCtx-showhide-impls"><i><label for="jsCtx-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="jsCtx-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="jsCtx-showhide-impls"><i><label for="jsCtx-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="jsCtx-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="jsCtx-fold-results"><label for="jsCtx-fold-results">As Outputs Of (<i>at least one unexported</i>)</label><span id='jsCtx-fold-results-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="jsCtx-showhide-inputofs"><i><label for="jsCtx-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="jsCtx-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
@@ -1078,7 +1083,7 @@
 			<input type='checkbox' checked class="showhide" id="nameSpace-showhide-outputofs"><i><label for="nameSpace-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="nameSpace-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func <a href="#name-makeEscaper">makeEscaper</a>(n *<b>nameSpace</b>) <a href="#name-escaper">escaper</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-state" data-popularity="285">	<input type='checkbox' class="fold" id="state-fold-content"><label for="state-fold-content"> type <a href="../../src/html/template/context.go.html#line-82">state</a> <a href="../builtin.html#name-uint8">uint8</a> <i>(basic type)</i></label><span id='state-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-state" data-popularity="335">	<input type='checkbox' class="fold" id="state-fold-content"><label for="state-fold-content"> type <a href="../../src/html/template/context.go.html#line-82">state</a> <a href="../builtin.html#name-uint8">uint8</a> <i>(basic type)</i></label><span id='state-fold-content-docs' class="fold-docs">
 		state describes a high-level HTML parser state.
 
 		It bounds the top of the element stack, and by extension the HTML insertion
@@ -1091,10 +1096,11 @@
 
 		<input type='checkbox' class="fold" id="state-fold-methods"><label for="state-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='state-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../src/html/template/state_string.go.html#line-11">String</a>() <a href="../builtin.html#name-string">string</a></span></span></span>
-		<input type='checkbox' class="fold" id="state-fold-impls"><label for="state-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='state-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="state-fold-impls"><label for="state-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='state-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' checked class="showhide" id="state-showhide-impls"><i><label for="state-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="state-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="state-showhide-impls"><i><label for="state-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="state-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="state-fold-params"><label for="state-fold-params">As Inputs Of (<i>at least 2, neither is exported</i>)</label><span id='state-fold-params-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="state-showhide-outputofs"><i><label for="state-showhide-outputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="state-showhide-outputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
@@ -1128,16 +1134,17 @@
 			const <a href="#name-stateText">stateText</a></i></span><span class="hidden"><i>
 			const <a href="#name-stateURL">stateURL</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-urlPart" data-popularity="215">	<input type='checkbox' class="fold" id="urlPart-fold-content"><label for="urlPart-fold-content"> type <a href="../../src/html/template/context.go.html#line-184">urlPart</a> <a href="../builtin.html#name-uint8">uint8</a> <i>(basic type)</i></label><span id='urlPart-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-urlPart" data-popularity="265">	<input type='checkbox' class="fold" id="urlPart-fold-content"><label for="urlPart-fold-content"> type <a href="../../src/html/template/context.go.html#line-184">urlPart</a> <a href="../builtin.html#name-uint8">uint8</a> <i>(basic type)</i></label><span id='urlPart-fold-content-docs' class="fold-docs">
 		urlPart identifies a part in an RFC 3986 hierarchical URL to allow different
 		encoding strategies.
 
 		<input type='checkbox' class="fold" id="urlPart-fold-methods"><label for="urlPart-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='urlPart-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../src/html/template/urlpart_string.go.html#line-11">String</a>() <a href="../builtin.html#name-string">string</a></span></span></span>
-		<input type='checkbox' class="fold" id="urlPart-fold-impls"><label for="urlPart-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='urlPart-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="urlPart-fold-impls"><label for="urlPart-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='urlPart-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' checked class="showhide" id="urlPart-showhide-impls"><i><label for="urlPart-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="urlPart-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="urlPart-showhide-impls"><i><label for="urlPart-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="urlPart-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="urlPart-fold-values"><label for="urlPart-fold-values">As Types Of (<i>total 4, none are exported</i>)</label><span id='urlPart-fold-values-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="urlPart-showhide-values"><i><label for="urlPart-showhide-values" class="show-inline">/* 4 unexporteds ... */</label><label for="urlPart-showhide-values" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>

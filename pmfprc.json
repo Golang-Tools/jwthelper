@@ -3,6 +3,7 @@
     "env": "gomod",
     "version": "0.0.0",
     "added_components": {
-        "cp_go_grpc@v0.0.3//simpleserv": "cmd/verifierrpc"
+        "cp_go_grpc@v0.0.3//simpleserv": "cmd/verifierrpc",
+        "cp_go_grpc@v0.0.3//simplesdk": "sdk/jwtsigner"
     }
 }

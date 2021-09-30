@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Package: google.golang.org/grpc/reflection/grpc_reflection_v1alpha</title>
+<link href="../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="package-details"><code><span style="font-size:xx-large;">package <b>grpc_reflection_v1alpha</b></span>
+
+<span class="title">Import Path</span>
+	<a href="../../../../index.html#pkg-google.golang.org/grpc/reflection/grpc_reflection_v1alpha">google.golang.org/grpc/reflection/grpc_reflection_v1alpha</a><i> (on <a href="https://pkg.go.dev/google.golang.org/grpc/reflection/grpc_reflection_v1alpha" target="_blank">go.dev</a>)</i>
+
+<span class="title">Dependency Relation</span>
+	imports <a href="../../../../dep/google.golang.org/grpc/reflection/grpc_reflection_v1alpha.html">9 packages</a>, and imported by <a href="../../../../dep/google.golang.org/grpc/reflection/grpc_reflection_v1alpha.html#imported-by">one package</a>
+
+<div id="files"><span class="title">Involved Source Files</span>
+
+	<span class="nodocs">      <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html">reflection.pb.go</a></span>
+	<span class="nodocs">      <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html">reflection_grpc.pb.go</a></span></div>
+<div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 28, in which 23 are exported)</i></span></span>
+
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-ErrorResponse" data-popularity="825">	<input type='checkbox' class="fold" id="ErrorResponse-fold-content"><label for="ErrorResponse-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-607">ErrorResponse</a> <i>(struct)</i></label><span id='ErrorResponse-fold-content-docs' class="fold-docs">
+		The error code and error message sent by the server when an error occurs.
+
+		<input type='checkbox' class="fold" id="ErrorResponse-fold-fields"><label for="ErrorResponse-fold-fields">Fields (<i>total 5, in which 2 are exported</i>)</label><span id='ErrorResponse-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ErrorResponse-fold-field-ErrorCode"><label for="ErrorResponse-fold-field-ErrorCode"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-613">ErrorCode</a> <i><a href="../../../builtin.html#name-int32">int32</a></i></label><span id='ErrorResponse-fold-field-ErrorCode-docs' class="fold-docs">
+				This field uses the error codes defined in grpc::StatusCode.
+</span></span><span>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-614">ErrorMessage</a> <i><a href="../../../builtin.html#name-string">string</a></i></span></span>
+			<input type='checkbox' class="showhide" id="ErrorResponse-showhide-fields"><i><label for="ErrorResponse-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="ErrorResponse-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-609">sizeCache</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-SizeCache">SizeCache</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-608">state</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-MessageState">MessageState</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-610">unknownFields</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-UnknownFields">UnknownFields</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="ErrorResponse-fold-methods"><label for="ErrorResponse-fold-methods">Methods (<i>total 7, all are exported</i>)</label><span id='ErrorResponse-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ErrorResponse-fold-method-Descriptor"><label for="ErrorResponse-fold-method-Descriptor">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-645">Descriptor</a>() ([]<a href="../../../builtin.html#name-byte">byte</a>, []<a href="../../../builtin.html#name-int">int</a>)</label><span id='ErrorResponse-fold-method-Descriptor-docs' class="fold-docs">
+				Deprecated: Use ErrorResponse.ProtoReflect.Descriptor instead.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-649">GetErrorCode</a>() <a href="../../../builtin.html#name-int32">int32</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-656">GetErrorMessage</a>() <a href="../../../builtin.html#name-string">string</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-630">ProtoMessage</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-632">ProtoReflect</a>() <a href="../../protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="../../protobuf/reflect/protoreflect.html#name-Message">Message</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-617">Reset</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-626">String</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="ErrorResponse-fold-impls"><label for="ErrorResponse-fold-impls">Implements (<i>at least 8, in which 3 are exported</i>)</label><span id='ErrorResponse-fold-impls-items' class="fold-items"><span>
+			*T : google.golang.org/protobuf/reflect/protoreflect.<a href="../../protobuf/reflect/protoreflect.html#name-ProtoMessage">ProtoMessage</a></span><span>
+			*T : google.golang.org/protobuf/runtime/protoiface.<a href="../../protobuf/runtime/protoiface.html#name-MessageV1">MessageV1</a></span><span>
+			*T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
+			<input type='checkbox' class="showhide" id="ErrorResponse-showhide-impls"><i><label for="ErrorResponse-showhide-impls" class="show-inline">/* 5+ unexporteds ... */</label><label for="ErrorResponse-showhide-impls" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : google.golang.org/grpc/reflection.<a href="../reflection.html#name-protoMessage">protoMessage</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/protobuf/internal/impl.<a href="../../protobuf/internal/impl.html#name-messageV1">messageV1</a></i></span><span class="hidden"><i>
+			*T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="ErrorResponse-fold-results"><label for="ErrorResponse-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='ErrorResponse-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-ServerReflectionResponse">ServerReflectionResponse</a>).<a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-347">GetErrorResponse</a>() *<b>ErrorResponse</b></span></span>
+
+</span></div><div class="anchor type-res" id="name-ExtensionNumberResponse" data-popularity="825">	<input type='checkbox' class="fold" id="ExtensionNumberResponse-fold-content"><label for="ExtensionNumberResponse-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-448">ExtensionNumberResponse</a> <i>(struct)</i></label><span id='ExtensionNumberResponse-fold-content-docs' class="fold-docs">
+		A list of extension numbers sent by the server answering
+		all_extension_numbers_of_type request.
+
+		<input type='checkbox' class="fold" id="ExtensionNumberResponse-fold-fields"><label for="ExtensionNumberResponse-fold-fields">Fields (<i>total 5, in which 2 are exported</i>)</label><span id='ExtensionNumberResponse-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ExtensionNumberResponse-fold-field-BaseTypeName"><label for="ExtensionNumberResponse-fold-field-BaseTypeName"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-455">BaseTypeName</a> <i><a href="../../../builtin.html#name-string">string</a></i></label><span id='ExtensionNumberResponse-fold-field-BaseTypeName-docs' class="fold-docs">
+				Full name of the base type, including the package name. The format
+				is &lt;package&gt;.&lt;type&gt;
+</span></span><span>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-456">ExtensionNumber</a> <i>[]<a href="../../../builtin.html#name-int32">int32</a></i></span></span>
+			<input type='checkbox' class="showhide" id="ExtensionNumberResponse-showhide-fields"><i><label for="ExtensionNumberResponse-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="ExtensionNumberResponse-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-450">sizeCache</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-SizeCache">SizeCache</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-449">state</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-MessageState">MessageState</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-451">unknownFields</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-UnknownFields">UnknownFields</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="ExtensionNumberResponse-fold-methods"><label for="ExtensionNumberResponse-fold-methods">Methods (<i>total 7, all are exported</i>)</label><span id='ExtensionNumberResponse-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ExtensionNumberResponse-fold-method-Descriptor"><label for="ExtensionNumberResponse-fold-method-Descriptor">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-487">Descriptor</a>() ([]<a href="../../../builtin.html#name-byte">byte</a>, []<a href="../../../builtin.html#name-int">int</a>)</label><span id='ExtensionNumberResponse-fold-method-Descriptor-docs' class="fold-docs">
+				Deprecated: Use ExtensionNumberResponse.ProtoReflect.Descriptor instead.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-491">GetBaseTypeName</a>() <a href="../../../builtin.html#name-string">string</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-498">GetExtensionNumber</a>() []<a href="../../../builtin.html#name-int32">int32</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-472">ProtoMessage</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-474">ProtoReflect</a>() <a href="../../protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="../../protobuf/reflect/protoreflect.html#name-Message">Message</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-459">Reset</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-468">String</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="ExtensionNumberResponse-fold-impls"><label for="ExtensionNumberResponse-fold-impls">Implements (<i>at least 8, in which 3 are exported</i>)</label><span id='ExtensionNumberResponse-fold-impls-items' class="fold-items"><span>
+			*T : google.golang.org/protobuf/reflect/protoreflect.<a href="../../protobuf/reflect/protoreflect.html#name-ProtoMessage">ProtoMessage</a></span><span>
+			*T : google.golang.org/protobuf/runtime/protoiface.<a href="../../protobuf/runtime/protoiface.html#name-MessageV1">MessageV1</a></span><span>
+			*T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
+			<input type='checkbox' class="showhide" id="ExtensionNumberResponse-showhide-impls"><i><label for="ExtensionNumberResponse-showhide-impls" class="show-inline">/* 5+ unexporteds ... */</label><label for="ExtensionNumberResponse-showhide-impls" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : google.golang.org/grpc/reflection.<a href="../reflection.html#name-protoMessage">protoMessage</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/protobuf/internal/impl.<a href="../../protobuf/internal/impl.html#name-messageV1">messageV1</a></i></span><span class="hidden"><i>
+			*T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="ExtensionNumberResponse-fold-results"><label for="ExtensionNumberResponse-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='ExtensionNumberResponse-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-ServerReflectionResponse">ServerReflectionResponse</a>).<a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-333">GetAllExtensionNumbersResponse</a>() *<b>ExtensionNumberResponse</b></span></span>
+
+</span></div><div class="anchor type-res" id="name-ExtensionRequest" data-popularity="825">	<input type='checkbox' class="fold" id="ExtensionRequest-fold-content"><label for="ExtensionRequest-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-198">ExtensionRequest</a> <i>(struct)</i></label><span id='ExtensionRequest-fold-content-docs' class="fold-docs">
+		The type name and extension number sent by the client when requesting
+		file_containing_extension.
+
+		<input type='checkbox' class="fold" id="ExtensionRequest-fold-fields"><label for="ExtensionRequest-fold-fields">Fields (<i>total 5, in which 2 are exported</i>)</label><span id='ExtensionRequest-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ExtensionRequest-fold-field-ContainingType"><label for="ExtensionRequest-fold-field-ContainingType"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-204">ContainingType</a> <i><a href="../../../builtin.html#name-string">string</a></i></label><span id='ExtensionRequest-fold-field-ContainingType-docs' class="fold-docs">
+				Fully-qualified type name. The format should be &lt;package&gt;.&lt;type&gt;
+</span></span><span>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-205">ExtensionNumber</a> <i><a href="../../../builtin.html#name-int32">int32</a></i></span></span>
+			<input type='checkbox' class="showhide" id="ExtensionRequest-showhide-fields"><i><label for="ExtensionRequest-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="ExtensionRequest-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-200">sizeCache</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-SizeCache">SizeCache</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-199">state</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-MessageState">MessageState</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-201">unknownFields</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-UnknownFields">UnknownFields</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="ExtensionRequest-fold-methods"><label for="ExtensionRequest-fold-methods">Methods (<i>total 7, all are exported</i>)</label><span id='ExtensionRequest-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ExtensionRequest-fold-method-Descriptor"><label for="ExtensionRequest-fold-method-Descriptor">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-236">Descriptor</a>() ([]<a href="../../../builtin.html#name-byte">byte</a>, []<a href="../../../builtin.html#name-int">int</a>)</label><span id='ExtensionRequest-fold-method-Descriptor-docs' class="fold-docs">
+				Deprecated: Use ExtensionRequest.ProtoReflect.Descriptor instead.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-240">GetContainingType</a>() <a href="../../../builtin.html#name-string">string</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-247">GetExtensionNumber</a>() <a href="../../../builtin.html#name-int32">int32</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-221">ProtoMessage</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-223">ProtoReflect</a>() <a href="../../protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="../../protobuf/reflect/protoreflect.html#name-Message">Message</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-208">Reset</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-217">String</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="ExtensionRequest-fold-impls"><label for="ExtensionRequest-fold-impls">Implements (<i>at least 8, in which 3 are exported</i>)</label><span id='ExtensionRequest-fold-impls-items' class="fold-items"><span>
+			*T : google.golang.org/protobuf/reflect/protoreflect.<a href="../../protobuf/reflect/protoreflect.html#name-ProtoMessage">ProtoMessage</a></span><span>
+			*T : google.golang.org/protobuf/runtime/protoiface.<a href="../../protobuf/runtime/protoiface.html#name-MessageV1">MessageV1</a></span><span>
+			*T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
+			<input type='checkbox' class="showhide" id="ExtensionRequest-showhide-impls"><i><label for="ExtensionRequest-showhide-impls" class="show-inline">/* 5+ unexporteds ... */</label><label for="ExtensionRequest-showhide-impls" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : google.golang.org/grpc/reflection.<a href="../reflection.html#name-protoMessage">protoMessage</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/protobuf/internal/impl.<a href="../../protobuf/internal/impl.html#name-messageV1">messageV1</a></i></span><span class="hidden"><i>
+			*T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="ExtensionRequest-fold-results"><label for="ExtensionRequest-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='ExtensionRequest-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-ServerReflectionRequest">ServerReflectionRequest</a>).<a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-124">GetFileContainingExtension</a>() *<b>ExtensionRequest</b></span></span>
+
+</span></div><div class="anchor type-res" id="name-FileDescriptorResponse" data-popularity="775">	<input type='checkbox' class="fold" id="FileDescriptorResponse-fold-content"><label for="FileDescriptorResponse-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-396">FileDescriptorResponse</a> <i>(struct)</i></label><span id='FileDescriptorResponse-fold-content-docs' class="fold-docs">
+		Serialized FileDescriptorProto messages sent by the server answering
+		a file_by_filename, file_containing_symbol, or file_containing_extension
+		request.
+
+		<input type='checkbox' class="fold" id="FileDescriptorResponse-fold-fields"><label for="FileDescriptorResponse-fold-fields">Fields (<i>total 4, in which 1 are exported</i>)</label><span id='FileDescriptorResponse-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="FileDescriptorResponse-fold-field-FileDescriptorProto"><label for="FileDescriptorResponse-fold-field-FileDescriptorProto"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-404">FileDescriptorProto</a> <i>[][]<a href="../../../builtin.html#name-byte">byte</a></i></label><span id='FileDescriptorResponse-fold-field-FileDescriptorProto-docs' class="fold-docs">
+				Serialized FileDescriptorProto messages. We avoid taking a dependency on
+				descriptor.proto, which uses proto2 only features, by making them opaque
+				bytes instead.
+</span></span>
+			<input type='checkbox' class="showhide" id="FileDescriptorResponse-showhide-fields"><i><label for="FileDescriptorResponse-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="FileDescriptorResponse-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-398">sizeCache</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-SizeCache">SizeCache</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-397">state</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-MessageState">MessageState</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-399">unknownFields</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-UnknownFields">UnknownFields</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="FileDescriptorResponse-fold-methods"><label for="FileDescriptorResponse-fold-methods">Methods (<i>total 6, all are exported</i>)</label><span id='FileDescriptorResponse-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="FileDescriptorResponse-fold-method-Descriptor"><label for="FileDescriptorResponse-fold-method-Descriptor">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-435">Descriptor</a>() ([]<a href="../../../builtin.html#name-byte">byte</a>, []<a href="../../../builtin.html#name-int">int</a>)</label><span id='FileDescriptorResponse-fold-method-Descriptor-docs' class="fold-docs">
+				Deprecated: Use FileDescriptorResponse.ProtoReflect.Descriptor instead.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-439">GetFileDescriptorProto</a>() [][]<a href="../../../builtin.html#name-byte">byte</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-420">ProtoMessage</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-422">ProtoReflect</a>() <a href="../../protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="../../protobuf/reflect/protoreflect.html#name-Message">Message</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-407">Reset</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-416">String</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="FileDescriptorResponse-fold-impls"><label for="FileDescriptorResponse-fold-impls">Implements (<i>at least 8, in which 3 are exported</i>)</label><span id='FileDescriptorResponse-fold-impls-items' class="fold-items"><span>
+			*T : google.golang.org/protobuf/reflect/protoreflect.<a href="../../protobuf/reflect/protoreflect.html#name-ProtoMessage">ProtoMessage</a></span><span>
+			*T : google.golang.org/protobuf/runtime/protoiface.<a href="../../protobuf/runtime/protoiface.html#name-MessageV1">MessageV1</a></span><span>
+			*T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
+			<input type='checkbox' class="showhide" id="FileDescriptorResponse-showhide-impls"><i><label for="FileDescriptorResponse-showhide-impls" class="show-inline">/* 5+ unexporteds ... */</label><label for="FileDescriptorResponse-showhide-impls" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : google.golang.org/grpc/reflection.<a href="../reflection.html#name-protoMessage">protoMessage</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/protobuf/internal/impl.<a href="../../protobuf/internal/impl.html#name-messageV1">messageV1</a></i></span><span class="hidden"><i>
+			*T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="FileDescriptorResponse-fold-results"><label for="FileDescriptorResponse-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='FileDescriptorResponse-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-ServerReflectionResponse">ServerReflectionResponse</a>).<a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-326">GetFileDescriptorResponse</a>() *<b>FileDescriptorResponse</b></span></span>
+
+</span></div><div class="anchor type-res" id="name-ListServiceResponse" data-popularity="775">	<input type='checkbox' class="fold" id="ListServiceResponse-fold-content"><label for="ListServiceResponse-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-506">ListServiceResponse</a> <i>(struct)</i></label><span id='ListServiceResponse-fold-content-docs' class="fold-docs">
+		A list of ServiceResponse sent by the server answering list_services request.
+
+		<input type='checkbox' class="fold" id="ListServiceResponse-fold-fields"><label for="ListServiceResponse-fold-fields">Fields (<i>total 4, in which 1 are exported</i>)</label><span id='ListServiceResponse-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ListServiceResponse-fold-field-Service"><label for="ListServiceResponse-fold-field-Service"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-513">Service</a> <i>[]*<a href="#name-ServiceResponse">ServiceResponse</a></i></label><span id='ListServiceResponse-fold-field-Service-docs' class="fold-docs">
+				The information of each service may be expanded in the future, so we use
+				ServiceResponse message to encapsulate it.
+</span></span>
+			<input type='checkbox' class="showhide" id="ListServiceResponse-showhide-fields"><i><label for="ListServiceResponse-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="ListServiceResponse-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-508">sizeCache</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-SizeCache">SizeCache</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-507">state</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-MessageState">MessageState</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-509">unknownFields</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-UnknownFields">UnknownFields</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="ListServiceResponse-fold-methods"><label for="ListServiceResponse-fold-methods">Methods (<i>total 6, all are exported</i>)</label><span id='ListServiceResponse-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ListServiceResponse-fold-method-Descriptor"><label for="ListServiceResponse-fold-method-Descriptor">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-544">Descriptor</a>() ([]<a href="../../../builtin.html#name-byte">byte</a>, []<a href="../../../builtin.html#name-int">int</a>)</label><span id='ListServiceResponse-fold-method-Descriptor-docs' class="fold-docs">
+				Deprecated: Use ListServiceResponse.ProtoReflect.Descriptor instead.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-548">GetService</a>() []*<a href="#name-ServiceResponse">ServiceResponse</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-529">ProtoMessage</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-531">ProtoReflect</a>() <a href="../../protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="../../protobuf/reflect/protoreflect.html#name-Message">Message</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-516">Reset</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-525">String</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="ListServiceResponse-fold-impls"><label for="ListServiceResponse-fold-impls">Implements (<i>at least 8, in which 3 are exported</i>)</label><span id='ListServiceResponse-fold-impls-items' class="fold-items"><span>
+			*T : google.golang.org/protobuf/reflect/protoreflect.<a href="../../protobuf/reflect/protoreflect.html#name-ProtoMessage">ProtoMessage</a></span><span>
+			*T : google.golang.org/protobuf/runtime/protoiface.<a href="../../protobuf/runtime/protoiface.html#name-MessageV1">MessageV1</a></span><span>
+			*T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
+			<input type='checkbox' class="showhide" id="ListServiceResponse-showhide-impls"><i><label for="ListServiceResponse-showhide-impls" class="show-inline">/* 5+ unexporteds ... */</label><label for="ListServiceResponse-showhide-impls" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : google.golang.org/grpc/reflection.<a href="../reflection.html#name-protoMessage">protoMessage</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/protobuf/internal/impl.<a href="../../protobuf/internal/impl.html#name-messageV1">messageV1</a></i></span><span class="hidden"><i>
+			*T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="ListServiceResponse-fold-results"><label for="ListServiceResponse-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='ListServiceResponse-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-ServerReflectionResponse">ServerReflectionResponse</a>).<a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-340">GetListServicesResponse</a>() *<b>ListServiceResponse</b></span></span>
+
+</span></div><div class="anchor type-res" id="name-ServerReflection_ServerReflectionInfoClient" data-popularity="775">	<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoClient-fold-content"><label for="ServerReflection_ServerReflectionInfoClient-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-47">ServerReflection_ServerReflectionInfoClient</a> <b><i>(interface)</i></b></label><span id='ServerReflection_ServerReflectionInfoClient-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoClient-fold-methods"><label for="ServerReflection_ServerReflectionInfoClient-fold-methods">Methods (<i>total 8, all are exported</i>)</label><span id='ServerReflection_ServerReflectionInfoClient-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoClient-fold-method-CloseSend"><label for="ServerReflection_ServerReflectionInfoClient-fold-method-CloseSend">( T) <a href="../../../../src/google.golang.org/grpc/internal/resolver/config_selector.go.html#line-71">CloseSend</a>() <a href="../../../builtin.html#name-error">error</a></label><span id='ServerReflection_ServerReflectionInfoClient-fold-method-CloseSend-docs' class="fold-docs">
+				CloseSend closes the send direction of the stream. It closes the stream
+				when non-nil error is met. It is also not safe to call CloseSend
+				concurrently with SendMsg.
+</span></span><span>
+			<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoClient-fold-method-Context"><label for="ServerReflection_ServerReflectionInfoClient-fold-method-Context">( T) <a href="../../../../src/google.golang.org/grpc/internal/resolver/config_selector.go.html#line-76">Context</a>() <a href="../../../context.html">context</a>.<a href="../../../context.html#name-Context">Context</a></label><span id='ServerReflection_ServerReflectionInfoClient-fold-method-Context-docs' class="fold-docs">
+				Context returns the context for this stream.
+
+				It should not be called until after Header or RecvMsg has returned. Once
+				called, subsequent client-side retries are disabled.
+</span></span><span>
+			<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoClient-fold-method-Header"><label for="ServerReflection_ServerReflectionInfoClient-fold-method-Header">( T) <a href="../../../../src/google.golang.org/grpc/internal/resolver/config_selector.go.html#line-63">Header</a>() (<a href="../metadata.html">metadata</a>.<a href="../metadata.html#name-MD">MD</a>, <a href="../../../builtin.html#name-error">error</a>)</label><span id='ServerReflection_ServerReflectionInfoClient-fold-method-Header-docs' class="fold-docs">
+				Header returns the header metadata received from the server if there
+				is any. It blocks if the metadata is not ready to read.
+</span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-49">Recv</a>() (*<a href="#name-ServerReflectionResponse">ServerReflectionResponse</a>, <a href="../../../builtin.html#name-error">error</a>)</span></span><span>
+			<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoClient-fold-method-RecvMsg"><label for="ServerReflection_ServerReflectionInfoClient-fold-method-RecvMsg">( T) <a href="../../../../src/google.golang.org/grpc/internal/resolver/config_selector.go.html#line-104">RecvMsg</a>(m interface{}) <a href="../../../builtin.html#name-error">error</a></label><span id='ServerReflection_ServerReflectionInfoClient-fold-method-RecvMsg-docs' class="fold-docs">
+				RecvMsg blocks until it receives a message into m or the stream is
+				done. It returns io.EOF when the stream completes successfully. On
+				any other error, the stream is aborted and the error contains the RPC
+				status.
+
+				It is safe to have a goroutine calling SendMsg and another goroutine
+				calling RecvMsg on the same stream at the same time, but it is not
+				safe to call RecvMsg on the same stream in different goroutines.
+</span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-48">Send</a>(*<a href="#name-ServerReflectionRequest">ServerReflectionRequest</a>) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoClient-fold-method-SendMsg"><label for="ServerReflection_ServerReflectionInfoClient-fold-method-SendMsg">( T) <a href="../../../../src/google.golang.org/grpc/internal/resolver/config_selector.go.html#line-95">SendMsg</a>(m interface{}) <a href="../../../builtin.html#name-error">error</a></label><span id='ServerReflection_ServerReflectionInfoClient-fold-method-SendMsg-docs' class="fold-docs">
+				SendMsg is generally called by generated code. On error, SendMsg aborts
+				the stream. If the error was generated by the client, the status is
+				returned directly; otherwise, io.EOF is returned and the status of
+				the stream may be discovered using RecvMsg.
+
+				SendMsg blocks until:
+				  - There is sufficient flow control to schedule m with the transport, or
+				  - The stream is done, or
+				  - The stream breaks.
+
+				SendMsg does not wait until the message is received by the server. An
+				untimely stream closure may result in lost messages. To ensure delivery,
+				users should ensure the RPC completed successfully using RecvMsg.
+
+				It is safe to have a goroutine calling SendMsg and another goroutine
+				calling RecvMsg on the same stream at the same time, but it is not safe
+				to call SendMsg on the same stream in different goroutines. It is also
+				not safe to call CloseSend concurrently with SendMsg.
+</span></span><span>
+			<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoClient-fold-method-Trailer"><label for="ServerReflection_ServerReflectionInfoClient-fold-method-Trailer">( T) <a href="../../../../src/google.golang.org/grpc/internal/resolver/config_selector.go.html#line-67">Trailer</a>() <a href="../metadata.html">metadata</a>.<a href="../metadata.html#name-MD">MD</a></label><span id='ServerReflection_ServerReflectionInfoClient-fold-method-Trailer-docs' class="fold-docs">
+				Trailer returns the trailer metadata from the server, if there is any.
+				It must only be called after stream.CloseAndRecv has returned, or
+				stream.Recv has returned a non-nil error (including io.EOF).
+</span></span></span>
+		<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoClient-fold-impledby"><label for="ServerReflection_ServerReflectionInfoClient-fold-impledby">Implemented By (<i>at least one unexported</i>)</label><span id='ServerReflection_ServerReflectionInfoClient-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflection_ServerReflectionInfoClient-showhide-impedBys"><i><label for="ServerReflection_ServerReflectionInfoClient-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="ServerReflection_ServerReflectionInfoClient-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*<a href="#name-serverReflectionServerReflectionInfoClient">serverReflectionServerReflectionInfoClient</a></i></span></span>
+		<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoClient-fold-impls"><label for="ServerReflection_ServerReflectionInfoClient-fold-impls">Implements (<i>at least 3, all are exported</i>)</label><span id='ServerReflection_ServerReflectionInfoClient-fold-impls-items' class="fold-items"><span>
+			 T : google.golang.org/grpc.<a href="../../grpc.html#name-ClientStream">ClientStream</a></span><span>
+			 T : google.golang.org/grpc.<a href="../../grpc.html#name-Stream">Stream</a></span><span>
+			 T : google.golang.org/grpc/internal/resolver.<a href="../internal/resolver.html#name-ClientStream">ClientStream</a></span></span>
+		<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoClient-fold-results"><label for="ServerReflection_ServerReflectionInfoClient-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='ServerReflection_ServerReflectionInfoClient-fold-results-items' class="fold-items"><span>
+			func <a href="#name-ServerReflectionClient">ServerReflectionClient</a>.<a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-27">ServerReflectionInfo</a>(ctx <a href="../../../context.html">context</a>.<a href="../../../context.html#name-Context">Context</a>, opts ...<a href="../../grpc.html">grpc</a>.<a href="../../grpc.html#name-CallOption">CallOption</a>) (<b>ServerReflection_ServerReflectionInfoClient</b>, <a href="../../../builtin.html#name-error">error</a>)</span></span>
+
+</span></div><div class="anchor type-res" id="name-ServerReflection_ServerReflectionInfoServer" data-popularity="720">	<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoServer-fold-content"><label for="ServerReflection_ServerReflectionInfoServer-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-101">ServerReflection_ServerReflectionInfoServer</a> <b><i>(interface)</i></b></label><span id='ServerReflection_ServerReflectionInfoServer-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoServer-fold-methods"><label for="ServerReflection_ServerReflectionInfoServer-fold-methods">Methods (<i>total 8, all are exported</i>)</label><span id='ServerReflection_ServerReflectionInfoServer-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoServer-fold-method-Context"><label for="ServerReflection_ServerReflectionInfoServer-fold-method-Context">( T) <a href="../../../../src/google.golang.org/grpc/stream.go.html#line-1383">Context</a>() <a href="../../../context.html">context</a>.<a href="../../../context.html#name-Context">Context</a></label><span id='ServerReflection_ServerReflectionInfoServer-fold-method-Context-docs' class="fold-docs">
+				Context returns the context for this stream.
+</span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-103">Recv</a>() (*<a href="#name-ServerReflectionRequest">ServerReflectionRequest</a>, <a href="../../../builtin.html#name-error">error</a>)</span></span><span>
+			<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoServer-fold-method-RecvMsg"><label for="ServerReflection_ServerReflectionInfoServer-fold-method-RecvMsg">( T) <a href="../../../../src/google.golang.org/grpc/stream.go.html#line-1407">RecvMsg</a>(m interface{}) <a href="../../../builtin.html#name-error">error</a></label><span id='ServerReflection_ServerReflectionInfoServer-fold-method-RecvMsg-docs' class="fold-docs">
+				RecvMsg blocks until it receives a message into m or the stream is
+				done. It returns io.EOF when the client has performed a CloseSend. On
+				any non-EOF error, the stream is aborted and the error contains the
+				RPC status.
+
+				It is safe to have a goroutine calling SendMsg and another goroutine
+				calling RecvMsg on the same stream at the same time, but it is not
+				safe to call RecvMsg on the same stream in different goroutines.
+</span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-102">Send</a>(*<a href="#name-ServerReflectionResponse">ServerReflectionResponse</a>) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoServer-fold-method-SendHeader"><label for="ServerReflection_ServerReflectionInfoServer-fold-method-SendHeader">( T) <a href="../../../../src/google.golang.org/grpc/stream.go.html#line-1378">SendHeader</a>(<a href="../metadata.html">metadata</a>.<a href="../metadata.html#name-MD">MD</a>) <a href="../../../builtin.html#name-error">error</a></label><span id='ServerReflection_ServerReflectionInfoServer-fold-method-SendHeader-docs' class="fold-docs">
+				SendHeader sends the header metadata.
+				The provided md and headers set by SetHeader() will be sent.
+				It fails if called multiple times.
+</span></span><span>
+			<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoServer-fold-method-SendMsg"><label for="ServerReflection_ServerReflectionInfoServer-fold-method-SendMsg">( T) <a href="../../../../src/google.golang.org/grpc/stream.go.html#line-1398">SendMsg</a>(m interface{}) <a href="../../../builtin.html#name-error">error</a></label><span id='ServerReflection_ServerReflectionInfoServer-fold-method-SendMsg-docs' class="fold-docs">
+				SendMsg sends a message. On error, SendMsg aborts the stream and the
+				error is returned directly.
+
+				SendMsg blocks until:
+				  - There is sufficient flow control to schedule m with the transport, or
+				  - The stream is done, or
+				  - The stream breaks.
+
+				SendMsg does not wait until the message is received by the client. An
+				untimely stream closure may result in lost messages.
+
+				It is safe to have a goroutine calling SendMsg and another goroutine
+				calling RecvMsg on the same stream at the same time, but it is not safe
+				to call SendMsg on the same stream in different goroutines.
+</span></span><span>
+			<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoServer-fold-method-SetHeader"><label for="ServerReflection_ServerReflectionInfoServer-fold-method-SetHeader">( T) <a href="../../../../src/google.golang.org/grpc/stream.go.html#line-1374">SetHeader</a>(<a href="../metadata.html">metadata</a>.<a href="../metadata.html#name-MD">MD</a>) <a href="../../../builtin.html#name-error">error</a></label><span id='ServerReflection_ServerReflectionInfoServer-fold-method-SetHeader-docs' class="fold-docs">
+				SetHeader sets the header metadata. It may be called multiple times.
+				When call multiple times, all the provided metadata will be merged.
+				All the metadata will be sent out when one of the following happens:
+				 - ServerStream.SendHeader() is called;
+				 - The first response is sent out;
+				 - An RPC status is sent out (error or success).
+</span></span><span>
+			<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoServer-fold-method-SetTrailer"><label for="ServerReflection_ServerReflectionInfoServer-fold-method-SetTrailer">( T) <a href="../../../../src/google.golang.org/grpc/stream.go.html#line-1381">SetTrailer</a>(<a href="../metadata.html">metadata</a>.<a href="../metadata.html#name-MD">MD</a>)</label><span id='ServerReflection_ServerReflectionInfoServer-fold-method-SetTrailer-docs' class="fold-docs">
+				SetTrailer sets the trailer metadata which will be sent with the RPC status.
+				When called more than once, all the provided metadata will be merged.
+</span></span></span>
+		<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoServer-fold-impledby"><label for="ServerReflection_ServerReflectionInfoServer-fold-impledby">Implemented By (<i>at least one unexported</i>)</label><span id='ServerReflection_ServerReflectionInfoServer-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflection_ServerReflectionInfoServer-showhide-impedBys"><i><label for="ServerReflection_ServerReflectionInfoServer-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="ServerReflection_ServerReflectionInfoServer-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*<a href="#name-serverReflectionServerReflectionInfoServer">serverReflectionServerReflectionInfoServer</a></i></span></span>
+		<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoServer-fold-impls"><label for="ServerReflection_ServerReflectionInfoServer-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='ServerReflection_ServerReflectionInfoServer-fold-impls-items' class="fold-items"><span>
+			 T : google.golang.org/grpc.<a href="../../grpc.html#name-ServerStream">ServerStream</a></span><span>
+			 T : google.golang.org/grpc.<a href="../../grpc.html#name-Stream">Stream</a></span></span>
+		<input type='checkbox' class="fold" id="ServerReflection_ServerReflectionInfoServer-fold-params"><label for="ServerReflection_ServerReflectionInfoServer-fold-params">As Inputs Of (<i>at least 2, both are exported</i>)</label><span id='ServerReflection_ServerReflectionInfoServer-fold-params-items' class="fold-items"><span>
+			func <a href="#name-ServerReflectionServer">ServerReflectionServer</a>.<a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-75">ServerReflectionInfo</a>(<b>ServerReflection_ServerReflectionInfoServer</b>) <a href="../../../builtin.html#name-error">error</a></span><span>
+			func <a href="#name-UnimplementedServerReflectionServer">UnimplementedServerReflectionServer</a>.<a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-82">ServerReflectionInfo</a>(<b>ServerReflection_ServerReflectionInfoServer</b>) <a href="../../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-ServerReflectionClient" data-popularity="275">	<input type='checkbox' class="fold" id="ServerReflectionClient-fold-content"><label for="ServerReflectionClient-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-24">ServerReflectionClient</a> <b><i>(interface)</i></b></label><span id='ServerReflectionClient-fold-content-docs' class="fold-docs">
+		ServerReflectionClient is the client API for ServerReflection service.
+
+		For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+
+		<input type='checkbox' class="fold" id="ServerReflectionClient-fold-methods"><label for="ServerReflectionClient-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ServerReflectionClient-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServerReflectionClient-fold-method-ServerReflectionInfo"><label for="ServerReflectionClient-fold-method-ServerReflectionInfo">( T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-27">ServerReflectionInfo</a>(ctx <a href="../../../context.html">context</a>.<a href="../../../context.html#name-Context">Context</a>, opts ...<a href="../../grpc.html">grpc</a>.<a href="../../grpc.html#name-CallOption">CallOption</a>) (<a href="#name-ServerReflection_ServerReflectionInfoClient">ServerReflection_ServerReflectionInfoClient</a>, <a href="../../../builtin.html#name-error">error</a>)</label><span id='ServerReflectionClient-fold-method-ServerReflectionInfo-docs' class="fold-docs">
+				The reflection service is structured as a bidirectional stream, ensuring
+				all related requests go to a single server.
+</span></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionClient-fold-impledby"><label for="ServerReflectionClient-fold-impledby">Implemented By (<i>at least one unexported</i>)</label><span id='ServerReflectionClient-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionClient-showhide-impedBys"><i><label for="ServerReflectionClient-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="ServerReflectionClient-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*<a href="#name-serverReflectionClient">serverReflectionClient</a></i></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionClient-fold-results"><label for="ServerReflectionClient-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='ServerReflectionClient-fold-results-items' class="fold-items"><span>
+			func <a href="#name-NewServerReflectionClient">NewServerReflectionClient</a>(cc <a href="../../grpc.html">grpc</a>.<a href="../../grpc.html#name-ClientConnInterface">ClientConnInterface</a>) <b>ServerReflectionClient</b></span></span>
+
+</span></div><div class="anchor type-res" id="name-ServerReflectionRequest" data-popularity="1185">	<input type='checkbox' class="fold" id="ServerReflectionRequest-fold-content"><label for="ServerReflectionRequest-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-45">ServerReflectionRequest</a> <i>(struct)</i></label><span id='ServerReflectionRequest-fold-content-docs' class="fold-docs">
+		The message sent by the client when calling ServerReflectionInfo method.
+
+		<input type='checkbox' class="fold" id="ServerReflectionRequest-fold-fields"><label for="ServerReflectionRequest-fold-fields">Fields (<i>total 5, in which 2 are exported</i>)</label><span id='ServerReflectionRequest-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-50">Host</a> <i><a href="../../../builtin.html#name-string">string</a></i></span></span><span>
+			<input type='checkbox' class="fold" id="ServerReflectionRequest-fold-field-MessageRequest"><label for="ServerReflectionRequest-fold-field-MessageRequest"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-61">MessageRequest</a> <i><a href="#name-isServerReflectionRequest_MessageRequest">isServerReflectionRequest_MessageRequest</a></i></label><span id='ServerReflectionRequest-fold-field-MessageRequest-docs' class="fold-docs">
+				To use reflection service, the client should set one of the following
+				fields in message_request. The server distinguishes requests by their
+				defined field and then handles them using corresponding methods.
+
+				Types that are assignable to MessageRequest:
+					*ServerReflectionRequest_FileByFilename
+					*ServerReflectionRequest_FileContainingSymbol
+					*ServerReflectionRequest_FileContainingExtension
+					*ServerReflectionRequest_AllExtensionNumbersOfType
+					*ServerReflectionRequest_ListServices
+</span></span>
+			<input type='checkbox' class="showhide" id="ServerReflectionRequest-showhide-fields"><i><label for="ServerReflectionRequest-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="ServerReflectionRequest-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-47">sizeCache</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-SizeCache">SizeCache</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-46">state</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-MessageState">MessageState</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-48">unknownFields</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-UnknownFields">UnknownFields</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionRequest-fold-methods"><label for="ServerReflectionRequest-fold-methods">Methods (<i>total 12, all are exported</i>)</label><span id='ServerReflectionRequest-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServerReflectionRequest-fold-method-Descriptor"><label for="ServerReflectionRequest-fold-method-Descriptor">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-92">Descriptor</a>() ([]<a href="../../../builtin.html#name-byte">byte</a>, []<a href="../../../builtin.html#name-int">int</a>)</label><span id='ServerReflectionRequest-fold-method-Descriptor-docs' class="fold-docs">
+				Deprecated: Use ServerReflectionRequest.ProtoReflect.Descriptor instead.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-131">GetAllExtensionNumbersOfType</a>() <a href="../../../builtin.html#name-string">string</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-110">GetFileByFilename</a>() <a href="../../../builtin.html#name-string">string</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-124">GetFileContainingExtension</a>() *<a href="#name-ExtensionRequest">ExtensionRequest</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-117">GetFileContainingSymbol</a>() <a href="../../../builtin.html#name-string">string</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-96">GetHost</a>() <a href="../../../builtin.html#name-string">string</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-138">GetListServices</a>() <a href="../../../builtin.html#name-string">string</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-103">GetMessageRequest</a>() <a href="#name-isServerReflectionRequest_MessageRequest">isServerReflectionRequest_MessageRequest</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-77">ProtoMessage</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-79">ProtoReflect</a>() <a href="../../protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="../../protobuf/reflect/protoreflect.html#name-Message">Message</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-64">Reset</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-73">String</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionRequest-fold-impls"><label for="ServerReflectionRequest-fold-impls">Implements (<i>at least 8, in which 3 are exported</i>)</label><span id='ServerReflectionRequest-fold-impls-items' class="fold-items"><span>
+			*T : google.golang.org/protobuf/reflect/protoreflect.<a href="../../protobuf/reflect/protoreflect.html#name-ProtoMessage">ProtoMessage</a></span><span>
+			*T : google.golang.org/protobuf/runtime/protoiface.<a href="../../protobuf/runtime/protoiface.html#name-MessageV1">MessageV1</a></span><span>
+			*T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
+			<input type='checkbox' class="showhide" id="ServerReflectionRequest-showhide-impls"><i><label for="ServerReflectionRequest-showhide-impls" class="show-inline">/* 5+ unexporteds ... */</label><label for="ServerReflectionRequest-showhide-impls" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : google.golang.org/grpc/reflection.<a href="../reflection.html#name-protoMessage">protoMessage</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/protobuf/internal/impl.<a href="../../protobuf/internal/impl.html#name-messageV1">messageV1</a></i></span><span class="hidden"><i>
+			*T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionRequest-fold-results"><label for="ServerReflectionRequest-fold-results">As Outputs Of (<i>at least 2, both are exported</i>)</label><span id='ServerReflectionRequest-fold-results-items' class="fold-items"><span>
+			func <a href="#name-ServerReflection_ServerReflectionInfoServer">ServerReflection_ServerReflectionInfoServer</a>.<a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-103">Recv</a>() (*<b>ServerReflectionRequest</b>, <a href="../../../builtin.html#name-error">error</a>)</span><span>
+			func (*<a href="#name-ServerReflectionResponse">ServerReflectionResponse</a>).<a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-312">GetOriginalRequest</a>() *<b>ServerReflectionRequest</b></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionRequest-fold-params"><label for="ServerReflectionRequest-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='ServerReflectionRequest-fold-params-items' class="fold-items"><span>
+			func <a href="#name-ServerReflection_ServerReflectionInfoClient">ServerReflection_ServerReflectionInfoClient</a>.<a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-48">Send</a>(*<b>ServerReflectionRequest</b>) <a href="../../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-ServerReflectionRequest_AllExtensionNumbersOfType" data-popularity="100">	<input type='checkbox' class="fold" id="ServerReflectionRequest_AllExtensionNumbersOfType-fold-content"><label for="ServerReflectionRequest_AllExtensionNumbersOfType-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-167">ServerReflectionRequest_AllExtensionNumbersOfType</a> <i>(struct)</i></label><span id='ServerReflectionRequest_AllExtensionNumbersOfType-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="ServerReflectionRequest_AllExtensionNumbersOfType-fold-fields"><label for="ServerReflectionRequest_AllExtensionNumbersOfType-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='ServerReflectionRequest_AllExtensionNumbersOfType-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServerReflectionRequest_AllExtensionNumbersOfType-fold-field-AllExtensionNumbersOfType"><label for="ServerReflectionRequest_AllExtensionNumbersOfType-fold-field-AllExtensionNumbersOfType"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-176">AllExtensionNumbersOfType</a> <i><a href="../../../builtin.html#name-string">string</a></i></label><span id='ServerReflectionRequest_AllExtensionNumbersOfType-fold-field-AllExtensionNumbersOfType-docs' class="fold-docs">
+				Finds the tag numbers used by all known extensions of extendee_type, and
+				appends them to ExtensionNumberResponse in an undefined order.
+				Its corresponding method is best-effort: it's not guaranteed that the
+				reflection service will implement this method, and it's not guaranteed
+				that this method will provide all extensions. Returns
+				StatusCode::UNIMPLEMENTED if it's not implemented.
+				This field should be a fully-qualified type name. The format is
+				&lt;package&gt;.&lt;type&gt;
+</span></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionRequest_AllExtensionNumbersOfType-fold-methods"><label for="ServerReflectionRequest_AllExtensionNumbersOfType-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='ServerReflectionRequest_AllExtensionNumbersOfType-fold-methods-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionRequest_AllExtensionNumbersOfType-showhide-methods"><i><label for="ServerReflectionRequest_AllExtensionNumbersOfType-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="ServerReflectionRequest_AllExtensionNumbersOfType-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-191">isServerReflectionRequest_MessageRequest</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionRequest_AllExtensionNumbersOfType-fold-impls"><label for="ServerReflectionRequest_AllExtensionNumbersOfType-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='ServerReflectionRequest_AllExtensionNumbersOfType-fold-impls-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionRequest_AllExtensionNumbersOfType-showhide-impls"><i><label for="ServerReflectionRequest_AllExtensionNumbersOfType-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="ServerReflectionRequest_AllExtensionNumbersOfType-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : <a href="#name-isServerReflectionRequest_MessageRequest">isServerReflectionRequest_MessageRequest</a></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-ServerReflectionRequest_FileByFilename" data-popularity="100">	<input type='checkbox' class="fold" id="ServerReflectionRequest_FileByFilename-fold-content"><label for="ServerReflectionRequest_FileByFilename-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-149">ServerReflectionRequest_FileByFilename</a> <i>(struct)</i></label><span id='ServerReflectionRequest_FileByFilename-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="ServerReflectionRequest_FileByFilename-fold-fields"><label for="ServerReflectionRequest_FileByFilename-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='ServerReflectionRequest_FileByFilename-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServerReflectionRequest_FileByFilename-fold-field-FileByFilename"><label for="ServerReflectionRequest_FileByFilename-fold-field-FileByFilename"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-151">FileByFilename</a> <i><a href="../../../builtin.html#name-string">string</a></i></label><span id='ServerReflectionRequest_FileByFilename-fold-field-FileByFilename-docs' class="fold-docs">
+				Find a proto file by the file name.
+</span></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionRequest_FileByFilename-fold-methods"><label for="ServerReflectionRequest_FileByFilename-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='ServerReflectionRequest_FileByFilename-fold-methods-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionRequest_FileByFilename-showhide-methods"><i><label for="ServerReflectionRequest_FileByFilename-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="ServerReflectionRequest_FileByFilename-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-185">isServerReflectionRequest_MessageRequest</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionRequest_FileByFilename-fold-impls"><label for="ServerReflectionRequest_FileByFilename-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='ServerReflectionRequest_FileByFilename-fold-impls-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionRequest_FileByFilename-showhide-impls"><i><label for="ServerReflectionRequest_FileByFilename-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="ServerReflectionRequest_FileByFilename-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : <a href="#name-isServerReflectionRequest_MessageRequest">isServerReflectionRequest_MessageRequest</a></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-ServerReflectionRequest_FileContainingExtension" data-popularity="100">	<input type='checkbox' class="fold" id="ServerReflectionRequest_FileContainingExtension-fold-content"><label for="ServerReflectionRequest_FileContainingExtension-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-161">ServerReflectionRequest_FileContainingExtension</a> <i>(struct)</i></label><span id='ServerReflectionRequest_FileContainingExtension-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="ServerReflectionRequest_FileContainingExtension-fold-fields"><label for="ServerReflectionRequest_FileContainingExtension-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='ServerReflectionRequest_FileContainingExtension-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServerReflectionRequest_FileContainingExtension-fold-field-FileContainingExtension"><label for="ServerReflectionRequest_FileContainingExtension-fold-field-FileContainingExtension"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-164">FileContainingExtension</a> <i>*<a href="#name-ExtensionRequest">ExtensionRequest</a></i></label><span id='ServerReflectionRequest_FileContainingExtension-fold-field-FileContainingExtension-docs' class="fold-docs">
+				Find the proto file which defines an extension extending the given
+				message type with the given field number.
+</span></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionRequest_FileContainingExtension-fold-methods"><label for="ServerReflectionRequest_FileContainingExtension-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='ServerReflectionRequest_FileContainingExtension-fold-methods-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionRequest_FileContainingExtension-showhide-methods"><i><label for="ServerReflectionRequest_FileContainingExtension-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="ServerReflectionRequest_FileContainingExtension-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-189">isServerReflectionRequest_MessageRequest</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionRequest_FileContainingExtension-fold-impls"><label for="ServerReflectionRequest_FileContainingExtension-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='ServerReflectionRequest_FileContainingExtension-fold-impls-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionRequest_FileContainingExtension-showhide-impls"><i><label for="ServerReflectionRequest_FileContainingExtension-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="ServerReflectionRequest_FileContainingExtension-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : <a href="#name-isServerReflectionRequest_MessageRequest">isServerReflectionRequest_MessageRequest</a></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-ServerReflectionRequest_FileContainingSymbol" data-popularity="100">	<input type='checkbox' class="fold" id="ServerReflectionRequest_FileContainingSymbol-fold-content"><label for="ServerReflectionRequest_FileContainingSymbol-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-154">ServerReflectionRequest_FileContainingSymbol</a> <i>(struct)</i></label><span id='ServerReflectionRequest_FileContainingSymbol-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="ServerReflectionRequest_FileContainingSymbol-fold-fields"><label for="ServerReflectionRequest_FileContainingSymbol-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='ServerReflectionRequest_FileContainingSymbol-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServerReflectionRequest_FileContainingSymbol-fold-field-FileContainingSymbol"><label for="ServerReflectionRequest_FileContainingSymbol-fold-field-FileContainingSymbol"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-158">FileContainingSymbol</a> <i><a href="../../../builtin.html#name-string">string</a></i></label><span id='ServerReflectionRequest_FileContainingSymbol-fold-field-FileContainingSymbol-docs' class="fold-docs">
+				Find the proto file that declares the given fully-qualified symbol name.
+				This field should be a fully-qualified symbol name
+				(e.g. &lt;package&gt;.&lt;service&gt;[.&lt;method&gt;] or &lt;package&gt;.&lt;type&gt;).
+</span></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionRequest_FileContainingSymbol-fold-methods"><label for="ServerReflectionRequest_FileContainingSymbol-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='ServerReflectionRequest_FileContainingSymbol-fold-methods-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionRequest_FileContainingSymbol-showhide-methods"><i><label for="ServerReflectionRequest_FileContainingSymbol-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="ServerReflectionRequest_FileContainingSymbol-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-187">isServerReflectionRequest_MessageRequest</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionRequest_FileContainingSymbol-fold-impls"><label for="ServerReflectionRequest_FileContainingSymbol-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='ServerReflectionRequest_FileContainingSymbol-fold-impls-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionRequest_FileContainingSymbol-showhide-impls"><i><label for="ServerReflectionRequest_FileContainingSymbol-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="ServerReflectionRequest_FileContainingSymbol-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : <a href="#name-isServerReflectionRequest_MessageRequest">isServerReflectionRequest_MessageRequest</a></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-ServerReflectionRequest_ListServices" data-popularity="100">	<input type='checkbox' class="fold" id="ServerReflectionRequest_ListServices-fold-content"><label for="ServerReflectionRequest_ListServices-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-179">ServerReflectionRequest_ListServices</a> <i>(struct)</i></label><span id='ServerReflectionRequest_ListServices-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="ServerReflectionRequest_ListServices-fold-fields"><label for="ServerReflectionRequest_ListServices-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='ServerReflectionRequest_ListServices-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServerReflectionRequest_ListServices-fold-field-ListServices"><label for="ServerReflectionRequest_ListServices-fold-field-ListServices"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-182">ListServices</a> <i><a href="../../../builtin.html#name-string">string</a></i></label><span id='ServerReflectionRequest_ListServices-fold-field-ListServices-docs' class="fold-docs">
+				List the full names of registered services. The content will not be
+				checked.
+</span></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionRequest_ListServices-fold-methods"><label for="ServerReflectionRequest_ListServices-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='ServerReflectionRequest_ListServices-fold-methods-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionRequest_ListServices-showhide-methods"><i><label for="ServerReflectionRequest_ListServices-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="ServerReflectionRequest_ListServices-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-194">isServerReflectionRequest_MessageRequest</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionRequest_ListServices-fold-impls"><label for="ServerReflectionRequest_ListServices-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='ServerReflectionRequest_ListServices-fold-impls-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionRequest_ListServices-showhide-impls"><i><label for="ServerReflectionRequest_ListServices-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="ServerReflectionRequest_ListServices-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : <a href="#name-isServerReflectionRequest_MessageRequest">isServerReflectionRequest_MessageRequest</a></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-ServerReflectionResponse" data-popularity="1110">	<input type='checkbox' class="fold" id="ServerReflectionResponse-fold-content"><label for="ServerReflectionResponse-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-255">ServerReflectionResponse</a> <i>(struct)</i></label><span id='ServerReflectionResponse-fold-content-docs' class="fold-docs">
+		The message sent by the server to answer ServerReflectionInfo method.
+
+		<input type='checkbox' class="fold" id="ServerReflectionResponse-fold-fields"><label for="ServerReflectionResponse-fold-fields">Fields (<i>total 6, in which 3 are exported</i>)</label><span id='ServerReflectionResponse-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServerReflectionResponse-fold-field-MessageResponse"><label for="ServerReflectionResponse-fold-field-MessageResponse"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-270">MessageResponse</a> <i><a href="#name-isServerReflectionResponse_MessageResponse">isServerReflectionResponse_MessageResponse</a></i></label><span id='ServerReflectionResponse-fold-field-MessageResponse-docs' class="fold-docs">
+				The server sets one of the following fields according to the
+				message_request in the request.
+
+				Types that are assignable to MessageResponse:
+					*ServerReflectionResponse_FileDescriptorResponse
+					*ServerReflectionResponse_AllExtensionNumbersResponse
+					*ServerReflectionResponse_ListServicesResponse
+					*ServerReflectionResponse_ErrorResponse
+</span></span><span>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-261">OriginalRequest</a> <i>*<a href="#name-ServerReflectionRequest">ServerReflectionRequest</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-260">ValidHost</a> <i><a href="../../../builtin.html#name-string">string</a></i></span></span>
+			<input type='checkbox' class="showhide" id="ServerReflectionResponse-showhide-fields"><i><label for="ServerReflectionResponse-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="ServerReflectionResponse-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-257">sizeCache</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-SizeCache">SizeCache</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-256">state</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-MessageState">MessageState</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-258">unknownFields</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-UnknownFields">UnknownFields</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionResponse-fold-methods"><label for="ServerReflectionResponse-fold-methods">Methods (<i>total 12, all are exported</i>)</label><span id='ServerReflectionResponse-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServerReflectionResponse-fold-method-Descriptor"><label for="ServerReflectionResponse-fold-method-Descriptor">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-301">Descriptor</a>() ([]<a href="../../../builtin.html#name-byte">byte</a>, []<a href="../../../builtin.html#name-int">int</a>)</label><span id='ServerReflectionResponse-fold-method-Descriptor-docs' class="fold-docs">
+				Deprecated: Use ServerReflectionResponse.ProtoReflect.Descriptor instead.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-333">GetAllExtensionNumbersResponse</a>() *<a href="#name-ExtensionNumberResponse">ExtensionNumberResponse</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-347">GetErrorResponse</a>() *<a href="#name-ErrorResponse">ErrorResponse</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-326">GetFileDescriptorResponse</a>() *<a href="#name-FileDescriptorResponse">FileDescriptorResponse</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-340">GetListServicesResponse</a>() *<a href="#name-ListServiceResponse">ListServiceResponse</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-319">GetMessageResponse</a>() <a href="#name-isServerReflectionResponse_MessageResponse">isServerReflectionResponse_MessageResponse</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-312">GetOriginalRequest</a>() *<a href="#name-ServerReflectionRequest">ServerReflectionRequest</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-305">GetValidHost</a>() <a href="../../../builtin.html#name-string">string</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-286">ProtoMessage</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-288">ProtoReflect</a>() <a href="../../protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="../../protobuf/reflect/protoreflect.html#name-Message">Message</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-273">Reset</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-282">String</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionResponse-fold-impls"><label for="ServerReflectionResponse-fold-impls">Implements (<i>at least 8, in which 3 are exported</i>)</label><span id='ServerReflectionResponse-fold-impls-items' class="fold-items"><span>
+			*T : google.golang.org/protobuf/reflect/protoreflect.<a href="../../protobuf/reflect/protoreflect.html#name-ProtoMessage">ProtoMessage</a></span><span>
+			*T : google.golang.org/protobuf/runtime/protoiface.<a href="../../protobuf/runtime/protoiface.html#name-MessageV1">MessageV1</a></span><span>
+			*T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
+			<input type='checkbox' class="showhide" id="ServerReflectionResponse-showhide-impls"><i><label for="ServerReflectionResponse-showhide-impls" class="show-inline">/* 5+ unexporteds ... */</label><label for="ServerReflectionResponse-showhide-impls" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : google.golang.org/grpc/reflection.<a href="../reflection.html#name-protoMessage">protoMessage</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/protobuf/internal/impl.<a href="../../protobuf/internal/impl.html#name-messageV1">messageV1</a></i></span><span class="hidden"><i>
+			*T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionResponse-fold-results"><label for="ServerReflectionResponse-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='ServerReflectionResponse-fold-results-items' class="fold-items"><span>
+			func <a href="#name-ServerReflection_ServerReflectionInfoClient">ServerReflection_ServerReflectionInfoClient</a>.<a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-49">Recv</a>() (*<b>ServerReflectionResponse</b>, <a href="../../../builtin.html#name-error">error</a>)</span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionResponse-fold-params"><label for="ServerReflectionResponse-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='ServerReflectionResponse-fold-params-items' class="fold-items"><span>
+			func <a href="#name-ServerReflection_ServerReflectionInfoServer">ServerReflection_ServerReflectionInfoServer</a>.<a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-102">Send</a>(*<b>ServerReflectionResponse</b>) <a href="../../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-ServerReflectionResponse_AllExtensionNumbersResponse" data-popularity="100">	<input type='checkbox' class="fold" id="ServerReflectionResponse_AllExtensionNumbersResponse-fold-content"><label for="ServerReflectionResponse_AllExtensionNumbersResponse-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-368">ServerReflectionResponse_AllExtensionNumbersResponse</a> <i>(struct)</i></label><span id='ServerReflectionResponse_AllExtensionNumbersResponse-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="ServerReflectionResponse_AllExtensionNumbersResponse-fold-fields"><label for="ServerReflectionResponse_AllExtensionNumbersResponse-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='ServerReflectionResponse_AllExtensionNumbersResponse-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServerReflectionResponse_AllExtensionNumbersResponse-fold-field-AllExtensionNumbersResponse"><label for="ServerReflectionResponse_AllExtensionNumbersResponse-fold-field-AllExtensionNumbersResponse"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-370">AllExtensionNumbersResponse</a> <i>*<a href="#name-ExtensionNumberResponse">ExtensionNumberResponse</a></i></label><span id='ServerReflectionResponse_AllExtensionNumbersResponse-fold-field-AllExtensionNumbersResponse-docs' class="fold-docs">
+				This message is used to answer all_extension_numbers_of_type requests.
+</span></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionResponse_AllExtensionNumbersResponse-fold-methods"><label for="ServerReflectionResponse_AllExtensionNumbersResponse-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='ServerReflectionResponse_AllExtensionNumbersResponse-fold-methods-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionResponse_AllExtensionNumbersResponse-showhide-methods"><i><label for="ServerReflectionResponse_AllExtensionNumbersResponse-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="ServerReflectionResponse_AllExtensionNumbersResponse-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-386">isServerReflectionResponse_MessageResponse</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionResponse_AllExtensionNumbersResponse-fold-impls"><label for="ServerReflectionResponse_AllExtensionNumbersResponse-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='ServerReflectionResponse_AllExtensionNumbersResponse-fold-impls-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionResponse_AllExtensionNumbersResponse-showhide-impls"><i><label for="ServerReflectionResponse_AllExtensionNumbersResponse-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="ServerReflectionResponse_AllExtensionNumbersResponse-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : <a href="#name-isServerReflectionResponse_MessageResponse">isServerReflectionResponse_MessageResponse</a></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-ServerReflectionResponse_ErrorResponse" data-popularity="100">	<input type='checkbox' class="fold" id="ServerReflectionResponse_ErrorResponse-fold-content"><label for="ServerReflectionResponse_ErrorResponse-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-378">ServerReflectionResponse_ErrorResponse</a> <i>(struct)</i></label><span id='ServerReflectionResponse_ErrorResponse-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="ServerReflectionResponse_ErrorResponse-fold-fields"><label for="ServerReflectionResponse_ErrorResponse-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='ServerReflectionResponse_ErrorResponse-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServerReflectionResponse_ErrorResponse-fold-field-ErrorResponse"><label for="ServerReflectionResponse_ErrorResponse-fold-field-ErrorResponse"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-380">ErrorResponse</a> <i>*<a href="#name-ErrorResponse">ErrorResponse</a></i></label><span id='ServerReflectionResponse_ErrorResponse-fold-field-ErrorResponse-docs' class="fold-docs">
+				This message is used when an error occurs.
+</span></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionResponse_ErrorResponse-fold-methods"><label for="ServerReflectionResponse_ErrorResponse-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='ServerReflectionResponse_ErrorResponse-fold-methods-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionResponse_ErrorResponse-showhide-methods"><i><label for="ServerReflectionResponse_ErrorResponse-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="ServerReflectionResponse_ErrorResponse-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-391">isServerReflectionResponse_MessageResponse</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionResponse_ErrorResponse-fold-impls"><label for="ServerReflectionResponse_ErrorResponse-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='ServerReflectionResponse_ErrorResponse-fold-impls-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionResponse_ErrorResponse-showhide-impls"><i><label for="ServerReflectionResponse_ErrorResponse-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="ServerReflectionResponse_ErrorResponse-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : <a href="#name-isServerReflectionResponse_MessageResponse">isServerReflectionResponse_MessageResponse</a></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-ServerReflectionResponse_FileDescriptorResponse" data-popularity="100">	<input type='checkbox' class="fold" id="ServerReflectionResponse_FileDescriptorResponse-fold-content"><label for="ServerReflectionResponse_FileDescriptorResponse-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-358">ServerReflectionResponse_FileDescriptorResponse</a> <i>(struct)</i></label><span id='ServerReflectionResponse_FileDescriptorResponse-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="ServerReflectionResponse_FileDescriptorResponse-fold-fields"><label for="ServerReflectionResponse_FileDescriptorResponse-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='ServerReflectionResponse_FileDescriptorResponse-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServerReflectionResponse_FileDescriptorResponse-fold-field-FileDescriptorResponse"><label for="ServerReflectionResponse_FileDescriptorResponse-fold-field-FileDescriptorResponse"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-365">FileDescriptorResponse</a> <i>*<a href="#name-FileDescriptorResponse">FileDescriptorResponse</a></i></label><span id='ServerReflectionResponse_FileDescriptorResponse-fold-field-FileDescriptorResponse-docs' class="fold-docs">
+				This message is used to answer file_by_filename, file_containing_symbol,
+				file_containing_extension requests with transitive dependencies.
+				As the repeated label is not allowed in oneof fields, we use a
+				FileDescriptorResponse message to encapsulate the repeated fields.
+				The reflection service is allowed to avoid sending FileDescriptorProtos
+				that were previously sent in response to earlier requests in the stream.
+</span></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionResponse_FileDescriptorResponse-fold-methods"><label for="ServerReflectionResponse_FileDescriptorResponse-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='ServerReflectionResponse_FileDescriptorResponse-fold-methods-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionResponse_FileDescriptorResponse-showhide-methods"><i><label for="ServerReflectionResponse_FileDescriptorResponse-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="ServerReflectionResponse_FileDescriptorResponse-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-383">isServerReflectionResponse_MessageResponse</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionResponse_FileDescriptorResponse-fold-impls"><label for="ServerReflectionResponse_FileDescriptorResponse-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='ServerReflectionResponse_FileDescriptorResponse-fold-impls-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionResponse_FileDescriptorResponse-showhide-impls"><i><label for="ServerReflectionResponse_FileDescriptorResponse-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="ServerReflectionResponse_FileDescriptorResponse-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : <a href="#name-isServerReflectionResponse_MessageResponse">isServerReflectionResponse_MessageResponse</a></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-ServerReflectionResponse_ListServicesResponse" data-popularity="100">	<input type='checkbox' class="fold" id="ServerReflectionResponse_ListServicesResponse-fold-content"><label for="ServerReflectionResponse_ListServicesResponse-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-373">ServerReflectionResponse_ListServicesResponse</a> <i>(struct)</i></label><span id='ServerReflectionResponse_ListServicesResponse-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="ServerReflectionResponse_ListServicesResponse-fold-fields"><label for="ServerReflectionResponse_ListServicesResponse-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='ServerReflectionResponse_ListServicesResponse-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServerReflectionResponse_ListServicesResponse-fold-field-ListServicesResponse"><label for="ServerReflectionResponse_ListServicesResponse-fold-field-ListServicesResponse"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-375">ListServicesResponse</a> <i>*<a href="#name-ListServiceResponse">ListServiceResponse</a></i></label><span id='ServerReflectionResponse_ListServicesResponse-fold-field-ListServicesResponse-docs' class="fold-docs">
+				This message is used to answer list_services requests.
+</span></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionResponse_ListServicesResponse-fold-methods"><label for="ServerReflectionResponse_ListServicesResponse-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='ServerReflectionResponse_ListServicesResponse-fold-methods-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionResponse_ListServicesResponse-showhide-methods"><i><label for="ServerReflectionResponse_ListServicesResponse-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="ServerReflectionResponse_ListServicesResponse-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-389">isServerReflectionResponse_MessageResponse</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionResponse_ListServicesResponse-fold-impls"><label for="ServerReflectionResponse_ListServicesResponse-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='ServerReflectionResponse_ListServicesResponse-fold-impls-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerReflectionResponse_ListServicesResponse-showhide-impls"><i><label for="ServerReflectionResponse_ListServicesResponse-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="ServerReflectionResponse_ListServicesResponse-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : <a href="#name-isServerReflectionResponse_MessageResponse">isServerReflectionResponse_MessageResponse</a></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-ServerReflectionServer" data-popularity="385">	<input type='checkbox' class="fold" id="ServerReflectionServer-fold-content"><label for="ServerReflectionServer-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-72">ServerReflectionServer</a> <b><i>(interface)</i></b></label><span id='ServerReflectionServer-fold-content-docs' class="fold-docs">
+		ServerReflectionServer is the server API for ServerReflection service.
+		All implementations should embed UnimplementedServerReflectionServer
+		for forward compatibility
+
+		<input type='checkbox' class="fold" id="ServerReflectionServer-fold-methods"><label for="ServerReflectionServer-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ServerReflectionServer-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServerReflectionServer-fold-method-ServerReflectionInfo"><label for="ServerReflectionServer-fold-method-ServerReflectionInfo">( T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-75">ServerReflectionInfo</a>(<a href="#name-ServerReflection_ServerReflectionInfoServer">ServerReflection_ServerReflectionInfoServer</a>) <a href="../../../builtin.html#name-error">error</a></label><span id='ServerReflectionServer-fold-method-ServerReflectionInfo-docs' class="fold-docs">
+				The reflection service is structured as a bidirectional stream, ensuring
+				all related requests go to a single server.
+</span></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionServer-fold-impledby"><label for="ServerReflectionServer-fold-impledby">Implemented By (<i>at least 2, in which 1 are exported</i>)</label><span id='ServerReflectionServer-fold-impledby-items' class="fold-items"><span>
+			 <a href="#name-UnimplementedServerReflectionServer">UnimplementedServerReflectionServer</a></span>
+			<input type='checkbox' class="showhide" id="ServerReflectionServer-showhide-impedBys"><i><label for="ServerReflectionServer-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="ServerReflectionServer-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*google.golang.org/grpc/reflection.<a href="../reflection.html#name-serverReflectionServer">serverReflectionServer</a></i></span></span>
+		<input type='checkbox' class="fold" id="ServerReflectionServer-fold-params"><label for="ServerReflectionServer-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='ServerReflectionServer-fold-params-items' class="fold-items"><span>
+			func <a href="#name-RegisterServerReflectionServer">RegisterServerReflectionServer</a>(s <a href="../../grpc.html">grpc</a>.<a href="../../grpc.html#name-ServiceRegistrar">ServiceRegistrar</a>, srv <b>ServerReflectionServer</b>)</span></span>
+
+</span></div><div class="anchor type-res" id="name-ServiceResponse" data-popularity="775">	<input type='checkbox' class="fold" id="ServiceResponse-fold-content"><label for="ServiceResponse-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-557">ServiceResponse</a> <i>(struct)</i></label><span id='ServiceResponse-fold-content-docs' class="fold-docs">
+		The information of a single service used by ListServiceResponse to answer
+		list_services request.
+
+		<input type='checkbox' class="fold" id="ServiceResponse-fold-fields"><label for="ServiceResponse-fold-fields">Fields (<i>total 4, in which 1 are exported</i>)</label><span id='ServiceResponse-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServiceResponse-fold-field-Name"><label for="ServiceResponse-fold-field-Name"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-564">Name</a> <i><a href="../../../builtin.html#name-string">string</a></i></label><span id='ServiceResponse-fold-field-Name-docs' class="fold-docs">
+				Full name of a registered service, including its package name. The format
+				is &lt;package&gt;.&lt;service&gt;
+</span></span>
+			<input type='checkbox' class="showhide" id="ServiceResponse-showhide-fields"><i><label for="ServiceResponse-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="ServiceResponse-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-559">sizeCache</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-SizeCache">SizeCache</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-558">state</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-MessageState">MessageState</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-560">unknownFields</a> <i><a href="../../protobuf/runtime/protoimpl.html">protoimpl</a>.<a href="../../protobuf/runtime/protoimpl.html#name-UnknownFields">UnknownFields</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="ServiceResponse-fold-methods"><label for="ServiceResponse-fold-methods">Methods (<i>total 6, all are exported</i>)</label><span id='ServiceResponse-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServiceResponse-fold-method-Descriptor"><label for="ServiceResponse-fold-method-Descriptor">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-595">Descriptor</a>() ([]<a href="../../../builtin.html#name-byte">byte</a>, []<a href="../../../builtin.html#name-int">int</a>)</label><span id='ServiceResponse-fold-method-Descriptor-docs' class="fold-docs">
+				Deprecated: Use ServiceResponse.ProtoReflect.Descriptor instead.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-599">GetName</a>() <a href="../../../builtin.html#name-string">string</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-580">ProtoMessage</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-582">ProtoReflect</a>() <a href="../../protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="../../protobuf/reflect/protoreflect.html#name-Message">Message</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-567">Reset</a>()</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-576">String</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="ServiceResponse-fold-impls"><label for="ServiceResponse-fold-impls">Implements (<i>at least 8, in which 3 are exported</i>)</label><span id='ServiceResponse-fold-impls-items' class="fold-items"><span>
+			*T : google.golang.org/protobuf/reflect/protoreflect.<a href="../../protobuf/reflect/protoreflect.html#name-ProtoMessage">ProtoMessage</a></span><span>
+			*T : google.golang.org/protobuf/runtime/protoiface.<a href="../../protobuf/runtime/protoiface.html#name-MessageV1">MessageV1</a></span><span>
+			*T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
+			<input type='checkbox' class="showhide" id="ServiceResponse-showhide-impls"><i><label for="ServiceResponse-showhide-impls" class="show-inline">/* 5+ unexporteds ... */</label><label for="ServiceResponse-showhide-impls" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : google.golang.org/grpc/reflection.<a href="../reflection.html#name-protoMessage">protoMessage</a></i></span><span class="hidden"><i>
+			*T : google.golang.org/protobuf/internal/impl.<a href="../../protobuf/internal/impl.html#name-messageV1">messageV1</a></i></span><span class="hidden"><i>
+			*T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="ServiceResponse-fold-results"><label for="ServiceResponse-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='ServiceResponse-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-ListServiceResponse">ListServiceResponse</a>).<a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-548">GetService</a>() []*<b>ServiceResponse</b></span></span>
+
+</span></div><div class="anchor type-res" id="name-UnimplementedServerReflectionServer" data-popularity="100">	<input type='checkbox' class="fold" id="UnimplementedServerReflectionServer-fold-content"><label for="UnimplementedServerReflectionServer-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-79">UnimplementedServerReflectionServer</a> <i>(struct)</i></label><span id='UnimplementedServerReflectionServer-fold-content-docs' class="fold-docs">
+		UnimplementedServerReflectionServer should be embedded to have forward compatible implementations.
+
+		<input type='checkbox' class="fold" id="UnimplementedServerReflectionServer-fold-methods"><label for="UnimplementedServerReflectionServer-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='UnimplementedServerReflectionServer-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-82">ServerReflectionInfo</a>(<a href="#name-ServerReflection_ServerReflectionInfoServer">ServerReflection_ServerReflectionInfoServer</a>) <a href="../../../builtin.html#name-error">error</a></span></span></span>
+		<input type='checkbox' class="fold" id="UnimplementedServerReflectionServer-fold-impls"><label for="UnimplementedServerReflectionServer-fold-impls">Implements (<i>at least one exported</i>)</label><span id='UnimplementedServerReflectionServer-fold-impls-items' class="fold-items"><span>
+			 T : <a href="#name-ServerReflectionServer">ServerReflectionServer</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-UnsafeServerReflectionServer" data-popularity="50">	<input type='checkbox' class="fold" id="UnsafeServerReflectionServer-fold-content"><label for="UnsafeServerReflectionServer-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-89">UnsafeServerReflectionServer</a> <b><i>(interface)</i></b></label><span id='UnsafeServerReflectionServer-fold-content-docs' class="fold-docs">
+		UnsafeServerReflectionServer may be embedded to opt out of forward compatibility for this service.
+		Use of this interface is not recommended, as added methods to ServerReflectionServer will
+		result in compilation errors.
+
+		<input type='checkbox' class="fold" id="UnsafeServerReflectionServer-fold-methods"><label for="UnsafeServerReflectionServer-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='UnsafeServerReflectionServer-fold-methods-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="UnsafeServerReflectionServer-showhide-methods"><i><label for="UnsafeServerReflectionServer-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="UnsafeServerReflectionServer-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">( T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-90">mustEmbedUnimplementedServerReflectionServer</a>()</span></i></span></span>
+
+</span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 5 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 5 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-isServerReflectionRequest_MessageRequest" data-popularity="875">	<input type='checkbox' class="fold" id="isServerReflectionRequest_MessageRequest-fold-content"><label for="isServerReflectionRequest_MessageRequest-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-145">isServerReflectionRequest_MessageRequest</a> <b><i>(interface)</i></b></label><span id='isServerReflectionRequest_MessageRequest-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="isServerReflectionRequest_MessageRequest-fold-methods"><label for="isServerReflectionRequest_MessageRequest-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='isServerReflectionRequest_MessageRequest-fold-methods-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="isServerReflectionRequest_MessageRequest-showhide-methods"><i><label for="isServerReflectionRequest_MessageRequest-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="isServerReflectionRequest_MessageRequest-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">( T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-146">isServerReflectionRequest_MessageRequest</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="isServerReflectionRequest_MessageRequest-fold-impledby"><label for="isServerReflectionRequest_MessageRequest-fold-impledby">Implemented By (<i>at least 5, all are exported</i>)</label><span id='isServerReflectionRequest_MessageRequest-fold-impledby-items' class="fold-items"><span>
+			*<a href="#name-ServerReflectionRequest_AllExtensionNumbersOfType">ServerReflectionRequest_AllExtensionNumbersOfType</a></span><span>
+			*<a href="#name-ServerReflectionRequest_FileByFilename">ServerReflectionRequest_FileByFilename</a></span><span>
+			*<a href="#name-ServerReflectionRequest_FileContainingExtension">ServerReflectionRequest_FileContainingExtension</a></span><span>
+			*<a href="#name-ServerReflectionRequest_FileContainingSymbol">ServerReflectionRequest_FileContainingSymbol</a></span><span>
+			*<a href="#name-ServerReflectionRequest_ListServices">ServerReflectionRequest_ListServices</a></span></span>
+		<input type='checkbox' class="fold" id="isServerReflectionRequest_MessageRequest-fold-results"><label for="isServerReflectionRequest_MessageRequest-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='isServerReflectionRequest_MessageRequest-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-ServerReflectionRequest">ServerReflectionRequest</a>).<a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-103">GetMessageRequest</a>() <b>isServerReflectionRequest_MessageRequest</b></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-isServerReflectionResponse_MessageResponse" data-popularity="725">	<input type='checkbox' class="fold" id="isServerReflectionResponse_MessageResponse-fold-content"><label for="isServerReflectionResponse_MessageResponse-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-354">isServerReflectionResponse_MessageResponse</a> <b><i>(interface)</i></b></label><span id='isServerReflectionResponse_MessageResponse-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="isServerReflectionResponse_MessageResponse-fold-methods"><label for="isServerReflectionResponse_MessageResponse-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='isServerReflectionResponse_MessageResponse-fold-methods-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="isServerReflectionResponse_MessageResponse-showhide-methods"><i><label for="isServerReflectionResponse_MessageResponse-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="isServerReflectionResponse_MessageResponse-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">( T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-355">isServerReflectionResponse_MessageResponse</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="isServerReflectionResponse_MessageResponse-fold-impledby"><label for="isServerReflectionResponse_MessageResponse-fold-impledby">Implemented By (<i>at least 4, all are exported</i>)</label><span id='isServerReflectionResponse_MessageResponse-fold-impledby-items' class="fold-items"><span>
+			*<a href="#name-ServerReflectionResponse_AllExtensionNumbersResponse">ServerReflectionResponse_AllExtensionNumbersResponse</a></span><span>
+			*<a href="#name-ServerReflectionResponse_ErrorResponse">ServerReflectionResponse_ErrorResponse</a></span><span>
+			*<a href="#name-ServerReflectionResponse_FileDescriptorResponse">ServerReflectionResponse_FileDescriptorResponse</a></span><span>
+			*<a href="#name-ServerReflectionResponse_ListServicesResponse">ServerReflectionResponse_ListServicesResponse</a></span></span>
+		<input type='checkbox' class="fold" id="isServerReflectionResponse_MessageResponse-fold-results"><label for="isServerReflectionResponse_MessageResponse-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='isServerReflectionResponse_MessageResponse-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-ServerReflectionResponse">ServerReflectionResponse</a>).<a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-319">GetMessageResponse</a>() <b>isServerReflectionResponse_MessageResponse</b></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-serverReflectionClient" data-popularity="100">	<input type='checkbox' class="fold" id="serverReflectionClient-fold-content"><label for="serverReflectionClient-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-30">serverReflectionClient</a> <i>(struct)</i></label><span id='serverReflectionClient-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="serverReflectionClient-fold-fields"><label for="serverReflectionClient-fold-fields">Fields (<i>only one, which is unexported</i>)</label><span id='serverReflectionClient-fold-fields-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="serverReflectionClient-showhide-fields"><i><label for="serverReflectionClient-showhide-fields" class="show-inline">/* one unexported ... */</label><label for="serverReflectionClient-showhide-fields" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-31">cc</a> <i><a href="../../grpc.html">grpc</a>.<a href="../../grpc.html#name-ClientConnInterface">ClientConnInterface</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="serverReflectionClient-fold-methods"><label for="serverReflectionClient-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='serverReflectionClient-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-38">ServerReflectionInfo</a>(ctx <a href="../../../context.html">context</a>.<a href="../../../context.html#name-Context">Context</a>, opts ...<a href="../../grpc.html">grpc</a>.<a href="../../grpc.html#name-CallOption">CallOption</a>) (<a href="#name-ServerReflection_ServerReflectionInfoClient">ServerReflection_ServerReflectionInfoClient</a>, <a href="../../../builtin.html#name-error">error</a>)</span></span></span>
+		<input type='checkbox' class="fold" id="serverReflectionClient-fold-impls"><label for="serverReflectionClient-fold-impls">Implements (<i>at least one exported</i>)</label><span id='serverReflectionClient-fold-impls-items' class="fold-items"><span>
+			*T : <a href="#name-ServerReflectionClient">ServerReflectionClient</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-serverReflectionServerReflectionInfoClient" data-popularity="600">	<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoClient-fold-content"><label for="serverReflectionServerReflectionInfoClient-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-53">serverReflectionServerReflectionInfoClient</a> <i>(struct)</i></label><span id='serverReflectionServerReflectionInfoClient-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoClient-fold-fields"><label for="serverReflectionServerReflectionInfoClient-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='serverReflectionServerReflectionInfoClient-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../../../src/github.com/envoyproxy/go-control-plane/envoy/api/v2/cds.pb.go.html#line-240">ClientStream</a> <i><a href="../../grpc.html">grpc</a>.<a href="../../grpc.html#name-ClientStream">ClientStream</a></i></span></span></span>
+		<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoClient-fold-methods"><label for="serverReflectionServerReflectionInfoClient-fold-methods">Methods (<i>total 8, all are exported</i>)</label><span id='serverReflectionServerReflectionInfoClient-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoClient-fold-method-CloseSend"><label for="serverReflectionServerReflectionInfoClient-fold-method-CloseSend">( T) <a href="../../../../src/google.golang.org/grpc/internal/resolver/config_selector.go.html#line-71">CloseSend</a>() <a href="../../../builtin.html#name-error">error</a></label><span id='serverReflectionServerReflectionInfoClient-fold-method-CloseSend-docs' class="fold-docs">
+				CloseSend closes the send direction of the stream. It closes the stream
+				when non-nil error is met. It is also not safe to call CloseSend
+				concurrently with SendMsg.
+</span></span><span>
+			<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoClient-fold-method-Context"><label for="serverReflectionServerReflectionInfoClient-fold-method-Context">( T) <a href="../../../../src/google.golang.org/grpc/internal/resolver/config_selector.go.html#line-76">Context</a>() <a href="../../../context.html">context</a>.<a href="../../../context.html#name-Context">Context</a></label><span id='serverReflectionServerReflectionInfoClient-fold-method-Context-docs' class="fold-docs">
+				Context returns the context for this stream.
+
+				It should not be called until after Header or RecvMsg has returned. Once
+				called, subsequent client-side retries are disabled.
+</span></span><span>
+			<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoClient-fold-method-Header"><label for="serverReflectionServerReflectionInfoClient-fold-method-Header">( T) <a href="../../../../src/google.golang.org/grpc/internal/resolver/config_selector.go.html#line-63">Header</a>() (<a href="../metadata.html">metadata</a>.<a href="../metadata.html#name-MD">MD</a>, <a href="../../../builtin.html#name-error">error</a>)</label><span id='serverReflectionServerReflectionInfoClient-fold-method-Header-docs' class="fold-docs">
+				Header returns the header metadata received from the server if there
+				is any. It blocks if the metadata is not ready to read.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-61">Recv</a>() (*<a href="#name-ServerReflectionResponse">ServerReflectionResponse</a>, <a href="../../../builtin.html#name-error">error</a>)</span></span><span>
+			<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoClient-fold-method-RecvMsg"><label for="serverReflectionServerReflectionInfoClient-fold-method-RecvMsg">( T) <a href="../../../../src/google.golang.org/grpc/internal/resolver/config_selector.go.html#line-104">RecvMsg</a>(m interface{}) <a href="../../../builtin.html#name-error">error</a></label><span id='serverReflectionServerReflectionInfoClient-fold-method-RecvMsg-docs' class="fold-docs">
+				RecvMsg blocks until it receives a message into m or the stream is
+				done. It returns io.EOF when the stream completes successfully. On
+				any other error, the stream is aborted and the error contains the RPC
+				status.
+
+				It is safe to have a goroutine calling SendMsg and another goroutine
+				calling RecvMsg on the same stream at the same time, but it is not
+				safe to call RecvMsg on the same stream in different goroutines.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-57">Send</a>(m *<a href="#name-ServerReflectionRequest">ServerReflectionRequest</a>) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoClient-fold-method-SendMsg"><label for="serverReflectionServerReflectionInfoClient-fold-method-SendMsg">( T) <a href="../../../../src/google.golang.org/grpc/internal/resolver/config_selector.go.html#line-95">SendMsg</a>(m interface{}) <a href="../../../builtin.html#name-error">error</a></label><span id='serverReflectionServerReflectionInfoClient-fold-method-SendMsg-docs' class="fold-docs">
+				SendMsg is generally called by generated code. On error, SendMsg aborts
+				the stream. If the error was generated by the client, the status is
+				returned directly; otherwise, io.EOF is returned and the status of
+				the stream may be discovered using RecvMsg.
+
+				SendMsg blocks until:
+				  - There is sufficient flow control to schedule m with the transport, or
+				  - The stream is done, or
+				  - The stream breaks.
+
+				SendMsg does not wait until the message is received by the server. An
+				untimely stream closure may result in lost messages. To ensure delivery,
+				users should ensure the RPC completed successfully using RecvMsg.
+
+				It is safe to have a goroutine calling SendMsg and another goroutine
+				calling RecvMsg on the same stream at the same time, but it is not safe
+				to call SendMsg on the same stream in different goroutines. It is also
+				not safe to call CloseSend concurrently with SendMsg.
+</span></span><span>
+			<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoClient-fold-method-Trailer"><label for="serverReflectionServerReflectionInfoClient-fold-method-Trailer">( T) <a href="../../../../src/google.golang.org/grpc/internal/resolver/config_selector.go.html#line-67">Trailer</a>() <a href="../metadata.html">metadata</a>.<a href="../metadata.html#name-MD">MD</a></label><span id='serverReflectionServerReflectionInfoClient-fold-method-Trailer-docs' class="fold-docs">
+				Trailer returns the trailer metadata from the server, if there is any.
+				It must only be called after stream.CloseAndRecv has returned, or
+				stream.Recv has returned a non-nil error (including io.EOF).
+</span></span></span>
+		<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoClient-fold-impls"><label for="serverReflectionServerReflectionInfoClient-fold-impls">Implements (<i>at least 4, all are exported</i>)</label><span id='serverReflectionServerReflectionInfoClient-fold-impls-items' class="fold-items"><span>
+			*T : <a href="#name-ServerReflection_ServerReflectionInfoClient">ServerReflection_ServerReflectionInfoClient</a></span><span>
+			 T : google.golang.org/grpc.<a href="../../grpc.html#name-ClientStream">ClientStream</a></span><span>
+			 T : google.golang.org/grpc.<a href="../../grpc.html#name-Stream">Stream</a></span><span>
+			 T : google.golang.org/grpc/internal/resolver.<a href="../internal/resolver.html#name-ClientStream">ClientStream</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-serverReflectionServerReflectionInfoServer" data-popularity="550">	<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoServer-fold-content"><label for="serverReflectionServerReflectionInfoServer-fold-content"> type <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-107">serverReflectionServerReflectionInfoServer</a> <i>(struct)</i></label><span id='serverReflectionServerReflectionInfoServer-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoServer-fold-fields"><label for="serverReflectionServerReflectionInfoServer-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='serverReflectionServerReflectionInfoServer-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../../../src/github.com/envoyproxy/go-control-plane/envoy/api/v2/cds.pb.go.html#line-331">ServerStream</a> <i><a href="../../grpc.html">grpc</a>.<a href="../../grpc.html#name-ServerStream">ServerStream</a></i></span></span></span>
+		<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoServer-fold-methods"><label for="serverReflectionServerReflectionInfoServer-fold-methods">Methods (<i>total 8, all are exported</i>)</label><span id='serverReflectionServerReflectionInfoServer-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoServer-fold-method-Context"><label for="serverReflectionServerReflectionInfoServer-fold-method-Context">( T) <a href="../../../../src/google.golang.org/grpc/stream.go.html#line-1383">Context</a>() <a href="../../../context.html">context</a>.<a href="../../../context.html#name-Context">Context</a></label><span id='serverReflectionServerReflectionInfoServer-fold-method-Context-docs' class="fold-docs">
+				Context returns the context for this stream.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-115">Recv</a>() (*<a href="#name-ServerReflectionRequest">ServerReflectionRequest</a>, <a href="../../../builtin.html#name-error">error</a>)</span></span><span>
+			<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoServer-fold-method-RecvMsg"><label for="serverReflectionServerReflectionInfoServer-fold-method-RecvMsg">( T) <a href="../../../../src/google.golang.org/grpc/stream.go.html#line-1407">RecvMsg</a>(m interface{}) <a href="../../../builtin.html#name-error">error</a></label><span id='serverReflectionServerReflectionInfoServer-fold-method-RecvMsg-docs' class="fold-docs">
+				RecvMsg blocks until it receives a message into m or the stream is
+				done. It returns io.EOF when the client has performed a CloseSend. On
+				any non-EOF error, the stream is aborted and the error contains the
+				RPC status.
+
+				It is safe to have a goroutine calling SendMsg and another goroutine
+				calling RecvMsg on the same stream at the same time, but it is not
+				safe to call RecvMsg on the same stream in different goroutines.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-111">Send</a>(m *<a href="#name-ServerReflectionResponse">ServerReflectionResponse</a>) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoServer-fold-method-SendHeader"><label for="serverReflectionServerReflectionInfoServer-fold-method-SendHeader">( T) <a href="../../../../src/google.golang.org/grpc/stream.go.html#line-1378">SendHeader</a>(<a href="../metadata.html">metadata</a>.<a href="../metadata.html#name-MD">MD</a>) <a href="../../../builtin.html#name-error">error</a></label><span id='serverReflectionServerReflectionInfoServer-fold-method-SendHeader-docs' class="fold-docs">
+				SendHeader sends the header metadata.
+				The provided md and headers set by SetHeader() will be sent.
+				It fails if called multiple times.
+</span></span><span>
+			<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoServer-fold-method-SendMsg"><label for="serverReflectionServerReflectionInfoServer-fold-method-SendMsg">( T) <a href="../../../../src/google.golang.org/grpc/stream.go.html#line-1398">SendMsg</a>(m interface{}) <a href="../../../builtin.html#name-error">error</a></label><span id='serverReflectionServerReflectionInfoServer-fold-method-SendMsg-docs' class="fold-docs">
+				SendMsg sends a message. On error, SendMsg aborts the stream and the
+				error is returned directly.
+
+				SendMsg blocks until:
+				  - There is sufficient flow control to schedule m with the transport, or
+				  - The stream is done, or
+				  - The stream breaks.
+
+				SendMsg does not wait until the message is received by the client. An
+				untimely stream closure may result in lost messages.
+
+				It is safe to have a goroutine calling SendMsg and another goroutine
+				calling RecvMsg on the same stream at the same time, but it is not safe
+				to call SendMsg on the same stream in different goroutines.
+</span></span><span>
+			<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoServer-fold-method-SetHeader"><label for="serverReflectionServerReflectionInfoServer-fold-method-SetHeader">( T) <a href="../../../../src/google.golang.org/grpc/stream.go.html#line-1374">SetHeader</a>(<a href="../metadata.html">metadata</a>.<a href="../metadata.html#name-MD">MD</a>) <a href="../../../builtin.html#name-error">error</a></label><span id='serverReflectionServerReflectionInfoServer-fold-method-SetHeader-docs' class="fold-docs">
+				SetHeader sets the header metadata. It may be called multiple times.
+				When call multiple times, all the provided metadata will be merged.
+				All the metadata will be sent out when one of the following happens:
+				 - ServerStream.SendHeader() is called;
+				 - The first response is sent out;
+				 - An RPC status is sent out (error or success).
+</span></span><span>
+			<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoServer-fold-method-SetTrailer"><label for="serverReflectionServerReflectionInfoServer-fold-method-SetTrailer">( T) <a href="../../../../src/google.golang.org/grpc/stream.go.html#line-1381">SetTrailer</a>(<a href="../metadata.html">metadata</a>.<a href="../metadata.html#name-MD">MD</a>)</label><span id='serverReflectionServerReflectionInfoServer-fold-method-SetTrailer-docs' class="fold-docs">
+				SetTrailer sets the trailer metadata which will be sent with the RPC status.
+				When called more than once, all the provided metadata will be merged.
+</span></span></span>
+		<input type='checkbox' class="fold" id="serverReflectionServerReflectionInfoServer-fold-impls"><label for="serverReflectionServerReflectionInfoServer-fold-impls">Implements (<i>at least 3, all are exported</i>)</label><span id='serverReflectionServerReflectionInfoServer-fold-impls-items' class="fold-items"><span>
+			*T : <a href="#name-ServerReflection_ServerReflectionInfoServer">ServerReflection_ServerReflectionInfoServer</a></span><span>
+			 T : google.golang.org/grpc.<a href="../../grpc.html#name-ServerStream">ServerStream</a></span><span>
+			 T : google.golang.org/grpc.<a href="../../grpc.html#name-Stream">Stream</a></span></span>
+
+</span></div></div>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 6, in which 2 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-NewServerReflectionClient">	<span class="nodocs"> func <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-34">NewServerReflectionClient</a>(cc <a href="../../grpc.html">grpc</a>.<a href="../../grpc.html#name-ClientConnInterface">ClientConnInterface</a>) <a href="#name-ServerReflectionClient">ServerReflectionClient</a></span></div><div class="anchor value-res" id="name-RegisterServerReflectionServer">	<span class="nodocs"> func <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-93">RegisterServerReflectionServer</a>(s <a href="../../grpc.html">grpc</a>.<a href="../../grpc.html#name-ServiceRegistrar">ServiceRegistrar</a>, srv <a href="#name-ServerReflectionServer">ServerReflectionServer</a>)</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 4 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 4 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-_ServerReflection_ServerReflectionInfo_Handler"><i>	<span class="nodocs"> func <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-97">_ServerReflection_ServerReflectionInfo_Handler</a>(srv interface{}, stream <a href="../../grpc.html">grpc</a>.<a href="../../grpc.html#name-ServerStream">ServerStream</a>) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-file_reflection_grpc_reflection_v1alpha_reflection_proto_init"><i>	<span class="nodocs"> func <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-820">file_reflection_grpc_reflection_v1alpha_reflection_proto_init</a>()</span></i></div><div class="anchor value-res hidden" id="name-file_reflection_grpc_reflection_v1alpha_reflection_proto_rawDescGZIP"><i>	<span class="nodocs"> func <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-784">file_reflection_grpc_reflection_v1alpha_reflection_proto_rawDescGZIP</a>() []<a href="../../../builtin.html#name-byte">byte</a></span></i></div><div class="anchor value-res hidden" id="name-init"><i>	<span class="nodocs"> func <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-819">init</a>()</span></i></div></div>
+<div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (total 8, in which 2 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-File_reflection_grpc_reflection_v1alpha_reflection_proto">	<span class="nodocs">  var <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-663">File_reflection_grpc_reflection_v1alpha_reflection_proto</a> <a href="../../protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="../../protobuf/reflect/protoreflect.html#name-FileDescriptor">FileDescriptor</a></span></div><div class="anchor value-res" id="name-ServerReflection_ServiceDesc">	<input type='checkbox' class="fold" id="ServerReflection_ServiceDesc-fold-content"><label for="ServerReflection_ServiceDesc-fold-content">  var <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection_grpc.pb.go.html#line-126">ServerReflection_ServiceDesc</a> <a href="../../grpc.html">grpc</a>.<a href="../../grpc.html#name-ServiceDesc">ServiceDesc</a></label><span id='ServerReflection_ServiceDesc-fold-content-docs' class="fold-docs">
+		ServerReflection_ServiceDesc is the grpc.ServiceDesc for ServerReflection service.
+		It's only intended for direct use with grpc.RegisterService,
+		and not to be introspected or modified (even as a copy)
+
+</span></div>	<input type='checkbox' class="showhide" id="unexported-variables-showhide"><i><label for="unexported-variables-showhide" class="show-inline">/* 6 unexporteds ... */</label><label for="unexported-variables-showhide" class="hide-inline">/* 6 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-file_reflection_grpc_reflection_v1alpha_reflection_proto_depIdxs"><i>	<span class="nodocs">  var <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-802">file_reflection_grpc_reflection_v1alpha_reflection_proto_depIdxs</a> []<a href="../../../builtin.html#name-int32">int32</a></span></i></div><div class="anchor value-res hidden" id="name-file_reflection_grpc_reflection_v1alpha_reflection_proto_goTypes"><i>	<span class="nodocs">  var <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-792">file_reflection_grpc_reflection_v1alpha_reflection_proto_goTypes</a> []interface{}</span></i></div><div class="anchor value-res hidden" id="name-file_reflection_grpc_reflection_v1alpha_reflection_proto_msgTypes"><i>	<span class="nodocs">  var <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-791">file_reflection_grpc_reflection_v1alpha_reflection_proto_msgTypes</a> []<a href="../../protobuf/internal/impl.html">impl</a>.<a href="../../protobuf/internal/impl.html#name-MessageInfo">MessageInfo</a></span></i></div><div class="anchor value-res hidden" id="name-file_reflection_grpc_reflection_v1alpha_reflection_proto_rawDesc"><i>	<span class="nodocs">  var <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-665">file_reflection_grpc_reflection_v1alpha_reflection_proto_rawDesc</a> []<a href="../../../builtin.html#name-byte">byte</a></span></i></div><div class="anchor value-res hidden" id="name-file_reflection_grpc_reflection_v1alpha_reflection_proto_rawDescData"><i>	<span class="nodocs">  var <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-781">file_reflection_grpc_reflection_v1alpha_reflection_proto_rawDescData</a> []<a href="../../../builtin.html#name-byte">byte</a></span></i></div><div class="anchor value-res hidden" id="name-file_reflection_grpc_reflection_v1alpha_reflection_proto_rawDescOnce"><i>	<span class="nodocs">  var <a href="../../../../src/google.golang.org/grpc/reflection/grpc_reflection_v1alpha/reflection.pb.go.html#line-780">file_reflection_grpc_reflection_v1alpha_reflection_proto_rawDescOnce</a> <a href="../../../sync.html">sync</a>.<a href="../../../sync.html#name-Once">Once</a></span></i></div></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

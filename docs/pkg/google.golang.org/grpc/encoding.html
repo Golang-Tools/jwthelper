@@ -15,7 +15,7 @@
 	<a href="../../../index.html#pkg-google.golang.org/grpc/encoding">google.golang.org/grpc/encoding</a><i> (on <a href="https://pkg.go.dev/google.golang.org/grpc/encoding" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../../../dep/google.golang.org/grpc/encoding.html">2 packages</a>, and imported by <a href="../../../dep/google.golang.org/grpc/encoding.html#imported-by">2 packages</a>
+	imports <a href="../../../dep/google.golang.org/grpc/encoding.html">2 packages</a>, and imported by <a href="../../../dep/google.golang.org/grpc/encoding.html#imported-by">3 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -59,7 +59,7 @@
 			func google.golang.org/grpc.<a href="../grpc.html#name-ForceCodec">ForceCodec</a>(codec <b>Codec</b>) <a href="../grpc.html">grpc</a>.<a href="../grpc.html#name-CallOption">CallOption</a></span><span>
 			func google.golang.org/grpc.<a href="../grpc.html#name-ForceServerCodec">ForceServerCodec</a>(codec <b>Codec</b>) <a href="../grpc.html">grpc</a>.<a href="../grpc.html#name-ServerOption">ServerOption</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-Compressor" data-popularity="505">	<input type='checkbox' class="fold" id="Compressor-fold-content"><label for="Compressor-fold-content"> type <a href="../../../src/google.golang.org/grpc/encoding/encoding.go.html#line-39">Compressor</a> <b><i>(interface)</i></b></label><span id='Compressor-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Compressor" data-popularity="655">	<input type='checkbox' class="fold" id="Compressor-fold-content"><label for="Compressor-fold-content"> type <a href="../../../src/google.golang.org/grpc/encoding/encoding.go.html#line-39">Compressor</a> <b><i>(interface)</i></b></label><span id='Compressor-fold-content-docs' class="fold-docs">
 		Compressor is used for compressing and decompressing when sending or
 		receiving messages.
 
@@ -79,6 +79,9 @@
 				coding header.  The result must be static; the result cannot change
 				between calls.
 </span></span></span>
+		<input type='checkbox' class="fold" id="Compressor-fold-impledby"><label for="Compressor-fold-impledby">Implemented By (<i>at least one unexported</i>)</label><span id='Compressor-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Compressor-showhide-impedBys"><i><label for="Compressor-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="Compressor-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*google.golang.org/grpc/encoding/gzip.<a href="encoding/gzip.html#name-compressor">compressor</a></i></span></span>
 		<input type='checkbox' class="fold" id="Compressor-fold-results"><label for="Compressor-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Compressor-fold-results-items' class="fold-items"><span>
 			func <a href="#name-GetCompressor">GetCompressor</a>(name <a href="../../builtin.html#name-string">string</a>) <b>Compressor</b></span></span>
 		<input type='checkbox' class="fold" id="Compressor-fold-params"><label for="Compressor-fold-params">As Inputs Of (<i>at least 8, in which 1 are exported</i>)</label><span id='Compressor-fold-params-items' class="fold-items"><span>

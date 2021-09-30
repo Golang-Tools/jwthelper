@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: migrate.pb.go in package github.com/cncf/xds/go/udpa/annotations</title>
+<link href="../../../../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	migrate.pb.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../../../pkg/github.com/cncf/xds/go/udpa/annotations.html">github.com/cncf/xds/go/udpa/annotations</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12],
+input[id=r13]:checked ~pre label[for=r13],
+input[id=r14]:checked ~pre label[for=r14],
+input[id=r15]:checked ~pre label[for=r15],
+input[id=r16]:checked ~pre label[for=r16],
+input[id=r17]:checked ~pre label[for=r17],
+input[id=r18]:checked ~pre label[for=r18],
+input[id=r19]:checked ~pre label[for=r19],
+input[id=r20]:checked ~pre label[for=r20],
+input[id=r21]:checked ~pre label[for=r21],
+input[id=r22]:checked ~pre label[for=r22],
+input[id=r23]:checked ~pre label[for=r23],
+input[id=r24]:checked ~pre label[for=r24],
+input[id=r25]:checked ~pre label[for=r25],
+input[id=r26]:checked ~pre label[for=r26],
+input[id=r27]:checked ~pre label[for=r27],
+input[id=r28]:checked ~pre label[for=r28],
+input[id=r29]:checked ~pre label[for=r29],
+input[id=r30]:checked ~pre label[for=r30],
+input[id=r31]:checked ~pre label[for=r31],
+input[id=r32]:checked ~pre label[for=r32],
+input[id=r33]:checked ~pre label[for=r33],
+input[id=r34]:checked ~pre label[for=r34],
+input[id=r35]:checked ~pre label[for=r35],
+input[id=r36]:checked ~pre label[for=r36],
+input[id=r37]:checked ~pre label[for=r37],
+input[id=r38]:checked ~pre label[for=r38],
+input[id=r39]:checked ~pre label[for=r39],
+input[id=r40]:checked ~pre label[for=r40],
+input[id=r41]:checked ~pre label[for=r41],
+input[id=r42]:checked ~pre label[for=r42],
+input[id=r43]:checked ~pre label[for=r43],
+input[id=r44]:checked ~pre label[for=r44],
+input[id=r45]:checked ~pre label[for=r45],
+input[id=r46]:checked ~pre label[for=r46],
+input[id=r47]:checked ~pre label[for=r47],
+input[id=r48]:checked ~pre label[for=r48],
+input[id=r49]:checked ~pre label[for=r49],
+input[id=r50]:checked ~pre label[for=r50],
+input[id=r51]:checked ~pre label[for=r51],
+input[id=r52]:checked ~pre label[for=r52],
+input[id=r53]:checked ~pre label[for=r53],
+input[id=r54]:checked ~pre label[for=r54],
+input[id=r55]:checked ~pre label[for=r55],
+input[id=r56]:checked ~pre label[for=r56],
+input[id=r57]:checked ~pre label[for=r57],
+input[id=r58]:checked ~pre label[for=r58],
+input[id=r59]:checked ~pre label[for=r59],
+input[id=r60]:checked ~pre label[for=r60],
+input[id=r61]:checked ~pre label[for=r61],
+input[id=r62]:checked ~pre label[for=r62],
+input[id=r63]:checked ~pre label[for=r63],
+input[id=r64]:checked ~pre label[for=r64],
+input[id=r65]:checked ~pre label[for=r65],
+input[id=r66]:checked ~pre label[for=r66],
+input[id=r67]:checked ~pre label[for=r67],
+input[id=r68]:checked ~pre label[for=r68],
+input[id=r69]:checked ~pre label[for=r69]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1,
+input[id=i2]:checked ~pre .i2,
+input[id=i3]:checked ~pre .i3
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="r13" type="radio" name="g"/>
+<input id="r14" type="radio" name="g"/>
+<input id="r15" type="radio" name="g"/>
+<input id="r16" type="radio" name="g"/>
+<input id="r17" type="radio" name="g"/>
+<input id="r18" type="radio" name="g"/>
+<input id="r19" type="radio" name="g"/>
+<input id="r20" type="radio" name="g"/>
+<input id="r21" type="radio" name="g"/>
+<input id="r22" type="radio" name="g"/>
+<input id="r23" type="radio" name="g"/>
+<input id="r24" type="radio" name="g"/>
+<input id="r25" type="radio" name="g"/>
+<input id="r26" type="radio" name="g"/>
+<input id="r27" type="radio" name="g"/>
+<input id="r28" type="radio" name="g"/>
+<input id="r29" type="radio" name="g"/>
+<input id="r30" type="radio" name="g"/>
+<input id="r31" type="radio" name="g"/>
+<input id="r32" type="radio" name="g"/>
+<input id="r33" type="radio" name="g"/>
+<input id="r34" type="radio" name="g"/>
+<input id="r35" type="radio" name="g"/>
+<input id="r36" type="radio" name="g"/>
+<input id="r37" type="radio" name="g"/>
+<input id="r38" type="radio" name="g"/>
+<input id="r39" type="radio" name="g"/>
+<input id="r40" type="radio" name="g"/>
+<input id="r41" type="radio" name="g"/>
+<input id="r42" type="radio" name="g"/>
+<input id="r43" type="radio" name="g"/>
+<input id="r44" type="radio" name="g"/>
+<input id="r45" type="radio" name="g"/>
+<input id="r46" type="radio" name="g"/>
+<input id="r47" type="radio" name="g"/>
+<input id="r48" type="radio" name="g"/>
+<input id="r49" type="radio" name="g"/>
+<input id="r50" type="radio" name="g"/>
+<input id="r51" type="radio" name="g"/>
+<input id="r52" type="radio" name="g"/>
+<input id="r53" type="radio" name="g"/>
+<input id="r54" type="radio" name="g"/>
+<input id="r55" type="radio" name="g"/>
+<input id="r56" type="radio" name="g"/>
+<input id="r57" type="radio" name="g"/>
+<input id="r58" type="radio" name="g"/>
+<input id="r59" type="radio" name="g"/>
+<input id="r60" type="radio" name="g"/>
+<input id="r61" type="radio" name="g"/>
+<input id="r62" type="radio" name="g"/>
+<input id="r63" type="radio" name="g"/>
+<input id="r64" type="radio" name="g"/>
+<input id="r65" type="radio" name="g"/>
+<input id="r66" type="radio" name="g"/>
+<input id="r67" type="radio" name="g"/>
+<input id="r68" type="radio" name="g"/>
+<input id="r69" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+<input id="i2" type="radio" name="i"/>
+<input id="i3" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="comment">// Code generated by protoc-gen-go. DO NOT EDIT.</span></code></span>
+<span class="codeline" id="line-2"><code><span class="comment">// source: udpa/annotations/migrate.proto</span></code></span>
+<span class="codeline" id="line-3"><code></code></span>
+<span class="codeline" id="line-4"><code><span class="keyword">package</span> udpa_annotations</code></span>
+<span class="codeline" id="line-5"><code></code></span>
+<span class="codeline" id="line-6"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-7"><code>	<a href="../../../../../../../pkg/fmt.html" class="ident i0">fmt</a> <label for="i0"><span class="lit-string i0">"fmt"</span></label></code></span>
+<span class="codeline" id="line-8"><code>	<a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a> <label for="i1"><span class="lit-string i1">"github.com/golang/protobuf/proto"</span></label></code></span>
+<span class="codeline" id="line-9"><code>	<a href="../../../../../../../pkg/github.com/golang/protobuf/protoc-gen-go/descriptor.html" class="ident i2">descriptor</a> <label for="i2"><span class="lit-string i2">"github.com/golang/protobuf/protoc-gen-go/descriptor"</span></label></code></span>
+<span class="codeline" id="line-10"><code>	<a href="../../../../../../../pkg/math.html" class="ident i3">math</a> <label for="i3"><span class="lit-string i3">"math"</span></label></code></span>
+<span class="codeline" id="line-11"><code>)</code></span>
+<span class="codeline" id="line-12"><code></code></span>
+<span class="codeline" id="line-13"><code><span class="comment">// Reference imports to suppress errors if they are not otherwise used.</span></code></span>
+<span class="codeline" id="line-14"><code><span class="keyword">var</span> _ = <a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/wire.go.html#line-22" class="ident">Marshal</a></code></span>
+<span class="codeline" id="line-15"><code><span class="keyword">var</span> _ = <a href="../../../../../../../pkg/fmt.html" class="ident i0">fmt</a>.<a href="../../../../../../fmt/errors.go.html#line-17" class="ident">Errorf</a></code></span>
+<span class="codeline" id="line-16"><code><span class="keyword">var</span> _ = <a href="../../../../../../../pkg/math.html" class="ident i3">math</a>.<a href="../../../../../../math/bits.go.html#line-20" class="ident">Inf</a></code></span>
+<span class="codeline" id="line-17"><code></code></span>
+<span class="codeline" id="line-18"><code><span class="comment">// This is a compile-time assertion to ensure that this generated file</span></code></span>
+<span class="codeline" id="line-19"><code><span class="comment">// is compatible with the proto package it is being compiled against.</span></code></span>
+<span class="codeline" id="line-20"><code><span class="comment">// A compilation error at this line likely means your copy of the</span></code></span>
+<span class="codeline" id="line-21"><code><span class="comment">// proto package needs to be updated.</span></code></span>
+<span class="codeline" id="line-22"><code><span class="keyword">const</span> _ = <a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/proto.go.html#line-25" class="ident">ProtoPackageIsVersion3</a> <span class="comment">// please upgrade the proto package</span></code></span>
+<span class="codeline" id="line-23"><code></code></span>
+<span class="codeline" id="line-24"><code><span class="keyword">type</span> <a href="../../../../../../../pkg/github.com/cncf/xds/go/udpa/annotations.html#name-MigrateAnnotation" class="ident">MigrateAnnotation</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-25"><code>	Rename               <a href="../../../../../../../pkg/builtin.html#name-string" class="ident">string</a>   <span class="lit-string">`protobuf:"bytes,1,opt,name=rename,proto3" json:"rename,omitempty"`</span></code></span>
+<span class="codeline" id="line-26"><code>	XXX_NoUnkeyedLiteral <span class="keyword">struct</span>{} <span class="lit-string">`json:"-"`</span></code></span>
+<span class="codeline" id="line-27"><code>	XXX_unrecognized     []<a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>   <span class="lit-string">`json:"-"`</span></code></span>
+<span class="codeline" id="line-28"><code>	XXX_sizecache        <a href="../../../../../../../pkg/builtin.html#name-int32" class="ident">int32</a>    <span class="lit-string">`json:"-"`</span></code></span>
+<span class="codeline" id="line-29"><code>}</code></span>
+<span class="codeline" id="line-30"><code></code></span>
+<span class="codeline" id="line-31"><code><span class="keyword">func</span> (<label for="r0" class="ident">m</label> *<a href="#line-24" class="ident">MigrateAnnotation</a>) <label for="r1" class="ident"><a href="../../../../../../../imp/github.com/cncf/xds/go/udpa/annotations.MigrateAnnotation.html#name-.Reset" class="ident">Reset</a></label>()         { *<label for="r0" class="ident">m</label> = <a href="#line-24" class="ident">MigrateAnnotation</a>{} }</code></span>
+<span class="codeline" id="line-32"><code><span class="keyword">func</span> (<label for="r2" class="ident">m</label> *<a href="#line-24" class="ident">MigrateAnnotation</a>) <label for="r3" class="ident"><a href="../../../../../../../imp/github.com/cncf/xds/go/udpa/annotations.MigrateAnnotation.html#name-.String" class="ident">String</a></label>() <a href="../../../../../../../pkg/builtin.html#name-string" class="ident">string</a> { <span class="keyword">return</span> <a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/text_encode.go.html#line-106" class="ident">CompactTextString</a>(<label for="r2" class="ident">m</label>) }</code></span>
+<span class="codeline" id="line-33"><code><span class="keyword">func</span> (*<a href="#line-24" class="ident">MigrateAnnotation</a>) <label for="r4" class="ident"><a href="../../../../../../../imp/github.com/cncf/xds/go/udpa/annotations.MigrateAnnotation.html#name-.ProtoMessage" class="ident">ProtoMessage</a></label>()    {}</code></span>
+<span class="codeline" id="line-34"><code><span class="keyword">func</span> (*<a href="#line-24" class="ident">MigrateAnnotation</a>) <label for="r5" class="ident"><a href="../../../../../../../imp/github.com/cncf/xds/go/udpa/annotations.MigrateAnnotation.html#name-.Descriptor" class="ident">Descriptor</a></label>() ([]<a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, []<a href="../../../../../../../pkg/builtin.html#name-int" class="ident">int</a>) {</code></span>
+<span class="codeline" id="line-35"><code>	<span class="keyword">return</span> <a href="#line-207" class="ident">fileDescriptor_ba8191732d0e246d</a>, []<a href="../../../../../../../pkg/builtin.html#name-int" class="ident">int</a>{<span class="lit-number">0</span>}</code></span>
+<span class="codeline" id="line-36"><code>}</code></span>
+<span class="codeline" id="line-37"><code></code></span>
+<span class="codeline" id="line-38"><code><span class="keyword">func</span> (<label for="r6" class="ident">m</label> *<a href="#line-24" class="ident">MigrateAnnotation</a>) <label for="r7" class="ident">XXX_Unmarshal</label>(<label for="r8" class="ident">b</label> []<a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) <a href="../../../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-39"><code>	<span class="keyword">return</span> <a href="#line-54" class="ident">xxx_messageInfo_MigrateAnnotation</a>.<a href="../../../../../golang/protobuf/proto/deprecated.go.html#line-111" class="ident">Unmarshal</a>(<label for="r6" class="ident">m</label>, <label for="r8" class="ident">b</label>)</code></span>
+<span class="codeline" id="line-40"><code>}</code></span>
+<span class="codeline" id="line-41"><code><span class="keyword">func</span> (<label for="r9" class="ident">m</label> *<a href="#line-24" class="ident">MigrateAnnotation</a>) <label for="r10" class="ident">XXX_Marshal</label>(<label for="r11" class="ident">b</label> []<a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r12" class="ident">deterministic</label> <a href="../../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) ([]<a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <a href="../../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-42"><code>	<span class="keyword">return</span> <a href="#line-54" class="ident">xxx_messageInfo_MigrateAnnotation</a>.<a href="../../../../../golang/protobuf/proto/deprecated.go.html#line-96" class="ident">Marshal</a>(<label for="r11" class="ident">b</label>, <label for="r9" class="ident">m</label>, <label for="r12" class="ident">deterministic</label>)</code></span>
+<span class="codeline" id="line-43"><code>}</code></span>
+<span class="codeline" id="line-44"><code><span class="keyword">func</span> (<label for="r13" class="ident">m</label> *<a href="#line-24" class="ident">MigrateAnnotation</a>) <label for="r14" class="ident">XXX_Merge</label>(<label for="r15" class="ident">src</label> <a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/proto.go.html#line-50" class="ident">Message</a>) {</code></span>
+<span class="codeline" id="line-45"><code>	<a href="#line-54" class="ident">xxx_messageInfo_MigrateAnnotation</a>.<a href="../../../../../golang/protobuf/proto/deprecated.go.html#line-101" class="ident">Merge</a>(<label for="r13" class="ident">m</label>, <label for="r15" class="ident">src</label>)</code></span>
+<span class="codeline" id="line-46"><code>}</code></span>
+<span class="codeline" id="line-47"><code><span class="keyword">func</span> (<label for="r16" class="ident">m</label> *<a href="#line-24" class="ident">MigrateAnnotation</a>) <label for="r17" class="ident">XXX_Size</label>() <a href="../../../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
+<span class="codeline" id="line-48"><code>	<span class="keyword">return</span> <a href="#line-54" class="ident">xxx_messageInfo_MigrateAnnotation</a>.<a href="../../../../../golang/protobuf/proto/deprecated.go.html#line-106" class="ident">Size</a>(<label for="r16" class="ident">m</label>)</code></span>
+<span class="codeline" id="line-49"><code>}</code></span>
+<span class="codeline" id="line-50"><code><span class="keyword">func</span> (<label for="r18" class="ident">m</label> *<a href="#line-24" class="ident">MigrateAnnotation</a>) <label for="r19" class="ident">XXX_DiscardUnknown</label>() {</code></span>
+<span class="codeline" id="line-51"><code>	<a href="#line-54" class="ident">xxx_messageInfo_MigrateAnnotation</a>.<a href="../../../../../golang/protobuf/proto/deprecated.go.html#line-91" class="ident">DiscardUnknown</a>(<label for="r18" class="ident">m</label>)</code></span>
+<span class="codeline" id="line-52"><code>}</code></span>
+<span class="codeline" id="line-53"><code></code></span>
+<span class="codeline" id="line-54"><code><span class="keyword">var</span> <a href="../../../../../../../pkg/github.com/cncf/xds/go/udpa/annotations.html#name-xxx_messageInfo_MigrateAnnotation" class="ident">xxx_messageInfo_MigrateAnnotation</a> <a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/deprecated.go.html#line-88" class="ident">InternalMessageInfo</a></code></span>
+<span class="codeline" id="line-55"><code></code></span>
+<span class="codeline" id="line-56"><code><span class="keyword">func</span> (<label for="r20" class="ident">m</label> *<a href="#line-24" class="ident">MigrateAnnotation</a>) <label for="r21" class="ident">GetRename</label>() <a href="../../../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-57"><code>	<span class="keyword">if</span> <label for="r20" class="ident">m</label> != <a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-58"><code>		<span class="keyword">return</span> <label for="r20" class="ident">m</label>.<a href="#line-25" class="ident">Rename</a></code></span>
+<span class="codeline" id="line-59"><code>	}</code></span>
+<span class="codeline" id="line-60"><code>	<span class="keyword">return</span> <span class="lit-string">""</span></code></span>
+<span class="codeline" id="line-61"><code>}</code></span>
+<span class="codeline" id="line-62"><code></code></span>
+<span class="codeline" id="line-63"><code><span class="keyword">type</span> <a href="../../../../../../../pkg/github.com/cncf/xds/go/udpa/annotations.html#name-FieldMigrateAnnotation" class="ident">FieldMigrateAnnotation</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-64"><code>	Rename               <a href="../../../../../../../pkg/builtin.html#name-string" class="ident">string</a>   <span class="lit-string">`protobuf:"bytes,1,opt,name=rename,proto3" json:"rename,omitempty"`</span></code></span>
+<span class="codeline" id="line-65"><code>	OneofPromotion       <a href="../../../../../../../pkg/builtin.html#name-string" class="ident">string</a>   <span class="lit-string">`protobuf:"bytes,2,opt,name=oneof_promotion,json=oneofPromotion,proto3" json:"oneof_promotion,omitempty"`</span></code></span>
+<span class="codeline" id="line-66"><code>	XXX_NoUnkeyedLiteral <span class="keyword">struct</span>{} <span class="lit-string">`json:"-"`</span></code></span>
+<span class="codeline" id="line-67"><code>	XXX_unrecognized     []<a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>   <span class="lit-string">`json:"-"`</span></code></span>
+<span class="codeline" id="line-68"><code>	XXX_sizecache        <a href="../../../../../../../pkg/builtin.html#name-int32" class="ident">int32</a>    <span class="lit-string">`json:"-"`</span></code></span>
+<span class="codeline" id="line-69"><code>}</code></span>
+<span class="codeline" id="line-70"><code></code></span>
+<span class="codeline" id="line-71"><code><span class="keyword">func</span> (<label for="r22" class="ident">m</label> *<a href="#line-63" class="ident">FieldMigrateAnnotation</a>) <label for="r23" class="ident"><a href="../../../../../../../imp/github.com/cncf/xds/go/udpa/annotations.FieldMigrateAnnotation.html#name-.Reset" class="ident">Reset</a></label>()         { *<label for="r22" class="ident">m</label> = <a href="#line-63" class="ident">FieldMigrateAnnotation</a>{} }</code></span>
+<span class="codeline" id="line-72"><code><span class="keyword">func</span> (<label for="r24" class="ident">m</label> *<a href="#line-63" class="ident">FieldMigrateAnnotation</a>) <label for="r25" class="ident"><a href="../../../../../../../imp/github.com/cncf/xds/go/udpa/annotations.FieldMigrateAnnotation.html#name-.String" class="ident">String</a></label>() <a href="../../../../../../../pkg/builtin.html#name-string" class="ident">string</a> { <span class="keyword">return</span> <a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/text_encode.go.html#line-106" class="ident">CompactTextString</a>(<label for="r24" class="ident">m</label>) }</code></span>
+<span class="codeline" id="line-73"><code><span class="keyword">func</span> (*<a href="#line-63" class="ident">FieldMigrateAnnotation</a>) <label for="r26" class="ident"><a href="../../../../../../../imp/github.com/cncf/xds/go/udpa/annotations.FieldMigrateAnnotation.html#name-.ProtoMessage" class="ident">ProtoMessage</a></label>()    {}</code></span>
+<span class="codeline" id="line-74"><code><span class="keyword">func</span> (*<a href="#line-63" class="ident">FieldMigrateAnnotation</a>) <label for="r27" class="ident"><a href="../../../../../../../imp/github.com/cncf/xds/go/udpa/annotations.FieldMigrateAnnotation.html#name-.Descriptor" class="ident">Descriptor</a></label>() ([]<a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, []<a href="../../../../../../../pkg/builtin.html#name-int" class="ident">int</a>) {</code></span>
+<span class="codeline" id="line-75"><code>	<span class="keyword">return</span> <a href="#line-207" class="ident">fileDescriptor_ba8191732d0e246d</a>, []<a href="../../../../../../../pkg/builtin.html#name-int" class="ident">int</a>{<span class="lit-number">1</span>}</code></span>
+<span class="codeline" id="line-76"><code>}</code></span>
+<span class="codeline" id="line-77"><code></code></span>
+<span class="codeline" id="line-78"><code><span class="keyword">func</span> (<label for="r28" class="ident">m</label> *<a href="#line-63" class="ident">FieldMigrateAnnotation</a>) <label for="r29" class="ident">XXX_Unmarshal</label>(<label for="r30" class="ident">b</label> []<a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) <a href="../../../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-79"><code>	<span class="keyword">return</span> <a href="#line-94" class="ident">xxx_messageInfo_FieldMigrateAnnotation</a>.<a href="../../../../../golang/protobuf/proto/deprecated.go.html#line-111" class="ident">Unmarshal</a>(<label for="r28" class="ident">m</label>, <label for="r30" class="ident">b</label>)</code></span>
+<span class="codeline" id="line-80"><code>}</code></span>
+<span class="codeline" id="line-81"><code><span class="keyword">func</span> (<label for="r31" class="ident">m</label> *<a href="#line-63" class="ident">FieldMigrateAnnotation</a>) <label for="r32" class="ident">XXX_Marshal</label>(<label for="r33" class="ident">b</label> []<a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r34" class="ident">deterministic</label> <a href="../../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) ([]<a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <a href="../../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-82"><code>	<span class="keyword">return</span> <a href="#line-94" class="ident">xxx_messageInfo_FieldMigrateAnnotation</a>.<a href="../../../../../golang/protobuf/proto/deprecated.go.html#line-96" class="ident">Marshal</a>(<label for="r33" class="ident">b</label>, <label for="r31" class="ident">m</label>, <label for="r34" class="ident">deterministic</label>)</code></span>
+<span class="codeline" id="line-83"><code>}</code></span>
+<span class="codeline" id="line-84"><code><span class="keyword">func</span> (<label for="r35" class="ident">m</label> *<a href="#line-63" class="ident">FieldMigrateAnnotation</a>) <label for="r36" class="ident">XXX_Merge</label>(<label for="r37" class="ident">src</label> <a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/proto.go.html#line-50" class="ident">Message</a>) {</code></span>
+<span class="codeline" id="line-85"><code>	<a href="#line-94" class="ident">xxx_messageInfo_FieldMigrateAnnotation</a>.<a href="../../../../../golang/protobuf/proto/deprecated.go.html#line-101" class="ident">Merge</a>(<label for="r35" class="ident">m</label>, <label for="r37" class="ident">src</label>)</code></span>
+<span class="codeline" id="line-86"><code>}</code></span>
+<span class="codeline" id="line-87"><code><span class="keyword">func</span> (<label for="r38" class="ident">m</label> *<a href="#line-63" class="ident">FieldMigrateAnnotation</a>) <label for="r39" class="ident">XXX_Size</label>() <a href="../../../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
+<span class="codeline" id="line-88"><code>	<span class="keyword">return</span> <a href="#line-94" class="ident">xxx_messageInfo_FieldMigrateAnnotation</a>.<a href="../../../../../golang/protobuf/proto/deprecated.go.html#line-106" class="ident">Size</a>(<label for="r38" class="ident">m</label>)</code></span>
+<span class="codeline" id="line-89"><code>}</code></span>
+<span class="codeline" id="line-90"><code><span class="keyword">func</span> (<label for="r40" class="ident">m</label> *<a href="#line-63" class="ident">FieldMigrateAnnotation</a>) <label for="r41" class="ident">XXX_DiscardUnknown</label>() {</code></span>
+<span class="codeline" id="line-91"><code>	<a href="#line-94" class="ident">xxx_messageInfo_FieldMigrateAnnotation</a>.<a href="../../../../../golang/protobuf/proto/deprecated.go.html#line-91" class="ident">DiscardUnknown</a>(<label for="r40" class="ident">m</label>)</code></span>
+<span class="codeline" id="line-92"><code>}</code></span>
+<span class="codeline" id="line-93"><code></code></span>
+<span class="codeline" id="line-94"><code><span class="keyword">var</span> <a href="../../../../../../../pkg/github.com/cncf/xds/go/udpa/annotations.html#name-xxx_messageInfo_FieldMigrateAnnotation" class="ident">xxx_messageInfo_FieldMigrateAnnotation</a> <a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/deprecated.go.html#line-88" class="ident">InternalMessageInfo</a></code></span>
+<span class="codeline" id="line-95"><code></code></span>
+<span class="codeline" id="line-96"><code><span class="keyword">func</span> (<label for="r42" class="ident">m</label> *<a href="#line-63" class="ident">FieldMigrateAnnotation</a>) <label for="r43" class="ident">GetRename</label>() <a href="../../../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-97"><code>	<span class="keyword">if</span> <label for="r42" class="ident">m</label> != <a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-98"><code>		<span class="keyword">return</span> <label for="r42" class="ident">m</label>.<a href="#line-64" class="ident">Rename</a></code></span>
+<span class="codeline" id="line-99"><code>	}</code></span>
+<span class="codeline" id="line-100"><code>	<span class="keyword">return</span> <span class="lit-string">""</span></code></span>
+<span class="codeline" id="line-101"><code>}</code></span>
+<span class="codeline" id="line-102"><code></code></span>
+<span class="codeline" id="line-103"><code><span class="keyword">func</span> (<label for="r44" class="ident">m</label> *<a href="#line-63" class="ident">FieldMigrateAnnotation</a>) <label for="r45" class="ident">GetOneofPromotion</label>() <a href="../../../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-104"><code>	<span class="keyword">if</span> <label for="r44" class="ident">m</label> != <a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-105"><code>		<span class="keyword">return</span> <label for="r44" class="ident">m</label>.<a href="#line-65" class="ident">OneofPromotion</a></code></span>
+<span class="codeline" id="line-106"><code>	}</code></span>
+<span class="codeline" id="line-107"><code>	<span class="keyword">return</span> <span class="lit-string">""</span></code></span>
+<span class="codeline" id="line-108"><code>}</code></span>
+<span class="codeline" id="line-109"><code></code></span>
+<span class="codeline" id="line-110"><code><span class="keyword">type</span> <a href="../../../../../../../pkg/github.com/cncf/xds/go/udpa/annotations.html#name-FileMigrateAnnotation" class="ident">FileMigrateAnnotation</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-111"><code>	MoveToPackage        <a href="../../../../../../../pkg/builtin.html#name-string" class="ident">string</a>   <span class="lit-string">`protobuf:"bytes,2,opt,name=move_to_package,json=moveToPackage,proto3" json:"move_to_package,omitempty"`</span></code></span>
+<span class="codeline" id="line-112"><code>	XXX_NoUnkeyedLiteral <span class="keyword">struct</span>{} <span class="lit-string">`json:"-"`</span></code></span>
+<span class="codeline" id="line-113"><code>	XXX_unrecognized     []<a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>   <span class="lit-string">`json:"-"`</span></code></span>
+<span class="codeline" id="line-114"><code>	XXX_sizecache        <a href="../../../../../../../pkg/builtin.html#name-int32" class="ident">int32</a>    <span class="lit-string">`json:"-"`</span></code></span>
+<span class="codeline" id="line-115"><code>}</code></span>
+<span class="codeline" id="line-116"><code></code></span>
+<span class="codeline" id="line-117"><code><span class="keyword">func</span> (<label for="r46" class="ident">m</label> *<a href="#line-110" class="ident">FileMigrateAnnotation</a>) <label for="r47" class="ident"><a href="../../../../../../../imp/github.com/cncf/xds/go/udpa/annotations.FileMigrateAnnotation.html#name-.Reset" class="ident">Reset</a></label>()         { *<label for="r46" class="ident">m</label> = <a href="#line-110" class="ident">FileMigrateAnnotation</a>{} }</code></span>
+<span class="codeline" id="line-118"><code><span class="keyword">func</span> (<label for="r48" class="ident">m</label> *<a href="#line-110" class="ident">FileMigrateAnnotation</a>) <label for="r49" class="ident"><a href="../../../../../../../imp/github.com/cncf/xds/go/udpa/annotations.FileMigrateAnnotation.html#name-.String" class="ident">String</a></label>() <a href="../../../../../../../pkg/builtin.html#name-string" class="ident">string</a> { <span class="keyword">return</span> <a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/text_encode.go.html#line-106" class="ident">CompactTextString</a>(<label for="r48" class="ident">m</label>) }</code></span>
+<span class="codeline" id="line-119"><code><span class="keyword">func</span> (*<a href="#line-110" class="ident">FileMigrateAnnotation</a>) <label for="r50" class="ident"><a href="../../../../../../../imp/github.com/cncf/xds/go/udpa/annotations.FileMigrateAnnotation.html#name-.ProtoMessage" class="ident">ProtoMessage</a></label>()    {}</code></span>
+<span class="codeline" id="line-120"><code><span class="keyword">func</span> (*<a href="#line-110" class="ident">FileMigrateAnnotation</a>) <label for="r51" class="ident"><a href="../../../../../../../imp/github.com/cncf/xds/go/udpa/annotations.FileMigrateAnnotation.html#name-.Descriptor" class="ident">Descriptor</a></label>() ([]<a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, []<a href="../../../../../../../pkg/builtin.html#name-int" class="ident">int</a>) {</code></span>
+<span class="codeline" id="line-121"><code>	<span class="keyword">return</span> <a href="#line-207" class="ident">fileDescriptor_ba8191732d0e246d</a>, []<a href="../../../../../../../pkg/builtin.html#name-int" class="ident">int</a>{<span class="lit-number">2</span>}</code></span>
+<span class="codeline" id="line-122"><code>}</code></span>
+<span class="codeline" id="line-123"><code></code></span>
+<span class="codeline" id="line-124"><code><span class="keyword">func</span> (<label for="r52" class="ident">m</label> *<a href="#line-110" class="ident">FileMigrateAnnotation</a>) <label for="r53" class="ident">XXX_Unmarshal</label>(<label for="r54" class="ident">b</label> []<a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) <a href="../../../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-125"><code>	<span class="keyword">return</span> <a href="#line-140" class="ident">xxx_messageInfo_FileMigrateAnnotation</a>.<a href="../../../../../golang/protobuf/proto/deprecated.go.html#line-111" class="ident">Unmarshal</a>(<label for="r52" class="ident">m</label>, <label for="r54" class="ident">b</label>)</code></span>
+<span class="codeline" id="line-126"><code>}</code></span>
+<span class="codeline" id="line-127"><code><span class="keyword">func</span> (<label for="r55" class="ident">m</label> *<a href="#line-110" class="ident">FileMigrateAnnotation</a>) <label for="r56" class="ident">XXX_Marshal</label>(<label for="r57" class="ident">b</label> []<a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r58" class="ident">deterministic</label> <a href="../../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) ([]<a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <a href="../../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-128"><code>	<span class="keyword">return</span> <a href="#line-140" class="ident">xxx_messageInfo_FileMigrateAnnotation</a>.<a href="../../../../../golang/protobuf/proto/deprecated.go.html#line-96" class="ident">Marshal</a>(<label for="r57" class="ident">b</label>, <label for="r55" class="ident">m</label>, <label for="r58" class="ident">deterministic</label>)</code></span>
+<span class="codeline" id="line-129"><code>}</code></span>
+<span class="codeline" id="line-130"><code><span class="keyword">func</span> (<label for="r59" class="ident">m</label> *<a href="#line-110" class="ident">FileMigrateAnnotation</a>) <label for="r60" class="ident">XXX_Merge</label>(<label for="r61" class="ident">src</label> <a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/proto.go.html#line-50" class="ident">Message</a>) {</code></span>
+<span class="codeline" id="line-131"><code>	<a href="#line-140" class="ident">xxx_messageInfo_FileMigrateAnnotation</a>.<a href="../../../../../golang/protobuf/proto/deprecated.go.html#line-101" class="ident">Merge</a>(<label for="r59" class="ident">m</label>, <label for="r61" class="ident">src</label>)</code></span>
+<span class="codeline" id="line-132"><code>}</code></span>
+<span class="codeline" id="line-133"><code><span class="keyword">func</span> (<label for="r62" class="ident">m</label> *<a href="#line-110" class="ident">FileMigrateAnnotation</a>) <label for="r63" class="ident">XXX_Size</label>() <a href="../../../../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
+<span class="codeline" id="line-134"><code>	<span class="keyword">return</span> <a href="#line-140" class="ident">xxx_messageInfo_FileMigrateAnnotation</a>.<a href="../../../../../golang/protobuf/proto/deprecated.go.html#line-106" class="ident">Size</a>(<label for="r62" class="ident">m</label>)</code></span>
+<span class="codeline" id="line-135"><code>}</code></span>
+<span class="codeline" id="line-136"><code><span class="keyword">func</span> (<label for="r64" class="ident">m</label> *<a href="#line-110" class="ident">FileMigrateAnnotation</a>) <label for="r65" class="ident">XXX_DiscardUnknown</label>() {</code></span>
+<span class="codeline" id="line-137"><code>	<a href="#line-140" class="ident">xxx_messageInfo_FileMigrateAnnotation</a>.<a href="../../../../../golang/protobuf/proto/deprecated.go.html#line-91" class="ident">DiscardUnknown</a>(<label for="r64" class="ident">m</label>)</code></span>
+<span class="codeline" id="line-138"><code>}</code></span>
+<span class="codeline" id="line-139"><code></code></span>
+<span class="codeline" id="line-140"><code><span class="keyword">var</span> <a href="../../../../../../../pkg/github.com/cncf/xds/go/udpa/annotations.html#name-xxx_messageInfo_FileMigrateAnnotation" class="ident">xxx_messageInfo_FileMigrateAnnotation</a> <a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/deprecated.go.html#line-88" class="ident">InternalMessageInfo</a></code></span>
+<span class="codeline" id="line-141"><code></code></span>
+<span class="codeline" id="line-142"><code><span class="keyword">func</span> (<label for="r66" class="ident">m</label> *<a href="#line-110" class="ident">FileMigrateAnnotation</a>) <label for="r67" class="ident">GetMoveToPackage</label>() <a href="../../../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-143"><code>	<span class="keyword">if</span> <label for="r66" class="ident">m</label> != <a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-144"><code>		<span class="keyword">return</span> <label for="r66" class="ident">m</label>.<a href="#line-111" class="ident">MoveToPackage</a></code></span>
+<span class="codeline" id="line-145"><code>	}</code></span>
+<span class="codeline" id="line-146"><code>	<span class="keyword">return</span> <span class="lit-string">""</span></code></span>
+<span class="codeline" id="line-147"><code>}</code></span>
+<span class="codeline" id="line-148"><code></code></span>
+<span class="codeline" id="line-149"><code><span class="keyword">var</span> <a href="../../../../../../../pkg/github.com/cncf/xds/go/udpa/annotations.html#name-E_MessageMigrate" class="ident">E_MessageMigrate</a> = &amp;<a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/extensions.go.html#line-25" class="ident">ExtensionDesc</a>{</code></span>
+<span class="codeline" id="line-150"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-48" class="ident">ExtendedType</a>:  (*<a href="../../../../../../../pkg/github.com/golang/protobuf/protoc-gen-go/descriptor.html" class="ident i2">descriptor</a>.<a href="../../../../../golang/protobuf/protoc-gen-go/descriptor/descriptor.pb.go.html#line-110" class="ident">MessageOptions</a>)(<a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>),</code></span>
+<span class="codeline" id="line-151"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-56" class="ident">ExtensionType</a>: (*<a href="#line-24" class="ident">MigrateAnnotation</a>)(<a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>),</code></span>
+<span class="codeline" id="line-152"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-61" class="ident">Field</a>:         <span class="lit-number">171962766</span>,</code></span>
+<span class="codeline" id="line-153"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-66" class="ident">Name</a>:          <span class="lit-string">"udpa.annotations.message_migrate"</span>,</code></span>
+<span class="codeline" id="line-154"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-71" class="ident">Tag</a>:           <span class="lit-string">"bytes,171962766,opt,name=message_migrate"</span>,</code></span>
+<span class="codeline" id="line-155"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-76" class="ident">Filename</a>:      <span class="lit-string">"udpa/annotations/migrate.proto"</span>,</code></span>
+<span class="codeline" id="line-156"><code>}</code></span>
+<span class="codeline" id="line-157"><code></code></span>
+<span class="codeline" id="line-158"><code><span class="keyword">var</span> <a href="../../../../../../../pkg/github.com/cncf/xds/go/udpa/annotations.html#name-E_FieldMigrate" class="ident">E_FieldMigrate</a> = &amp;<a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/extensions.go.html#line-25" class="ident">ExtensionDesc</a>{</code></span>
+<span class="codeline" id="line-159"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-48" class="ident">ExtendedType</a>:  (*<a href="../../../../../../../pkg/github.com/golang/protobuf/protoc-gen-go/descriptor.html" class="ident i2">descriptor</a>.<a href="../../../../../golang/protobuf/protoc-gen-go/descriptor/descriptor.pb.go.html#line-116" class="ident">FieldOptions</a>)(<a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>),</code></span>
+<span class="codeline" id="line-160"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-56" class="ident">ExtensionType</a>: (*<a href="#line-63" class="ident">FieldMigrateAnnotation</a>)(<a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>),</code></span>
+<span class="codeline" id="line-161"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-61" class="ident">Field</a>:         <span class="lit-number">171962766</span>,</code></span>
+<span class="codeline" id="line-162"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-66" class="ident">Name</a>:          <span class="lit-string">"udpa.annotations.field_migrate"</span>,</code></span>
+<span class="codeline" id="line-163"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-71" class="ident">Tag</a>:           <span class="lit-string">"bytes,171962766,opt,name=field_migrate"</span>,</code></span>
+<span class="codeline" id="line-164"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-76" class="ident">Filename</a>:      <span class="lit-string">"udpa/annotations/migrate.proto"</span>,</code></span>
+<span class="codeline" id="line-165"><code>}</code></span>
+<span class="codeline" id="line-166"><code></code></span>
+<span class="codeline" id="line-167"><code><span class="keyword">var</span> <a href="../../../../../../../pkg/github.com/cncf/xds/go/udpa/annotations.html#name-E_EnumMigrate" class="ident">E_EnumMigrate</a> = &amp;<a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/extensions.go.html#line-25" class="ident">ExtensionDesc</a>{</code></span>
+<span class="codeline" id="line-168"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-48" class="ident">ExtendedType</a>:  (*<a href="../../../../../../../pkg/github.com/golang/protobuf/protoc-gen-go/descriptor.html" class="ident i2">descriptor</a>.<a href="../../../../../golang/protobuf/protoc-gen-go/descriptor/descriptor.pb.go.html#line-125" class="ident">EnumOptions</a>)(<a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>),</code></span>
+<span class="codeline" id="line-169"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-56" class="ident">ExtensionType</a>: (*<a href="#line-24" class="ident">MigrateAnnotation</a>)(<a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>),</code></span>
+<span class="codeline" id="line-170"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-61" class="ident">Field</a>:         <span class="lit-number">171962766</span>,</code></span>
+<span class="codeline" id="line-171"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-66" class="ident">Name</a>:          <span class="lit-string">"udpa.annotations.enum_migrate"</span>,</code></span>
+<span class="codeline" id="line-172"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-71" class="ident">Tag</a>:           <span class="lit-string">"bytes,171962766,opt,name=enum_migrate"</span>,</code></span>
+<span class="codeline" id="line-173"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-76" class="ident">Filename</a>:      <span class="lit-string">"udpa/annotations/migrate.proto"</span>,</code></span>
+<span class="codeline" id="line-174"><code>}</code></span>
+<span class="codeline" id="line-175"><code></code></span>
+<span class="codeline" id="line-176"><code><span class="keyword">var</span> <a href="../../../../../../../pkg/github.com/cncf/xds/go/udpa/annotations.html#name-E_EnumValueMigrate" class="ident">E_EnumValueMigrate</a> = &amp;<a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/extensions.go.html#line-25" class="ident">ExtensionDesc</a>{</code></span>
+<span class="codeline" id="line-177"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-48" class="ident">ExtendedType</a>:  (*<a href="../../../../../../../pkg/github.com/golang/protobuf/protoc-gen-go/descriptor.html" class="ident i2">descriptor</a>.<a href="../../../../../golang/protobuf/protoc-gen-go/descriptor/descriptor.pb.go.html#line-129" class="ident">EnumValueOptions</a>)(<a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>),</code></span>
+<span class="codeline" id="line-178"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-56" class="ident">ExtensionType</a>: (*<a href="#line-24" class="ident">MigrateAnnotation</a>)(<a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>),</code></span>
+<span class="codeline" id="line-179"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-61" class="ident">Field</a>:         <span class="lit-number">171962766</span>,</code></span>
+<span class="codeline" id="line-180"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-66" class="ident">Name</a>:          <span class="lit-string">"udpa.annotations.enum_value_migrate"</span>,</code></span>
+<span class="codeline" id="line-181"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-71" class="ident">Tag</a>:           <span class="lit-string">"bytes,171962766,opt,name=enum_value_migrate"</span>,</code></span>
+<span class="codeline" id="line-182"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-76" class="ident">Filename</a>:      <span class="lit-string">"udpa/annotations/migrate.proto"</span>,</code></span>
+<span class="codeline" id="line-183"><code>}</code></span>
+<span class="codeline" id="line-184"><code></code></span>
+<span class="codeline" id="line-185"><code><span class="keyword">var</span> <a href="../../../../../../../pkg/github.com/cncf/xds/go/udpa/annotations.html#name-E_FileMigrate" class="ident">E_FileMigrate</a> = &amp;<a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/extensions.go.html#line-25" class="ident">ExtensionDesc</a>{</code></span>
+<span class="codeline" id="line-186"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-48" class="ident">ExtendedType</a>:  (*<a href="../../../../../../../pkg/github.com/golang/protobuf/protoc-gen-go/descriptor.html" class="ident i2">descriptor</a>.<a href="../../../../../golang/protobuf/protoc-gen-go/descriptor/descriptor.pb.go.html#line-98" class="ident">FileOptions</a>)(<a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>),</code></span>
+<span class="codeline" id="line-187"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-56" class="ident">ExtensionType</a>: (*<a href="#line-110" class="ident">FileMigrateAnnotation</a>)(<a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>),</code></span>
+<span class="codeline" id="line-188"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-61" class="ident">Field</a>:         <span class="lit-number">171962766</span>,</code></span>
+<span class="codeline" id="line-189"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-66" class="ident">Name</a>:          <span class="lit-string">"udpa.annotations.file_migrate"</span>,</code></span>
+<span class="codeline" id="line-190"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-71" class="ident">Tag</a>:           <span class="lit-string">"bytes,171962766,opt,name=file_migrate"</span>,</code></span>
+<span class="codeline" id="line-191"><code>	<a href="../../../../../../google.golang.org/protobuf/internal/impl/extension.go.html#line-76" class="ident">Filename</a>:      <span class="lit-string">"udpa/annotations/migrate.proto"</span>,</code></span>
+<span class="codeline" id="line-192"><code>}</code></span>
+<span class="codeline" id="line-193"><code></code></span>
+<span class="codeline" id="line-194"><code><span class="keyword">func</span> <label for="r68" class="ident"><a href="../../../../../../../pkg/github.com/cncf/xds/go/udpa/annotations.html#name-init" class="ident">init</a></label>() {</code></span>
+<span class="codeline" id="line-195"><code>	<a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/registry.go.html#line-179" class="ident">RegisterType</a>((*<a href="#line-24" class="ident">MigrateAnnotation</a>)(<a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>), <span class="lit-string">"udpa.annotations.MigrateAnnotation"</span>)</code></span>
+<span class="codeline" id="line-196"><code>	<a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/registry.go.html#line-179" class="ident">RegisterType</a>((*<a href="#line-63" class="ident">FieldMigrateAnnotation</a>)(<a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>), <span class="lit-string">"udpa.annotations.FieldMigrateAnnotation"</span>)</code></span>
+<span class="codeline" id="line-197"><code>	<a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/registry.go.html#line-179" class="ident">RegisterType</a>((*<a href="#line-110" class="ident">FileMigrateAnnotation</a>)(<a href="../../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>), <span class="lit-string">"udpa.annotations.FileMigrateAnnotation"</span>)</code></span>
+<span class="codeline" id="line-198"><code>	<a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/registry.go.html#line-278" class="ident">RegisterExtension</a>(<a href="#line-149" class="ident">E_MessageMigrate</a>)</code></span>
+<span class="codeline" id="line-199"><code>	<a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/registry.go.html#line-278" class="ident">RegisterExtension</a>(<a href="#line-158" class="ident">E_FieldMigrate</a>)</code></span>
+<span class="codeline" id="line-200"><code>	<a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/registry.go.html#line-278" class="ident">RegisterExtension</a>(<a href="#line-167" class="ident">E_EnumMigrate</a>)</code></span>
+<span class="codeline" id="line-201"><code>	<a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/registry.go.html#line-278" class="ident">RegisterExtension</a>(<a href="#line-176" class="ident">E_EnumValueMigrate</a>)</code></span>
+<span class="codeline" id="line-202"><code>	<a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/registry.go.html#line-278" class="ident">RegisterExtension</a>(<a href="#line-185" class="ident">E_FileMigrate</a>)</code></span>
+<span class="codeline" id="line-203"><code>}</code></span>
+<span class="codeline" id="line-204"><code></code></span>
+<span class="codeline" id="line-205"><code><span class="keyword">func</span> <label for="r69" class="ident"><a href="../../../../../../../pkg/github.com/cncf/xds/go/udpa/annotations.html#name-init" class="ident">init</a></label>() { <a href="../../../../../../../pkg/github.com/golang/protobuf/proto.html" class="ident i1">proto</a>.<a href="../../../../../golang/protobuf/proto/registry.go.html#line-34" class="ident">RegisterFile</a>(<span class="lit-string">"udpa/annotations/migrate.proto"</span>, <a href="#line-207" class="ident">fileDescriptor_ba8191732d0e246d</a>) }</code></span>
+<span class="codeline" id="line-206"><code></code></span>
+<span class="codeline" id="line-207"><code><span class="keyword">var</span> <a href="../../../../../../../pkg/github.com/cncf/xds/go/udpa/annotations.html#name-fileDescriptor_ba8191732d0e246d" class="ident">fileDescriptor_ba8191732d0e246d</a> = []<a href="../../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>{</code></span>
+<span class="codeline" id="line-208"><code>	<span class="comment">// 349 bytes of a gzipped FileDescriptorProto</span></code></span>
+<span class="codeline" id="line-209"><code>	<span class="lit-number">0x1f</span>, <span class="lit-number">0x8b</span>, <span class="lit-number">0x08</span>, <span class="lit-number">0x00</span>, <span class="lit-number">0x00</span>, <span class="lit-number">0x00</span>, <span class="lit-number">0x00</span>, <span class="lit-number">0x00</span>, <span class="lit-number">0x02</span>, <span class="lit-number">0xff</span>, <span class="lit-number">0x9c</span>, <span class="lit-number">0x92</span>, <span class="lit-number">0xcd</span>, <span class="lit-number">0x4a</span>, <span class="lit-number">0xfb</span>, <span class="lit-number">0x40</span>,</code></span>
+<span class="codeline" id="line-210"><code>	<span class="lit-number">0x14</span>, <span class="lit-number">0xc5</span>, <span class="lit-number">0xe9</span>, <span class="lit-number">0x7f</span>, <span class="lit-number">0x51</span>, <span class="lit-number">0xf8</span>, <span class="lit-number">0x4f</span>, <span class="lit-number">0x3f</span>, <span class="lit-number">0x0d</span>, <span class="lit-number">0x58</span>, <span class="lit-number">0x8a</span>, <span class="lit-number">0xf8</span>, <span class="lit-number">0x51</span>, <span class="lit-number">0x2b</span>, <span class="lit-number">0xd8</span>, <span class="lit-number">0x82</span>,</code></span>
+<span class="codeline" id="line-211"><code>	<span class="lit-number">0x30</span>, <span class="lit-number">0x01</span>, <span class="lit-number">0xdd</span>, <span class="lit-number">0x75</span>, <span class="lit-number">0x23</span>, <span class="lit-number">0x2e</span>, <span class="lit-number">0xec</span>, <span class="lit-number">0xae</span>, <span class="lit-number">0x58</span>, <span class="lit-number">0x83</span>, <span class="lit-number">0x08</span>, <span class="lit-number">0xae</span>, <span class="lit-number">0xc2</span>, <span class="lit-number">0xb4</span>, <span class="lit-number">0xbd</span>, <span class="lit-number">0x09</span>,</code></span>
+<span class="codeline" id="line-212"><code>	<span class="lit-number">0xa1</span>, <span class="lit-number">0x99</span>, <span class="lit-number">0xb9</span>, <span class="lit-number">0x43</span>, <span class="lit-number">0x32</span>, <span class="lit-number">0xa9</span>, <span class="lit-number">0x6f</span>, <span class="lit-number">0xe1</span>, <span class="lit-number">0x4b</span>, <span class="lit-number">0xfa</span>, <span class="lit-number">0x20</span>, <span class="lit-number">0xca</span>, <span class="lit-number">0x4c</span>, <span class="lit-number">0x92</span>, <span class="lit-number">0xb6</span>, <span class="lit-number">0x38</span>,</code></span>
+<span class="codeline" id="line-213"><code>	<span class="lit-number">0x41</span>, <span class="lit-number">0xa4</span>, <span class="lit-number">0xcb</span>, <span class="lit-number">0x9c</span>, <span class="lit-number">0x7b</span>, <span class="lit-number">0xef</span>, <span class="lit-number">0xf9</span>, <span class="lit-number">0xe5</span>, <span class="lit-number">0x1c</span>, <span class="lit-number">0x86</span>, <span class="lit-number">0x9c</span>, <span class="lit-number">0x67</span>, <span class="lit-number">0x2b</span>, <span class="lit-number">0xc9</span>, <span class="lit-number">0x5c</span>, <span class="lit-number">0x26</span>,</code></span>
+<span class="codeline" id="line-214"><code>	<span class="lit-number">0x04</span>, <span class="lit-number">0x2a</span>, <span class="lit-number">0xa6</span>, <span class="lit-number">0x22</span>, <span class="lit-number">0x14</span>, <span class="lit-number">0xa9</span>, <span class="lit-number">0xcb</span>, <span class="lit-number">0xa3</span>, <span class="lit-number">0x30</span>, <span class="lit-number">0x61</span>, <span class="lit-number">0x0a</span>, <span class="lit-number">0xa8</span>, <span class="lit-number">0x4c</span>, <span class="lit-number">0x50</span>, <span class="lit-number">0xa1</span>, <span class="lit-number">0xd3</span>,</code></span>
+<span class="codeline" id="line-215"><code>	<span class="lit-number">0xd5</span>, <span class="lit-number">0x73</span>, <span class="lit-number">0xba</span>, <span class="lit-number">0x37</span>, <span class="lit-number">0x3f</span>, <span class="lit-number">0x19</span>, <span class="lit-number">0x84</span>, <span class="lit-number">0x88</span>, <span class="lit-number">0x61</span>, <span class="lit-number">0x0c</span>, <span class="lit-number">0xae</span>, <span class="lit-number">0x99</span>, <span class="lit-number">0x2f</span>, <span class="lit-number">0xb2</span>, <span class="lit-number">0xc0</span>, <span class="lit-number">0x5d</span>,</code></span>
+<span class="codeline" id="line-216"><code>	<span class="lit-number">0x41</span>, <span class="lit-number">0xba</span>, <span class="lit-number">0x4c</span>, <span class="lit-number">0x22</span>, <span class="lit-number">0xa9</span>, <span class="lit-number">0x30</span>, <span class="lit-number">0xc9</span>, <span class="lit-number">0x6f</span>, <span class="lit-number">0x86</span>, <span class="lit-number">0x37</span>, <span class="lit-number">0xe4</span>, <span class="lit-number">0x68</span>, <span class="lit-number">0x96</span>, <span class="lit-number">0x9b</span>, <span class="lit-number">0x3c</span>, <span class="lit-number">0x6c</span>,</code></span>
+<span class="codeline" id="line-217"><code>	<span class="lit-number">0xef</span>, <span class="lit-number">0x9c</span>, <span class="lit-number">0x1e</span>, <span class="lit-number">0xa9</span>, <span class="lit-number">0x27</span>, <span class="lit-number">0x20</span>, <span class="lit-number">0x18</span>, <span class="lit-number">0x87</span>, <span class="lit-number">0x7e</span>, <span class="lit-number">0x6d</span>, <span class="lit-number">0x50</span>, <span class="lit-number">0x1b</span>, <span class="lit-number">0xff</span>, <span class="lit-number">0xf7</span>, <span class="lit-number">0x8a</span>, <span class="lit-number">0xaf</span>,</code></span>
+<span class="codeline" id="line-218"><code>	<span class="lit-number">0xe1</span>, <span class="lit-number">0x1b</span>, <span class="lit-number">0xe9</span>, <span class="lit-number">0x4d</span>, <span class="lit-number">0x23</span>, <span class="lit-number">0x88</span>, <span class="lit-number">0x57</span>, <span class="lit-number">0x7f</span>, <span class="lit-number">0xbe</span>, <span class="lit-number">0x70</span>, <span class="lit-number">0x46</span>, <span class="lit-number">0xa4</span>, <span class="lit-number">0x83</span>, <span class="lit-number">0x02</span>, <span class="lit-number">0x30</span>, <span class="lit-number">0xf0</span>,</code></span>
+<span class="codeline" id="line-219"><code>	<span class="lit-number">0x65</span>, <span class="lit-number">0x82</span>, <span class="lit-number">0x1c</span>, <span class="lit-number">0xf5</span>, <span class="lit-number">0x6a</span>, <span class="lit-number">0xff</span>, <span class="lit-number">0x9f</span>, <span class="lit-number">0x59</span>, <span class="lit-number">0x68</span>, <span class="lit-number">0x1b</span>, <span class="lit-number">0x79</span>, <span class="lit-number">0x5e</span>, <span class="lit-number">0xaa</span>, <span class="lit-number">0xc3</span>, <span class="lit-number">0x7b</span>, <span class="lit-number">0x72</span>,</code></span>
+<span class="codeline" id="line-220"><code>	<span class="lit-number">0x3c</span>, <span class="lit-number">0x8d</span>, <span class="lit-number">0x62</span>, <span class="lit-number">0xb0</span>, <span class="lit-number">0x9d</span>, <span class="lit-number">0xaf</span>, <span class="lit-number">0x49</span>, <span class="lit-number">0x87</span>, <span class="lit-number">0xe3</span>, <span class="lit-number">0x06</span>, <span class="lit-number">0x7c</span>, <span class="lit-number">0x85</span>, <span class="lit-number">0xbe</span>, <span class="lit-number">0x64</span>, <span class="lit-number">0xcb</span>, <span class="lit-number">0x35</span>,</code></span>
+<span class="codeline" id="line-221"><code>	<span class="lit-number">0x0b</span>, <span class="lit-number">0xa1</span>, <span class="lit-number">0x70</span>, <span class="lit-number">0x68</span>, <span class="lit-number">0x69</span>, <span class="lit-number">0xf9</span>, <span class="lit-number">0x05</span>, <span class="lit-number">0xe7</span>, <span class="lit-number">0xb9</span>, <span class="lit-number">0x38</span>, <span class="lit-number">0x91</span>, <span class="lit-number">0xa4</span>, <span class="lit-number">0xc3</span>, <span class="lit-number">0x21</span>, <span class="lit-number">0x4d</span>, <span class="lit-number">0x59</span>,</code></span>
+<span class="codeline" id="line-222"><code>	<span class="lit-number">0x08</span>, <span class="lit-number">0x7e</span>, <span class="lit-number">0xd1</span>, <span class="lit-number">0x8a</span>, <span class="lit-number">0x73</span>, <span class="lit-number">0x41</span>, <span class="lit-number">0xf3</span>, <span class="lit-number">0xf8</span>, <span class="lit-number">0xb4</span>, <span class="lit-number">0x8c</span>, <span class="lit-number">0x4f</span>, <span class="lit-number">0x67</span>, <span class="lit-number">0xf9</span>, <span class="lit-number">0xc6</span>, <span class="lit-number">0x93</span>, <span class="lit-number">0x34</span>,</code></span>
+<span class="codeline" id="line-223"><code>	<span class="lit-number">0xf5</span>, <span class="lit-number">0xf4</span>, <span class="lit-number">0x3f</span>, <span class="lit-number">0x3e</span>, <span class="lit-number">0xbf</span>, <span class="lit-number">0x9e</span>, <span class="lit-number">0x07</span>, <span class="lit-number">0xb5</span>, <span class="lit-number">0x71</span>, <span class="lit-number">0xe3</span>, <span class="lit-number">0xf6</span>, <span class="lit-number">0x8a</span>, <span class="lit-number">0xfe</span>, <span class="lit-number">0xac</span>, <span class="lit-number">0x8e</span>, <span class="lit-number">0x5a</span>,</code></span>
+<span class="codeline" id="line-224"><code>	<span class="lit-number">0x7f</span>, <span class="lit-number">0xe2</span>, <span class="lit-number">0xb5</span>, <span class="lit-number">0x0b</span>, <span class="lit-number">0xff</span>, <span class="lit-number">0x62</span>, <span class="lit-number">0x32</span>, <span class="lit-number">0x41</span>, <span class="lit-number">0xd2</span>, <span class="lit-number">0x0a</span>, <span class="lit-number">0x74</span>, <span class="lit-number">0x1b</span>, <span class="lit-number">0x5b</span>, <span class="lit-number">0xde</span>, <span class="lit-number">0x99</span>, <span class="lit-number">0xc5</span>,</code></span>
+<span class="codeline" id="line-225"><code>	<span class="lit-number">0x33</span>, <span class="lit-number">0x6d</span>, <span class="lit-number">0x59</span>, <span class="lit-number">0xb4</span>, <span class="lit-number">0xb1</span>, <span class="lit-number">0x4d</span>, <span class="lit-number">0xab</span>, <span class="lit-number">0xae</span>, <span class="lit-number">0xd5</span>, <span class="lit-number">0x6b</span>, <span class="lit-number">0x06</span>, <span class="lit-number">0x7b</span>, <span class="lit-number">0xfa</span>, <span class="lit-number">0x24</span>, <span class="lit-number">0x24</span>, <span class="lit-number">0x4d</span>,</code></span>
+<span class="codeline" id="line-226"><code>	<span class="lit-number">0x10</span>, <span class="lit-number">0x19</span>, <span class="lit-number">0xdf</span>, <span class="lit-number">0xf2</span>, <span class="lit-number">0x4e</span>, <span class="lit-number">0x2d</span>, <span class="lit-number">0xde</span>, <span class="lit-number">0xa3</span>, <span class="lit-number">0xc8</span>, <span class="lit-number">0xf8</span>, <span class="lit-number">0x61</span>, <span class="lit-number">0xe1</span>, <span class="lit-number">0x1a</span>, <span class="lit-number">0xda</span>, <span class="lit-number">0xb9</span>, <span class="lit-number">0x04</span>,</code></span>
+<span class="codeline" id="line-227"><code>	<span class="lit-number">0xbd</span>, <span class="lit-number">0x13</span>, <span class="lit-number">0xc7</span>, <span class="lit-number">0x80</span>, <span class="lit-number">0x36</span>, <span class="lit-number">0x2c</span>, <span class="lit-number">0xce</span>, <span class="lit-number">0x76</span>, <span class="lit-number">0x75</span>, <span class="lit-number">0x5e</span>, <span class="lit-number">0x56</span>, <span class="lit-number">0xe2</span>, <span class="lit-number">0x5e</span>, <span class="lit-number">0xf5</span>, <span class="lit-number">0xce</span>, <span class="lit-number">0x61</span>,</code></span>
+<span class="codeline" id="line-228"><code>	<span class="lit-number">0xcc</span>, <span class="lit-number">0x2e</span>, <span class="lit-number">0x94</span>, <span class="lit-number">0xf7</span>, <span class="lit-number">0x25</span>, <span class="lit-number">0x78</span>, <span class="lit-number">0x4d</span>, <span class="lit-number">0x9a</span>, <span class="lit-number">0x41</span>, <span class="lit-number">0x14</span>, <span class="lit-number">0xc3</span>, <span class="lit-number">0x2f</span>, <span class="lit-number">0x09</span>, <span class="lit-number">0xf5</span>, <span class="lit-number">0x23</span>, <span class="lit-number">0xb1</span>,</code></span>
+<span class="codeline" id="line-229"><code>	<span class="lit-number">0x68</span>, <span class="lit-number">0xa3</span>, <span class="lit-number">0xaa</span>, <span class="lit-number">0x42</span>, <span class="lit-number">0x2b</span>, <span class="lit-number">0x1e</span>, <span class="lit-number">0x93</span>, <span class="lit-number">0xd7</span>, <span class="lit-number">0x08</span>, <span class="lit-number">0x76</span>, <span class="lit-number">0xf2</span>, <span class="lit-number">0xa2</span>, <span class="lit-number">0x6e</span>, <span class="lit-number">0x4c</span>, <span class="lit-number">0xef</span>, <span class="lit-number">0xbe</span>,</code></span>
+<span class="codeline" id="line-230"><code>	<span class="lit-number">0x03</span>, <span class="lit-number">0x00</span>, <span class="lit-number">0x00</span>, <span class="lit-number">0xff</span>, <span class="lit-number">0xff</span>, <span class="lit-number">0x62</span>, <span class="lit-number">0x65</span>, <span class="lit-number">0xc8</span>, <span class="lit-number">0x45</span>, <span class="lit-number">0x57</span>, <span class="lit-number">0x03</span>, <span class="lit-number">0x00</span>, <span class="lit-number">0x00</span>,</code></span>
+<span class="codeline" id="line-231"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

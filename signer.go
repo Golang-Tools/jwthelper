@@ -59,14 +59,14 @@ func NewSigner(opts ...SignerOption) (*Signer, error) {
 }
 
 //Meta 获取签名器元数据
-func (signer *Signer) Meta() *jwt_pb.SignerMeta {
+func (signer *Signer) Meta() (*jwt_pb.SignerMeta, error) {
 	return &jwt_pb.SignerMeta{
 		Algo:                     signer.opts.Algo,
 		Iss:                      signer.opts.Iss,
 		DefaultTTL:               int64(signer.opts.DefaultTTL.Seconds()),
 		DefaultEffectiveInterval: int64(signer.opts.DefaultEffectiveInterval.Seconds()),
 		JtiGen:                   signer.opts.JtiGen.String(),
-	}
+	}, nil
 }
 
 func (signer *Signer) signany(claims jwt.MapClaims, opts ...signoptions.SignOption) (*jwt_pb.Token, error) {

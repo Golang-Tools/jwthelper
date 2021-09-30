@@ -15,7 +15,7 @@
 	<a href="../../index.html#pkg-crypto/tls">crypto/tls</a><i> (on <a href="https://pkg.go.dev/crypto/tls" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../../dep/crypto/tls.html">40 packages</a>, and imported by <a href="../../dep/crypto/tls.html#imported-by">5 packages</a>
+	imports <a href="../../dep/crypto/tls.html">40 packages</a>, and imported by <a href="../../dep/crypto/tls.html#imported-by">12 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -415,16 +415,17 @@
 			func <a href="#name-CipherSuites">CipherSuites</a>() []*<b>CipherSuite</b></span><span>
 			func <a href="#name-InsecureCipherSuites">InsecureCipherSuites</a>() []*<b>CipherSuite</b></span></span>
 
-</span></div><div class="anchor type-res" id="name-ClientAuthType" data-popularity="250">	<input type='checkbox' class="fold" id="ClientAuthType-fold-content"><label for="ClientAuthType-fold-content"> type <a href="../../src/crypto/tls/common.go.html#line-293">ClientAuthType</a> <a href="../builtin.html#name-int">int</a> <i>(basic type)</i></label><span id='ClientAuthType-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-ClientAuthType" data-popularity="300">	<input type='checkbox' class="fold" id="ClientAuthType-fold-content"><label for="ClientAuthType-fold-content"> type <a href="../../src/crypto/tls/common.go.html#line-293">ClientAuthType</a> <a href="../builtin.html#name-int">int</a> <i>(basic type)</i></label><span id='ClientAuthType-fold-content-docs' class="fold-docs">
 		ClientAuthType declares the policy the server will follow for
 		TLS Client Authentication.
 
 		<input type='checkbox' class="fold" id="ClientAuthType-fold-methods"><label for="ClientAuthType-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ClientAuthType-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../src/crypto/tls/common_string.go.html#line-111">String</a>() <a href="../builtin.html#name-string">string</a></span></span></span>
-		<input type='checkbox' class="fold" id="ClientAuthType-fold-impls"><label for="ClientAuthType-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='ClientAuthType-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="ClientAuthType-fold-impls"><label for="ClientAuthType-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='ClientAuthType-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="ClientAuthType-showhide-impls"><i><label for="ClientAuthType-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="ClientAuthType-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="ClientAuthType-showhide-impls"><i><label for="ClientAuthType-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="ClientAuthType-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="ClientAuthType-fold-params"><label for="ClientAuthType-fold-params">As Inputs Of (<i>at least one unexported</i>)</label><span id='ClientAuthType-fold-params-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="ClientAuthType-showhide-outputofs"><i><label for="ClientAuthType-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="ClientAuthType-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
@@ -585,7 +586,7 @@
 		<input type='checkbox' class="fold" id="ClientSessionState-fold-params"><label for="ClientSessionState-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='ClientSessionState-fold-params-items' class="fold-items"><span>
 			func <a href="#name-ClientSessionCache">ClientSessionCache</a>.<a href="../../src/crypto/tls/common.go.html#line-364">Put</a>(sessionKey <a href="../builtin.html#name-string">string</a>, cs *<b>ClientSessionState</b>)</span></span>
 
-</span></div><div class="anchor type-res" id="name-Config" data-popularity="1670">	<input type='checkbox' class="fold" id="Config-fold-content"><label for="Config-fold-content"> type <a href="../../src/crypto/tls/common.go.html#line-499">Config</a> <i>(struct)</i></label><span id='Config-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Config" data-popularity="1820">	<input type='checkbox' class="fold" id="Config-fold-content"><label for="Config-fold-content"> type <a href="../../src/crypto/tls/common.go.html#line-499">Config</a> <i>(struct)</i></label><span id='Config-fold-content-docs' class="fold-docs">
 		A Config structure is used to configure a TLS client or server.
 		After one has been passed to a TLS function it must not be
 		modified. A Config may be reused; the tls package will also not
@@ -864,9 +865,11 @@
 </span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../src/crypto/tls/common.go.html#line-919">time</a>() <a href="../time.html">time</a>.<a href="../time.html#name-Time">Time</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../src/crypto/tls/common.go.html#line-1284">writeKeyLog</a>(label <a href="../builtin.html#name-string">string</a>, clientRandom, secret []<a href="../builtin.html#name-byte">byte</a>) <a href="../builtin.html#name-error">error</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="Config-fold-results"><label for="Config-fold-results">As Outputs Of (<i>at least 5, in which 2 are exported</i>)</label><span id='Config-fold-results-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Config-fold-results"><label for="Config-fold-results">As Outputs Of (<i>at least 7, in which 4 are exported</i>)</label><span id='Config-fold-results-items' class="fold-items"><span>
 			func (*Config).<a href="../../src/crypto/tls/common.go.html#line-747">Clone</a>() *<b>Config</b></span><span>
-			func google.golang.org/grpc/internal/credentials.<a href="../google.golang.org/grpc/internal/credentials.html#name-CloneTLSConfig">CloneTLSConfig</a>(cfg *<b>Config</b>) *<b>Config</b></span>
+			func google.golang.org/grpc/internal/credentials.<a href="../google.golang.org/grpc/internal/credentials.html#name-CloneTLSConfig">CloneTLSConfig</a>(cfg *<b>Config</b>) *<b>Config</b></span><span>
+			func google.golang.org/grpc/internal/credentials/xds.(*<a href="../google.golang.org/grpc/internal/credentials/xds.html#name-HandshakeInfo">HandshakeInfo</a>).<a href="../../src/google.golang.org/grpc/internal/credentials/xds/handshake_info.go.html#line-124">ClientSideTLSConfig</a>(ctx <a href="../context.html">context</a>.<a href="../context.html#name-Context">Context</a>) (*<b>Config</b>, <a href="../builtin.html#name-error">error</a>)</span><span>
+			func google.golang.org/grpc/internal/credentials/xds.(*<a href="../google.golang.org/grpc/internal/credentials/xds.html#name-HandshakeInfo">HandshakeInfo</a>).<a href="../../src/google.golang.org/grpc/internal/credentials/xds/handshake_info.go.html#line-164">ServerSideTLSConfig</a>(ctx <a href="../context.html">context</a>.<a href="../context.html#name-Context">Context</a>) (*<b>Config</b>, <a href="../builtin.html#name-error">error</a>)</span>
 			<input type='checkbox' class="showhide" id="Config-showhide-inputofs"><i><label for="Config-showhide-inputofs" class="show-inline">/* 3+ unexporteds ... */</label><label for="Config-showhide-inputofs" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			func <a href="#name-defaultConfig">defaultConfig</a>() *<b>Config</b></i></span><span class="hidden"><i>
 			func golang.org/x/net/http2.(*<a href="../golang.org/x/net/http2.html#name-Transport">Transport</a>).<a href="../../src/golang.org/x/net/http2/transport.go.html#line-570">newTLSConfig</a>(host <a href="../builtin.html#name-string">string</a>) *<b>Config</b></i></span><span class="hidden"><i>
@@ -1296,7 +1299,7 @@
 		<input type='checkbox' class="fold" id="ConnectionState-fold-params"><label for="ConnectionState-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='ConnectionState-fold-params-items' class="fold-items"><span>
 			func google.golang.org/grpc/internal/credentials.<a href="../google.golang.org/grpc/internal/credentials.html#name-SPIFFEIDFromState">SPIFFEIDFromState</a>(state <b>ConnectionState</b>) *<a href="../net/url.html">url</a>.<a href="../net/url.html#name-URL">URL</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-CurveID" data-popularity="430">	<input type='checkbox' class="fold" id="CurveID-fold-content"><label for="CurveID-fold-content"> type <a href="../../src/crypto/tls/common.go.html#line-117">CurveID</a> <a href="../builtin.html#name-uint16">uint16</a> <i>(basic type)</i></label><span id='CurveID-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-CurveID" data-popularity="480">	<input type='checkbox' class="fold" id="CurveID-fold-content"><label for="CurveID-fold-content"> type <a href="../../src/crypto/tls/common.go.html#line-117">CurveID</a> <a href="../builtin.html#name-uint16">uint16</a> <i>(basic type)</i></label><span id='CurveID-fold-content-docs' class="fold-docs">
 		CurveID is the type of a TLS identifier for an elliptic curve. See
 		https://www.iana.org/assignments/tls-parameters/tls-parameters.xml#tls-parameters-8.
 
@@ -1305,10 +1308,11 @@
 
 		<input type='checkbox' class="fold" id="CurveID-fold-methods"><label for="CurveID-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='CurveID-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../src/crypto/tls/common_string.go.html#line-85">String</a>() <a href="../builtin.html#name-string">string</a></span></span></span>
-		<input type='checkbox' class="fold" id="CurveID-fold-impls"><label for="CurveID-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='CurveID-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="CurveID-fold-impls"><label for="CurveID-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='CurveID-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="CurveID-showhide-impls"><i><label for="CurveID-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="CurveID-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="CurveID-showhide-impls"><i><label for="CurveID-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="CurveID-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="CurveID-fold-results"><label for="CurveID-fold-results">As Outputs Of (<i>at least one unexported</i>)</label><span id='CurveID-fold-results-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="CurveID-showhide-inputofs"><i><label for="CurveID-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="CurveID-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
@@ -1408,16 +1412,17 @@
 			const <a href="#name-RenegotiateNever">RenegotiateNever</a></span><span>
 			const <a href="#name-RenegotiateOnceAsClient">RenegotiateOnceAsClient</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-SignatureScheme" data-popularity="505">	<input type='checkbox' class="fold" id="SignatureScheme-fold-content"><label for="SignatureScheme-fold-content"> type <a href="../../src/crypto/tls/common.go.html#line-371">SignatureScheme</a> <a href="../builtin.html#name-uint16">uint16</a> <i>(basic type)</i></label><span id='SignatureScheme-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-SignatureScheme" data-popularity="555">	<input type='checkbox' class="fold" id="SignatureScheme-fold-content"><label for="SignatureScheme-fold-content"> type <a href="../../src/crypto/tls/common.go.html#line-371">SignatureScheme</a> <a href="../builtin.html#name-uint16">uint16</a> <i>(basic type)</i></label><span id='SignatureScheme-fold-content-docs' class="fold-docs">
 		SignatureScheme identifies a signature algorithm supported by TLS. See
 		RFC 8446, Section 4.2.3.
 
 		<input type='checkbox' class="fold" id="SignatureScheme-fold-methods"><label for="SignatureScheme-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='SignatureScheme-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../src/crypto/tls/common_string.go.html#line-41">String</a>() <a href="../builtin.html#name-string">string</a></span></span></span>
-		<input type='checkbox' class="fold" id="SignatureScheme-fold-impls"><label for="SignatureScheme-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='SignatureScheme-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="SignatureScheme-fold-impls"><label for="SignatureScheme-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='SignatureScheme-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="SignatureScheme-showhide-impls"><i><label for="SignatureScheme-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="SignatureScheme-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="SignatureScheme-showhide-impls"><i><label for="SignatureScheme-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="SignatureScheme-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="SignatureScheme-fold-results"><label for="SignatureScheme-fold-results">As Outputs Of (<i>at least 2, neither is exported</i>)</label><span id='SignatureScheme-fold-results-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="SignatureScheme-showhide-inputofs"><i><label for="SignatureScheme-showhide-inputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="SignatureScheme-showhide-inputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
@@ -1494,16 +1499,17 @@
 			func <a href="#name-aeadAESGCMTLS13">aeadAESGCMTLS13</a>(key, nonceMask []<a href="../builtin.html#name-byte">byte</a>) <b>aead</b></i></span><span class="hidden"><i>
 			func <a href="#name-aeadChaCha20Poly1305">aeadChaCha20Poly1305</a>(key, nonceMask []<a href="../builtin.html#name-byte">byte</a>) <b>aead</b></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-alert" data-popularity="385">	<input type='checkbox' class="fold" id="alert-fold-content"><label for="alert-fold-content"> type <a href="../../src/crypto/tls/alert.go.html#line-9">alert</a> <a href="../builtin.html#name-uint8">uint8</a> <i>(basic type)</i></label><span id='alert-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-alert" data-popularity="435">	<input type='checkbox' class="fold" id="alert-fold-content"><label for="alert-fold-content"> type <a href="../../src/crypto/tls/alert.go.html#line-9">alert</a> <a href="../builtin.html#name-uint8">uint8</a> <i>(basic type)</i></label><span id='alert-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="alert-fold-methods"><label for="alert-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='alert-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../src/crypto/tls/alert.go.html#line-97">Error</a>() <a href="../builtin.html#name-string">string</a></span></span><span>
 			<span class="nodocs">( T) <a href="../../src/crypto/tls/alert.go.html#line-89">String</a>() <a href="../builtin.html#name-string">string</a></span></span></span>
-		<input type='checkbox' class="fold" id="alert-fold-impls"><label for="alert-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='alert-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="alert-fold-impls"><label for="alert-fold-impls">Implements (<i>at least 5, in which 2 are exported</i>)</label><span id='alert-fold-impls-items' class="fold-items"><span>
 			 T : <a href="../builtin.html#name-error">error</a></span><span>
 			 T : fmt.<a href="../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' checked class="showhide" id="alert-showhide-impls"><i><label for="alert-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="alert-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="alert-showhide-impls"><i><label for="alert-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="alert-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="alert-fold-params"><label for="alert-fold-params">As Inputs Of (<i>at least 2, neither is exported</i>)</label><span id='alert-fold-params-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="alert-showhide-outputofs"><i><label for="alert-showhide-outputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="alert-showhide-outputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>

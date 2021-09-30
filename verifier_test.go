@@ -25,7 +25,7 @@ func TestDefaultVerifierrMeta(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init verifier error")
 	}
-	res := verifier.Meta()
+	res, _ := verifier.Meta()
 	t.Log("get algo", res.Algo.String())
 	assert.Equal(t, jwt_pb.EncryptionAlgorithm_HS256, res.Algo)
 	t.Log("get defaultAUD", res.DefaultAUD)
@@ -42,7 +42,7 @@ func TestNewHashVerifierrOpts(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init verifier error")
 	}
-	res := verifier.Meta()
+	res, _ := verifier.Meta()
 	t.Log("get algo", res.Algo.String())
 	assert.Equal(t, jwt_pb.EncryptionAlgorithm_HS256, res.Algo)
 	t.Log("get defaultAUD", res.DefaultAUD)
@@ -212,7 +212,8 @@ func TestHashVerifierVerifyOKAccessToken(t *testing.T) {
 		assert.FailNow(t, "verifier Verify should not get error")
 	}
 	t.Log("get timeleft", timeleft)
-	assert.LessOrEqual(t, timeleft, time.Second*time.Duration(signer.Meta().DefaultTTL))
+	signermeta, _ := signer.Meta()
+	assert.LessOrEqual(t, timeleft, time.Second*time.Duration(signermeta.DefaultTTL))
 	t.Log("get payload", payload1)
 	assert.EqualValues(t, payload, payload1)
 }
@@ -248,7 +249,8 @@ func TestHashVerifierVerifyCheckMatch(t *testing.T) {
 		assert.FailNow(t, "verifier Verify should not get error")
 	}
 	t.Log("get timeleft", timeleft)
-	assert.LessOrEqual(t, timeleft, time.Second*time.Duration(signer.Meta().DefaultTTL))
+	signermeta, _ := signer.Meta()
+	assert.LessOrEqual(t, timeleft, time.Second*time.Duration(signermeta.DefaultTTL))
 	t.Log("get payload", payload1)
 	assert.EqualValues(t, payload, payload1)
 }
@@ -811,7 +813,7 @@ func TestNewRSAVerifierrOpts(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init verifier error")
 	}
-	res := verifier.Meta()
+	res, _ := verifier.Meta()
 	t.Log("get algo", res.Algo.String())
 	assert.Equal(t, jwt_pb.EncryptionAlgorithm_RS256, res.Algo)
 	t.Log("get defaultAUD", res.DefaultAUD)
@@ -829,7 +831,7 @@ func TestNewESAVerifierrOpts(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init verifier error")
 	}
-	res := verifier.Meta()
+	res, _ := verifier.Meta()
 	t.Log("get algo", res.Algo.String())
 	assert.Equal(t, jwt_pb.EncryptionAlgorithm_ES256, res.Algo)
 	t.Log("get defaultAUD", res.DefaultAUD)
@@ -847,7 +849,7 @@ func TestNewEdDSAAVerifierrOpts(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init verifier error")
 	}
-	res := verifier.Meta()
+	res, _ := verifier.Meta()
 	t.Log("get algo", res.Algo.String())
 	assert.Equal(t, jwt_pb.EncryptionAlgorithm_EdDSA, res.Algo)
 	t.Log("get defaultAUD", res.DefaultAUD)

@@ -18,7 +18,7 @@ func TestDefaultSignerMeta(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
-	res := signer.Meta()
+	res, _ := signer.Meta()
 	t.Log("get algo", res.Algo.String())
 	assert.Equal(t, jwt_pb.EncryptionAlgorithm_HS256, res.Algo)
 	t.Log("get jtigen", res.JtiGen)
@@ -43,7 +43,7 @@ func TestNewHashSignerWithOpts(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
-	res := signer.Meta()
+	res, _ := signer.Meta()
 	t.Log("get algo", res.Algo.String())
 	assert.Equal(t, jwt_pb.EncryptionAlgorithm_HS512, res.Algo)
 	t.Log("get jtigen", res.JtiGen)
@@ -65,7 +65,7 @@ func TestNewHashSignerWithNewKey(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
-	res := signer.Meta()
+	res, _ := signer.Meta()
 	t.Log("get Iss", res.Iss)
 	assert.Equal(t, "test", res.Iss)
 	key := string(signer.key.([]byte))
@@ -82,7 +82,7 @@ func TestNewHashSignerWithNewKeyInFile(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
-	res := signer.Meta()
+	res, _ := signer.Meta()
 	t.Log("get Iss", res.Iss)
 	assert.Equal(t, "test", res.Iss)
 	key := string(signer.key.([]byte))
@@ -232,7 +232,7 @@ func TestNewRSASignerMeta(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
-	res := signer.Meta()
+	res, _ := signer.Meta()
 	t.Log("get algo", res.Algo.String())
 	assert.Equal(t, jwt_pb.EncryptionAlgorithm_RS256, res.Algo)
 	t.Log("get jtigen", res.JtiGen)
@@ -254,7 +254,7 @@ func TestNewESSignerMeta(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
-	res := signer.Meta()
+	res, _ := signer.Meta()
 	t.Log("get algo", res.Algo.String())
 	assert.Equal(t, jwt_pb.EncryptionAlgorithm_ES256, res.Algo)
 	t.Log("get jtigen", res.JtiGen)
@@ -276,7 +276,7 @@ func TestNewEdDSASignerMeta(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
-	res := signer.Meta()
+	res, _ := signer.Meta()
 	t.Log("get algo", res.Algo.String())
 	assert.Equal(t, jwt_pb.EncryptionAlgorithm_EdDSA, res.Algo)
 	t.Log("get jtigen", res.JtiGen)

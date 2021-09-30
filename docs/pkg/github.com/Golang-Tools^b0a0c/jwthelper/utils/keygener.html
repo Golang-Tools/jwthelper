@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Package: github.com/Golang-Tools/jwthelper/utils/keygener</title>
+<link href="../../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="package-details"><code><span style="font-size:xx-large;">package <b>keygener</b></span>
+
+<span class="title">Import Path</span>
+	<a href="../../../../../index.html#pkg-github.com/Golang-Tools/jwthelper/utils/keygener">github.com/Golang-Tools/jwthelper/utils/keygener</a><i> (on <a href="https://pkg.go.dev/github.com/Golang-Tools/jwthelper/utils/keygener" target="_blank">go.dev</a>)</i>
+
+<span class="title">Dependency Relation</span>
+	imports <a href="../../../../../dep/github.com/Golang-Tools^b0a0c/jwthelper/utils/keygener.html">11 packages</a>, and imported by <a href="../../../../../dep/github.com/Golang-Tools^b0a0c/jwthelper/utils/keygener.html#imported-by">one package</a>
+
+<div id="files"><span class="title">Involved Source Files</span>
+
+	<span class="nodocs">      <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/utils/keygener/keygen.go.html">keygen.go</a></span></div>
+<div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (only one, which is exported)</i></span></span>
+
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-AlgoType" data-popularity="125">	<input type='checkbox' class="fold" id="AlgoType-fold-content"><label for="AlgoType-fold-content"> type <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/utils/keygener/keygen.go.html#line-21">AlgoType</a> <a href="../../../../builtin.html#name-int32">int32</a> <i>(basic type)</i></label><span id='AlgoType-fold-content-docs' class="fold-docs">
+		支持的算法类型
+
+		<input type='checkbox' class="fold" id="AlgoType-fold-results"><label for="AlgoType-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='AlgoType-fold-results-items' class="fold-items"><span>
+			func <a href="#name-StringTOAlgoType">StringTOAlgoType</a>(algoname <a href="../../../../builtin.html#name-string">string</a>) (<b>AlgoType</b>, <a href="../../../../builtin.html#name-error">error</a>)</span></span>
+		<input type='checkbox' class="fold" id="AlgoType-fold-params"><label for="AlgoType-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='AlgoType-fold-params-items' class="fold-items"><span>
+			func <a href="#name-GenKey">GenKey</a>(algotype <b>AlgoType</b>, keyname <a href="../../../../builtin.html#name-string">string</a>) <a href="../../../../builtin.html#name-error">error</a></span></span>
+		<input type='checkbox' class="fold" id="AlgoType-fold-values"><label for="AlgoType-fold-values">As Types Of (<i>total 3, all are exported</i>)</label><span id='AlgoType-fold-values-items' class="fold-items"><span>
+			const <a href="#name-AlgoType_ECDSA">AlgoType_ECDSA</a></span><span>
+			const <a href="#name-AlgoType_ED25519">AlgoType_ED25519</a></span><span>
+			const <a href="#name-AlgoType_RSA">AlgoType_RSA</a></span></span>
+
+</span></div></div>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 6, in which 5 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-GenEcdsaKey">	<input type='checkbox' class="fold" id="GenEcdsaKey-fold-content"><label for="GenEcdsaKey-fold-content"> func <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/utils/keygener/keygen.go.html#line-165">GenEcdsaKey</a>(keyname <a href="../../../../builtin.html#name-string">string</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='GenEcdsaKey-fold-content-docs' class="fold-docs">
+		GenEcdsaKey 生成Ecdsa公私钥对
+
+</span></div><div class="anchor value-res" id="name-GenEd25519Key">	<input type='checkbox' class="fold" id="GenEd25519Key-fold-content"><label for="GenEd25519Key-fold-content"> func <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/utils/keygener/keygen.go.html#line-185">GenEd25519Key</a>(keyname <a href="../../../../builtin.html#name-string">string</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='GenEd25519Key-fold-content-docs' class="fold-docs">
+		GenEd25519Key 生成ed25519公私钥对
+
+</span></div><div class="anchor value-res" id="name-GenKey">	<input type='checkbox' class="fold" id="GenKey-fold-content"><label for="GenKey-fold-content"> func <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/utils/keygener/keygen.go.html#line-203">GenKey</a>(algotype <a href="#name-AlgoType">AlgoType</a>, keyname <a href="../../../../builtin.html#name-string">string</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='GenKey-fold-content-docs' class="fold-docs">
+		GenKey 随机生成指定类型的公私钥对
+
+</span></div><div class="anchor value-res" id="name-GenRsaKey">	<input type='checkbox' class="fold" id="GenRsaKey-fold-content"><label for="GenRsaKey-fold-content"> func <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/utils/keygener/keygen.go.html#line-145">GenRsaKey</a>(keyname <a href="../../../../builtin.html#name-string">string</a>) <a href="../../../../builtin.html#name-error">error</a></label><span id='GenRsaKey-fold-content-docs' class="fold-docs">
+		GenRsaKey 生成rsa公私钥对
+
+</span></div><div class="anchor value-res" id="name-StringTOAlgoType">	<input type='checkbox' class="fold" id="StringTOAlgoType-fold-content"><label for="StringTOAlgoType-fold-content"> func <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/utils/keygener/keygen.go.html#line-30">StringTOAlgoType</a>(algoname <a href="../../../../builtin.html#name-string">string</a>) (<a href="#name-AlgoType">AlgoType</a>, <a href="../../../../builtin.html#name-error">error</a>)</label><span id='StringTOAlgoType-fold-content-docs' class="fold-docs">
+		StringTOAlgoType 将算法名转成算法枚举
+
+</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* one unexported ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* one unexported: */</label></i><div class="anchor value-res hidden" id="name-saveAsPem"><i>	<span class="nodocs"> func <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/utils/keygener/keygen.go.html#line-51">saveAsPem</a>(key interface{}, keyname <a href="../../../../builtin.html#name-string">string</a>) <a href="../../../../builtin.html#name-error">error</a></span></i></div></div>
+<div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (only one, which is exported)</i></span></span>
+
+<div class="anchor value-res" id="name-ErrUnknownAlgoType">	<input type='checkbox' class="fold" id="ErrUnknownAlgoType-fold-content"><label for="ErrUnknownAlgoType-fold-content">  var <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/utils/keygener/keygen.go.html#line-18">ErrUnknownAlgoType</a> <a href="../../../../builtin.html#name-error">error</a></label><span id='ErrUnknownAlgoType-fold-content-docs' class="fold-docs">
+		未知的算法错误
+
+</span></div></div>
+<div id="exported-constants"><span class="title">Package-Level Constants<span class="title-stat"><i> (total 3, all are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-AlgoType_ECDSA">	<span class="nodocs">const <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/utils/keygener/keygen.go.html#line-25">AlgoType_ECDSA</a> <a href="#name-AlgoType">AlgoType</a> = 1</span></div><div class="anchor value-res" id="name-AlgoType_ED25519">	<span class="nodocs">const <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/utils/keygener/keygen.go.html#line-26">AlgoType_ED25519</a> <a href="#name-AlgoType">AlgoType</a> = 2</span></div><div class="anchor value-res" id="name-AlgoType_RSA">	<span class="nodocs">const <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/utils/keygener/keygen.go.html#line-24">AlgoType_RSA</a> <a href="#name-AlgoType">AlgoType</a> = 0</span></div></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

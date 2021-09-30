@@ -178,7 +178,7 @@
 		<input type='checkbox' class="fold" id="Builder-fold-results"><label for="Builder-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Builder-fold-results-items' class="fold-items"><span>
 			func <a href="#name-NewBuilder">NewBuilder</a>(buf []<a href="../../../../../builtin.html#name-byte">byte</a>, h <a href="#name-Header">Header</a>) <b>Builder</b></span></span>
 
-</span></div><div class="anchor type-res" id="name-Class" data-popularity="425">	<input type='checkbox' class="fold" id="Class-fold-content"><label for="Class-fold-content"> type <a href="../../../../../../src/vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-80">Class</a> <a href="../../../../../builtin.html#name-uint16">uint16</a> <i>(basic type)</i></label><span id='Class-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Class" data-popularity="475">	<input type='checkbox' class="fold" id="Class-fold-content"><label for="Class-fold-content"> type <a href="../../../../../../src/vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-80">Class</a> <a href="../../../../../builtin.html#name-uint16">uint16</a> <i>(basic type)</i></label><span id='Class-fold-content-docs' class="fold-docs">
 		A Class is a type of network.
 
 		<input type='checkbox' class="fold" id="Class-fold-methods"><label for="Class-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='Class-fold-methods-items' class="fold-items"><span>
@@ -188,11 +188,12 @@
 			<input type='checkbox' class="fold" id="Class-fold-method-String"><label for="Class-fold-method-String">( T) <a href="../../../../../../src/vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-102">String</a>() <a href="../../../../../builtin.html#name-string">string</a></label><span id='Class-fold-method-String-docs' class="fold-docs">
 				String implements fmt.Stringer.String.
 </span></span></span>
-		<input type='checkbox' class="fold" id="Class-fold-impls"><label for="Class-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='Class-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Class-fold-impls"><label for="Class-fold-impls">Implements (<i>at least 5, in which 2 are exported</i>)</label><span id='Class-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../../../../../fmt.html#name-GoStringer">GoStringer</a></span><span>
 			 T : fmt.<a href="../../../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="Class-showhide-impls"><i><label for="Class-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="Class-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Class-showhide-impls"><i><label for="Class-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="Class-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../../../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="Class-fold-results"><label for="Class-fold-results">As Outputs Of (<i>at least one unexported</i>)</label><span id='Class-fold-results-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="Class-showhide-inputofs"><i><label for="Class-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="Class-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
@@ -324,7 +325,7 @@
 		<input type='checkbox' class="fold" id="MXResource-fold-params"><label for="MXResource-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='MXResource-fold-params-items' class="fold-items"><span>
 			func (*<a href="#name-Builder">Builder</a>).<a href="../../../../../../src/vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-1345">MXResource</a>(h <a href="#name-ResourceHeader">ResourceHeader</a>, r <b>MXResource</b>) <a href="../../../../../builtin.html#name-error">error</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-Name" data-popularity="710">	<input type='checkbox' class="fold" id="Name-fold-content"><label for="Name-fold-content"> type <a href="../../../../../../src/vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-1840">Name</a> <i>(struct)</i></label><span id='Name-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Name" data-popularity="760">	<input type='checkbox' class="fold" id="Name-fold-content"><label for="Name-fold-content"> type <a href="../../../../../../src/vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-1840">Name</a> <i>(struct)</i></label><span id='Name-fold-content-docs' class="fold-docs">
 		A Name is a non-encoded domain name. It is used instead of strings to avoid
 		allocations.
 
@@ -352,11 +353,12 @@
 				unpack unpacks a domain name.
 </span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../../../../src/vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-1945">unpackCompressed</a>(msg []<a href="../../../../../builtin.html#name-byte">byte</a>, off <a href="../../../../../builtin.html#name-int">int</a>, allowCompression <a href="../../../../../builtin.html#name-bool">bool</a>) (<a href="../../../../../builtin.html#name-int">int</a>, <a href="../../../../../builtin.html#name-error">error</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="Name-fold-impls"><label for="Name-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='Name-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Name-fold-impls"><label for="Name-fold-impls">Implements (<i>at least 5, in which 2 are exported</i>)</label><span id='Name-fold-impls-items' class="fold-items"><span>
 			*T : fmt.<a href="../../../../../fmt.html#name-GoStringer">GoStringer</a></span><span>
 			 T : fmt.<a href="../../../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="Name-showhide-impls"><i><label for="Name-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="Name-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Name-showhide-impls"><i><label for="Name-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="Name-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../../../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="Name-fold-results"><label for="Name-fold-results">As Outputs Of (<i>at least 3, in which 2 are exported</i>)</label><span id='Name-fold-results-items' class="fold-items"><span>
 			func <a href="#name-MustNewName">MustNewName</a>(name <a href="../../../../../builtin.html#name-string">string</a>) <b>Name</b></span><span>
@@ -659,7 +661,7 @@
 			func net.<a href="../../../../../net.html#name-newRequest">newRequest</a>(q <b>Question</b>) (id <a href="../../../../../builtin.html#name-uint16">uint16</a>, udpReq, tcpReq []<a href="../../../../../builtin.html#name-byte">byte</a>, err <a href="../../../../../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func net.(*<a href="../../../../../net.html#name-Resolver">Resolver</a>).<a href="../../../../../../src/net/dnsclient_unix.go.html#line-139">exchange</a>(ctx <a href="../../../../../context.html">context</a>.<a href="../../../../../context.html#name-Context">Context</a>, server <a href="../../../../../builtin.html#name-string">string</a>, q <b>Question</b>, timeout <a href="../../../../../time.html">time</a>.<a href="../../../../../time.html#name-Duration">Duration</a>, useTCP <a href="../../../../../builtin.html#name-bool">bool</a>) (<a href="#name-Parser">Parser</a>, <a href="#name-Header">Header</a>, <a href="../../../../../builtin.html#name-error">error</a>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-RCode" data-popularity="460">	<input type='checkbox' class="fold" id="RCode-fold-content"><label for="RCode-fold-content"> type <a href="../../../../../../src/vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-126">RCode</a> <a href="../../../../../builtin.html#name-uint16">uint16</a> <i>(basic type)</i></label><span id='RCode-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-RCode" data-popularity="510">	<input type='checkbox' class="fold" id="RCode-fold-content"><label for="RCode-fold-content"> type <a href="../../../../../../src/vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-126">RCode</a> <a href="../../../../../builtin.html#name-uint16">uint16</a> <i>(basic type)</i></label><span id='RCode-fold-content-docs' class="fold-docs">
 		An RCode is a DNS response status code.
 
 		<input type='checkbox' class="fold" id="RCode-fold-methods"><label for="RCode-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='RCode-fold-methods-items' class="fold-items"><span>
@@ -669,11 +671,12 @@
 			<input type='checkbox' class="fold" id="RCode-fold-method-String"><label for="RCode-fold-method-String">( T) <a href="../../../../../../src/vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-148">String</a>() <a href="../../../../../builtin.html#name-string">string</a></label><span id='RCode-fold-method-String-docs' class="fold-docs">
 				String implements fmt.Stringer.String.
 </span></span></span>
-		<input type='checkbox' class="fold" id="RCode-fold-impls"><label for="RCode-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='RCode-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="RCode-fold-impls"><label for="RCode-fold-impls">Implements (<i>at least 5, in which 2 are exported</i>)</label><span id='RCode-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../../../../../fmt.html#name-GoStringer">GoStringer</a></span><span>
 			 T : fmt.<a href="../../../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="RCode-showhide-impls"><i><label for="RCode-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="RCode-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="RCode-showhide-impls"><i><label for="RCode-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="RCode-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../../../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="RCode-fold-results"><label for="RCode-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='RCode-fold-results-items' class="fold-items"><span>
 			func (*<a href="#name-ResourceHeader">ResourceHeader</a>).<a href="../../../../../../src/vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-1694">ExtendedRCode</a>(rcode <b>RCode</b>) <b>RCode</b></span></span>
@@ -912,7 +915,7 @@
 		<input type='checkbox' class="fold" id="TXTResource-fold-params"><label for="TXTResource-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='TXTResource-fold-params-items' class="fold-items"><span>
 			func (*<a href="#name-Builder">Builder</a>).<a href="../../../../../../src/vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-1441">TXTResource</a>(h <a href="#name-ResourceHeader">ResourceHeader</a>, r <b>TXTResource</b>) <a href="../../../../../builtin.html#name-error">error</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-Type" data-popularity="1280">	<input type='checkbox' class="fold" id="Type-fold-content"><label for="Type-fold-content"> type <a href="../../../../../../src/vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-22">Type</a> <a href="../../../../../builtin.html#name-uint16">uint16</a> <i>(basic type)</i></label><span id='Type-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Type" data-popularity="1330">	<input type='checkbox' class="fold" id="Type-fold-content"><label for="Type-fold-content"> type <a href="../../../../../../src/vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-22">Type</a> <a href="../../../../../builtin.html#name-uint16">uint16</a> <i>(basic type)</i></label><span id='Type-fold-content-docs' class="fold-docs">
 		A Type is a type of DNS request and response.
 
 		<input type='checkbox' class="fold" id="Type-fold-methods"><label for="Type-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='Type-fold-methods-items' class="fold-items"><span>
@@ -922,11 +925,12 @@
 			<input type='checkbox' class="fold" id="Type-fold-method-String"><label for="Type-fold-method-String">( T) <a href="../../../../../../src/vendor/golang.org/x/net/dns/dnsmessage/message.go.html#line-64">String</a>() <a href="../../../../../builtin.html#name-string">string</a></label><span id='Type-fold-method-String-docs' class="fold-docs">
 				String implements fmt.Stringer.String.
 </span></span></span>
-		<input type='checkbox' class="fold" id="Type-fold-impls"><label for="Type-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='Type-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Type-fold-impls"><label for="Type-fold-impls">Implements (<i>at least 5, in which 2 are exported</i>)</label><span id='Type-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../../../../../fmt.html#name-GoStringer">GoStringer</a></span><span>
 			 T : fmt.<a href="../../../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="Type-showhide-impls"><i><label for="Type-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="Type-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Type-showhide-impls"><i><label for="Type-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="Type-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../../../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="Type-fold-results"><label for="Type-fold-results">As Outputs Of (<i>at least 11, none are exported</i>)</label><span id='Type-fold-results-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="Type-showhide-inputofs"><i><label for="Type-showhide-inputofs" class="show-inline">/* 11+ unexporteds ... */</label><label for="Type-showhide-inputofs" class="hide-inline">/* 11+ unexporteds: */</label></i><span class="hidden"><i>

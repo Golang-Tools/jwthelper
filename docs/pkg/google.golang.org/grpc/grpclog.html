@@ -15,7 +15,7 @@
 	<a href="../../../index.html#pkg-google.golang.org/grpc/grpclog">google.golang.org/grpc/grpclog</a><i> (on <a href="https://pkg.go.dev/google.golang.org/grpc/grpclog" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../../../dep/google.golang.org/grpc/grpclog.html">7 packages</a>, and imported by <a href="../../../dep/google.golang.org/grpc/grpclog.html#imported-by">11 packages</a>
+	imports <a href="../../../dep/google.golang.org/grpc/grpclog.html">7 packages</a>, and imported by <a href="../../../dep/google.golang.org/grpc/grpclog.html#imported-by">29 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -119,21 +119,37 @@
 			func google.golang.org/grpc/internal/channelz.<a href="internal/channelz.html#name-Infof">Infof</a>(l <b>DepthLoggerV2</b>, id <a href="../../builtin.html#name-int64">int64</a>, format <a href="../../builtin.html#name-string">string</a>, args ...interface{})</span><span>
 			func google.golang.org/grpc/internal/channelz.<a href="internal/channelz.html#name-Warning">Warning</a>(l <b>DepthLoggerV2</b>, id <a href="../../builtin.html#name-int64">int64</a>, args ...interface{})</span><span>
 			func google.golang.org/grpc/internal/channelz.<a href="internal/channelz.html#name-Warningf">Warningf</a>(l <b>DepthLoggerV2</b>, id <a href="../../builtin.html#name-int64">int64</a>, format <a href="../../builtin.html#name-string">string</a>, args ...interface{})</span></span>
-		<input type='checkbox' class="fold" id="DepthLoggerV2-fold-values"><label for="DepthLoggerV2-fold-values">As Types Of (<i>total 11, none are exported</i>)</label><span id='DepthLoggerV2-fold-values-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="DepthLoggerV2-showhide-values"><i><label for="DepthLoggerV2-showhide-values" class="show-inline">/* 11 unexporteds ... */</label><label for="DepthLoggerV2-showhide-values" class="hide-inline">/* 11 unexporteds: */</label></i><span class="hidden"><i>
+		<input type='checkbox' class="fold" id="DepthLoggerV2-fold-values"><label for="DepthLoggerV2-fold-values">As Types Of (<i>total 27, none are exported</i>)</label><span id='DepthLoggerV2-fold-values-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="DepthLoggerV2-showhide-values"><i><label for="DepthLoggerV2-showhide-values" class="show-inline">/* 27 unexporteds ... */</label><label for="DepthLoggerV2-showhide-values" class="hide-inline">/* 27 unexporteds: */</label></i><span class="hidden"><i>
 			  var google.golang.org/grpc.<a href="../grpc.html#name-logger">logger</a></i></span><span class="hidden"><i>
 			  var google.golang.org/grpc/balancer/base.<a href="balancer/base.html#name-logger">logger</a></i></span><span class="hidden"><i>
 			  var google.golang.org/grpc/balancer/roundrobin.<a href="balancer/roundrobin.html#name-logger">logger</a></i></span><span class="hidden"><i>
 			  var google.golang.org/grpc/connectivity.<a href="connectivity.html#name-logger">logger</a></i></span><span class="hidden"><i>
+			  var google.golang.org/grpc/credentials/alts.<a href="credentials/alts.html#name-logger">logger</a></i></span><span class="hidden"><i>
+			  var google.golang.org/grpc/credentials/google.<a href="credentials/google.html#name-logger">logger</a></i></span><span class="hidden"><i>
+			  var google.golang.org/grpc/credentials/tls/certprovider/pemfile.<a href="credentials/tls/certprovider/pemfile.html#name-logger">logger</a></i></span><span class="hidden"><i>
+			  var google.golang.org/grpc/health.<a href="health.html#name-logger">logger</a></i></span><span class="hidden"><i>
 			  var google.golang.org/grpc/internal/binarylog.<a href="internal/binarylog.html#name-grpclogLogger">grpclogLogger</a></i></span><span class="hidden"><i>
 			  var google.golang.org/grpc/internal/channelz.<a href="internal/channelz.html#name-logger">logger</a></i></span><span class="hidden"><i>
 			  var google.golang.org/grpc/internal/credentials.<a href="internal/credentials.html#name-logger">logger</a></i></span><span class="hidden"><i>
 			  var google.golang.org/grpc/internal/resolver/dns.<a href="internal/resolver/dns.html#name-logger">logger</a></i></span><span class="hidden"><i>
 			  var google.golang.org/grpc/internal/serviceconfig.<a href="internal/serviceconfig.html#name-logger">logger</a></i></span><span class="hidden"><i>
 			  var google.golang.org/grpc/internal/syscall.<a href="internal/syscall.html#name-logger">logger</a></i></span><span class="hidden"><i>
-			  var google.golang.org/grpc/internal/transport.<a href="internal/transport.html#name-logger">logger</a></i></span></span>
+			  var google.golang.org/grpc/internal/transport.<a href="internal/transport.html#name-logger">logger</a></i></span><span class="hidden"><i>
+			  var google.golang.org/grpc/xds.<a href="xds.html#name-logger">logger</a></i></span><span class="hidden"><i>
+			  var google.golang.org/grpc/xds/csds.<a href="xds/csds.html#name-logger">logger</a></i></span><span class="hidden"><i>
+			  var google.golang.org/grpc/xds/internal/balancer/cdsbalancer.<a href="xds/internal/balancer/cdsbalancer.html#name-logger">logger</a></i></span><span class="hidden"><i>
+			  var google.golang.org/grpc/xds/internal/balancer/clusterimpl.<a href="xds/internal/balancer/clusterimpl.html#name-logger">logger</a></i></span><span class="hidden"><i>
+			  var google.golang.org/grpc/xds/internal/balancer/clustermanager.<a href="xds/internal/balancer/clustermanager.html#name-logger">logger</a></i></span><span class="hidden"><i>
+			  var google.golang.org/grpc/xds/internal/balancer/clusterresolver.<a href="xds/internal/balancer/clusterresolver.html#name-logger">logger</a></i></span><span class="hidden"><i>
+			  var google.golang.org/grpc/xds/internal/balancer/priority.<a href="xds/internal/balancer/priority.html#name-logger">logger</a></i></span><span class="hidden"><i>
+			  var google.golang.org/grpc/xds/internal/balancer/ringhash.<a href="xds/internal/balancer/ringhash.html#name-logger">logger</a></i></span><span class="hidden"><i>
+			  var google.golang.org/grpc/xds/internal/balancer/weightedtarget.<a href="xds/internal/balancer/weightedtarget.html#name-logger">logger</a></i></span><span class="hidden"><i>
+			  var google.golang.org/grpc/xds/internal/resolver.<a href="xds/internal/resolver.html#name-logger">logger</a></i></span><span class="hidden"><i>
+			  var google.golang.org/grpc/xds/internal/server.<a href="xds/internal/server.html#name-logger">logger</a></i></span><span class="hidden"><i>
+			  var google.golang.org/grpc/xds/internal/xdsclient.<a href="xds/internal/xdsclient.html#name-logger">logger</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-Logger" data-popularity="635">	<input type='checkbox' class="fold" id="Logger-fold-content"><label for="Logger-fold-content"> type <a href="../../../src/google.golang.org/grpc/grpclog/logger.go.html#line-26">Logger</a> <b><i>(interface)</i></b></label><span id='Logger-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Logger" data-popularity="1385">	<input type='checkbox' class="fold" id="Logger-fold-content"><label for="Logger-fold-content"> type <a href="../../../src/google.golang.org/grpc/grpclog/logger.go.html#line-26">Logger</a> <b><i>(interface)</i></b></label><span id='Logger-fold-content-docs' class="fold-docs">
 		Logger mimics golang's standard Logger as an interface.
 
 		Deprecated: use LoggerV2.
@@ -145,7 +161,12 @@
 			<span class="nodocs">( T) <a href="../../../src/google.golang.org/grpc/grpclog/logger.go.html#line-30">Print</a>(args ...interface{})</span></span><span>
 			<span class="nodocs">( T) <a href="../../../src/google.golang.org/grpc/grpclog/logger.go.html#line-31">Printf</a>(format <a href="../../builtin.html#name-string">string</a>, args ...interface{})</span></span><span>
 			<span class="nodocs">( T) <a href="../../../src/google.golang.org/grpc/grpclog/logger.go.html#line-32">Println</a>(args ...interface{})</span></span></span>
-		<input type='checkbox' class="fold" id="Logger-fold-impledby"><label for="Logger-fold-impledby">Implemented By (<i>at least 2, in which 1 are exported</i>)</label><span id='Logger-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Logger-fold-impledby"><label for="Logger-fold-impledby">Implemented By (<i>at least 7, in which 6 are exported</i>)</label><span id='Logger-fold-impledby-items' class="fold-items"><span>
+			*github.com/sirupsen/logrus.<a href="../../github.com/sirupsen/logrus.html#name-Entry">Entry</a></span><span>
+			 github.com/sirupsen/logrus.<a href="../../github.com/sirupsen/logrus.html#name-Ext1FieldLogger">Ext1FieldLogger</a> <i>(interface)</i></span><span>
+			 github.com/sirupsen/logrus.<a href="../../github.com/sirupsen/logrus.html#name-FieldLogger">FieldLogger</a> <i>(interface)</i></span><span>
+			*github.com/sirupsen/logrus.<a href="../../github.com/sirupsen/logrus.html#name-Logger">Logger</a></span><span>
+			 github.com/sirupsen/logrus.<a href="../../github.com/sirupsen/logrus.html#name-StdLogger">StdLogger</a> <i>(interface)</i></span><span>
 			*log.<a href="../../log.html#name-Logger">Logger</a></span>
 			<input type='checkbox' class="showhide" id="Logger-showhide-impedBys"><i><label for="Logger-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="Logger-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			 <a href="#name-loggerWrapper">loggerWrapper</a></i></span></span>

@@ -60,12 +60,12 @@ func NewVerifier(opts ...VerifierOption) (*Verifier, error) {
 }
 
 //Meta 获取签名器元数据
-func (verifier *Verifier) Meta() *jwt_pb.VerifierMeta {
+func (verifier *Verifier) Meta() (*jwt_pb.VerifierMeta, error) {
 	return &jwt_pb.VerifierMeta{
 		Algo:            verifier.opts.Algo,
 		DefaultAUD:      verifier.opts.DefaultAUD,
 		DefaultISSRange: verifier.opts.DefaultISSRange,
-	}
+	}, nil
 }
 
 //accessTokenShare access_token共享给refresh_token的信息
@@ -80,7 +80,6 @@ type accessTokenShare struct {
 // 校验顺序是sub>aud>iss
 func checkClaims(claims jwt.MapClaims, payload interface{}, opts *verifyoptions.VerifyOptions) (*accessTokenShare, error) {
 	share := accessTokenShare{}
-
 	if opts.CheckMatchSUB != "" {
 		if claims["sub"] != opts.CheckMatchSUB {
 			return nil, exceptions.ErrValidationErrorSubject

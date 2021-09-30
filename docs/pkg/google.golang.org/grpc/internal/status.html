@@ -50,7 +50,7 @@
 		<input type='checkbox' class="fold" id="Error-fold-impls"><label for="Error-fold-impls">Implements (<i>at least one exported</i>)</label><span id='Error-fold-impls-items' class="fold-items"><span>
 			*T : <a href="../../../builtin.html#name-error">error</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-Status" data-popularity="1595">	<input type='checkbox' class="fold" id="Status-fold-content"><label for="Status-fold-content"> type <a href="../../../../src/google.golang.org/grpc/internal/status/status.go.html#line-42">Status</a> <i>(struct)</i></label><span id='Status-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Status" data-popularity="1645">	<input type='checkbox' class="fold" id="Status-fold-content"><label for="Status-fold-content"> type <a href="../../../../src/google.golang.org/grpc/internal/status/status.go.html#line-42">Status</a> <i>(struct)</i></label><span id='Status-fold-content-docs' class="fold-docs">
 		Status represents an RPC status code, message, and details.  It is immutable
 		and should be created with New, Newf, or FromProto.
 
@@ -79,10 +79,11 @@
 				WithDetails returns a new status with the provided details messages appended to the status.
 				If any errors are encountered, it returns nil and the first error encountered.
 </span></span></span>
-		<input type='checkbox' class="fold" id="Status-fold-impls"><label for="Status-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='Status-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Status-fold-impls"><label for="Status-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='Status-fold-impls-items' class="fold-items"><span>
 			*T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="Status-showhide-impls"><i><label for="Status-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="Status-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Status-showhide-impls"><i><label for="Status-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="Status-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="Status-fold-results"><label for="Status-fold-results">As Outputs Of (<i>at least 14, in which 12 are exported</i>)</label><span id='Status-fold-results-items' class="fold-items"><span>
 			func <a href="#name-FromProto">FromProto</a>(s *<a href="../../genproto/googleapis/rpc/status.html">spb</a>.<a href="../../genproto/googleapis/rpc/status.html#name-Status">Status</a>) *<b>Status</b></span><span>

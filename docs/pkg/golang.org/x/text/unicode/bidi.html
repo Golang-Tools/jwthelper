@@ -199,7 +199,7 @@
 			func <a href="#name-LookupRune">LookupRune</a>(r <a href="../../../../builtin.html#name-rune">rune</a>) (p <b>Properties</b>, size <a href="../../../../builtin.html#name-int">int</a>)</span><span>
 			func <a href="#name-LookupString">LookupString</a>(s <a href="../../../../builtin.html#name-string">string</a>) (p <b>Properties</b>, sz <a href="../../../../builtin.html#name-int">int</a>)</span></span>
 
-</span></div><div class="anchor type-res" id="name-Run" data-popularity="500">	<input type='checkbox' class="fold" id="Run-fold-content"><label for="Run-fold-content"> type <a href="../../../../../src/golang.org/x/text/unicode/bidi/bidi.go.html#line-157">Run</a> <i>(struct)</i></label><span id='Run-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Run" data-popularity="550">	<input type='checkbox' class="fold" id="Run-fold-content"><label for="Run-fold-content"> type <a href="../../../../../src/golang.org/x/text/unicode/bidi/bidi.go.html#line-157">Run</a> <i>(struct)</i></label><span id='Run-fold-content-docs' class="fold-docs">
 		A Run is a continuous sequence of characters of a single direction.
 
 		<input type='checkbox' class="fold" id="Run-fold-methods"><label for="Run-fold-methods">Methods (<i>total 4, all are exported</i>)</label><span id='Run-fold-methods-items' class="fold-items"><span>
@@ -216,10 +216,11 @@
 			<input type='checkbox' class="fold" id="Run-fold-method-String"><label for="Run-fold-method-String">(*T) <a href="../../../../../src/golang.org/x/text/unicode/bidi/bidi.go.html#line-161">String</a>() <a href="../../../../builtin.html#name-string">string</a></label><span id='Run-fold-method-String-docs' class="fold-docs">
 				String returns the text of the run in its original order.
 </span></span></span>
-		<input type='checkbox' class="fold" id="Run-fold-impls"><label for="Run-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='Run-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Run-fold-impls"><label for="Run-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='Run-fold-impls-items' class="fold-items"><span>
 			*T : fmt.<a href="../../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="Run-showhide-impls"><i><label for="Run-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="Run-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Run-showhide-impls"><i><label for="Run-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="Run-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="../../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="../../../../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="Run-fold-results"><label for="Run-fold-results">As Outputs Of (<i>at least 2, both are exported</i>)</label><span id='Run-fold-results-items' class="fold-items"><span>
 			func (*<a href="#name-Ordering">Ordering</a>).<a href="../../../../../src/golang.org/x/text/unicode/bidi/bidi.go.html#line-145">Run</a>(i <a href="../../../../builtin.html#name-int">int</a>) <b>Run</b></span><span>
@@ -258,7 +259,7 @@
 			<input type='checkbox' checked class="showhide" id="bidiTrie-showhide-values"><i><label for="bidiTrie-showhide-values" class="show-inline">/* one unexported ... */</label><label for="bidiTrie-showhide-values" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
 			  var <a href="#name-trie">trie</a> *bidiTrie</i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-bracketPair" data-popularity="200">	<input type='checkbox' class="fold" id="bracketPair-fold-content"><label for="bracketPair-fold-content"> type <a href="../../../../../src/golang.org/x/text/unicode/bidi/bracket.go.html#line-51">bracketPair</a> <i>(struct)</i></label><span id='bracketPair-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-bracketPair" data-popularity="250">	<input type='checkbox' class="fold" id="bracketPair-fold-content"><label for="bracketPair-fold-content"> type <a href="../../../../../src/golang.org/x/text/unicode/bidi/bracket.go.html#line-51">bracketPair</a> <i>(struct)</i></label><span id='bracketPair-fold-content-docs' class="fold-docs">
 		bracketPair holds a pair of index values for opening and closing bracket
 		location of a bracket pair.
 
@@ -268,10 +269,11 @@
 			<span class="nodocs"><a href="../../../../../src/golang.org/x/text/unicode/bidi/bracket.go.html#line-52">opener</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></i></span></span>
 		<input type='checkbox' class="fold" id="bracketPair-fold-methods"><label for="bracketPair-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='bracketPair-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">(*T) <a href="../../../../../src/golang.org/x/text/unicode/bidi/bracket.go.html#line-56">String</a>() <a href="../../../../builtin.html#name-string">string</a></span></span></span>
-		<input type='checkbox' class="fold" id="bracketPair-fold-impls"><label for="bracketPair-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='bracketPair-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="bracketPair-fold-impls"><label for="bracketPair-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='bracketPair-fold-impls-items' class="fold-items"><span>
 			*T : fmt.<a href="../../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' checked class="showhide" id="bracketPair-showhide-impls"><i><label for="bracketPair-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="bracketPair-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="bracketPair-showhide-impls"><i><label for="bracketPair-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="bracketPair-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="../../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="../../../../runtime.html#name-stringer">stringer</a></i></span></span>
 
 </span></div><div class="anchor type-res hidden" id="name-bracketPairer" data-popularity="400">	<input type='checkbox' class="fold" id="bracketPairer-fold-content"><label for="bracketPairer-fold-content"> type <a href="../../../../../src/golang.org/x/text/unicode/bidi/bracket.go.html#line-90">bracketPairer</a> <i>(struct)</i></label><span id='bracketPairer-fold-content-docs' class="fold-docs">

@@ -15,7 +15,7 @@
 	<a href="../../../index.html#pkg-google.golang.org/grpc/balancer">google.golang.org/grpc/balancer</a><i> (on <a href="https://pkg.go.dev/google.golang.org/grpc/balancer" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../../../dep/google.golang.org/grpc/balancer.html">11 packages</a>, and imported by <a href="../../../dep/google.golang.org/grpc/balancer.html#imported-by">4 packages</a>
+	imports <a href="../../../dep/google.golang.org/grpc/balancer.html">11 packages</a>, and imported by <a href="../../../dep/google.golang.org/grpc/balancer.html#imported-by">13 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -24,7 +24,7 @@
 		All APIs in this package are experimental.</span></div>
 <div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 16, all are exported)</i></span></span>
 
-<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Balancer" data-popularity="575">	<input type='checkbox' class="fold" id="Balancer-fold-content"><label for="Balancer-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-314">Balancer</a> <b><i>(interface)</i></b></label><span id='Balancer-fold-content-docs' class="fold-docs">
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Balancer" data-popularity="1625">	<input type='checkbox' class="fold" id="Balancer-fold-content"><label for="Balancer-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-314">Balancer</a> <b><i>(interface)</i></b></label><span id='Balancer-fold-content-docs' class="fold-docs">
 		Balancer takes input from gRPC, manages SubConns, and collects and aggregates
 		the connectivity states.
 
@@ -53,14 +53,21 @@
 				UpdateSubConnState is called by gRPC when the state of a SubConn
 				changes.
 </span></span></span>
-		<input type='checkbox' class="fold" id="Balancer-fold-impledby"><label for="Balancer-fold-impledby">Implemented By (<i>at least 2, neither is exported</i>)</label><span id='Balancer-fold-impledby-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="Balancer-showhide-impedBys"><i><label for="Balancer-showhide-impedBys" class="show-inline">/* 2+ unexporteds ... */</label><label for="Balancer-showhide-impedBys" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+		<input type='checkbox' class="fold" id="Balancer-fold-impledby"><label for="Balancer-fold-impledby">Implemented By (<i>at least 9, none are exported</i>)</label><span id='Balancer-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Balancer-showhide-impedBys"><i><label for="Balancer-showhide-impedBys" class="show-inline">/* 9+ unexporteds ... */</label><label for="Balancer-showhide-impedBys" class="hide-inline">/* 9+ unexporteds: */</label></i><span class="hidden"><i>
 			*google.golang.org/grpc/balancer/base.<a href="balancer/base.html#name-baseBalancer">baseBalancer</a></i></span><span class="hidden"><i>
-			*google.golang.org/grpc.<a href="../grpc.html#name-pickfirstBalancer">pickfirstBalancer</a></i></span></span>
+			*google.golang.org/grpc.<a href="../grpc.html#name-pickfirstBalancer">pickfirstBalancer</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/cdsbalancer.<a href="xds/internal/balancer/cdsbalancer.html#name-cdsBalancer">cdsBalancer</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/clusterimpl.<a href="xds/internal/balancer/clusterimpl.html#name-clusterImplBalancer">clusterImplBalancer</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/clustermanager.<a href="xds/internal/balancer/clustermanager.html#name-bal">bal</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/clusterresolver.<a href="xds/internal/balancer/clusterresolver.html#name-clusterResolverBalancer">clusterResolverBalancer</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/priority.<a href="xds/internal/balancer/priority.html#name-priorityBalancer">priorityBalancer</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/ringhash.<a href="xds/internal/balancer/ringhash.html#name-ringhashBalancer">ringhashBalancer</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/weightedtarget.<a href="xds/internal/balancer/weightedtarget.html#name-weightedTargetBalancer">weightedTargetBalancer</a></i></span></span>
 		<input type='checkbox' class="fold" id="Balancer-fold-results"><label for="Balancer-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Balancer-fold-results-items' class="fold-items"><span>
 			func <a href="#name-Builder">Builder</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-202">Build</a>(cc <a href="#name-ClientConn">ClientConn</a>, opts <a href="#name-BuildOptions">BuildOptions</a>) <b>Balancer</b></span></span>
 
-</span></div><div class="anchor type-res" id="name-Builder" data-popularity="770">	<input type='checkbox' class="fold" id="Builder-fold-content"><label for="Builder-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-200">Builder</a> <b><i>(interface)</i></b></label><span id='Builder-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Builder" data-popularity="2075">	<input type='checkbox' class="fold" id="Builder-fold-content"><label for="Builder-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-200">Builder</a> <b><i>(interface)</i></b></label><span id='Builder-fold-content-docs' class="fold-docs">
 		Builder creates a balancer.
 
 		<input type='checkbox' class="fold" id="Builder-fold-methods"><label for="Builder-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='Builder-fold-methods-items' class="fold-items"><span>
@@ -71,22 +78,33 @@
 				Name returns the name of balancers built by this builder.
 				It will be used to pick balancers (for example in service config).
 </span></span></span>
-		<input type='checkbox' class="fold" id="Builder-fold-impledby"><label for="Builder-fold-impledby">Implemented By (<i>at least 2, neither is exported</i>)</label><span id='Builder-fold-impledby-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="Builder-showhide-impedBys"><i><label for="Builder-showhide-impedBys" class="show-inline">/* 2+ unexporteds ... */</label><label for="Builder-showhide-impedBys" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+		<input type='checkbox' class="fold" id="Builder-fold-impledby"><label for="Builder-fold-impledby">Implemented By (<i>at least 10, none are exported</i>)</label><span id='Builder-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Builder-showhide-impedBys"><i><label for="Builder-showhide-impedBys" class="show-inline">/* 10+ unexporteds ... */</label><label for="Builder-showhide-impedBys" class="hide-inline">/* 10+ unexporteds: */</label></i><span class="hidden"><i>
 			*google.golang.org/grpc/balancer/base.<a href="balancer/base.html#name-baseBuilder">baseBuilder</a></i></span><span class="hidden"><i>
-			*google.golang.org/grpc.<a href="../grpc.html#name-pickfirstBuilder">pickfirstBuilder</a></i></span></span>
+			*google.golang.org/grpc.<a href="../grpc.html#name-pickfirstBuilder">pickfirstBuilder</a></i></span><span class="hidden"><i>
+			 google.golang.org/grpc/xds/internal/balancer/cdsbalancer.<a href="xds/internal/balancer/cdsbalancer.html#name-bb">bb</a></i></span><span class="hidden"><i>
+			 google.golang.org/grpc/xds/internal/balancer/clusterimpl.<a href="xds/internal/balancer/clusterimpl.html#name-bb">bb</a></i></span><span class="hidden"><i>
+			 google.golang.org/grpc/xds/internal/balancer/clustermanager.<a href="xds/internal/balancer/clustermanager.html#name-bb">bb</a></i></span><span class="hidden"><i>
+			 google.golang.org/grpc/xds/internal/balancer/clusterresolver.<a href="xds/internal/balancer/clusterresolver.html#name-bb">bb</a></i></span><span class="hidden"><i>
+			 google.golang.org/grpc/xds/internal/balancer/priority.<a href="xds/internal/balancer/priority.html#name-bb">bb</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/priority.<a href="xds/internal/balancer/priority.html#name-ignoreResolveNowBalancerBuilder">ignoreResolveNowBalancerBuilder</a></i></span><span class="hidden"><i>
+			 google.golang.org/grpc/xds/internal/balancer/ringhash.<a href="xds/internal/balancer/ringhash.html#name-bb">bb</a></i></span><span class="hidden"><i>
+			 google.golang.org/grpc/xds/internal/balancer/weightedtarget.<a href="xds/internal/balancer/weightedtarget.html#name-bb">bb</a></i></span></span>
 		<input type='checkbox' class="fold" id="Builder-fold-results"><label for="Builder-fold-results">As Outputs Of (<i>at least 4, in which 2 are exported</i>)</label><span id='Builder-fold-results-items' class="fold-items"><span>
 			func <a href="#name-Get">Get</a>(name <a href="../../builtin.html#name-string">string</a>) <b>Builder</b></span><span>
 			func google.golang.org/grpc/balancer/base.<a href="balancer/base.html#name-NewBalancerBuilder">NewBalancerBuilder</a>(name <a href="../../builtin.html#name-string">string</a>, pb <a href="balancer/base.html">base</a>.<a href="balancer/base.html#name-PickerBuilder">PickerBuilder</a>, config <a href="balancer/base.html">base</a>.<a href="balancer/base.html#name-Config">Config</a>) <b>Builder</b></span>
 			<input type='checkbox' class="showhide" id="Builder-showhide-inputofs"><i><label for="Builder-showhide-inputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="Builder-showhide-inputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
 			func google.golang.org/grpc/balancer/roundrobin.<a href="balancer/roundrobin.html#name-newBuilder">newBuilder</a>() <b>Builder</b></i></span><span class="hidden"><i>
 			func google.golang.org/grpc.<a href="../grpc.html#name-newPickfirstBuilder">newPickfirstBuilder</a>() <b>Builder</b></i></span></span>
-		<input type='checkbox' class="fold" id="Builder-fold-params"><label for="Builder-fold-params">As Inputs Of (<i>at least 2, in which 1 are exported</i>)</label><span id='Builder-fold-params-items' class="fold-items"><span>
-			func <a href="#name-Register">Register</a>(b <b>Builder</b>)</span>
-			<input type='checkbox' class="showhide" id="Builder-showhide-outputofs"><i><label for="Builder-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="Builder-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
-			func google.golang.org/grpc.<a href="../grpc.html#name-newCCBalancerWrapper">newCCBalancerWrapper</a>(cc *<a href="../grpc.html">grpc</a>.<a href="../grpc.html#name-ClientConn">ClientConn</a>, b <b>Builder</b>, bopts <a href="#name-BuildOptions">BuildOptions</a>) *<a href="../grpc.html">grpc</a>.<a href="../grpc.html#name-ccBalancerWrapper">ccBalancerWrapper</a></i></span></span>
+		<input type='checkbox' class="fold" id="Builder-fold-params"><label for="Builder-fold-params">As Inputs Of (<i>at least 5, in which 2 are exported</i>)</label><span id='Builder-fold-params-items' class="fold-items"><span>
+			func <a href="#name-Register">Register</a>(b <b>Builder</b>)</span><span>
+			func google.golang.org/grpc/xds/internal/balancer/balancergroup.(*<a href="xds/internal/balancer/balancergroup.html#name-BalancerGroup">BalancerGroup</a>).<a href="../../../src/google.golang.org/grpc/xds/internal/balancer/balancergroup/balancergroup.go.html#line-299">Add</a>(id <a href="../../builtin.html#name-string">string</a>, builder <b>Builder</b>)</span>
+			<input type='checkbox' class="showhide" id="Builder-showhide-outputofs"><i><label for="Builder-showhide-outputofs" class="show-inline">/* 3+ unexporteds ... */</label><label for="Builder-showhide-outputofs" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			func google.golang.org/grpc.<a href="../grpc.html#name-newCCBalancerWrapper">newCCBalancerWrapper</a>(cc *<a href="../grpc.html">grpc</a>.<a href="../grpc.html#name-ClientConn">ClientConn</a>, b <b>Builder</b>, bopts <a href="#name-BuildOptions">BuildOptions</a>) *<a href="../grpc.html">grpc</a>.<a href="../grpc.html#name-ccBalancerWrapper">ccBalancerWrapper</a></i></span><span class="hidden"><i>
+			func google.golang.org/grpc/xds/internal/balancer/priority.<a href="xds/internal/balancer/priority.html#name-newChildBalancer">newChildBalancer</a>(name <a href="../../builtin.html#name-string">string</a>, parent *<a href="xds/internal/balancer/priority.html">priority</a>.<a href="xds/internal/balancer/priority.html#name-priorityBalancer">priorityBalancer</a>, bb <b>Builder</b>) *<a href="xds/internal/balancer/priority.html">priority</a>.<a href="xds/internal/balancer/priority.html#name-childBalancer">childBalancer</a></i></span><span class="hidden"><i>
+			func google.golang.org/grpc/xds/internal/balancer/priority.<a href="xds/internal/balancer/priority.html#name-newIgnoreResolveNowBalancerBuilder">newIgnoreResolveNowBalancerBuilder</a>(bb <b>Builder</b>, ignore <a href="../../builtin.html#name-bool">bool</a>) *<a href="xds/internal/balancer/priority.html">priority</a>.<a href="xds/internal/balancer/priority.html#name-ignoreResolveNowBalancerBuilder">ignoreResolveNowBalancerBuilder</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-BuildOptions" data-popularity="70">	<input type='checkbox' class="fold" id="BuildOptions-fold-content"><label for="BuildOptions-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-176">BuildOptions</a> <i>(struct)</i></label><span id='BuildOptions-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-BuildOptions" data-popularity="105">	<input type='checkbox' class="fold" id="BuildOptions-fold-content"><label for="BuildOptions-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-176">BuildOptions</a> <i>(struct)</i></label><span id='BuildOptions-fold-content-docs' class="fold-docs">
 		BuildOptions contains additional information for Build.
 
 		<input type='checkbox' class="fold" id="BuildOptions-fold-fields"><label for="BuildOptions-fold-fields">Fields (<i>total 6, all are exported</i>)</label><span id='BuildOptions-fold-fields-items' class="fold-items"><span>
@@ -116,12 +134,13 @@
 				passed to the resolver.
 				See the documentation for the resolver.Target type for details about what it contains.
 </span></span></span>
-		<input type='checkbox' class="fold" id="BuildOptions-fold-params"><label for="BuildOptions-fold-params">As Inputs Of (<i>at least 2, in which 1 are exported</i>)</label><span id='BuildOptions-fold-params-items' class="fold-items"><span>
-			func <a href="#name-Builder">Builder</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-202">Build</a>(cc <a href="#name-ClientConn">ClientConn</a>, opts <b>BuildOptions</b>) <a href="#name-Balancer">Balancer</a></span>
+		<input type='checkbox' class="fold" id="BuildOptions-fold-params"><label for="BuildOptions-fold-params">As Inputs Of (<i>at least 3, in which 2 are exported</i>)</label><span id='BuildOptions-fold-params-items' class="fold-items"><span>
+			func <a href="#name-Builder">Builder</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-202">Build</a>(cc <a href="#name-ClientConn">ClientConn</a>, opts <b>BuildOptions</b>) <a href="#name-Balancer">Balancer</a></span><span>
+			func google.golang.org/grpc/xds/internal/balancer/balancergroup.<a href="xds/internal/balancer/balancergroup.html#name-New">New</a>(cc <a href="#name-ClientConn">ClientConn</a>, bOpts <b>BuildOptions</b>, stateAggregator <a href="xds/internal/balancer/balancergroup.html">balancergroup</a>.<a href="xds/internal/balancer/balancergroup.html#name-BalancerStateAggregator">BalancerStateAggregator</a>, loadStore <a href="xds/internal/xdsclient/load.html">load</a>.<a href="xds/internal/xdsclient/load.html#name-PerClusterReporter">PerClusterReporter</a>, logger *<a href="internal/grpclog.html">grpclog</a>.<a href="internal/grpclog.html#name-PrefixLogger">PrefixLogger</a>) *<a href="xds/internal/balancer/balancergroup.html">balancergroup</a>.<a href="xds/internal/balancer/balancergroup.html#name-BalancerGroup">BalancerGroup</a></span>
 			<input type='checkbox' class="showhide" id="BuildOptions-showhide-outputofs"><i><label for="BuildOptions-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="BuildOptions-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func google.golang.org/grpc.<a href="../grpc.html#name-newCCBalancerWrapper">newCCBalancerWrapper</a>(cc *<a href="../grpc.html">grpc</a>.<a href="../grpc.html#name-ClientConn">ClientConn</a>, b <a href="#name-Builder">Builder</a>, bopts <b>BuildOptions</b>) *<a href="../grpc.html">grpc</a>.<a href="../grpc.html#name-ccBalancerWrapper">ccBalancerWrapper</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-ClientConn" data-popularity="485">	<input type='checkbox' class="fold" id="ClientConn-fold-content"><label for="ClientConn-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-143">ClientConn</a> <b><i>(interface)</i></b></label><span id='ClientConn-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-ClientConn" data-popularity="1340">	<input type='checkbox' class="fold" id="ClientConn-fold-content"><label for="ClientConn-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-143">ClientConn</a> <b><i>(interface)</i></b></label><span id='ClientConn-fold-content-docs' class="fold-docs">
 		ClientConn represents a gRPC ClientConn.
 
 		This interface is to be implemented by gRPC. Users should not need a
@@ -162,13 +181,22 @@
 				gRPC will update the connectivity state of the ClientConn, and will call
 				Pick on the new Picker to pick new SubConns.
 </span></span></span>
-		<input type='checkbox' class="fold" id="ClientConn-fold-impledby"><label for="ClientConn-fold-impledby">Implemented By (<i>at least one unexported</i>)</label><span id='ClientConn-fold-impledby-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="ClientConn-showhide-impedBys"><i><label for="ClientConn-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="ClientConn-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
-			*google.golang.org/grpc.<a href="../grpc.html#name-ccBalancerWrapper">ccBalancerWrapper</a></i></span></span>
-		<input type='checkbox' class="fold" id="ClientConn-fold-params"><label for="ClientConn-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='ClientConn-fold-params-items' class="fold-items"><span>
-			func <a href="#name-Builder">Builder</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-202">Build</a>(cc <b>ClientConn</b>, opts <a href="#name-BuildOptions">BuildOptions</a>) <a href="#name-Balancer">Balancer</a></span></span>
+		<input type='checkbox' class="fold" id="ClientConn-fold-impledby"><label for="ClientConn-fold-impledby">Implemented By (<i>at least 6, none are exported</i>)</label><span id='ClientConn-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ClientConn-showhide-impedBys"><i><label for="ClientConn-showhide-impedBys" class="show-inline">/* 6+ unexporteds ... */</label><label for="ClientConn-showhide-impedBys" class="hide-inline">/* 6+ unexporteds: */</label></i><span class="hidden"><i>
+			*google.golang.org/grpc.<a href="../grpc.html#name-ccBalancerWrapper">ccBalancerWrapper</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/balancergroup.<a href="xds/internal/balancer/balancergroup.html#name-subBalancerWrapper">subBalancerWrapper</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/cdsbalancer.<a href="xds/internal/balancer/cdsbalancer.html#name-ccWrapper">ccWrapper</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/clusterimpl.<a href="xds/internal/balancer/clusterimpl.html#name-clusterImplBalancer">clusterImplBalancer</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/clusterresolver.<a href="xds/internal/balancer/clusterresolver.html#name-ccWrapper">ccWrapper</a></i></span><span class="hidden"><i>
+			 google.golang.org/grpc/xds/internal/balancer/priority.<a href="xds/internal/balancer/priority.html#name-ignoreResolveNowClientConn">ignoreResolveNowClientConn</a></i></span></span>
+		<input type='checkbox' class="fold" id="ClientConn-fold-params"><label for="ClientConn-fold-params">As Inputs Of (<i>at least 4, in which 3 are exported</i>)</label><span id='ClientConn-fold-params-items' class="fold-items"><span>
+			func <a href="#name-Builder">Builder</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-202">Build</a>(cc <b>ClientConn</b>, opts <a href="#name-BuildOptions">BuildOptions</a>) <a href="#name-Balancer">Balancer</a></span><span>
+			func google.golang.org/grpc/xds/internal/balancer/balancergroup.<a href="xds/internal/balancer/balancergroup.html#name-New">New</a>(cc <b>ClientConn</b>, bOpts <a href="#name-BuildOptions">BuildOptions</a>, stateAggregator <a href="xds/internal/balancer/balancergroup.html">balancergroup</a>.<a href="xds/internal/balancer/balancergroup.html#name-BalancerStateAggregator">BalancerStateAggregator</a>, loadStore <a href="xds/internal/xdsclient/load.html">load</a>.<a href="xds/internal/xdsclient/load.html#name-PerClusterReporter">PerClusterReporter</a>, logger *<a href="internal/grpclog.html">grpclog</a>.<a href="internal/grpclog.html#name-PrefixLogger">PrefixLogger</a>) *<a href="xds/internal/balancer/balancergroup.html">balancergroup</a>.<a href="xds/internal/balancer/balancergroup.html#name-BalancerGroup">BalancerGroup</a></span><span>
+			func google.golang.org/grpc/xds/internal/balancer/weightedtarget/weightedaggregator.<a href="xds/internal/balancer/weightedtarget/weightedaggregator.html#name-New">New</a>(cc <b>ClientConn</b>, logger *<a href="internal/grpclog.html">grpclog</a>.<a href="internal/grpclog.html#name-PrefixLogger">PrefixLogger</a>, newWRR func() <a href="internal/wrr.html">wrr</a>.<a href="internal/wrr.html#name-WRR">WRR</a>) *<a href="xds/internal/balancer/weightedtarget/weightedaggregator.html">weightedaggregator</a>.<a href="xds/internal/balancer/weightedtarget/weightedaggregator.html#name-Aggregator">Aggregator</a></span>
+			<input type='checkbox' class="showhide" id="ClientConn-showhide-outputofs"><i><label for="ClientConn-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="ClientConn-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func google.golang.org/grpc/xds/internal/balancer/clustermanager.<a href="xds/internal/balancer/clustermanager.html#name-newBalancerStateAggregator">newBalancerStateAggregator</a>(cc <b>ClientConn</b>, logger *<a href="internal/grpclog.html">grpclog</a>.<a href="internal/grpclog.html#name-PrefixLogger">PrefixLogger</a>) *<a href="xds/internal/balancer/clustermanager.html">clustermanager</a>.<a href="xds/internal/balancer/clustermanager.html#name-balancerStateAggregator">balancerStateAggregator</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-ClientConnState" data-popularity="35">	<input type='checkbox' class="fold" id="ClientConnState-fold-content"><label for="ClientConnState-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-356">ClientConnState</a> <i>(struct)</i></label><span id='ClientConnState-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-ClientConnState" data-popularity="70">	<input type='checkbox' class="fold" id="ClientConnState-fold-content"><label for="ClientConnState-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-356">ClientConnState</a> <i>(struct)</i></label><span id='ClientConnState-fold-content-docs' class="fold-docs">
 		ClientConnState describes the state of a ClientConn relevant to the
 		balancer.
 
@@ -178,10 +206,11 @@
 				ParseConfig method, if implemented.
 </span></span><span>
 			<span class="nodocs"><a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-357">ResolverState</a> <i><a href="resolver.html">resolver</a>.<a href="resolver.html#name-State">State</a></i></span></span></span>
-		<input type='checkbox' class="fold" id="ClientConnState-fold-params"><label for="ClientConnState-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='ClientConnState-fold-params-items' class="fold-items"><span>
-			func <a href="#name-Balancer">Balancer</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-320">UpdateClientConnState</a>(<b>ClientConnState</b>) <a href="../../builtin.html#name-error">error</a></span></span>
+		<input type='checkbox' class="fold" id="ClientConnState-fold-params"><label for="ClientConnState-fold-params">As Inputs Of (<i>at least 2, both are exported</i>)</label><span id='ClientConnState-fold-params-items' class="fold-items"><span>
+			func <a href="#name-Balancer">Balancer</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-320">UpdateClientConnState</a>(<b>ClientConnState</b>) <a href="../../builtin.html#name-error">error</a></span><span>
+			func google.golang.org/grpc/xds/internal/balancer/balancergroup.(*<a href="xds/internal/balancer/balancergroup.html#name-BalancerGroup">BalancerGroup</a>).<a href="../../../src/google.golang.org/grpc/xds/internal/balancer/balancergroup/balancergroup.go.html#line-419">UpdateClientConnState</a>(id <a href="../../builtin.html#name-string">string</a>, s <b>ClientConnState</b>) <a href="../../builtin.html#name-error">error</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-ConfigParser" data-popularity="50">	<input type='checkbox' class="fold" id="ConfigParser-fold-content"><label for="ConfigParser-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-209">ConfigParser</a> <b><i>(interface)</i></b></label><span id='ConfigParser-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-ConfigParser" data-popularity="1100">	<input type='checkbox' class="fold" id="ConfigParser-fold-content"><label for="ConfigParser-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-209">ConfigParser</a> <b><i>(interface)</i></b></label><span id='ConfigParser-fold-content-docs' class="fold-docs">
 		ConfigParser parses load balancer configs.
 
 		<input type='checkbox' class="fold" id="ConfigParser-fold-methods"><label for="ConfigParser-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ConfigParser-fold-methods-items' class="fold-items"><span>
@@ -190,6 +219,15 @@
 				internal form or returns an error if the config is invalid.  For future
 				compatibility reasons, unknown fields in the config should be ignored.
 </span></span></span>
+		<input type='checkbox' class="fold" id="ConfigParser-fold-impledby"><label for="ConfigParser-fold-impledby">Implemented By (<i>at least 7, none are exported</i>)</label><span id='ConfigParser-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ConfigParser-showhide-impedBys"><i><label for="ConfigParser-showhide-impedBys" class="show-inline">/* 7+ unexporteds ... */</label><label for="ConfigParser-showhide-impedBys" class="hide-inline">/* 7+ unexporteds: */</label></i><span class="hidden"><i>
+			 google.golang.org/grpc/xds/internal/balancer/cdsbalancer.<a href="xds/internal/balancer/cdsbalancer.html#name-bb">bb</a></i></span><span class="hidden"><i>
+			 google.golang.org/grpc/xds/internal/balancer/clusterimpl.<a href="xds/internal/balancer/clusterimpl.html#name-bb">bb</a></i></span><span class="hidden"><i>
+			 google.golang.org/grpc/xds/internal/balancer/clustermanager.<a href="xds/internal/balancer/clustermanager.html#name-bb">bb</a></i></span><span class="hidden"><i>
+			 google.golang.org/grpc/xds/internal/balancer/clusterresolver.<a href="xds/internal/balancer/clusterresolver.html#name-bb">bb</a></i></span><span class="hidden"><i>
+			 google.golang.org/grpc/xds/internal/balancer/priority.<a href="xds/internal/balancer/priority.html#name-bb">bb</a></i></span><span class="hidden"><i>
+			 google.golang.org/grpc/xds/internal/balancer/ringhash.<a href="xds/internal/balancer/ringhash.html#name-bb">bb</a></i></span><span class="hidden"><i>
+			 google.golang.org/grpc/xds/internal/balancer/weightedtarget.<a href="xds/internal/balancer/weightedtarget.html#name-bb">bb</a></i></span></span>
 
 </span></div><div class="anchor type-res" id="name-ConnectivityStateEvaluator" data-popularity="50">	<input type='checkbox' class="fold" id="ConnectivityStateEvaluator-fold-content"><label for="ConnectivityStateEvaluator-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-371">ConnectivityStateEvaluator</a> <i>(struct)</i></label><span id='ConnectivityStateEvaluator-fold-content-docs' class="fold-docs">
 		ConnectivityStateEvaluator takes the connectivity states of multiple SubConns
@@ -248,7 +286,7 @@
 				Trailer contains the metadata from the RPC's trailer, if present.
 </span></span></span>
 
-</span></div><div class="anchor type-res" id="name-ExitIdler" data-popularity="350">	<input type='checkbox' class="fold" id="ExitIdler-fold-content"><label for="ExitIdler-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-338">ExitIdler</a> <b><i>(interface)</i></b></label><span id='ExitIdler-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-ExitIdler" data-popularity="1400">	<input type='checkbox' class="fold" id="ExitIdler-fold-content"><label for="ExitIdler-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-338">ExitIdler</a> <b><i>(interface)</i></b></label><span id='ExitIdler-fold-content-docs' class="fold-docs">
 		ExitIdler is an optional interface for balancers to implement.  If
 		implemented, ExitIdle will be called when ClientConn.Connect is called, if
 		the ClientConn is idle.  If unimplemented, ClientConn.Connect will cause
@@ -263,12 +301,19 @@
 				IDLE state, if appropriate and possible.  Note that SubConns that enter
 				the IDLE state will not reconnect until SubConn.Connect is called.
 </span></span></span>
-		<input type='checkbox' class="fold" id="ExitIdler-fold-impledby"><label for="ExitIdler-fold-impledby">Implemented By (<i>at least 2, neither is exported</i>)</label><span id='ExitIdler-fold-impledby-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="ExitIdler-showhide-impedBys"><i><label for="ExitIdler-showhide-impedBys" class="show-inline">/* 2+ unexporteds ... */</label><label for="ExitIdler-showhide-impedBys" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+		<input type='checkbox' class="fold" id="ExitIdler-fold-impledby"><label for="ExitIdler-fold-impledby">Implemented By (<i>at least 9, in which 1 are exported</i>)</label><span id='ExitIdler-fold-impledby-items' class="fold-items"><span>
+			*google.golang.org/grpc/xds/internal/balancer/balancergroup.<a href="xds/internal/balancer/balancergroup.html#name-BalancerGroup">BalancerGroup</a></span>
+			<input type='checkbox' class="showhide" id="ExitIdler-showhide-impedBys"><i><label for="ExitIdler-showhide-impedBys" class="show-inline">/* 8+ unexporteds ... */</label><label for="ExitIdler-showhide-impedBys" class="hide-inline">/* 8+ unexporteds: */</label></i><span class="hidden"><i>
 			*google.golang.org/grpc/balancer/base.<a href="balancer/base.html#name-baseBalancer">baseBalancer</a></i></span><span class="hidden"><i>
-			*google.golang.org/grpc.<a href="../grpc.html#name-pickfirstBalancer">pickfirstBalancer</a></i></span></span>
+			*google.golang.org/grpc.<a href="../grpc.html#name-pickfirstBalancer">pickfirstBalancer</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/cdsbalancer.<a href="xds/internal/balancer/cdsbalancer.html#name-cdsBalancer">cdsBalancer</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/clusterimpl.<a href="xds/internal/balancer/clusterimpl.html#name-clusterImplBalancer">clusterImplBalancer</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/clustermanager.<a href="xds/internal/balancer/clustermanager.html#name-bal">bal</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/clusterresolver.<a href="xds/internal/balancer/clusterresolver.html#name-clusterResolverBalancer">clusterResolverBalancer</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/priority.<a href="xds/internal/balancer/priority.html#name-priorityBalancer">priorityBalancer</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/weightedtarget.<a href="xds/internal/balancer/weightedtarget.html#name-weightedTargetBalancer">weightedTargetBalancer</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-NewSubConnOptions" data-popularity="70">	<input type='checkbox' class="fold" id="NewSubConnOptions-fold-content"><label for="NewSubConnOptions-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-115">NewSubConnOptions</a> <i>(struct)</i></label><span id='NewSubConnOptions-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-NewSubConnOptions" data-popularity="105">	<input type='checkbox' class="fold" id="NewSubConnOptions-fold-content"><label for="NewSubConnOptions-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-115">NewSubConnOptions</a> <i>(struct)</i></label><span id='NewSubConnOptions-fold-content-docs' class="fold-docs">
 		NewSubConnOptions contains options to create new SubConn.
 
 		<input type='checkbox' class="fold" id="NewSubConnOptions-fold-fields"><label for="NewSubConnOptions-fold-fields">Fields (<i>total 2, both are exported</i>)</label><span id='NewSubConnOptions-fold-fields-items' class="fold-items"><span>
@@ -284,12 +329,13 @@
 				HealthCheckEnabled indicates whether health check service should be
 				enabled on this SubConn
 </span></span></span>
-		<input type='checkbox' class="fold" id="NewSubConnOptions-fold-params"><label for="NewSubConnOptions-fold-params">As Inputs Of (<i>at least 2, in which 1 are exported</i>)</label><span id='NewSubConnOptions-fold-params-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="NewSubConnOptions-fold-params"><label for="NewSubConnOptions-fold-params">As Inputs Of (<i>at least 3, in which 1 are exported</i>)</label><span id='NewSubConnOptions-fold-params-items' class="fold-items"><span>
 			func <a href="#name-ClientConn">ClientConn</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-147">NewSubConn</a>([]<a href="resolver.html">resolver</a>.<a href="resolver.html#name-Address">Address</a>, <b>NewSubConnOptions</b>) (<a href="#name-SubConn">SubConn</a>, <a href="../../builtin.html#name-error">error</a>)</span>
-			<input type='checkbox' class="showhide" id="NewSubConnOptions-showhide-outputofs"><i><label for="NewSubConnOptions-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="NewSubConnOptions-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
-			func google.golang.org/grpc.(*<a href="../grpc.html#name-ClientConn">ClientConn</a>).<a href="../../../src/google.golang.org/grpc/clientconn.go.html#line-770">newAddrConn</a>(addrs []<a href="resolver.html">resolver</a>.<a href="resolver.html#name-Address">Address</a>, opts <b>NewSubConnOptions</b>) (*<a href="../grpc.html">grpc</a>.<a href="../grpc.html#name-addrConn">addrConn</a>, <a href="../../builtin.html#name-error">error</a>)</i></span></span>
+			<input type='checkbox' class="showhide" id="NewSubConnOptions-showhide-outputofs"><i><label for="NewSubConnOptions-showhide-outputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="NewSubConnOptions-showhide-outputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			func google.golang.org/grpc.(*<a href="../grpc.html#name-ClientConn">ClientConn</a>).<a href="../../../src/google.golang.org/grpc/clientconn.go.html#line-770">newAddrConn</a>(addrs []<a href="resolver.html">resolver</a>.<a href="resolver.html#name-Address">Address</a>, opts <b>NewSubConnOptions</b>) (*<a href="../grpc.html">grpc</a>.<a href="../grpc.html#name-addrConn">addrConn</a>, <a href="../../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func google.golang.org/grpc/xds/internal/balancer/balancergroup.(*<a href="xds/internal/balancer/balancergroup.html#name-BalancerGroup">BalancerGroup</a>).<a href="../../../src/google.golang.org/grpc/xds/internal/balancer/balancergroup/balancergroup.go.html#line-446">newSubConn</a>(config *<a href="xds/internal/balancer/balancergroup.html">balancergroup</a>.<a href="xds/internal/balancer/balancergroup.html#name-subBalancerWrapper">subBalancerWrapper</a>, addrs []<a href="resolver.html">resolver</a>.<a href="resolver.html#name-Address">Address</a>, opts <b>NewSubConnOptions</b>) (<a href="#name-SubConn">SubConn</a>, <a href="../../builtin.html#name-error">error</a>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-Picker" data-popularity="800">	<input type='checkbox' class="fold" id="Picker-fold-content"><label for="Picker-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-283">Picker</a> <b><i>(interface)</i></b></label><span id='Picker-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Picker" data-popularity="1585">	<input type='checkbox' class="fold" id="Picker-fold-content"><label for="Picker-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-283">Picker</a> <b><i>(interface)</i></b></label><span id='Picker-fold-content-docs' class="fold-docs">
 		Picker is used by gRPC to pick a SubConn to send an RPC.
 		Balancer is expected to generate a new picker from its snapshot every time its
 		internal state has changed.
@@ -318,15 +364,23 @@
 				  ready RPCs will be terminated with this error's Error() string and
 				  status code Unavailable.
 </span></span></span>
-		<input type='checkbox' class="fold" id="Picker-fold-impledby"><label for="Picker-fold-impledby">Implemented By (<i>at least 4, none are exported</i>)</label><span id='Picker-fold-impledby-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="Picker-showhide-impedBys"><i><label for="Picker-showhide-impedBys" class="show-inline">/* 4+ unexporteds ... */</label><label for="Picker-showhide-impedBys" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
+		<input type='checkbox' class="fold" id="Picker-fold-impledby"><label for="Picker-fold-impledby">Implemented By (<i>at least 9, none are exported</i>)</label><span id='Picker-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Picker-showhide-impedBys"><i><label for="Picker-showhide-impedBys" class="show-inline">/* 9+ unexporteds ... */</label><label for="Picker-showhide-impedBys" class="hide-inline">/* 9+ unexporteds: */</label></i><span class="hidden"><i>
 			*google.golang.org/grpc/balancer/base.<a href="balancer/base.html#name-errPicker">errPicker</a></i></span><span class="hidden"><i>
 			*google.golang.org/grpc/balancer/roundrobin.<a href="balancer/roundrobin.html#name-rrPicker">rrPicker</a></i></span><span class="hidden"><i>
 			*google.golang.org/grpc.<a href="../grpc.html#name-idlePicker">idlePicker</a></i></span><span class="hidden"><i>
-			*google.golang.org/grpc.<a href="../grpc.html#name-picker">picker</a></i></span></span>
+			*google.golang.org/grpc.<a href="../grpc.html#name-picker">picker</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/balancergroup.<a href="xds/internal/balancer/balancergroup.html#name-loadReportPicker">loadReportPicker</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/clusterimpl.<a href="xds/internal/balancer/clusterimpl.html#name-picker">picker</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/clustermanager.<a href="xds/internal/balancer/clustermanager.html#name-pickerGroup">pickerGroup</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/ringhash.<a href="xds/internal/balancer/ringhash.html#name-picker">picker</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/xds/internal/balancer/weightedtarget/weightedaggregator.<a href="xds/internal/balancer/weightedtarget/weightedaggregator.html#name-weightedPickerGroup">weightedPickerGroup</a></i></span></span>
 		<input type='checkbox' class="fold" id="Picker-fold-results"><label for="Picker-fold-results">As Outputs Of (<i>at least 2, both are exported</i>)</label><span id='Picker-fold-results-items' class="fold-items"><span>
 			func google.golang.org/grpc/balancer/base.<a href="balancer/base.html#name-NewErrPicker">NewErrPicker</a>(err <a href="../../builtin.html#name-error">error</a>) <b>Picker</b></span><span>
 			func google.golang.org/grpc/balancer/base.<a href="balancer/base.html#name-PickerBuilder">PickerBuilder</a>.<a href="../../../src/google.golang.org/grpc/balancer/base/base.go.html#line-41">Build</a>(info <a href="balancer/base.html">base</a>.<a href="balancer/base.html#name-PickerBuildInfo">PickerBuildInfo</a>) <b>Picker</b></span></span>
+		<input type='checkbox' class="fold" id="Picker-fold-params"><label for="Picker-fold-params">As Inputs Of (<i>at least one unexported</i>)</label><span id='Picker-fold-params-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Picker-showhide-outputofs"><i><label for="Picker-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="Picker-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func google.golang.org/grpc/xds/internal/balancer/balancergroup.<a href="xds/internal/balancer/balancergroup.html#name-newLoadReportPicker">newLoadReportPicker</a>(p <b>Picker</b>, id <a href="../../builtin.html#name-string">string</a>, loadStore <a href="xds/internal/xdsclient/load.html">load</a>.<a href="xds/internal/xdsclient/load.html#name-PerClusterReporter">PerClusterReporter</a>) *<a href="xds/internal/balancer/balancergroup.html">balancergroup</a>.<a href="xds/internal/balancer/balancergroup.html#name-loadReportPicker">loadReportPicker</a></i></span></span>
 
 </span></div><div class="anchor type-res" id="name-PickInfo" data-popularity="35">	<input type='checkbox' class="fold" id="PickInfo-fold-content"><label for="PickInfo-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-217">PickInfo</a> <i>(struct)</i></label><span id='PickInfo-fold-content-docs' class="fold-docs">
 		PickInfo contains additional information for the Pick operation.
@@ -362,7 +416,7 @@
 		<input type='checkbox' class="fold" id="PickResult-fold-results"><label for="PickResult-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='PickResult-fold-results-items' class="fold-items"><span>
 			func <a href="#name-Picker">Picker</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-303">Pick</a>(info <a href="#name-PickInfo">PickInfo</a>) (<b>PickResult</b>, <a href="../../builtin.html#name-error">error</a>)</span></span>
 
-</span></div><div class="anchor type-res" id="name-State" data-popularity="35">	<input type='checkbox' class="fold" id="State-fold-content"><label for="State-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-129">State</a> <i>(struct)</i></label><span id='State-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-State" data-popularity="250">	<input type='checkbox' class="fold" id="State-fold-content"><label for="State-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-129">State</a> <i>(struct)</i></label><span id='State-fold-content-docs' class="fold-docs">
 		State contains the balancer's state relevant to the gRPC ClientConn.
 
 		<input type='checkbox' class="fold" id="State-fold-fields"><label for="State-fold-fields">Fields (<i>total 2, both are exported</i>)</label><span id='State-fold-fields-items' class="fold-items"><span>
@@ -373,10 +427,18 @@
 			<input type='checkbox' class="fold" id="State-fold-field-Picker"><label for="State-fold-field-Picker"><a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-134">Picker</a> <i><a href="#name-Picker">Picker</a></i></label><span id='State-fold-field-Picker-docs' class="fold-docs">
 				Picker is used to choose connections (SubConns) for RPCs.
 </span></span></span>
-		<input type='checkbox' class="fold" id="State-fold-params"><label for="State-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='State-fold-params-items' class="fold-items"><span>
-			func <a href="#name-ClientConn">ClientConn</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-164">UpdateState</a>(<b>State</b>)</span></span>
+		<input type='checkbox' class="fold" id="State-fold-results"><label for="State-fold-results">As Outputs Of (<i>at least one unexported</i>)</label><span id='State-fold-results-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="State-showhide-inputofs"><i><label for="State-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="State-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func google.golang.org/grpc/xds/internal/balancer/weightedtarget/weightedaggregator.(*<a href="xds/internal/balancer/weightedtarget/weightedaggregator.html#name-Aggregator">Aggregator</a>).<a href="../../../src/google.golang.org/grpc/xds/internal/balancer/weightedtarget/weightedaggregator/aggregator.go.html#line-200">build</a>() <b>State</b></i></span></span>
+		<input type='checkbox' class="fold" id="State-fold-params"><label for="State-fold-params">As Inputs Of (<i>at least 5, in which 3 are exported</i>)</label><span id='State-fold-params-items' class="fold-items"><span>
+			func <a href="#name-ClientConn">ClientConn</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-164">UpdateState</a>(<b>State</b>)</span><span>
+			func google.golang.org/grpc/xds/internal/balancer/balancergroup.<a href="xds/internal/balancer/balancergroup.html#name-BalancerStateAggregator">BalancerStateAggregator</a>.<a href="../../../src/google.golang.org/grpc/xds/internal/balancer/balancergroup/balancerstateaggregator.go.html#line-36">UpdateState</a>(id <a href="../../builtin.html#name-string">string</a>, state <b>State</b>)</span><span>
+			func google.golang.org/grpc/xds/internal/balancer/weightedtarget/weightedaggregator.(*<a href="xds/internal/balancer/weightedtarget/weightedaggregator.html#name-Aggregator">Aggregator</a>).<a href="../../../src/google.golang.org/grpc/xds/internal/balancer/weightedtarget/weightedaggregator/aggregator.go.html#line-148">UpdateState</a>(id <a href="../../builtin.html#name-string">string</a>, newState <b>State</b>)</span>
+			<input type='checkbox' class="showhide" id="State-showhide-outputofs"><i><label for="State-showhide-outputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="State-showhide-outputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			func google.golang.org/grpc/xds/internal/balancer/balancergroup.(*<a href="xds/internal/balancer/balancergroup.html#name-BalancerGroup">BalancerGroup</a>).<a href="../../../src/google.golang.org/grpc/xds/internal/balancer/balancergroup/balancergroup.go.html#line-468">updateBalancerState</a>(id <a href="../../builtin.html#name-string">string</a>, state <b>State</b>)</i></span><span class="hidden"><i>
+			func google.golang.org/grpc/xds/internal/balancer/clusterimpl.<a href="xds/internal/balancer/clusterimpl.html#name-newPicker">newPicker</a>(s <b>State</b>, config *<a href="xds/internal/balancer/clusterimpl.html">clusterimpl</a>.<a href="xds/internal/balancer/clusterimpl.html#name-dropConfigs">dropConfigs</a>, loadStore <a href="xds/internal/xdsclient/load.html">load</a>.<a href="xds/internal/xdsclient/load.html#name-PerClusterReporter">PerClusterReporter</a>) *<a href="xds/internal/balancer/clusterimpl.html">clusterimpl</a>.<a href="xds/internal/balancer/clusterimpl.html#name-picker">picker</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-SubConn" data-popularity="465">	<input type='checkbox' class="fold" id="SubConn-fold-content"><label for="SubConn-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-98">SubConn</a> <b><i>(interface)</i></b></label><span id='SubConn-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-SubConn" data-popularity="725">	<input type='checkbox' class="fold" id="SubConn-fold-content"><label for="SubConn-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-98">SubConn</a> <b><i>(interface)</i></b></label><span id='SubConn-fold-content-docs' class="fold-docs">
 		A SubConn represents a single connection to a gRPC backend service.
 
 		Each SubConn contains a list of addresses.
@@ -414,19 +476,23 @@
 				Deprecated: This method is now part of the ClientConn interface and will
 				eventually be removed from here.
 </span></span></span>
-		<input type='checkbox' class="fold" id="SubConn-fold-impledby"><label for="SubConn-fold-impledby">Implemented By (<i>at least one unexported</i>)</label><span id='SubConn-fold-impledby-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="SubConn-showhide-impedBys"><i><label for="SubConn-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="SubConn-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
-			*google.golang.org/grpc.<a href="../grpc.html#name-acBalancerWrapper">acBalancerWrapper</a></i></span></span>
-		<input type='checkbox' class="fold" id="SubConn-fold-results"><label for="SubConn-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='SubConn-fold-results-items' class="fold-items"><span>
-			func <a href="#name-ClientConn">ClientConn</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-147">NewSubConn</a>([]<a href="resolver.html">resolver</a>.<a href="resolver.html#name-Address">Address</a>, <a href="#name-NewSubConnOptions">NewSubConnOptions</a>) (<b>SubConn</b>, <a href="../../builtin.html#name-error">error</a>)</span></span>
-		<input type='checkbox' class="fold" id="SubConn-fold-params"><label for="SubConn-fold-params">As Inputs Of (<i>at least 4, in which 3 are exported</i>)</label><span id='SubConn-fold-params-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="SubConn-fold-impledby"><label for="SubConn-fold-impledby">Implemented By (<i>at least 2, neither is exported</i>)</label><span id='SubConn-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="SubConn-showhide-impedBys"><i><label for="SubConn-showhide-impedBys" class="show-inline">/* 2+ unexporteds ... */</label><label for="SubConn-showhide-impedBys" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			*google.golang.org/grpc.<a href="../grpc.html#name-acBalancerWrapper">acBalancerWrapper</a></i></span><span class="hidden"><i>
+			 google.golang.org/grpc/xds/internal/balancer/clusterimpl.<a href="xds/internal/balancer/clusterimpl.html#name-scWrapper">scWrapper</a></i></span></span>
+		<input type='checkbox' class="fold" id="SubConn-fold-results"><label for="SubConn-fold-results">As Outputs Of (<i>at least 2, in which 1 are exported</i>)</label><span id='SubConn-fold-results-items' class="fold-items"><span>
+			func <a href="#name-ClientConn">ClientConn</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-147">NewSubConn</a>([]<a href="resolver.html">resolver</a>.<a href="resolver.html#name-Address">Address</a>, <a href="#name-NewSubConnOptions">NewSubConnOptions</a>) (<b>SubConn</b>, <a href="../../builtin.html#name-error">error</a>)</span>
+			<input type='checkbox' class="showhide" id="SubConn-showhide-inputofs"><i><label for="SubConn-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="SubConn-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func google.golang.org/grpc/xds/internal/balancer/balancergroup.(*<a href="xds/internal/balancer/balancergroup.html#name-BalancerGroup">BalancerGroup</a>).<a href="../../../src/google.golang.org/grpc/xds/internal/balancer/balancergroup/balancergroup.go.html#line-446">newSubConn</a>(config *<a href="xds/internal/balancer/balancergroup.html">balancergroup</a>.<a href="xds/internal/balancer/balancergroup.html#name-subBalancerWrapper">subBalancerWrapper</a>, addrs []<a href="resolver.html">resolver</a>.<a href="resolver.html#name-Address">Address</a>, opts <a href="#name-NewSubConnOptions">NewSubConnOptions</a>) (<b>SubConn</b>, <a href="../../builtin.html#name-error">error</a>)</i></span></span>
+		<input type='checkbox' class="fold" id="SubConn-fold-params"><label for="SubConn-fold-params">As Inputs Of (<i>at least 5, in which 4 are exported</i>)</label><span id='SubConn-fold-params-items' class="fold-items"><span>
 			func <a href="#name-Balancer">Balancer</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-325">UpdateSubConnState</a>(<b>SubConn</b>, <a href="#name-SubConnState">SubConnState</a>)</span><span>
 			func <a href="#name-ClientConn">ClientConn</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-150">RemoveSubConn</a>(<b>SubConn</b>)</span><span>
-			func <a href="#name-ClientConn">ClientConn</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-157">UpdateAddresses</a>(<b>SubConn</b>, []<a href="resolver.html">resolver</a>.<a href="resolver.html#name-Address">Address</a>)</span>
+			func <a href="#name-ClientConn">ClientConn</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-157">UpdateAddresses</a>(<b>SubConn</b>, []<a href="resolver.html">resolver</a>.<a href="resolver.html#name-Address">Address</a>)</span><span>
+			func google.golang.org/grpc/xds/internal/balancer/balancergroup.(*<a href="xds/internal/balancer/balancergroup.html#name-BalancerGroup">BalancerGroup</a>).<a href="../../../src/google.golang.org/grpc/xds/internal/balancer/balancergroup/balancergroup.go.html#line-399">UpdateSubConnState</a>(sc <b>SubConn</b>, state <a href="#name-SubConnState">SubConnState</a>)</span>
 			<input type='checkbox' class="showhide" id="SubConn-showhide-outputofs"><i><label for="SubConn-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="SubConn-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func google.golang.org/grpc.(*<a href="../grpc.html#name-ClientConn">ClientConn</a>).<a href="../../../src/google.golang.org/grpc/clientconn.go.html#line-755">handleSubConnStateChange</a>(sc <b>SubConn</b>, s <a href="connectivity.html">connectivity</a>.<a href="connectivity.html#name-State">State</a>, err <a href="../../builtin.html#name-error">error</a>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-SubConnState" data-popularity="35">	<input type='checkbox' class="fold" id="SubConnState-fold-content"><label for="SubConnState-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-346">SubConnState</a> <i>(struct)</i></label><span id='SubConnState-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-SubConnState" data-popularity="70">	<input type='checkbox' class="fold" id="SubConnState-fold-content"><label for="SubConnState-fold-content"> type <a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-346">SubConnState</a> <i>(struct)</i></label><span id='SubConnState-fold-content-docs' class="fold-docs">
 		SubConnState describes the state of a SubConn.
 
 		<input type='checkbox' class="fold" id="SubConnState-fold-fields"><label for="SubConnState-fold-fields">Fields (<i>total 2, both are exported</i>)</label><span id='SubConnState-fold-fields-items' class="fold-items"><span>
@@ -437,8 +503,9 @@
 			<input type='checkbox' class="fold" id="SubConnState-fold-field-ConnectivityState"><label for="SubConnState-fold-field-ConnectivityState"><a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-348">ConnectivityState</a> <i><a href="connectivity.html">connectivity</a>.<a href="connectivity.html#name-State">State</a></i></label><span id='SubConnState-fold-field-ConnectivityState-docs' class="fold-docs">
 				ConnectivityState is the connectivity state of the SubConn.
 </span></span></span>
-		<input type='checkbox' class="fold" id="SubConnState-fold-params"><label for="SubConnState-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='SubConnState-fold-params-items' class="fold-items"><span>
-			func <a href="#name-Balancer">Balancer</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-325">UpdateSubConnState</a>(<a href="#name-SubConn">SubConn</a>, <b>SubConnState</b>)</span></span>
+		<input type='checkbox' class="fold" id="SubConnState-fold-params"><label for="SubConnState-fold-params">As Inputs Of (<i>at least 2, both are exported</i>)</label><span id='SubConnState-fold-params-items' class="fold-items"><span>
+			func <a href="#name-Balancer">Balancer</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-325">UpdateSubConnState</a>(<a href="#name-SubConn">SubConn</a>, <b>SubConnState</b>)</span><span>
+			func google.golang.org/grpc/xds/internal/balancer/balancergroup.(*<a href="xds/internal/balancer/balancergroup.html#name-BalancerGroup">BalancerGroup</a>).<a href="../../../src/google.golang.org/grpc/xds/internal/balancer/balancergroup/balancergroup.go.html#line-399">UpdateSubConnState</a>(sc <a href="#name-SubConn">SubConn</a>, state <b>SubConnState</b>)</span></span>
 
 </span></div></div>
 <div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 5, in which 3 are exported)</i></span></span>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Package: github.com/Golang-Tools/jwthelper/sdk</title>
+<link href="../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="package-details"><code><span style="font-size:xx-large;">package <b>sdk</b></span>
+
+<span class="title">Import Path</span>
+	<a href="../../../../index.html#pkg-github.com/Golang-Tools/jwthelper/sdk">github.com/Golang-Tools/jwthelper/sdk</a><i> (on <a href="https://pkg.go.dev/github.com/Golang-Tools/jwthelper/sdk" target="_blank">go.dev</a>)</i>
+
+<span class="title">Dependency Relation</span>
+	imports <a href="../../../../dep/github.com/Golang-Tools^b0a0c/jwthelper/sdk.html">24 packages</a>, and imported by 0 packages
+
+<div id="files"><span class="title">Involved Source Files</span>
+
+	<span class="nodocs">      <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/exceptions.go.html">exceptions.go</a></span>
+	<span class="nodocs">      <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html">sdk.go</a></span>
+	<span class="nodocs">      <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/signer.go.html">signer.go</a></span>
+	<span class="nodocs">      <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/verifier.go.html">verifier.go</a></span></div>
+<div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 4, all are exported)</i></span></span>
+
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-SDK" data-popularity="925">	<input type='checkbox' class="fold" id="SDK-fold-content"><label for="SDK-fold-content"> type <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-67">SDK</a> <i>(struct)</i></label><span id='SDK-fold-content-docs' class="fold-docs">
+		SDK 的客户端类型
+
+		<input type='checkbox' class="fold" id="SDK-fold-fields"><label for="SDK-fold-fields">Fields (<i>total 22, in which 18 are exported</i>)</label><span id='SDK-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-68">SDKConfig</a> <i>*<a href="#name-SDKConfig">SDKConfig</a></i></span></span><span>
+			<input type='checkbox' class="fold" id="SDK-fold-field-Ca_Cert_Path"><label for="SDK-fold-field-Ca_Cert_Path"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-68" class="path-duplicate">SDKConfig</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-48">Ca_Cert_Path</a> <i><a href="../../../builtin.html#name-string">string</a></i></label><span id='SDK-fold-field-Ca_Cert_Path-docs' class="fold-docs">
+				TLS设置
+</span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-68" class="path-duplicate">SDKConfig</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-49">Client_Cert_Path</a> <i><a href="../../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-68" class="path-duplicate">SDKConfig</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-50">Client_Key_Path</a> <i><a href="../../../builtin.html#name-string">string</a></i></span></span><span>
+			<input type='checkbox' class="fold" id="SDK-fold-field-Compression"><label for="SDK-fold-field-Compression"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-68" class="path-duplicate">SDKConfig</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-45">Compression</a> <i><a href="../../../builtin.html#name-string">string</a></i></label><span id='SDK-fold-field-Compression-docs' class="fold-docs">
+				压缩设置,目前只支持gzip
+</span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-68" class="path-duplicate">SDKConfig</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-40">Conn_With_Block</a> <i><a href="../../../builtin.html#name-bool">bool</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-68" class="path-duplicate">SDKConfig</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-36">Initial_Conn_Window_Size</a> <i><a href="../../../builtin.html#name-int">int</a></i></span></span><span>
+			<input type='checkbox' class="fold" id="SDK-fold-field-Initial_Window_Size"><label for="SDK-fold-field-Initial_Window_Size"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-68" class="path-duplicate">SDKConfig</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-35">Initial_Window_Size</a> <i><a href="../../../builtin.html#name-int">int</a></i></label><span id='SDK-fold-field-Initial_Window_Size-docs' class="fold-docs">
+				性能设置
+</span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-68" class="path-duplicate">SDKConfig</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-39">Keepalive_Enforcement_Permit_Without_Stream</a> <i><a href="../../../builtin.html#name-bool">bool</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-68" class="path-duplicate">SDKConfig</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-37">Keepalive_Time</a> <i><a href="../../../builtin.html#name-int">int</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-68" class="path-duplicate">SDKConfig</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-38">Keepalive_Timeout</a> <i><a href="../../../builtin.html#name-int">int</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-68" class="path-duplicate">SDKConfig</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-41">Max_Recv_Msg_Size</a> <i><a href="../../../builtin.html#name-int">int</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-68" class="path-duplicate">SDKConfig</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-42">Max_Send_Msg_Size</a> <i><a href="../../../builtin.html#name-int">int</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-68" class="path-duplicate">SDKConfig</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-30">Query_Addresses</a> <i>[]<a href="../../../builtin.html#name-string">string</a></i></span></span><span>
+			<input type='checkbox' class="fold" id="SDK-fold-field-Query_Timeout"><label for="SDK-fold-field-Query_Timeout"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-68" class="path-duplicate">SDKConfig</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-56">Query_Timeout</a> <i><a href="../../../builtin.html#name-int">int</a></i></label><span id='SDK-fold-field-Query_Timeout-docs' class="fold-docs">
+				请求超时设置
+</span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-68" class="path-duplicate">SDKConfig</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-31">Requester_App_Name</a> <i><a href="../../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-68" class="path-duplicate">SDKConfig</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-32">Requester_App_Version</a> <i><a href="../../../builtin.html#name-string">string</a></i></span></span><span>
+			<input type='checkbox' class="fold" id="SDK-fold-field-XDS_CREDS"><label for="SDK-fold-field-XDS_CREDS"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-68" class="path-duplicate">SDKConfig</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-53">XDS_CREDS</a> <i><a href="../../../builtin.html#name-bool">bool</a></i></label><span id='SDK-fold-field-XDS_CREDS-docs' class="fold-docs">
+				XDS设置
+</span></span>
+			<input type='checkbox' class="showhide" id="SDK-showhide-fields"><i><label for="SDK-showhide-fields" class="show-inline">/* 4 unexporteds ... */</label><label for="SDK-showhide-fields" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-72">addr</a> <i><a href="../../../builtin.html#name-string">string</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-70">callopts</a> <i>[]<a href="../../../google.golang.org/grpc.html">grpc</a>.<a href="../../../google.golang.org/grpc.html#name-CallOption">CallOption</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-69">opts</a> <i>[]<a href="../../../google.golang.org/grpc.html">grpc</a>.<a href="../../../google.golang.org/grpc.html#name-DialOption">DialOption</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-71">serviceconfig</a> <i>map[<a href="../../../builtin.html#name-string">string</a>]interface{}</i></span></i></span></span>
+		<input type='checkbox' class="fold" id="SDK-fold-methods"><label for="SDK-fold-methods">Methods (<i>total 14, in which 5 are exported</i>)</label><span id='SDK-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="SDK-fold-method-Init"><label for="SDK-fold-method-Init">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-131">Init</a>(conf *<a href="#name-SDKConfig">SDKConfig</a>) <a href="../../../builtin.html#name-error">error</a></label><span id='SDK-fold-method-Init-docs' class="fold-docs">
+				Init 初始化sdk客户端的连接信息
+</span></span><span>
+			<input type='checkbox' class="fold" id="SDK-fold-method-NewCtx"><label for="SDK-fold-method-NewCtx">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-274">NewCtx</a>() (ctx <a href="../../../context.html">context</a>.<a href="../../../context.html#name-Context">Context</a>, cancel <a href="../../../context.html">context</a>.<a href="../../../context.html#name-CancelFunc">CancelFunc</a>)</label><span id='SDK-fold-method-NewCtx-docs' class="fold-docs">
+				NewCtx 用于构造请求时的上下文信息,这个上下问可以带元数据信息
+</span></span><span>
+			<input type='checkbox' class="fold" id="SDK-fold-method-NewSDK"><label for="SDK-fold-method-NewSDK">( T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-60">NewSDK</a>() *<b>SDK</b></label><span id='SDK-fold-method-NewSDK-docs' class="fold-docs">
+				NewSDK 创建客户端对象
+</span></span><span>
+			<input type='checkbox' class="fold" id="SDK-fold-method-NewSigner"><label for="SDK-fold-method-NewSigner">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/signer.go.html#line-13">NewSigner</a>() (*<a href="#name-Signer">Signer</a>, <a href="../../../builtin.html#name-error">error</a>)</label><span id='SDK-fold-method-NewSigner-docs' class="fold-docs">
+				NewSigner 建立一个新的签名器
+</span></span><span>
+			<input type='checkbox' class="fold" id="SDK-fold-method-NewVerifier"><label for="SDK-fold-method-NewVerifier">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/verifier.go.html#line-14">NewVerifier</a>() (*<a href="#name-Verifier">Verifier</a>, <a href="../../../builtin.html#name-error">error</a>)</label><span id='SDK-fold-method-NewVerifier-docs' class="fold-docs">
+				NewVerifier 建立一个新的连接
+</span></span>
+			<input type='checkbox' class="showhide" id="SDK-showhide-methods"><i><label for="SDK-showhide-methods" class="show-inline">/* 9 unexporteds ... */</label><label for="SDK-showhide-methods" class="hide-inline">/* 9 unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="SDK-fold-method-initCompression"><label for="SDK-fold-method-initCompression">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-96">initCompression</a>()</label><span id='SDK-fold-method-initCompression-docs' class="fold-docs">
+				initCompression 初始化压缩设置
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="SDK-fold-method-initKeepalive"><label for="SDK-fold-method-initKeepalive">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-106">initKeepalive</a>()</label><span id='SDK-fold-method-initKeepalive-docs' class="fold-docs">
+				initKeepalive 初始化keepalive的相关设置
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="SDK-fold-method-initMsgSize"><label for="SDK-fold-method-initMsgSize">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-85">initMsgSize</a>()</label><span id='SDK-fold-method-initMsgSize-docs' class="fold-docs">
+				initMsgSize 初始化消息大小设置
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="SDK-fold-method-initPerformanceOpts"><label for="SDK-fold-method-initPerformanceOpts">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-118">initPerformanceOpts</a>()</label><span id='SDK-fold-method-initPerformanceOpts-docs' class="fold-docs">
+				initPerformanceOpts 初始化连接的性能选项
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="SDK-fold-method-initTLS"><label for="SDK-fold-method-initTLS">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-187">initTLS</a>() <a href="../../../builtin.html#name-error">error</a></label><span id='SDK-fold-method-initTLS-docs' class="fold-docs">
+				initTLS 初始化TLS设置
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="SDK-fold-method-initWithDNSLB"><label for="SDK-fold-method-initWithDNSLB">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-228">initWithDNSLB</a>() <a href="../../../builtin.html#name-error">error</a></label><span id='SDK-fold-method-initWithDNSLB-docs' class="fold-docs">
+				initWithDNSLB 初始化使用外部dns做负载均衡的设置
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="SDK-fold-method-initWithLocalBalance"><label for="SDK-fold-method-initWithLocalBalance">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-248">initWithLocalBalance</a>() <a href="../../../builtin.html#name-error">error</a></label><span id='SDK-fold-method-initWithLocalBalance-docs' class="fold-docs">
+				InitWithLocalBalance 初始化本地负载均衡的连接配置
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="SDK-fold-method-initWithXDSLB"><label for="SDK-fold-method-initWithXDSLB">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-234">initWithXDSLB</a>() <a href="../../../builtin.html#name-error">error</a></label><span id='SDK-fold-method-initWithXDSLB-docs' class="fold-docs">
+				InitWithStandalone 初始化使用XDS协议做负载均衡的设置
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="SDK-fold-method-initWithoutBL"><label for="SDK-fold-method-initWithoutBL">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-223">initWithoutBL</a>() <a href="../../../builtin.html#name-error">error</a></label><span id='SDK-fold-method-initWithoutBL-docs' class="fold-docs">
+				initWithoutBL 初始化没有堵在均衡设置的服务
+</span></i></span></span>
+		<input type='checkbox' class="fold" id="SDK-fold-results"><label for="SDK-fold-results">As Outputs Of (<i>at least 2, both are exported</i>)</label><span id='SDK-fold-results-items' class="fold-items"><span>
+			func <a href="#name-New">New</a>() *<b>SDK</b></span><span>
+			func (*<a href="#name-SDKConfig">SDKConfig</a>).<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-60">NewSDK</a>() *<b>SDK</b></span></span>
+		<input type='checkbox' class="fold" id="SDK-fold-params"><label for="SDK-fold-params">As Inputs Of (<i>at least 2, neither is exported</i>)</label><span id='SDK-fold-params-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="SDK-showhide-outputofs"><i><label for="SDK-showhide-outputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="SDK-showhide-outputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			func <a href="#name-newSigner">newSigner</a>(sdk *<b>SDK</b>, addr <a href="../../../builtin.html#name-string">string</a>, opts ...<a href="../../../google.golang.org/grpc.html">grpc</a>.<a href="../../../google.golang.org/grpc.html#name-DialOption">DialOption</a>) (*<a href="#name-Signer">Signer</a>, <a href="../../../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func <a href="#name-newVerifier">newVerifier</a>(sdk *<b>SDK</b>, addr <a href="../../../builtin.html#name-string">string</a>, opts ...<a href="../../../google.golang.org/grpc.html">grpc</a>.<a href="../../../google.golang.org/grpc.html#name-DialOption">DialOption</a>) (*<a href="#name-Verifier">Verifier</a>, <a href="../../../builtin.html#name-error">error</a>)</i></span></span>
+		<input type='checkbox' class="fold" id="SDK-fold-values"><label for="SDK-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='SDK-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-DefaultSDK">DefaultSDK</a> *SDK</span></span>
+
+</span></div><div class="anchor type-res" id="name-SDKConfig" data-popularity="85">	<input type='checkbox' class="fold" id="SDKConfig-fold-content"><label for="SDKConfig-fold-content"> type <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-29">SDKConfig</a> <i>(struct)</i></label><span id='SDKConfig-fold-content-docs' class="fold-docs">
+		SDKConfig 的客户端类型
+
+		<input type='checkbox' class="fold" id="SDKConfig-fold-fields"><label for="SDKConfig-fold-fields">Fields (<i>total 17, all are exported</i>)</label><span id='SDKConfig-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="SDKConfig-fold-field-Ca_Cert_Path"><label for="SDKConfig-fold-field-Ca_Cert_Path"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-48">Ca_Cert_Path</a> <i><a href="../../../builtin.html#name-string">string</a></i></label><span id='SDKConfig-fold-field-Ca_Cert_Path-docs' class="fold-docs">
+				TLS设置
+</span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-49">Client_Cert_Path</a> <i><a href="../../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-50">Client_Key_Path</a> <i><a href="../../../builtin.html#name-string">string</a></i></span></span><span>
+			<input type='checkbox' class="fold" id="SDKConfig-fold-field-Compression"><label for="SDKConfig-fold-field-Compression"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-45">Compression</a> <i><a href="../../../builtin.html#name-string">string</a></i></label><span id='SDKConfig-fold-field-Compression-docs' class="fold-docs">
+				压缩设置,目前只支持gzip
+</span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-40">Conn_With_Block</a> <i><a href="../../../builtin.html#name-bool">bool</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-36">Initial_Conn_Window_Size</a> <i><a href="../../../builtin.html#name-int">int</a></i></span></span><span>
+			<input type='checkbox' class="fold" id="SDKConfig-fold-field-Initial_Window_Size"><label for="SDKConfig-fold-field-Initial_Window_Size"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-35">Initial_Window_Size</a> <i><a href="../../../builtin.html#name-int">int</a></i></label><span id='SDKConfig-fold-field-Initial_Window_Size-docs' class="fold-docs">
+				性能设置
+</span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-39">Keepalive_Enforcement_Permit_Without_Stream</a> <i><a href="../../../builtin.html#name-bool">bool</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-37">Keepalive_Time</a> <i><a href="../../../builtin.html#name-int">int</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-38">Keepalive_Timeout</a> <i><a href="../../../builtin.html#name-int">int</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-41">Max_Recv_Msg_Size</a> <i><a href="../../../builtin.html#name-int">int</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-42">Max_Send_Msg_Size</a> <i><a href="../../../builtin.html#name-int">int</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-30">Query_Addresses</a> <i>[]<a href="../../../builtin.html#name-string">string</a></i></span></span><span>
+			<input type='checkbox' class="fold" id="SDKConfig-fold-field-Query_Timeout"><label for="SDKConfig-fold-field-Query_Timeout"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-56">Query_Timeout</a> <i><a href="../../../builtin.html#name-int">int</a></i></label><span id='SDKConfig-fold-field-Query_Timeout-docs' class="fold-docs">
+				请求超时设置
+</span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-31">Requester_App_Name</a> <i><a href="../../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-32">Requester_App_Version</a> <i><a href="../../../builtin.html#name-string">string</a></i></span></span><span>
+			<input type='checkbox' class="fold" id="SDKConfig-fold-field-XDS_CREDS"><label for="SDKConfig-fold-field-XDS_CREDS"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-53">XDS_CREDS</a> <i><a href="../../../builtin.html#name-bool">bool</a></i></label><span id='SDKConfig-fold-field-XDS_CREDS-docs' class="fold-docs">
+				XDS设置
+</span></span></span>
+		<input type='checkbox' class="fold" id="SDKConfig-fold-methods"><label for="SDKConfig-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='SDKConfig-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="SDKConfig-fold-method-NewSDK"><label for="SDKConfig-fold-method-NewSDK">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-60">NewSDK</a>() *<a href="#name-SDK">SDK</a></label><span id='SDKConfig-fold-method-NewSDK-docs' class="fold-docs">
+				NewSDK 创建客户端对象
+</span></span></span>
+		<input type='checkbox' class="fold" id="SDKConfig-fold-params"><label for="SDKConfig-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='SDKConfig-fold-params-items' class="fold-items"><span>
+			func (*<a href="#name-SDK">SDK</a>).<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-131">Init</a>(conf *<b>SDKConfig</b>) <a href="../../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-Signer" data-popularity="400">	<input type='checkbox' class="fold" id="Signer-fold-content"><label for="Signer-fold-content"> type <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/signer.go.html#line-22">Signer</a> <i>(struct)</i></label><span id='Signer-fold-content-docs' class="fold-docs">
+		Signer 客户端类
+
+		<input type='checkbox' class="fold" id="Signer-fold-fields"><label for="Signer-fold-fields">Fields (<i>total 3, none are exported</i>)</label><span id='Signer-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Signer-showhide-fields"><i><label for="Signer-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="Signer-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/signer.go.html#line-24">conn</a> <i>*<a href="../../../google.golang.org/grpc.html">grpc</a>.<a href="../../../google.golang.org/grpc.html#name-ClientConn">ClientConn</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/signer.go.html#line-23">rpc</a> <i><a href="jwtsigner_pb.html">jwtsigner_pb</a>.<a href="jwtsigner_pb.html#name-JwtsignerClient">JwtsignerClient</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/signer.go.html#line-25">sdk</a> <i>*<a href="#name-SDK">SDK</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="Signer-fold-methods"><label for="Signer-fold-methods">Methods (<i>total 3, all are exported</i>)</label><span id='Signer-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Signer-fold-method-Close"><label for="Signer-fold-method-Close">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/signer.go.html#line-101">Close</a>() <a href="../../../builtin.html#name-error">error</a></label><span id='Signer-fold-method-Close-docs' class="fold-docs">
+				Close 断开连接
+</span></span><span>
+			<input type='checkbox' class="fold" id="Signer-fold-method-Meta"><label for="Signer-fold-method-Meta">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/signer.go.html#line-41">Meta</a>() (*<a href="jwt_pb.html">jwt_pb</a>.<a href="jwt_pb.html#name-SignerMeta">SignerMeta</a>, <a href="../../../builtin.html#name-error">error</a>)</label><span id='Signer-fold-method-Meta-docs' class="fold-docs">
+				Meta 查看远端签名器的元信息
+</span></span><span>
+			<input type='checkbox' class="fold" id="Signer-fold-method-Sign"><label for="Signer-fold-method-Sign">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/signer.go.html#line-61">Sign</a>(payload interface{}, opts ...<a href="signoptions.html">signoptions</a>.<a href="signoptions.html#name-SignOption">SignOption</a>) (*<a href="jwt_pb.html">jwt_pb</a>.<a href="jwt_pb.html#name-Token">Token</a>, <a href="../../../builtin.html#name-error">error</a>)</label><span id='Signer-fold-method-Sign-docs' class="fold-docs">
+				Sign 签名一个token
+</span></span></span>
+		<input type='checkbox' class="fold" id="Signer-fold-impls"><label for="Signer-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='Signer-fold-impls-items' class="fold-items"><span>
+			*T : github.com/Golang-Tools/jwthelper.<a href="../jwthelper.html#name-UniversalJwtSigner">UniversalJwtSigner</a></span><span>
+			*T : io.<a href="../../../io.html#name-Closer">Closer</a></span></span>
+		<input type='checkbox' class="fold" id="Signer-fold-results"><label for="Signer-fold-results">As Outputs Of (<i>at least 2, in which 1 are exported</i>)</label><span id='Signer-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-SDK">SDK</a>).<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/signer.go.html#line-13">NewSigner</a>() (*<b>Signer</b>, <a href="../../../builtin.html#name-error">error</a>)</span>
+			<input type='checkbox' class="showhide" id="Signer-showhide-inputofs"><i><label for="Signer-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="Signer-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func <a href="#name-newSigner">newSigner</a>(sdk *<a href="#name-SDK">SDK</a>, addr <a href="../../../builtin.html#name-string">string</a>, opts ...<a href="../../../google.golang.org/grpc.html">grpc</a>.<a href="../../../google.golang.org/grpc.html#name-DialOption">DialOption</a>) (*<b>Signer</b>, <a href="../../../builtin.html#name-error">error</a>)</i></span></span>
+
+</span></div><div class="anchor type-res" id="name-Verifier" data-popularity="350">	<input type='checkbox' class="fold" id="Verifier-fold-content"><label for="Verifier-fold-content"> type <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/verifier.go.html#line-23">Verifier</a> <i>(struct)</i></label><span id='Verifier-fold-content-docs' class="fold-docs">
+		Verifier 客户端类
+
+		<input type='checkbox' class="fold" id="Verifier-fold-fields"><label for="Verifier-fold-fields">Fields (<i>total 3, none are exported</i>)</label><span id='Verifier-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Verifier-showhide-fields"><i><label for="Verifier-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="Verifier-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/verifier.go.html#line-25">conn</a> <i>*<a href="../../../google.golang.org/grpc.html">grpc</a>.<a href="../../../google.golang.org/grpc.html#name-ClientConn">ClientConn</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/verifier.go.html#line-24">rpc</a> <i><a href="jwtverifier_pb.html">jwtverifier_pb</a>.<a href="jwtverifier_pb.html#name-JwtverifierClient">JwtverifierClient</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/verifier.go.html#line-26">sdk</a> <i>*<a href="#name-SDK">SDK</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="Verifier-fold-methods"><label for="Verifier-fold-methods">Methods (<i>total 3, all are exported</i>)</label><span id='Verifier-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Verifier-fold-method-Close"><label for="Verifier-fold-method-Close">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/verifier.go.html#line-103">Close</a>() <a href="../../../builtin.html#name-error">error</a></label><span id='Verifier-fold-method-Close-docs' class="fold-docs">
+				Close 断开连接
+</span></span><span>
+			<input type='checkbox' class="fold" id="Verifier-fold-method-Meta"><label for="Verifier-fold-method-Meta">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/verifier.go.html#line-42">Meta</a>() (*<a href="jwt_pb.html">jwt_pb</a>.<a href="jwt_pb.html#name-VerifierMeta">VerifierMeta</a>, <a href="../../../builtin.html#name-error">error</a>)</label><span id='Verifier-fold-method-Meta-docs' class="fold-docs">
+				Meta 查看远端签名器的元信息
+</span></span><span>
+			<input type='checkbox' class="fold" id="Verifier-fold-method-Verify"><label for="Verifier-fold-method-Verify">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/verifier.go.html#line-65">Verify</a>(token *<a href="jwt_pb.html">jwt_pb</a>.<a href="jwt_pb.html#name-Token">Token</a>, payload interface{}, opts ...<a href="verifyoptions.html">verifyoptions</a>.<a href="verifyoptions.html#name-VerifyOption">VerifyOption</a>) (<a href="../../../builtin.html#name-string">string</a>, <a href="../../../time.html">time</a>.<a href="../../../time.html#name-Duration">Duration</a>, <a href="../../../builtin.html#name-error">error</a>)</label><span id='Verifier-fold-method-Verify-docs' class="fold-docs">
+				Verify 签名一个token
+</span></span></span>
+		<input type='checkbox' class="fold" id="Verifier-fold-impls"><label for="Verifier-fold-impls">Implements (<i>at least one exported</i>)</label><span id='Verifier-fold-impls-items' class="fold-items"><span>
+			*T : io.<a href="../../../io.html#name-Closer">Closer</a></span></span>
+		<input type='checkbox' class="fold" id="Verifier-fold-results"><label for="Verifier-fold-results">As Outputs Of (<i>at least 2, in which 1 are exported</i>)</label><span id='Verifier-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-SDK">SDK</a>).<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/verifier.go.html#line-14">NewVerifier</a>() (*<b>Verifier</b>, <a href="../../../builtin.html#name-error">error</a>)</span>
+			<input type='checkbox' class="showhide" id="Verifier-showhide-inputofs"><i><label for="Verifier-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="Verifier-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func <a href="#name-newVerifier">newVerifier</a>(sdk *<a href="#name-SDK">SDK</a>, addr <a href="../../../builtin.html#name-string">string</a>, opts ...<a href="../../../google.golang.org/grpc.html">grpc</a>.<a href="../../../google.golang.org/grpc.html#name-DialOption">DialOption</a>) (*<b>Verifier</b>, <a href="../../../builtin.html#name-error">error</a>)</i></span></span>
+
+</span></div></div>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 3, in which 1 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-New">	<input type='checkbox' class="fold" id="New-fold-content"><label for="New-fold-content"> func <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-76">New</a>() *<a href="#name-SDK">SDK</a></label><span id='New-fold-content-docs' class="fold-docs">
+		New 创建客户端对象
+
+</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 2 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 2 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-newSigner"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/signer.go.html#line-28">newSigner</a>(sdk *<a href="#name-SDK">SDK</a>, addr <a href="../../../builtin.html#name-string">string</a>, opts ...<a href="../../../google.golang.org/grpc.html">grpc</a>.<a href="../../../google.golang.org/grpc.html#name-DialOption">DialOption</a>) (*<a href="#name-Signer">Signer</a>, <a href="../../../builtin.html#name-error">error</a>)</span></i></div><div class="anchor value-res hidden" id="name-newVerifier"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/verifier.go.html#line-29">newVerifier</a>(sdk *<a href="#name-SDK">SDK</a>, addr <a href="../../../builtin.html#name-string">string</a>, opts ...<a href="../../../google.golang.org/grpc.html">grpc</a>.<a href="../../../google.golang.org/grpc.html#name-DialOption">DialOption</a>) (*<a href="#name-Verifier">Verifier</a>, <a href="../../../builtin.html#name-error">error</a>)</span></i></div></div>
+<div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (total 3, in which 2 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-DefaultSDK">	<input type='checkbox' class="fold" id="DefaultSDK-fold-content"><label for="DefaultSDK-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-285">DefaultSDK</a> *<a href="#name-SDK">SDK</a></label><span id='DefaultSDK-fold-content-docs' class="fold-docs">
+		DefaultSDK 默认的sdk客户端
+
+</span></div><div class="anchor value-res" id="name-ErrRpcResponseError">	<span class="nodocs">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/exceptions.go.html#line-5">ErrRpcResponseError</a> <a href="../../../builtin.html#name-error">error</a></span></div>	<input type='checkbox' class="showhide" id="unexported-variables-showhide"><i><label for="unexported-variables-showhide" class="show-inline">/* one unexported ... */</label><label for="unexported-variables-showhide" class="hide-inline">/* one unexported: */</label></i><div class="anchor value-res hidden" id="name-json"><i>	<span class="nodocs">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/sdk/sdk.go.html#line-26">json</a> <a href="../../json-iterator/go.html">jsoniter</a>.<a href="../../json-iterator/go.html#name-API">API</a></span></i></div></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

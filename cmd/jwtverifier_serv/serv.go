@@ -301,8 +301,9 @@ func (s *Server) Run() {
 }
 
 var Node = Server{
-	App_Name:    "jwthelper_verifierrpc",
-	App_Version: "0.0.1",
-	Address:     "0.0.0.0:5000",
-	Log_Level:   "DEBUG",
+	App_Name:          "jwthelper_verifierrpc",
+	App_Version:       "0.0.1",
+	Address:           "0.0.0.0:5000",
+	Log_Level:         "DEBUG",
+	Default_ISS_Range: []string{},
 }

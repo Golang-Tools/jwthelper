@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Package: github.com/Golang-Tools/jwthelper/proxy</title>
+<link href="../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="package-details"><code><span style="font-size:xx-large;">package <b>proxy</b></span>
+
+<span class="title">Import Path</span>
+	<a href="../../../../index.html#pkg-github.com/Golang-Tools/jwthelper/proxy">github.com/Golang-Tools/jwthelper/proxy</a><i> (on <a href="https://pkg.go.dev/github.com/Golang-Tools/jwthelper/proxy" target="_blank">go.dev</a>)</i>
+
+<span class="title">Dependency Relation</span>
+	imports <a href="../../../../dep/github.com/Golang-Tools^b0a0c/jwthelper/proxy.html">3 packages</a>, and imported by 0 packages
+
+<div id="files"><span class="title">Involved Source Files</span>
+
+	<span class="nodocs">      <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/excptions.go.html">excptions.go</a></span>
+	<input type='checkbox' checked class="fold" id="file-1-fold-content"><label for="file-1-fold-content">   <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/options.go.html#doc">#d</a> <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/options.go.html">options.go</a></label><span id='file-1-fold-content-items' class="fold-items">
+		选项模块,Init函数的可选参数在这里定义
+</span>
+	<input type='checkbox' checked class="fold" id="file-2-fold-content"><label for="file-2-fold-content">   <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/proxy.go.html#doc">#d</a> <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/proxy.go.html">proxy.go</a></label><span id='file-2-fold-content-items' class="fold-items">
+		proxy 签名器和签名校验器的代理模块
+</span>
+	<span class="nodocs">      <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/signerproxy.go.html">signerproxy.go</a></span>
+	<span class="nodocs">      <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/verifierproxy.go.html">verifierproxy.go</a></span></div>
+<div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 7, in which 4 are exported)</i></span></span>
+
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Option" data-popularity="350">	<input type='checkbox' class="fold" id="Option-fold-content"><label for="Option-fold-content"> type <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/options.go.html#line-17">Option</a> <b><i>(interface)</i></b></label><span id='Option-fold-content-docs' class="fold-docs">
+		Option configures how we set up the connection.
+
+		<input type='checkbox' class="fold" id="Option-fold-methods"><label for="Option-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='Option-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/options.go.html#line-18">Apply</a>(*<a href="#name-Options">Options</a>)</span></span></span>
+		<input type='checkbox' class="fold" id="Option-fold-impledby"><label for="Option-fold-impledby">Implemented By (<i>at least one unexported</i>)</label><span id='Option-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Option-showhide-impedBys"><i><label for="Option-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="Option-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*<a href="#name-funcOption">funcOption</a></i></span></span>
+		<input type='checkbox' class="fold" id="Option-fold-results"><label for="Option-fold-results">As Outputs Of (<i>at least 2, both are exported</i>)</label><span id='Option-fold-results-items' class="fold-items"><span>
+			func <a href="#name-WithLogger">WithLogger</a>(logger <a href="../../sirupsen/logrus.html">logrus</a>.<a href="../../sirupsen/logrus.html#name-FieldLogger">FieldLogger</a>) <b>Option</b></span><span>
+			func <a href="#name-WithParallelCallback">WithParallelCallback</a>() <b>Option</b></span></span>
+
+</span></div><div class="anchor type-res" id="name-Options" data-popularity="40">	<input type='checkbox' class="fold" id="Options-fold-content"><label for="Options-fold-content"> type <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/options.go.html#line-7">Options</a> <i>(struct)</i></label><span id='Options-fold-content-docs' class="fold-docs">
+		Option 设置key行为的选项
+
+		<input type='checkbox' class="fold" id="Options-fold-fields"><label for="Options-fold-fields">Fields (<i>total 2, both are exported</i>)</label><span id='Options-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/options.go.html#line-9">Logger</a> <i><a href="../../sirupsen/logrus.html">logrus</a>.<a href="../../sirupsen/logrus.html#name-FieldLogger">FieldLogger</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/options.go.html#line-8">Parallelcallback</a> <i><a href="../../../builtin.html#name-bool">bool</a></i></span></span></span>
+		<input type='checkbox' class="fold" id="Options-fold-params"><label for="Options-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='Options-fold-params-items' class="fold-items"><span>
+			func <a href="#name-Option">Option</a>.<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/options.go.html#line-18">Apply</a>(*<b>Options</b>)</span></span>
+		<input type='checkbox' class="fold" id="Options-fold-values"><label for="Options-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='Options-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-DefaultOptions">DefaultOptions</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-SignerCallback" data-popularity="0">	<input type='checkbox' class="fold" id="SignerCallback-fold-content"><label for="SignerCallback-fold-content"> type <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/signerproxy.go.html#line-8">SignerCallback</a> <i>(func)</i></label><span id='SignerCallback-fold-content-docs' class="fold-docs">
+		SignerCallback 签名器操作的回调函数
+
+</span></div><div class="anchor type-res" id="name-VerifierCallback" data-popularity="0">	<input type='checkbox' class="fold" id="VerifierCallback-fold-content"><label for="VerifierCallback-fold-content"> type <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/verifierproxy.go.html#line-8">VerifierCallback</a> <i>(func)</i></label><span id='VerifierCallback-fold-content-docs' class="fold-docs">
+		VerifierCallback 签名校验器操作的回调函数
+
+</span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 3 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 3 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-funcOption" data-popularity="175">	<input type='checkbox' class="fold" id="funcOption-fold-content"><label for="funcOption-fold-content"> type <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/options.go.html#line-22">funcOption</a> <i>(struct)</i></label><span id='funcOption-fold-content-docs' class="fold-docs">
+		func (emptyOption) apply(*Options) {}
+
+		<input type='checkbox' class="fold" id="funcOption-fold-fields"><label for="funcOption-fold-fields">Fields (<i>only one, which is unexported</i>)</label><span id='funcOption-fold-fields-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="funcOption-showhide-fields"><i><label for="funcOption-showhide-fields" class="show-inline">/* one unexported ... */</label><label for="funcOption-showhide-fields" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/options.go.html#line-23">f</a> <i>func(*<a href="#name-Options">Options</a>)</i></span></i></span></span>
+		<input type='checkbox' class="fold" id="funcOption-fold-methods"><label for="funcOption-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='funcOption-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/options.go.html#line-26">Apply</a>(do *<a href="#name-Options">Options</a>)</span></span></span>
+		<input type='checkbox' class="fold" id="funcOption-fold-impls"><label for="funcOption-fold-impls">Implements (<i>at least one exported</i>)</label><span id='funcOption-fold-impls-items' class="fold-items"><span>
+			*T : <a href="#name-Option">Option</a></span></span>
+		<input type='checkbox' class="fold" id="funcOption-fold-results"><label for="funcOption-fold-results">As Outputs Of (<i>at least one unexported</i>)</label><span id='funcOption-fold-results-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="funcOption-showhide-inputofs"><i><label for="funcOption-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="funcOption-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func <a href="#name-newFuncOption">newFuncOption</a>(f func(*<a href="#name-Options">Options</a>)) *<b>funcOption</b></i></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-signerProxy" data-popularity="380">	<input type='checkbox' class="fold" id="signerProxy-fold-content"><label for="signerProxy-fold-content"> type <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/signerproxy.go.html#line-11">signerProxy</a> <i>(struct)</i></label><span id='signerProxy-fold-content-docs' class="fold-docs">
+		signerProxy 签名器的代理
+
+		<input type='checkbox' class="fold" id="signerProxy-fold-fields"><label for="signerProxy-fold-fields">Fields (<i>total 3, in which 1 are exported</i>)</label><span id='signerProxy-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/signerproxy.go.html#line-12">UniversalJwtSigner</a> <i><a href="../jwthelper.html">jwthelper</a>.<a href="../jwthelper.html#name-UniversalJwtSigner">UniversalJwtSigner</a></i></span></span>
+			<input type='checkbox' checked class="showhide" id="signerProxy-showhide-fields"><i><label for="signerProxy-showhide-fields" class="show-inline">/* 2 unexporteds ... */</label><label for="signerProxy-showhide-fields" class="hide-inline">/* 2 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/signerproxy.go.html#line-14">callBacks</a> <i>[]<a href="#name-SignerCallback">SignerCallback</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/signerproxy.go.html#line-13">opts</a> <i><a href="#name-Options">Options</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="signerProxy-fold-methods"><label for="signerProxy-fold-methods">Methods (<i>total 5, all are exported</i>)</label><span id='signerProxy-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="signerProxy-fold-method-Init"><label for="signerProxy-fold-method-Init">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/signerproxy.go.html#line-30">Init</a>(signer <a href="../jwthelper.html">jwthelper</a>.<a href="../jwthelper.html#name-UniversalJwtSigner">UniversalJwtSigner</a>, opts ...<a href="#name-Option">Option</a>) <a href="../../../builtin.html#name-error">error</a></label><span id='signerProxy-fold-method-Init-docs' class="fold-docs">
+				Init 条件初始化代理对象
+</span></span><span>
+			<input type='checkbox' class="fold" id="signerProxy-fold-method-IsOk"><label for="signerProxy-fold-method-IsOk">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/signerproxy.go.html#line-25">IsOk</a>() <a href="../../../builtin.html#name-bool">bool</a></label><span id='signerProxy-fold-method-IsOk-docs' class="fold-docs">
+				IsOk 检查代理是否已经可用
+</span></span><span>
+			<input type='checkbox' class="fold" id="signerProxy-fold-method-Meta"><label for="signerProxy-fold-method-Meta">( T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/universal.go.html#line-14">Meta</a>() (*<a href="jwt_pb.html">jwt_pb</a>.<a href="jwt_pb.html#name-SignerMeta">SignerMeta</a>, <a href="../../../builtin.html#name-error">error</a>)</label><span id='signerProxy-fold-method-Meta-docs' class="fold-docs">
+				Meta 查看签名器元信息
+</span></span><span>
+			<input type='checkbox' class="fold" id="signerProxy-fold-method-Regist"><label for="signerProxy-fold-method-Regist">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/signerproxy.go.html#line-64">Regist</a>(cb <a href="#name-SignerCallback">SignerCallback</a>) <a href="../../../builtin.html#name-error">error</a></label><span id='signerProxy-fold-method-Regist-docs' class="fold-docs">
+				Regist 注册回调函数,在init执行后执行回调函数
+				如果对象已经设置了被代理客户端则无法再注册回调函数
+</span></span><span>
+			<input type='checkbox' class="fold" id="signerProxy-fold-method-Sign"><label for="signerProxy-fold-method-Sign">( T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/universal.go.html#line-16">Sign</a>(payload interface{}, opts ...<a href="signoptions.html">signoptions</a>.<a href="signoptions.html#name-SignOption">SignOption</a>) (*<a href="jwt_pb.html">jwt_pb</a>.<a href="jwt_pb.html#name-Token">Token</a>, <a href="../../../builtin.html#name-error">error</a>)</label><span id='signerProxy-fold-method-Sign-docs' class="fold-docs">
+				Sign 签名一个token
+</span></span></span>
+		<input type='checkbox' class="fold" id="signerProxy-fold-impls"><label for="signerProxy-fold-impls">Implements (<i>at least one exported</i>)</label><span id='signerProxy-fold-impls-items' class="fold-items"><span>
+			 T : github.com/Golang-Tools/jwthelper.<a href="../jwthelper.html#name-UniversalJwtSigner">UniversalJwtSigner</a></span></span>
+		<input type='checkbox' class="fold" id="signerProxy-fold-results"><label for="signerProxy-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='signerProxy-fold-results-items' class="fold-items"><span>
+			func <a href="#name-NewSignerProxy">NewSignerProxy</a>() *<b>signerProxy</b></span></span>
+		<input type='checkbox' class="fold" id="signerProxy-fold-values"><label for="signerProxy-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='signerProxy-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-Signer">Signer</a> *signerProxy</span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-verifierProxy" data-popularity="380">	<input type='checkbox' class="fold" id="verifierProxy-fold-content"><label for="verifierProxy-fold-content"> type <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/verifierproxy.go.html#line-11">verifierProxy</a> <i>(struct)</i></label><span id='verifierProxy-fold-content-docs' class="fold-docs">
+		verifierProxy 签名校验器的代理
+
+		<input type='checkbox' class="fold" id="verifierProxy-fold-fields"><label for="verifierProxy-fold-fields">Fields (<i>total 3, in which 1 are exported</i>)</label><span id='verifierProxy-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/verifierproxy.go.html#line-12">UniversalJwtVerifier</a> <i><a href="../jwthelper.html">jwthelper</a>.<a href="../jwthelper.html#name-UniversalJwtVerifier">UniversalJwtVerifier</a></i></span></span>
+			<input type='checkbox' checked class="showhide" id="verifierProxy-showhide-fields"><i><label for="verifierProxy-showhide-fields" class="show-inline">/* 2 unexporteds ... */</label><label for="verifierProxy-showhide-fields" class="hide-inline">/* 2 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/verifierproxy.go.html#line-14">callBacks</a> <i>[]<a href="#name-VerifierCallback">VerifierCallback</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/verifierproxy.go.html#line-13">opts</a> <i><a href="#name-Options">Options</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="verifierProxy-fold-methods"><label for="verifierProxy-fold-methods">Methods (<i>total 5, all are exported</i>)</label><span id='verifierProxy-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="verifierProxy-fold-method-Init"><label for="verifierProxy-fold-method-Init">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/verifierproxy.go.html#line-30">Init</a>(Verifier <a href="../jwthelper.html">jwthelper</a>.<a href="../jwthelper.html#name-UniversalJwtVerifier">UniversalJwtVerifier</a>, opts ...<a href="#name-Option">Option</a>) <a href="../../../builtin.html#name-error">error</a></label><span id='verifierProxy-fold-method-Init-docs' class="fold-docs">
+				Init 条件初始化代理对象
+</span></span><span>
+			<input type='checkbox' class="fold" id="verifierProxy-fold-method-IsOk"><label for="verifierProxy-fold-method-IsOk">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/verifierproxy.go.html#line-25">IsOk</a>() <a href="../../../builtin.html#name-bool">bool</a></label><span id='verifierProxy-fold-method-IsOk-docs' class="fold-docs">
+				IsOk 检查代理是否已经可用
+</span></span><span>
+			<input type='checkbox' class="fold" id="verifierProxy-fold-method-Meta"><label for="verifierProxy-fold-method-Meta">( T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/universal.go.html#line-22">Meta</a>() (*<a href="jwt_pb.html">jwt_pb</a>.<a href="jwt_pb.html#name-VerifierMeta">VerifierMeta</a>, <a href="../../../builtin.html#name-error">error</a>)</label><span id='verifierProxy-fold-method-Meta-docs' class="fold-docs">
+				Meta 查看签名器元信息
+</span></span><span>
+			<input type='checkbox' class="fold" id="verifierProxy-fold-method-Regist"><label for="verifierProxy-fold-method-Regist">(*T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/verifierproxy.go.html#line-64">Regist</a>(cb <a href="#name-VerifierCallback">VerifierCallback</a>) <a href="../../../builtin.html#name-error">error</a></label><span id='verifierProxy-fold-method-Regist-docs' class="fold-docs">
+				Regist 注册回调函数,在init执行后执行回调函数
+				如果对象已经设置了被代理客户端则无法再注册回调函数
+</span></span><span>
+			<input type='checkbox' class="fold" id="verifierProxy-fold-method-Verify"><label for="verifierProxy-fold-method-Verify">( T) <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/universal.go.html#line-24">Verify</a>(token *<a href="jwt_pb.html">jwt_pb</a>.<a href="jwt_pb.html#name-Token">Token</a>, payload interface{}, opts ...<a href="signoptions.html">signoptions</a>.<a href="signoptions.html#name-SignOption">SignOption</a>) (<a href="../../../builtin.html#name-string">string</a>, <a href="../../../time.html">time</a>.<a href="../../../time.html#name-Duration">Duration</a>, <a href="../../../builtin.html#name-error">error</a>)</label><span id='verifierProxy-fold-method-Verify-docs' class="fold-docs">
+				校验一个签名是否复合
+</span></span></span>
+		<input type='checkbox' class="fold" id="verifierProxy-fold-impls"><label for="verifierProxy-fold-impls">Implements (<i>at least one exported</i>)</label><span id='verifierProxy-fold-impls-items' class="fold-items"><span>
+			 T : github.com/Golang-Tools/jwthelper.<a href="../jwthelper.html#name-UniversalJwtVerifier">UniversalJwtVerifier</a></span></span>
+		<input type='checkbox' class="fold" id="verifierProxy-fold-results"><label for="verifierProxy-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='verifierProxy-fold-results-items' class="fold-items"><span>
+			func <a href="#name-NewVerifierProxy">NewVerifierProxy</a>() *<b>verifierProxy</b></span></span>
+		<input type='checkbox' class="fold" id="verifierProxy-fold-values"><label for="verifierProxy-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='verifierProxy-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-Verifier">Verifier</a> *verifierProxy</span></span>
+
+</span></div></div>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 5, in which 4 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-NewSignerProxy">	<input type='checkbox' class="fold" id="NewSignerProxy-fold-content"><label for="NewSignerProxy-fold-content"> func <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/signerproxy.go.html#line-18">NewSignerProxy</a>() *<a href="#name-signerProxy">signerProxy</a></label><span id='NewSignerProxy-fold-content-docs' class="fold-docs">
+		NewSignerProxy创建一个新的签名器代理
+
+</span></div><div class="anchor value-res" id="name-NewVerifierProxy">	<input type='checkbox' class="fold" id="NewVerifierProxy-fold-content"><label for="NewVerifierProxy-fold-content"> func <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/verifierproxy.go.html#line-18">NewVerifierProxy</a>() *<a href="#name-verifierProxy">verifierProxy</a></label><span id='NewVerifierProxy-fold-content-docs' class="fold-docs">
+		NewVerifierProxy创建一个新的签名校验器代理
+
+</span></div><div class="anchor value-res" id="name-WithLogger">	<input type='checkbox' class="fold" id="WithLogger-fold-content"><label for="WithLogger-fold-content"> func <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/options.go.html#line-44">WithLogger</a>(logger <a href="../../sirupsen/logrus.html">logrus</a>.<a href="../../sirupsen/logrus.html#name-FieldLogger">FieldLogger</a>) <a href="#name-Option">Option</a></label><span id='WithLogger-fold-content-docs' class="fold-docs">
+		WithLogger 指定使用logger
+
+</span></div><div class="anchor value-res" id="name-WithParallelCallback">	<input type='checkbox' class="fold" id="WithParallelCallback-fold-content"><label for="WithParallelCallback-fold-content"> func <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/options.go.html#line-37">WithParallelCallback</a>() <a href="#name-Option">Option</a></label><span id='WithParallelCallback-fold-content-docs' class="fold-docs">
+		WithParallelCallback 设置初始化后回调并行执行而非串行执行
+
+</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* one unexported ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* one unexported: */</label></i><div class="anchor value-res hidden" id="name-newFuncOption"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/options.go.html#line-30">newFuncOption</a>(f func(*<a href="#name-Options">Options</a>)) *<a href="#name-funcOption">funcOption</a></span></i></div></div>
+<div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (total 5, all are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-DefaultOptions">	<span class="nodocs">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/options.go.html#line-12">DefaultOptions</a> <a href="#name-Options">Options</a></span></div><div class="anchor value-res" id="name-ErrProxyAllreadySettedUniversalObject">	<input type='checkbox' class="fold" id="ErrProxyAllreadySettedUniversalObject-fold-content"><label for="ErrProxyAllreadySettedUniversalObject-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/excptions.go.html#line-8">ErrProxyAllreadySettedUniversalObject</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrProxyAllreadySettedUniversalObject-fold-content-docs' class="fold-docs">
+		ErrProxyAllreadySettedUniversalObject 代理不能重复设置客户端对象
+
+</span></div><div class="anchor value-res" id="name-ErrProxyNotYetSettedUniversalObject">	<input type='checkbox' class="fold" id="ErrProxyNotYetSettedUniversalObject-fold-content"><label for="ErrProxyNotYetSettedUniversalObject-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/excptions.go.html#line-11">ErrProxyNotYetSettedUniversalObject</a> <a href="../../../builtin.html#name-error">error</a></label><span id='ErrProxyNotYetSettedUniversalObject-fold-content-docs' class="fold-docs">
+		ErrProxyNotYetSettedUniversalObject 代理还未设置客户端对象
+
+</span></div><div class="anchor value-res" id="name-Signer">	<input type='checkbox' class="fold" id="Signer-fold-content"><label for="Signer-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/proxy.go.html#line-5">Signer</a> *<a href="#name-signerProxy">signerProxy</a></label><span id='Signer-fold-content-docs' class="fold-docs">
+		Signer 默认的签名器代理对象
+
+</span></div><div class="anchor value-res" id="name-Verifier">	<input type='checkbox' class="fold" id="Verifier-fold-content"><label for="Verifier-fold-content">  var <a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/proxy/proxy.go.html#line-8">Verifier</a> *<a href="#name-verifierProxy">verifierProxy</a></label><span id='Verifier-fold-content-docs' class="fold-docs">
+		Verifier 默认的签名校验器代理对象
+
+</span></div></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

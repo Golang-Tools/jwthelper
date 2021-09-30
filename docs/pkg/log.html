@@ -15,7 +15,7 @@
 	<a href="../index.html#pkg-log">log</a><i> (on <a href="https://pkg.go.dev/log" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../dep/log.html">6 packages</a>, and imported by <a href="../dep/log.html#imported-by">8 packages</a>
+	imports <a href="../dep/log.html">6 packages</a>, and imported by <a href="../dep/log.html#imported-by">13 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -79,7 +79,7 @@
 </div>
 <div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (only one, which is exported)</i></span></span>
 
-<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Logger" data-popularity="1055">	<input type='checkbox' class="fold" id="Logger-fold-content"><label for="Logger-fold-content"> type <a href="../src/log/log.go.html#line-52">Logger</a> <i>(struct)</i></label><span id='Logger-fold-content-docs' class="fold-docs">
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Logger" data-popularity="1105">	<input type='checkbox' class="fold" id="Logger-fold-content"><label for="Logger-fold-content"> type <a href="../src/log/log.go.html#line-52">Logger</a> <i>(struct)</i></label><span id='Logger-fold-content-docs' class="fold-docs">
 		A Logger represents an active logging object that generates lines of
 		output to an io.Writer. Each logging operation makes a single call to
 		the Writer's Write method. A Logger can be used simultaneously from
@@ -169,7 +169,8 @@
 				  * file and line number (if corresponding flags are provided),
 				  * l.prefix (if it's not blank and Lmsgprefix is set).
 </span></i></span></span>
-		<input type='checkbox' class="fold" id="Logger-fold-impls"><label for="Logger-fold-impls">Implements (<i>at least one exported</i>)</label><span id='Logger-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Logger-fold-impls"><label for="Logger-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='Logger-fold-impls-items' class="fold-items"><span>
+			*T : github.com/sirupsen/logrus.<a href="github.com/sirupsen/logrus.html#name-StdLogger">StdLogger</a></span><span>
 			*T : google.golang.org/grpc/grpclog.<a href="google.golang.org/grpc/grpclog.html#name-Logger">Logger</a></span></span>
 		<input type='checkbox' class="fold" id="Logger-fold-results"><label for="Logger-fold-results">As Outputs Of (<i>at least 2, both are exported</i>)</label><span id='Logger-fold-results-items' class="fold-items"><span>
 			func <a href="#name-Default">Default</a>() *<b>Logger</b></span><span>

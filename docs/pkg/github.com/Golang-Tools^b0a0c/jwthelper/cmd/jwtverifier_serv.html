@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Package: github.com/Golang-Tools/jwthelper/cmd/jwtverifier_serv</title>
+<link href="../../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="package-details"><code><span style="font-size:xx-large;">package <b>jwtverifier_serv</b></span>
+
+<span class="title">Import Path</span>
+	<a href="../../../../../index.html#pkg-github.com/Golang-Tools/jwthelper/cmd/jwtverifier_serv">github.com/Golang-Tools/jwthelper/cmd/jwtverifier_serv</a><i> (on <a href="https://pkg.go.dev/github.com/Golang-Tools/jwthelper/cmd/jwtverifier_serv" target="_blank">go.dev</a>)</i>
+
+<span class="title">Dependency Relation</span>
+	imports <a href="../../../../../dep/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv.html">28 packages</a>, and imported by <a href="../../../../../dep/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv.html#imported-by">one package</a>
+
+<div id="files"><span class="title">Involved Source Files</span>
+
+	<span class="nodocs">      <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/handdler.go.html">handdler.go</a></span>
+	<span class="nodocs">      <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html">serv.go</a></span></div>
+<div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (only one, which is exported)</i></span></span>
+
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Server" data-popularity="555">	<input type='checkbox' class="fold" id="Server-fold-content"><label for="Server-fold-content"> type <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-42">Server</a> <i>(struct)</i></label><span id='Server-fold-content-docs' class="fold-docs">
+		Server grpc的服务器结构体
+		服务集成了如下特性:
+		设置收发最大消息长度
+		健康检测
+		gzip做消息压缩
+		接口反射
+		TLS支持
+		keep alive 支持
+
+		<input type='checkbox' class="fold" id="Server-fold-fields"><label for="Server-fold-fields">Fields (<i>total 30, in which 27 are exported</i>)</label><span id='Server-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-45">Address</a> <i><a href="../../../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-72">Algo_Name</a> <i><a href="../../../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-43">App_Name</a> <i><a href="../../../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-44">App_Version</a> <i><a href="../../../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-65">Ca_Cert_Path</a> <i><a href="../../../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-66">Client_Crl_Path</a> <i><a href="../../../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-74">Default_AUD</a> <i><a href="../../../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-75">Default_ISS_Range</a> <i>[]<a href="../../../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-52">Initial_Conn_Window_Size</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-51">Initial_Window_Size</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-59">Keepalive_Enforcement_Min_Time</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-60">Keepalive_Enforcement_Permit_Without_Stream</a> <i><a href="../../../../builtin.html#name-bool">bool</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-57">Keepalive_Time</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-58">Keepalive_Timeout</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-73">Key_Path</a> <i><a href="../../../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-46">Log_Level</a> <i><a href="../../../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-53">Max_Concurrent_Streams</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-55">Max_Connection_Age</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-56">Max_Connection_Age_Grace</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-54">Max_Connection_Idle</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-field-Max_Recv_Msg_Size"><label for="Server-fold-field-Max_Recv_Msg_Size"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-49">Max_Recv_Msg_Size</a> <i><a href="../../../../builtin.html#name-int">int</a></i></label><span id='Server-fold-field-Max_Recv_Msg_Size-docs' class="fold-docs">
+				性能设置
+</span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-50">Max_Send_Msg_Size</a> <i><a href="../../../../builtin.html#name-int">int</a></i></span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-field-Server_Cert_Path"><label for="Server-fold-field-Server_Cert_Path"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-63">Server_Cert_Path</a> <i><a href="../../../../builtin.html#name-string">string</a></i></label><span id='Server-fold-field-Server_Cert_Path-docs' class="fold-docs">
+				TLS设置
+</span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-64">Server_Key_Path</a> <i><a href="../../../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-77">UnimplementedJwtverifierServer</a> <i><a href="../jwtverifier_pb.html">jwtverifier_pb</a>.<a href="../jwtverifier_pb.html#name-UnimplementedJwtverifierServer">UnimplementedJwtverifierServer</a></i></span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-field-XDS"><label for="Server-fold-field-XDS"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-69">XDS</a> <i><a href="../../../../builtin.html#name-bool">bool</a></i></label><span id='Server-fold-field-XDS-docs' class="fold-docs">
+				使用XDS
+</span></span><span>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-70">XDS_CREDS</a> <i><a href="../../../../builtin.html#name-bool">bool</a></i></span></span>
+			<input type='checkbox' class="showhide" id="Server-showhide-fields"><i><label for="Server-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="Server-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-79">healthservice</a> <i>*<a href="../../../../google.golang.org/grpc/health.html">health</a>.<a href="../../../../google.golang.org/grpc/health.html#name-Server">Server</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-78">opts</a> <i>[]<a href="../../../../google.golang.org/grpc.html">grpc</a>.<a href="../../../../google.golang.org/grpc.html#name-ServerOption">ServerOption</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-80">verifier</a> <i>*<a href="../../jwthelper.html">jwthelper</a>.<a href="../../jwthelper.html#name-Verifier">Verifier</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="Server-fold-methods"><label for="Server-fold-methods">Methods (<i>total 8, in which 7 are exported</i>)</label><span id='Server-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-Main"><label for="Server-fold-method-Main">(*T) <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-84">Main</a>()</label><span id='Server-fold-method-Main-docs' class="fold-docs">
+				Main 服务的入口函数
+</span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-Meta"><label for="Server-fold-method-Meta">(*T) <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/handdler.go.html#line-16">Meta</a>(ctx <a href="../../../../context.html">context</a>.<a href="../../../../context.html#name-Context">Context</a>, in *<a href="../jwtverifier_pb.html">jwtverifier_pb</a>.<a href="../jwtverifier_pb.html#name-MetaRequest">MetaRequest</a>) (*<a href="../jwtverifier_pb.html">jwtverifier_pb</a>.<a href="../jwtverifier_pb.html#name-MetaResponse">MetaResponse</a>, <a href="../../../../builtin.html#name-error">error</a>)</label><span id='Server-fold-method-Meta-docs' class="fold-docs">
+				Meta 查看签名器的元信息
+</span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-PerformanceOpts"><label for="Server-fold-method-PerformanceOpts">(*T) <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-122">PerformanceOpts</a>()</label><span id='Server-fold-method-PerformanceOpts-docs' class="fold-docs">
+				PerformanceOpts 配置性能调优设置
+</span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-Run"><label for="Server-fold-method-Run">(*T) <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-299">Run</a>()</label><span id='Server-fold-method-Run-docs' class="fold-docs">
+				Run 执行grpc服务
+</span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-RunServer"><label for="Server-fold-method-RunServer">(*T) <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-209">RunServer</a>()</label><span id='Server-fold-method-RunServer-docs' class="fold-docs">
+				RunServer 启动服务
+</span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-TLSOpts"><label for="Server-fold-method-TLSOpts">(*T) <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-163">TLSOpts</a>()</label><span id='Server-fold-method-TLSOpts-docs' class="fold-docs">
+				TLSOpts 配置TLS设置
+</span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-Verify"><label for="Server-fold-method-Verify">(*T) <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/handdler.go.html#line-33">Verify</a>(ctx <a href="../../../../context.html">context</a>.<a href="../../../../context.html#name-Context">Context</a>, in *<a href="../jwtverifier_pb.html">jwtverifier_pb</a>.<a href="../jwtverifier_pb.html#name-VerifyRequest">VerifyRequest</a>) (*<a href="../jwtverifier_pb.html">jwtverifier_pb</a>.<a href="../jwtverifier_pb.html#name-VerifyResponse">VerifyResponse</a>, <a href="../../../../builtin.html#name-error">error</a>)</label><span id='Server-fold-method-Verify-docs' class="fold-docs">
+				Verify 校验签名
+</span></span>
+			<input type='checkbox' class="showhide" id="Server-showhide-methods"><i><label for="Server-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="Server-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">( T) <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/jwtverifier_pb/jwtverifier_grpc.pb.go.html#line-74">mustEmbedUnimplementedJwtverifierServer</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="Server-fold-impls"><label for="Server-fold-impls">Implements (<i>at least 3, all are exported</i>)</label><span id='Server-fold-impls-items' class="fold-items"><span>
+			*T : github.com/Golang-Tools/jwthelper/jwtverifier_pb.<a href="../jwtverifier_pb.html#name-JwtverifierServer">JwtverifierServer</a></span><span>
+			 T : github.com/Golang-Tools/jwthelper/jwtverifier_pb.<a href="../jwtverifier_pb.html#name-UnsafeJwtverifierServer">UnsafeJwtverifierServer</a></span><span>
+			*T : github.com/Golang-Tools/schema-entry-go.<a href="../../schema-entry-go.html#name-EntryPointConfig">EntryPointConfig</a></span></span>
+		<input type='checkbox' class="fold" id="Server-fold-values"><label for="Server-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='Server-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-Node">Node</a></span></span>
+
+</span></div></div>
+<div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (total 2, in which 1 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-Node">	<span class="nodocs">  var <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/serv.go.html#line-303">Node</a> <a href="#name-Server">Server</a></span></div>	<input type='checkbox' class="showhide" id="unexported-variables-showhide"><i><label for="unexported-variables-showhide" class="show-inline">/* one unexported ... */</label><label for="unexported-variables-showhide" class="hide-inline">/* one unexported: */</label></i><div class="anchor value-res hidden" id="name-json"><i>	<span class="nodocs">  var <a href="../../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/cmd/jwtverifier_serv/handdler.go.html#line-13">json</a> <a href="../../../json-iterator/go.html">jsoniter</a>.<a href="../../../json-iterator/go.html#name-API">API</a></span></i></div></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

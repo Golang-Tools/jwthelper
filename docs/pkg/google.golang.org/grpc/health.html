@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Package: google.golang.org/grpc/health</title>
+<link href="../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="package-details"><code><span style="font-size:xx-large;">package <b>health</b></span>
+
+<span class="title">Import Path</span>
+	<a href="../../../index.html#pkg-google.golang.org/grpc/health">google.golang.org/grpc/health</a><i> (on <a href="https://pkg.go.dev/google.golang.org/grpc/health" target="_blank">go.dev</a>)</i>
+
+<span class="title">Dependency Relation</span>
+	imports <a href="../../../dep/google.golang.org/grpc/health.html">13 packages</a>, and imported by <a href="../../../dep/google.golang.org/grpc/health.html#imported-by">2 packages</a>
+
+<div id="files"><span class="title">Involved Source Files</span>
+
+	<span class="nodocs">      <a href="../../../src/google.golang.org/grpc/health/client.go.html">client.go</a></span>
+	<span class="nodocs">      <a href="../../../src/google.golang.org/grpc/health/logging.go.html">logging.go</a></span>
+	<input type='checkbox' checked class="fold" id="file-2-fold-content"><label for="file-2-fold-content">   <a href="../../../src/google.golang.org/grpc/health/server.go.html#doc">#d</a> <a href="../../../src/google.golang.org/grpc/health/server.go.html">server.go</a></label><span id='file-2-fold-content-items' class="fold-items">
+		Package health provides a service that exposes server's health and it must be
+		imported to enable support for client-side health checks.</span></div>
+<div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (only one, which is exported)</i></span></span>
+
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Server" data-popularity="425">	<input type='checkbox' class="fold" id="Server-fold-content"><label for="Server-fold-content"> type <a href="../../../src/google.golang.org/grpc/health/server.go.html#line-34">Server</a> <i>(struct)</i></label><span id='Server-fold-content-docs' class="fold-docs">
+		Server implements `service Health`.
+
+		<input type='checkbox' class="fold" id="Server-fold-fields"><label for="Server-fold-fields">Fields (<i>total 5, in which 1 are exported</i>)</label><span id='Server-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../../src/google.golang.org/grpc/health/server.go.html#line-35">UnimplementedHealthServer</a> <i><a href="health/grpc_health_v1.html">healthgrpc</a>.<a href="health/grpc_health_v1.html#name-UnimplementedHealthServer">UnimplementedHealthServer</a></i></span></span>
+			<input type='checkbox' class="showhide" id="Server-showhide-fields"><i><label for="Server-showhide-fields" class="show-inline">/* 4 unexporteds ... */</label><label for="Server-showhide-fields" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/google.golang.org/grpc/health/server.go.html#line-36">mu</a> <i><a href="../../sync.html">sync</a>.<a href="../../sync.html#name-RWMutex">RWMutex</a></i></span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Server-fold-field-shutdown"><label for="Server-fold-field-shutdown"><a href="../../../src/google.golang.org/grpc/health/server.go.html#line-39">shutdown</a> <i><a href="../../builtin.html#name-bool">bool</a></i></label><span id='Server-fold-field-shutdown-docs' class="fold-docs">
+				If shutdown is true, it's expected all serving status is NOT_SERVING, and
+				will stay in NOT_SERVING.
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Server-fold-field-statusMap"><label for="Server-fold-field-statusMap"><a href="../../../src/google.golang.org/grpc/health/server.go.html#line-41">statusMap</a> <i>map[<a href="../../builtin.html#name-string">string</a>]<a href="health/grpc_health_v1.html">healthpb</a>.<a href="health/grpc_health_v1.html#name-HealthCheckResponse_ServingStatus">HealthCheckResponse_ServingStatus</a></i></label><span id='Server-fold-field-statusMap-docs' class="fold-docs">
+				statusMap stores the serving status of the services this Server monitors.
+</span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/google.golang.org/grpc/health/server.go.html#line-42">updates</a> <i>map[<a href="../../builtin.html#name-string">string</a>]map[<a href="health/grpc_health_v1.html">healthgrpc</a>.<a href="health/grpc_health_v1.html#name-Health_WatchServer">Health_WatchServer</a>]chan <a href="health/grpc_health_v1.html">healthpb</a>.<a href="health/grpc_health_v1.html#name-HealthCheckResponse_ServingStatus">HealthCheckResponse_ServingStatus</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="Server-fold-methods"><label for="Server-fold-methods">Methods (<i>total 6, in which 5 are exported</i>)</label><span id='Server-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-Check"><label for="Server-fold-method-Check">(*T) <a href="../../../src/google.golang.org/grpc/health/server.go.html#line-54">Check</a>(ctx <a href="../../context.html">context</a>.<a href="../../context.html#name-Context">Context</a>, in *<a href="health/grpc_health_v1.html">healthpb</a>.<a href="health/grpc_health_v1.html#name-HealthCheckRequest">HealthCheckRequest</a>) (*<a href="health/grpc_health_v1.html">healthpb</a>.<a href="health/grpc_health_v1.html#name-HealthCheckResponse">HealthCheckResponse</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='Server-fold-method-Check-docs' class="fold-docs">
+				Check implements `service Health`.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-Resume"><label for="Server-fold-method-Resume">(*T) <a href="../../../src/google.golang.org/grpc/health/server.go.html#line-156">Resume</a>()</label><span id='Server-fold-method-Resume-docs' class="fold-docs">
+				Resume sets all serving status to SERVING, and configures the server to
+				accept all future status changes.
+
+				This changes serving status for all services. To set status for a particular
+				services, call SetServingStatus().
+</span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-SetServingStatus"><label for="Server-fold-method-SetServingStatus">(*T) <a href="../../../src/google.golang.org/grpc/health/server.go.html#line-112">SetServingStatus</a>(service <a href="../../builtin.html#name-string">string</a>, servingStatus <a href="health/grpc_health_v1.html">healthpb</a>.<a href="health/grpc_health_v1.html#name-HealthCheckResponse_ServingStatus">HealthCheckResponse_ServingStatus</a>)</label><span id='Server-fold-method-SetServingStatus-docs' class="fold-docs">
+				SetServingStatus is called when need to reset the serving status of a service
+				or insert a new service entry into the statusMap.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-Shutdown"><label for="Server-fold-method-Shutdown">(*T) <a href="../../../src/google.golang.org/grpc/health/server.go.html#line-142">Shutdown</a>()</label><span id='Server-fold-method-Shutdown-docs' class="fold-docs">
+				Shutdown sets all serving status to NOT_SERVING, and configures the server to
+				ignore all future status changes.
+
+				This changes serving status for all services. To set status for a particular
+				services, call SetServingStatus().
+</span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-Watch"><label for="Server-fold-method-Watch">(*T) <a href="../../../src/google.golang.org/grpc/health/server.go.html#line-66">Watch</a>(in *<a href="health/grpc_health_v1.html">healthpb</a>.<a href="health/grpc_health_v1.html#name-HealthCheckRequest">HealthCheckRequest</a>, stream <a href="health/grpc_health_v1.html">healthgrpc</a>.<a href="health/grpc_health_v1.html#name-Health_WatchServer">Health_WatchServer</a>) <a href="../../builtin.html#name-error">error</a></label><span id='Server-fold-method-Watch-docs' class="fold-docs">
+				Watch implements `service Health`.
+</span></span>
+			<input type='checkbox' class="showhide" id="Server-showhide-methods"><i><label for="Server-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="Server-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../../src/google.golang.org/grpc/health/server.go.html#line-123">setServingStatusLocked</a>(service <a href="../../builtin.html#name-string">string</a>, servingStatus <a href="health/grpc_health_v1.html">healthpb</a>.<a href="health/grpc_health_v1.html#name-HealthCheckResponse_ServingStatus">HealthCheckResponse_ServingStatus</a>)</span></i></span></span>
+		<input type='checkbox' class="fold" id="Server-fold-impls"><label for="Server-fold-impls">Implements (<i>at least one exported</i>)</label><span id='Server-fold-impls-items' class="fold-items"><span>
+			*T : google.golang.org/grpc/health/grpc_health_v1.<a href="health/grpc_health_v1.html#name-HealthServer">HealthServer</a></span></span>
+		<input type='checkbox' class="fold" id="Server-fold-results"><label for="Server-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Server-fold-results-items' class="fold-items"><span>
+			func <a href="#name-NewServer">NewServer</a>() *<b>Server</b></span></span>
+
+</span></div></div>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 3, in which 1 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-NewServer">	<input type='checkbox' class="fold" id="NewServer-fold-content"><label for="NewServer-fold-content"> func <a href="../../../src/google.golang.org/grpc/health/server.go.html#line-46">NewServer</a>() *<a href="#name-Server">Server</a></label><span id='NewServer-fold-content-docs' class="fold-docs">
+		NewServer returns a new Server.
+
+</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 2 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 2 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-clientHealthCheck"><i>	<input type='checkbox' class="fold" id="clientHealthCheck-fold-content"><label for="clientHealthCheck-fold-content"> func <a href="../../../src/google.golang.org/grpc/health/client.go.html#line-59">clientHealthCheck</a>(ctx <a href="../../context.html">context</a>.<a href="../../context.html#name-Context">Context</a>, newStream func(<a href="../../builtin.html#name-string">string</a>) (interface{}, <a href="../../builtin.html#name-error">error</a>), setConnectivityState func(<a href="connectivity.html">connectivity</a>.<a href="connectivity.html#name-State">State</a>, <a href="../../builtin.html#name-error">error</a>), service <a href="../../builtin.html#name-string">string</a>) <a href="../../builtin.html#name-error">error</a></label><span id='clientHealthCheck-fold-content-docs' class="fold-docs">
+		This function implements the protocol defined at:
+		https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+
+</span></i></div><div class="anchor value-res hidden" id="name-init"><i>	<span class="nodocs"> func <a href="../../../src/google.golang.org/grpc/health/client.go.html#line-51">init</a>()</span></i></div></div>
+<div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (total 3, none are exported)</i></span></span>
+
+	<input type='checkbox' class="showhide" id="unexported-variables-showhide"><i><label for="unexported-variables-showhide" class="show-inline">/* 3 unexporteds ... */</label><label for="unexported-variables-showhide" class="hide-inline">/* 3 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-backoffFunc"><i>	<span class="nodocs">  var <a href="../../../src/google.golang.org/grpc/health/client.go.html#line-38">backoffFunc</a> func(ctx <a href="../../context.html">context</a>.<a href="../../context.html#name-Context">Context</a>, retries <a href="../../builtin.html#name-int">int</a>) <a href="../../builtin.html#name-bool">bool</a></span></i></div><div class="anchor value-res hidden" id="name-backoffStrategy"><i>	<span class="nodocs">  var <a href="../../../src/google.golang.org/grpc/health/client.go.html#line-37">backoffStrategy</a> <a href="internal/backoff.html">backoff</a>.<a href="internal/backoff.html#name-Exponential">Exponential</a></span></i></div><div class="anchor value-res hidden" id="name-logger"><i>	<span class="nodocs">  var <a href="../../../src/google.golang.org/grpc/health/logging.go.html#line-23">logger</a> <a href="grpclog.html">grpclog</a>.<a href="grpclog.html#name-DepthLoggerV2">DepthLoggerV2</a></span></i></div></div>
+<div id="exported-constants"><span class="title">Package-Level Constants<span class="title-stat"><i> (only one, which is unexported)</i></span></span>
+
+	<input type='checkbox' class="showhide" id="unexported-constants-showhide"><i><label for="unexported-constants-showhide" class="show-inline">/* one unexported ... */</label><label for="unexported-constants-showhide" class="hide-inline">/* one unexported: */</label></i><div class="anchor value-res hidden" id="name-healthCheckMethod"><i>	<span class="nodocs">const <a href="../../../src/google.golang.org/grpc/health/client.go.html#line-55">healthCheckMethod</a> = "/grpc.health.v1.Health/Watch"</span></i></div></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

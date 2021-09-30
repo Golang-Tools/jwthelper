@@ -219,9 +219,9 @@
 		<input type='checkbox' class="fold" id="MapClaims-fold-params"><label for="MapClaims-fold-params">As Inputs Of (<i>at least 2, neither is exported</i>)</label><span id='MapClaims-fold-params-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="MapClaims-showhide-outputofs"><i><label for="MapClaims-showhide-outputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="MapClaims-showhide-outputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
 			func github.com/Golang-Tools/jwthelper.<a href="../../Golang-Tools^b0a0c/jwthelper.html#name-checkClaims">checkClaims</a>(claims <b>MapClaims</b>, payload interface{}, opts *<a href="../../Golang-Tools^b0a0c/jwthelper/verifyoptions.html">verifyoptions</a>.<a href="../../Golang-Tools^b0a0c/jwthelper/verifyoptions.html#name-VerifyOptions">VerifyOptions</a>) (*<a href="../../Golang-Tools^b0a0c/jwthelper.html">jwthelper</a>.<a href="../../Golang-Tools^b0a0c/jwthelper.html#name-accessTokenShare">accessTokenShare</a>, <a href="../../../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
-			func github.com/Golang-Tools/jwthelper.(*<a href="../../Golang-Tools^b0a0c/jwthelper.html#name-Signer">Signer</a>).<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signer.go.html#line-66">signany</a>(claims <b>MapClaims</b>, opts ...<a href="../../Golang-Tools^b0a0c/jwthelper/signoptions.html">signoptions</a>.<a href="../../Golang-Tools^b0a0c/jwthelper/signoptions.html#name-SignOption">SignOption</a>) (*<a href="../../Golang-Tools^b0a0c/jwthelper/jwt_pb.html">jwt_pb</a>.<a href="../../Golang-Tools^b0a0c/jwthelper/jwt_pb.html#name-Token">Token</a>, <a href="../../../builtin.html#name-error">error</a>)</i></span></span>
+			func github.com/Golang-Tools/jwthelper.(*<a href="../../Golang-Tools^b0a0c/jwthelper.html#name-Signer">Signer</a>).<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signer.go.html#line-72">signany</a>(claims <b>MapClaims</b>, opts ...<a href="../../Golang-Tools^b0a0c/jwthelper/signoptions.html">signoptions</a>.<a href="../../Golang-Tools^b0a0c/jwthelper/signoptions.html#name-SignOption">SignOption</a>) (*<a href="../../Golang-Tools^b0a0c/jwthelper/jwt_pb.html">jwt_pb</a>.<a href="../../Golang-Tools^b0a0c/jwthelper/jwt_pb.html#name-Token">Token</a>, <a href="../../../builtin.html#name-error">error</a>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-NumericDate" data-popularity="3150">	<input type='checkbox' class="fold" id="NumericDate-fold-content"><label for="NumericDate-fold-content"> type <a href="../../../../src/github.com/golang-jwt/jwt/v4/types.go.html#line-31">NumericDate</a> <i>(struct)</i></label><span id='NumericDate-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-NumericDate" data-popularity="3250">	<input type='checkbox' class="fold" id="NumericDate-fold-content"><label for="NumericDate-fold-content"> type <a href="../../../../src/github.com/golang-jwt/jwt/v4/types.go.html#line-31">NumericDate</a> <i>(struct)</i></label><span id='NumericDate-fold-content-docs' class="fold-docs">
 		NumericDate represents a JSON numeric date value, as referenced at
 		https://datatracker.ietf.org/doc/html/rfc7519#section-2.
 
@@ -489,17 +489,19 @@
 			<input type='checkbox' class="fold" id="NumericDate-fold-method-unixSec"><label for="NumericDate-fold-method-unixSec">(*T) <a href="../../../../src/time/time.go.html#line-176">unixSec</a>() <a href="../../../builtin.html#name-int64">int64</a></label><span id='NumericDate-fold-method-unixSec-docs' class="fold-docs">
 				unixSec returns the time's seconds since Jan 1 1970 (Unix time).
 </span></i></span></span>
-		<input type='checkbox' class="fold" id="NumericDate-fold-impls"><label for="NumericDate-fold-impls">Implements (<i>at least 10, in which 7 are exported</i>)</label><span id='NumericDate-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="NumericDate-fold-impls"><label for="NumericDate-fold-impls">Implements (<i>at least 12, in which 8 are exported</i>)</label><span id='NumericDate-fold-impls-items' class="fold-items"><span>
 			 T : encoding.<a href="../../../encoding.html#name-BinaryMarshaler">BinaryMarshaler</a></span><span>
 			*T : encoding.<a href="../../../encoding.html#name-BinaryUnmarshaler">BinaryUnmarshaler</a></span><span>
 			 T : encoding.<a href="../../../encoding.html#name-TextMarshaler">TextMarshaler</a></span><span>
 			*T : encoding.<a href="../../../encoding.html#name-TextUnmarshaler">TextUnmarshaler</a></span><span>
 			 T : encoding/json.<a href="../../../encoding/json.html#name-Marshaler">Marshaler</a></span><span>
 			*T : encoding/json.<a href="../../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span><span>
-			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="NumericDate-showhide-impls"><i><label for="NumericDate-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="NumericDate-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span><span>
+			 T : gopkg.in/yaml.v2.<a href="../../../gopkg.in/yaml.v2.html#name-IsZeroer">IsZeroer</a></span>
+			<input type='checkbox' class="showhide" id="NumericDate-showhide-impls"><i><label for="NumericDate-showhide-impls" class="show-inline">/* 4+ unexporteds ... */</label><label for="NumericDate-showhide-impls" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : crypto/hmac.<a href="../../../crypto/hmac.html#name-marshalable">marshalable</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="NumericDate-fold-results"><label for="NumericDate-fold-results">As Outputs Of (<i>at least 2, in which 1 are exported</i>)</label><span id='NumericDate-fold-results-items' class="fold-items"><span>
 			func <a href="#name-NewNumericDate">NewNumericDate</a>(t <a href="../../../time.html">time</a>.<a href="../../../time.html#name-Time">Time</a>) *<b>NumericDate</b></span>

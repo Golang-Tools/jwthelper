@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: xds_resolver.go in package google.golang.org/grpc/xds/internal/resolver</title>
+<link href="../../../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	xds_resolver.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../../pkg/google.golang.org/grpc/xds/internal/resolver.html">google.golang.org/grpc/xds/internal/resolver</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12],
+input[id=r13]:checked ~pre label[for=r13],
+input[id=r14]:checked ~pre label[for=r14],
+input[id=r15]:checked ~pre label[for=r15],
+input[id=r16]:checked ~pre label[for=r16],
+input[id=r17]:checked ~pre label[for=r17],
+input[id=r18]:checked ~pre label[for=r18],
+input[id=r19]:checked ~pre label[for=r19],
+input[id=r20]:checked ~pre label[for=r20],
+input[id=r21]:checked ~pre label[for=r21],
+input[id=r22]:checked ~pre label[for=r22],
+input[id=r23]:checked ~pre label[for=r23],
+input[id=r24]:checked ~pre label[for=r24],
+input[id=r25]:checked ~pre label[for=r25],
+input[id=r26]:checked ~pre label[for=r26],
+input[id=r27]:checked ~pre label[for=r27],
+input[id=r28]:checked ~pre label[for=r28],
+input[id=r29]:checked ~pre label[for=r29],
+input[id=r30]:checked ~pre label[for=r30],
+input[id=r31]:checked ~pre label[for=r31],
+input[id=r32]:checked ~pre label[for=r32],
+input[id=r33]:checked ~pre label[for=r33],
+input[id=r34]:checked ~pre label[for=r34],
+input[id=r35]:checked ~pre label[for=r35],
+input[id=r36]:checked ~pre label[for=r36],
+input[id=r37]:checked ~pre label[for=r37]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1,
+input[id=i2]:checked ~pre .i2,
+input[id=i3]:checked ~pre .i3,
+input[id=i4]:checked ~pre .i4,
+input[id=i5]:checked ~pre .i5,
+input[id=i6]:checked ~pre .i6,
+input[id=i7]:checked ~pre .i7,
+input[id=i8]:checked ~pre .i8
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="r13" type="radio" name="g"/>
+<input id="r14" type="radio" name="g"/>
+<input id="r15" type="radio" name="g"/>
+<input id="r16" type="radio" name="g"/>
+<input id="r17" type="radio" name="g"/>
+<input id="r18" type="radio" name="g"/>
+<input id="r19" type="radio" name="g"/>
+<input id="r20" type="radio" name="g"/>
+<input id="r21" type="radio" name="g"/>
+<input id="r22" type="radio" name="g"/>
+<input id="r23" type="radio" name="g"/>
+<input id="r24" type="radio" name="g"/>
+<input id="r25" type="radio" name="g"/>
+<input id="r26" type="radio" name="g"/>
+<input id="r27" type="radio" name="g"/>
+<input id="r28" type="radio" name="g"/>
+<input id="r29" type="radio" name="g"/>
+<input id="r30" type="radio" name="g"/>
+<input id="r31" type="radio" name="g"/>
+<input id="r32" type="radio" name="g"/>
+<input id="r33" type="radio" name="g"/>
+<input id="r34" type="radio" name="g"/>
+<input id="r35" type="radio" name="g"/>
+<input id="r36" type="radio" name="g"/>
+<input id="r37" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+<input id="i2" type="radio" name="i"/>
+<input id="i3" type="radio" name="i"/>
+<input id="i4" type="radio" name="i"/>
+<input id="i5" type="radio" name="i"/>
+<input id="i6" type="radio" name="i"/>
+<input id="i7" type="radio" name="i"/>
+<input id="i8" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="comment">/*</span></code></span>
+<span class="codeline" id="line-2"><code><span class="comment"> * Copyright 2019 gRPC authors.</span></code></span>
+<span class="codeline" id="line-3"><code><span class="comment"> *</span></code></span>
+<span class="codeline" id="line-4"><code><span class="comment"> * Licensed under the Apache License, Version 2.0 (the "License");</span></code></span>
+<span class="codeline" id="line-5"><code><span class="comment"> * you may not use this file except in compliance with the License.</span></code></span>
+<span class="codeline" id="line-6"><code><span class="comment"> * You may obtain a copy of the License at</span></code></span>
+<span class="codeline" id="line-7"><code><span class="comment"> *</span></code></span>
+<span class="codeline" id="line-8"><code><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></code></span>
+<span class="codeline" id="line-9"><code><span class="comment"> *</span></code></span>
+<span class="codeline" id="line-10"><code><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></code></span>
+<span class="codeline" id="line-11"><code><span class="comment"> * distributed under the License is distributed on an "AS IS" BASIS,</span></code></span>
+<span class="codeline" id="line-12"><code><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></code></span>
+<span class="codeline" id="line-13"><code><span class="comment"> * See the License for the specific language governing permissions and</span></code></span>
+<span class="codeline" id="line-14"><code><span class="comment"> * limitations under the License.</span></code></span>
+<span class="codeline" id="line-15"><code><span class="comment"> *</span></code></span>
+<span class="codeline" id="line-16"><code><span class="comment"> */</span></code></span>
+<span class="codeline" id="line-17"><code></code></span>
+<div class="anchor" id="doc"><span class="codeline" id="line-18"><code><span class="comment">// Package resolver implements the xds resolver, that does LDS and RDS to find</span></code></span>
+<span class="codeline" id="line-19"><code><span class="comment">// the cluster to use.</span></code></span></div><span class="codeline" id="line-20"><code><span class="keyword">package</span> resolver</code></span>
+<span class="codeline" id="line-21"><code></code></span>
+<span class="codeline" id="line-22"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-23"><code>	<label for="i0"><span class="lit-string i0">"errors"</span></label></code></span>
+<span class="codeline" id="line-24"><code>	<label for="i1"><span class="lit-string i1">"fmt"</span></label></code></span>
+<span class="codeline" id="line-25"><code></code></span>
+<span class="codeline" id="line-26"><code>	<label for="i2"><span class="lit-string i2">"google.golang.org/grpc/credentials"</span></label></code></span>
+<span class="codeline" id="line-27"><code>	<label for="i3"><span class="lit-string i3">"google.golang.org/grpc/internal/grpclog"</span></label></code></span>
+<span class="codeline" id="line-28"><code>	<label for="i4"><span class="lit-string i4">"google.golang.org/grpc/internal/grpcsync"</span></label></code></span>
+<span class="codeline" id="line-29"><code>	<label for="i5"><span class="lit-string i5">"google.golang.org/grpc/internal/pretty"</span></label></code></span>
+<span class="codeline" id="line-30"><code>	<a href="../../../../../../pkg/google.golang.org/grpc/internal/resolver.html" class="ident i6">iresolver</a> <label for="i6"><span class="lit-string i6">"google.golang.org/grpc/internal/resolver"</span></label></code></span>
+<span class="codeline" id="line-31"><code>	<label for="i7"><span class="lit-string i7">"google.golang.org/grpc/resolver"</span></label></code></span>
+<span class="codeline" id="line-32"><code>	<label for="i8"><span class="lit-string i8">"google.golang.org/grpc/xds/internal/xdsclient"</span></label></code></span>
+<span class="codeline" id="line-33"><code>)</code></span>
+<span class="codeline" id="line-34"><code></code></span>
+<span class="codeline" id="line-35"><code><span class="keyword">const</span> <a href="../../../../../../pkg/google.golang.org/grpc/xds/internal/resolver.html#name-xdsScheme" class="ident">xdsScheme</a> = <span class="lit-string">"xds"</span></code></span>
+<span class="codeline" id="line-36"><code></code></span>
+<span class="codeline" id="line-37"><code><span class="comment">// NewBuilder creates a new xds resolver builder using a specific xds bootstrap</span></code></span>
+<span class="codeline" id="line-38"><code><span class="comment">// config, so tests can use multiple xds clients in different ClientConns at</span></code></span>
+<span class="codeline" id="line-39"><code><span class="comment">// the same time.</span></code></span>
+<span class="codeline" id="line-40"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../../../pkg/google.golang.org/grpc/xds/internal/resolver.html#name-NewBuilder" class="ident">NewBuilder</a></label>(<label for="r1" class="ident">config</label> []<a href="../../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>) (<a href="../../../../../../pkg/google.golang.org/grpc/resolver.html" class="ident i7">resolver</a>.<a href="../../../resolver/resolver.go.html#line-229" class="ident">Builder</a>, <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-41"><code>	<span class="keyword">return</span> &amp;<a href="#line-55" class="ident">xdsResolverBuilder</a>{</code></span>
+<span class="codeline" id="line-42"><code>		<a href="#line-56" class="ident">newXDSClient</a>: <span class="keyword">func</span>() (<a href="../../../../../../pkg/google.golang.org/grpc/xds/internal/xdsclient.html" class="ident i8">xdsclient</a>.<a href="../xdsclient/attributes.go.html#line-33" class="ident">XDSClient</a>, <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-43"><code>			<span class="keyword">return</span> <a href="../../../../../../pkg/google.golang.org/grpc/xds/internal/xdsclient.html" class="ident i8">xdsclient</a>.<a href="../xdsclient/singleton.go.html#line-157" class="ident">NewClientWithBootstrapContents</a>(<label for="r1" class="ident">config</label>)</code></span>
+<span class="codeline" id="line-44"><code>		},</code></span>
+<span class="codeline" id="line-45"><code>	}, <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-46"><code>}</code></span>
+<span class="codeline" id="line-47"><code></code></span>
+<span class="codeline" id="line-48"><code><span class="comment">// For overriding in unittests.</span></code></span>
+<span class="codeline" id="line-49"><code><span class="keyword">var</span> <a href="../../../../../../pkg/google.golang.org/grpc/xds/internal/resolver.html#name-newXDSClient" class="ident">newXDSClient</a> = <span class="keyword">func</span>() (<a href="../../../../../../pkg/google.golang.org/grpc/xds/internal/xdsclient.html" class="ident i8">xdsclient</a>.<a href="../xdsclient/attributes.go.html#line-33" class="ident">XDSClient</a>, <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) { <span class="keyword">return</span> <a href="../../../../../../pkg/google.golang.org/grpc/xds/internal/xdsclient.html" class="ident i8">xdsclient</a>.<a href="../xdsclient/singleton.go.html#line-59" class="ident">New</a>() }</code></span>
+<span class="codeline" id="line-50"><code></code></span>
+<span class="codeline" id="line-51"><code><span class="keyword">func</span> <label for="r2" class="ident"><a href="../../../../../../pkg/google.golang.org/grpc/xds/internal/resolver.html#name-init" class="ident">init</a></label>() {</code></span>
+<span class="codeline" id="line-52"><code>	<a href="../../../../../../pkg/google.golang.org/grpc/resolver.html" class="ident i7">resolver</a>.<a href="../../../resolver/resolver.go.html#line-47" class="ident">Register</a>(&amp;<a href="#line-55" class="ident">xdsResolverBuilder</a>{})</code></span>
+<span class="codeline" id="line-53"><code>}</code></span>
+<span class="codeline" id="line-54"><code></code></span>
+<span class="codeline" id="line-55"><code><span class="keyword">type</span> <a href="../../../../../../pkg/google.golang.org/grpc/xds/internal/resolver.html#name-xdsResolverBuilder" class="ident">xdsResolverBuilder</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-56"><code>	newXDSClient <span class="keyword">func</span>() (<a href="../../../../../../pkg/google.golang.org/grpc/xds/internal/xdsclient.html" class="ident i8">xdsclient</a>.<a href="../xdsclient/attributes.go.html#line-33" class="ident">XDSClient</a>, <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>)</code></span>
+<span class="codeline" id="line-57"><code>}</code></span>
+<span class="codeline" id="line-58"><code></code></span>
+<span class="codeline" id="line-59"><code><span class="comment">// Build helps implement the resolver.Builder interface.</span></code></span>
+<span class="codeline" id="line-60"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-61"><code><span class="comment">// The xds bootstrap process is performed (and a new xds client is built) every</span></code></span>
+<span class="codeline" id="line-62"><code><span class="comment">// time an xds resolver is built.</span></code></span>
+<span class="codeline" id="line-63"><code><span class="keyword">func</span> (<label for="r3" class="ident">b</label> *<a href="#line-55" class="ident">xdsResolverBuilder</a>) <label for="r4" class="ident"><a href="../../../../../../imp/google.golang.org/grpc/xds/internal/resolver.xdsResolverBuilder^fcffb.html#name-.Build" class="ident">Build</a></label>(<label for="r5" class="ident">t</label> <a href="../../../../../../pkg/google.golang.org/grpc/resolver.html" class="ident i7">resolver</a>.<a href="../../../resolver/resolver.go.html#line-222" class="ident">Target</a>, <label for="r6" class="ident">cc</label> <a href="../../../../../../pkg/google.golang.org/grpc/resolver.html" class="ident i7">resolver</a>.<a href="../../../resolver/resolver.go.html#line-182" class="ident">ClientConn</a>, <label for="r7" class="ident">opts</label> <a href="../../../../../../pkg/google.golang.org/grpc/resolver.html" class="ident i7">resolver</a>.<a href="../../../resolver/resolver.go.html#line-136" class="ident">BuildOptions</a>) (<a href="../../../../../../pkg/google.golang.org/grpc/resolver.html" class="ident i7">resolver</a>.<a href="../../../resolver/resolver.go.html#line-245" class="ident">Resolver</a>, <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-64"><code>	<label for="r8" class="ident">r</label> := &amp;<a href="#line-133" class="ident">xdsResolver</a>{</code></span>
+<span class="codeline" id="line-65"><code>		<a href="#line-134" class="ident">target</a>:         <label for="r5" class="ident">t</label>,</code></span>
+<span class="codeline" id="line-66"><code>		<a href="#line-135" class="ident">cc</a>:             <label for="r6" class="ident">cc</label>,</code></span>
+<span class="codeline" id="line-67"><code>		<a href="#line-136" class="ident">closed</a>:         <a href="../../../../../../pkg/google.golang.org/grpc/internal/grpcsync.html" class="ident i4">grpcsync</a>.<a href="../../../internal/grpcsync/event.go.html#line-59" class="ident">NewEvent</a>(),</code></span>
+<span class="codeline" id="line-68"><code>		<a href="#line-144" class="ident">updateCh</a>:       <a href="../../../../../runtime/chan.go.html#line-71">make</a>(<span class="keyword">chan</span> <a href="#line-122" class="ident">suWithError</a>, <span class="lit-number">1</span>),</code></span>
+<span class="codeline" id="line-69"><code>		<a href="#line-150" class="ident">activeClusters</a>: <a href="../../../../../../pkg/builtin.html#name-make" class="ident">make</a>(<span class="keyword">map</span>[<a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>]*<a href="serviceconfig.go.html#line-400" class="ident">clusterInfo</a>),</code></span>
+<span class="codeline" id="line-70"><code>	}</code></span>
+<span class="codeline" id="line-71"><code>	<label for="r8" class="ident">r</label>.<a href="#line-138" class="ident">logger</a> = <a href="logging.go.html#line-32" class="ident">prefixLogger</a>((<label for="r8" class="ident">r</label>))</code></span>
+<span class="codeline" id="line-72"><code>	<label for="r8" class="ident">r</label>.<a href="#line-138" class="ident">logger</a>.<a href="../../../internal/grpclog/prefixLogger.go^6d178.html#line-34" class="ident">Infof</a>(<span class="lit-string">"Creating resolver for target: %+v"</span>, <label for="r5" class="ident">t</label>)</code></span>
+<span class="codeline" id="line-73"><code></code></span>
+<span class="codeline" id="line-74"><code>	<label for="r9" class="ident">newXDSClient</label> := <a href="#line-49" class="ident">newXDSClient</a></code></span>
+<span class="codeline" id="line-75"><code>	<span class="keyword">if</span> <label for="r3" class="ident">b</label>.<a href="#line-56" class="ident">newXDSClient</a> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-76"><code>		<label for="r9" class="ident">newXDSClient</label> = <label for="r3" class="ident">b</label>.<a href="#line-56" class="ident">newXDSClient</a></code></span>
+<span class="codeline" id="line-77"><code>	}</code></span>
+<span class="codeline" id="line-78"><code></code></span>
+<span class="codeline" id="line-79"><code>	<label for="r10" class="ident">client</label>, <label for="r11" class="ident">err</label> := <label for="r9" class="ident">newXDSClient</label>()</code></span>
+<span class="codeline" id="line-80"><code>	<span class="keyword">if</span> <label for="r11" class="ident">err</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-81"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../../../fmt/errors.go.html#line-17" class="ident">Errorf</a>(<span class="lit-string">"xds: failed to create xds-client: %v"</span>, <label for="r11" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-82"><code>	}</code></span>
+<span class="codeline" id="line-83"><code>	<label for="r8" class="ident">r</label>.<a href="#line-141" class="ident">client</a> = <label for="r10" class="ident">client</label></code></span>
+<span class="codeline" id="line-84"><code></code></span>
+<span class="codeline" id="line-85"><code>	<span class="comment">// If xds credentials were specified by the user, but bootstrap configs do</span></code></span>
+<span class="codeline" id="line-86"><code><span class="comment">	// not contain any certificate provider configuration, it is better to fail</span></code></span>
+<span class="codeline" id="line-87"><code><span class="comment">	// right now rather than failing when attempting to create certificate</span></code></span>
+<span class="codeline" id="line-88"><code><span class="comment">	// providers after receiving an CDS response with security configuration.</span></code></span>
+<span class="codeline" id="line-89"><code>	<span class="keyword">var</span> <label for="r12" class="ident">creds</label> <a href="../../../../../../pkg/google.golang.org/grpc/credentials.html" class="ident i2">credentials</a>.<a href="../../../credentials/credentials.go.html#line-129" class="ident">TransportCredentials</a></code></span>
+<span class="codeline" id="line-90"><code>	<span class="keyword">switch</span> {</code></span>
+<span class="codeline" id="line-91"><code>	<span class="keyword">case</span> <label for="r7" class="ident">opts</label>.<a href="../../../resolver/resolver.go.html#line-145" class="ident">DialCreds</a> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>:</code></span>
+<span class="codeline" id="line-92"><code>		<label for="r12" class="ident">creds</label> = <label for="r7" class="ident">opts</label>.<a href="../../../resolver/resolver.go.html#line-145" class="ident">DialCreds</a></code></span>
+<span class="codeline" id="line-93"><code>	<span class="keyword">case</span> <label for="r7" class="ident">opts</label>.<a href="../../../resolver/resolver.go.html#line-151" class="ident">CredsBundle</a> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>:</code></span>
+<span class="codeline" id="line-94"><code>		<label for="r12" class="ident">creds</label> = <label for="r7" class="ident">opts</label>.<a href="../../../resolver/resolver.go.html#line-151" class="ident">CredsBundle</a>.<a href="../../../credentials/credentials.go.html#line-172" class="ident">TransportCredentials</a>()</code></span>
+<span class="codeline" id="line-95"><code>	}</code></span>
+<span class="codeline" id="line-96"><code>	<span class="keyword">if</span> <label for="r13" class="ident">xc</label>, <label for="r14" class="ident">ok</label> := <label for="r12" class="ident">creds</label>.(<span class="keyword">interface</span>{ <label for="r15" class="ident">UsesXDS</label>() <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> }); <label for="r14" class="ident">ok</label> &amp;&amp; <label for="r13" class="ident">xc</label>.<label for="r15" class="ident">UsesXDS</label>() {</code></span>
+<span class="codeline" id="line-97"><code>		<label for="r16" class="ident">bc</label> := <label for="r10" class="ident">client</label>.<a href="../xdsclient/attributes.go.html#line-45" class="ident">BootstrapConfig</a>()</code></span>
+<span class="codeline" id="line-98"><code>		<span class="keyword">if</span> <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r16" class="ident">bc</label>.<a href="../xdsclient/bootstrap/bootstrap.go.html#line-82" class="ident">CertProviderConfigs</a>) == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-99"><code>			<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"xds: xdsCreds specified but certificate_providers config missing in bootstrap file"</span>)</code></span>
+<span class="codeline" id="line-100"><code>		}</code></span>
+<span class="codeline" id="line-101"><code>	}</code></span>
+<span class="codeline" id="line-102"><code></code></span>
+<span class="codeline" id="line-103"><code>	<span class="comment">// Register a watch on the xdsClient for the user's dial target.</span></code></span>
+<span class="codeline" id="line-104"><code>	<label for="r17" class="ident">cancelWatch</label> := <a href="watch_service.go.html#line-56" class="ident">watchService</a>(<label for="r8" class="ident">r</label>.<a href="#line-141" class="ident">client</a>, <label for="r8" class="ident">r</label>.<a href="#line-134" class="ident">target</a>.<a href="../../../resolver/resolver.go.html#line-225" class="ident">Endpoint</a>, <label for="r8" class="ident">r</label>.<a href="#line-253" class="ident">handleServiceUpdate</a>, <label for="r8" class="ident">r</label>.<a href="#line-138" class="ident">logger</a>)</code></span>
+<span class="codeline" id="line-105"><code>	<label for="r8" class="ident">r</label>.<a href="#line-138" class="ident">logger</a>.<a href="../../../internal/grpclog/prefixLogger.go^6d178.html#line-34" class="ident">Infof</a>(<span class="lit-string">"Watch started on resource name %v with xds-client %p"</span>, <label for="r8" class="ident">r</label>.<a href="#line-134" class="ident">target</a>.<a href="../../../resolver/resolver.go.html#line-225" class="ident">Endpoint</a>, <label for="r8" class="ident">r</label>.<a href="#line-141" class="ident">client</a>)</code></span>
+<span class="codeline" id="line-106"><code>	<label for="r8" class="ident">r</label>.<a href="#line-146" class="ident">cancelWatch</a> = <span class="keyword">func</span>() {</code></span>
+<span class="codeline" id="line-107"><code>		<label for="r17" class="ident">cancelWatch</label>()</code></span>
+<span class="codeline" id="line-108"><code>		<label for="r8" class="ident">r</label>.<a href="#line-138" class="ident">logger</a>.<a href="../../../internal/grpclog/prefixLogger.go^6d178.html#line-34" class="ident">Infof</a>(<span class="lit-string">"Watch cancel on resource name %v with xds-client %p"</span>, <label for="r8" class="ident">r</label>.<a href="#line-134" class="ident">target</a>.<a href="../../../resolver/resolver.go.html#line-225" class="ident">Endpoint</a>, <label for="r8" class="ident">r</label>.<a href="#line-141" class="ident">client</a>)</code></span>
+<span class="codeline" id="line-109"><code>	}</code></span>
+<span class="codeline" id="line-110"><code></code></span>
+<span class="codeline" id="line-111"><code>	<span class="keyword">go</span> <label for="r8" class="ident">r</label>.<a href="#line-194" class="ident">run</a>()</code></span>
+<span class="codeline" id="line-112"><code>	<span class="keyword">return</span> <label for="r8" class="ident">r</label>, <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-113"><code>}</code></span>
+<span class="codeline" id="line-114"><code></code></span>
+<span class="codeline" id="line-115"><code><span class="comment">// Name helps implement the resolver.Builder interface.</span></code></span>
+<span class="codeline" id="line-116"><code><span class="keyword">func</span> (*<a href="#line-55" class="ident">xdsResolverBuilder</a>) <label for="r18" class="ident"><a href="../../../../../../imp/google.golang.org/grpc/xds/internal/resolver.xdsResolverBuilder^fcffb.html#name-.Scheme" class="ident">Scheme</a></label>() <a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-117"><code>	<span class="keyword">return</span> <a href="#line-35" class="ident">xdsScheme</a></code></span>
+<span class="codeline" id="line-118"><code>}</code></span>
+<span class="codeline" id="line-119"><code></code></span>
+<span class="codeline" id="line-120"><code><span class="comment">// suWithError wraps the ServiceUpdate and error received through a watch API</span></code></span>
+<span class="codeline" id="line-121"><code><span class="comment">// callback, so that it can pushed onto the update channel as a single entity.</span></code></span>
+<span class="codeline" id="line-122"><code><span class="keyword">type</span> <a href="../../../../../../pkg/google.golang.org/grpc/xds/internal/resolver.html#name-suWithError" class="ident">suWithError</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-123"><code>	su          <a href="watch_service.go.html#line-34" class="ident">serviceUpdate</a></code></span>
+<span class="codeline" id="line-124"><code>	emptyUpdate <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-125"><code>	err         <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a></code></span>
+<span class="codeline" id="line-126"><code>}</code></span>
+<span class="codeline" id="line-127"><code></code></span>
+<span class="codeline" id="line-128"><code><span class="comment">// xdsResolver implements the resolver.Resolver interface.</span></code></span>
+<span class="codeline" id="line-129"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-130"><code><span class="comment">// It registers a watcher for ServiceConfig updates with the xdsClient object</span></code></span>
+<span class="codeline" id="line-131"><code><span class="comment">// (which performs LDS/RDS queries for the same), and passes the received</span></code></span>
+<span class="codeline" id="line-132"><code><span class="comment">// updates to the ClientConn.</span></code></span>
+<span class="codeline" id="line-133"><code><span class="keyword">type</span> <a href="../../../../../../pkg/google.golang.org/grpc/xds/internal/resolver.html#name-xdsResolver" class="ident">xdsResolver</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-134"><code>	target <a href="../../../../../../pkg/google.golang.org/grpc/resolver.html" class="ident i7">resolver</a>.<a href="../../../resolver/resolver.go.html#line-222" class="ident">Target</a></code></span>
+<span class="codeline" id="line-135"><code>	cc     <a href="../../../../../../pkg/google.golang.org/grpc/resolver.html" class="ident i7">resolver</a>.<a href="../../../resolver/resolver.go.html#line-182" class="ident">ClientConn</a></code></span>
+<span class="codeline" id="line-136"><code>	closed *<a href="../../../../../../pkg/google.golang.org/grpc/internal/grpcsync.html" class="ident i4">grpcsync</a>.<a href="../../../internal/grpcsync/event.go.html#line-29" class="ident">Event</a></code></span>
+<span class="codeline" id="line-137"><code></code></span>
+<span class="codeline" id="line-138"><code>	logger *<a href="../../../../../../pkg/google.golang.org/grpc/internal/grpclog.html" class="ident i3">grpclog</a>.<a href="../../../internal/grpclog/prefixLogger.go^6d178.html#line-28" class="ident">PrefixLogger</a></code></span>
+<span class="codeline" id="line-139"><code></code></span>
+<span class="codeline" id="line-140"><code>	<span class="comment">// The underlying xdsClient which performs all xDS requests and responses.</span></code></span>
+<span class="codeline" id="line-141"><code>	client <a href="../../../../../../pkg/google.golang.org/grpc/xds/internal/xdsclient.html" class="ident i8">xdsclient</a>.<a href="../xdsclient/attributes.go.html#line-33" class="ident">XDSClient</a></code></span>
+<span class="codeline" id="line-142"><code>	<span class="comment">// A channel for the watch API callback to write service updates on to. The</span></code></span>
+<span class="codeline" id="line-143"><code><span class="comment">	// updates are read by the run goroutine and passed on to the ClientConn.</span></code></span>
+<span class="codeline" id="line-144"><code>	updateCh <span class="keyword">chan</span> <a href="#line-122" class="ident">suWithError</a></code></span>
+<span class="codeline" id="line-145"><code>	<span class="comment">// cancelWatch is the function to cancel the watcher.</span></code></span>
+<span class="codeline" id="line-146"><code>	cancelWatch <span class="keyword">func</span>()</code></span>
+<span class="codeline" id="line-147"><code></code></span>
+<span class="codeline" id="line-148"><code>	<span class="comment">// activeClusters is a map from cluster name to a ref count.  Only read or</span></code></span>
+<span class="codeline" id="line-149"><code><span class="comment">	// written during a service update (synchronous).</span></code></span>
+<span class="codeline" id="line-150"><code>	activeClusters <span class="keyword">map</span>[<a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>]*<a href="serviceconfig.go.html#line-400" class="ident">clusterInfo</a></code></span>
+<span class="codeline" id="line-151"><code></code></span>
+<span class="codeline" id="line-152"><code>	curConfigSelector *<a href="serviceconfig.go.html#line-136" class="ident">configSelector</a></code></span>
+<span class="codeline" id="line-153"><code>}</code></span>
+<span class="codeline" id="line-154"><code></code></span>
+<span class="codeline" id="line-155"><code><span class="comment">// sendNewServiceConfig prunes active clusters, generates a new service config</span></code></span>
+<span class="codeline" id="line-156"><code><span class="comment">// based on the current set of active clusters, and sends an update to the</span></code></span>
+<span class="codeline" id="line-157"><code><span class="comment">// channel with that service config and the provided config selector.  Returns</span></code></span>
+<span class="codeline" id="line-158"><code><span class="comment">// false if an error occurs while generating the service config and the update</span></code></span>
+<span class="codeline" id="line-159"><code><span class="comment">// cannot be sent.</span></code></span>
+<span class="codeline" id="line-160"><code><span class="keyword">func</span> (<label for="r19" class="ident">r</label> *<a href="#line-133" class="ident">xdsResolver</a>) <label for="r20" class="ident">sendNewServiceConfig</label>(<label for="r21" class="ident">cs</label> *<a href="serviceconfig.go.html#line-136" class="ident">configSelector</a>) <a href="../../../../../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-161"><code>	<span class="comment">// Delete entries from r.activeClusters with zero references;</span></code></span>
+<span class="codeline" id="line-162"><code><span class="comment">	// otherwise serviceConfigJSON will generate a config including</span></code></span>
+<span class="codeline" id="line-163"><code><span class="comment">	// them.</span></code></span>
+<span class="codeline" id="line-164"><code>	<label for="r19" class="ident">r</label>.<a href="serviceconfig.go.html#line-75" class="ident">pruneActiveClusters</a>()</code></span>
+<span class="codeline" id="line-165"><code></code></span>
+<span class="codeline" id="line-166"><code>	<span class="keyword">if</span> <label for="r21" class="ident">cs</label> == <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; <a href="../../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r19" class="ident">r</label>.<a href="#line-150" class="ident">activeClusters</a>) == <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-167"><code>		<span class="comment">// There are no clusters and we are sending a failing configSelector.</span></code></span>
+<span class="codeline" id="line-168"><code><span class="comment">		// Send an empty config, which picks pick-first, with no address, and</span></code></span>
+<span class="codeline" id="line-169"><code><span class="comment">		// puts the ClientConn into transient failure.</span></code></span>
+<span class="codeline" id="line-170"><code>		<label for="r19" class="ident">r</label>.<a href="#line-135" class="ident">cc</a>.<a href="../../../resolver/resolver.go.html#line-184" class="ident">UpdateState</a>(<a href="../../../../../../pkg/google.golang.org/grpc/resolver.html" class="ident i7">resolver</a>.<a href="../../../resolver/resolver.go.html#line-161" class="ident">State</a>{<a href="../../../resolver/resolver.go.html#line-168" class="ident">ServiceConfig</a>: <label for="r19" class="ident">r</label>.<a href="#line-135" class="ident">cc</a>.<a href="../../../resolver/resolver.go.html#line-202" class="ident">ParseServiceConfig</a>(<span class="lit-string">"{}"</span>)})</code></span>
+<span class="codeline" id="line-171"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-172"><code>	}</code></span>
+<span class="codeline" id="line-173"><code></code></span>
+<span class="codeline" id="line-174"><code>	<span class="comment">// Produce the service config.</span></code></span>
+<span class="codeline" id="line-175"><code>	<label for="r22" class="ident">sc</label>, <label for="r23" class="ident">err</label> := <a href="serviceconfig.go.html#line-86" class="ident">serviceConfigJSON</a>(<label for="r19" class="ident">r</label>.<a href="#line-150" class="ident">activeClusters</a>)</code></span>
+<span class="codeline" id="line-176"><code>	<span class="keyword">if</span> <label for="r23" class="ident">err</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-177"><code>		<span class="comment">// JSON marshal error; should never happen.</span></code></span>
+<span class="codeline" id="line-178"><code>		<label for="r19" class="ident">r</label>.<a href="#line-138" class="ident">logger</a>.<a href="../../../internal/grpclog/prefixLogger.go^6d178.html#line-55" class="ident">Errorf</a>(<span class="lit-string">"%v"</span>, <label for="r23" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-179"><code>		<label for="r19" class="ident">r</label>.<a href="#line-135" class="ident">cc</a>.<a href="../../../resolver/resolver.go.html#line-188" class="ident">ReportError</a>(<label for="r23" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-180"><code>		<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-181"><code>	}</code></span>
+<span class="codeline" id="line-182"><code>	<label for="r19" class="ident">r</label>.<a href="#line-138" class="ident">logger</a>.<a href="../../../internal/grpclog/prefixLogger.go^6d178.html#line-34" class="ident">Infof</a>(<span class="lit-string">"Received update on resource %v from xds-client %p, generated service config: %v"</span>, <label for="r19" class="ident">r</label>.<a href="#line-134" class="ident">target</a>.<a href="../../../resolver/resolver.go.html#line-225" class="ident">Endpoint</a>, <label for="r19" class="ident">r</label>.<a href="#line-141" class="ident">client</a>, <a href="../../../../../../pkg/google.golang.org/grpc/internal/pretty.html" class="ident i5">pretty</a>.<a href="../../../internal/pretty/pretty.go.html#line-75" class="ident">FormatJSON</a>(<label for="r22" class="ident">sc</label>))</code></span>
+<span class="codeline" id="line-183"><code></code></span>
+<span class="codeline" id="line-184"><code>	<span class="comment">// Send the update to the ClientConn.</span></code></span>
+<span class="codeline" id="line-185"><code>	<label for="r24" class="ident">state</label> := <a href="../../../../../../pkg/google.golang.org/grpc/internal/resolver.html" class="ident i6">iresolver</a>.<a href="../../../internal/resolver/config_selector.go.html#line-134" class="ident">SetConfigSelector</a>(<a href="../../../../../../pkg/google.golang.org/grpc/resolver.html" class="ident i7">resolver</a>.<a href="../../../resolver/resolver.go.html#line-161" class="ident">State</a>{</code></span>
+<span class="codeline" id="line-186"><code>		<a href="../../../resolver/resolver.go.html#line-168" class="ident">ServiceConfig</a>: <label for="r19" class="ident">r</label>.<a href="#line-135" class="ident">cc</a>.<a href="../../../resolver/resolver.go.html#line-202" class="ident">ParseServiceConfig</a>(<a href="../../../../../../pkg/builtin.html#name-string" class="ident">string</a>(<label for="r22" class="ident">sc</label>)),</code></span>
+<span class="codeline" id="line-187"><code>	}, <label for="r21" class="ident">cs</label>)</code></span>
+<span class="codeline" id="line-188"><code>	<label for="r19" class="ident">r</label>.<a href="#line-135" class="ident">cc</a>.<a href="../../../resolver/resolver.go.html#line-184" class="ident">UpdateState</a>(<a href="../../../../../../pkg/google.golang.org/grpc/xds/internal/xdsclient.html" class="ident i8">xdsclient</a>.<a href="../xdsclient/attributes.go.html#line-56" class="ident">SetClient</a>(<label for="r24" class="ident">state</label>, <label for="r19" class="ident">r</label>.<a href="#line-141" class="ident">client</a>))</code></span>
+<span class="codeline" id="line-189"><code>	<span class="keyword">return</span> <a href="../../../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-190"><code>}</code></span>
+<span class="codeline" id="line-191"><code></code></span>
+<span class="codeline" id="line-192"><code><span class="comment">// run is a long running goroutine which blocks on receiving service updates</span></code></span>
+<span class="codeline" id="line-193"><code><span class="comment">// and passes it on the ClientConn.</span></code></span>
+<span class="codeline" id="line-194"><code><span class="keyword">func</span> (<label for="r25" class="ident">r</label> *<a href="#line-133" class="ident">xdsResolver</a>) <label for="r26" class="ident">run</label>() {</code></span>
+<span class="codeline" id="line-195"><code>	<span class="keyword">for</span> {</code></span>
+<span class="codeline" id="line-196"><code>		<a href="../../../../../runtime/select.go.html#line-121"><span class="keyword">select</span></a> {</code></span>
+<span class="codeline" id="line-197"><code>		<span class="keyword">case</span> <a href="../../../../../runtime/chan.go.html#line-438">&lt;-</a><label for="r25" class="ident">r</label>.<a href="#line-136" class="ident">closed</a>.<a href="../../../internal/grpcsync/event.go.html#line-49" class="ident">Done</a>():</code></span>
+<span class="codeline" id="line-198"><code>			<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-199"><code>		<span class="keyword">case</span> <label for="r27" class="ident">update</label> := <a href="../../../../../runtime/chan.go.html#line-438">&lt;-</a><label for="r25" class="ident">r</label>.<a href="#line-144" class="ident">updateCh</a>:</code></span>
+<span class="codeline" id="line-200"><code>			<span class="keyword">if</span> <label for="r27" class="ident">update</label>.<a href="#line-125" class="ident">err</a> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-201"><code>				<label for="r25" class="ident">r</label>.<a href="#line-138" class="ident">logger</a>.<a href="../../../internal/grpclog/prefixLogger.go^6d178.html#line-45" class="ident">Warningf</a>(<span class="lit-string">"Watch error on resource %v from xds-client %p, %v"</span>, <label for="r25" class="ident">r</label>.<a href="#line-134" class="ident">target</a>.<a href="../../../resolver/resolver.go.html#line-225" class="ident">Endpoint</a>, <label for="r25" class="ident">r</label>.<a href="#line-141" class="ident">client</a>, <label for="r27" class="ident">update</label>.<a href="#line-125" class="ident">err</a>)</code></span>
+<span class="codeline" id="line-202"><code>				<span class="keyword">if</span> <a href="../../../../../../pkg/google.golang.org/grpc/xds/internal/xdsclient.html" class="ident i8">xdsclient</a>.<a href="../xdsclient/errors.go.html#line-55" class="ident">ErrType</a>(<label for="r27" class="ident">update</label>.<a href="#line-125" class="ident">err</a>) == <a href="../../../../../../pkg/google.golang.org/grpc/xds/internal/xdsclient.html" class="ident i8">xdsclient</a>.<a href="../xdsclient/errors.go.html#line-36" class="ident">ErrorTypeResourceNotFound</a> {</code></span>
+<span class="codeline" id="line-203"><code>					<span class="comment">// If error is resource-not-found, it means the LDS</span></code></span>
+<span class="codeline" id="line-204"><code><span class="comment">					// resource was removed. Ultimately send an empty service</span></code></span>
+<span class="codeline" id="line-205"><code><span class="comment">					// config, which picks pick-first, with no address, and</span></code></span>
+<span class="codeline" id="line-206"><code><span class="comment">					// puts the ClientConn into transient failure.  Before we</span></code></span>
+<span class="codeline" id="line-207"><code><span class="comment">					// can do that, we may need to send a normal service config</span></code></span>
+<span class="codeline" id="line-208"><code><span class="comment">					// along with an erroring (nil) config selector.</span></code></span>
+<span class="codeline" id="line-209"><code>					<label for="r25" class="ident">r</label>.<a href="#line-160" class="ident">sendNewServiceConfig</a>(<a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a>)</code></span>
+<span class="codeline" id="line-210"><code>					<span class="comment">// Stop and dereference the active config selector, if one exists.</span></code></span>
+<span class="codeline" id="line-211"><code>					<label for="r25" class="ident">r</label>.<a href="#line-152" class="ident">curConfigSelector</a>.<a href="serviceconfig.go.html#line-311" class="ident">stop</a>()</code></span>
+<span class="codeline" id="line-212"><code>					<label for="r25" class="ident">r</label>.<a href="#line-152" class="ident">curConfigSelector</a> = <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-213"><code>					<span class="keyword">continue</span></code></span>
+<span class="codeline" id="line-214"><code>				}</code></span>
+<span class="codeline" id="line-215"><code>				<span class="comment">// Send error to ClientConn, and balancers, if error is not</span></code></span>
+<span class="codeline" id="line-216"><code><span class="comment">				// resource not found.  No need to update resolver state if we</span></code></span>
+<span class="codeline" id="line-217"><code><span class="comment">				// can keep using the old config.</span></code></span>
+<span class="codeline" id="line-218"><code>				<label for="r25" class="ident">r</label>.<a href="#line-135" class="ident">cc</a>.<a href="../../../resolver/resolver.go.html#line-188" class="ident">ReportError</a>(<label for="r27" class="ident">update</label>.<a href="#line-125" class="ident">err</a>)</code></span>
+<span class="codeline" id="line-219"><code>				<span class="keyword">continue</span></code></span>
+<span class="codeline" id="line-220"><code>			}</code></span>
+<span class="codeline" id="line-221"><code>			<span class="keyword">if</span> <label for="r27" class="ident">update</label>.<a href="#line-124" class="ident">emptyUpdate</a> {</code></span>
+<span class="codeline" id="line-222"><code>				<label for="r25" class="ident">r</label>.<a href="#line-160" class="ident">sendNewServiceConfig</a>(<label for="r25" class="ident">r</label>.<a href="#line-152" class="ident">curConfigSelector</a>)</code></span>
+<span class="codeline" id="line-223"><code>				<span class="keyword">continue</span></code></span>
+<span class="codeline" id="line-224"><code>			}</code></span>
+<span class="codeline" id="line-225"><code></code></span>
+<span class="codeline" id="line-226"><code>			<span class="comment">// Create the config selector for this update.</span></code></span>
+<span class="codeline" id="line-227"><code>			<label for="r28" class="ident">cs</label>, <label for="r29" class="ident">err</label> := <label for="r25" class="ident">r</label>.<a href="serviceconfig.go.html#line-342" class="ident">newConfigSelector</a>(<label for="r27" class="ident">update</label>.<a href="#line-123" class="ident">su</a>)</code></span>
+<span class="codeline" id="line-228"><code>			<span class="keyword">if</span> <label for="r29" class="ident">err</label> != <a href="../../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-229"><code>				<label for="r25" class="ident">r</label>.<a href="#line-138" class="ident">logger</a>.<a href="../../../internal/grpclog/prefixLogger.go^6d178.html#line-45" class="ident">Warningf</a>(<span class="lit-string">"Error parsing update on resource %v from xds-client %p: %v"</span>, <label for="r25" class="ident">r</label>.<a href="#line-134" class="ident">target</a>.<a href="../../../resolver/resolver.go.html#line-225" class="ident">Endpoint</a>, <label for="r25" class="ident">r</label>.<a href="#line-141" class="ident">client</a>, <label for="r29" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-230"><code>				<label for="r25" class="ident">r</label>.<a href="#line-135" class="ident">cc</a>.<a href="../../../resolver/resolver.go.html#line-188" class="ident">ReportError</a>(<label for="r29" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-231"><code>				<span class="keyword">continue</span></code></span>
+<span class="codeline" id="line-232"><code>			}</code></span>
+<span class="codeline" id="line-233"><code></code></span>
+<span class="codeline" id="line-234"><code>			<span class="keyword">if</span> !<label for="r25" class="ident">r</label>.<a href="#line-160" class="ident">sendNewServiceConfig</a>(<label for="r28" class="ident">cs</label>) {</code></span>
+<span class="codeline" id="line-235"><code>				<span class="comment">// JSON error creating the service config (unexpected); erase</span></code></span>
+<span class="codeline" id="line-236"><code><span class="comment">				// this config selector and ignore this update, continuing with</span></code></span>
+<span class="codeline" id="line-237"><code><span class="comment">				// the previous config selector.</span></code></span>
+<span class="codeline" id="line-238"><code>				<label for="r28" class="ident">cs</label>.<a href="serviceconfig.go.html#line-311" class="ident">stop</a>()</code></span>
+<span class="codeline" id="line-239"><code>				<span class="keyword">continue</span></code></span>
+<span class="codeline" id="line-240"><code>			}</code></span>
+<span class="codeline" id="line-241"><code></code></span>
+<span class="codeline" id="line-242"><code>			<span class="comment">// Decrement references to the old config selector and assign the</span></code></span>
+<span class="codeline" id="line-243"><code><span class="comment">			// new one as the current one.</span></code></span>
+<span class="codeline" id="line-244"><code>			<label for="r25" class="ident">r</label>.<a href="#line-152" class="ident">curConfigSelector</a>.<a href="serviceconfig.go.html#line-311" class="ident">stop</a>()</code></span>
+<span class="codeline" id="line-245"><code>			<label for="r25" class="ident">r</label>.<a href="#line-152" class="ident">curConfigSelector</a> = <label for="r28" class="ident">cs</label></code></span>
+<span class="codeline" id="line-246"><code>		}</code></span>
+<span class="codeline" id="line-247"><code>	}</code></span>
+<span class="codeline" id="line-248"><code>}</code></span>
+<span class="codeline" id="line-249"><code></code></span>
+<span class="codeline" id="line-250"><code><span class="comment">// handleServiceUpdate is the callback which handles service updates. It writes</span></code></span>
+<span class="codeline" id="line-251"><code><span class="comment">// the received update to the update channel, which is picked by the run</span></code></span>
+<span class="codeline" id="line-252"><code><span class="comment">// goroutine.</span></code></span>
+<span class="codeline" id="line-253"><code><span class="keyword">func</span> (<label for="r30" class="ident">r</label> *<a href="#line-133" class="ident">xdsResolver</a>) <label for="r31" class="ident">handleServiceUpdate</label>(<label for="r32" class="ident">su</label> <a href="watch_service.go.html#line-34" class="ident">serviceUpdate</a>, <label for="r33" class="ident">err</label> <a href="../../../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-254"><code>	<span class="keyword">if</span> <label for="r30" class="ident">r</label>.<a href="#line-136" class="ident">closed</a>.<a href="../../../internal/grpcsync/event.go.html#line-54" class="ident">HasFired</a>() {</code></span>
+<span class="codeline" id="line-255"><code>		<span class="comment">// Do not pass updates to the ClientConn once the resolver is closed.</span></code></span>
+<span class="codeline" id="line-256"><code>		<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-257"><code>	}</code></span>
+<span class="codeline" id="line-258"><code>	<span class="comment">// Remove any existing entry in updateCh and replace with the new one.</span></code></span>
+<span class="codeline" id="line-259"><code>	<a href="../../../../../runtime/chan.go.html#line-707"><span class="keyword">select</span></a> {</code></span>
+<span class="codeline" id="line-260"><code>	<span class="keyword">case</span> <a href="../../../../../runtime/chan.go.html#line-438">&lt;-</a><label for="r30" class="ident">r</label>.<a href="#line-144" class="ident">updateCh</a>:</code></span>
+<span class="codeline" id="line-261"><code>	<span class="keyword">default</span>:</code></span>
+<span class="codeline" id="line-262"><code>	}</code></span>
+<span class="codeline" id="line-263"><code>	<label for="r30" class="ident">r</label>.<a href="#line-144" class="ident">updateCh</a> &lt;- <a href="#line-122" class="ident">suWithError</a>{<a href="#line-123" class="ident">su</a>: <label for="r32" class="ident">su</label>, <a href="#line-125" class="ident">err</a>: <label for="r33" class="ident">err</label>}</code></span>
+<span class="codeline" id="line-264"><code>}</code></span>
+<span class="codeline" id="line-265"><code></code></span>
+<span class="codeline" id="line-266"><code><span class="comment">// ResolveNow is a no-op at this point.</span></code></span>
+<span class="codeline" id="line-267"><code><span class="keyword">func</span> (*<a href="#line-133" class="ident">xdsResolver</a>) <label for="r34" class="ident"><a href="../../../../../../imp/google.golang.org/grpc/xds/internal/resolver.xdsResolver^2546c.html#name-.ResolveNow" class="ident">ResolveNow</a></label>(<label for="r35" class="ident">o</label> <a href="../../../../../../pkg/google.golang.org/grpc/resolver.html" class="ident i7">resolver</a>.<a href="../../../resolver/resolver.go.html#line-241" class="ident">ResolveNowOptions</a>) {}</code></span>
+<span class="codeline" id="line-268"><code></code></span>
+<span class="codeline" id="line-269"><code><span class="comment">// Close closes the resolver, and also closes the underlying xdsClient.</span></code></span>
+<span class="codeline" id="line-270"><code><span class="keyword">func</span> (<label for="r36" class="ident">r</label> *<a href="#line-133" class="ident">xdsResolver</a>) <label for="r37" class="ident"><a href="../../../../../../imp/google.golang.org/grpc/xds/internal/resolver.xdsResolver^2546c.html#name-.Close" class="ident">Close</a></label>() {</code></span>
+<span class="codeline" id="line-271"><code>	<label for="r36" class="ident">r</label>.<a href="#line-146" class="ident">cancelWatch</a>()</code></span>
+<span class="codeline" id="line-272"><code>	<label for="r36" class="ident">r</label>.<a href="#line-141" class="ident">client</a>.<a href="../xdsclient/attributes.go.html#line-46" class="ident">Close</a>()</code></span>
+<span class="codeline" id="line-273"><code>	<label for="r36" class="ident">r</label>.<a href="#line-136" class="ident">closed</a>.<a href="../../../internal/grpcsync/event.go.html#line-38" class="ident">Fire</a>()</code></span>
+<span class="codeline" id="line-274"><code>	<label for="r36" class="ident">r</label>.<a href="#line-138" class="ident">logger</a>.<a href="../../../internal/grpclog/prefixLogger.go^6d178.html#line-34" class="ident">Infof</a>(<span class="lit-string">"Shutdown"</span>)</code></span>
+<span class="codeline" id="line-275"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

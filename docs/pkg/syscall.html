@@ -15,7 +15,7 @@
 	<a href="../index.html#pkg-syscall">syscall</a><i> (on <a href="https://pkg.go.dev/syscall" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../dep/syscall.html">8 packages</a>, and imported by <a href="../dep/syscall.html#imported-by">10 packages</a>
+	imports <a href="../dep/syscall.html">8 packages</a>, and imported by <a href="../dep/syscall.html#imported-by">14 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -129,7 +129,7 @@
 			<input type='checkbox' class="showhide" id="Cmsghdr-showhide-inputofs"><i><label for="Cmsghdr-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="Cmsghdr-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func <a href="#name-socketControlMessageHeaderAndData">socketControlMessageHeaderAndData</a>(b []<a href="builtin.html#name-byte">byte</a>) (*<b>Cmsghdr</b>, []<a href="builtin.html#name-byte">byte</a>, <a href="builtin.html#name-error">error</a>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-Conn" data-popularity="1250">	<input type='checkbox' class="fold" id="Conn-fold-content"><label for="Conn-fold-content"> type <a href="../src/syscall/net.go.html#line-31">Conn</a> <b><i>(interface)</i></b></label><span id='Conn-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Conn" data-popularity="1400">	<input type='checkbox' class="fold" id="Conn-fold-content"><label for="Conn-fold-content"> type <a href="../src/syscall/net.go.html#line-31">Conn</a> <b><i>(interface)</i></b></label><span id='Conn-fold-content-docs' class="fold-docs">
 		Conn is implemented by some types in the net and os packages to provide
 		access to the underlying file descriptor or handle.
 
@@ -137,7 +137,7 @@
 			<input type='checkbox' class="fold" id="Conn-fold-method-SyscallConn"><label for="Conn-fold-method-SyscallConn">( T) <a href="../src/syscall/net.go.html#line-33">SyscallConn</a>() (<a href="#name-RawConn">RawConn</a>, <a href="builtin.html#name-error">error</a>)</label><span id='Conn-fold-method-SyscallConn-docs' class="fold-docs">
 				SyscallConn returns a raw network connection.
 </span></span></span>
-		<input type='checkbox' class="fold" id="Conn-fold-impledby"><label for="Conn-fold-impledby">Implemented By (<i>at least 8, in which 7 are exported</i>)</label><span id='Conn-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Conn-fold-impledby"><label for="Conn-fold-impledby">Implemented By (<i>at least 9, in which 7 are exported</i>)</label><span id='Conn-fold-impledby-items' class="fold-items"><span>
 			*net.<a href="net.html#name-IPConn">IPConn</a></span><span>
 			*net.<a href="net.html#name-TCPConn">TCPConn</a></span><span>
 			*net.<a href="net.html#name-TCPListener">TCPListener</a></span><span>
@@ -145,8 +145,9 @@
 			*net.<a href="net.html#name-UnixConn">UnixConn</a></span><span>
 			*net.<a href="net.html#name-UnixListener">UnixListener</a></span><span>
 			*os.<a href="os.html#name-File">File</a></span>
-			<input type='checkbox' class="showhide" id="Conn-showhide-impedBys"><i><label for="Conn-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="Conn-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
-			 google.golang.org/grpc/internal/credentials.<a href="google.golang.org/grpc/internal/credentials.html#name-syscallConn">syscallConn</a></i></span></span>
+			<input type='checkbox' class="showhide" id="Conn-showhide-impedBys"><i><label for="Conn-showhide-impedBys" class="show-inline">/* 2+ unexporteds ... */</label><label for="Conn-showhide-impedBys" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			 google.golang.org/grpc/internal/credentials.<a href="google.golang.org/grpc/internal/credentials.html#name-syscallConn">syscallConn</a></i></span><span class="hidden"><i>
+			 os/exec.<a href="os/exec.html#name-closeOnce">closeOnce</a></i></span></span>
 
 </span></div><div class="anchor type-res" id="name-Credential" data-popularity="0">	<input type='checkbox' class="fold" id="Credential-fold-content"><label for="Credential-fold-content"> type <a href="../src/syscall/exec_unix.go.html#line-122">Credential</a> <i>(struct)</i></label><span id='Credential-fold-content-docs' class="fold-docs">
 		Credential holds user and group identities to be assumed
@@ -183,7 +184,7 @@
 			func os.<a href="os.html#name-readdir_r">readdir_r</a>(dir <a href="builtin.html#name-uintptr">uintptr</a>, entry *<b>Dirent</b>, result **<b>Dirent</b>) (res <a href="#name-Errno">Errno</a>)</i></span><span class="hidden"><i>
 			func os.<a href="os.html#name-readdir_r">readdir_r</a>(dir <a href="builtin.html#name-uintptr">uintptr</a>, entry *<b>Dirent</b>, result **<b>Dirent</b>) (res <a href="#name-Errno">Errno</a>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-Errno" data-popularity="1660">	<input type='checkbox' class="fold" id="Errno-fold-content"><label for="Errno-fold-content"> type <a href="../src/syscall/syscall_unix.go.html#line-114">Errno</a> <a href="builtin.html#name-uintptr">uintptr</a> <i>(basic type)</i></label><span id='Errno-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Errno" data-popularity="2705">	<input type='checkbox' class="fold" id="Errno-fold-content"><label for="Errno-fold-content"> type <a href="../src/syscall/syscall_unix.go.html#line-114">Errno</a> <a href="builtin.html#name-uintptr">uintptr</a> <i>(basic type)</i></label><span id='Errno-fold-content-docs' class="fold-docs">
 		An Errno is an unsigned number describing an error condition.
 		It implements the error interface. The zero Errno is by convention
 		a non-error, so code to convert from Errno to error should use:
@@ -210,13 +211,18 @@
 			 T : net.<a href="net.html#name-temporary">temporary</a></i></span><span class="hidden"><i>
 			 T : net.<a href="net.html#name-timeout">timeout</a></i></span><span class="hidden"><i>
 			 T : os.<a href="os.html#name-timeout">timeout</a></i></span></span>
-		<input type='checkbox' class="fold" id="Errno-fold-results"><label for="Errno-fold-results">As Outputs Of (<i>at least 15, in which 5 are exported</i>)</label><span id='Errno-fold-results-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Errno-fold-results"><label for="Errno-fold-results">As Outputs Of (<i>at least 28, in which 10 are exported</i>)</label><span id='Errno-fold-results-items' class="fold-items"><span>
 			func <a href="#name-RawSyscall">RawSyscall</a>(trap, a1, a2, a3 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <b>Errno</b>)</span><span>
 			func <a href="#name-RawSyscall6">RawSyscall6</a>(trap, a1, a2, a3, a4, a5, a6 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <b>Errno</b>)</span><span>
 			func <a href="#name-Syscall">Syscall</a>(trap, a1, a2, a3 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <b>Errno</b>)</span><span>
 			func <a href="#name-Syscall6">Syscall6</a>(trap, a1, a2, a3, a4, a5, a6 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <b>Errno</b>)</span><span>
-			func <a href="#name-Syscall9">Syscall9</a>(trap, a1, a2, a3, a4, a5, a6, a7, a8, a9 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <b>Errno</b>)</span>
-			<input type='checkbox' class="showhide" id="Errno-showhide-inputofs"><i><label for="Errno-showhide-inputofs" class="show-inline">/* 10+ unexporteds ... */</label><label for="Errno-showhide-inputofs" class="hide-inline">/* 10+ unexporteds: */</label></i><span class="hidden"><i>
+			func <a href="#name-Syscall9">Syscall9</a>(trap, a1, a2, a3, a4, a5, a6, a7, a8, a9 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <b>Errno</b>)</span><span>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-RawSyscall">RawSyscall</a>(trap, a1, a2, a3 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <b>Errno</b>)</span><span>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-RawSyscall6">RawSyscall6</a>(trap, a1, a2, a3, a4, a5, a6 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <b>Errno</b>)</span><span>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-Syscall">Syscall</a>(trap, a1, a2, a3 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <b>Errno</b>)</span><span>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-Syscall6">Syscall6</a>(trap, a1, a2, a3, a4, a5, a6 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <b>Errno</b>)</span><span>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-Syscall9">Syscall9</a>(num, a1, a2, a3, a4, a5, a6, a7, a8, a9 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <b>Errno</b>)</span>
+			<input type='checkbox' class="showhide" id="Errno-showhide-inputofs"><i><label for="Errno-showhide-inputofs" class="show-inline">/* 18+ unexporteds ... */</label><label for="Errno-showhide-inputofs" class="hide-inline">/* 18+ unexporteds: */</label></i><span class="hidden"><i>
 			func <a href="#name-forkAndExecInChild">forkAndExecInChild</a>(argv0 *<a href="builtin.html#name-byte">byte</a>, argv, envv []*<a href="builtin.html#name-byte">byte</a>, chroot, dir *<a href="builtin.html#name-byte">byte</a>, attr *<a href="#name-ProcAttr">ProcAttr</a>, sys *<a href="#name-SysProcAttr">SysProcAttr</a>, pipe <a href="builtin.html#name-int">int</a>) (pid <a href="builtin.html#name-int">int</a>, err <b>Errno</b>)</i></span><span class="hidden"><i>
 			func <a href="#name-rawSyscall">rawSyscall</a>(fn, a1, a2, a3 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <b>Errno</b>)</i></span><span class="hidden"><i>
 			func <a href="#name-rawSyscall6">rawSyscall6</a>(fn, a1, a2, a3, a4, a5, a6 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <b>Errno</b>)</i></span><span class="hidden"><i>
@@ -226,12 +232,22 @@
 			func <a href="#name-syscall6X">syscall6X</a>(fn, a1, a2, a3, a4, a5, a6 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <b>Errno</b>)</i></span><span class="hidden"><i>
 			func <a href="#name-syscallPtr">syscallPtr</a>(fn, a1, a2, a3 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <b>Errno</b>)</i></span><span class="hidden"><i>
 			func <a href="#name-syscallX">syscallX</a>(fn, a1, a2, a3 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <b>Errno</b>)</i></span><span class="hidden"><i>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-readdir_r">readdir_r</a>(dir <a href="builtin.html#name-uintptr">uintptr</a>, entry *<a href="golang.org/x/sys/unix.html">unix</a>.<a href="golang.org/x/sys/unix.html#name-Dirent">Dirent</a>, result **<a href="golang.org/x/sys/unix.html">unix</a>.<a href="golang.org/x/sys/unix.html#name-Dirent">Dirent</a>) (res <a href="golang.org/x/sys/unix.html">unix</a>.<b><a href="golang.org/x/sys/unix.html#name-Errno">Errno</a></b>)</i></span><span class="hidden"><i>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-syscall_rawSyscall">syscall_rawSyscall</a>(fn, a1, a2, a3 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <a href="golang.org/x/sys/unix.html">unix</a>.<b><a href="golang.org/x/sys/unix.html#name-Errno">Errno</a></b>)</i></span><span class="hidden"><i>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-syscall_rawSyscall6">syscall_rawSyscall6</a>(fn, a1, a2, a3, a4, a5, a6 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <a href="golang.org/x/sys/unix.html">unix</a>.<b><a href="golang.org/x/sys/unix.html#name-Errno">Errno</a></b>)</i></span><span class="hidden"><i>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-syscall_syscall">syscall_syscall</a>(fn, a1, a2, a3 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <a href="golang.org/x/sys/unix.html">unix</a>.<b><a href="golang.org/x/sys/unix.html#name-Errno">Errno</a></b>)</i></span><span class="hidden"><i>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-syscall_syscall6">syscall_syscall6</a>(fn, a1, a2, a3, a4, a5, a6 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <a href="golang.org/x/sys/unix.html">unix</a>.<b><a href="golang.org/x/sys/unix.html#name-Errno">Errno</a></b>)</i></span><span class="hidden"><i>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-syscall_syscall6X">syscall_syscall6X</a>(fn, a1, a2, a3, a4, a5, a6 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <a href="golang.org/x/sys/unix.html">unix</a>.<b><a href="golang.org/x/sys/unix.html#name-Errno">Errno</a></b>)</i></span><span class="hidden"><i>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-syscall_syscall9">syscall_syscall9</a>(fn, a1, a2, a3, a4, a5, a6, a7, a8, a9 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <a href="golang.org/x/sys/unix.html">unix</a>.<b><a href="golang.org/x/sys/unix.html#name-Errno">Errno</a></b>)</i></span><span class="hidden"><i>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-syscall_syscallPtr">syscall_syscallPtr</a>(fn, a1, a2, a3 <a href="builtin.html#name-uintptr">uintptr</a>) (r1, r2 <a href="builtin.html#name-uintptr">uintptr</a>, err <a href="golang.org/x/sys/unix.html">unix</a>.<b><a href="golang.org/x/sys/unix.html#name-Errno">Errno</a></b>)</i></span><span class="hidden"><i>
 			func os.<a href="os.html#name-readdir_r">readdir_r</a>(dir <a href="builtin.html#name-uintptr">uintptr</a>, entry *<a href="#name-Dirent">Dirent</a>, result **<a href="#name-Dirent">Dirent</a>) (res <b>Errno</b>)</i></span></span>
-		<input type='checkbox' class="fold" id="Errno-fold-params"><label for="Errno-fold-params">As Inputs Of (<i>at least 2, neither is exported</i>)</label><span id='Errno-fold-params-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="Errno-showhide-outputofs"><i><label for="Errno-showhide-outputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="Errno-showhide-outputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+		<input type='checkbox' class="fold" id="Errno-fold-params"><label for="Errno-fold-params">As Inputs Of (<i>at least 4, in which 1 are exported</i>)</label><span id='Errno-fold-params-items' class="fold-items"><span>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ErrnoName">ErrnoName</a>(e <b>Errno</b>) <a href="builtin.html#name-string">string</a></span>
+			<input type='checkbox' class="showhide" id="Errno-showhide-outputofs"><i><label for="Errno-showhide-outputofs" class="show-inline">/* 3+ unexporteds ... */</label><label for="Errno-showhide-outputofs" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			func <a href="#name-errnoErr">errnoErr</a>(e <b>Errno</b>) <a href="builtin.html#name-error">error</a></i></span><span class="hidden"><i>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-errnoErr">errnoErr</a>(e <b>Errno</b>) <a href="builtin.html#name-error">error</a></i></span><span class="hidden"><i>
 			func internal/poll.<a href="internal/poll.html#name-errnoErr">errnoErr</a>(e <b>Errno</b>) <a href="builtin.html#name-error">error</a></i></span></span>
-		<input type='checkbox' class="fold" id="Errno-fold-values"><label for="Errno-fold-values">As Types Of (<i>total 107, all are exported</i>)</label><span id='Errno-fold-values-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Errno-fold-values"><label for="Errno-fold-values">As Types Of (<i>total 215, all are exported</i>)</label><span id='Errno-fold-values-items' class="fold-items"><span>
 			const <a href="#name-E2BIG">E2BIG</a></span><span>
 			const <a href="#name-EACCES">EACCES</a></span><span>
 			const <a href="#name-EADDRINUSE">EADDRINUSE</a></span><span>
@@ -338,7 +354,115 @@
 			const <a href="#name-ETXTBSY">ETXTBSY</a></span><span>
 			const <a href="#name-EUSERS">EUSERS</a></span><span>
 			const <a href="#name-EWOULDBLOCK">EWOULDBLOCK</a></span><span>
-			const <a href="#name-EXDEV">EXDEV</a></span></span>
+			const <a href="#name-EXDEV">EXDEV</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-E2BIG">E2BIG</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EACCES">EACCES</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EADDRINUSE">EADDRINUSE</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EADDRNOTAVAIL">EADDRNOTAVAIL</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EAFNOSUPPORT">EAFNOSUPPORT</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EAGAIN">EAGAIN</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EALREADY">EALREADY</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EAUTH">EAUTH</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EBADARCH">EBADARCH</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EBADEXEC">EBADEXEC</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EBADF">EBADF</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EBADMACHO">EBADMACHO</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EBADMSG">EBADMSG</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EBADRPC">EBADRPC</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EBUSY">EBUSY</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ECANCELED">ECANCELED</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ECHILD">ECHILD</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ECONNABORTED">ECONNABORTED</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ECONNREFUSED">ECONNREFUSED</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ECONNRESET">ECONNRESET</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EDEADLK">EDEADLK</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EDESTADDRREQ">EDESTADDRREQ</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EDEVERR">EDEVERR</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EDOM">EDOM</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EDQUOT">EDQUOT</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EEXIST">EEXIST</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EFAULT">EFAULT</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EFBIG">EFBIG</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EFTYPE">EFTYPE</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EHOSTDOWN">EHOSTDOWN</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EHOSTUNREACH">EHOSTUNREACH</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EIDRM">EIDRM</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EILSEQ">EILSEQ</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EINPROGRESS">EINPROGRESS</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EINTR">EINTR</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EINVAL">EINVAL</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EIO">EIO</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EISCONN">EISCONN</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EISDIR">EISDIR</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ELAST">ELAST</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ELOOP">ELOOP</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EMFILE">EMFILE</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EMLINK">EMLINK</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EMSGSIZE">EMSGSIZE</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EMULTIHOP">EMULTIHOP</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENAMETOOLONG">ENAMETOOLONG</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENEEDAUTH">ENEEDAUTH</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENETDOWN">ENETDOWN</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENETRESET">ENETRESET</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENETUNREACH">ENETUNREACH</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENFILE">ENFILE</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOATTR">ENOATTR</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOBUFS">ENOBUFS</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENODATA">ENODATA</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENODEV">ENODEV</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOENT">ENOENT</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOEXEC">ENOEXEC</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOLCK">ENOLCK</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOLINK">ENOLINK</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOMEM">ENOMEM</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOMSG">ENOMSG</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOPOLICY">ENOPOLICY</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOPROTOOPT">ENOPROTOOPT</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOSPC">ENOSPC</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOSR">ENOSR</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOSTR">ENOSTR</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOSYS">ENOSYS</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOTBLK">ENOTBLK</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOTCONN">ENOTCONN</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOTDIR">ENOTDIR</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOTEMPTY">ENOTEMPTY</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOTRECOVERABLE">ENOTRECOVERABLE</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOTSOCK">ENOTSOCK</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOTSUP">ENOTSUP</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENOTTY">ENOTTY</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ENXIO">ENXIO</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EOPNOTSUPP">EOPNOTSUPP</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EOVERFLOW">EOVERFLOW</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EOWNERDEAD">EOWNERDEAD</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EPERM">EPERM</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EPFNOSUPPORT">EPFNOSUPPORT</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EPIPE">EPIPE</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EPROCLIM">EPROCLIM</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EPROCUNAVAIL">EPROCUNAVAIL</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EPROGMISMATCH">EPROGMISMATCH</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EPROGUNAVAIL">EPROGUNAVAIL</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EPROTO">EPROTO</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EPROTONOSUPPORT">EPROTONOSUPPORT</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EPROTOTYPE">EPROTOTYPE</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EPWROFF">EPWROFF</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EQFULL">EQFULL</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ERANGE">ERANGE</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EREMOTE">EREMOTE</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EROFS">EROFS</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ERPCMISMATCH">ERPCMISMATCH</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ESHLIBVERS">ESHLIBVERS</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ESHUTDOWN">ESHUTDOWN</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ESOCKTNOSUPPORT">ESOCKTNOSUPPORT</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ESPIPE">ESPIPE</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ESRCH">ESRCH</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ESTALE">ESTALE</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ETIME">ETIME</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ETIMEDOUT">ETIMEDOUT</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ETOOMANYREFS">ETOOMANYREFS</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-ETXTBSY">ETXTBSY</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EUSERS">EUSERS</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EWOULDBLOCK">EWOULDBLOCK</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-EXDEV">EXDEV</a></span></span>
 
 </span></div><div class="anchor type-res" id="name-Fbootstraptransfer_t" data-popularity="0">	<input type='checkbox' class="fold" id="Fbootstraptransfer_t-fold-content"><label for="Fbootstraptransfer_t-fold-content"> type <a href="../src/syscall/ztypes_darwin_amd64.go.html#line-128">Fbootstraptransfer_t</a> <i>(struct)</i></label><span id='Fbootstraptransfer_t-fold-content-docs' class="fold-docs">
 
@@ -866,25 +990,31 @@
 			<input type='checkbox' class="showhide" id="Rusage-showhide-outputofs"><i><label for="Rusage-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="Rusage-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func <a href="#name-wait4">wait4</a>(pid <a href="builtin.html#name-int">int</a>, wstatus *<a href="#name-_C_int">_C_int</a>, options <a href="builtin.html#name-int">int</a>, rusage *<b>Rusage</b>) (wpid <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-Signal" data-popularity="500">	<input type='checkbox' class="fold" id="Signal-fold-content"><label for="Signal-fold-content"> type <a href="../src/syscall/syscall_unix.go.html#line-172">Signal</a> <a href="builtin.html#name-int">int</a> <i>(basic type)</i></label><span id='Signal-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Signal" data-popularity="845">	<input type='checkbox' class="fold" id="Signal-fold-content"><label for="Signal-fold-content"> type <a href="../src/syscall/syscall_unix.go.html#line-172">Signal</a> <a href="builtin.html#name-int">int</a> <i>(basic type)</i></label><span id='Signal-fold-content-docs' class="fold-docs">
 		A Signal is a number describing a process signal.
 		It implements the os.Signal interface.
 
 		<input type='checkbox' class="fold" id="Signal-fold-methods"><label for="Signal-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='Signal-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../src/syscall/syscall_unix.go.html#line-174">Signal</a>()</span></span><span>
 			<span class="nodocs">( T) <a href="../src/syscall/syscall_unix.go.html#line-176">String</a>() <a href="builtin.html#name-string">string</a></span></span></span>
-		<input type='checkbox' class="fold" id="Signal-fold-impls"><label for="Signal-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='Signal-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Signal-fold-impls"><label for="Signal-fold-impls">Implements (<i>at least 5, in which 2 are exported</i>)</label><span id='Signal-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
 			 T : os.<a href="os.html#name-Signal">Signal</a></span>
-			<input type='checkbox' class="showhide" id="Signal-showhide-impls"><i><label for="Signal-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="Signal-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Signal-showhide-impls"><i><label for="Signal-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="Signal-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
-		<input type='checkbox' class="fold" id="Signal-fold-results"><label for="Signal-fold-results">As Outputs Of (<i>at least 2, both are exported</i>)</label><span id='Signal-fold-results-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Signal-fold-results"><label for="Signal-fold-results">As Outputs Of (<i>at least 5, all are exported</i>)</label><span id='Signal-fold-results-items' class="fold-items"><span>
 			func <a href="#name-WaitStatus">WaitStatus</a>.<a href="../src/syscall/syscall_bsd.go.html#line-117">Signal</a>() <b>Signal</b></span><span>
-			func <a href="#name-WaitStatus">WaitStatus</a>.<a href="../src/syscall/syscall_bsd.go.html#line-131">StopSignal</a>() <b>Signal</b></span></span>
-		<input type='checkbox' class="fold" id="Signal-fold-params"><label for="Signal-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='Signal-fold-params-items' class="fold-items"><span>
-			func <a href="#name-Kill">Kill</a>(pid <a href="builtin.html#name-int">int</a>, signum <b>Signal</b>) (err <a href="builtin.html#name-error">error</a>)</span></span>
-		<input type='checkbox' class="fold" id="Signal-fold-values"><label for="Signal-fold-values">As Types Of (<i>total 32, all are exported</i>)</label><span id='Signal-fold-values-items' class="fold-items"><span>
+			func <a href="#name-WaitStatus">WaitStatus</a>.<a href="../src/syscall/syscall_bsd.go.html#line-131">StopSignal</a>() <b>Signal</b></span><span>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SignalNum">SignalNum</a>(s <a href="builtin.html#name-string">string</a>) <b>Signal</b></span><span>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-WaitStatus">WaitStatus</a>.<a href="../src/golang.org/x/sys/unix/syscall_bsd.go.html#line-95">Signal</a>() <b>Signal</b></span><span>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-WaitStatus">WaitStatus</a>.<a href="../src/golang.org/x/sys/unix/syscall_bsd.go.html#line-111">StopSignal</a>() <b>Signal</b></span></span>
+		<input type='checkbox' class="fold" id="Signal-fold-params"><label for="Signal-fold-params">As Inputs Of (<i>at least 3, all are exported</i>)</label><span id='Signal-fold-params-items' class="fold-items"><span>
+			func <a href="#name-Kill">Kill</a>(pid <a href="builtin.html#name-int">int</a>, signum <b>Signal</b>) (err <a href="builtin.html#name-error">error</a>)</span><span>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-Kill">Kill</a>(pid <a href="builtin.html#name-int">int</a>, signum <b>Signal</b>) (err <a href="builtin.html#name-error">error</a>)</span><span>
+			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SignalName">SignalName</a>(s <b>Signal</b>) <a href="builtin.html#name-string">string</a></span></span>
+		<input type='checkbox' class="fold" id="Signal-fold-values"><label for="Signal-fold-values">As Types Of (<i>total 64, all are exported</i>)</label><span id='Signal-fold-values-items' class="fold-items"><span>
 			const <a href="#name-SIGABRT">SIGABRT</a></span><span>
 			const <a href="#name-SIGALRM">SIGALRM</a></span><span>
 			const <a href="#name-SIGBUS">SIGBUS</a></span><span>
@@ -916,7 +1046,39 @@
 			const <a href="#name-SIGVTALRM">SIGVTALRM</a></span><span>
 			const <a href="#name-SIGWINCH">SIGWINCH</a></span><span>
 			const <a href="#name-SIGXCPU">SIGXCPU</a></span><span>
-			const <a href="#name-SIGXFSZ">SIGXFSZ</a></span></span>
+			const <a href="#name-SIGXFSZ">SIGXFSZ</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGABRT">SIGABRT</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGALRM">SIGALRM</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGBUS">SIGBUS</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGCHLD">SIGCHLD</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGCONT">SIGCONT</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGEMT">SIGEMT</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGFPE">SIGFPE</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGHUP">SIGHUP</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGILL">SIGILL</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGINFO">SIGINFO</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGINT">SIGINT</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGIO">SIGIO</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGIOT">SIGIOT</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGKILL">SIGKILL</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGPIPE">SIGPIPE</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGPROF">SIGPROF</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGQUIT">SIGQUIT</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGSEGV">SIGSEGV</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGSTOP">SIGSTOP</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGSYS">SIGSYS</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGTERM">SIGTERM</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGTRAP">SIGTRAP</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGTSTP">SIGTSTP</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGTTIN">SIGTTIN</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGTTOU">SIGTTOU</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGURG">SIGURG</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGUSR1">SIGUSR1</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGUSR2">SIGUSR2</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGVTALRM">SIGVTALRM</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGWINCH">SIGWINCH</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGXCPU">SIGXCPU</a></span><span>
+			const golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-SIGXFSZ">SIGXFSZ</a></span></span>
 
 </span></div><div class="anchor type-res" id="name-Sockaddr" data-popularity="2755">	<input type='checkbox' class="fold" id="Sockaddr-fold-content"><label for="Sockaddr-fold-content"> type <a href="../src/syscall/syscall_unix.go.html#line-227">Sockaddr</a> <b><i>(interface)</i></b></label><span id='Sockaddr-fold-content-docs' class="fold-docs">
 

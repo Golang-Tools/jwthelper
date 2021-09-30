@@ -15,7 +15,7 @@
 	<a href="../index.html#pkg-reflect">reflect</a><i> (on <a href="https://pkg.go.dev/reflect" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../dep/reflect.html">8 packages</a>, and imported by <a href="../dep/reflect.html#imported-by">38 packages</a>
+	imports <a href="../dep/reflect.html">8 packages</a>, and imported by <a href="../dep/reflect.html#imported-by">102 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -229,15 +229,16 @@
 </div>
 <div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 50, in which 13 are exported)</i></span></span>
 
-<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-ChanDir" data-popularity="325">	<input type='checkbox' class="fold" id="ChanDir-fold-content"><label for="ChanDir-fold-content"> type <a href="../src/reflect/type.go.html#line-342">ChanDir</a> <a href="builtin.html#name-int">int</a> <i>(basic type)</i></label><span id='ChanDir-fold-content-docs' class="fold-docs">
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-ChanDir" data-popularity="375">	<input type='checkbox' class="fold" id="ChanDir-fold-content"><label for="ChanDir-fold-content"> type <a href="../src/reflect/type.go.html#line-342">ChanDir</a> <a href="builtin.html#name-int">int</a> <i>(basic type)</i></label><span id='ChanDir-fold-content-docs' class="fold-docs">
 		ChanDir represents a channel type's direction.
 
 		<input type='checkbox' class="fold" id="ChanDir-fold-methods"><label for="ChanDir-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ChanDir-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../src/reflect/type.go.html#line-1040">String</a>() <a href="builtin.html#name-string">string</a></span></span></span>
-		<input type='checkbox' class="fold" id="ChanDir-fold-impls"><label for="ChanDir-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='ChanDir-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="ChanDir-fold-impls"><label for="ChanDir-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='ChanDir-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="ChanDir-showhide-impls"><i><label for="ChanDir-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="ChanDir-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="ChanDir-showhide-impls"><i><label for="ChanDir-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="ChanDir-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="ChanDir-fold-results"><label for="ChanDir-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='ChanDir-fold-results-items' class="fold-items"><span>
 			func <a href="#name-Type">Type</a>.<a href="../src/reflect/type.go.html#line-133">ChanDir</a>() <b>ChanDir</b></span></span>
@@ -248,7 +249,7 @@
 			const <a href="#name-RecvDir">RecvDir</a></span><span>
 			const <a href="#name-SendDir">SendDir</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-Kind" data-popularity="1100">	<input type='checkbox' class="fold" id="Kind-fold-content"><label for="Kind-fold-content"> type <a href="../src/reflect/type.go.html#line-232">Kind</a> <a href="builtin.html#name-uint">uint</a> <i>(basic type)</i></label><span id='Kind-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Kind" data-popularity="1260">	<input type='checkbox' class="fold" id="Kind-fold-content"><label for="Kind-fold-content"> type <a href="../src/reflect/type.go.html#line-232">Kind</a> <a href="builtin.html#name-uint">uint</a> <i>(basic type)</i></label><span id='Kind-fold-content-docs' class="fold-docs">
 		A Kind represents the specific kind of type that a Type represents.
 		The zero Kind is not a valid kind.
 
@@ -256,12 +257,13 @@
 			<input type='checkbox' class="fold" id="Kind-fold-method-String"><label for="Kind-fold-method-String">( T) <a href="../src/reflect/type.go.html#line-591">String</a>() <a href="builtin.html#name-string">string</a></label><span id='Kind-fold-method-String-docs' class="fold-docs">
 				String returns the name of k.
 </span></span></span>
-		<input type='checkbox' class="fold" id="Kind-fold-impls"><label for="Kind-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='Kind-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Kind-fold-impls"><label for="Kind-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='Kind-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="Kind-showhide-impls"><i><label for="Kind-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="Kind-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Kind-showhide-impls"><i><label for="Kind-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="Kind-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
-		<input type='checkbox' class="fold" id="Kind-fold-results"><label for="Kind-fold-results">As Outputs Of (<i>at least 9, all are exported</i>)</label><span id='Kind-fold-results-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Kind-fold-results"><label for="Kind-fold-results">As Outputs Of (<i>at least 10, all are exported</i>)</label><span id='Kind-fold-results-items' class="fold-items"><span>
 			func <a href="#name-Type">Type</a>.<a href="../src/reflect/type.go.html#line-100">Kind</a>() <b>Kind</b></span><span>
 			func <a href="#name-Value">Value</a>.<a href="../src/reflect/value.go.html#line-1140">Kind</a>() <b>Kind</b></span><span>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-ArrayType">ArrayType</a>.<a href="../src/github.com/modern-go/reflect2/reflect2.go.html#line-11">Kind</a>() <b>Kind</b></span><span>
@@ -270,14 +272,16 @@
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-PtrType">PtrType</a>.<a href="../src/github.com/modern-go/reflect2/reflect2.go.html#line-11">Kind</a>() <b>Kind</b></span><span>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-SliceType">SliceType</a>.<a href="../src/github.com/modern-go/reflect2/reflect2.go.html#line-11">Kind</a>() <b>Kind</b></span><span>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-StructType">StructType</a>.<a href="../src/github.com/modern-go/reflect2/reflect2.go.html#line-11">Kind</a>() <b>Kind</b></span><span>
-			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-Type">Type</a>.<a href="../src/github.com/modern-go/reflect2/reflect2.go.html#line-11">Kind</a>() <b>Kind</b></span></span>
-		<input type='checkbox' class="fold" id="Kind-fold-params"><label for="Kind-fold-params">As Inputs Of (<i>at least 6, in which 2 are exported</i>)</label><span id='Kind-fold-params-items' class="fold-items"><span>
+			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-Type">Type</a>.<a href="../src/github.com/modern-go/reflect2/reflect2.go.html#line-11">Kind</a>() <b>Kind</b></span><span>
+			func github.com/xeipuuv/gojsonpointer.(*<a href="github.com/xeipuuv/gojsonpointer.html#name-JsonPointer">JsonPointer</a>).<a href="../src/github.com/xeipuuv/gojsonpointer/pointer.go.html#line-76">Get</a>(document interface{}) (interface{}, <b>Kind</b>, <a href="builtin.html#name-error">error</a>)</span></span>
+		<input type='checkbox' class="fold" id="Kind-fold-params"><label for="Kind-fold-params">As Inputs Of (<i>at least 7, in which 2 are exported</i>)</label><span id='Kind-fold-params-items' class="fold-items"><span>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-DefaultTypeOfKind">DefaultTypeOfKind</a>(kind <b>Kind</b>) <a href="github.com/modern-go/reflect2.html">reflect2</a>.<a href="github.com/modern-go/reflect2.html#name-Type">Type</a></span><span>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-IsNullable">IsNullable</a>(kind <b>Kind</b>) <a href="builtin.html#name-bool">bool</a></span>
-			<input type='checkbox' class="showhide" id="Kind-showhide-outputofs"><i><label for="Kind-showhide-outputofs" class="show-inline">/* 4+ unexporteds ... */</label><label for="Kind-showhide-outputofs" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Kind-showhide-outputofs"><i><label for="Kind-showhide-outputofs" class="show-inline">/* 5+ unexporteds ... */</label><label for="Kind-showhide-outputofs" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
 			func encoding/asn1.<a href="encoding/asn1.html#name-canHaveDefaultValue">canHaveDefaultValue</a>(k <b>Kind</b>) <a href="builtin.html#name-bool">bool</a></i></span><span class="hidden"><i>
 			func github.com/golang/protobuf/proto.<a href="github.com/golang/protobuf/proto.html#name-isScalarKind">isScalarKind</a>(k <b>Kind</b>) <a href="builtin.html#name-bool">bool</a></i></span><span class="hidden"><i>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-likePtrKind">likePtrKind</a>(kind <b>Kind</b>) <a href="builtin.html#name-bool">bool</a></i></span><span class="hidden"><i>
+			func github.com/xeipuuv/gojsonschema.<a href="github.com/xeipuuv/gojsonschema.html#name-isKind">isKind</a>(what interface{}, kinds ...<b>Kind</b>) <a href="builtin.html#name-bool">bool</a></i></span><span class="hidden"><i>
 			func text/template.<a href="text/template.html#name-intLike">intLike</a>(typ <b>Kind</b>) <a href="builtin.html#name-bool">bool</a></i></span></span>
 		<input type='checkbox' class="fold" id="Kind-fold-values"><label for="Kind-fold-values">As Types Of (<i>total 27, all are exported</i>)</label><span id='Kind-fold-values-items' class="fold-items"><span>
 			const <a href="#name-Array">Array</a></span><span>
@@ -423,7 +427,7 @@
 			<span class="nodocs"><a href="../src/reflect/value.go.html#line-1984">Data</a> <i><a href="builtin.html#name-uintptr">uintptr</a></i></span></span><span>
 			<span class="nodocs"><a href="../src/reflect/value.go.html#line-1985">Len</a> <i><a href="builtin.html#name-int">int</a></i></span></span></span>
 
-</span></div><div class="anchor type-res" id="name-StructField" data-popularity="650">	<input type='checkbox' class="fold" id="StructField-fold-content"><label for="StructField-fold-content"> type <a href="../src/reflect/type.go.html#line-1090">StructField</a> <i>(struct)</i></label><span id='StructField-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-StructField" data-popularity="720">	<input type='checkbox' class="fold" id="StructField-fold-content"><label for="StructField-fold-content"> type <a href="../src/reflect/type.go.html#line-1090">StructField</a> <i>(struct)</i></label><span id='StructField-fold-content-docs' class="fold-docs">
 		A StructField describes a single field in a struct.
 
 		<input type='checkbox' class="fold" id="StructField-fold-fields"><label for="StructField-fold-fields">Fields (<i>total 7, all are exported</i>)</label><span id='StructField-fold-fields-items' class="fold-items"><span>
@@ -455,11 +459,13 @@
 			func <a href="#name-Type">Type</a>.<a href="../src/reflect/type.go.html#line-162">FieldByIndex</a>(index []<a href="builtin.html#name-int">int</a>) <b>StructField</b></span><span>
 			func <a href="#name-Type">Type</a>.<a href="../src/reflect/type.go.html#line-166">FieldByName</a>(name <a href="builtin.html#name-string">string</a>) (<b>StructField</b>, <a href="builtin.html#name-bool">bool</a>)</span><span>
 			func <a href="#name-Type">Type</a>.<a href="../src/reflect/type.go.html#line-180">FieldByNameFunc</a>(match func(<a href="builtin.html#name-string">string</a>) <a href="builtin.html#name-bool">bool</a>) (<b>StructField</b>, <a href="builtin.html#name-bool">bool</a>)</span></span>
-		<input type='checkbox' class="fold" id="StructField-fold-params"><label for="StructField-fold-params">As Inputs Of (<i>at least 10, in which 2 are exported</i>)</label><span id='StructField-fold-params-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="StructField-fold-params"><label for="StructField-fold-params">As Inputs Of (<i>at least 12, in which 2 are exported</i>)</label><span id='StructField-fold-params-items' class="fold-items"><span>
 			func <a href="#name-StructOf">StructOf</a>(fields []<b>StructField</b>) <a href="#name-Type">Type</a></span><span>
 			func github.com/golang/protobuf/proto.(*<a href="github.com/golang/protobuf/proto.html#name-Properties">Properties</a>).<a href="../src/github.com/golang/protobuf/proto/properties.go.html#line-196">Init</a>(typ <a href="#name-Type">Type</a>, name, tag <a href="builtin.html#name-string">string</a>, f *<b>StructField</b>)</span>
-			<input type='checkbox' class="showhide" id="StructField-showhide-outputofs"><i><label for="StructField-showhide-outputofs" class="show-inline">/* 8+ unexporteds ... */</label><label for="StructField-showhide-outputofs" class="hide-inline">/* 8+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="StructField-showhide-outputofs"><i><label for="StructField-showhide-outputofs" class="show-inline">/* 10+ unexporteds ... */</label><label for="StructField-showhide-outputofs" class="hide-inline">/* 10+ unexporteds: */</label></i><span class="hidden"><i>
 			func <a href="#name-runtimeStructField">runtimeStructField</a>(field <b>StructField</b>) (<a href="#name-structField">structField</a>, <a href="builtin.html#name-string">string</a>)</i></span><span class="hidden"><i>
+			func github.com/alecthomas/jsonschema.(*<a href="github.com/alecthomas/jsonschema.html#name-Reflector">Reflector</a>).<a href="../src/github.com/alecthomas/jsonschema/reflect.go.html#line-715">reflectFieldName</a>(f <b>StructField</b>) (<a href="builtin.html#name-string">string</a>, <a href="builtin.html#name-bool">bool</a>, <a href="builtin.html#name-bool">bool</a>, <a href="builtin.html#name-bool">bool</a>)</i></span><span class="hidden"><i>
+			func github.com/alecthomas/jsonschema.(*<a href="github.com/alecthomas/jsonschema.html#name-Type">Type</a>).<a href="../src/github.com/alecthomas/jsonschema/reflect.go.html#line-439">structKeywordsFromTags</a>(f <b>StructField</b>, parentType *<a href="github.com/alecthomas/jsonschema.html">jsonschema</a>.<a href="github.com/alecthomas/jsonschema.html#name-Type">Type</a>, propertyName <a href="builtin.html#name-string">string</a>)</i></span><span class="hidden"><i>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-newUnsafeStructField">newUnsafeStructField</a>(structType *<a href="github.com/modern-go/reflect2.html">reflect2</a>.<a href="github.com/modern-go/reflect2.html#name-UnsafeStructType">UnsafeStructType</a>, structField <b>StructField</b>) *<a href="github.com/modern-go/reflect2.html">reflect2</a>.<a href="github.com/modern-go/reflect2.html#name-UnsafeStructField">UnsafeStructField</a></i></span><span class="hidden"><i>
 			func google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-fieldInfoForList">fieldInfoForList</a>(fd <a href="google.golang.org/protobuf/reflect/protoreflect.html">pref</a>.<a href="google.golang.org/protobuf/reflect/protoreflect.html#name-FieldDescriptor">FieldDescriptor</a>, fs <b>StructField</b>, x <a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-exporter">exporter</a>) <a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-fieldInfo">fieldInfo</a></i></span><span class="hidden"><i>
 			func google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-fieldInfoForMap">fieldInfoForMap</a>(fd <a href="google.golang.org/protobuf/reflect/protoreflect.html">pref</a>.<a href="google.golang.org/protobuf/reflect/protoreflect.html#name-FieldDescriptor">FieldDescriptor</a>, fs <b>StructField</b>, x <a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-exporter">exporter</a>) <a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-fieldInfo">fieldInfo</a></i></span><span class="hidden"><i>
@@ -498,7 +504,7 @@
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-StructField">StructField</a>.<a href="../src/github.com/modern-go/reflect2/reflect2.go.html#line-81">Tag</a>() <b>StructTag</b></span><span>
 			func github.com/modern-go/reflect2.(*<a href="github.com/modern-go/reflect2.html#name-UnsafeStructField">UnsafeStructField</a>).<a href="../src/github.com/modern-go/reflect2/unsafe_field.go.html#line-40">Tag</a>() <b>StructTag</b></span></span>
 
-</span></div><div class="anchor type-res" id="name-Type" data-popularity="10285">	<input type='checkbox' class="fold" id="Type-fold-content"><label for="Type-fold-content"> type <a href="../src/reflect/type.go.html#line-38">Type</a> <b><i>(interface)</i></b></label><span id='Type-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Type" data-popularity="10760">	<input type='checkbox' class="fold" id="Type-fold-content"><label for="Type-fold-content"> type <a href="../src/reflect/type.go.html#line-38">Type</a> <b><i>(interface)</i></b></label><span id='Type-fold-content-docs' class="fold-docs">
 		Type is the representation of a Go type.
 
 		Not all methods apply to all kinds of types. Restrictions,
@@ -692,13 +698,14 @@
 			*<a href="#name-sliceType">sliceType</a></i></span><span class="hidden"><i>
 			*<a href="#name-structType">structType</a></i></span><span class="hidden"><i>
 			*<a href="#name-structTypeUncommon">structTypeUncommon</a></i></span></span>
-		<input type='checkbox' class="fold" id="Type-fold-impls"><label for="Type-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='Type-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Type-fold-impls"><label for="Type-fold-impls">Implements (<i>at least 5, in which 2 are exported</i>)</label><span id='Type-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
 			 T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span>
-			<input type='checkbox' class="showhide" id="Type-showhide-impls"><i><label for="Type-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="Type-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Type-showhide-impls"><i><label for="Type-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="Type-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
-		<input type='checkbox' class="fold" id="Type-fold-results"><label for="Type-fold-results">As Outputs Of (<i>at least 27, in which 22 are exported</i>)</label><span id='Type-fold-results-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Type-fold-results"><label for="Type-fold-results">As Outputs Of (<i>at least 28, in which 22 are exported</i>)</label><span id='Type-fold-results-items' class="fold-items"><span>
 			func <a href="#name-ArrayOf">ArrayOf</a>(count <a href="builtin.html#name-int">int</a>, elem <b>Type</b>) <b>Type</b></span><span>
 			func <a href="#name-ChanOf">ChanOf</a>(dir <a href="#name-ChanDir">ChanDir</a>, t <b>Type</b>) <b>Type</b></span><span>
 			func <a href="#name-FuncOf">FuncOf</a>(in, out []<b>Type</b>, variadic <a href="builtin.html#name-bool">bool</a>) <b>Type</b></span><span>
@@ -721,13 +728,14 @@
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-SliceType">SliceType</a>.<a href="../src/github.com/modern-go/reflect2/reflect2.go.html#line-23">Type1</a>() <b>Type</b></span><span>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-StructType">StructType</a>.<a href="../src/github.com/modern-go/reflect2/reflect2.go.html#line-23">Type1</a>() <b>Type</b></span><span>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-Type">Type</a>.<a href="../src/github.com/modern-go/reflect2/reflect2.go.html#line-23">Type1</a>() <b>Type</b></span>
-			<input type='checkbox' class="showhide" id="Type-showhide-inputofs"><i><label for="Type-showhide-inputofs" class="show-inline">/* 5+ unexporteds ... */</label><label for="Type-showhide-inputofs" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Type-showhide-inputofs"><i><label for="Type-showhide-inputofs" class="show-inline">/* 6+ unexporteds ... */</label><label for="Type-showhide-inputofs" class="hide-inline">/* 6+ unexporteds: */</label></i><span class="hidden"><i>
 			func <a href="#name-toType">toType</a>(t *<a href="#name-rtype">rtype</a>) <b>Type</b></i></span><span class="hidden"><i>
 			func encoding/json.<a href="encoding/json.html#name-typeByIndex">typeByIndex</a>(t <b>Type</b>, index []<a href="builtin.html#name-int">int</a>) <b>Type</b></i></span><span class="hidden"><i>
 			func github.com/golang/protobuf/proto.<a href="github.com/golang/protobuf/proto.html#name-enumGoType">enumGoType</a>(et <a href="google.golang.org/protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="google.golang.org/protobuf/reflect/protoreflect.html#name-EnumType">EnumType</a>) <b>Type</b></i></span><span class="hidden"><i>
 			func github.com/golang/protobuf/proto.<a href="github.com/golang/protobuf/proto.html#name-goTypeForField">goTypeForField</a>(fd <a href="google.golang.org/protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="google.golang.org/protobuf/reflect/protoreflect.html#name-FieldDescriptor">FieldDescriptor</a>) <b>Type</b></i></span><span class="hidden"><i>
-			func github.com/golang/protobuf/proto.<a href="github.com/golang/protobuf/proto.html#name-messageGoType">messageGoType</a>(mt <a href="google.golang.org/protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="google.golang.org/protobuf/reflect/protoreflect.html#name-MessageType">MessageType</a>) <b>Type</b></i></span></span>
-		<input type='checkbox' class="fold" id="Type-fold-params"><label for="Type-fold-params">As Inputs Of (<i>at least 117, in which 28 are exported</i>)</label><span id='Type-fold-params-items' class="fold-items"><span>
+			func github.com/golang/protobuf/proto.<a href="github.com/golang/protobuf/proto.html#name-messageGoType">messageGoType</a>(mt <a href="google.golang.org/protobuf/reflect/protoreflect.html">protoreflect</a>.<a href="google.golang.org/protobuf/reflect/protoreflect.html#name-MessageType">MessageType</a>) <b>Type</b></i></span><span class="hidden"><i>
+			func google.golang.org/grpc/reflection.<a href="google.golang.org/grpc/reflection.html#name-typeForName">typeForName</a>(name <a href="builtin.html#name-string">string</a>) (<b>Type</b>, <a href="builtin.html#name-error">error</a>)</i></span></span>
+		<input type='checkbox' class="fold" id="Type-fold-params"><label for="Type-fold-params">As Inputs Of (<i>at least 127, in which 30 are exported</i>)</label><span id='Type-fold-params-items' class="fold-items"><span>
 			func <a href="#name-ArrayOf">ArrayOf</a>(count <a href="builtin.html#name-int">int</a>, elem <b>Type</b>) <b>Type</b></span><span>
 			func <a href="#name-ChanOf">ChanOf</a>(dir <a href="#name-ChanDir">ChanDir</a>, t <b>Type</b>) <b>Type</b></span><span>
 			func <a href="#name-FuncOf">FuncOf</a>(in, out []<b>Type</b>, variadic <a href="builtin.html#name-bool">bool</a>) <b>Type</b></span><span>
@@ -746,6 +754,8 @@
 			func Type.<a href="../src/reflect/type.go.html#line-109">ConvertibleTo</a>(u <b>Type</b>) <a href="builtin.html#name-bool">bool</a></span><span>
 			func Type.<a href="../src/reflect/type.go.html#line-103">Implements</a>(u <b>Type</b>) <a href="builtin.html#name-bool">bool</a></span><span>
 			func <a href="#name-Value">Value</a>.<a href="../src/reflect/value.go.html#line-2457">Convert</a>(t <b>Type</b>) <a href="#name-Value">Value</a></span><span>
+			func github.com/alecthomas/jsonschema.<a href="github.com/alecthomas/jsonschema.html#name-ReflectFromType">ReflectFromType</a>(t <b>Type</b>) *<a href="github.com/alecthomas/jsonschema.html">jsonschema</a>.<a href="github.com/alecthomas/jsonschema.html#name-Schema">Schema</a></span><span>
+			func github.com/alecthomas/jsonschema.(*<a href="github.com/alecthomas/jsonschema.html#name-Reflector">Reflector</a>).<a href="../src/github.com/alecthomas/jsonschema/reflect.go.html#line-169">ReflectFromType</a>(t <b>Type</b>) *<a href="github.com/alecthomas/jsonschema.html">jsonschema</a>.<a href="github.com/alecthomas/jsonschema.html#name-Schema">Schema</a></span><span>
 			func github.com/golang/protobuf/proto.<a href="github.com/golang/protobuf/proto.html#name-GetProperties">GetProperties</a>(t <b>Type</b>) *<a href="github.com/golang/protobuf/proto.html">proto</a>.<a href="github.com/golang/protobuf/proto.html#name-StructProperties">StructProperties</a></span><span>
 			func github.com/golang/protobuf/proto.(*<a href="github.com/golang/protobuf/proto.html#name-Properties">Properties</a>).<a href="../src/github.com/golang/protobuf/proto/properties.go.html#line-196">Init</a>(typ <b>Type</b>, name, tag <a href="builtin.html#name-string">string</a>, f *<a href="#name-StructField">StructField</a>)</span><span>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-Type2">Type2</a>(type1 <b>Type</b>) <a href="github.com/modern-go/reflect2.html">reflect2</a>.<a href="github.com/modern-go/reflect2.html#name-Type">Type</a></span><span>
@@ -756,7 +766,7 @@
 			func google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-LegacyLoadEnumDesc">LegacyLoadEnumDesc</a>(t <b>Type</b>) <a href="google.golang.org/protobuf/reflect/protoreflect.html">pref</a>.<a href="google.golang.org/protobuf/reflect/protoreflect.html#name-EnumDescriptor">EnumDescriptor</a></span><span>
 			func google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-LegacyLoadMessageDesc">LegacyLoadMessageDesc</a>(t <b>Type</b>) <a href="google.golang.org/protobuf/reflect/protoreflect.html">pref</a>.<a href="google.golang.org/protobuf/reflect/protoreflect.html#name-MessageDescriptor">MessageDescriptor</a></span><span>
 			func google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-NewConverter">NewConverter</a>(t <b>Type</b>, fd <a href="google.golang.org/protobuf/reflect/protoreflect.html">pref</a>.<a href="google.golang.org/protobuf/reflect/protoreflect.html#name-FieldDescriptor">FieldDescriptor</a>) <a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-Converter">Converter</a></span>
-			<input type='checkbox' class="showhide" id="Type-showhide-outputofs"><i><label for="Type-showhide-outputofs" class="show-inline">/* 89+ unexporteds ... */</label><label for="Type-showhide-outputofs" class="hide-inline">/* 89+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Type-showhide-outputofs"><i><label for="Type-showhide-outputofs" class="show-inline">/* 97+ unexporteds ... */</label><label for="Type-showhide-outputofs" class="hide-inline">/* 97+ unexporteds: */</label></i><span class="hidden"><i>
 			func <a href="#name-cvtBytesString">cvtBytesString</a>(v <a href="#name-Value">Value</a>, t <b>Type</b>) <a href="#name-Value">Value</a></i></span><span class="hidden"><i>
 			func <a href="#name-cvtComplex">cvtComplex</a>(v <a href="#name-Value">Value</a>, t <b>Type</b>) <a href="#name-Value">Value</a></i></span><span class="hidden"><i>
 			func <a href="#name-cvtDirect">cvtDirect</a>(v <a href="#name-Value">Value</a>, typ <b>Type</b>) <a href="#name-Value">Value</a></i></span><span class="hidden"><i>
@@ -797,6 +807,12 @@
 			func encoding/json.<a href="encoding/json.html#name-typeByIndex">typeByIndex</a>(t <b>Type</b>, index []<a href="builtin.html#name-int">int</a>) <b>Type</b></i></span><span class="hidden"><i>
 			func encoding/json.<a href="encoding/json.html#name-typeEncoder">typeEncoder</a>(t <b>Type</b>) <a href="encoding/json.html">json</a>.<a href="encoding/json.html#name-encoderFunc">encoderFunc</a></i></span><span class="hidden"><i>
 			func encoding/json.<a href="encoding/json.html#name-typeFields">typeFields</a>(t <b>Type</b>) <a href="encoding/json.html">json</a>.<a href="encoding/json.html#name-structFields">structFields</a></i></span><span class="hidden"><i>
+			func github.com/alecthomas/jsonschema.(*<a href="github.com/alecthomas/jsonschema.html#name-Reflector">Reflector</a>).<a href="../src/github.com/alecthomas/jsonschema/reflect.go.html#line-327">reflectStruct</a>(definitions <a href="github.com/alecthomas/jsonschema.html">jsonschema</a>.<a href="github.com/alecthomas/jsonschema.html#name-Definitions">Definitions</a>, t <b>Type</b>) *<a href="github.com/alecthomas/jsonschema.html">jsonschema</a>.<a href="github.com/alecthomas/jsonschema.html#name-Type">Type</a></i></span><span class="hidden"><i>
+			func github.com/alecthomas/jsonschema.(*<a href="github.com/alecthomas/jsonschema.html#name-Reflector">Reflector</a>).<a href="../src/github.com/alecthomas/jsonschema/reflect.go.html#line-377">reflectStructFields</a>(st *<a href="github.com/alecthomas/jsonschema.html">jsonschema</a>.<a href="github.com/alecthomas/jsonschema.html#name-Type">Type</a>, definitions <a href="github.com/alecthomas/jsonschema.html">jsonschema</a>.<a href="github.com/alecthomas/jsonschema.html#name-Definitions">Definitions</a>, t <b>Type</b>)</i></span><span class="hidden"><i>
+			func github.com/alecthomas/jsonschema.(*<a href="github.com/alecthomas/jsonschema.html#name-Reflector">Reflector</a>).<a href="../src/github.com/alecthomas/jsonschema/reflect.go.html#line-220">reflectTypeToSchema</a>(definitions <a href="github.com/alecthomas/jsonschema.html">jsonschema</a>.<a href="github.com/alecthomas/jsonschema.html#name-Definitions">Definitions</a>, t <b>Type</b>) *<a href="github.com/alecthomas/jsonschema.html">jsonschema</a>.<a href="github.com/alecthomas/jsonschema.html#name-Type">Type</a></i></span><span class="hidden"><i>
+			func github.com/alecthomas/jsonschema.(*<a href="github.com/alecthomas/jsonschema.html#name-Reflector">Reflector</a>).<a href="../src/github.com/alecthomas/jsonschema/reflect.go.html#line-816">typeName</a>(t <b>Type</b>) <a href="builtin.html#name-string">string</a></i></span><span class="hidden"><i>
+			func github.com/ghodss/yaml.<a href="github.com/ghodss/yaml.html#name-cachedTypeFields">cachedTypeFields</a>(t <b>Type</b>) []<a href="github.com/ghodss/yaml.html">yaml</a>.<a href="github.com/ghodss/yaml.html#name-field">field</a></i></span><span class="hidden"><i>
+			func github.com/ghodss/yaml.<a href="github.com/ghodss/yaml.html#name-typeFields">typeFields</a>(t <b>Type</b>) []<a href="github.com/ghodss/yaml.html">yaml</a>.<a href="github.com/ghodss/yaml.html#name-field">field</a></i></span><span class="hidden"><i>
 			func github.com/golang/protobuf/proto.<a href="github.com/golang/protobuf/proto.html#name-newProperties">newProperties</a>(t <b>Type</b>) *<a href="github.com/golang/protobuf/proto.html">proto</a>.<a href="github.com/golang/protobuf/proto.html#name-StructProperties">StructProperties</a></i></span><span class="hidden"><i>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-likePtrType">likePtrType</a>(typ <b>Type</b>) <a href="builtin.html#name-bool">bool</a></i></span><span class="hidden"><i>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-newUnsafeArrayType">newUnsafeArrayType</a>(cfg *<a href="github.com/modern-go/reflect2.html">reflect2</a>.<a href="github.com/modern-go/reflect2.html#name-frozenConfig">frozenConfig</a>, type1 <b>Type</b>) *<a href="github.com/modern-go/reflect2.html">reflect2</a>.<a href="github.com/modern-go/reflect2.html#name-UnsafeArrayType">UnsafeArrayType</a></i></span><span class="hidden"><i>
@@ -807,6 +823,7 @@
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-newUnsafeSliceType">newUnsafeSliceType</a>(cfg *<a href="github.com/modern-go/reflect2.html">reflect2</a>.<a href="github.com/modern-go/reflect2.html#name-frozenConfig">frozenConfig</a>, type1 <b>Type</b>) <a href="github.com/modern-go/reflect2.html">reflect2</a>.<a href="github.com/modern-go/reflect2.html#name-SliceType">SliceType</a></i></span><span class="hidden"><i>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-newUnsafeStructType">newUnsafeStructType</a>(cfg *<a href="github.com/modern-go/reflect2.html">reflect2</a>.<a href="github.com/modern-go/reflect2.html#name-frozenConfig">frozenConfig</a>, type1 <b>Type</b>) *<a href="github.com/modern-go/reflect2.html">reflect2</a>.<a href="github.com/modern-go/reflect2.html#name-UnsafeStructType">UnsafeStructType</a></i></span><span class="hidden"><i>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-newUnsafeType">newUnsafeType</a>(cfg *<a href="github.com/modern-go/reflect2.html">reflect2</a>.<a href="github.com/modern-go/reflect2.html#name-frozenConfig">frozenConfig</a>, type1 <b>Type</b>) *<a href="github.com/modern-go/reflect2.html">reflect2</a>.<a href="github.com/modern-go/reflect2.html#name-unsafeType">unsafeType</a></i></span><span class="hidden"><i>
+			func google.golang.org/grpc/reflection.<a href="google.golang.org/grpc/reflection.html#name-fileDescContainingExtension">fileDescContainingExtension</a>(st <b>Type</b>, ext <a href="builtin.html#name-int32">int32</a>) (*<a href="github.com/golang/protobuf/protoc-gen-go/descriptor.html">dpb</a>.<a href="github.com/golang/protobuf/protoc-gen-go/descriptor.html#name-FileDescriptorProto">FileDescriptorProto</a>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-aberrantAppendField">aberrantAppendField</a>(md *<a href="google.golang.org/protobuf/internal/filedesc.html">filedesc</a>.<a href="google.golang.org/protobuf/internal/filedesc.html#name-Message">Message</a>, goType <b>Type</b>, tag, tagKey, tagVal <a href="builtin.html#name-string">string</a>)</i></span><span class="hidden"><i>
 			func google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-aberrantDeriveMessageName">aberrantDeriveMessageName</a>(t <b>Type</b>, name <a href="google.golang.org/protobuf/reflect/protoreflect.html">pref</a>.<a href="google.golang.org/protobuf/reflect/protoreflect.html#name-FullName">FullName</a>) <a href="google.golang.org/protobuf/reflect/protoreflect.html">pref</a>.<a href="google.golang.org/protobuf/reflect/protoreflect.html#name-FullName">FullName</a></i></span><span class="hidden"><i>
 			func google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-aberrantLoadEnumDesc">aberrantLoadEnumDesc</a>(t <b>Type</b>) <a href="google.golang.org/protobuf/reflect/protoreflect.html">pref</a>.<a href="google.golang.org/protobuf/reflect/protoreflect.html#name-EnumDescriptor">EnumDescriptor</a></i></span><span class="hidden"><i>
@@ -843,11 +860,12 @@
 			func google.golang.org/protobuf/internal/impl.(*<a href="google.golang.org/protobuf/internal/impl.html#name-MessageInfo">MessageInfo</a>).<a href="../src/google.golang.org/protobuf/internal/impl/message_reflect.go.html#line-41">makeReflectFuncs</a>(t <b>Type</b>, si <a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-structInfo">structInfo</a>)</i></span><span class="hidden"><i>
 			func google.golang.org/protobuf/internal/impl.(*<a href="google.golang.org/protobuf/internal/impl.html#name-MessageInfo">MessageInfo</a>).<a href="../src/google.golang.org/protobuf/internal/impl/message.go.html#line-143">makeStructInfo</a>(t <b>Type</b>) <a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-structInfo">structInfo</a></i></span><span class="hidden"><i>
 			func google.golang.org/protobuf/internal/impl.(*<a href="google.golang.org/protobuf/internal/impl.html#name-MessageInfo">MessageInfo</a>).<a href="../src/google.golang.org/protobuf/internal/impl/message_reflect.go.html#line-116">makeUnknownFieldsFunc</a>(t <b>Type</b>, si <a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-structInfo">structInfo</a>)</i></span><span class="hidden"><i>
+			func gopkg.in/yaml.v2.<a href="gopkg.in/yaml.v2.html#name-getStructInfo">getStructInfo</a>(st <b>Type</b>) (*<a href="gopkg.in/yaml.v2.html">yaml</a>.<a href="gopkg.in/yaml.v2.html#name-structInfo">structInfo</a>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func text/template.<a href="text/template.html#name-canBeNil">canBeNil</a>(typ <b>Type</b>) <a href="builtin.html#name-bool">bool</a></i></span><span class="hidden"><i>
 			func text/template.<a href="text/template.html#name-goodFunc">goodFunc</a>(typ <b>Type</b>) <a href="builtin.html#name-bool">bool</a></i></span><span class="hidden"><i>
 			func text/template.<a href="text/template.html#name-prepareArg">prepareArg</a>(value <a href="#name-Value">Value</a>, argType <b>Type</b>) (<a href="#name-Value">Value</a>, <a href="builtin.html#name-error">error</a>)</i></span></span>
-		<input type='checkbox' class="fold" id="Type-fold-values"><label for="Type-fold-values">As Types Of (<i>total 37, none are exported</i>)</label><span id='Type-fold-values-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="Type-showhide-values"><i><label for="Type-showhide-values" class="show-inline">/* 37 unexporteds ... */</label><label for="Type-showhide-values" class="hide-inline">/* 37 unexporteds: */</label></i><span class="hidden"><i>
+		<input type='checkbox' class="fold" id="Type-fold-values"><label for="Type-fold-values">As Types Of (<i>total 51, none are exported</i>)</label><span id='Type-fold-values-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Type-showhide-values"><i><label for="Type-showhide-values" class="show-inline">/* 51 unexporteds ... */</label><label for="Type-showhide-values" class="hide-inline">/* 51 unexporteds: */</label></i><span class="hidden"><i>
 			  var database/sql/driver.<a href="database/sql/driver.html#name-valuerReflectType">valuerReflectType</a></i></span><span class="hidden"><i>
 			  var encoding/asn1.<a href="encoding/asn1.html#name-bigIntType">bigIntType</a></i></span><span class="hidden"><i>
 			  var encoding/asn1.<a href="encoding/asn1.html#name-bitStringType">bitStringType</a></i></span><span class="hidden"><i>
@@ -861,6 +879,14 @@
 			  var encoding/json.<a href="encoding/json.html#name-numberType">numberType</a></i></span><span class="hidden"><i>
 			  var encoding/json.<a href="encoding/json.html#name-textMarshalerType">textMarshalerType</a></i></span><span class="hidden"><i>
 			  var encoding/json.<a href="encoding/json.html#name-textUnmarshalerType">textUnmarshalerType</a></i></span><span class="hidden"><i>
+			  var github.com/alecthomas/jsonschema.<a href="github.com/alecthomas/jsonschema.html#name-byteSliceType">byteSliceType</a></i></span><span class="hidden"><i>
+			  var github.com/alecthomas/jsonschema.<a href="github.com/alecthomas/jsonschema.html#name-customStructGetFieldDocString">customStructGetFieldDocString</a></i></span><span class="hidden"><i>
+			  var github.com/alecthomas/jsonschema.<a href="github.com/alecthomas/jsonschema.html#name-customStructType">customStructType</a></i></span><span class="hidden"><i>
+			  var github.com/alecthomas/jsonschema.<a href="github.com/alecthomas/jsonschema.html#name-ipType">ipType</a></i></span><span class="hidden"><i>
+			  var github.com/alecthomas/jsonschema.<a href="github.com/alecthomas/jsonschema.html#name-protoEnumType">protoEnumType</a></i></span><span class="hidden"><i>
+			  var github.com/alecthomas/jsonschema.<a href="github.com/alecthomas/jsonschema.html#name-rawMessageType">rawMessageType</a></i></span><span class="hidden"><i>
+			  var github.com/alecthomas/jsonschema.<a href="github.com/alecthomas/jsonschema.html#name-timeType">timeType</a></i></span><span class="hidden"><i>
+			  var github.com/alecthomas/jsonschema.<a href="github.com/alecthomas/jsonschema.html#name-uriType">uriType</a></i></span><span class="hidden"><i>
 			  var google.golang.org/protobuf/internal/encoding/tag.<a href="google.golang.org/protobuf/internal/encoding/tag.html#name-byteType">byteType</a></i></span><span class="hidden"><i>
 			  var google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-boolType">boolType</a></i></span><span class="hidden"><i>
 			  var google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-bytesType">bytesType</a></i></span><span class="hidden"><i>
@@ -877,6 +903,12 @@
 			  var google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-unknownFieldsAType">unknownFieldsAType</a></i></span><span class="hidden"><i>
 			  var google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-unknownFieldsBType">unknownFieldsBType</a></i></span><span class="hidden"><i>
 			  var google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-weakFieldsType">weakFieldsType</a></i></span><span class="hidden"><i>
+			  var gopkg.in/yaml.v2.<a href="gopkg.in/yaml.v2.html#name-defaultMapType">defaultMapType</a></i></span><span class="hidden"><i>
+			  var gopkg.in/yaml.v2.<a href="gopkg.in/yaml.v2.html#name-durationType">durationType</a></i></span><span class="hidden"><i>
+			  var gopkg.in/yaml.v2.<a href="gopkg.in/yaml.v2.html#name-ifaceType">ifaceType</a></i></span><span class="hidden"><i>
+			  var gopkg.in/yaml.v2.<a href="gopkg.in/yaml.v2.html#name-mapItemType">mapItemType</a></i></span><span class="hidden"><i>
+			  var gopkg.in/yaml.v2.<a href="gopkg.in/yaml.v2.html#name-ptrTimeType">ptrTimeType</a></i></span><span class="hidden"><i>
+			  var gopkg.in/yaml.v2.<a href="gopkg.in/yaml.v2.html#name-timeType">timeType</a></i></span><span class="hidden"><i>
 			  var html/template.<a href="html/template.html#name-errorType">errorType</a></i></span><span class="hidden"><i>
 			  var html/template.<a href="html/template.html#name-fmtStringerType">fmtStringerType</a></i></span><span class="hidden"><i>
 			  var html/template.<a href="html/template.html#name-jsonMarshalType">jsonMarshalType</a></i></span><span class="hidden"><i>
@@ -886,7 +918,7 @@
 			  var text/template.<a href="text/template.html#name-reflectValueType">reflectValueType</a></i></span><span class="hidden"><i>
 			  var vendor/golang.org/x/crypto/cryptobyte.<a href="vendor/golang.org/x/crypto/cryptobyte.html#name-bigIntType">bigIntType</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-Value" data-popularity="13760">	<input type='checkbox' class="fold" id="Value-fold-content"><label for="Value-fold-content"> type <a href="../src/reflect/value.go.html#line-37">Value</a> <i>(struct)</i></label><span id='Value-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Value" data-popularity="14255">	<input type='checkbox' class="fold" id="Value-fold-content"><label for="Value-fold-content"> type <a href="../src/reflect/value.go.html#line-37">Value</a> <i>(struct)</i></label><span id='Value-fold-content-docs' class="fold-docs">
 		Value is the reflection interface to a Go value.
 
 		Not all methods apply to all kinds of values. Restrictions,
@@ -1318,14 +1350,16 @@
 				setRunes sets v's underlying value.
 				It panics if v's underlying value is not a slice of runes (int32s).
 </span></i></span></span>
-		<input type='checkbox' class="fold" id="Value-fold-impls"><label for="Value-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='Value-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Value-fold-impls"><label for="Value-fold-impls">Implements (<i>at least 7, in which 4 are exported</i>)</label><span id='Value-fold-impls-items' class="fold-items"><span>
 			 T : database/sql/driver.<a href="database/sql/driver.html#name-Validator">Validator</a></span><span>
 			 T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
-			 T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span>
-			<input type='checkbox' class="showhide" id="Value-showhide-impls"><i><label for="Value-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="Value-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			 T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span><span>
+			 T : gopkg.in/yaml.v2.<a href="gopkg.in/yaml.v2.html#name-IsZeroer">IsZeroer</a></span>
+			<input type='checkbox' class="showhide" id="Value-showhide-impls"><i><label for="Value-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="Value-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
-		<input type='checkbox' class="fold" id="Value-fold-results"><label for="Value-fold-results">As Outputs Of (<i>at least 80, in which 34 are exported</i>)</label><span id='Value-fold-results-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Value-fold-results"><label for="Value-fold-results">As Outputs Of (<i>at least 82, in which 34 are exported</i>)</label><span id='Value-fold-results-items' class="fold-items"><span>
 			func <a href="#name-Append">Append</a>(s <b>Value</b>, x ...<b>Value</b>) <b>Value</b></span><span>
 			func <a href="#name-AppendSlice">AppendSlice</a>(s, t <b>Value</b>) <b>Value</b></span><span>
 			func <a href="#name-Indirect">Indirect</a>(v <b>Value</b>) <b>Value</b></span><span>
@@ -1360,7 +1394,7 @@
 			func Value.<a href="../src/reflect/value.go.html#line-1816">Slice3</a>(i, j, k <a href="builtin.html#name-int">int</a>) <b>Value</b></span><span>
 			func Value.<a href="../src/reflect/value.go.html#line-1888">TryRecv</a>() (x <b>Value</b>, ok <a href="builtin.html#name-bool">bool</a>)</span><span>
 			func google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-Converter">Converter</a>.<a href="../src/google.golang.org/protobuf/internal/impl/convert.go.html#line-26">GoValueOf</a>(<a href="google.golang.org/protobuf/reflect/protoreflect.html">pref</a>.<a href="google.golang.org/protobuf/reflect/protoreflect.html#name-Value">Value</a>) <b>Value</b></span>
-			<input type='checkbox' class="showhide" id="Value-showhide-inputofs"><i><label for="Value-showhide-inputofs" class="show-inline">/* 46+ unexporteds ... */</label><label for="Value-showhide-inputofs" class="hide-inline">/* 46+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Value-showhide-inputofs"><i><label for="Value-showhide-inputofs" class="show-inline">/* 48+ unexporteds ... */</label><label for="Value-showhide-inputofs" class="hide-inline">/* 48+ unexporteds: */</label></i><span class="hidden"><i>
 			func <a href="#name-copyVal">copyVal</a>(typ *<a href="#name-rtype">rtype</a>, fl <a href="#name-flag">flag</a>, ptr <a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a>) <b>Value</b></i></span><span class="hidden"><i>
 			func <a href="#name-cvtBytesString">cvtBytesString</a>(v <b>Value</b>, t <a href="#name-Type">Type</a>) <b>Value</b></i></span><span class="hidden"><i>
 			func <a href="#name-cvtComplex">cvtComplex</a>(v <b>Value</b>, t <a href="#name-Type">Type</a>) <b>Value</b></i></span><span class="hidden"><i>
@@ -1395,6 +1429,8 @@
 			func encoding/asn1.<a href="encoding/asn1.html#name-parseSequenceOf">parseSequenceOf</a>(bytes []<a href="builtin.html#name-byte">byte</a>, sliceType <a href="#name-Type">Type</a>, elemType <a href="#name-Type">Type</a>) (ret <b>Value</b>, err <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func encoding/json.<a href="encoding/json.html#name-indirect">indirect</a>(v <b>Value</b>, decodingNull <a href="builtin.html#name-bool">bool</a>) (<a href="encoding/json.html">json</a>.<a href="encoding/json.html#name-Unmarshaler">Unmarshaler</a>, <a href="encoding.html">encoding</a>.<a href="encoding.html#name-TextUnmarshaler">TextUnmarshaler</a>, <b>Value</b>)</i></span><span class="hidden"><i>
 			func fmt.<a href="fmt.html#name-getField">getField</a>(v <b>Value</b>, i <a href="builtin.html#name-int">int</a>) <b>Value</b></i></span><span class="hidden"><i>
+			func github.com/ghodss/yaml.<a href="github.com/ghodss/yaml.html#name-indirect">indirect</a>(v <b>Value</b>, decodingNull <a href="builtin.html#name-bool">bool</a>) (<a href="encoding/json.html">json</a>.<a href="encoding/json.html#name-Unmarshaler">Unmarshaler</a>, <a href="encoding.html">encoding</a>.<a href="encoding.html#name-TextUnmarshaler">TextUnmarshaler</a>, <b>Value</b>)</i></span><span class="hidden"><i>
+			func gopkg.in/yaml.v2.<a href="gopkg.in/yaml.v2.html#name-settableValueOf">settableValueOf</a>(i interface{}) <b>Value</b></i></span><span class="hidden"><i>
 			func text/template.<a href="text/template.html#name-and">and</a>(arg0 <b>Value</b>, args ...<b>Value</b>) <b>Value</b></i></span><span class="hidden"><i>
 			func text/template.<a href="text/template.html#name-builtinFuncs">builtinFuncs</a>() map[<a href="builtin.html#name-string">string</a>]<b>Value</b></i></span><span class="hidden"><i>
 			func text/template.<a href="text/template.html#name-call">call</a>(fn <b>Value</b>, args ...<b>Value</b>) (<b>Value</b>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
@@ -1407,7 +1443,7 @@
 			func text/template.<a href="text/template.html#name-prepareArg">prepareArg</a>(value <b>Value</b>, argType <a href="#name-Type">Type</a>) (<b>Value</b>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func text/template.<a href="text/template.html#name-safeCall">safeCall</a>(fun <b>Value</b>, args []<b>Value</b>) (val <b>Value</b>, err <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func text/template.<a href="text/template.html#name-slice">slice</a>(item <b>Value</b>, indexes ...<b>Value</b>) (<b>Value</b>, <a href="builtin.html#name-error">error</a>)</i></span></span>
-		<input type='checkbox' class="fold" id="Value-fold-params"><label for="Value-fold-params">As Inputs Of (<i>at least 107, in which 15 are exported</i>)</label><span id='Value-fold-params-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Value-fold-params"><label for="Value-fold-params">As Inputs Of (<i>at least 114, in which 15 are exported</i>)</label><span id='Value-fold-params-items' class="fold-items"><span>
 			func <a href="#name-Append">Append</a>(s <b>Value</b>, x ...<b>Value</b>) <b>Value</b></span><span>
 			func <a href="#name-Append">Append</a>(s <b>Value</b>, x ...<b>Value</b>) <b>Value</b></span><span>
 			func <a href="#name-AppendSlice">AppendSlice</a>(s, t <b>Value</b>) <b>Value</b></span><span>
@@ -1423,7 +1459,7 @@
 			func google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-Converter">Converter</a>.<a href="../src/google.golang.org/protobuf/internal/impl/convert.go.html#line-32">IsValidGo</a>(<b>Value</b>) <a href="builtin.html#name-bool">bool</a></span><span>
 			func google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-Converter">Converter</a>.<a href="../src/google.golang.org/protobuf/internal/impl/convert.go.html#line-23">PBValueOf</a>(<b>Value</b>) <a href="google.golang.org/protobuf/reflect/protoreflect.html">pref</a>.<a href="google.golang.org/protobuf/reflect/protoreflect.html#name-Value">Value</a></span><span>
 			func internal/fmtsort.<a href="internal/fmtsort.html#name-Sort">Sort</a>(mapValue <b>Value</b>) *<a href="internal/fmtsort.html">fmtsort</a>.<a href="internal/fmtsort.html#name-SortedMap">SortedMap</a></span>
-			<input type='checkbox' class="showhide" id="Value-showhide-outputofs"><i><label for="Value-showhide-outputofs" class="show-inline">/* 92+ unexporteds ... */</label><label for="Value-showhide-outputofs" class="hide-inline">/* 92+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Value-showhide-outputofs"><i><label for="Value-showhide-outputofs" class="show-inline">/* 99+ unexporteds ... */</label><label for="Value-showhide-outputofs" class="hide-inline">/* 99+ unexporteds: */</label></i><span class="hidden"><i>
 			func <a href="#name-cvtBytesString">cvtBytesString</a>(v <b>Value</b>, t <a href="#name-Type">Type</a>) <b>Value</b></i></span><span class="hidden"><i>
 			func <a href="#name-cvtComplex">cvtComplex</a>(v <b>Value</b>, t <a href="#name-Type">Type</a>) <b>Value</b></i></span><span class="hidden"><i>
 			func <a href="#name-cvtDirect">cvtDirect</a>(v <b>Value</b>, typ <a href="#name-Type">Type</a>) <b>Value</b></i></span><span class="hidden"><i>
@@ -1471,6 +1507,9 @@
 			func encoding/json.<a href="encoding/json.html#name-unsupportedTypeEncoder">unsupportedTypeEncoder</a>(e *<a href="encoding/json.html">json</a>.<a href="encoding/json.html#name-encodeState">encodeState</a>, v <b>Value</b>, _ <a href="encoding/json.html">json</a>.<a href="encoding/json.html#name-encOpts">encOpts</a>)</i></span><span class="hidden"><i>
 			func encoding/json.<a href="encoding/json.html#name-valueEncoder">valueEncoder</a>(v <b>Value</b>) <a href="encoding/json.html">json</a>.<a href="encoding/json.html#name-encoderFunc">encoderFunc</a></i></span><span class="hidden"><i>
 			func fmt.<a href="fmt.html#name-getField">getField</a>(v <b>Value</b>, i <a href="builtin.html#name-int">int</a>) <b>Value</b></i></span><span class="hidden"><i>
+			func github.com/ghodss/yaml.<a href="github.com/ghodss/yaml.html#name-convertToJSONableObject">convertToJSONableObject</a>(yamlObj interface{}, jsonTarget *<b>Value</b>) (interface{}, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func github.com/ghodss/yaml.<a href="github.com/ghodss/yaml.html#name-indirect">indirect</a>(v <b>Value</b>, decodingNull <a href="builtin.html#name-bool">bool</a>) (<a href="encoding/json.html">json</a>.<a href="encoding/json.html#name-Unmarshaler">Unmarshaler</a>, <a href="encoding.html">encoding</a>.<a href="encoding.html#name-TextUnmarshaler">TextUnmarshaler</a>, <b>Value</b>)</i></span><span class="hidden"><i>
+			func github.com/ghodss/yaml.<a href="github.com/ghodss/yaml.html#name-yamlToJSON">yamlToJSON</a>(y []<a href="builtin.html#name-byte">byte</a>, jsonTarget *<b>Value</b>) ([]<a href="builtin.html#name-byte">byte</a>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-appendMap">appendMap</a>(b []<a href="builtin.html#name-byte">byte</a>, mapv <b>Value</b>, mapi *<a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-mapInfo">mapInfo</a>, f *<a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-coderFieldInfo">coderFieldInfo</a>, opts <a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-marshalOptions">marshalOptions</a>) ([]<a href="builtin.html#name-byte">byte</a>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-appendMapDeterministic">appendMapDeterministic</a>(b []<a href="builtin.html#name-byte">byte</a>, mapv <b>Value</b>, mapi *<a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-mapInfo">mapInfo</a>, f *<a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-coderFieldInfo">coderFieldInfo</a>, opts <a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-marshalOptions">marshalOptions</a>) ([]<a href="builtin.html#name-byte">byte</a>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-appendMapItem">appendMapItem</a>(b []<a href="builtin.html#name-byte">byte</a>, keyrv, valrv <b>Value</b>, mapi *<a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-mapInfo">mapInfo</a>, f *<a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-coderFieldInfo">coderFieldInfo</a>, opts <a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-marshalOptions">marshalOptions</a>) ([]<a href="builtin.html#name-byte">byte</a>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
@@ -1484,6 +1523,10 @@
 			func google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-mapRange">mapRange</a>(v <b>Value</b>) *<a href="#name-MapIter">MapIter</a></i></span><span class="hidden"><i>
 			func google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-pointerOfValue">pointerOfValue</a>(v <b>Value</b>) <a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-pointer">pointer</a></i></span><span class="hidden"><i>
 			func google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-sizeMap">sizeMap</a>(mapv <b>Value</b>, mapi *<a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-mapInfo">mapInfo</a>, f *<a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-coderFieldInfo">coderFieldInfo</a>, opts <a href="google.golang.org/protobuf/internal/impl.html">impl</a>.<a href="google.golang.org/protobuf/internal/impl.html#name-marshalOptions">marshalOptions</a>) <a href="builtin.html#name-int">int</a></i></span><span class="hidden"><i>
+			func gopkg.in/yaml.v2.<a href="gopkg.in/yaml.v2.html#name-isZero">isZero</a>(v <b>Value</b>) <a href="builtin.html#name-bool">bool</a></i></span><span class="hidden"><i>
+			func gopkg.in/yaml.v2.<a href="gopkg.in/yaml.v2.html#name-keyFloat">keyFloat</a>(v <b>Value</b>) (f <a href="builtin.html#name-float64">float64</a>, ok <a href="builtin.html#name-bool">bool</a>)</i></span><span class="hidden"><i>
+			func gopkg.in/yaml.v2.<a href="gopkg.in/yaml.v2.html#name-numLess">numLess</a>(a, b <b>Value</b>) <a href="builtin.html#name-bool">bool</a></i></span><span class="hidden"><i>
+			func gopkg.in/yaml.v2.<a href="gopkg.in/yaml.v2.html#name-resetMap">resetMap</a>(out <b>Value</b>)</i></span><span class="hidden"><i>
 			func internal/fmtsort.<a href="internal/fmtsort.html#name-compare">compare</a>(aVal, bVal <b>Value</b>) <a href="builtin.html#name-int">int</a></i></span><span class="hidden"><i>
 			func internal/fmtsort.<a href="internal/fmtsort.html#name-nilCompare">nilCompare</a>(aVal, bVal <b>Value</b>) (<a href="builtin.html#name-int">int</a>, <a href="builtin.html#name-bool">bool</a>)</i></span><span class="hidden"><i>
 			func text/template.<a href="text/template.html#name-addValueFuncs">addValueFuncs</a>(out map[<a href="builtin.html#name-string">string</a>]<b>Value</b>, in <a href="text/template.html">template</a>.<a href="text/template.html#name-FuncMap">FuncMap</a>)</i></span><span class="hidden"><i>
@@ -1516,10 +1559,11 @@
 			func text/template.<a href="text/template.html#name-slice">slice</a>(item <b>Value</b>, indexes ...<b>Value</b>) (<b>Value</b>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func text/template.<a href="text/template.html#name-slice">slice</a>(item <b>Value</b>, indexes ...<b>Value</b>) (<b>Value</b>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func text/template.<a href="text/template.html#name-truth">truth</a>(arg <b>Value</b>) <a href="builtin.html#name-bool">bool</a></i></span></span>
-		<input type='checkbox' class="fold" id="Value-fold-values"><label for="Value-fold-values">As Types Of (<i>total 4, none are exported</i>)</label><span id='Value-fold-values-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="Value-showhide-values"><i><label for="Value-showhide-values" class="show-inline">/* 4 unexporteds ... */</label><label for="Value-showhide-values" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
+		<input type='checkbox' class="fold" id="Value-fold-values"><label for="Value-fold-values">As Types Of (<i>total 5, none are exported</i>)</label><span id='Value-fold-values-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Value-showhide-values"><i><label for="Value-showhide-values" class="show-inline">/* 5 unexporteds ... */</label><label for="Value-showhide-values" class="hide-inline">/* 5 unexporteds: */</label></i><span class="hidden"><i>
 			  var google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-emptyBytes">emptyBytes</a></i></span><span class="hidden"><i>
 			  var google.golang.org/protobuf/internal/impl.<a href="google.golang.org/protobuf/internal/impl.html#name-nilBytes">nilBytes</a></i></span><span class="hidden"><i>
+			  var gopkg.in/yaml.v2.<a href="gopkg.in/yaml.v2.html#name-zeroValue">zeroValue</a></i></span><span class="hidden"><i>
 			  var text/template.<a href="text/template.html#name-missingVal">missingVal</a></i></span><span class="hidden"><i>
 			  var text/template.<a href="text/template.html#name-zero">zero</a></i></span></span>
 
@@ -1536,7 +1580,7 @@
 		<input type='checkbox' class="fold" id="ValueError-fold-impls"><label for="ValueError-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ValueError-fold-impls-items' class="fold-items"><span>
 			*T : <a href="builtin.html#name-error">error</a></span></span>
 
-</span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 37 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 37 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-arrayType" data-popularity="2200">	<input type='checkbox' class="fold" id="arrayType-fold-content"><label for="arrayType-fold-content"> type <a href="../src/reflect/type.go.html#line-351">arrayType</a> <i>(struct)</i></label><span id='arrayType-fold-content-docs' class="fold-docs">
+</span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 37 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 37 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-arrayType" data-popularity="2250">	<input type='checkbox' class="fold" id="arrayType-fold-content"><label for="arrayType-fold-content"> type <a href="../src/reflect/type.go.html#line-351">arrayType</a> <i>(struct)</i></label><span id='arrayType-fold-content-docs' class="fold-docs">
 		arrayType represents a fixed array type.
 
 		<input type='checkbox' class="fold" id="arrayType-fold-fields"><label for="arrayType-fold-fields">Fields (<i>total 15, none are exported</i>)</label><span id='arrayType-fold-fields-items' class="fold-items">
@@ -1622,12 +1666,13 @@
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-693">textOff</a>(off <a href="#name-textOff">textOff</a>) <a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-689">typeOff</a>(off <a href="#name-typeOff">typeOff</a>) *<a href="#name-rtype">rtype</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-697">uncommon</a>() *<a href="#name-uncommonType">uncommonType</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="arrayType-fold-impls"><label for="arrayType-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='arrayType-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="arrayType-fold-impls"><label for="arrayType-fold-impls">Implements (<i>at least 6, in which 3 are exported</i>)</label><span id='arrayType-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Type">Type</a></span><span>
 			*T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
 			*T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span>
-			<input type='checkbox' checked class="showhide" id="arrayType-showhide-impls"><i><label for="arrayType-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="arrayType-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="arrayType-showhide-impls"><i><label for="arrayType-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="arrayType-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 
 </span></div><div class="anchor type-res hidden" id="name-bitVector" data-popularity="160">	<input type='checkbox' class="fold" id="bitVector-fold-content"><label for="bitVector-fold-content"> type <a href="../src/reflect/type.go.html#line-3082">bitVector</a> <i>(struct)</i></label><span id='bitVector-fold-content-docs' class="fold-docs">
@@ -1663,7 +1708,7 @@
 			<span class="nodocs"><a href="../src/reflect/type.go.html#line-1758">t1</a> <i>*<a href="#name-rtype">rtype</a></i></span></i></span><span class="hidden"><i>
 			<span class="nodocs"><a href="../src/reflect/type.go.html#line-1759">t2</a> <i>*<a href="#name-rtype">rtype</a></i></span></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-chanType" data-popularity="2200">	<input type='checkbox' class="fold" id="chanType-fold-content"><label for="chanType-fold-content"> type <a href="../src/reflect/type.go.html#line-359">chanType</a> <i>(struct)</i></label><span id='chanType-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-chanType" data-popularity="2250">	<input type='checkbox' class="fold" id="chanType-fold-content"><label for="chanType-fold-content"> type <a href="../src/reflect/type.go.html#line-359">chanType</a> <i>(struct)</i></label><span id='chanType-fold-content-docs' class="fold-docs">
 		chanType represents a channel type.
 
 		<input type='checkbox' class="fold" id="chanType-fold-fields"><label for="chanType-fold-fields">Fields (<i>total 14, none are exported</i>)</label><span id='chanType-fold-fields-items' class="fold-items">
@@ -1748,12 +1793,13 @@
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-693">textOff</a>(off <a href="#name-textOff">textOff</a>) <a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-689">typeOff</a>(off <a href="#name-typeOff">typeOff</a>) *<a href="#name-rtype">rtype</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-697">uncommon</a>() *<a href="#name-uncommonType">uncommonType</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="chanType-fold-impls"><label for="chanType-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='chanType-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="chanType-fold-impls"><label for="chanType-fold-impls">Implements (<i>at least 6, in which 3 are exported</i>)</label><span id='chanType-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Type">Type</a></span><span>
 			*T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
 			*T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span>
-			<input type='checkbox' checked class="showhide" id="chanType-showhide-impls"><i><label for="chanType-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="chanType-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="chanType-showhide-impls"><i><label for="chanType-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="chanType-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 
 </span></div><div class="anchor type-res hidden" id="name-emptyInterface" data-popularity="0">	<input type='checkbox' class="fold" id="emptyInterface-fold-content"><label for="emptyInterface-fold-content"> type <a href="../src/reflect/value.go.html#line-194">emptyInterface</a> <i>(struct)</i></label><span id='emptyInterface-fold-content-docs' class="fold-docs">
@@ -1817,7 +1863,7 @@
 			const <a href="#name-flagRO">flagRO</a></i></span><span class="hidden"><i>
 			const <a href="#name-flagStickyRO">flagStickyRO</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-funcType" data-popularity="2445">	<input type='checkbox' class="fold" id="funcType-fold-content"><label for="funcType-fold-content"> type <a href="../src/reflect/type.go.html#line-376">funcType</a> <i>(struct)</i></label><span id='funcType-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-funcType" data-popularity="2495">	<input type='checkbox' class="fold" id="funcType-fold-content"><label for="funcType-fold-content"> type <a href="../src/reflect/type.go.html#line-376">funcType</a> <i>(struct)</i></label><span id='funcType-fold-content-docs' class="fold-docs">
 		funcType represents a function type.
 
 		A *rtype for each in and out parameter is stored in an array that
@@ -1912,12 +1958,13 @@
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-693">textOff</a>(off <a href="#name-textOff">textOff</a>) <a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-689">typeOff</a>(off <a href="#name-typeOff">typeOff</a>) *<a href="#name-rtype">rtype</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-697">uncommon</a>() *<a href="#name-uncommonType">uncommonType</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="funcType-fold-impls"><label for="funcType-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='funcType-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="funcType-fold-impls"><label for="funcType-fold-impls">Implements (<i>at least 6, in which 3 are exported</i>)</label><span id='funcType-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Type">Type</a></span><span>
 			*T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
 			*T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span>
-			<input type='checkbox' checked class="showhide" id="funcType-showhide-impls"><i><label for="funcType-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="funcType-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="funcType-showhide-impls"><i><label for="funcType-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="funcType-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="funcType-fold-results"><label for="funcType-fold-results">As Outputs Of (<i>at least one unexported</i>)</label><span id='funcType-fold-results-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="funcType-showhide-inputofs"><i><label for="funcType-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="funcType-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
@@ -1927,7 +1974,7 @@
 			func <a href="#name-funcLayout">funcLayout</a>(t *<b>funcType</b>, rcvr *<a href="#name-rtype">rtype</a>) (frametype *<a href="#name-rtype">rtype</a>, argSize, retOffset <a href="builtin.html#name-uintptr">uintptr</a>, stk *<a href="#name-bitVector">bitVector</a>, framePool *<a href="sync.html">sync</a>.<a href="sync.html#name-Pool">Pool</a>)</i></span><span class="hidden"><i>
 			func <a href="#name-funcStr">funcStr</a>(ft *<b>funcType</b>) <a href="builtin.html#name-string">string</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-funcTypeFixed128" data-popularity="2300">	<input type='checkbox' class="fold" id="funcTypeFixed128-fold-content"><label for="funcTypeFixed128-fold-content"> type <a href="../src/reflect/type.go.html#line-1931">funcTypeFixed128</a> <i>(struct)</i></label><span id='funcTypeFixed128-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-funcTypeFixed128" data-popularity="2350">	<input type='checkbox' class="fold" id="funcTypeFixed128-fold-content"><label for="funcTypeFixed128-fold-content"> type <a href="../src/reflect/type.go.html#line-1931">funcTypeFixed128</a> <i>(struct)</i></label><span id='funcTypeFixed128-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="funcTypeFixed128-fold-fields"><label for="funcTypeFixed128-fold-fields">Fields (<i>total 16, none are exported</i>)</label><span id='funcTypeFixed128-fold-fields-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="funcTypeFixed128-showhide-fields"><i><label for="funcTypeFixed128-showhide-fields" class="show-inline">/* 16 unexporteds ... */</label><label for="funcTypeFixed128-showhide-fields" class="hide-inline">/* 16 unexporteds: */</label></i><span class="hidden"><i>
@@ -2013,15 +2060,16 @@
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-693">textOff</a>(off <a href="#name-textOff">textOff</a>) <a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-689">typeOff</a>(off <a href="#name-typeOff">typeOff</a>) *<a href="#name-rtype">rtype</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-697">uncommon</a>() *<a href="#name-uncommonType">uncommonType</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="funcTypeFixed128-fold-impls"><label for="funcTypeFixed128-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='funcTypeFixed128-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="funcTypeFixed128-fold-impls"><label for="funcTypeFixed128-fold-impls">Implements (<i>at least 6, in which 3 are exported</i>)</label><span id='funcTypeFixed128-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Type">Type</a></span><span>
 			*T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
 			*T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span>
-			<input type='checkbox' checked class="showhide" id="funcTypeFixed128-showhide-impls"><i><label for="funcTypeFixed128-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="funcTypeFixed128-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="funcTypeFixed128-showhide-impls"><i><label for="funcTypeFixed128-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="funcTypeFixed128-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-funcTypeFixed16" data-popularity="2300">	<input type='checkbox' class="fold" id="funcTypeFixed16-fold-content"><label for="funcTypeFixed16-fold-content"> type <a href="../src/reflect/type.go.html#line-1919">funcTypeFixed16</a> <i>(struct)</i></label><span id='funcTypeFixed16-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-funcTypeFixed16" data-popularity="2350">	<input type='checkbox' class="fold" id="funcTypeFixed16-fold-content"><label for="funcTypeFixed16-fold-content"> type <a href="../src/reflect/type.go.html#line-1919">funcTypeFixed16</a> <i>(struct)</i></label><span id='funcTypeFixed16-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="funcTypeFixed16-fold-fields"><label for="funcTypeFixed16-fold-fields">Fields (<i>total 16, none are exported</i>)</label><span id='funcTypeFixed16-fold-fields-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="funcTypeFixed16-showhide-fields"><i><label for="funcTypeFixed16-showhide-fields" class="show-inline">/* 16 unexporteds ... */</label><label for="funcTypeFixed16-showhide-fields" class="hide-inline">/* 16 unexporteds: */</label></i><span class="hidden"><i>
@@ -2107,15 +2155,16 @@
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-693">textOff</a>(off <a href="#name-textOff">textOff</a>) <a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-689">typeOff</a>(off <a href="#name-typeOff">typeOff</a>) *<a href="#name-rtype">rtype</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-697">uncommon</a>() *<a href="#name-uncommonType">uncommonType</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="funcTypeFixed16-fold-impls"><label for="funcTypeFixed16-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='funcTypeFixed16-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="funcTypeFixed16-fold-impls"><label for="funcTypeFixed16-fold-impls">Implements (<i>at least 6, in which 3 are exported</i>)</label><span id='funcTypeFixed16-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Type">Type</a></span><span>
 			*T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
 			*T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span>
-			<input type='checkbox' checked class="showhide" id="funcTypeFixed16-showhide-impls"><i><label for="funcTypeFixed16-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="funcTypeFixed16-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="funcTypeFixed16-showhide-impls"><i><label for="funcTypeFixed16-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="funcTypeFixed16-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-funcTypeFixed32" data-popularity="2300">	<input type='checkbox' class="fold" id="funcTypeFixed32-fold-content"><label for="funcTypeFixed32-fold-content"> type <a href="../src/reflect/type.go.html#line-1923">funcTypeFixed32</a> <i>(struct)</i></label><span id='funcTypeFixed32-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-funcTypeFixed32" data-popularity="2350">	<input type='checkbox' class="fold" id="funcTypeFixed32-fold-content"><label for="funcTypeFixed32-fold-content"> type <a href="../src/reflect/type.go.html#line-1923">funcTypeFixed32</a> <i>(struct)</i></label><span id='funcTypeFixed32-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="funcTypeFixed32-fold-fields"><label for="funcTypeFixed32-fold-fields">Fields (<i>total 16, none are exported</i>)</label><span id='funcTypeFixed32-fold-fields-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="funcTypeFixed32-showhide-fields"><i><label for="funcTypeFixed32-showhide-fields" class="show-inline">/* 16 unexporteds ... */</label><label for="funcTypeFixed32-showhide-fields" class="hide-inline">/* 16 unexporteds: */</label></i><span class="hidden"><i>
@@ -2201,15 +2250,16 @@
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-693">textOff</a>(off <a href="#name-textOff">textOff</a>) <a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-689">typeOff</a>(off <a href="#name-typeOff">typeOff</a>) *<a href="#name-rtype">rtype</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-697">uncommon</a>() *<a href="#name-uncommonType">uncommonType</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="funcTypeFixed32-fold-impls"><label for="funcTypeFixed32-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='funcTypeFixed32-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="funcTypeFixed32-fold-impls"><label for="funcTypeFixed32-fold-impls">Implements (<i>at least 6, in which 3 are exported</i>)</label><span id='funcTypeFixed32-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Type">Type</a></span><span>
 			*T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
 			*T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span>
-			<input type='checkbox' checked class="showhide" id="funcTypeFixed32-showhide-impls"><i><label for="funcTypeFixed32-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="funcTypeFixed32-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="funcTypeFixed32-showhide-impls"><i><label for="funcTypeFixed32-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="funcTypeFixed32-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-funcTypeFixed4" data-popularity="2300">	<input type='checkbox' class="fold" id="funcTypeFixed4-fold-content"><label for="funcTypeFixed4-fold-content"> type <a href="../src/reflect/type.go.html#line-1911">funcTypeFixed4</a> <i>(struct)</i></label><span id='funcTypeFixed4-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-funcTypeFixed4" data-popularity="2350">	<input type='checkbox' class="fold" id="funcTypeFixed4-fold-content"><label for="funcTypeFixed4-fold-content"> type <a href="../src/reflect/type.go.html#line-1911">funcTypeFixed4</a> <i>(struct)</i></label><span id='funcTypeFixed4-fold-content-docs' class="fold-docs">
 		TODO(crawshaw): as these funcTypeFixedN structs have no methods,
 		they could be defined at runtime using the StructOf function.
 
@@ -2297,15 +2347,16 @@
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-693">textOff</a>(off <a href="#name-textOff">textOff</a>) <a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-689">typeOff</a>(off <a href="#name-typeOff">typeOff</a>) *<a href="#name-rtype">rtype</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-697">uncommon</a>() *<a href="#name-uncommonType">uncommonType</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="funcTypeFixed4-fold-impls"><label for="funcTypeFixed4-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='funcTypeFixed4-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="funcTypeFixed4-fold-impls"><label for="funcTypeFixed4-fold-impls">Implements (<i>at least 6, in which 3 are exported</i>)</label><span id='funcTypeFixed4-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Type">Type</a></span><span>
 			*T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
 			*T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span>
-			<input type='checkbox' checked class="showhide" id="funcTypeFixed4-showhide-impls"><i><label for="funcTypeFixed4-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="funcTypeFixed4-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="funcTypeFixed4-showhide-impls"><i><label for="funcTypeFixed4-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="funcTypeFixed4-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-funcTypeFixed64" data-popularity="2300">	<input type='checkbox' class="fold" id="funcTypeFixed64-fold-content"><label for="funcTypeFixed64-fold-content"> type <a href="../src/reflect/type.go.html#line-1927">funcTypeFixed64</a> <i>(struct)</i></label><span id='funcTypeFixed64-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-funcTypeFixed64" data-popularity="2350">	<input type='checkbox' class="fold" id="funcTypeFixed64-fold-content"><label for="funcTypeFixed64-fold-content"> type <a href="../src/reflect/type.go.html#line-1927">funcTypeFixed64</a> <i>(struct)</i></label><span id='funcTypeFixed64-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="funcTypeFixed64-fold-fields"><label for="funcTypeFixed64-fold-fields">Fields (<i>total 16, none are exported</i>)</label><span id='funcTypeFixed64-fold-fields-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="funcTypeFixed64-showhide-fields"><i><label for="funcTypeFixed64-showhide-fields" class="show-inline">/* 16 unexporteds ... */</label><label for="funcTypeFixed64-showhide-fields" class="hide-inline">/* 16 unexporteds: */</label></i><span class="hidden"><i>
@@ -2391,15 +2442,16 @@
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-693">textOff</a>(off <a href="#name-textOff">textOff</a>) <a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-689">typeOff</a>(off <a href="#name-typeOff">typeOff</a>) *<a href="#name-rtype">rtype</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-697">uncommon</a>() *<a href="#name-uncommonType">uncommonType</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="funcTypeFixed64-fold-impls"><label for="funcTypeFixed64-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='funcTypeFixed64-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="funcTypeFixed64-fold-impls"><label for="funcTypeFixed64-fold-impls">Implements (<i>at least 6, in which 3 are exported</i>)</label><span id='funcTypeFixed64-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Type">Type</a></span><span>
 			*T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
 			*T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span>
-			<input type='checkbox' checked class="showhide" id="funcTypeFixed64-showhide-impls"><i><label for="funcTypeFixed64-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="funcTypeFixed64-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="funcTypeFixed64-showhide-impls"><i><label for="funcTypeFixed64-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="funcTypeFixed64-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-funcTypeFixed8" data-popularity="2300">	<input type='checkbox' class="fold" id="funcTypeFixed8-fold-content"><label for="funcTypeFixed8-fold-content"> type <a href="../src/reflect/type.go.html#line-1915">funcTypeFixed8</a> <i>(struct)</i></label><span id='funcTypeFixed8-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-funcTypeFixed8" data-popularity="2350">	<input type='checkbox' class="fold" id="funcTypeFixed8-fold-content"><label for="funcTypeFixed8-fold-content"> type <a href="../src/reflect/type.go.html#line-1915">funcTypeFixed8</a> <i>(struct)</i></label><span id='funcTypeFixed8-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="funcTypeFixed8-fold-fields"><label for="funcTypeFixed8-fold-fields">Fields (<i>total 16, none are exported</i>)</label><span id='funcTypeFixed8-fold-fields-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="funcTypeFixed8-showhide-fields"><i><label for="funcTypeFixed8-showhide-fields" class="show-inline">/* 16 unexporteds ... */</label><label for="funcTypeFixed8-showhide-fields" class="hide-inline">/* 16 unexporteds: */</label></i><span class="hidden"><i>
@@ -2485,12 +2537,13 @@
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-693">textOff</a>(off <a href="#name-textOff">textOff</a>) <a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-689">typeOff</a>(off <a href="#name-typeOff">typeOff</a>) *<a href="#name-rtype">rtype</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-697">uncommon</a>() *<a href="#name-uncommonType">uncommonType</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="funcTypeFixed8-fold-impls"><label for="funcTypeFixed8-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='funcTypeFixed8-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="funcTypeFixed8-fold-impls"><label for="funcTypeFixed8-fold-impls">Implements (<i>at least 6, in which 3 are exported</i>)</label><span id='funcTypeFixed8-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Type">Type</a></span><span>
 			*T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
 			*T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span>
-			<input type='checkbox' checked class="showhide" id="funcTypeFixed8-showhide-impls"><i><label for="funcTypeFixed8-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="funcTypeFixed8-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="funcTypeFixed8-showhide-impls"><i><label for="funcTypeFixed8-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="funcTypeFixed8-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 
 </span></div><div class="anchor type-res hidden" id="name-imethod" data-popularity="0">	<input type='checkbox' class="fold" id="imethod-fold-content"><label for="imethod-fold-content"> type <a href="../src/reflect/type.go.html#line-383">imethod</a> <i>(struct)</i></label><span id='imethod-fold-content-docs' class="fold-docs">
@@ -2505,7 +2558,7 @@
 				// .(*FuncType) underneath
 </span></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-interfaceType" data-popularity="2200">	<input type='checkbox' class="fold" id="interfaceType-fold-content"><label for="interfaceType-fold-content"> type <a href="../src/reflect/type.go.html#line-389">interfaceType</a> <i>(struct)</i></label><span id='interfaceType-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-interfaceType" data-popularity="2250">	<input type='checkbox' class="fold" id="interfaceType-fold-content"><label for="interfaceType-fold-content"> type <a href="../src/reflect/type.go.html#line-389">interfaceType</a> <i>(struct)</i></label><span id='interfaceType-fold-content-docs' class="fold-docs">
 		interfaceType represents an interface type.
 
 		<input type='checkbox' class="fold" id="interfaceType-fold-fields"><label for="interfaceType-fold-fields">Fields (<i>total 14, none are exported</i>)</label><span id='interfaceType-fold-fields-items' class="fold-items">
@@ -2596,12 +2649,13 @@
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-693">textOff</a>(off <a href="#name-textOff">textOff</a>) <a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-689">typeOff</a>(off <a href="#name-typeOff">typeOff</a>) *<a href="#name-rtype">rtype</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-697">uncommon</a>() *<a href="#name-uncommonType">uncommonType</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="interfaceType-fold-impls"><label for="interfaceType-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='interfaceType-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="interfaceType-fold-impls"><label for="interfaceType-fold-impls">Implements (<i>at least 6, in which 3 are exported</i>)</label><span id='interfaceType-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Type">Type</a></span><span>
 			*T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
 			*T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span>
-			<input type='checkbox' checked class="showhide" id="interfaceType-showhide-impls"><i><label for="interfaceType-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="interfaceType-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="interfaceType-showhide-impls"><i><label for="interfaceType-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="interfaceType-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 
 </span></div><div class="anchor type-res hidden" id="name-layoutKey" data-popularity="0">	<input type='checkbox' class="fold" id="layoutKey-fold-content"><label for="layoutKey-fold-content"> type <a href="../src/reflect/type.go.html#line-2980">layoutKey</a> <i>(struct)</i></label><span id='layoutKey-fold-content-docs' class="fold-docs">
@@ -2651,7 +2705,7 @@
 			<input type='checkbox' checked class="showhide" id="makeFuncImpl-showhide-outputofs"><i><label for="makeFuncImpl-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="makeFuncImpl-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func <a href="#name-callReflect">callReflect</a>(ctxt *<b>makeFuncImpl</b>, frame <a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a>, retValid *<a href="builtin.html#name-bool">bool</a>)</i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-mapType" data-popularity="2200">	<input type='checkbox' class="fold" id="mapType-fold-content"><label for="mapType-fold-content"> type <a href="../src/reflect/type.go.html#line-396">mapType</a> <i>(struct)</i></label><span id='mapType-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-mapType" data-popularity="2250">	<input type='checkbox' class="fold" id="mapType-fold-content"><label for="mapType-fold-content"> type <a href="../src/reflect/type.go.html#line-396">mapType</a> <i>(struct)</i></label><span id='mapType-fold-content-docs' class="fold-docs">
 		mapType represents a map type.
 
 		<input type='checkbox' class="fold" id="mapType-fold-fields"><label for="mapType-fold-fields">Fields (<i>total 20, none are exported</i>)</label><span id='mapType-fold-fields-items' class="fold-items">
@@ -2752,12 +2806,13 @@
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-693">textOff</a>(off <a href="#name-textOff">textOff</a>) <a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-689">typeOff</a>(off <a href="#name-typeOff">typeOff</a>) *<a href="#name-rtype">rtype</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-697">uncommon</a>() *<a href="#name-uncommonType">uncommonType</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="mapType-fold-impls"><label for="mapType-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='mapType-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="mapType-fold-impls"><label for="mapType-fold-impls">Implements (<i>at least 6, in which 3 are exported</i>)</label><span id='mapType-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Type">Type</a></span><span>
 			*T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
 			*T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span>
-			<input type='checkbox' checked class="showhide" id="mapType-showhide-impls"><i><label for="mapType-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="mapType-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="mapType-showhide-impls"><i><label for="mapType-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="mapType-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 
 </span></div><div class="anchor type-res hidden" id="name-method" data-popularity="0">	<input type='checkbox' class="fold" id="method-fold-content"><label for="method-fold-content"> type <a href="../src/reflect/type.go.html#line-322">method</a> <i>(struct)</i></label><span id='method-fold-content-docs' class="fold-docs">
@@ -2858,7 +2913,7 @@
 </span></i></span><span class="hidden"><i>
 			<span class="nodocs"><a href="../src/reflect/value.go.html#line-209">word</a> <i><a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a></i></span></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-ptrType" data-popularity="2200">	<input type='checkbox' class="fold" id="ptrType-fold-content"><label for="ptrType-fold-content"> type <a href="../src/reflect/type.go.html#line-410">ptrType</a> <i>(struct)</i></label><span id='ptrType-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-ptrType" data-popularity="2250">	<input type='checkbox' class="fold" id="ptrType-fold-content"><label for="ptrType-fold-content"> type <a href="../src/reflect/type.go.html#line-410">ptrType</a> <i>(struct)</i></label><span id='ptrType-fold-content-docs' class="fold-docs">
 		ptrType represents a pointer type.
 
 		<input type='checkbox' class="fold" id="ptrType-fold-fields"><label for="ptrType-fold-fields">Fields (<i>total 13, none are exported</i>)</label><span id='ptrType-fold-fields-items' class="fold-items">
@@ -2940,15 +2995,16 @@
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-693">textOff</a>(off <a href="#name-textOff">textOff</a>) <a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-689">typeOff</a>(off <a href="#name-typeOff">typeOff</a>) *<a href="#name-rtype">rtype</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-697">uncommon</a>() *<a href="#name-uncommonType">uncommonType</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="ptrType-fold-impls"><label for="ptrType-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='ptrType-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="ptrType-fold-impls"><label for="ptrType-fold-impls">Implements (<i>at least 6, in which 3 are exported</i>)</label><span id='ptrType-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Type">Type</a></span><span>
 			*T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
 			*T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span>
-			<input type='checkbox' checked class="showhide" id="ptrType-showhide-impls"><i><label for="ptrType-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="ptrType-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="ptrType-showhide-impls"><i><label for="ptrType-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="ptrType-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-rtype" data-popularity="3805">	<input type='checkbox' class="fold" id="rtype-fold-content"><label for="rtype-fold-content"> type <a href="../src/reflect/type.go.html#line-305">rtype</a> <i>(struct)</i></label><span id='rtype-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-rtype" data-popularity="3855">	<input type='checkbox' class="fold" id="rtype-fold-content"><label for="rtype-fold-content"> type <a href="../src/reflect/type.go.html#line-305">rtype</a> <i>(struct)</i></label><span id='rtype-fold-content-docs' class="fold-docs">
 		rtype is the common implementation of most values.
 		It is embedded in other struct types.
 
@@ -3029,12 +3085,13 @@
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-693">textOff</a>(off <a href="#name-textOff">textOff</a>) <a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-689">typeOff</a>(off <a href="#name-typeOff">typeOff</a>) *<b>rtype</b></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-697">uncommon</a>() *<a href="#name-uncommonType">uncommonType</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="rtype-fold-impls"><label for="rtype-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='rtype-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="rtype-fold-impls"><label for="rtype-fold-impls">Implements (<i>at least 6, in which 3 are exported</i>)</label><span id='rtype-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Type">Type</a></span><span>
 			*T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
 			*T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span>
-			<input type='checkbox' checked class="showhide" id="rtype-showhide-impls"><i><label for="rtype-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="rtype-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="rtype-showhide-impls"><i><label for="rtype-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="rtype-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="rtype-fold-results"><label for="rtype-fold-results">As Outputs Of (<i>at least 5, none are exported</i>)</label><span id='rtype-fold-results-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="rtype-showhide-inputofs"><i><label for="rtype-showhide-inputofs" class="show-inline">/* 5+ unexporteds ... */</label><label for="rtype-showhide-inputofs" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
@@ -3106,7 +3163,7 @@
 			<input type='checkbox' checked class="showhide" id="runtimeSelect-showhide-outputofs"><i><label for="runtimeSelect-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="runtimeSelect-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func <a href="#name-rselect">rselect</a>([]<b>runtimeSelect</b>) (chosen <a href="builtin.html#name-int">int</a>, recvOK <a href="builtin.html#name-bool">bool</a>)</i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-sliceType" data-popularity="2200">	<input type='checkbox' class="fold" id="sliceType-fold-content"><label for="sliceType-fold-content"> type <a href="../src/reflect/type.go.html#line-416">sliceType</a> <i>(struct)</i></label><span id='sliceType-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-sliceType" data-popularity="2250">	<input type='checkbox' class="fold" id="sliceType-fold-content"><label for="sliceType-fold-content"> type <a href="../src/reflect/type.go.html#line-416">sliceType</a> <i>(struct)</i></label><span id='sliceType-fold-content-docs' class="fold-docs">
 		sliceType represents a slice type.
 
 		<input type='checkbox' class="fold" id="sliceType-fold-fields"><label for="sliceType-fold-fields">Fields (<i>total 13, none are exported</i>)</label><span id='sliceType-fold-fields-items' class="fold-items">
@@ -3188,12 +3245,13 @@
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-693">textOff</a>(off <a href="#name-textOff">textOff</a>) <a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-689">typeOff</a>(off <a href="#name-typeOff">typeOff</a>) *<a href="#name-rtype">rtype</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-697">uncommon</a>() *<a href="#name-uncommonType">uncommonType</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="sliceType-fold-impls"><label for="sliceType-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='sliceType-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="sliceType-fold-impls"><label for="sliceType-fold-impls">Implements (<i>at least 6, in which 3 are exported</i>)</label><span id='sliceType-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Type">Type</a></span><span>
 			*T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
 			*T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span>
-			<input type='checkbox' checked class="showhide" id="sliceType-showhide-impls"><i><label for="sliceType-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="sliceType-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="sliceType-showhide-impls"><i><label for="sliceType-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="sliceType-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 
 </span></div><div class="anchor type-res hidden" id="name-structField" data-popularity="175">	<input type='checkbox' class="fold" id="structField-fold-content"><label for="structField-fold-content"> type <a href="../src/reflect/type.go.html#line-422">structField</a> <i>(struct)</i></label><span id='structField-fold-content-docs' class="fold-docs">
@@ -3218,7 +3276,7 @@
 			<input type='checkbox' checked class="showhide" id="structField-showhide-inputofs"><i><label for="structField-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="structField-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func <a href="#name-runtimeStructField">runtimeStructField</a>(field <a href="#name-StructField">StructField</a>) (<b>structField</b>, <a href="builtin.html#name-string">string</a>)</i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-structType" data-popularity="2200">	<input type='checkbox' class="fold" id="structType-fold-content"><label for="structType-fold-content"> type <a href="../src/reflect/type.go.html#line-437">structType</a> <i>(struct)</i></label><span id='structType-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-structType" data-popularity="2250">	<input type='checkbox' class="fold" id="structType-fold-content"><label for="structType-fold-content"> type <a href="../src/reflect/type.go.html#line-437">structType</a> <i>(struct)</i></label><span id='structType-fold-content-docs' class="fold-docs">
 		structType represents a struct type.
 
 		<input type='checkbox' class="fold" id="structType-fold-fields"><label for="structType-fold-fields">Fields (<i>total 14, none are exported</i>)</label><span id='structType-fold-fields-items' class="fold-items">
@@ -3311,15 +3369,16 @@
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-693">textOff</a>(off <a href="#name-textOff">textOff</a>) <a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-689">typeOff</a>(off <a href="#name-typeOff">typeOff</a>) *<a href="#name-rtype">rtype</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-697">uncommon</a>() *<a href="#name-uncommonType">uncommonType</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="structType-fold-impls"><label for="structType-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='structType-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="structType-fold-impls"><label for="structType-fold-impls">Implements (<i>at least 6, in which 3 are exported</i>)</label><span id='structType-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Type">Type</a></span><span>
 			*T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
 			*T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span>
-			<input type='checkbox' checked class="showhide" id="structType-showhide-impls"><i><label for="structType-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="structType-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="structType-showhide-impls"><i><label for="structType-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="structType-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-structTypeUncommon" data-popularity="2200">	<input type='checkbox' class="fold" id="structTypeUncommon-fold-content"><label for="structTypeUncommon-fold-content"> type <a href="../src/reflect/type.go.html#line-2331">structTypeUncommon</a> <i>(struct)</i></label><span id='structTypeUncommon-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-structTypeUncommon" data-popularity="2250">	<input type='checkbox' class="fold" id="structTypeUncommon-fold-content"><label for="structTypeUncommon-fold-content"> type <a href="../src/reflect/type.go.html#line-2331">structTypeUncommon</a> <i>(struct)</i></label><span id='structTypeUncommon-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="structTypeUncommon-fold-fields"><label for="structTypeUncommon-fold-fields">Fields (<i>total 16, none are exported</i>)</label><span id='structTypeUncommon-fold-fields-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="structTypeUncommon-showhide-fields"><i><label for="structTypeUncommon-showhide-fields" class="show-inline">/* 16 unexporteds ... */</label><label for="structTypeUncommon-showhide-fields" class="hide-inline">/* 16 unexporteds: */</label></i><span class="hidden"><i>
@@ -3413,12 +3472,13 @@
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-693">textOff</a>(off <a href="#name-textOff">textOff</a>) <a href="unsafe.html">unsafe</a>.<a href="unsafe.html#name-Pointer">Pointer</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-689">typeOff</a>(off <a href="#name-typeOff">typeOff</a>) *<a href="#name-rtype">rtype</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/reflect/type.go.html#line-697">uncommon</a>() *<a href="#name-uncommonType">uncommonType</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="structTypeUncommon-fold-impls"><label for="structTypeUncommon-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='structTypeUncommon-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="structTypeUncommon-fold-impls"><label for="structTypeUncommon-fold-impls">Implements (<i>at least 6, in which 3 are exported</i>)</label><span id='structTypeUncommon-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Type">Type</a></span><span>
 			*T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span><span>
 			*T : github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-InterfaceType">InterfaceType</a></span>
-			<input type='checkbox' checked class="showhide" id="structTypeUncommon-showhide-impls"><i><label for="structTypeUncommon-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="structTypeUncommon-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="structTypeUncommon-showhide-impls"><i><label for="structTypeUncommon-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="structTypeUncommon-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 
 </span></div><div class="anchor type-res hidden" id="name-textOff" data-popularity="75">	<input type='checkbox' class="fold" id="textOff-fold-content"><label for="textOff-fold-content"> type <a href="../src/reflect/type.go.html#line-683">textOff</a> <a href="builtin.html#name-int32">int32</a> <i>(basic type)</i></label><span id='textOff-fold-content-docs' class="fold-docs">

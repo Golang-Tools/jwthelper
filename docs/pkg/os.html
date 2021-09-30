@@ -15,7 +15,7 @@
 	<a href="../index.html#pkg-os">os</a><i> (on <a href="https://pkg.go.dev/os" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../dep/os.html">15 packages</a>, and imported by <a href="../dep/os.html#imported-by">29 packages</a>
+	imports <a href="../dep/os.html">15 packages</a>, and imported by <a href="../dep/os.html#imported-by">42 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -462,7 +462,7 @@
 		A DirEntry is an entry read from a directory
 		(using the ReadDir function or a File's ReadDir method).
 
-</span></div><div class="anchor type-res" id="name-File" data-popularity="4560">	<input type='checkbox' class="fold" id="File-fold-content"><label for="File-fold-content"> type <a href="../src/os/types.go.html#line-16">File</a> <i>(struct)</i></label><span id='File-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-File" data-popularity="5045">	<input type='checkbox' class="fold" id="File-fold-content"><label for="File-fold-content"> type <a href="../src/os/types.go.html#line-16">File</a> <i>(struct)</i></label><span id='File-fold-content-docs' class="fold-docs">
 		File represents an open file descriptor.
 
 		<input type='checkbox' class="fold" id="File-fold-fields"><label for="File-fold-fields">Fields (<i>total 7, none are exported</i>)</label><span id='File-fold-fields-items' class="fold-items">
@@ -744,7 +744,7 @@
 			<input type='checkbox' class="showhide" id="File-showhide-impls"><i><label for="File-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="File-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-stringWriter">stringWriter</a></i></span><span class="hidden"><i>
 			*T : net/http.<a href="net/http.html#name-http2stringWriter">http2stringWriter</a></i></span></span>
-		<input type='checkbox' class="fold" id="File-fold-results"><label for="File-fold-results">As Outputs Of (<i>at least 15, in which 10 are exported</i>)</label><span id='File-fold-results-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="File-fold-results"><label for="File-fold-results">As Outputs Of (<i>at least 21, in which 12 are exported</i>)</label><span id='File-fold-results-items' class="fold-items"><span>
 			func <a href="#name-Create">Create</a>(name <a href="builtin.html#name-string">string</a>) (*<b>File</b>, <a href="builtin.html#name-error">error</a>)</span><span>
 			func <a href="#name-CreateTemp">CreateTemp</a>(dir, pattern <a href="builtin.html#name-string">string</a>) (*<b>File</b>, <a href="builtin.html#name-error">error</a>)</span><span>
 			func <a href="#name-NewFile">NewFile</a>(fd <a href="builtin.html#name-uintptr">uintptr</a>, name <a href="builtin.html#name-string">string</a>) *<b>File</b></span><span>
@@ -752,16 +752,23 @@
 			func <a href="#name-OpenFile">OpenFile</a>(name <a href="builtin.html#name-string">string</a>, flag <a href="builtin.html#name-int">int</a>, perm <a href="#name-FileMode">FileMode</a>) (*<b>File</b>, <a href="builtin.html#name-error">error</a>)</span><span>
 			func <a href="#name-Pipe">Pipe</a>() (r *<b>File</b>, w *<b>File</b>, err <a href="builtin.html#name-error">error</a>)</span><span>
 			func <a href="#name-Pipe">Pipe</a>() (r *<b>File</b>, w *<b>File</b>, err <a href="builtin.html#name-error">error</a>)</span><span>
+			func github.com/akamensky/argparse.(*<a href="github.com/akamensky/argparse.html#name-Command">Command</a>).<a href="../src/github.com/akamensky/argparse/argparse.go.html#line-310">File</a>(short <a href="builtin.html#name-string">string</a>, long <a href="builtin.html#name-string">string</a>, flag <a href="builtin.html#name-int">int</a>, perm <a href="#name-FileMode">FileMode</a>, opts *<a href="github.com/akamensky/argparse.html">argparse</a>.<a href="github.com/akamensky/argparse.html#name-Options">Options</a>) *<b>File</b></span><span>
+			func github.com/akamensky/argparse.(*<a href="github.com/akamensky/argparse.html#name-Command">Command</a>).<a href="../src/github.com/akamensky/argparse/argparse.go.html#line-413">FileList</a>(short <a href="builtin.html#name-string">string</a>, long <a href="builtin.html#name-string">string</a>, flag <a href="builtin.html#name-int">int</a>, perm <a href="#name-FileMode">FileMode</a>, opts *<a href="github.com/akamensky/argparse.html">argparse</a>.<a href="github.com/akamensky/argparse.html#name-Options">Options</a>) *[]<b>File</b></span><span>
 			func io/ioutil.<a href="io/ioutil.html#name-TempFile">TempFile</a>(dir, pattern <a href="builtin.html#name-string">string</a>) (f *<b>File</b>, err <a href="builtin.html#name-error">error</a>)</span><span>
 			func net.(*<a href="net.html#name-TCPListener">TCPListener</a>).<a href="../src/net/tcpsock.go.html#line-304">File</a>() (f *<b>File</b>, err <a href="builtin.html#name-error">error</a>)</span><span>
 			func net.(*<a href="net.html#name-UnixListener">UnixListener</a>).<a href="../src/net/unixsock.go.html#line-303">File</a>() (f *<b>File</b>, err <a href="builtin.html#name-error">error</a>)</span>
-			<input type='checkbox' class="showhide" id="File-showhide-inputofs"><i><label for="File-showhide-inputofs" class="show-inline">/* 5+ unexporteds ... */</label><label for="File-showhide-inputofs" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="File-showhide-inputofs"><i><label for="File-showhide-inputofs" class="show-inline">/* 9+ unexporteds ... */</label><label for="File-showhide-inputofs" class="hide-inline">/* 9+ unexporteds: */</label></i><span class="hidden"><i>
 			func <a href="#name-newFile">newFile</a>(fd <a href="builtin.html#name-uintptr">uintptr</a>, name <a href="builtin.html#name-string">string</a>, kind <a href="#name-newFileKind">newFileKind</a>) *<b>File</b></i></span><span class="hidden"><i>
 			func <a href="#name-openFdAt">openFdAt</a>(dirfd <a href="builtin.html#name-int">int</a>, name <a href="builtin.html#name-string">string</a>) (*<b>File</b>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func <a href="#name-openFileNolog">openFileNolog</a>(name <a href="builtin.html#name-string">string</a>, flag <a href="builtin.html#name-int">int</a>, perm <a href="#name-FileMode">FileMode</a>) (*<b>File</b>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func os/exec.(*<a href="os/exec.html#name-Cmd">Cmd</a>).<a href="../src/os/exec/exec.go.html#line-282">stderr</a>() (f *<b>File</b>, err <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func os/exec.(*<a href="os/exec.html#name-Cmd">Cmd</a>).<a href="../src/os/exec/exec.go.html#line-244">stdin</a>() (f *<b>File</b>, err <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func os/exec.(*<a href="os/exec.html#name-Cmd">Cmd</a>).<a href="../src/os/exec/exec.go.html#line-278">stdout</a>() (f *<b>File</b>, err <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func os/exec.(*<a href="os/exec.html#name-Cmd">Cmd</a>).<a href="../src/os/exec/exec.go.html#line-289">writerDescriptor</a>(w <a href="io.html">io</a>.<a href="io.html#name-Writer">Writer</a>) (f *<b>File</b>, err <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func net.(*<a href="net.html#name-TCPListener">TCPListener</a>).<a href="../src/net/tcpsock_posix.go.html#line-159">file</a>() (*<b>File</b>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func net.(*<a href="net.html#name-UnixListener">UnixListener</a>).<a href="../src/net/unixsock_posix.go.html#line-189">file</a>() (*<b>File</b>, <a href="builtin.html#name-error">error</a>)</i></span></span>
-		<input type='checkbox' class="fold" id="File-fold-params"><label for="File-fold-params">As Inputs Of (<i>at least 12, in which 3 are exported</i>)</label><span id='File-fold-params-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="File-fold-params"><label for="File-fold-params">As Inputs Of (<i>at least 13, in which 4 are exported</i>)</label><span id='File-fold-params-items' class="fold-items"><span>
+			func github.com/akamensky/argparse.<a href="github.com/akamensky/argparse.html#name-IsNilFile">IsNilFile</a>(fd *<b>File</b>) <a href="builtin.html#name-bool">bool</a></span><span>
 			func net.<a href="net.html#name-FileConn">FileConn</a>(f *<b>File</b>) (c <a href="net.html">net</a>.<a href="net.html#name-Conn">Conn</a>, err <a href="builtin.html#name-error">error</a>)</span><span>
 			func net.<a href="net.html#name-FileListener">FileListener</a>(f *<b>File</b>) (ln <a href="net.html">net</a>.<a href="net.html#name-Listener">Listener</a>, err <a href="builtin.html#name-error">error</a>)</span><span>
 			func net.<a href="net.html#name-FilePacketConn">FilePacketConn</a>(f *<b>File</b>) (c <a href="net.html">net</a>.<a href="net.html#name-PacketConn">PacketConn</a>, err <a href="builtin.html#name-error">error</a>)</span>
@@ -899,7 +906,7 @@
 			func <a href="#name-newProcess">newProcess</a>(pid <a href="builtin.html#name-int">int</a>, handle <a href="builtin.html#name-uintptr">uintptr</a>) *<b>Process</b></i></span><span class="hidden"><i>
 			func <a href="#name-startProcess">startProcess</a>(name <a href="builtin.html#name-string">string</a>, argv []<a href="builtin.html#name-string">string</a>, attr *<a href="#name-ProcAttr">ProcAttr</a>) (p *<b>Process</b>, err <a href="builtin.html#name-error">error</a>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-ProcessState" data-popularity="1050">	<input type='checkbox' class="fold" id="ProcessState-fold-content"><label for="ProcessState-fold-content"> type <a href="../src/os/exec_posix.go.html#line-70">ProcessState</a> <i>(struct)</i></label><span id='ProcessState-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-ProcessState" data-popularity="1100">	<input type='checkbox' class="fold" id="ProcessState-fold-content"><label for="ProcessState-fold-content"> type <a href="../src/os/exec_posix.go.html#line-70">ProcessState</a> <i>(struct)</i></label><span id='ProcessState-fold-content-docs' class="fold-docs">
 		ProcessState stores information about a process, as reported by Wait.
 
 		<input type='checkbox' class="fold" id="ProcessState-fold-fields"><label for="ProcessState-fold-fields">Fields (<i>total 3, none are exported</i>)</label><span id='ProcessState-fold-fields-items' class="fold-items">
@@ -952,9 +959,10 @@
 			<span class="nodocs">(*T) <a href="../src/os/exec_posix.go.html#line-93">sysUsage</a>() interface{}</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/os/exec_unix.go.html#line-104">systemTime</a>() <a href="time.html">time</a>.<a href="time.html#name-Duration">Duration</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../src/os/exec_unix.go.html#line-100">userTime</a>() <a href="time.html">time</a>.<a href="time.html#name-Duration">Duration</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="ProcessState-fold-impls"><label for="ProcessState-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='ProcessState-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="ProcessState-fold-impls"><label for="ProcessState-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='ProcessState-fold-impls-items' class="fold-items"><span>
 			*T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="ProcessState-showhide-impls"><i><label for="ProcessState-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="ProcessState-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="ProcessState-showhide-impls"><i><label for="ProcessState-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="ProcessState-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="ProcessState-fold-results"><label for="ProcessState-fold-results">As Outputs Of (<i>at least 2, in which 1 are exported</i>)</label><span id='ProcessState-fold-results-items' class="fold-items"><span>
@@ -962,7 +970,7 @@
 			<input type='checkbox' class="showhide" id="ProcessState-showhide-inputofs"><i><label for="ProcessState-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="ProcessState-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func (*<a href="#name-Process">Process</a>).<a href="../src/os/exec_unix.go.html#line-16">wait</a>() (ps *<b>ProcessState</b>, err <a href="builtin.html#name-error">error</a>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-Signal" data-popularity="480">	<input type='checkbox' class="fold" id="Signal-fold-content"><label for="Signal-fold-content"> type <a href="../src/os/exec.go.html#line-69">Signal</a> <b><i>(interface)</i></b></label><span id='Signal-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Signal" data-popularity="880">	<input type='checkbox' class="fold" id="Signal-fold-content"><label for="Signal-fold-content"> type <a href="../src/os/exec.go.html#line-69">Signal</a> <b><i>(interface)</i></b></label><span id='Signal-fold-content-docs' class="fold-docs">
 		A Signal represents an operating system signal.
 		The usual underlying implementation is operating system-dependent:
 		on Unix it is syscall.Signal.
@@ -974,15 +982,26 @@
 			<span class="nodocs">( T) <a href="../src/os/exec.go.html#line-70">String</a>() <a href="builtin.html#name-string">string</a></span></span></span>
 		<input type='checkbox' class="fold" id="Signal-fold-impledby"><label for="Signal-fold-impledby">Implemented By (<i>at least one exported</i>)</label><span id='Signal-fold-impledby-items' class="fold-items"><span>
 			 syscall.<a href="syscall.html#name-Signal">Signal</a></span></span>
-		<input type='checkbox' class="fold" id="Signal-fold-impls"><label for="Signal-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='Signal-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Signal-fold-impls"><label for="Signal-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='Signal-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="Signal-showhide-impls"><i><label for="Signal-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="Signal-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Signal-showhide-impls"><i><label for="Signal-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="Signal-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			 T : os/signal.<a href="os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : context.<a href="context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="runtime.html#name-stringer">stringer</a></i></span></span>
-		<input type='checkbox' class="fold" id="Signal-fold-params"><label for="Signal-fold-params">As Inputs Of (<i>at least 2, in which 1 are exported</i>)</label><span id='Signal-fold-params-items' class="fold-items"><span>
-			func (*<a href="#name-Process">Process</a>).<a href="../src/os/exec.go.html#line-134">Signal</a>(sig <b>Signal</b>) <a href="builtin.html#name-error">error</a></span>
-			<input type='checkbox' class="showhide" id="Signal-showhide-outputofs"><i><label for="Signal-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="Signal-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
-			func (*<a href="#name-Process">Process</a>).<a href="../src/os/exec_unix.go.html#line-62">signal</a>(sig <b>Signal</b>) <a href="builtin.html#name-error">error</a></i></span></span>
+		<input type='checkbox' class="fold" id="Signal-fold-params"><label for="Signal-fold-params">As Inputs Of (<i>at least 12, in which 8 are exported</i>)</label><span id='Signal-fold-params-items' class="fold-items"><span>
+			func (*<a href="#name-Process">Process</a>).<a href="../src/os/exec.go.html#line-134">Signal</a>(sig <b>Signal</b>) <a href="builtin.html#name-error">error</a></span><span>
+			func os/signal.<a href="os/signal.html#name-Ignore">Ignore</a>(sig ...<b>Signal</b>)</span><span>
+			func os/signal.<a href="os/signal.html#name-Ignored">Ignored</a>(sig <b>Signal</b>) <a href="builtin.html#name-bool">bool</a></span><span>
+			func os/signal.<a href="os/signal.html#name-Notify">Notify</a>(c chan&lt;- <b>Signal</b>, sig ...<b>Signal</b>)</span><span>
+			func os/signal.<a href="os/signal.html#name-Notify">Notify</a>(c chan&lt;- <b>Signal</b>, sig ...<b>Signal</b>)</span><span>
+			func os/signal.<a href="os/signal.html#name-NotifyContext">NotifyContext</a>(parent <a href="context.html">context</a>.<a href="context.html#name-Context">Context</a>, signals ...<b>Signal</b>) (ctx <a href="context.html">context</a>.<a href="context.html#name-Context">Context</a>, stop <a href="context.html">context</a>.<a href="context.html#name-CancelFunc">CancelFunc</a>)</span><span>
+			func os/signal.<a href="os/signal.html#name-Reset">Reset</a>(sig ...<b>Signal</b>)</span><span>
+			func os/signal.<a href="os/signal.html#name-Stop">Stop</a>(c chan&lt;- <b>Signal</b>)</span>
+			<input type='checkbox' class="showhide" id="Signal-showhide-outputofs"><i><label for="Signal-showhide-outputofs" class="show-inline">/* 4+ unexporteds ... */</label><label for="Signal-showhide-outputofs" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
+			func (*<a href="#name-Process">Process</a>).<a href="../src/os/exec_unix.go.html#line-62">signal</a>(sig <b>Signal</b>) <a href="builtin.html#name-error">error</a></i></span><span class="hidden"><i>
+			func os/signal.<a href="os/signal.html#name-cancel">cancel</a>(sigs []<b>Signal</b>, action func(<a href="builtin.html#name-int">int</a>))</i></span><span class="hidden"><i>
+			func os/signal.<a href="os/signal.html#name-process">process</a>(sig <b>Signal</b>)</i></span><span class="hidden"><i>
+			func os/signal.<a href="os/signal.html#name-signum">signum</a>(sig <b>Signal</b>) <a href="builtin.html#name-int">int</a></i></span></span>
 		<input type='checkbox' class="fold" id="Signal-fold-values"><label for="Signal-fold-values">As Types Of (<i>total 2, both are exported</i>)</label><span id='Signal-fold-values-items' class="fold-items"><span>
 			  var <a href="#name-Interrupt">Interrupt</a></span><span>
 			  var <a href="#name-Kill">Kill</a></span></span>

@@ -15,7 +15,7 @@
 	<a href="../../../index.html#pkg-google.golang.org/grpc/serviceconfig">google.golang.org/grpc/serviceconfig</a><i> (on <a href="https://pkg.go.dev/google.golang.org/grpc/serviceconfig" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports 0 packages, and imported by <a href="../../../dep/google.golang.org/grpc/serviceconfig.html#imported-by">6 packages</a>
+	imports 0 packages, and imported by <a href="../../../dep/google.golang.org/grpc/serviceconfig.html#imported-by">13 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -41,13 +41,22 @@
 			<input type='checkbox' class="showhide" id="Config-showhide-outputofs"><i><label for="Config-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="Config-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func google.golang.org/grpc.<a href="../grpc.html#name-equalServiceConfig">equalServiceConfig</a>(a, b <b>Config</b>) <a href="../../builtin.html#name-bool">bool</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-LoadBalancingConfig" data-popularity="125">	<input type='checkbox' class="fold" id="LoadBalancingConfig-fold-content"><label for="LoadBalancingConfig-fold-content"> type <a href="../../../src/google.golang.org/grpc/serviceconfig/serviceconfig.go.html#line-35">LoadBalancingConfig</a> <b><i>(interface)</i></b></label><span id='LoadBalancingConfig-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-LoadBalancingConfig" data-popularity="1175">	<input type='checkbox' class="fold" id="LoadBalancingConfig-fold-content"><label for="LoadBalancingConfig-fold-content"> type <a href="../../../src/google.golang.org/grpc/serviceconfig/serviceconfig.go.html#line-35">LoadBalancingConfig</a> <b><i>(interface)</i></b></label><span id='LoadBalancingConfig-fold-content-docs' class="fold-docs">
 		LoadBalancingConfig represents an opaque data structure holding a load
 		balancing config.
 
 		<input type='checkbox' class="fold" id="LoadBalancingConfig-fold-methods"><label for="LoadBalancingConfig-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='LoadBalancingConfig-fold-methods-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="LoadBalancingConfig-showhide-methods"><i><label for="LoadBalancingConfig-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="LoadBalancingConfig-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../../src/google.golang.org/grpc/serviceconfig/serviceconfig.go.html#line-36">isLoadBalancingConfig</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="LoadBalancingConfig-fold-impledby"><label for="LoadBalancingConfig-fold-impledby">Implemented By (<i>at least 7, in which 5 are exported</i>)</label><span id='LoadBalancingConfig-fold-impledby-items' class="fold-items"><span>
+			 google.golang.org/grpc/xds/internal/balancer/clusterimpl.<a href="xds/internal/balancer/clusterimpl.html#name-LBConfig">LBConfig</a></span><span>
+			 google.golang.org/grpc/xds/internal/balancer/clusterresolver.<a href="xds/internal/balancer/clusterresolver.html#name-LBConfig">LBConfig</a></span><span>
+			 google.golang.org/grpc/xds/internal/balancer/priority.<a href="xds/internal/balancer/priority.html#name-LBConfig">LBConfig</a></span><span>
+			 google.golang.org/grpc/xds/internal/balancer/ringhash.<a href="xds/internal/balancer/ringhash.html#name-LBConfig">LBConfig</a></span><span>
+			 google.golang.org/grpc/xds/internal/balancer/weightedtarget.<a href="xds/internal/balancer/weightedtarget.html#name-LBConfig">LBConfig</a></span>
+			<input type='checkbox' class="showhide" id="LoadBalancingConfig-showhide-impedBys"><i><label for="LoadBalancingConfig-showhide-impedBys" class="show-inline">/* 2+ unexporteds ... */</label><label for="LoadBalancingConfig-showhide-impedBys" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			 google.golang.org/grpc/xds/internal/balancer/cdsbalancer.<a href="xds/internal/balancer/cdsbalancer.html#name-lbConfig">lbConfig</a></i></span><span class="hidden"><i>
+			 google.golang.org/grpc/xds/internal/balancer/clustermanager.<a href="xds/internal/balancer/clustermanager.html#name-lbConfig">lbConfig</a></i></span></span>
 		<input type='checkbox' class="fold" id="LoadBalancingConfig-fold-results"><label for="LoadBalancingConfig-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='LoadBalancingConfig-fold-results-items' class="fold-items"><span>
 			func google.golang.org/grpc/balancer.<a href="balancer.html#name-ConfigParser">ConfigParser</a>.<a href="../../../src/google.golang.org/grpc/balancer/balancer.go.html#line-213">ParseConfig</a>(LoadBalancingConfigJSON <a href="../../encoding/json.html">json</a>.<a href="../../encoding/json.html#name-RawMessage">RawMessage</a>) (<b>LoadBalancingConfig</b>, <a href="../../builtin.html#name-error">error</a>)</span></span>
 

@@ -1,0 +1,33 @@
+version: '2.4'
+services:
+  signer:
+    image: hsz1273327/jwthelper:0.0.1
+    logging:
+      options:
+        max-file: 3
+        max-size: 10m
+    ports:
+      - "5000:5000"
+    volumes:
+      - "./key.txt:/data/key.txt"
+    environment:
+      JWTHELPER_SIGNER_LOG_LEVEL: "DEBUG"
+      JWTHELPER_SIGNER_ALGO_NAME: "HS256"
+      JWTHELPER_SIGNER_KEY_PATH: "/data/key.txt"
+    command: ["signer"]
+
+  verifier:
+    image: hsz1273327/jwthelper:0.0.1
+    logging:
+      options:
+        max-file: 3
+        max-size: 10m
+    ports:
+      - "5001:5000"
+    volumes:
+      - "./key.txt:/data/key.txt"
+    environment:
+      JWTHELPER_VERIFIER_LOG_LEVEL: "DEBUG"
+      JWTHELPER_VERIFIER_ALGO_NAME: "HS256"
+      JWTHELPER_VERIFIER_KEY_PATH: "/data/key.txt"
+    command: ["verifier"]

@@ -2659,7 +2659,7 @@ input[id=i3]:checked ~pre .i3
 <span class="codeline" id="line-1097"><code></code></span>
 <span class="codeline" id="line-1098"><code><span class="comment">// IsZero reports whether v is the zero value for its type.</span></code></span>
 <span class="codeline" id="line-1099"><code><span class="comment">// It panics if the argument is invalid.</span></code></span>
-<span class="codeline" id="line-1100"><code><span class="keyword">func</span> (<label for="r245" class="ident">v</label> <a href="#line-37" class="ident">Value</a>) <label for="r246" class="ident">IsZero</label>() <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
+<span class="codeline" id="line-1100"><code><span class="keyword">func</span> (<label for="r245" class="ident">v</label> <a href="#line-37" class="ident">Value</a>) <label for="r246" class="ident"><a href="../../imp/reflect.Value.html#name-.IsZero" class="ident">IsZero</a></label>() <a href="../../pkg/builtin.html#name-bool" class="ident">bool</a> {</code></span>
 <span class="codeline" id="line-1101"><code>	<span class="keyword">switch</span> <label for="r245" class="ident">v</label>.<a href="#line-80" class="ident">kind</a>() {</code></span>
 <span class="codeline" id="line-1102"><code>	<span class="keyword">case</span> <a href="type.go.html#line-236" class="ident">Bool</a>:</code></span>
 <span class="codeline" id="line-1103"><code>		<span class="keyword">return</span> !<label for="r245" class="ident">v</label>.<a href="#line-281" class="ident">Bool</a>()</code></span>

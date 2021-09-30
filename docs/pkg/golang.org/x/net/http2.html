@@ -257,7 +257,7 @@
 		<input type='checkbox' class="fold" id="ConnectionError-fold-impls"><label for="ConnectionError-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ConnectionError-fold-impls-items' class="fold-items"><span>
 			 T : <a href="../../../builtin.html#name-error">error</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-ContinuationFrame" data-popularity="750">	<input type='checkbox' class="fold" id="ContinuationFrame-fold-content"><label for="ContinuationFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-1200">ContinuationFrame</a> <i>(struct)</i></label><span id='ContinuationFrame-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-ContinuationFrame" data-popularity="800">	<input type='checkbox' class="fold" id="ContinuationFrame-fold-content"><label for="ContinuationFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-1200">ContinuationFrame</a> <i>(struct)</i></label><span id='ContinuationFrame-fold-content-docs' class="fold-docs">
 		A ContinuationFrame is used to continue a sequence of header block fragments.
 		See http://http2.github.io/http2-spec/#rfc.section.6.10
 
@@ -298,18 +298,19 @@
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-211">checkValid</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-217">invalidate</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-184">writeDebug</a>(buf *<a href="../../../bytes.html">bytes</a>.<a href="../../../bytes.html#name-Buffer">Buffer</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="ContinuationFrame-fold-impls"><label for="ContinuationFrame-fold-impls">Implements (<i>at least 8, in which 2 are exported</i>)</label><span id='ContinuationFrame-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="ContinuationFrame-fold-impls"><label for="ContinuationFrame-fold-impls">Implements (<i>at least 9, in which 2 are exported</i>)</label><span id='ContinuationFrame-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Frame">Frame</a></span><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="ContinuationFrame-showhide-impls"><i><label for="ContinuationFrame-showhide-impls" class="show-inline">/* 6+ unexporteds ... */</label><label for="ContinuationFrame-showhide-impls" class="hide-inline">/* 6+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="ContinuationFrame-showhide-impls"><i><label for="ContinuationFrame-showhide-impls" class="show-inline">/* 7+ unexporteds ... */</label><label for="ContinuationFrame-showhide-impls" class="hide-inline">/* 7+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : <a href="#name-headersEnder">headersEnder</a></i></span><span class="hidden"><i>
 			*T : <a href="#name-headersOrContinuation">headersOrContinuation</a></i></span><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : net/http.<a href="../../../net/http.html#name-http2headersEnder">http2headersEnder</a></i></span><span class="hidden"><i>
 			*T : net/http.<a href="../../../net/http.html#name-http2headersOrContinuation">http2headersOrContinuation</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-DataFrame" data-popularity="650">	<input type='checkbox' class="fold" id="DataFrame-fold-content"><label for="DataFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-573">DataFrame</a> <i>(struct)</i></label><span id='DataFrame-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-DataFrame" data-popularity="700">	<input type='checkbox' class="fold" id="DataFrame-fold-content"><label for="DataFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-573">DataFrame</a> <i>(struct)</i></label><span id='DataFrame-fold-content-docs' class="fold-docs">
 		A DataFrame conveys arbitrary, variable-length sequences of octets
 		associated with a stream.
 		See http://http2.github.io/http2-spec/#rfc.section.6.1
@@ -356,24 +357,26 @@
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-211">checkValid</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-217">invalidate</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-184">writeDebug</a>(buf *<a href="../../../bytes.html">bytes</a>.<a href="../../../bytes.html#name-Buffer">Buffer</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="DataFrame-fold-impls"><label for="DataFrame-fold-impls">Implements (<i>at least 6, in which 2 are exported</i>)</label><span id='DataFrame-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="DataFrame-fold-impls"><label for="DataFrame-fold-impls">Implements (<i>at least 7, in which 2 are exported</i>)</label><span id='DataFrame-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Frame">Frame</a></span><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="DataFrame-showhide-impls"><i><label for="DataFrame-showhide-impls" class="show-inline">/* 4+ unexporteds ... */</label><label for="DataFrame-showhide-impls" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="DataFrame-showhide-impls"><i><label for="DataFrame-showhide-impls" class="show-inline">/* 5+ unexporteds ... */</label><label for="DataFrame-showhide-impls" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : <a href="#name-streamEnder">streamEnder</a></i></span><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : net/http.<a href="../../../net/http.html#name-http2streamEnder">http2streamEnder</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-ErrCode" data-popularity="390">	<input type='checkbox' class="fold" id="ErrCode-fold-content"><label for="ErrCode-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/errors.go.html#line-13">ErrCode</a> <a href="../../../builtin.html#name-uint32">uint32</a> <i>(basic type)</i></label><span id='ErrCode-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-ErrCode" data-popularity="440">	<input type='checkbox' class="fold" id="ErrCode-fold-content"><label for="ErrCode-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/errors.go.html#line-13">ErrCode</a> <a href="../../../builtin.html#name-uint32">uint32</a> <i>(basic type)</i></label><span id='ErrCode-fold-content-docs' class="fold-docs">
 		An ErrCode is an unsigned 32-bit error code as defined in the HTTP/2 spec.
 
 		<input type='checkbox' class="fold" id="ErrCode-fold-methods"><label for="ErrCode-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ErrCode-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/errors.go.html#line-49">String</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
-		<input type='checkbox' class="fold" id="ErrCode-fold-impls"><label for="ErrCode-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='ErrCode-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="ErrCode-fold-impls"><label for="ErrCode-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='ErrCode-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="ErrCode-showhide-impls"><i><label for="ErrCode-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="ErrCode-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="ErrCode-showhide-impls"><i><label for="ErrCode-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="ErrCode-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="ErrCode-fold-params"><label for="ErrCode-fold-params">As Inputs Of (<i>at least 5, in which 2 are exported</i>)</label><span id='ErrCode-fold-params-items' class="fold-items"><span>
 			func (*<a href="#name-Framer">Framer</a>).<a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-890">WriteGoAway</a>(maxStreamID <a href="../../../builtin.html#name-uint32">uint32</a>, code <b>ErrCode</b>, debugData []<a href="../../../builtin.html#name-byte">byte</a>) <a href="../../../builtin.html#name-error">error</a></span><span>
@@ -472,7 +475,7 @@
 			func <a href="#name-summarizeFrame">summarizeFrame</a>(f <b>Frame</b>) <a href="../../../builtin.html#name-string">string</a></i></span><span class="hidden"><i>
 			func (*<a href="#name-Framer">Framer</a>).<a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-534">checkFrameOrder</a>(f <b>Frame</b>) <a href="../../../builtin.html#name-error">error</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-FrameHeader" data-popularity="1135">	<input type='checkbox' class="fold" id="FrameHeader-fold-content"><label for="FrameHeader-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-150">FrameHeader</a> <i>(struct)</i></label><span id='FrameHeader-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-FrameHeader" data-popularity="1185">	<input type='checkbox' class="fold" id="FrameHeader-fold-content"><label for="FrameHeader-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-150">FrameHeader</a> <i>(struct)</i></label><span id='FrameHeader-fold-content-docs' class="fold-docs">
 		A FrameHeader is the 9 byte header of all HTTP/2 frames.
 
 		See http://http2.github.io/http2-spec/#FrameHeader
@@ -510,11 +513,12 @@
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-211">checkValid</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-217">invalidate</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-184">writeDebug</a>(buf *<a href="../../../bytes.html">bytes</a>.<a href="../../../bytes.html#name-Buffer">Buffer</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="FrameHeader-fold-impls"><label for="FrameHeader-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='FrameHeader-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="FrameHeader-fold-impls"><label for="FrameHeader-fold-impls">Implements (<i>at least 5, in which 2 are exported</i>)</label><span id='FrameHeader-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Frame">Frame</a></span><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="FrameHeader-showhide-impls"><i><label for="FrameHeader-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="FrameHeader-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="FrameHeader-showhide-impls"><i><label for="FrameHeader-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="FrameHeader-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="FrameHeader-fold-results"><label for="FrameHeader-fold-results">As Outputs Of (<i>at least 4, in which 3 are exported</i>)</label><span id='FrameHeader-fold-results-items' class="fold-items"><span>
 			func <a href="#name-ReadFrameHeader">ReadFrameHeader</a>(r <a href="../../../io.html">io</a>.<a href="../../../io.html#name-Reader">Reader</a>) (<b>FrameHeader</b>, <a href="../../../builtin.html#name-error">error</a>)</span><span>
@@ -739,16 +743,17 @@
 		<input type='checkbox' class="fold" id="Framer-fold-results"><label for="Framer-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Framer-fold-results-items' class="fold-items"><span>
 			func <a href="#name-NewFramer">NewFramer</a>(w <a href="../../../io.html">io</a>.<a href="../../../io.html#name-Writer">Writer</a>, r <a href="../../../io.html">io</a>.<a href="../../../io.html#name-Reader">Reader</a>) *<b>Framer</b></span></span>
 
-</span></div><div class="anchor type-res" id="name-FrameType" data-popularity="320">	<input type='checkbox' class="fold" id="FrameType-fold-content"><label for="FrameType-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-27">FrameType</a> <a href="../../../builtin.html#name-uint8">uint8</a> <i>(basic type)</i></label><span id='FrameType-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-FrameType" data-popularity="370">	<input type='checkbox' class="fold" id="FrameType-fold-content"><label for="FrameType-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-27">FrameType</a> <a href="../../../builtin.html#name-uint8">uint8</a> <i>(basic type)</i></label><span id='FrameType-fold-content-docs' class="fold-docs">
 		A FrameType is a registered frame type as defined in
 		http://http2.github.io/http2-spec/#rfc.section.11.2
 
 		<input type='checkbox' class="fold" id="FrameType-fold-methods"><label for="FrameType-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='FrameType-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-55">String</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
-		<input type='checkbox' class="fold" id="FrameType-fold-impls"><label for="FrameType-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='FrameType-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="FrameType-fold-impls"><label for="FrameType-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='FrameType-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="FrameType-showhide-impls"><i><label for="FrameType-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="FrameType-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="FrameType-showhide-impls"><i><label for="FrameType-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="FrameType-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="FrameType-fold-params"><label for="FrameType-fold-params">As Inputs Of (<i>at least 3, in which 1 are exported</i>)</label><span id='FrameType-fold-params-items' class="fold-items"><span>
 			func (*<a href="#name-Framer">Framer</a>).<a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-1346">WriteRawFrame</a>(t <b>FrameType</b>, flags <a href="#name-Flags">Flags</a>, streamID <a href="../../../builtin.html#name-uint32">uint32</a>, payload []<a href="../../../builtin.html#name-byte">byte</a>) <a href="../../../builtin.html#name-error">error</a></span>
@@ -767,7 +772,7 @@
 			const <a href="#name-FrameSettings">FrameSettings</a></span><span>
 			const <a href="#name-FrameWindowUpdate">FrameWindowUpdate</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-FrameWriteRequest" data-popularity="710">	<input type='checkbox' class="fold" id="FrameWriteRequest-fold-content"><label for="FrameWriteRequest-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/writesched.go.html#line-47">FrameWriteRequest</a> <i>(struct)</i></label><span id='FrameWriteRequest-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-FrameWriteRequest" data-popularity="760">	<input type='checkbox' class="fold" id="FrameWriteRequest-fold-content"><label for="FrameWriteRequest-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/writesched.go.html#line-47">FrameWriteRequest</a> <i>(struct)</i></label><span id='FrameWriteRequest-fold-content-docs' class="fold-docs">
 		FrameWriteRequest is a request to write a frame.
 
 		<input type='checkbox' class="fold" id="FrameWriteRequest-fold-fields"><label for="FrameWriteRequest-fold-fields">Fields (<i>total 3, none are exported</i>)</label><span id='FrameWriteRequest-fold-fields-items' class="fold-items">
@@ -819,10 +824,11 @@
 				replyToWriter sends err to wr.done and panics if the send must block
 				This does nothing if wr.done is nil.
 </span></i></span></span>
-		<input type='checkbox' class="fold" id="FrameWriteRequest-fold-impls"><label for="FrameWriteRequest-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='FrameWriteRequest-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="FrameWriteRequest-fold-impls"><label for="FrameWriteRequest-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='FrameWriteRequest-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="FrameWriteRequest-showhide-impls"><i><label for="FrameWriteRequest-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="FrameWriteRequest-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="FrameWriteRequest-showhide-impls"><i><label for="FrameWriteRequest-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="FrameWriteRequest-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="FrameWriteRequest-fold-results"><label for="FrameWriteRequest-fold-results">As Outputs Of (<i>at least 3, all are exported</i>)</label><span id='FrameWriteRequest-fold-results-items' class="fold-items"><span>
 			func FrameWriteRequest.<a href="../../../../src/golang.org/x/net/http2/writesched.go.html#line-104">Consume</a>(n <a href="../../../builtin.html#name-int32">int32</a>) (<b>FrameWriteRequest</b>, <b>FrameWriteRequest</b>, <a href="../../../builtin.html#name-int">int</a>)</span><span>
@@ -844,7 +850,7 @@
 		<input type='checkbox' class="fold" id="GoAwayError-fold-impls"><label for="GoAwayError-fold-impls">Implements (<i>at least one exported</i>)</label><span id='GoAwayError-fold-impls-items' class="fold-items"><span>
 			 T : <a href="../../../builtin.html#name-error">error</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-GoAwayFrame" data-popularity="535">	<input type='checkbox' class="fold" id="GoAwayFrame-fold-content"><label for="GoAwayFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-859">GoAwayFrame</a> <i>(struct)</i></label><span id='GoAwayFrame-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-GoAwayFrame" data-popularity="585">	<input type='checkbox' class="fold" id="GoAwayFrame-fold-content"><label for="GoAwayFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-859">GoAwayFrame</a> <i>(struct)</i></label><span id='GoAwayFrame-fold-content-docs' class="fold-docs">
 		A GoAwayFrame informs the remote peer to stop creating streams on this connection.
 		See http://http2.github.io/http2-spec/#rfc.section.6.8
 
@@ -891,17 +897,18 @@
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-211">checkValid</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-217">invalidate</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-184">writeDebug</a>(buf *<a href="../../../bytes.html">bytes</a>.<a href="../../../bytes.html#name-Buffer">Buffer</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="GoAwayFrame-fold-impls"><label for="GoAwayFrame-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='GoAwayFrame-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="GoAwayFrame-fold-impls"><label for="GoAwayFrame-fold-impls">Implements (<i>at least 5, in which 2 are exported</i>)</label><span id='GoAwayFrame-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Frame">Frame</a></span><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="GoAwayFrame-showhide-impls"><i><label for="GoAwayFrame-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="GoAwayFrame-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="GoAwayFrame-showhide-impls"><i><label for="GoAwayFrame-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="GoAwayFrame-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="GoAwayFrame-fold-params"><label for="GoAwayFrame-fold-params">As Inputs Of (<i>at least one unexported</i>)</label><span id='GoAwayFrame-fold-params-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="GoAwayFrame-showhide-outputofs"><i><label for="GoAwayFrame-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="GoAwayFrame-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func (*<a href="#name-ClientConn">ClientConn</a>).<a href="../../../../src/golang.org/x/net/http2/transport.go.html#line-713">setGoAway</a>(f *<b>GoAwayFrame</b>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-HeadersFrame" data-popularity="985">	<input type='checkbox' class="fold" id="HeadersFrame-fold-content"><label for="HeadersFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-965">HeadersFrame</a> <i>(struct)</i></label><span id='HeadersFrame-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-HeadersFrame" data-popularity="1035">	<input type='checkbox' class="fold" id="HeadersFrame-fold-content"><label for="HeadersFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-965">HeadersFrame</a> <i>(struct)</i></label><span id='HeadersFrame-fold-content-docs' class="fold-docs">
 		A HeadersFrame is used to open a stream and additionally carries a
 		header block fragment.
 
@@ -949,10 +956,10 @@
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-211">checkValid</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-217">invalidate</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-184">writeDebug</a>(buf *<a href="../../../bytes.html">bytes</a>.<a href="../../../bytes.html#name-Buffer">Buffer</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="HeadersFrame-fold-impls"><label for="HeadersFrame-fold-impls">Implements (<i>at least 10, in which 2 are exported</i>)</label><span id='HeadersFrame-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="HeadersFrame-fold-impls"><label for="HeadersFrame-fold-impls">Implements (<i>at least 11, in which 2 are exported</i>)</label><span id='HeadersFrame-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Frame">Frame</a></span><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="HeadersFrame-showhide-impls"><i><label for="HeadersFrame-showhide-impls" class="show-inline">/* 8+ unexporteds ... */</label><label for="HeadersFrame-showhide-impls" class="hide-inline">/* 8+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="HeadersFrame-showhide-impls"><i><label for="HeadersFrame-showhide-impls" class="show-inline">/* 9+ unexporteds ... */</label><label for="HeadersFrame-showhide-impls" class="hide-inline">/* 9+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : <a href="#name-headersEnder">headersEnder</a></i></span><span class="hidden"><i>
 			*T : <a href="#name-headersOrContinuation">headersOrContinuation</a></i></span><span class="hidden"><i>
 			*T : <a href="#name-streamEnder">streamEnder</a></i></span><span class="hidden"><i>
@@ -960,6 +967,7 @@
 			*T : net/http.<a href="../../../net/http.html#name-http2headersEnder">http2headersEnder</a></i></span><span class="hidden"><i>
 			*T : net/http.<a href="../../../net/http.html#name-http2headersOrContinuation">http2headersOrContinuation</a></i></span><span class="hidden"><i>
 			*T : net/http.<a href="../../../net/http.html#name-http2streamEnder">http2streamEnder</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="HeadersFrame-fold-params"><label for="HeadersFrame-fold-params">As Inputs Of (<i>at least one unexported</i>)</label><span id='HeadersFrame-fold-params-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="HeadersFrame-showhide-outputofs"><i><label for="HeadersFrame-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="HeadersFrame-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
@@ -997,7 +1005,7 @@
 		<input type='checkbox' class="fold" id="HeadersFrameParam-fold-params"><label for="HeadersFrameParam-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='HeadersFrameParam-fold-params-items' class="fold-items"><span>
 			func (*<a href="#name-Framer">Framer</a>).<a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-1063">WriteHeaders</a>(p <b>HeadersFrameParam</b>) <a href="../../../builtin.html#name-error">error</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-MetaHeadersFrame" data-popularity="1225">	<input type='checkbox' class="fold" id="MetaHeadersFrame-fold-content"><label for="MetaHeadersFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-1385">MetaHeadersFrame</a> <i>(struct)</i></label><span id='MetaHeadersFrame-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-MetaHeadersFrame" data-popularity="1275">	<input type='checkbox' class="fold" id="MetaHeadersFrame-fold-content"><label for="MetaHeadersFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-1385">MetaHeadersFrame</a> <i>(struct)</i></label><span id='MetaHeadersFrame-fold-content-docs' class="fold-docs">
 		A MetaHeadersFrame is the representation of one HEADERS frame and
 		zero or more contiguous CONTINUATION frames and the decoding of
 		their HPACK-encoded contents.
@@ -1080,10 +1088,10 @@
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-211">checkValid</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-217">invalidate</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-184">writeDebug</a>(buf *<a href="../../../bytes.html">bytes</a>.<a href="../../../bytes.html#name-Buffer">Buffer</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="MetaHeadersFrame-fold-impls"><label for="MetaHeadersFrame-fold-impls">Implements (<i>at least 10, in which 2 are exported</i>)</label><span id='MetaHeadersFrame-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="MetaHeadersFrame-fold-impls"><label for="MetaHeadersFrame-fold-impls">Implements (<i>at least 11, in which 2 are exported</i>)</label><span id='MetaHeadersFrame-fold-impls-items' class="fold-items"><span>
 			 T : <a href="#name-Frame">Frame</a></span><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="MetaHeadersFrame-showhide-impls"><i><label for="MetaHeadersFrame-showhide-impls" class="show-inline">/* 8+ unexporteds ... */</label><label for="MetaHeadersFrame-showhide-impls" class="hide-inline">/* 8+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="MetaHeadersFrame-showhide-impls"><i><label for="MetaHeadersFrame-showhide-impls" class="show-inline">/* 9+ unexporteds ... */</label><label for="MetaHeadersFrame-showhide-impls" class="hide-inline">/* 9+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : <a href="#name-headersEnder">headersEnder</a></i></span><span class="hidden"><i>
 			 T : <a href="#name-headersOrContinuation">headersOrContinuation</a></i></span><span class="hidden"><i>
 			 T : <a href="#name-streamEnder">streamEnder</a></i></span><span class="hidden"><i>
@@ -1091,6 +1099,7 @@
 			 T : net/http.<a href="../../../net/http.html#name-http2headersEnder">http2headersEnder</a></i></span><span class="hidden"><i>
 			 T : net/http.<a href="../../../net/http.html#name-http2headersOrContinuation">http2headersOrContinuation</a></i></span><span class="hidden"><i>
 			 T : net/http.<a href="../../../net/http.html#name-http2streamEnder">http2streamEnder</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="MetaHeadersFrame-fold-results"><label for="MetaHeadersFrame-fold-results">As Outputs Of (<i>at least one unexported</i>)</label><span id='MetaHeadersFrame-fold-results-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="MetaHeadersFrame-showhide-inputofs"><i><label for="MetaHeadersFrame-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="MetaHeadersFrame-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
@@ -1107,7 +1116,7 @@
 		<input type='checkbox' class="fold" id="OpenStreamOptions-fold-params"><label for="OpenStreamOptions-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='OpenStreamOptions-fold-params-items' class="fold-items"><span>
 			func <a href="#name-WriteScheduler">WriteScheduler</a>.<a href="../../../../src/golang.org/x/net/http2/writesched.go.html#line-15">OpenStream</a>(streamID <a href="../../../builtin.html#name-uint32">uint32</a>, options <b>OpenStreamOptions</b>)</span></span>
 
-</span></div><div class="anchor type-res" id="name-PingFrame" data-popularity="500">	<input type='checkbox' class="fold" id="PingFrame-fold-content"><label for="PingFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-828">PingFrame</a> <i>(struct)</i></label><span id='PingFrame-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-PingFrame" data-popularity="550">	<input type='checkbox' class="fold" id="PingFrame-fold-content"><label for="PingFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-828">PingFrame</a> <i>(struct)</i></label><span id='PingFrame-fold-content-docs' class="fold-docs">
 		A PingFrame is a mechanism for measuring a minimal round trip time
 		from the sender, as well as determining whether an idle connection
 		is still functional.
@@ -1149,14 +1158,15 @@
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-211">checkValid</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-217">invalidate</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-184">writeDebug</a>(buf *<a href="../../../bytes.html">bytes</a>.<a href="../../../bytes.html#name-Buffer">Buffer</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="PingFrame-fold-impls"><label for="PingFrame-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='PingFrame-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="PingFrame-fold-impls"><label for="PingFrame-fold-impls">Implements (<i>at least 5, in which 2 are exported</i>)</label><span id='PingFrame-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Frame">Frame</a></span><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="PingFrame-showhide-impls"><i><label for="PingFrame-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="PingFrame-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="PingFrame-showhide-impls"><i><label for="PingFrame-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="PingFrame-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-PriorityFrame" data-popularity="500">	<input type='checkbox' class="fold" id="PriorityFrame-fold-content"><label for="PriorityFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-1102">PriorityFrame</a> <i>(struct)</i></label><span id='PriorityFrame-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-PriorityFrame" data-popularity="600">	<input type='checkbox' class="fold" id="PriorityFrame-fold-content"><label for="PriorityFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-1102">PriorityFrame</a> <i>(struct)</i></label><span id='PriorityFrame-fold-content-docs' class="fold-docs">
 		A PriorityFrame specifies the sender-advised priority of a stream.
 		See http://http2.github.io/http2-spec/#rfc.section.6.3
 
@@ -1210,14 +1220,16 @@
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-211">checkValid</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-217">invalidate</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-184">writeDebug</a>(buf *<a href="../../../bytes.html">bytes</a>.<a href="../../../bytes.html#name-Buffer">Buffer</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="PriorityFrame-fold-impls"><label for="PriorityFrame-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='PriorityFrame-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="PriorityFrame-fold-impls"><label for="PriorityFrame-fold-impls">Implements (<i>at least 6, in which 3 are exported</i>)</label><span id='PriorityFrame-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Frame">Frame</a></span><span>
-			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="PriorityFrame-showhide-impls"><i><label for="PriorityFrame-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="PriorityFrame-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span><span>
+			 T : gopkg.in/yaml.v2.<a href="../../../gopkg.in/yaml.v2.html#name-IsZeroer">IsZeroer</a></span>
+			<input type='checkbox' class="showhide" id="PriorityFrame-showhide-impls"><i><label for="PriorityFrame-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="PriorityFrame-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-PriorityParam" data-popularity="155">	<input type='checkbox' class="fold" id="PriorityParam-fold-content"><label for="PriorityParam-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-1108">PriorityParam</a> <i>(struct)</i></label><span id='PriorityParam-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-PriorityParam" data-popularity="205">	<input type='checkbox' class="fold" id="PriorityParam-fold-content"><label for="PriorityParam-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-1108">PriorityParam</a> <i>(struct)</i></label><span id='PriorityParam-fold-content-docs' class="fold-docs">
 		PriorityParam are the stream prioritzation parameters.
 
 		<input type='checkbox' class="fold" id="PriorityParam-fold-fields"><label for="PriorityParam-fold-fields">Fields (<i>total 3, all are exported</i>)</label><span id='PriorityParam-fold-fields-items' class="fold-items"><span>
@@ -1237,6 +1249,8 @@
 </span></span></span>
 		<input type='checkbox' class="fold" id="PriorityParam-fold-methods"><label for="PriorityParam-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='PriorityParam-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-1124">IsZero</a>() <a href="../../../builtin.html#name-bool">bool</a></span></span></span>
+		<input type='checkbox' class="fold" id="PriorityParam-fold-impls"><label for="PriorityParam-fold-impls">Implements (<i>at least one exported</i>)</label><span id='PriorityParam-fold-impls-items' class="fold-items"><span>
+			 T : gopkg.in/yaml.v2.<a href="../../../gopkg.in/yaml.v2.html#name-IsZeroer">IsZeroer</a></span></span>
 		<input type='checkbox' class="fold" id="PriorityParam-fold-params"><label for="PriorityParam-fold-params">As Inputs Of (<i>at least 3, in which 2 are exported</i>)</label><span id='PriorityParam-fold-params-items' class="fold-items"><span>
 			func (*<a href="#name-Framer">Framer</a>).<a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-1151">WritePriority</a>(streamID <a href="../../../builtin.html#name-uint32">uint32</a>, p <b>PriorityParam</b>) <a href="../../../builtin.html#name-error">error</a></span><span>
 			func <a href="#name-WriteScheduler">WriteScheduler</a>.<a href="../../../../src/golang.org/x/net/http2/writesched.go.html#line-26">AdjustStream</a>(streamID <a href="../../../builtin.html#name-uint32">uint32</a>, priority <b>PriorityParam</b>)</span>
@@ -1286,7 +1300,7 @@
 		<input type='checkbox' class="fold" id="PriorityWriteSchedulerConfig-fold-params"><label for="PriorityWriteSchedulerConfig-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='PriorityWriteSchedulerConfig-fold-params-items' class="fold-items"><span>
 			func <a href="#name-NewPriorityWriteScheduler">NewPriorityWriteScheduler</a>(cfg *<b>PriorityWriteSchedulerConfig</b>) <a href="#name-WriteScheduler">WriteScheduler</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-PushPromiseFrame" data-popularity="750">	<input type='checkbox' class="fold" id="PushPromiseFrame-fold-content"><label for="PushPromiseFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-1240">PushPromiseFrame</a> <i>(struct)</i></label><span id='PushPromiseFrame-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-PushPromiseFrame" data-popularity="800">	<input type='checkbox' class="fold" id="PushPromiseFrame-fold-content"><label for="PushPromiseFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-1240">PushPromiseFrame</a> <i>(struct)</i></label><span id='PushPromiseFrame-fold-content-docs' class="fold-docs">
 		A PushPromiseFrame is used to initiate a server stream.
 		See http://http2.github.io/http2-spec/#rfc.section.6.6
 
@@ -1330,15 +1344,16 @@
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-211">checkValid</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-217">invalidate</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-184">writeDebug</a>(buf *<a href="../../../bytes.html">bytes</a>.<a href="../../../bytes.html#name-Buffer">Buffer</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="PushPromiseFrame-fold-impls"><label for="PushPromiseFrame-fold-impls">Implements (<i>at least 8, in which 2 are exported</i>)</label><span id='PushPromiseFrame-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="PushPromiseFrame-fold-impls"><label for="PushPromiseFrame-fold-impls">Implements (<i>at least 9, in which 2 are exported</i>)</label><span id='PushPromiseFrame-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Frame">Frame</a></span><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="PushPromiseFrame-showhide-impls"><i><label for="PushPromiseFrame-showhide-impls" class="show-inline">/* 6+ unexporteds ... */</label><label for="PushPromiseFrame-showhide-impls" class="hide-inline">/* 6+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="PushPromiseFrame-showhide-impls"><i><label for="PushPromiseFrame-showhide-impls" class="show-inline">/* 7+ unexporteds ... */</label><label for="PushPromiseFrame-showhide-impls" class="hide-inline">/* 7+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : <a href="#name-headersEnder">headersEnder</a></i></span><span class="hidden"><i>
 			*T : <a href="#name-headersOrContinuation">headersOrContinuation</a></i></span><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : net/http.<a href="../../../net/http.html#name-http2headersEnder">http2headersEnder</a></i></span><span class="hidden"><i>
 			*T : net/http.<a href="../../../net/http.html#name-http2headersOrContinuation">http2headersOrContinuation</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 
 </span></div><div class="anchor type-res" id="name-PushPromiseParam" data-popularity="35">	<input type='checkbox' class="fold" id="PushPromiseParam-fold-content"><label for="PushPromiseParam-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-1292">PushPromiseParam</a> <i>(struct)</i></label><span id='PushPromiseParam-fold-content-docs' class="fold-docs">
@@ -1380,7 +1395,7 @@
 		<input type='checkbox' class="fold" id="RoundTripOpt-fold-params"><label for="RoundTripOpt-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='RoundTripOpt-fold-params-items' class="fold-items"><span>
 			func (*<a href="#name-Transport">Transport</a>).<a href="../../../../src/golang.org/x/net/http2/transport.go.html#line-455">RoundTripOpt</a>(req *<a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Request">Request</a>, opt <b>RoundTripOpt</b>) (*<a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Response">Response</a>, <a href="../../../builtin.html#name-error">error</a>)</span></span>
 
-</span></div><div class="anchor type-res" id="name-RSTStreamFrame" data-popularity="450">	<input type='checkbox' class="fold" id="RSTStreamFrame-fold-content"><label for="RSTStreamFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-1170">RSTStreamFrame</a> <i>(struct)</i></label><span id='RSTStreamFrame-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-RSTStreamFrame" data-popularity="500">	<input type='checkbox' class="fold" id="RSTStreamFrame-fold-content"><label for="RSTStreamFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-1170">RSTStreamFrame</a> <i>(struct)</i></label><span id='RSTStreamFrame-fold-content-docs' class="fold-docs">
 		A RSTStreamFrame allows for abnormal termination of a stream.
 		See http://http2.github.io/http2-spec/#rfc.section.6.4
 
@@ -1419,11 +1434,12 @@
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-211">checkValid</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-217">invalidate</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-184">writeDebug</a>(buf *<a href="../../../bytes.html">bytes</a>.<a href="../../../bytes.html#name-Buffer">Buffer</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="RSTStreamFrame-fold-impls"><label for="RSTStreamFrame-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='RSTStreamFrame-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="RSTStreamFrame-fold-impls"><label for="RSTStreamFrame-fold-impls">Implements (<i>at least 5, in which 2 are exported</i>)</label><span id='RSTStreamFrame-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Frame">Frame</a></span><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="RSTStreamFrame-showhide-impls"><i><label for="RSTStreamFrame-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="RSTStreamFrame-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="RSTStreamFrame-showhide-impls"><i><label for="RSTStreamFrame-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="RSTStreamFrame-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 
 </span></div><div class="anchor type-res" id="name-ServeConnOpts" data-popularity="220">	<input type='checkbox' class="fold" id="ServeConnOpts-fold-content"><label for="ServeConnOpts-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/server.go.html#line-309">ServeConnOpts</a> <i>(struct)</i></label><span id='ServeConnOpts-fold-content-docs' class="fold-docs">
@@ -1539,7 +1555,7 @@
 		<input type='checkbox' class="fold" id="Server-fold-params"><label for="Server-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='Server-fold-params-items' class="fold-items"><span>
 			func <a href="#name-ConfigureServer">ConfigureServer</a>(s *<a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Server">Server</a>, conf *<b>Server</b>) <a href="../../../builtin.html#name-error">error</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-Setting" data-popularity="410">	<input type='checkbox' class="fold" id="Setting-fold-content"><label for="Setting-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/http2.go.html#line-113">Setting</a> <i>(struct)</i></label><span id='Setting-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Setting" data-popularity="460">	<input type='checkbox' class="fold" id="Setting-fold-content"><label for="Setting-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/http2.go.html#line-113">Setting</a> <i>(struct)</i></label><span id='Setting-fold-content-docs' class="fold-docs">
 		Setting is a setting parameter: which setting it is, and its value.
 
 		<input type='checkbox' class="fold" id="Setting-fold-fields"><label for="Setting-fold-fields">Fields (<i>total 2, both are exported</i>)</label><span id='Setting-fold-fields-items' class="fold-items"><span>
@@ -1555,27 +1571,29 @@
 			<input type='checkbox' class="fold" id="Setting-fold-method-Valid"><label for="Setting-fold-method-Valid">( T) <a href="../../../../src/golang.org/x/net/http2/http2.go.html#line-127">Valid</a>() <a href="../../../builtin.html#name-error">error</a></label><span id='Setting-fold-method-Valid-docs' class="fold-docs">
 				Valid reports whether the setting is valid.
 </span></span></span>
-		<input type='checkbox' class="fold" id="Setting-fold-impls"><label for="Setting-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='Setting-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Setting-fold-impls"><label for="Setting-fold-impls">Implements (<i>at least 5, in which 2 are exported</i>)</label><span id='Setting-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span><span>
 			 T : github.com/golang-jwt/jwt/v4.<a href="../../../github.com/golang-jwt/jwt/v4.html#name-Claims">Claims</a></span>
-			<input type='checkbox' class="showhide" id="Setting-showhide-impls"><i><label for="Setting-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="Setting-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Setting-showhide-impls"><i><label for="Setting-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="Setting-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="Setting-fold-results"><label for="Setting-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Setting-fold-results-items' class="fold-items"><span>
 			func (*<a href="#name-SettingsFrame">SettingsFrame</a>).<a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-748">Setting</a>(i <a href="../../../builtin.html#name-int">int</a>) <b>Setting</b></span></span>
 		<input type='checkbox' class="fold" id="Setting-fold-params"><label for="Setting-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='Setting-fold-params-items' class="fold-items"><span>
 			func (*<a href="#name-Framer">Framer</a>).<a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-806">WriteSettings</a>(settings ...<b>Setting</b>) <a href="../../../builtin.html#name-error">error</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-SettingID" data-popularity="250">	<input type='checkbox' class="fold" id="SettingID-fold-content"><label for="SettingID-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/http2.go.html#line-148">SettingID</a> <a href="../../../builtin.html#name-uint16">uint16</a> <i>(basic type)</i></label><span id='SettingID-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-SettingID" data-popularity="300">	<input type='checkbox' class="fold" id="SettingID-fold-content"><label for="SettingID-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/http2.go.html#line-148">SettingID</a> <a href="../../../builtin.html#name-uint16">uint16</a> <i>(basic type)</i></label><span id='SettingID-fold-content-docs' class="fold-docs">
 		A SettingID is an HTTP/2 setting as defined in
 		http://http2.github.io/http2-spec/#iana-settings
 
 		<input type='checkbox' class="fold" id="SettingID-fold-methods"><label for="SettingID-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='SettingID-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/http2.go.html#line-168">String</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
-		<input type='checkbox' class="fold" id="SettingID-fold-impls"><label for="SettingID-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='SettingID-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="SettingID-fold-impls"><label for="SettingID-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='SettingID-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="SettingID-showhide-impls"><i><label for="SettingID-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="SettingID-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="SettingID-showhide-impls"><i><label for="SettingID-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="SettingID-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="SettingID-fold-params"><label for="SettingID-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='SettingID-fold-params-items' class="fold-items"><span>
 			func (*<a href="#name-SettingsFrame">SettingsFrame</a>).<a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-736">Value</a>(id <b>SettingID</b>) (v <a href="../../../builtin.html#name-uint32">uint32</a>, ok <a href="../../../builtin.html#name-bool">bool</a>)</span></span>
@@ -1587,7 +1605,7 @@
 			const <a href="#name-SettingMaxFrameSize">SettingMaxFrameSize</a></span><span>
 			const <a href="#name-SettingMaxHeaderListSize">SettingMaxHeaderListSize</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-SettingsFrame" data-popularity="750">	<input type='checkbox' class="fold" id="SettingsFrame-fold-content"><label for="SettingsFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-693">SettingsFrame</a> <i>(struct)</i></label><span id='SettingsFrame-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-SettingsFrame" data-popularity="800">	<input type='checkbox' class="fold" id="SettingsFrame-fold-content"><label for="SettingsFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-693">SettingsFrame</a> <i>(struct)</i></label><span id='SettingsFrame-fold-content-docs' class="fold-docs">
 		A SettingsFrame conveys configuration parameters that affect how
 		endpoints communicate, such as preferences and constraints on peer
 		behavior.
@@ -1643,11 +1661,12 @@
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-211">checkValid</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-217">invalidate</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-184">writeDebug</a>(buf *<a href="../../../bytes.html">bytes</a>.<a href="../../../bytes.html#name-Buffer">Buffer</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="SettingsFrame-fold-impls"><label for="SettingsFrame-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='SettingsFrame-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="SettingsFrame-fold-impls"><label for="SettingsFrame-fold-impls">Implements (<i>at least 5, in which 2 are exported</i>)</label><span id='SettingsFrame-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Frame">Frame</a></span><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="SettingsFrame-showhide-impls"><i><label for="SettingsFrame-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="SettingsFrame-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="SettingsFrame-showhide-impls"><i><label for="SettingsFrame-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="SettingsFrame-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 
 </span></div><div class="anchor type-res" id="name-StreamError" data-popularity="325">	<input type='checkbox' class="fold" id="StreamError-fold-content"><label for="StreamError-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/errors.go.html#line-64">StreamError</a> <i>(struct)</i></label><span id='StreamError-fold-content-docs' class="fold-docs">
@@ -1792,7 +1811,7 @@
 			<input type='checkbox' class="showhide" id="Transport-showhide-inputofs"><i><label for="Transport-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="Transport-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func <a href="#name-configureTransport">configureTransport</a>(t1 *<a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Transport">Transport</a>) (*<b>Transport</b>, <a href="../../../builtin.html#name-error">error</a>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-UnknownFrame" data-popularity="500">	<input type='checkbox' class="fold" id="UnknownFrame-fold-content"><label for="UnknownFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-900">UnknownFrame</a> <i>(struct)</i></label><span id='UnknownFrame-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-UnknownFrame" data-popularity="550">	<input type='checkbox' class="fold" id="UnknownFrame-fold-content"><label for="UnknownFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-900">UnknownFrame</a> <i>(struct)</i></label><span id='UnknownFrame-fold-content-docs' class="fold-docs">
 		An UnknownFrame is the frame type returned when the frame type is unknown
 		or no specific frame type parser exists.
 
@@ -1838,14 +1857,15 @@
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-211">checkValid</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-217">invalidate</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-184">writeDebug</a>(buf *<a href="../../../bytes.html">bytes</a>.<a href="../../../bytes.html#name-Buffer">Buffer</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="UnknownFrame-fold-impls"><label for="UnknownFrame-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='UnknownFrame-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="UnknownFrame-fold-impls"><label for="UnknownFrame-fold-impls">Implements (<i>at least 5, in which 2 are exported</i>)</label><span id='UnknownFrame-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Frame">Frame</a></span><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="UnknownFrame-showhide-impls"><i><label for="UnknownFrame-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="UnknownFrame-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="UnknownFrame-showhide-impls"><i><label for="UnknownFrame-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="UnknownFrame-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-WindowUpdateFrame" data-popularity="450">	<input type='checkbox' class="fold" id="WindowUpdateFrame-fold-content"><label for="WindowUpdateFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-921">WindowUpdateFrame</a> <i>(struct)</i></label><span id='WindowUpdateFrame-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-WindowUpdateFrame" data-popularity="500">	<input type='checkbox' class="fold" id="WindowUpdateFrame-fold-content"><label for="WindowUpdateFrame-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-921">WindowUpdateFrame</a> <i>(struct)</i></label><span id='WindowUpdateFrame-fold-content-docs' class="fold-docs">
 		A WindowUpdateFrame is used to implement flow control.
 		See http://http2.github.io/http2-spec/#rfc.section.6.9
 
@@ -1886,11 +1906,12 @@
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-211">checkValid</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-217">invalidate</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/frame.go.html#line-184">writeDebug</a>(buf *<a href="../../../bytes.html">bytes</a>.<a href="../../../bytes.html#name-Buffer">Buffer</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="WindowUpdateFrame-fold-impls"><label for="WindowUpdateFrame-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='WindowUpdateFrame-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="WindowUpdateFrame-fold-impls"><label for="WindowUpdateFrame-fold-impls">Implements (<i>at least 5, in which 2 are exported</i>)</label><span id='WindowUpdateFrame-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Frame">Frame</a></span><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' class="showhide" id="WindowUpdateFrame-showhide-impls"><i><label for="WindowUpdateFrame-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="WindowUpdateFrame-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="WindowUpdateFrame-showhide-impls"><i><label for="WindowUpdateFrame-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="WindowUpdateFrame-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 
 </span></div><div class="anchor type-res" id="name-WriteScheduler" data-popularity="700">	<input type='checkbox' class="fold" id="WriteScheduler-fold-content"><label for="WriteScheduler-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/writesched.go.html#line-11">WriteScheduler</a> <b><i>(interface)</i></b></label><span id='WriteScheduler-fold-content-docs' class="fold-docs">
@@ -3670,14 +3691,15 @@
 			<input type='checkbox' checked class="showhide" id="streamEnder-showhide-impls"><i><label for="streamEnder-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="streamEnder-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			 T : net/http.<a href="../../../net/http.html#name-http2streamEnder">http2streamEnder</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-streamState" data-popularity="215">	<input type='checkbox' class="fold" id="streamState-fold-content"><label for="streamState-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/http2.go.html#line-78">streamState</a> <a href="../../../builtin.html#name-int">int</a> <i>(basic type)</i></label><span id='streamState-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-streamState" data-popularity="265">	<input type='checkbox' class="fold" id="streamState-fold-content"><label for="streamState-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/http2.go.html#line-78">streamState</a> <a href="../../../builtin.html#name-int">int</a> <i>(basic type)</i></label><span id='streamState-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="streamState-fold-methods"><label for="streamState-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='streamState-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../../../src/golang.org/x/net/http2/http2.go.html#line-108">String</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
-		<input type='checkbox' class="fold" id="streamState-fold-impls"><label for="streamState-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='streamState-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="streamState-fold-impls"><label for="streamState-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='streamState-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' checked class="showhide" id="streamState-showhide-impls"><i><label for="streamState-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="streamState-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="streamState-showhide-impls"><i><label for="streamState-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="streamState-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 		<input type='checkbox' class="fold" id="streamState-fold-values"><label for="streamState-fold-values">As Types Of (<i>total 5, none are exported</i>)</label><span id='streamState-fold-values-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="streamState-showhide-values"><i><label for="streamState-showhide-values" class="show-inline">/* 5 unexporteds ... */</label><label for="streamState-showhide-values" class="hide-inline">/* 5 unexporteds: */</label></i><span class="hidden"><i>
@@ -3687,20 +3709,21 @@
 			const <a href="#name-stateIdle">stateIdle</a></i></span><span class="hidden"><i>
 			const <a href="#name-stateOpen">stateOpen</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-stringWriter" data-popularity="2850">	<input type='checkbox' class="fold" id="stringWriter-fold-content"><label for="stringWriter-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/http2.go.html#line-209">stringWriter</a> <b><i>(interface)</i></b></label><span id='stringWriter-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-stringWriter" data-popularity="3150">	<input type='checkbox' class="fold" id="stringWriter-fold-content"><label for="stringWriter-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/http2.go.html#line-209">stringWriter</a> <b><i>(interface)</i></b></label><span id='stringWriter-fold-content-docs' class="fold-docs">
 		from pkg io
 
 		<input type='checkbox' class="fold" id="stringWriter-fold-methods"><label for="stringWriter-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='stringWriter-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../../../src/io/io.go.html#line-301">WriteString</a>(s <a href="../../../builtin.html#name-string">string</a>) (n <a href="../../../builtin.html#name-int">int</a>, err <a href="../../../builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="stringWriter-fold-impledby"><label for="stringWriter-fold-impledby">Implemented By (<i>at least 18, in which 7 are exported</i>)</label><span id='stringWriter-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="stringWriter-fold-impledby"><label for="stringWriter-fold-impledby">Implemented By (<i>at least 20, in which 8 are exported</i>)</label><span id='stringWriter-fold-impledby-items' class="fold-items"><span>
 			 bufio.<a href="../../../bufio.html#name-ReadWriter">ReadWriter</a></span><span>
 			*bufio.<a href="../../../bufio.html#name-Writer">Writer</a></span><span>
 			*bytes.<a href="../../../bytes.html#name-Buffer">Buffer</a></span><span>
+			*github.com/cespare/xxhash/v2.<a href="../../../github.com/cespare/xxhash/v2.html#name-Digest">Digest</a></span><span>
 			 io.<a href="../../../io.html#name-StringWriter">StringWriter</a> <i>(interface)</i></span><span>
 			 net/http/internal.<a href="../../../net/http/internal.html#name-FlushAfterChunkWriter">FlushAfterChunkWriter</a></span><span>
 			*os.<a href="../../../os.html#name-File">File</a></span><span>
 			*strings.<a href="../../../strings.html#name-Builder">Builder</a></span>
-			<input type='checkbox' checked class="showhide" id="stringWriter-showhide-impedBys"><i><label for="stringWriter-showhide-impedBys" class="show-inline">/* 11+ unexporteds ... */</label><label for="stringWriter-showhide-impedBys" class="hide-inline">/* 11+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="stringWriter-showhide-impedBys"><i><label for="stringWriter-showhide-impedBys" class="show-inline">/* 12+ unexporteds ... */</label><label for="stringWriter-showhide-impedBys" class="hide-inline">/* 12+ unexporteds: */</label></i><span class="hidden"><i>
 			*<a href="#name-responseWriter">responseWriter</a></i></span><span class="hidden"><i>
 			*encoding/json.<a href="../../../encoding/json.html#name-encodeState">encodeState</a></i></span><span class="hidden"><i>
 			*fmt.<a href="../../../fmt.html#name-pp">pp</a></i></span><span class="hidden"><i>
@@ -3710,6 +3733,7 @@
 			 net/http.<a href="../../../net/http.html#name-http2stringWriter">http2stringWriter</a> <i>(interface)</i></i></span><span class="hidden"><i>
 			*net/http.<a href="../../../net/http.html#name-response">response</a></i></span><span class="hidden"><i>
 			 net/http.<a href="../../../net/http.html#name-stringWriter">stringWriter</a></i></span><span class="hidden"><i>
+			 os/exec.<a href="../../../os/exec.html#name-closeOnce">closeOnce</a></i></span><span class="hidden"><i>
 			*strings.<a href="../../../strings.html#name-appendSliceWriter">appendSliceWriter</a></i></span><span class="hidden"><i>
 			 strings.<a href="../../../strings.html#name-stringWriter">stringWriter</a></i></span></span>
 		<input type='checkbox' class="fold" id="stringWriter-fold-impls"><label for="stringWriter-fold-impls">Implements (<i>at least 2, in which 1 are exported</i>)</label><span id='stringWriter-fold-impls-items' class="fold-items"><span>
@@ -3774,7 +3798,7 @@
 			func <a href="#name-splitHeaderBlock">splitHeaderBlock</a>(ctx <b>writeContext</b>, headerBlock []<a href="../../../builtin.html#name-byte">byte</a>, fn func(ctx <b>writeContext</b>, frag []<a href="../../../builtin.html#name-byte">byte</a>, firstFrag, lastFrag <a href="../../../builtin.html#name-bool">bool</a>) <a href="../../../builtin.html#name-error">error</a>) <a href="../../../builtin.html#name-error">error</a></i></span><span class="hidden"><i>
 			func <a href="#name-StreamError">StreamError</a>.<a href="../../../../src/golang.org/x/net/http2/write.go.html#line-128">writeFrame</a>(ctx <b>writeContext</b>) <a href="../../../builtin.html#name-error">error</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-writeData" data-popularity="350">	<input type='checkbox' class="fold" id="writeData-fold-content"><label for="writeData-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/write.go.html#line-98">writeData</a> <i>(struct)</i></label><span id='writeData-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-writeData" data-popularity="400">	<input type='checkbox' class="fold" id="writeData-fold-content"><label for="writeData-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/write.go.html#line-98">writeData</a> <i>(struct)</i></label><span id='writeData-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="writeData-fold-fields"><label for="writeData-fold-fields">Fields (<i>total 3, none are exported</i>)</label><span id='writeData-fold-fields-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="writeData-showhide-fields"><i><label for="writeData-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="writeData-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
@@ -3786,11 +3810,12 @@
 			<input type='checkbox' checked class="showhide" id="writeData-showhide-methods"><i><label for="writeData-showhide-methods" class="show-inline">/* 2 unexporteds ... */</label><label for="writeData-showhide-methods" class="hide-inline">/* 2 unexporteds: */</label></i><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/write.go.html#line-112">staysWithinBuffer</a>(max <a href="../../../builtin.html#name-int">int</a>) <a href="../../../builtin.html#name-bool">bool</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../../src/golang.org/x/net/http2/write.go.html#line-108">writeFrame</a>(ctx <a href="#name-writeContext">writeContext</a>) <a href="../../../builtin.html#name-error">error</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="writeData-fold-impls"><label for="writeData-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='writeData-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="writeData-fold-impls"><label for="writeData-fold-impls">Implements (<i>at least 5, in which 1 are exported</i>)</label><span id='writeData-fold-impls-items' class="fold-items"><span>
 			*T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span>
-			<input type='checkbox' checked class="showhide" id="writeData-showhide-impls"><i><label for="writeData-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="writeData-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="writeData-showhide-impls"><i><label for="writeData-showhide-impls" class="show-inline">/* 4+ unexporteds ... */</label><label for="writeData-showhide-impls" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : <a href="#name-writeFramer">writeFramer</a></i></span><span class="hidden"><i>
 			*T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : runtime.<a href="../../../runtime.html#name-stringer">stringer</a></i></span></span>
 
 </span></div><div class="anchor type-res hidden" id="name-writeFramer" data-popularity="1935">	<input type='checkbox' class="fold" id="writeFramer-fold-content"><label for="writeFramer-fold-content"> type <a href="../../../../src/golang.org/x/net/http2/write.go.html#line-19">writeFramer</a> <b><i>(interface)</i></b></label><span id='writeFramer-fold-content-docs' class="fold-docs">

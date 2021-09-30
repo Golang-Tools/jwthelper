@@ -15,7 +15,7 @@
 	<a href="../../index.html#pkg-crypto/cipher">crypto/cipher</a><i> (on <a href="https://pkg.go.dev/crypto/cipher" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../../dep/crypto/cipher.html">5 packages</a>, and imported by <a href="../../dep/crypto/cipher.html#imported-by">8 packages</a>
+	imports <a href="../../dep/crypto/cipher.html">5 packages</a>, and imported by <a href="../../dep/crypto/cipher.html#imported-by">9 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -492,7 +492,7 @@
 </div>
 <div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 18, in which 6 are exported)</i></span></span>
 
-<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-AEAD" data-popularity="1700">	<input type='checkbox' class="fold" id="AEAD-fold-content"><label for="AEAD-fold-content"> type <a href="../../src/crypto/cipher/gcm.go.html#line-17">AEAD</a> <b><i>(interface)</i></b></label><span id='AEAD-fold-content-docs' class="fold-docs">
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-AEAD" data-popularity="1850">	<input type='checkbox' class="fold" id="AEAD-fold-content"><label for="AEAD-fold-content"> type <a href="../../src/crypto/cipher/gcm.go.html#line-17">AEAD</a> <b><i>(interface)</i></b></label><span id='AEAD-fold-content-docs' class="fold-docs">
 		AEAD is a cipher mode providing authenticated encryption with associated
 		data. For a description of the methodology, see
 			https://en.wikipedia.org/wiki/Authenticated_encryption
@@ -528,13 +528,14 @@
 				To reuse plaintext's storage for the encrypted output, use plaintext[:0]
 				as dst. Otherwise, the remaining capacity of dst must not overlap plaintext.
 </span></span></span>
-		<input type='checkbox' class="fold" id="AEAD-fold-impledby"><label for="AEAD-fold-impledby">Implemented By (<i>at least 7, none are exported</i>)</label><span id='AEAD-fold-impledby-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="AEAD-showhide-impedBys"><i><label for="AEAD-showhide-impedBys" class="show-inline">/* 7+ unexporteds ... */</label><label for="AEAD-showhide-impedBys" class="hide-inline">/* 7+ unexporteds: */</label></i><span class="hidden"><i>
+		<input type='checkbox' class="fold" id="AEAD-fold-impledby"><label for="AEAD-fold-impledby">Implemented By (<i>at least 8, none are exported</i>)</label><span id='AEAD-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="AEAD-showhide-impedBys"><i><label for="AEAD-showhide-impedBys" class="show-inline">/* 8+ unexporteds ... */</label><label for="AEAD-showhide-impedBys" class="hide-inline">/* 8+ unexporteds: */</label></i><span class="hidden"><i>
 			*<a href="#name-gcm">gcm</a></i></span><span class="hidden"><i>
 			*crypto/aes.<a href="aes.html#name-gcmAsm">gcmAsm</a></i></span><span class="hidden"><i>
 			 crypto/tls.<a href="tls.html#name-aead">aead</a> <i>(interface)</i></i></span><span class="hidden"><i>
 			*crypto/tls.<a href="tls.html#name-prefixNonceAEAD">prefixNonceAEAD</a></i></span><span class="hidden"><i>
 			*crypto/tls.<a href="tls.html#name-xorNonceAEAD">xorNonceAEAD</a></i></span><span class="hidden"><i>
+			*google.golang.org/grpc/credentials/alts/internal/conn.<a href="../google.golang.org/grpc/credentials/alts/internal/conn.html#name-rekeyAEAD">rekeyAEAD</a></i></span><span class="hidden"><i>
 			*vendor/golang.org/x/crypto/chacha20poly1305.<a href="../vendor/golang.org/x/crypto/chacha20poly1305.html#name-chacha20poly1305">chacha20poly1305</a></i></span><span class="hidden"><i>
 			*vendor/golang.org/x/crypto/chacha20poly1305.<a href="../vendor/golang.org/x/crypto/chacha20poly1305.html#name-xchacha20poly1305">xchacha20poly1305</a></i></span></span>
 		<input type='checkbox' class="fold" id="AEAD-fold-results"><label for="AEAD-fold-results">As Outputs Of (<i>at least 6, in which 5 are exported</i>)</label><span id='AEAD-fold-results-items' class="fold-items"><span>

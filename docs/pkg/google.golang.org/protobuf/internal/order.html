@@ -15,7 +15,7 @@
 	<a href="../../../../index.html#pkg-google.golang.org/protobuf/internal/order">google.golang.org/protobuf/internal/order</a><i> (on <a href="https://pkg.go.dev/google.golang.org/protobuf/internal/order" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../../../../dep/google.golang.org/protobuf/internal/order.html">3 packages</a>, and imported by <a href="../../../../dep/google.golang.org/protobuf/internal/order.html#imported-by">3 packages</a>
+	imports <a href="../../../../dep/google.golang.org/protobuf/internal/order.html">3 packages</a>, and imported by <a href="../../../../dep/google.golang.org/protobuf/internal/order.html#imported-by">4 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -49,19 +49,21 @@
 			  var <a href="#name-LegacyFieldOrder">LegacyFieldOrder</a></span><span>
 			  var <a href="#name-NumberFieldOrder">NumberFieldOrder</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-FieldRanger" data-popularity="985">	<input type='checkbox' class="fold" id="FieldRanger-fold-content"><label for="FieldRanger-fold-content"> type <a href="../../../../src/google.golang.org/protobuf/internal/order/range.go.html#line-27">FieldRanger</a> <b><i>(interface)</i></b></label><span id='FieldRanger-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-FieldRanger" data-popularity="1285">	<input type='checkbox' class="fold" id="FieldRanger-fold-content"><label for="FieldRanger-fold-content"> type <a href="../../../../src/google.golang.org/protobuf/internal/order/range.go.html#line-27">FieldRanger</a> <b><i>(interface)</i></b></label><span id='FieldRanger-fold-content-docs' class="fold-docs">
 		FieldRnger is an interface for visiting all fields in a message.
 		The protoreflect.Message type implements this interface.
 
 		<input type='checkbox' class="fold" id="FieldRanger-fold-methods"><label for="FieldRanger-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='FieldRanger-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../../../src/google.golang.org/protobuf/internal/order/range.go.html#line-27">Range</a>(<a href="#name-VisitField">VisitField</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="FieldRanger-fold-impledby"><label for="FieldRanger-fold-impledby">Implemented By (<i>at least 6, in which 1 are exported</i>)</label><span id='FieldRanger-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="FieldRanger-fold-impledby"><label for="FieldRanger-fold-impledby">Implemented By (<i>at least 8, in which 1 are exported</i>)</label><span id='FieldRanger-fold-impledby-items' class="fold-items"><span>
 			 google.golang.org/protobuf/reflect/protoreflect.<a href="../reflect/protoreflect.html#name-Message">Message</a> <i>(interface)</i></span>
-			<input type='checkbox' class="showhide" id="FieldRanger-showhide-impedBys"><i><label for="FieldRanger-showhide-impedBys" class="show-inline">/* 5+ unexporteds ... */</label><label for="FieldRanger-showhide-impedBys" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="FieldRanger-showhide-impedBys"><i><label for="FieldRanger-showhide-impedBys" class="show-inline">/* 7+ unexporteds ... */</label><label for="FieldRanger-showhide-impedBys" class="hide-inline">/* 7+ unexporteds: */</label></i><span class="hidden"><i>
 			 google.golang.org/protobuf/internal/impl.<a href="impl.html#name-aberrantMessage">aberrantMessage</a></i></span><span class="hidden"><i>
 			*google.golang.org/protobuf/internal/impl.<a href="impl.html#name-extensionMap">extensionMap</a></i></span><span class="hidden"><i>
 			*google.golang.org/protobuf/internal/impl.<a href="impl.html#name-messageReflectWrapper">messageReflectWrapper</a></i></span><span class="hidden"><i>
 			*google.golang.org/protobuf/internal/impl.<a href="impl.html#name-messageState">messageState</a></i></span><span class="hidden"><i>
+			 google.golang.org/protobuf/encoding/protojson.<a href="../encoding/protojson.html#name-typeURLFieldRanger">typeURLFieldRanger</a></i></span><span class="hidden"><i>
+			 google.golang.org/protobuf/encoding/protojson.<a href="../encoding/protojson.html#name-unpopulatedFieldRanger">unpopulatedFieldRanger</a></i></span><span class="hidden"><i>
 			 github.com/golang/protobuf/ptypes.<a href="../../../github.com/golang/protobuf/ptypes.html#name-dynamicAny">dynamicAny</a></i></span></span>
 		<input type='checkbox' class="fold" id="FieldRanger-fold-params"><label for="FieldRanger-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='FieldRanger-fold-params-items' class="fold-items"><span>
 			func <a href="#name-RangeFields">RangeFields</a>(fs <b>FieldRanger</b>, less <a href="#name-FieldOrder">FieldOrder</a>, fn <a href="#name-VisitField">VisitField</a>)</span></span>
