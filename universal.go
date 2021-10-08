@@ -6,6 +6,7 @@ import (
 
 	"github.com/Golang-Tools/jwthelper/jwt_pb"
 	"github.com/Golang-Tools/jwthelper/signoptions"
+	"github.com/Golang-Tools/jwthelper/verifyoptions"
 )
 
 //UniversalJwtSigner 通用jwt的签名器
@@ -21,5 +22,5 @@ type UniversalJwtVerifier interface {
 	//Meta 查看签名器元信息
 	Meta() (*jwt_pb.VerifierMeta, error)
 	// 校验一个签名是否复合
-	Verify(token *jwt_pb.Token, payload interface{}, opts ...signoptions.SignOption) (string, time.Duration, error)
+	Verify(token *jwt_pb.Token, payload interface{}, opts ...verifyoptions.VerifyOption) (string, time.Duration, error)
 }

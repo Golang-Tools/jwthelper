@@ -1,3 +1,9 @@
+# v0.0.2
+
+## bug修复
+
+修复了`UniversalJwtVerifier`的声明错误
+
 # v0.0.1
 
 项目创建,包含组件:
