@@ -1,3 +1,9 @@
+# v0.0.3
+
+## 接口变化
+
++ `UniversalJwtVerify`接口变化,其对应实现也一起变化,现在`UniversalJwtVerify`返回`*jwt_pb.JwtStatus`,用于标识jwt的状态信息
+
 # v0.0.2
 
 ## bug修复

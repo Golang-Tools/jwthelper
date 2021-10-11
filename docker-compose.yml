@@ -1,7 +1,7 @@
 version: '2.4'
 services:
   signer:
-    image: hsz1273327/jwthelper:0.0.1
+    image: hsz1273327/jwthelper:0.0.3
     logging:
       options:
         max-file: 3
@@ -17,7 +17,7 @@ services:
     command: ["signer"]
 
   verifier:
-    image: hsz1273327/jwthelper:0.0.1
+    image: hsz1273327/jwthelper:0.0.3
     logging:
       options:
         max-file: 3

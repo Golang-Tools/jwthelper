@@ -29,7 +29,6 @@ message VerifyRequest {
 
 message VerifyResponse {
     jwt.ResponseStatus status=1;
-    string jti = 2;
-    int64 time_left = 3;
-    bytes payload = 4;
+    JwtStatus jwt_status = 2;
+    bytes payload = 3;
 }

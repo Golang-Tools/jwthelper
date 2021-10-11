@@ -2,8 +2,9 @@ package sdk
 
 import (
 	"errors"
-	"time"
+	"strings"
 
+	"github.com/Golang-Tools/jwthelper/exceptions"
 	"github.com/Golang-Tools/jwthelper/jwt_pb"
 	"github.com/Golang-Tools/jwthelper/jwtverifier_pb"
 	"github.com/Golang-Tools/jwthelper/verifyoptions"
@@ -62,7 +63,8 @@ func (c *Verifier) Meta() (*jwt_pb.VerifierMeta, error) {
 }
 
 // Verify 签名一个token
-func (c *Verifier) Verify(token *jwt_pb.Token, payload interface{}, opts ...verifyoptions.VerifyOption) (string, time.Duration, error) {
+func (c *Verifier) Verify(token *jwt_pb.Token, payload interface{}, opts ...verifyoptions.VerifyOption) (*jwt_pb.JwtStatus, error) {
+	var jwt_status *jwt_pb.JwtStatus
 	defaultopt := verifyoptions.VerifyOptions{}
 	for _, opt := range opts {
 		opt.Apply(&defaultopt)
@@ -78,25 +80,129 @@ func (c *Verifier) Verify(token *jwt_pb.Token, payload interface{}, opts ...veri
 	ctx, cancel := c.sdk.NewCtx()
 	defer cancel()
 	res, err := c.rpc.Verify(ctx, &query)
-	if err != nil {
-		return "", 0, err
-	}
-	if res.Status == nil || res.Status.Status == jwt_pb.ResponseStatus_FAILED {
-		var err error
-		if res.Status.Message != "" {
-			err = errors.New(res.Status.Message)
-		} else {
-			err = ErrRpcResponseError
+	if res != nil {
+		if res.Payload != nil && string(res.Payload) != "" {
+			err := json.Unmarshal(res.Payload, payload)
+			if err != nil {
+				return nil, err
+			}
 		}
-		return "", 0, err
+		if res.JwtStatus != nil || res.JwtStatus.Jti != "" {
+			jwt_status = res.JwtStatus
+		} else {
+			jwt_status = nil
+		}
 	}
-	jti := res.Jti
-	timeleft := time.Duration(res.TimeLeft)
-	err = json.Unmarshal(res.Payload, payload)
-	if err != nil {
-		return jti, timeleft, err
+	if err == nil {
+		if res.Status == nil || res.Status.Status == jwt_pb.ResponseStatus_FAILED {
+			var err error
+			if res.Status.Message != "" {
+				err = errors.New(res.Status.Message)
+			} else {
+				err = ErrRpcResponseError
+			}
+			return jwt_status, err
+		} else {
+			return jwt_status, nil
+		}
+	} else {
+		errmsg := err.Error()
+		switch {
+		case strings.Contains(errmsg, exceptions.ErrValidationErrorExpired.Error()):
+			{
+				return jwt_status, exceptions.ErrValidationErrorExpired
+			}
+		case strings.Contains(errmsg, exceptions.ErrAccessTokenNotFound.Error()):
+			{
+				return jwt_status, exceptions.ErrAccessTokenNotFound
+			}
+		case strings.Contains(errmsg, exceptions.ErrSignWithRefreshTokenNeedSUB.Error()):
+			{
+				return jwt_status, exceptions.ErrSignWithRefreshTokenNeedSUB
+			}
+		case strings.Contains(errmsg, exceptions.ErrValidationErrorUnknown.Error()):
+			{
+				return jwt_status, exceptions.ErrValidationErrorUnknown
+			}
+		case strings.Contains(errmsg, exceptions.ErrValidationErrorMalformed.Error()):
+			{
+				return jwt_status, exceptions.ErrValidationErrorMalformed
+			}
+		case strings.Contains(errmsg, exceptions.ErrValidationErrorUnverifiable.Error()):
+			{
+				return jwt_status, exceptions.ErrValidationErrorUnverifiable
+			}
+		case strings.Contains(errmsg, exceptions.ErrValidationErrorSignatureInvalid.Error()):
+			{
+				return jwt_status, exceptions.ErrValidationErrorSignatureInvalid
+			}
+		case strings.Contains(errmsg, exceptions.ErrValidationErrorAudience.Error()):
+			{
+				return jwt_status, exceptions.ErrValidationErrorAudience
+			}
+		case strings.Contains(errmsg, exceptions.ErrValidationErrorSubject.Error()):
+			{
+				return jwt_status, exceptions.ErrValidationErrorSubject
+			}
+
+		case strings.Contains(errmsg, exceptions.ErrValidationErrorIssuedAt.Error()):
+			{
+				return jwt_status, exceptions.ErrValidationErrorIssuedAt
+			}
+		case strings.Contains(errmsg, exceptions.ErrValidationErrorIssuer.Error()):
+			{
+				return jwt_status, exceptions.ErrValidationErrorIssuer
+			}
+		case strings.Contains(errmsg, exceptions.ErrValidationErrorNotValidYet.Error()):
+			{
+				return jwt_status, exceptions.ErrValidationErrorNotValidYet
+			}
+		case strings.Contains(errmsg, exceptions.ErrValidationErrorId.Error()):
+			{
+				return jwt_status, exceptions.ErrValidationErrorId
+			}
+		case strings.Contains(errmsg, exceptions.ErrValidationErrorClaimsInvalid.Error()):
+			{
+				return jwt_status, exceptions.ErrValidationErrorClaimsInvalid
+			}
+		case strings.Contains(errmsg, exceptions.ErrValidationErrorCanNotHandle.Error()):
+			{
+				return jwt_status, exceptions.ErrValidationErrorCanNotHandle
+			}
+		case strings.Contains(errmsg, exceptions.ErrRefreshTokenSUBNotMatch.Error()):
+			{
+				return jwt_status, exceptions.ErrRefreshTokenSUBNotMatch
+			}
+		case strings.Contains(errmsg, exceptions.ErrRefreshTokenAudNotMatch.Error()):
+			{
+				return jwt_status, exceptions.ErrRefreshTokenAudNotMatch
+			}
+		case strings.Contains(errmsg, exceptions.ErrRefreshTokenJtiNotMatch.Error()):
+			{
+				return jwt_status, exceptions.ErrRefreshTokenJtiNotMatch
+			}
+		case strings.Contains(errmsg, exceptions.ErrRefreshTokenIssNotInRange.Error()):
+			{
+				return jwt_status, exceptions.ErrRefreshTokenIssNotInRange
+			}
+		case strings.Contains(errmsg, exceptions.ErrRefreshTokenNotHaveEXP.Error()):
+			{
+				return jwt_status, exceptions.ErrRefreshTokenNotHaveEXP
+			}
+		case strings.Contains(errmsg, exceptions.ErrRefreshTokenValidationError.Error()):
+			{
+				return jwt_status, exceptions.ErrRefreshTokenValidationError
+			}
+		case strings.Contains(errmsg, exceptions.ErrRefreshTokenParseError.Error()):
+			{
+				return jwt_status, exceptions.ErrRefreshTokenParseError
+			}
+		default:
+			{
+				return jwt_status, err
+			}
+		}
 	}
-	return jti, timeleft, nil
 }
 
 //Close 断开连接

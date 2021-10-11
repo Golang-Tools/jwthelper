@@ -42,3 +42,11 @@ message ResponseStatus {
     Stat status = 1;
     string message = 2;
 }
+
+message JwtStatus {
+    string jti = 1;
+    string sub = 2;
+	string iss = 3;
+    int64 time_left = 4;
+    repeated string aud = 5;
+}

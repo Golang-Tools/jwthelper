@@ -4,7 +4,6 @@ package jwthelper
 import (
 	"reflect"
 	"regexp"
-	"time"
 
 	"github.com/Golang-Tools/jwthelper/exceptions"
 	"github.com/Golang-Tools/jwthelper/jwt_pb"
@@ -68,26 +67,17 @@ func (verifier *Verifier) Meta() (*jwt_pb.VerifierMeta, error) {
 	}, nil
 }
 
-//accessTokenShare access_token共享给refresh_token的信息
-type accessTokenShare struct {
-	Sub string
-	Iss string
-	Jti string
-	Aud []string
-}
-
 // checkClaims 校验claims,并提取出负载和sub
 // 校验顺序是sub>aud>iss
-func checkClaims(claims jwt.MapClaims, payload interface{}, opts *verifyoptions.VerifyOptions) (*accessTokenShare, error) {
-	share := accessTokenShare{}
+func checkClaims(claims jwt.MapClaims, payload interface{}, jwt_status *jwt_pb.JwtStatus, opts *verifyoptions.VerifyOptions) error {
 	if opts.CheckMatchSUB != "" {
 		if claims["sub"] != opts.CheckMatchSUB {
-			return nil, exceptions.ErrValidationErrorSubject
+			return exceptions.ErrValidationErrorSubject
 		}
 	}
 	if opts.CheckMatchAUD != "" {
 		if !claims.VerifyAudience(opts.CheckMatchAUD, true) {
-			return nil, exceptions.ErrValidationErrorAudience
+			return exceptions.ErrValidationErrorAudience
 		}
 	}
 	if opts.CheckMatchISS != nil && len(opts.CheckMatchISS) > 0 {
@@ -99,7 +89,7 @@ func checkClaims(claims jwt.MapClaims, payload interface{}, opts *verifyoptions.
 			}
 		}
 		if !find {
-			return nil, exceptions.ErrValidationErrorIssuer
+			return exceptions.ErrValidationErrorIssuer
 		}
 	}
 	_, ok := claims["exp"]
@@ -108,23 +98,23 @@ func checkClaims(claims jwt.MapClaims, payload interface{}, opts *verifyoptions.
 	}
 	audi, ok := claims["aud"]
 	if ok {
-		share.Aud = []string{}
+		jwt_status.Aud = []string{}
 		switch reflect.TypeOf(audi).Kind() {
 		case reflect.Slice, reflect.Array:
 			s := reflect.ValueOf(audi)
 			for i := 0; i < s.Len(); i++ {
 				va := s.Index(i).Interface().(string)
-				share.Aud = append(share.Aud, va)
+				jwt_status.Aud = append(jwt_status.Aud, va)
 			}
 		case reflect.String:
 			s := reflect.ValueOf(audi)
-			share.Aud = append(share.Aud, s.Interface().(string))
+			jwt_status.Aud = append(jwt_status.Aud, s.Interface().(string))
 		}
 		delete(claims, "aud")
 	}
 	jtii, ok := claims["jti"]
 	if ok {
-		share.Jti = jtii.(string)
+		jwt_status.Jti = jtii.(string)
 		delete(claims, "jti")
 	}
 	_, ok = claims["iat"]
@@ -133,7 +123,7 @@ func checkClaims(claims jwt.MapClaims, payload interface{}, opts *verifyoptions.
 	}
 	issi, ok := claims["iss"]
 	if ok {
-		share.Iss = issi.(string)
+		jwt_status.Iss = issi.(string)
 		delete(claims, "iss")
 	}
 	_, ok = claims["nbf"]
@@ -142,23 +132,23 @@ func checkClaims(claims jwt.MapClaims, payload interface{}, opts *verifyoptions.
 	}
 	subi, ok := claims["sub"]
 	if ok {
-		share.Sub = subi.(string)
+		jwt_status.Sub = subi.(string)
 		delete(claims, "sub")
 	}
 	claimsb, err := json.Marshal(claims)
 	if err != nil {
-		return nil, err
+		return err
 	}
 	err = json.Unmarshal(claimsb, payload)
 	if err != nil {
-		return nil, err
+		return err
 	}
-	return &share, nil
+	return nil
 }
 
 //verifyAccessToken 如果只是超时一样会进入校验流程同时给payload赋值,返回第一位设置为sub
-func (verifier *Verifier) verifyAccessToken(accesstokenData string, payload interface{}, opts *verifyoptions.VerifyOptions) (*accessTokenShare, time.Duration, error) {
-	var access_time_left time.Duration
+func (verifier *Verifier) verifyAccessToken(accesstokenData string, payload interface{}, jwt_status *jwt_pb.JwtStatus, opts *verifyoptions.VerifyOptions) error {
+	var access_time_left int64
 	tok, err := jwt.Parse(
 		accesstokenData,
 		func(t *jwt.Token) (interface{}, error) {
@@ -172,49 +162,50 @@ func (verifier *Verifier) verifyAccessToken(accesstokenData string, payload inte
 		if ok {
 			exp, ok := claims["exp"]
 			if ok {
-				access_time_left = time.Until(time.Unix(int64(exp.(float64)), 0))
+				access_time_left = int64(exp.(float64))
 			}
-			sub, err := checkClaims(claims, payload, opts)
+			err := checkClaims(claims, payload, jwt_status, opts)
 			if err != nil {
-				return nil, 0, err
+				return err
 			}
-			return sub, access_time_left, nil
+			jwt_status.TimeLeft = access_time_left
+			return nil
 		} else {
-			return nil, 0, exceptions.ErrValidationErrorClaimsInvalid
+			return exceptions.ErrValidationErrorClaimsInvalid
 		}
 	} else {
 		ve, ok := err.(*jwt.ValidationError)
 		if ok {
 			if ve.Errors&jwt.ValidationErrorMalformed != 0 {
-				return nil, 0, exceptions.ErrValidationErrorMalformed
+				return exceptions.ErrValidationErrorMalformed
 			} else if ve.Errors&jwt.ValidationErrorUnverifiable != 0 {
-				return nil, 0, exceptions.ErrValidationErrorUnverifiable
+				return exceptions.ErrValidationErrorUnverifiable
 			} else if ve.Errors&jwt.ValidationErrorSignatureInvalid != 0 {
-				return nil, 0, exceptions.ErrValidationErrorSignatureInvalid
+				return exceptions.ErrValidationErrorSignatureInvalid
 			} else if ve.Errors&jwt.ValidationErrorExpired != 0 {
 				//超时错误处理
 				claims, ok := tok.Claims.(jwt.MapClaims)
 				if ok {
-					sub, err := checkClaims(claims, payload, opts)
+					err := checkClaims(claims, payload, jwt_status, opts)
 					if err != nil {
-						return nil, 0, err
+						return err
 					}
-					return sub, 0, exceptions.ErrValidationErrorExpired
+					return exceptions.ErrValidationErrorExpired
 				}
-				return nil, 0, exceptions.ErrValidationErrorClaimsInvalid
+				return exceptions.ErrValidationErrorClaimsInvalid
 			} else if ve.Errors&jwt.ValidationErrorNotValidYet != 0 {
-				return nil, 0, exceptions.ErrValidationErrorNotValidYet
+				return exceptions.ErrValidationErrorNotValidYet
 			} else {
-				return nil, 0, exceptions.ErrValidationErrorCanNotHandle
+				return exceptions.ErrValidationErrorCanNotHandle
 			}
 		} else {
-			return nil, 0, exceptions.ErrValidationErrorUnknown
+			return exceptions.ErrValidationErrorUnknown
 		}
 	}
 }
 
 //checkRefreshToken 校验伴生的refreshtoken是否相符
-func (verifier *Verifier) checkRefreshToken(refreshtokenData string, share *accessTokenShare, opts *verifyoptions.VerifyOptions) (time.Duration, error) {
+func (verifier *Verifier) checkRefreshToken(refreshtokenData string, jwt_status *jwt_pb.JwtStatus, opts *verifyoptions.VerifyOptions) error {
 	tok, err := jwt.Parse(
 		refreshtokenData,
 		func(t *jwt.Token) (interface{}, error) {
@@ -229,34 +220,34 @@ func (verifier *Verifier) checkRefreshToken(refreshtokenData string, share *acce
 			// RefreshToken必须包含exp
 			exp, ok := claims["exp"]
 			if !ok {
-				return 0, exceptions.ErrRefreshTokenNotHaveEXP
+				return exceptions.ErrRefreshTokenNotHaveEXP
 			}
-			access_time_left := time.Until(time.Unix(int64(exp.(float64)), 0))
+			access_time_left := int64(exp.(float64))
 			// RefreshToken的sub必须和主体一致
 			subi, ok := claims["sub"]
 			if !ok {
-				return 0, exceptions.ErrRefreshTokenSUBNotMatch
+				return exceptions.ErrRefreshTokenSUBNotMatch
 			}
-			if share.Sub != subi.(string) {
-				return 0, exceptions.ErrRefreshTokenSUBNotMatch
+			if jwt_status.Sub != subi.(string) {
+				return exceptions.ErrRefreshTokenSUBNotMatch
 			}
 			if !opts.NotCheckRefreshTokenJTI {
 				jtii, ok := claims["jti"]
 				if !ok {
-					return 0, exceptions.ErrRefreshTokenJtiNotMatch
+					return exceptions.ErrRefreshTokenJtiNotMatch
 				}
 				jti := jtii.(string)
-				if share.Jti == "" || jti == "" || share.Jti != jti {
-					return 0, exceptions.ErrRefreshTokenJtiNotMatch
+				if jwt_status.Jti == "" || jti == "" || jwt_status.Jti != jti {
+					return exceptions.ErrRefreshTokenJtiNotMatch
 				}
 			}
 			//校验aud,可选
-			if !opts.NotCheckRefreshTokenAUD && share.Aud != nil && len(share.Aud) > 0 {
+			if !opts.NotCheckRefreshTokenAUD && jwt_status.Aud != nil && len(jwt_status.Aud) > 0 {
 				audi, ok := claims["aud"]
 				if !ok {
-					return 0, exceptions.ErrRefreshTokenAudNotMatch
+					return exceptions.ErrRefreshTokenAudNotMatch
 				}
-				shareaudset := strset.New(share.Aud...)
+				shareaudset := strset.New(jwt_status.Aud...)
 				refreshaudset := strset.New()
 				switch reflect.TypeOf(audi).Kind() {
 				case reflect.Slice, reflect.Array:
@@ -270,7 +261,7 @@ func (verifier *Verifier) checkRefreshToken(refreshtokenData string, share *acce
 					refreshaudset.Add(s.Interface().(string))
 				}
 				if !shareaudset.IsEqual(refreshaudset) {
-					return 0, exceptions.ErrRefreshTokenAudNotMatch
+					return exceptions.ErrRefreshTokenAudNotMatch
 				}
 			}
 			//校验iss,可选
@@ -283,37 +274,29 @@ func (verifier *Verifier) checkRefreshToken(refreshtokenData string, share *acce
 					}
 				}
 				if !find {
-					return 0, exceptions.ErrRefreshTokenIssNotInRange
+					return exceptions.ErrRefreshTokenIssNotInRange
 				}
 			}
-			return access_time_left, nil
+			jwt_status.TimeLeft = access_time_left
+			return nil
 		} else {
-			return 0, exceptions.ErrRefreshTokenParseError
+			return exceptions.ErrRefreshTokenParseError
 		}
 	} else {
 		if err != nil {
-			return 0, err
+			return err
 		} else {
-			return 0, exceptions.ErrRefreshTokenValidationError
+			return exceptions.ErrRefreshTokenValidationError
 		}
 	}
 }
 
 /** Verify 用Verifier对象验签
 
-下面是情况矩阵
-| access_token是否存在 | access_token是否通过校验 | access_token是否过期 | refresh_token是否存在 | refresh_token是否通过校验 | refresh_token是否过期 | payload |jti| timeleft                | err                            |
-| -------------------- | ------------------------ | -------------------- | --------------------- | ------------------------- | --------------------- | ------- |---| ----------------------- | ------------------------------ |
-| 否                   | ---                      | ---                  | ---                   | ---                       | ---                   | 不赋值  | 空|0                       | ErrAccessTokenNotFound         |
-| 是                   | 否                       | ---                  | ---                   | ---                       | ---                   | 不赋值  | 空|0                       | access_校验不通过的错误        |
-| 是                   | 是                       | 否                   | 否                    | ---                       | ---                   | 赋值    |有值 |access_token的剩余时间  | 无                             |
-| 是                   | 是                       | 否                   | 是                    | 否                        | ---                   | 赋值    | 有值|0                       | refresh_token校验不通过的错误  |
-| 是                   | 是                       | 否                   | 是                    | 是                        | 是                    | 赋值    | 有值|0                       | ErrRefreshTokenValidationError |
-| 是                   | 是                       | 否                   | 是                    | 是                        | 否                    | 赋值    | 有值|refresh_token的剩余时间 | nil                            |
-| 是                   | 是                       | 是                   | 否                    | ---                       | ---                   | 赋值    |有值 |0                       | ErrValidationErrorExpired      |
-| 是                   | 是                       | 是                   | 是                    | 否                        | ---                   | 赋值    | 有值|0                       | refresh_token校验不通过的错误  |
-| 是                   | 是                       | 是                   | 是                    | 是                        | 是                    | 赋值    | 有值|0                       | ErrRefreshTokenValidationError |
-| 是                   | 是                       | 是                   | 是                    | 是                        | 否                    | 赋值    | 有值|refresh_token的剩余时间 | ErrValidationErrorExpired      |
+payload在有access且可以解析的情况下都会被解析出来
+只有在access_token校验通过或者access_token超时但有refresh_token且refresh_token校验通过时才会有jwt_pb.JwtStatus的结果.
+
+当access_token超时但有refresh_token且refresh_token校验通过时err为`exceptions.ErrValidationErrorExpired`
 
 注意`refresh_token`的校验项包括
 
@@ -328,11 +311,10 @@ func (verifier *Verifier) checkRefreshToken(refreshtokenData string, share *acce
 @Params token jwt.Token 待校验的token
 @Params payload interface{} 校验出结果的用户负载写入的内容,注意只能是指针
 @Params opts ...verifyoptions.VerifyOption
-@Returns string token的jti
-@Returns time.Duration 验证成功返回token的剩余时间,如果为0则表示token没有设置过期,如果token有refresh_token则时间为refresh_token的剩余时间,否则是access_token的剩余时间
+@Returns *jwt_pb.JwtStatus jwt的状态信息,包括剩余时间,签发人,sub,aud等
 @Returns error 各种验证失败的错误,注意当access_token过期但有refresh_token且refresh_token未过期时一样会报错exceptions.ErrValidationErrorExpired
 */
-func (verifier *Verifier) Verify(token *jwt_pb.Token, payload interface{}, opts ...verifyoptions.VerifyOption) (string, time.Duration, error) {
+func (verifier *Verifier) Verify(token *jwt_pb.Token, payload interface{}, opts ...verifyoptions.VerifyOption) (*jwt_pb.JwtStatus, error) {
 	defaultopt := verifyoptions.VerifyOptions{
 		CheckMatchAUD: verifier.opts.DefaultAUD,
 		CheckMatchISS: verifier.opts.DefaultISSRange,
@@ -340,8 +322,9 @@ func (verifier *Verifier) Verify(token *jwt_pb.Token, payload interface{}, opts 
 	for _, opt := range opts {
 		opt.Apply(&defaultopt)
 	}
+	jwt_status := jwt_pb.JwtStatus{}
 	if token.AccessToken == "" {
-		return "", 0, exceptions.ErrAccessTokenNotFound
+		return nil, exceptions.ErrAccessTokenNotFound
 	}
 	var accesstokenData string
 	refreshtokenData := ""
@@ -361,29 +344,29 @@ func (verifier *Verifier) Verify(token *jwt_pb.Token, payload interface{}, opts 
 		}
 	}
 
-	share, timeleft, err := verifier.verifyAccessToken(accesstokenData, payload, &defaultopt)
+	err := verifier.verifyAccessToken(accesstokenData, payload, &jwt_status, &defaultopt)
 	if err == nil {
 		if refreshtokenData == "" {
-			return share.Jti, timeleft, nil
+			return &jwt_status, nil
 		} else {
-			timeleft, err := verifier.checkRefreshToken(refreshtokenData, share, &defaultopt)
+			err := verifier.checkRefreshToken(refreshtokenData, &jwt_status, &defaultopt)
 			if err != nil {
-				return share.Jti, 0, err
+				return nil, err
 			}
-			return share.Jti, timeleft, nil
+			return &jwt_status, nil
 		}
 	} else {
 		if err == exceptions.ErrValidationErrorExpired {
 			if refreshtokenData == "" {
-				return share.Jti, 0, err
+				return nil, err
 			}
-			timeleft, err := verifier.checkRefreshToken(refreshtokenData, share, &defaultopt)
+			err := verifier.checkRefreshToken(refreshtokenData, &jwt_status, &defaultopt)
 			if err != nil {
-				return share.Jti, 0, err
+				return nil, err
 			}
-			return share.Jti, timeleft, exceptions.ErrValidationErrorExpired
+			return &jwt_status, exceptions.ErrValidationErrorExpired
 		} else {
-			return "", 0, err
+			return nil, err
 		}
 	}
 }
