@@ -1967,12 +1967,12 @@ input[id=i1]:checked ~pre .i1
 <span class="codeline" id="line-1226"><code><span class="comment">// UnmarshalBinary, UnmarshalText.</span></code></span>
 <span class="codeline" id="line-1227"><code></code></span>
 <span class="codeline" id="line-1228"><code><span class="comment">// GobEncode implements the gob.GobEncoder interface.</span></code></span>
-<span class="codeline" id="line-1229"><code><span class="keyword">func</span> (<label for="r278" class="ident">t</label> <a href="#line-127" class="ident">Time</a>) <label for="r279" class="ident">GobEncode</label>() ([]<a href="../../pkg/builtin.html#name-byte" class="ident">byte</a>, <a href="../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-1229"><code><span class="keyword">func</span> (<label for="r278" class="ident">t</label> <a href="#line-127" class="ident">Time</a>) <label for="r279" class="ident"><a href="../../imp/time.Time.html#name-.GobEncode" class="ident">GobEncode</a></label>() ([]<a href="../../pkg/builtin.html#name-byte" class="ident">byte</a>, <a href="../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
 <span class="codeline" id="line-1230"><code>	<span class="keyword">return</span> <label for="r278" class="ident">t</label>.<a href="#line-1144" class="ident">MarshalBinary</a>()</code></span>
 <span class="codeline" id="line-1231"><code>}</code></span>
 <span class="codeline" id="line-1232"><code></code></span>
 <span class="codeline" id="line-1233"><code><span class="comment">// GobDecode implements the gob.GobDecoder interface.</span></code></span>
-<span class="codeline" id="line-1234"><code><span class="keyword">func</span> (<label for="r280" class="ident">t</label> *<a href="#line-127" class="ident">Time</a>) <label for="r281" class="ident">GobDecode</label>(<label for="r282" class="ident">data</label> []<a href="../../pkg/builtin.html#name-byte" class="ident">byte</a>) <a href="../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-1234"><code><span class="keyword">func</span> (<label for="r280" class="ident">t</label> *<a href="#line-127" class="ident">Time</a>) <label for="r281" class="ident"><a href="../../imp/time.Time.html#name-.GobDecode" class="ident">GobDecode</a></label>(<label for="r282" class="ident">data</label> []<a href="../../pkg/builtin.html#name-byte" class="ident">byte</a>) <a href="../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
 <span class="codeline" id="line-1235"><code>	<span class="keyword">return</span> <label for="r280" class="ident">t</label>.<a href="#line-1185" class="ident">UnmarshalBinary</a>(<label for="r282" class="ident">data</label>)</code></span>
 <span class="codeline" id="line-1236"><code>}</code></span>
 <span class="codeline" id="line-1237"><code></code></span>

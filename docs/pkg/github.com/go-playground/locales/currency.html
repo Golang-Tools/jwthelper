@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Package: github.com/go-playground/locales/currency</title>
+<link href="../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="package-details"><code><span style="font-size:xx-large;">package <b>currency</b></span>
+
+<span class="title">Import Path</span>
+	<a href="../../../../index.html#pkg-github.com/go-playground/locales/currency">github.com/go-playground/locales/currency</a><i> (on <a href="https://pkg.go.dev/github.com/go-playground/locales/currency" target="_blank">go.dev</a>)</i>
+
+<span class="title">Dependency Relation</span>
+	imports 0 packages, and imported by <a href="../../../../dep/github.com/go-playground/locales/currency.html#imported-by">one package</a>
+
+<div id="files"><span class="title">Involved Source Files</span>
+
+	<span class="nodocs">      <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html">currency.go</a></span></div>
+<div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (only one, which is exported)</i></span></span>
+
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Type" data-popularity="155">	<input type='checkbox' class="fold" id="Type-fold-content"><label for="Type-fold-content"> type <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-4">Type</a> <a href="../../../builtin.html#name-int">int</a> <i>(basic type)</i></label><span id='Type-fold-content-docs' class="fold-docs">
+		Type is the currency type associated with the locales currency enum
+
+		<input type='checkbox' class="fold" id="Type-fold-params"><label for="Type-fold-params">As Inputs Of (<i>at least 4, all are exported</i>)</label><span id='Type-fold-params-items' class="fold-items"><span>
+			func github.com/go-playground/locales.<a href="../locales.html#name-Translator">Translator</a>.<a href="../../../../src/github.com/go-playground/locales/rules.go.html#line-130">FmtAccounting</a>(num <a href="../../../builtin.html#name-float64">float64</a>, v <a href="../../../builtin.html#name-uint64">uint64</a>, currency <b>Type</b>) <a href="../../../builtin.html#name-string">string</a></span><span>
+			func github.com/go-playground/locales.<a href="../locales.html#name-Translator">Translator</a>.<a href="../../../../src/github.com/go-playground/locales/rules.go.html#line-126">FmtCurrency</a>(num <a href="../../../builtin.html#name-float64">float64</a>, v <a href="../../../builtin.html#name-uint64">uint64</a>, currency <b>Type</b>) <a href="../../../builtin.html#name-string">string</a></span><span>
+			func github.com/go-playground/universal-translator.<a href="../universal-translator.html#name-Translator">Translator</a>.<a href="../../../../src/github.com/go-playground/locales/rules.go.html#line-130">FmtAccounting</a>(num <a href="../../../builtin.html#name-float64">float64</a>, v <a href="../../../builtin.html#name-uint64">uint64</a>, currency <b>Type</b>) <a href="../../../builtin.html#name-string">string</a></span><span>
+			func github.com/go-playground/universal-translator.<a href="../universal-translator.html#name-Translator">Translator</a>.<a href="../../../../src/github.com/go-playground/locales/rules.go.html#line-126">FmtCurrency</a>(num <a href="../../../builtin.html#name-float64">float64</a>, v <a href="../../../builtin.html#name-uint64">uint64</a>, currency <b>Type</b>) <a href="../../../builtin.html#name-string">string</a></span></span>
+		<input type='checkbox' class="fold" id="Type-fold-values"><label for="Type-fold-values">As Types Of (<i>total 300, all are exported</i>)</label><span id='Type-fold-values-items' class="fold-items"><span>
+			const <a href="#name-ADP">ADP</a></span><span>
+			const <a href="#name-AED">AED</a></span><span>
+			const <a href="#name-AFA">AFA</a></span><span>
+			const <a href="#name-AFN">AFN</a></span><span>
+			const <a href="#name-ALK">ALK</a></span><span>
+			const <a href="#name-ALL">ALL</a></span><span>
+			const <a href="#name-AMD">AMD</a></span><span>
+			const <a href="#name-ANG">ANG</a></span><span>
+			const <a href="#name-AOA">AOA</a></span><span>
+			const <a href="#name-AOK">AOK</a></span><span>
+			const <a href="#name-AON">AON</a></span><span>
+			const <a href="#name-AOR">AOR</a></span><span>
+			const <a href="#name-ARA">ARA</a></span><span>
+			const <a href="#name-ARL">ARL</a></span><span>
+			const <a href="#name-ARM">ARM</a></span><span>
+			const <a href="#name-ARP">ARP</a></span><span>
+			const <a href="#name-ARS">ARS</a></span><span>
+			const <a href="#name-ATS">ATS</a></span><span>
+			const <a href="#name-AUD">AUD</a></span><span>
+			const <a href="#name-AWG">AWG</a></span><span>
+			const <a href="#name-AZM">AZM</a></span><span>
+			const <a href="#name-AZN">AZN</a></span><span>
+			const <a href="#name-BAD">BAD</a></span><span>
+			const <a href="#name-BAM">BAM</a></span><span>
+			const <a href="#name-BAN">BAN</a></span><span>
+			const <a href="#name-BBD">BBD</a></span><span>
+			const <a href="#name-BDT">BDT</a></span><span>
+			const <a href="#name-BEC">BEC</a></span><span>
+			const <a href="#name-BEF">BEF</a></span><span>
+			const <a href="#name-BEL">BEL</a></span><span>
+			const <a href="#name-BGL">BGL</a></span><span>
+			const <a href="#name-BGM">BGM</a></span><span>
+			const <a href="#name-BGN">BGN</a></span><span>
+			const <a href="#name-BGO">BGO</a></span><span>
+			const <a href="#name-BHD">BHD</a></span><span>
+			const <a href="#name-BIF">BIF</a></span><span>
+			const <a href="#name-BMD">BMD</a></span><span>
+			const <a href="#name-BND">BND</a></span><span>
+			const <a href="#name-BOB">BOB</a></span><span>
+			const <a href="#name-BOL">BOL</a></span><span>
+			const <a href="#name-BOP">BOP</a></span><span>
+			const <a href="#name-BOV">BOV</a></span><span>
+			const <a href="#name-BRB">BRB</a></span><span>
+			const <a href="#name-BRC">BRC</a></span><span>
+			const <a href="#name-BRE">BRE</a></span><span>
+			const <a href="#name-BRL">BRL</a></span><span>
+			const <a href="#name-BRN">BRN</a></span><span>
+			const <a href="#name-BRR">BRR</a></span><span>
+			const <a href="#name-BRZ">BRZ</a></span><span>
+			const <a href="#name-BSD">BSD</a></span><span>
+			const <a href="#name-BTN">BTN</a></span><span>
+			const <a href="#name-BUK">BUK</a></span><span>
+			const <a href="#name-BWP">BWP</a></span><span>
+			const <a href="#name-BYB">BYB</a></span><span>
+			const <a href="#name-BYN">BYN</a></span><span>
+			const <a href="#name-BYR">BYR</a></span><span>
+			const <a href="#name-BZD">BZD</a></span><span>
+			const <a href="#name-CAD">CAD</a></span><span>
+			const <a href="#name-CDF">CDF</a></span><span>
+			const <a href="#name-CHE">CHE</a></span><span>
+			const <a href="#name-CHF">CHF</a></span><span>
+			const <a href="#name-CHW">CHW</a></span><span>
+			const <a href="#name-CLE">CLE</a></span><span>
+			const <a href="#name-CLF">CLF</a></span><span>
+			const <a href="#name-CLP">CLP</a></span><span>
+			const <a href="#name-CNH">CNH</a></span><span>
+			const <a href="#name-CNX">CNX</a></span><span>
+			const <a href="#name-CNY">CNY</a></span><span>
+			const <a href="#name-COP">COP</a></span><span>
+			const <a href="#name-COU">COU</a></span><span>
+			const <a href="#name-CRC">CRC</a></span><span>
+			const <a href="#name-CSD">CSD</a></span><span>
+			const <a href="#name-CSK">CSK</a></span><span>
+			const <a href="#name-CUC">CUC</a></span><span>
+			const <a href="#name-CUP">CUP</a></span><span>
+			const <a href="#name-CVE">CVE</a></span><span>
+			const <a href="#name-CYP">CYP</a></span><span>
+			const <a href="#name-CZK">CZK</a></span><span>
+			const <a href="#name-DDM">DDM</a></span><span>
+			const <a href="#name-DEM">DEM</a></span><span>
+			const <a href="#name-DJF">DJF</a></span><span>
+			const <a href="#name-DKK">DKK</a></span><span>
+			const <a href="#name-DOP">DOP</a></span><span>
+			const <a href="#name-DZD">DZD</a></span><span>
+			const <a href="#name-ECS">ECS</a></span><span>
+			const <a href="#name-ECV">ECV</a></span><span>
+			const <a href="#name-EEK">EEK</a></span><span>
+			const <a href="#name-EGP">EGP</a></span><span>
+			const <a href="#name-ERN">ERN</a></span><span>
+			const <a href="#name-ESA">ESA</a></span><span>
+			const <a href="#name-ESB">ESB</a></span><span>
+			const <a href="#name-ESP">ESP</a></span><span>
+			const <a href="#name-ETB">ETB</a></span><span>
+			const <a href="#name-EUR">EUR</a></span><span>
+			const <a href="#name-FIM">FIM</a></span><span>
+			const <a href="#name-FJD">FJD</a></span><span>
+			const <a href="#name-FKP">FKP</a></span><span>
+			const <a href="#name-FRF">FRF</a></span><span>
+			const <a href="#name-GBP">GBP</a></span><span>
+			const <a href="#name-GEK">GEK</a></span><span>
+			const <a href="#name-GEL">GEL</a></span><span>
+			const <a href="#name-GHC">GHC</a></span><span>
+			const <a href="#name-GHS">GHS</a></span><span>
+			const <a href="#name-GIP">GIP</a></span><span>
+			const <a href="#name-GMD">GMD</a></span><span>
+			const <a href="#name-GNF">GNF</a></span><span>
+			const <a href="#name-GNS">GNS</a></span><span>
+			const <a href="#name-GQE">GQE</a></span><span>
+			const <a href="#name-GRD">GRD</a></span><span>
+			const <a href="#name-GTQ">GTQ</a></span><span>
+			const <a href="#name-GWE">GWE</a></span><span>
+			const <a href="#name-GWP">GWP</a></span><span>
+			const <a href="#name-GYD">GYD</a></span><span>
+			const <a href="#name-HKD">HKD</a></span><span>
+			const <a href="#name-HNL">HNL</a></span><span>
+			const <a href="#name-HRD">HRD</a></span><span>
+			const <a href="#name-HRK">HRK</a></span><span>
+			const <a href="#name-HTG">HTG</a></span><span>
+			const <a href="#name-HUF">HUF</a></span><span>
+			const <a href="#name-IDR">IDR</a></span><span>
+			const <a href="#name-IEP">IEP</a></span><span>
+			const <a href="#name-ILP">ILP</a></span><span>
+			const <a href="#name-ILR">ILR</a></span><span>
+			const <a href="#name-ILS">ILS</a></span><span>
+			const <a href="#name-INR">INR</a></span><span>
+			const <a href="#name-IQD">IQD</a></span><span>
+			const <a href="#name-IRR">IRR</a></span><span>
+			const <a href="#name-ISJ">ISJ</a></span><span>
+			const <a href="#name-ISK">ISK</a></span><span>
+			const <a href="#name-ITL">ITL</a></span><span>
+			const <a href="#name-JMD">JMD</a></span><span>
+			const <a href="#name-JOD">JOD</a></span><span>
+			const <a href="#name-JPY">JPY</a></span><span>
+			const <a href="#name-KES">KES</a></span><span>
+			const <a href="#name-KGS">KGS</a></span><span>
+			const <a href="#name-KHR">KHR</a></span><span>
+			const <a href="#name-KMF">KMF</a></span><span>
+			const <a href="#name-KPW">KPW</a></span><span>
+			const <a href="#name-KRH">KRH</a></span><span>
+			const <a href="#name-KRO">KRO</a></span><span>
+			const <a href="#name-KRW">KRW</a></span><span>
+			const <a href="#name-KWD">KWD</a></span><span>
+			const <a href="#name-KYD">KYD</a></span><span>
+			const <a href="#name-KZT">KZT</a></span><span>
+			const <a href="#name-LAK">LAK</a></span><span>
+			const <a href="#name-LBP">LBP</a></span><span>
+			const <a href="#name-LKR">LKR</a></span><span>
+			const <a href="#name-LRD">LRD</a></span><span>
+			const <a href="#name-LSL">LSL</a></span><span>
+			const <a href="#name-LTL">LTL</a></span><span>
+			const <a href="#name-LTT">LTT</a></span><span>
+			const <a href="#name-LUC">LUC</a></span><span>
+			const <a href="#name-LUF">LUF</a></span><span>
+			const <a href="#name-LUL">LUL</a></span><span>
+			const <a href="#name-LVL">LVL</a></span><span>
+			const <a href="#name-LVR">LVR</a></span><span>
+			const <a href="#name-LYD">LYD</a></span><span>
+			const <a href="#name-MAD">MAD</a></span><span>
+			const <a href="#name-MAF">MAF</a></span><span>
+			const <a href="#name-MCF">MCF</a></span><span>
+			const <a href="#name-MDC">MDC</a></span><span>
+			const <a href="#name-MDL">MDL</a></span><span>
+			const <a href="#name-MGA">MGA</a></span><span>
+			const <a href="#name-MGF">MGF</a></span><span>
+			const <a href="#name-MKD">MKD</a></span><span>
+			const <a href="#name-MKN">MKN</a></span><span>
+			const <a href="#name-MLF">MLF</a></span><span>
+			const <a href="#name-MMK">MMK</a></span><span>
+			const <a href="#name-MNT">MNT</a></span><span>
+			const <a href="#name-MOP">MOP</a></span><span>
+			const <a href="#name-MRO">MRO</a></span><span>
+			const <a href="#name-MTL">MTL</a></span><span>
+			const <a href="#name-MTP">MTP</a></span><span>
+			const <a href="#name-MUR">MUR</a></span><span>
+			const <a href="#name-MVP">MVP</a></span><span>
+			const <a href="#name-MVR">MVR</a></span><span>
+			const <a href="#name-MWK">MWK</a></span><span>
+			const <a href="#name-MXN">MXN</a></span><span>
+			const <a href="#name-MXP">MXP</a></span><span>
+			const <a href="#name-MXV">MXV</a></span><span>
+			const <a href="#name-MYR">MYR</a></span><span>
+			const <a href="#name-MZE">MZE</a></span><span>
+			const <a href="#name-MZM">MZM</a></span><span>
+			const <a href="#name-MZN">MZN</a></span><span>
+			const <a href="#name-NAD">NAD</a></span><span>
+			const <a href="#name-NGN">NGN</a></span><span>
+			const <a href="#name-NIC">NIC</a></span><span>
+			const <a href="#name-NIO">NIO</a></span><span>
+			const <a href="#name-NLG">NLG</a></span><span>
+			const <a href="#name-NOK">NOK</a></span><span>
+			const <a href="#name-NPR">NPR</a></span><span>
+			const <a href="#name-NZD">NZD</a></span><span>
+			const <a href="#name-OMR">OMR</a></span><span>
+			const <a href="#name-PAB">PAB</a></span><span>
+			const <a href="#name-PEI">PEI</a></span><span>
+			const <a href="#name-PEN">PEN</a></span><span>
+			const <a href="#name-PES">PES</a></span><span>
+			const <a href="#name-PGK">PGK</a></span><span>
+			const <a href="#name-PHP">PHP</a></span><span>
+			const <a href="#name-PKR">PKR</a></span><span>
+			const <a href="#name-PLN">PLN</a></span><span>
+			const <a href="#name-PLZ">PLZ</a></span><span>
+			const <a href="#name-PTE">PTE</a></span><span>
+			const <a href="#name-PYG">PYG</a></span><span>
+			const <a href="#name-QAR">QAR</a></span><span>
+			const <a href="#name-RHD">RHD</a></span><span>
+			const <a href="#name-ROL">ROL</a></span><span>
+			const <a href="#name-RON">RON</a></span><span>
+			const <a href="#name-RSD">RSD</a></span><span>
+			const <a href="#name-RUB">RUB</a></span><span>
+			const <a href="#name-RUR">RUR</a></span><span>
+			const <a href="#name-RWF">RWF</a></span><span>
+			const <a href="#name-SAR">SAR</a></span><span>
+			const <a href="#name-SBD">SBD</a></span><span>
+			const <a href="#name-SCR">SCR</a></span><span>
+			const <a href="#name-SDD">SDD</a></span><span>
+			const <a href="#name-SDG">SDG</a></span><span>
+			const <a href="#name-SDP">SDP</a></span><span>
+			const <a href="#name-SEK">SEK</a></span><span>
+			const <a href="#name-SGD">SGD</a></span><span>
+			const <a href="#name-SHP">SHP</a></span><span>
+			const <a href="#name-SIT">SIT</a></span><span>
+			const <a href="#name-SKK">SKK</a></span><span>
+			const <a href="#name-SLL">SLL</a></span><span>
+			const <a href="#name-SOS">SOS</a></span><span>
+			const <a href="#name-SRD">SRD</a></span><span>
+			const <a href="#name-SRG">SRG</a></span><span>
+			const <a href="#name-SSP">SSP</a></span><span>
+			const <a href="#name-STD">STD</a></span><span>
+			const <a href="#name-STN">STN</a></span><span>
+			const <a href="#name-SUR">SUR</a></span><span>
+			const <a href="#name-SVC">SVC</a></span><span>
+			const <a href="#name-SYP">SYP</a></span><span>
+			const <a href="#name-SZL">SZL</a></span><span>
+			const <a href="#name-THB">THB</a></span><span>
+			const <a href="#name-TJR">TJR</a></span><span>
+			const <a href="#name-TJS">TJS</a></span><span>
+			const <a href="#name-TMM">TMM</a></span><span>
+			const <a href="#name-TMT">TMT</a></span><span>
+			const <a href="#name-TND">TND</a></span><span>
+			const <a href="#name-TOP">TOP</a></span><span>
+			const <a href="#name-TPE">TPE</a></span><span>
+			const <a href="#name-TRL">TRL</a></span><span>
+			const <a href="#name-TRY">TRY</a></span><span>
+			const <a href="#name-TTD">TTD</a></span><span>
+			const <a href="#name-TWD">TWD</a></span><span>
+			const <a href="#name-TZS">TZS</a></span><span>
+			const <a href="#name-UAH">UAH</a></span><span>
+			const <a href="#name-UAK">UAK</a></span><span>
+			const <a href="#name-UGS">UGS</a></span><span>
+			const <a href="#name-UGX">UGX</a></span><span>
+			const <a href="#name-USD">USD</a></span><span>
+			const <a href="#name-USN">USN</a></span><span>
+			const <a href="#name-USS">USS</a></span><span>
+			const <a href="#name-UYI">UYI</a></span><span>
+			const <a href="#name-UYP">UYP</a></span><span>
+			const <a href="#name-UYU">UYU</a></span><span>
+			const <a href="#name-UZS">UZS</a></span><span>
+			const <a href="#name-VEB">VEB</a></span><span>
+			const <a href="#name-VEF">VEF</a></span><span>
+			const <a href="#name-VND">VND</a></span><span>
+			const <a href="#name-VNN">VNN</a></span><span>
+			const <a href="#name-VUV">VUV</a></span><span>
+			const <a href="#name-WST">WST</a></span><span>
+			const <a href="#name-XAF">XAF</a></span><span>
+			const <a href="#name-XAG">XAG</a></span><span>
+			const <a href="#name-XAU">XAU</a></span><span>
+			const <a href="#name-XBA">XBA</a></span><span>
+			const <a href="#name-XBB">XBB</a></span><span>
+			const <a href="#name-XBC">XBC</a></span><span>
+			const <a href="#name-XBD">XBD</a></span><span>
+			const <a href="#name-XCD">XCD</a></span><span>
+			const <a href="#name-XDR">XDR</a></span><span>
+			const <a href="#name-XEU">XEU</a></span><span>
+			const <a href="#name-XFO">XFO</a></span><span>
+			const <a href="#name-XFU">XFU</a></span><span>
+			const <a href="#name-XOF">XOF</a></span><span>
+			const <a href="#name-XPD">XPD</a></span><span>
+			const <a href="#name-XPF">XPF</a></span><span>
+			const <a href="#name-XPT">XPT</a></span><span>
+			const <a href="#name-XRE">XRE</a></span><span>
+			const <a href="#name-XSU">XSU</a></span><span>
+			const <a href="#name-XTS">XTS</a></span><span>
+			const <a href="#name-XUA">XUA</a></span><span>
+			const <a href="#name-XXX">XXX</a></span><span>
+			const <a href="#name-YDD">YDD</a></span><span>
+			const <a href="#name-YER">YER</a></span><span>
+			const <a href="#name-YUD">YUD</a></span><span>
+			const <a href="#name-YUM">YUM</a></span><span>
+			const <a href="#name-YUN">YUN</a></span><span>
+			const <a href="#name-YUR">YUR</a></span><span>
+			const <a href="#name-ZAL">ZAL</a></span><span>
+			const <a href="#name-ZAR">ZAR</a></span><span>
+			const <a href="#name-ZMK">ZMK</a></span><span>
+			const <a href="#name-ZMW">ZMW</a></span><span>
+			const <a href="#name-ZRN">ZRN</a></span><span>
+			const <a href="#name-ZRZ">ZRZ</a></span><span>
+			const <a href="#name-ZWD">ZWD</a></span><span>
+			const <a href="#name-ZWL">ZWL</a></span><span>
+			const <a href="#name-ZWR">ZWR</a></span></span>
+
+</span></div></div>
+<div id="exported-constants"><span class="title">Package-Level Constants<span class="title-stat"><i> (total 300, all are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-ADP">	<input type='checkbox' class="fold" id="ADP-fold-content"><label for="ADP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-8">ADP</a> <a href="#name-Type">Type</a> = 0</label><span id='ADP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-AED">	<input type='checkbox' class="fold" id="AED-fold-content"><label for="AED-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-9">AED</a> <a href="#name-Type">Type</a> = 1</label><span id='AED-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-AFA">	<input type='checkbox' class="fold" id="AFA-fold-content"><label for="AFA-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-10">AFA</a> <a href="#name-Type">Type</a> = 2</label><span id='AFA-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-AFN">	<input type='checkbox' class="fold" id="AFN-fold-content"><label for="AFN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-11">AFN</a> <a href="#name-Type">Type</a> = 3</label><span id='AFN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ALK">	<input type='checkbox' class="fold" id="ALK-fold-content"><label for="ALK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-12">ALK</a> <a href="#name-Type">Type</a> = 4</label><span id='ALK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ALL">	<input type='checkbox' class="fold" id="ALL-fold-content"><label for="ALL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-13">ALL</a> <a href="#name-Type">Type</a> = 5</label><span id='ALL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-AMD">	<input type='checkbox' class="fold" id="AMD-fold-content"><label for="AMD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-14">AMD</a> <a href="#name-Type">Type</a> = 6</label><span id='AMD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ANG">	<input type='checkbox' class="fold" id="ANG-fold-content"><label for="ANG-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-15">ANG</a> <a href="#name-Type">Type</a> = 7</label><span id='ANG-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-AOA">	<input type='checkbox' class="fold" id="AOA-fold-content"><label for="AOA-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-16">AOA</a> <a href="#name-Type">Type</a> = 8</label><span id='AOA-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-AOK">	<input type='checkbox' class="fold" id="AOK-fold-content"><label for="AOK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-17">AOK</a> <a href="#name-Type">Type</a> = 9</label><span id='AOK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-AON">	<input type='checkbox' class="fold" id="AON-fold-content"><label for="AON-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-18">AON</a> <a href="#name-Type">Type</a> = 10</label><span id='AON-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-AOR">	<input type='checkbox' class="fold" id="AOR-fold-content"><label for="AOR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-19">AOR</a> <a href="#name-Type">Type</a> = 11</label><span id='AOR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ARA">	<input type='checkbox' class="fold" id="ARA-fold-content"><label for="ARA-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-20">ARA</a> <a href="#name-Type">Type</a> = 12</label><span id='ARA-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ARL">	<input type='checkbox' class="fold" id="ARL-fold-content"><label for="ARL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-21">ARL</a> <a href="#name-Type">Type</a> = 13</label><span id='ARL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ARM">	<input type='checkbox' class="fold" id="ARM-fold-content"><label for="ARM-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-22">ARM</a> <a href="#name-Type">Type</a> = 14</label><span id='ARM-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ARP">	<input type='checkbox' class="fold" id="ARP-fold-content"><label for="ARP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-23">ARP</a> <a href="#name-Type">Type</a> = 15</label><span id='ARP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ARS">	<input type='checkbox' class="fold" id="ARS-fold-content"><label for="ARS-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-24">ARS</a> <a href="#name-Type">Type</a> = 16</label><span id='ARS-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ATS">	<input type='checkbox' class="fold" id="ATS-fold-content"><label for="ATS-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-25">ATS</a> <a href="#name-Type">Type</a> = 17</label><span id='ATS-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-AUD">	<input type='checkbox' class="fold" id="AUD-fold-content"><label for="AUD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-26">AUD</a> <a href="#name-Type">Type</a> = 18</label><span id='AUD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-AWG">	<input type='checkbox' class="fold" id="AWG-fold-content"><label for="AWG-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-27">AWG</a> <a href="#name-Type">Type</a> = 19</label><span id='AWG-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-AZM">	<input type='checkbox' class="fold" id="AZM-fold-content"><label for="AZM-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-28">AZM</a> <a href="#name-Type">Type</a> = 20</label><span id='AZM-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-AZN">	<input type='checkbox' class="fold" id="AZN-fold-content"><label for="AZN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-29">AZN</a> <a href="#name-Type">Type</a> = 21</label><span id='AZN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BAD">	<input type='checkbox' class="fold" id="BAD-fold-content"><label for="BAD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-30">BAD</a> <a href="#name-Type">Type</a> = 22</label><span id='BAD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BAM">	<input type='checkbox' class="fold" id="BAM-fold-content"><label for="BAM-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-31">BAM</a> <a href="#name-Type">Type</a> = 23</label><span id='BAM-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BAN">	<input type='checkbox' class="fold" id="BAN-fold-content"><label for="BAN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-32">BAN</a> <a href="#name-Type">Type</a> = 24</label><span id='BAN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BBD">	<input type='checkbox' class="fold" id="BBD-fold-content"><label for="BBD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-33">BBD</a> <a href="#name-Type">Type</a> = 25</label><span id='BBD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BDT">	<input type='checkbox' class="fold" id="BDT-fold-content"><label for="BDT-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-34">BDT</a> <a href="#name-Type">Type</a> = 26</label><span id='BDT-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BEC">	<input type='checkbox' class="fold" id="BEC-fold-content"><label for="BEC-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-35">BEC</a> <a href="#name-Type">Type</a> = 27</label><span id='BEC-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BEF">	<input type='checkbox' class="fold" id="BEF-fold-content"><label for="BEF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-36">BEF</a> <a href="#name-Type">Type</a> = 28</label><span id='BEF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BEL">	<input type='checkbox' class="fold" id="BEL-fold-content"><label for="BEL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-37">BEL</a> <a href="#name-Type">Type</a> = 29</label><span id='BEL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BGL">	<input type='checkbox' class="fold" id="BGL-fold-content"><label for="BGL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-38">BGL</a> <a href="#name-Type">Type</a> = 30</label><span id='BGL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BGM">	<input type='checkbox' class="fold" id="BGM-fold-content"><label for="BGM-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-39">BGM</a> <a href="#name-Type">Type</a> = 31</label><span id='BGM-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BGN">	<input type='checkbox' class="fold" id="BGN-fold-content"><label for="BGN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-40">BGN</a> <a href="#name-Type">Type</a> = 32</label><span id='BGN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BGO">	<input type='checkbox' class="fold" id="BGO-fold-content"><label for="BGO-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-41">BGO</a> <a href="#name-Type">Type</a> = 33</label><span id='BGO-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BHD">	<input type='checkbox' class="fold" id="BHD-fold-content"><label for="BHD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-42">BHD</a> <a href="#name-Type">Type</a> = 34</label><span id='BHD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BIF">	<input type='checkbox' class="fold" id="BIF-fold-content"><label for="BIF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-43">BIF</a> <a href="#name-Type">Type</a> = 35</label><span id='BIF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BMD">	<input type='checkbox' class="fold" id="BMD-fold-content"><label for="BMD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-44">BMD</a> <a href="#name-Type">Type</a> = 36</label><span id='BMD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BND">	<input type='checkbox' class="fold" id="BND-fold-content"><label for="BND-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-45">BND</a> <a href="#name-Type">Type</a> = 37</label><span id='BND-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BOB">	<input type='checkbox' class="fold" id="BOB-fold-content"><label for="BOB-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-46">BOB</a> <a href="#name-Type">Type</a> = 38</label><span id='BOB-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BOL">	<input type='checkbox' class="fold" id="BOL-fold-content"><label for="BOL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-47">BOL</a> <a href="#name-Type">Type</a> = 39</label><span id='BOL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BOP">	<input type='checkbox' class="fold" id="BOP-fold-content"><label for="BOP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-48">BOP</a> <a href="#name-Type">Type</a> = 40</label><span id='BOP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BOV">	<input type='checkbox' class="fold" id="BOV-fold-content"><label for="BOV-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-49">BOV</a> <a href="#name-Type">Type</a> = 41</label><span id='BOV-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BRB">	<input type='checkbox' class="fold" id="BRB-fold-content"><label for="BRB-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-50">BRB</a> <a href="#name-Type">Type</a> = 42</label><span id='BRB-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BRC">	<input type='checkbox' class="fold" id="BRC-fold-content"><label for="BRC-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-51">BRC</a> <a href="#name-Type">Type</a> = 43</label><span id='BRC-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BRE">	<input type='checkbox' class="fold" id="BRE-fold-content"><label for="BRE-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-52">BRE</a> <a href="#name-Type">Type</a> = 44</label><span id='BRE-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BRL">	<input type='checkbox' class="fold" id="BRL-fold-content"><label for="BRL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-53">BRL</a> <a href="#name-Type">Type</a> = 45</label><span id='BRL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BRN">	<input type='checkbox' class="fold" id="BRN-fold-content"><label for="BRN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-54">BRN</a> <a href="#name-Type">Type</a> = 46</label><span id='BRN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BRR">	<input type='checkbox' class="fold" id="BRR-fold-content"><label for="BRR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-55">BRR</a> <a href="#name-Type">Type</a> = 47</label><span id='BRR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BRZ">	<input type='checkbox' class="fold" id="BRZ-fold-content"><label for="BRZ-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-56">BRZ</a> <a href="#name-Type">Type</a> = 48</label><span id='BRZ-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BSD">	<input type='checkbox' class="fold" id="BSD-fold-content"><label for="BSD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-57">BSD</a> <a href="#name-Type">Type</a> = 49</label><span id='BSD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BTN">	<input type='checkbox' class="fold" id="BTN-fold-content"><label for="BTN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-58">BTN</a> <a href="#name-Type">Type</a> = 50</label><span id='BTN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BUK">	<input type='checkbox' class="fold" id="BUK-fold-content"><label for="BUK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-59">BUK</a> <a href="#name-Type">Type</a> = 51</label><span id='BUK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BWP">	<input type='checkbox' class="fold" id="BWP-fold-content"><label for="BWP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-60">BWP</a> <a href="#name-Type">Type</a> = 52</label><span id='BWP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BYB">	<input type='checkbox' class="fold" id="BYB-fold-content"><label for="BYB-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-61">BYB</a> <a href="#name-Type">Type</a> = 53</label><span id='BYB-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BYN">	<input type='checkbox' class="fold" id="BYN-fold-content"><label for="BYN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-62">BYN</a> <a href="#name-Type">Type</a> = 54</label><span id='BYN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BYR">	<input type='checkbox' class="fold" id="BYR-fold-content"><label for="BYR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-63">BYR</a> <a href="#name-Type">Type</a> = 55</label><span id='BYR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-BZD">	<input type='checkbox' class="fold" id="BZD-fold-content"><label for="BZD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-64">BZD</a> <a href="#name-Type">Type</a> = 56</label><span id='BZD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CAD">	<input type='checkbox' class="fold" id="CAD-fold-content"><label for="CAD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-65">CAD</a> <a href="#name-Type">Type</a> = 57</label><span id='CAD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CDF">	<input type='checkbox' class="fold" id="CDF-fold-content"><label for="CDF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-66">CDF</a> <a href="#name-Type">Type</a> = 58</label><span id='CDF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CHE">	<input type='checkbox' class="fold" id="CHE-fold-content"><label for="CHE-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-67">CHE</a> <a href="#name-Type">Type</a> = 59</label><span id='CHE-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CHF">	<input type='checkbox' class="fold" id="CHF-fold-content"><label for="CHF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-68">CHF</a> <a href="#name-Type">Type</a> = 60</label><span id='CHF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CHW">	<input type='checkbox' class="fold" id="CHW-fold-content"><label for="CHW-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-69">CHW</a> <a href="#name-Type">Type</a> = 61</label><span id='CHW-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CLE">	<input type='checkbox' class="fold" id="CLE-fold-content"><label for="CLE-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-70">CLE</a> <a href="#name-Type">Type</a> = 62</label><span id='CLE-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CLF">	<input type='checkbox' class="fold" id="CLF-fold-content"><label for="CLF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-71">CLF</a> <a href="#name-Type">Type</a> = 63</label><span id='CLF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CLP">	<input type='checkbox' class="fold" id="CLP-fold-content"><label for="CLP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-72">CLP</a> <a href="#name-Type">Type</a> = 64</label><span id='CLP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CNH">	<input type='checkbox' class="fold" id="CNH-fold-content"><label for="CNH-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-73">CNH</a> <a href="#name-Type">Type</a> = 65</label><span id='CNH-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CNX">	<input type='checkbox' class="fold" id="CNX-fold-content"><label for="CNX-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-74">CNX</a> <a href="#name-Type">Type</a> = 66</label><span id='CNX-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CNY">	<input type='checkbox' class="fold" id="CNY-fold-content"><label for="CNY-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-75">CNY</a> <a href="#name-Type">Type</a> = 67</label><span id='CNY-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-COP">	<input type='checkbox' class="fold" id="COP-fold-content"><label for="COP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-76">COP</a> <a href="#name-Type">Type</a> = 68</label><span id='COP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-COU">	<input type='checkbox' class="fold" id="COU-fold-content"><label for="COU-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-77">COU</a> <a href="#name-Type">Type</a> = 69</label><span id='COU-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CRC">	<input type='checkbox' class="fold" id="CRC-fold-content"><label for="CRC-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-78">CRC</a> <a href="#name-Type">Type</a> = 70</label><span id='CRC-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CSD">	<input type='checkbox' class="fold" id="CSD-fold-content"><label for="CSD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-79">CSD</a> <a href="#name-Type">Type</a> = 71</label><span id='CSD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CSK">	<input type='checkbox' class="fold" id="CSK-fold-content"><label for="CSK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-80">CSK</a> <a href="#name-Type">Type</a> = 72</label><span id='CSK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CUC">	<input type='checkbox' class="fold" id="CUC-fold-content"><label for="CUC-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-81">CUC</a> <a href="#name-Type">Type</a> = 73</label><span id='CUC-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CUP">	<input type='checkbox' class="fold" id="CUP-fold-content"><label for="CUP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-82">CUP</a> <a href="#name-Type">Type</a> = 74</label><span id='CUP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CVE">	<input type='checkbox' class="fold" id="CVE-fold-content"><label for="CVE-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-83">CVE</a> <a href="#name-Type">Type</a> = 75</label><span id='CVE-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CYP">	<input type='checkbox' class="fold" id="CYP-fold-content"><label for="CYP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-84">CYP</a> <a href="#name-Type">Type</a> = 76</label><span id='CYP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-CZK">	<input type='checkbox' class="fold" id="CZK-fold-content"><label for="CZK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-85">CZK</a> <a href="#name-Type">Type</a> = 77</label><span id='CZK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-DDM">	<input type='checkbox' class="fold" id="DDM-fold-content"><label for="DDM-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-86">DDM</a> <a href="#name-Type">Type</a> = 78</label><span id='DDM-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-DEM">	<input type='checkbox' class="fold" id="DEM-fold-content"><label for="DEM-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-87">DEM</a> <a href="#name-Type">Type</a> = 79</label><span id='DEM-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-DJF">	<input type='checkbox' class="fold" id="DJF-fold-content"><label for="DJF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-88">DJF</a> <a href="#name-Type">Type</a> = 80</label><span id='DJF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-DKK">	<input type='checkbox' class="fold" id="DKK-fold-content"><label for="DKK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-89">DKK</a> <a href="#name-Type">Type</a> = 81</label><span id='DKK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-DOP">	<input type='checkbox' class="fold" id="DOP-fold-content"><label for="DOP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-90">DOP</a> <a href="#name-Type">Type</a> = 82</label><span id='DOP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-DZD">	<input type='checkbox' class="fold" id="DZD-fold-content"><label for="DZD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-91">DZD</a> <a href="#name-Type">Type</a> = 83</label><span id='DZD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ECS">	<input type='checkbox' class="fold" id="ECS-fold-content"><label for="ECS-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-92">ECS</a> <a href="#name-Type">Type</a> = 84</label><span id='ECS-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ECV">	<input type='checkbox' class="fold" id="ECV-fold-content"><label for="ECV-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-93">ECV</a> <a href="#name-Type">Type</a> = 85</label><span id='ECV-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-EEK">	<input type='checkbox' class="fold" id="EEK-fold-content"><label for="EEK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-94">EEK</a> <a href="#name-Type">Type</a> = 86</label><span id='EEK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-EGP">	<input type='checkbox' class="fold" id="EGP-fold-content"><label for="EGP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-95">EGP</a> <a href="#name-Type">Type</a> = 87</label><span id='EGP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ERN">	<input type='checkbox' class="fold" id="ERN-fold-content"><label for="ERN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-96">ERN</a> <a href="#name-Type">Type</a> = 88</label><span id='ERN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ESA">	<input type='checkbox' class="fold" id="ESA-fold-content"><label for="ESA-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-97">ESA</a> <a href="#name-Type">Type</a> = 89</label><span id='ESA-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ESB">	<input type='checkbox' class="fold" id="ESB-fold-content"><label for="ESB-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-98">ESB</a> <a href="#name-Type">Type</a> = 90</label><span id='ESB-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ESP">	<input type='checkbox' class="fold" id="ESP-fold-content"><label for="ESP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-99">ESP</a> <a href="#name-Type">Type</a> = 91</label><span id='ESP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ETB">	<input type='checkbox' class="fold" id="ETB-fold-content"><label for="ETB-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-100">ETB</a> <a href="#name-Type">Type</a> = 92</label><span id='ETB-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-EUR">	<input type='checkbox' class="fold" id="EUR-fold-content"><label for="EUR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-101">EUR</a> <a href="#name-Type">Type</a> = 93</label><span id='EUR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-FIM">	<input type='checkbox' class="fold" id="FIM-fold-content"><label for="FIM-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-102">FIM</a> <a href="#name-Type">Type</a> = 94</label><span id='FIM-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-FJD">	<input type='checkbox' class="fold" id="FJD-fold-content"><label for="FJD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-103">FJD</a> <a href="#name-Type">Type</a> = 95</label><span id='FJD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-FKP">	<input type='checkbox' class="fold" id="FKP-fold-content"><label for="FKP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-104">FKP</a> <a href="#name-Type">Type</a> = 96</label><span id='FKP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-FRF">	<input type='checkbox' class="fold" id="FRF-fold-content"><label for="FRF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-105">FRF</a> <a href="#name-Type">Type</a> = 97</label><span id='FRF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-GBP">	<input type='checkbox' class="fold" id="GBP-fold-content"><label for="GBP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-106">GBP</a> <a href="#name-Type">Type</a> = 98</label><span id='GBP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-GEK">	<input type='checkbox' class="fold" id="GEK-fold-content"><label for="GEK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-107">GEK</a> <a href="#name-Type">Type</a> = 99</label><span id='GEK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-GEL">	<input type='checkbox' class="fold" id="GEL-fold-content"><label for="GEL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-108">GEL</a> <a href="#name-Type">Type</a> = 100</label><span id='GEL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-GHC">	<input type='checkbox' class="fold" id="GHC-fold-content"><label for="GHC-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-109">GHC</a> <a href="#name-Type">Type</a> = 101</label><span id='GHC-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-GHS">	<input type='checkbox' class="fold" id="GHS-fold-content"><label for="GHS-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-110">GHS</a> <a href="#name-Type">Type</a> = 102</label><span id='GHS-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-GIP">	<input type='checkbox' class="fold" id="GIP-fold-content"><label for="GIP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-111">GIP</a> <a href="#name-Type">Type</a> = 103</label><span id='GIP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-GMD">	<input type='checkbox' class="fold" id="GMD-fold-content"><label for="GMD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-112">GMD</a> <a href="#name-Type">Type</a> = 104</label><span id='GMD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-GNF">	<input type='checkbox' class="fold" id="GNF-fold-content"><label for="GNF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-113">GNF</a> <a href="#name-Type">Type</a> = 105</label><span id='GNF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-GNS">	<input type='checkbox' class="fold" id="GNS-fold-content"><label for="GNS-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-114">GNS</a> <a href="#name-Type">Type</a> = 106</label><span id='GNS-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-GQE">	<input type='checkbox' class="fold" id="GQE-fold-content"><label for="GQE-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-115">GQE</a> <a href="#name-Type">Type</a> = 107</label><span id='GQE-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-GRD">	<input type='checkbox' class="fold" id="GRD-fold-content"><label for="GRD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-116">GRD</a> <a href="#name-Type">Type</a> = 108</label><span id='GRD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-GTQ">	<input type='checkbox' class="fold" id="GTQ-fold-content"><label for="GTQ-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-117">GTQ</a> <a href="#name-Type">Type</a> = 109</label><span id='GTQ-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-GWE">	<input type='checkbox' class="fold" id="GWE-fold-content"><label for="GWE-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-118">GWE</a> <a href="#name-Type">Type</a> = 110</label><span id='GWE-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-GWP">	<input type='checkbox' class="fold" id="GWP-fold-content"><label for="GWP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-119">GWP</a> <a href="#name-Type">Type</a> = 111</label><span id='GWP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-GYD">	<input type='checkbox' class="fold" id="GYD-fold-content"><label for="GYD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-120">GYD</a> <a href="#name-Type">Type</a> = 112</label><span id='GYD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-HKD">	<input type='checkbox' class="fold" id="HKD-fold-content"><label for="HKD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-121">HKD</a> <a href="#name-Type">Type</a> = 113</label><span id='HKD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-HNL">	<input type='checkbox' class="fold" id="HNL-fold-content"><label for="HNL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-122">HNL</a> <a href="#name-Type">Type</a> = 114</label><span id='HNL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-HRD">	<input type='checkbox' class="fold" id="HRD-fold-content"><label for="HRD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-123">HRD</a> <a href="#name-Type">Type</a> = 115</label><span id='HRD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-HRK">	<input type='checkbox' class="fold" id="HRK-fold-content"><label for="HRK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-124">HRK</a> <a href="#name-Type">Type</a> = 116</label><span id='HRK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-HTG">	<input type='checkbox' class="fold" id="HTG-fold-content"><label for="HTG-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-125">HTG</a> <a href="#name-Type">Type</a> = 117</label><span id='HTG-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-HUF">	<input type='checkbox' class="fold" id="HUF-fold-content"><label for="HUF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-126">HUF</a> <a href="#name-Type">Type</a> = 118</label><span id='HUF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-IDR">	<input type='checkbox' class="fold" id="IDR-fold-content"><label for="IDR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-127">IDR</a> <a href="#name-Type">Type</a> = 119</label><span id='IDR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-IEP">	<input type='checkbox' class="fold" id="IEP-fold-content"><label for="IEP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-128">IEP</a> <a href="#name-Type">Type</a> = 120</label><span id='IEP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ILP">	<input type='checkbox' class="fold" id="ILP-fold-content"><label for="ILP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-129">ILP</a> <a href="#name-Type">Type</a> = 121</label><span id='ILP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ILR">	<input type='checkbox' class="fold" id="ILR-fold-content"><label for="ILR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-130">ILR</a> <a href="#name-Type">Type</a> = 122</label><span id='ILR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ILS">	<input type='checkbox' class="fold" id="ILS-fold-content"><label for="ILS-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-131">ILS</a> <a href="#name-Type">Type</a> = 123</label><span id='ILS-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-INR">	<input type='checkbox' class="fold" id="INR-fold-content"><label for="INR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-132">INR</a> <a href="#name-Type">Type</a> = 124</label><span id='INR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-IQD">	<input type='checkbox' class="fold" id="IQD-fold-content"><label for="IQD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-133">IQD</a> <a href="#name-Type">Type</a> = 125</label><span id='IQD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-IRR">	<input type='checkbox' class="fold" id="IRR-fold-content"><label for="IRR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-134">IRR</a> <a href="#name-Type">Type</a> = 126</label><span id='IRR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ISJ">	<input type='checkbox' class="fold" id="ISJ-fold-content"><label for="ISJ-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-135">ISJ</a> <a href="#name-Type">Type</a> = 127</label><span id='ISJ-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ISK">	<input type='checkbox' class="fold" id="ISK-fold-content"><label for="ISK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-136">ISK</a> <a href="#name-Type">Type</a> = 128</label><span id='ISK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ITL">	<input type='checkbox' class="fold" id="ITL-fold-content"><label for="ITL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-137">ITL</a> <a href="#name-Type">Type</a> = 129</label><span id='ITL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-JMD">	<input type='checkbox' class="fold" id="JMD-fold-content"><label for="JMD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-138">JMD</a> <a href="#name-Type">Type</a> = 130</label><span id='JMD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-JOD">	<input type='checkbox' class="fold" id="JOD-fold-content"><label for="JOD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-139">JOD</a> <a href="#name-Type">Type</a> = 131</label><span id='JOD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-JPY">	<input type='checkbox' class="fold" id="JPY-fold-content"><label for="JPY-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-140">JPY</a> <a href="#name-Type">Type</a> = 132</label><span id='JPY-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-KES">	<input type='checkbox' class="fold" id="KES-fold-content"><label for="KES-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-141">KES</a> <a href="#name-Type">Type</a> = 133</label><span id='KES-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-KGS">	<input type='checkbox' class="fold" id="KGS-fold-content"><label for="KGS-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-142">KGS</a> <a href="#name-Type">Type</a> = 134</label><span id='KGS-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-KHR">	<input type='checkbox' class="fold" id="KHR-fold-content"><label for="KHR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-143">KHR</a> <a href="#name-Type">Type</a> = 135</label><span id='KHR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-KMF">	<input type='checkbox' class="fold" id="KMF-fold-content"><label for="KMF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-144">KMF</a> <a href="#name-Type">Type</a> = 136</label><span id='KMF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-KPW">	<input type='checkbox' class="fold" id="KPW-fold-content"><label for="KPW-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-145">KPW</a> <a href="#name-Type">Type</a> = 137</label><span id='KPW-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-KRH">	<input type='checkbox' class="fold" id="KRH-fold-content"><label for="KRH-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-146">KRH</a> <a href="#name-Type">Type</a> = 138</label><span id='KRH-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-KRO">	<input type='checkbox' class="fold" id="KRO-fold-content"><label for="KRO-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-147">KRO</a> <a href="#name-Type">Type</a> = 139</label><span id='KRO-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-KRW">	<input type='checkbox' class="fold" id="KRW-fold-content"><label for="KRW-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-148">KRW</a> <a href="#name-Type">Type</a> = 140</label><span id='KRW-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-KWD">	<input type='checkbox' class="fold" id="KWD-fold-content"><label for="KWD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-149">KWD</a> <a href="#name-Type">Type</a> = 141</label><span id='KWD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-KYD">	<input type='checkbox' class="fold" id="KYD-fold-content"><label for="KYD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-150">KYD</a> <a href="#name-Type">Type</a> = 142</label><span id='KYD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-KZT">	<input type='checkbox' class="fold" id="KZT-fold-content"><label for="KZT-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-151">KZT</a> <a href="#name-Type">Type</a> = 143</label><span id='KZT-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-LAK">	<input type='checkbox' class="fold" id="LAK-fold-content"><label for="LAK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-152">LAK</a> <a href="#name-Type">Type</a> = 144</label><span id='LAK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-LBP">	<input type='checkbox' class="fold" id="LBP-fold-content"><label for="LBP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-153">LBP</a> <a href="#name-Type">Type</a> = 145</label><span id='LBP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-LKR">	<input type='checkbox' class="fold" id="LKR-fold-content"><label for="LKR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-154">LKR</a> <a href="#name-Type">Type</a> = 146</label><span id='LKR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-LRD">	<input type='checkbox' class="fold" id="LRD-fold-content"><label for="LRD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-155">LRD</a> <a href="#name-Type">Type</a> = 147</label><span id='LRD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-LSL">	<input type='checkbox' class="fold" id="LSL-fold-content"><label for="LSL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-156">LSL</a> <a href="#name-Type">Type</a> = 148</label><span id='LSL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-LTL">	<input type='checkbox' class="fold" id="LTL-fold-content"><label for="LTL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-157">LTL</a> <a href="#name-Type">Type</a> = 149</label><span id='LTL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-LTT">	<input type='checkbox' class="fold" id="LTT-fold-content"><label for="LTT-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-158">LTT</a> <a href="#name-Type">Type</a> = 150</label><span id='LTT-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-LUC">	<input type='checkbox' class="fold" id="LUC-fold-content"><label for="LUC-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-159">LUC</a> <a href="#name-Type">Type</a> = 151</label><span id='LUC-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-LUF">	<input type='checkbox' class="fold" id="LUF-fold-content"><label for="LUF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-160">LUF</a> <a href="#name-Type">Type</a> = 152</label><span id='LUF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-LUL">	<input type='checkbox' class="fold" id="LUL-fold-content"><label for="LUL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-161">LUL</a> <a href="#name-Type">Type</a> = 153</label><span id='LUL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-LVL">	<input type='checkbox' class="fold" id="LVL-fold-content"><label for="LVL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-162">LVL</a> <a href="#name-Type">Type</a> = 154</label><span id='LVL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-LVR">	<input type='checkbox' class="fold" id="LVR-fold-content"><label for="LVR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-163">LVR</a> <a href="#name-Type">Type</a> = 155</label><span id='LVR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-LYD">	<input type='checkbox' class="fold" id="LYD-fold-content"><label for="LYD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-164">LYD</a> <a href="#name-Type">Type</a> = 156</label><span id='LYD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MAD">	<input type='checkbox' class="fold" id="MAD-fold-content"><label for="MAD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-165">MAD</a> <a href="#name-Type">Type</a> = 157</label><span id='MAD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MAF">	<input type='checkbox' class="fold" id="MAF-fold-content"><label for="MAF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-166">MAF</a> <a href="#name-Type">Type</a> = 158</label><span id='MAF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MCF">	<input type='checkbox' class="fold" id="MCF-fold-content"><label for="MCF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-167">MCF</a> <a href="#name-Type">Type</a> = 159</label><span id='MCF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MDC">	<input type='checkbox' class="fold" id="MDC-fold-content"><label for="MDC-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-168">MDC</a> <a href="#name-Type">Type</a> = 160</label><span id='MDC-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MDL">	<input type='checkbox' class="fold" id="MDL-fold-content"><label for="MDL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-169">MDL</a> <a href="#name-Type">Type</a> = 161</label><span id='MDL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MGA">	<input type='checkbox' class="fold" id="MGA-fold-content"><label for="MGA-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-170">MGA</a> <a href="#name-Type">Type</a> = 162</label><span id='MGA-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MGF">	<input type='checkbox' class="fold" id="MGF-fold-content"><label for="MGF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-171">MGF</a> <a href="#name-Type">Type</a> = 163</label><span id='MGF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MKD">	<input type='checkbox' class="fold" id="MKD-fold-content"><label for="MKD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-172">MKD</a> <a href="#name-Type">Type</a> = 164</label><span id='MKD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MKN">	<input type='checkbox' class="fold" id="MKN-fold-content"><label for="MKN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-173">MKN</a> <a href="#name-Type">Type</a> = 165</label><span id='MKN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MLF">	<input type='checkbox' class="fold" id="MLF-fold-content"><label for="MLF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-174">MLF</a> <a href="#name-Type">Type</a> = 166</label><span id='MLF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MMK">	<input type='checkbox' class="fold" id="MMK-fold-content"><label for="MMK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-175">MMK</a> <a href="#name-Type">Type</a> = 167</label><span id='MMK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MNT">	<input type='checkbox' class="fold" id="MNT-fold-content"><label for="MNT-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-176">MNT</a> <a href="#name-Type">Type</a> = 168</label><span id='MNT-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MOP">	<input type='checkbox' class="fold" id="MOP-fold-content"><label for="MOP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-177">MOP</a> <a href="#name-Type">Type</a> = 169</label><span id='MOP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MRO">	<input type='checkbox' class="fold" id="MRO-fold-content"><label for="MRO-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-178">MRO</a> <a href="#name-Type">Type</a> = 170</label><span id='MRO-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MTL">	<input type='checkbox' class="fold" id="MTL-fold-content"><label for="MTL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-179">MTL</a> <a href="#name-Type">Type</a> = 171</label><span id='MTL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MTP">	<input type='checkbox' class="fold" id="MTP-fold-content"><label for="MTP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-180">MTP</a> <a href="#name-Type">Type</a> = 172</label><span id='MTP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MUR">	<input type='checkbox' class="fold" id="MUR-fold-content"><label for="MUR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-181">MUR</a> <a href="#name-Type">Type</a> = 173</label><span id='MUR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MVP">	<input type='checkbox' class="fold" id="MVP-fold-content"><label for="MVP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-182">MVP</a> <a href="#name-Type">Type</a> = 174</label><span id='MVP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MVR">	<input type='checkbox' class="fold" id="MVR-fold-content"><label for="MVR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-183">MVR</a> <a href="#name-Type">Type</a> = 175</label><span id='MVR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MWK">	<input type='checkbox' class="fold" id="MWK-fold-content"><label for="MWK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-184">MWK</a> <a href="#name-Type">Type</a> = 176</label><span id='MWK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MXN">	<input type='checkbox' class="fold" id="MXN-fold-content"><label for="MXN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-185">MXN</a> <a href="#name-Type">Type</a> = 177</label><span id='MXN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MXP">	<input type='checkbox' class="fold" id="MXP-fold-content"><label for="MXP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-186">MXP</a> <a href="#name-Type">Type</a> = 178</label><span id='MXP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MXV">	<input type='checkbox' class="fold" id="MXV-fold-content"><label for="MXV-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-187">MXV</a> <a href="#name-Type">Type</a> = 179</label><span id='MXV-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MYR">	<input type='checkbox' class="fold" id="MYR-fold-content"><label for="MYR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-188">MYR</a> <a href="#name-Type">Type</a> = 180</label><span id='MYR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MZE">	<input type='checkbox' class="fold" id="MZE-fold-content"><label for="MZE-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-189">MZE</a> <a href="#name-Type">Type</a> = 181</label><span id='MZE-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MZM">	<input type='checkbox' class="fold" id="MZM-fold-content"><label for="MZM-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-190">MZM</a> <a href="#name-Type">Type</a> = 182</label><span id='MZM-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-MZN">	<input type='checkbox' class="fold" id="MZN-fold-content"><label for="MZN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-191">MZN</a> <a href="#name-Type">Type</a> = 183</label><span id='MZN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-NAD">	<input type='checkbox' class="fold" id="NAD-fold-content"><label for="NAD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-192">NAD</a> <a href="#name-Type">Type</a> = 184</label><span id='NAD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-NGN">	<input type='checkbox' class="fold" id="NGN-fold-content"><label for="NGN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-193">NGN</a> <a href="#name-Type">Type</a> = 185</label><span id='NGN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-NIC">	<input type='checkbox' class="fold" id="NIC-fold-content"><label for="NIC-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-194">NIC</a> <a href="#name-Type">Type</a> = 186</label><span id='NIC-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-NIO">	<input type='checkbox' class="fold" id="NIO-fold-content"><label for="NIO-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-195">NIO</a> <a href="#name-Type">Type</a> = 187</label><span id='NIO-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-NLG">	<input type='checkbox' class="fold" id="NLG-fold-content"><label for="NLG-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-196">NLG</a> <a href="#name-Type">Type</a> = 188</label><span id='NLG-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-NOK">	<input type='checkbox' class="fold" id="NOK-fold-content"><label for="NOK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-197">NOK</a> <a href="#name-Type">Type</a> = 189</label><span id='NOK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-NPR">	<input type='checkbox' class="fold" id="NPR-fold-content"><label for="NPR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-198">NPR</a> <a href="#name-Type">Type</a> = 190</label><span id='NPR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-NZD">	<input type='checkbox' class="fold" id="NZD-fold-content"><label for="NZD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-199">NZD</a> <a href="#name-Type">Type</a> = 191</label><span id='NZD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-OMR">	<input type='checkbox' class="fold" id="OMR-fold-content"><label for="OMR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-200">OMR</a> <a href="#name-Type">Type</a> = 192</label><span id='OMR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-PAB">	<input type='checkbox' class="fold" id="PAB-fold-content"><label for="PAB-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-201">PAB</a> <a href="#name-Type">Type</a> = 193</label><span id='PAB-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-PEI">	<input type='checkbox' class="fold" id="PEI-fold-content"><label for="PEI-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-202">PEI</a> <a href="#name-Type">Type</a> = 194</label><span id='PEI-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-PEN">	<input type='checkbox' class="fold" id="PEN-fold-content"><label for="PEN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-203">PEN</a> <a href="#name-Type">Type</a> = 195</label><span id='PEN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-PES">	<input type='checkbox' class="fold" id="PES-fold-content"><label for="PES-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-204">PES</a> <a href="#name-Type">Type</a> = 196</label><span id='PES-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-PGK">	<input type='checkbox' class="fold" id="PGK-fold-content"><label for="PGK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-205">PGK</a> <a href="#name-Type">Type</a> = 197</label><span id='PGK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-PHP">	<input type='checkbox' class="fold" id="PHP-fold-content"><label for="PHP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-206">PHP</a> <a href="#name-Type">Type</a> = 198</label><span id='PHP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-PKR">	<input type='checkbox' class="fold" id="PKR-fold-content"><label for="PKR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-207">PKR</a> <a href="#name-Type">Type</a> = 199</label><span id='PKR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-PLN">	<input type='checkbox' class="fold" id="PLN-fold-content"><label for="PLN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-208">PLN</a> <a href="#name-Type">Type</a> = 200</label><span id='PLN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-PLZ">	<input type='checkbox' class="fold" id="PLZ-fold-content"><label for="PLZ-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-209">PLZ</a> <a href="#name-Type">Type</a> = 201</label><span id='PLZ-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-PTE">	<input type='checkbox' class="fold" id="PTE-fold-content"><label for="PTE-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-210">PTE</a> <a href="#name-Type">Type</a> = 202</label><span id='PTE-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-PYG">	<input type='checkbox' class="fold" id="PYG-fold-content"><label for="PYG-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-211">PYG</a> <a href="#name-Type">Type</a> = 203</label><span id='PYG-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-QAR">	<input type='checkbox' class="fold" id="QAR-fold-content"><label for="QAR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-212">QAR</a> <a href="#name-Type">Type</a> = 204</label><span id='QAR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-RHD">	<input type='checkbox' class="fold" id="RHD-fold-content"><label for="RHD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-213">RHD</a> <a href="#name-Type">Type</a> = 205</label><span id='RHD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ROL">	<input type='checkbox' class="fold" id="ROL-fold-content"><label for="ROL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-214">ROL</a> <a href="#name-Type">Type</a> = 206</label><span id='ROL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-RON">	<input type='checkbox' class="fold" id="RON-fold-content"><label for="RON-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-215">RON</a> <a href="#name-Type">Type</a> = 207</label><span id='RON-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-RSD">	<input type='checkbox' class="fold" id="RSD-fold-content"><label for="RSD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-216">RSD</a> <a href="#name-Type">Type</a> = 208</label><span id='RSD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-RUB">	<input type='checkbox' class="fold" id="RUB-fold-content"><label for="RUB-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-217">RUB</a> <a href="#name-Type">Type</a> = 209</label><span id='RUB-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-RUR">	<input type='checkbox' class="fold" id="RUR-fold-content"><label for="RUR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-218">RUR</a> <a href="#name-Type">Type</a> = 210</label><span id='RUR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-RWF">	<input type='checkbox' class="fold" id="RWF-fold-content"><label for="RWF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-219">RWF</a> <a href="#name-Type">Type</a> = 211</label><span id='RWF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SAR">	<input type='checkbox' class="fold" id="SAR-fold-content"><label for="SAR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-220">SAR</a> <a href="#name-Type">Type</a> = 212</label><span id='SAR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SBD">	<input type='checkbox' class="fold" id="SBD-fold-content"><label for="SBD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-221">SBD</a> <a href="#name-Type">Type</a> = 213</label><span id='SBD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SCR">	<input type='checkbox' class="fold" id="SCR-fold-content"><label for="SCR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-222">SCR</a> <a href="#name-Type">Type</a> = 214</label><span id='SCR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SDD">	<input type='checkbox' class="fold" id="SDD-fold-content"><label for="SDD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-223">SDD</a> <a href="#name-Type">Type</a> = 215</label><span id='SDD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SDG">	<input type='checkbox' class="fold" id="SDG-fold-content"><label for="SDG-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-224">SDG</a> <a href="#name-Type">Type</a> = 216</label><span id='SDG-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SDP">	<input type='checkbox' class="fold" id="SDP-fold-content"><label for="SDP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-225">SDP</a> <a href="#name-Type">Type</a> = 217</label><span id='SDP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SEK">	<input type='checkbox' class="fold" id="SEK-fold-content"><label for="SEK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-226">SEK</a> <a href="#name-Type">Type</a> = 218</label><span id='SEK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SGD">	<input type='checkbox' class="fold" id="SGD-fold-content"><label for="SGD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-227">SGD</a> <a href="#name-Type">Type</a> = 219</label><span id='SGD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SHP">	<input type='checkbox' class="fold" id="SHP-fold-content"><label for="SHP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-228">SHP</a> <a href="#name-Type">Type</a> = 220</label><span id='SHP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SIT">	<input type='checkbox' class="fold" id="SIT-fold-content"><label for="SIT-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-229">SIT</a> <a href="#name-Type">Type</a> = 221</label><span id='SIT-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SKK">	<input type='checkbox' class="fold" id="SKK-fold-content"><label for="SKK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-230">SKK</a> <a href="#name-Type">Type</a> = 222</label><span id='SKK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SLL">	<input type='checkbox' class="fold" id="SLL-fold-content"><label for="SLL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-231">SLL</a> <a href="#name-Type">Type</a> = 223</label><span id='SLL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SOS">	<input type='checkbox' class="fold" id="SOS-fold-content"><label for="SOS-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-232">SOS</a> <a href="#name-Type">Type</a> = 224</label><span id='SOS-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SRD">	<input type='checkbox' class="fold" id="SRD-fold-content"><label for="SRD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-233">SRD</a> <a href="#name-Type">Type</a> = 225</label><span id='SRD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SRG">	<input type='checkbox' class="fold" id="SRG-fold-content"><label for="SRG-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-234">SRG</a> <a href="#name-Type">Type</a> = 226</label><span id='SRG-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SSP">	<input type='checkbox' class="fold" id="SSP-fold-content"><label for="SSP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-235">SSP</a> <a href="#name-Type">Type</a> = 227</label><span id='SSP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-STD">	<input type='checkbox' class="fold" id="STD-fold-content"><label for="STD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-236">STD</a> <a href="#name-Type">Type</a> = 228</label><span id='STD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-STN">	<input type='checkbox' class="fold" id="STN-fold-content"><label for="STN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-237">STN</a> <a href="#name-Type">Type</a> = 229</label><span id='STN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SUR">	<input type='checkbox' class="fold" id="SUR-fold-content"><label for="SUR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-238">SUR</a> <a href="#name-Type">Type</a> = 230</label><span id='SUR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SVC">	<input type='checkbox' class="fold" id="SVC-fold-content"><label for="SVC-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-239">SVC</a> <a href="#name-Type">Type</a> = 231</label><span id='SVC-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SYP">	<input type='checkbox' class="fold" id="SYP-fold-content"><label for="SYP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-240">SYP</a> <a href="#name-Type">Type</a> = 232</label><span id='SYP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-SZL">	<input type='checkbox' class="fold" id="SZL-fold-content"><label for="SZL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-241">SZL</a> <a href="#name-Type">Type</a> = 233</label><span id='SZL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-THB">	<input type='checkbox' class="fold" id="THB-fold-content"><label for="THB-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-242">THB</a> <a href="#name-Type">Type</a> = 234</label><span id='THB-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-TJR">	<input type='checkbox' class="fold" id="TJR-fold-content"><label for="TJR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-243">TJR</a> <a href="#name-Type">Type</a> = 235</label><span id='TJR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-TJS">	<input type='checkbox' class="fold" id="TJS-fold-content"><label for="TJS-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-244">TJS</a> <a href="#name-Type">Type</a> = 236</label><span id='TJS-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-TMM">	<input type='checkbox' class="fold" id="TMM-fold-content"><label for="TMM-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-245">TMM</a> <a href="#name-Type">Type</a> = 237</label><span id='TMM-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-TMT">	<input type='checkbox' class="fold" id="TMT-fold-content"><label for="TMT-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-246">TMT</a> <a href="#name-Type">Type</a> = 238</label><span id='TMT-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-TND">	<input type='checkbox' class="fold" id="TND-fold-content"><label for="TND-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-247">TND</a> <a href="#name-Type">Type</a> = 239</label><span id='TND-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-TOP">	<input type='checkbox' class="fold" id="TOP-fold-content"><label for="TOP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-248">TOP</a> <a href="#name-Type">Type</a> = 240</label><span id='TOP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-TPE">	<input type='checkbox' class="fold" id="TPE-fold-content"><label for="TPE-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-249">TPE</a> <a href="#name-Type">Type</a> = 241</label><span id='TPE-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-TRL">	<input type='checkbox' class="fold" id="TRL-fold-content"><label for="TRL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-250">TRL</a> <a href="#name-Type">Type</a> = 242</label><span id='TRL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-TRY">	<input type='checkbox' class="fold" id="TRY-fold-content"><label for="TRY-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-251">TRY</a> <a href="#name-Type">Type</a> = 243</label><span id='TRY-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-TTD">	<input type='checkbox' class="fold" id="TTD-fold-content"><label for="TTD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-252">TTD</a> <a href="#name-Type">Type</a> = 244</label><span id='TTD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-TWD">	<input type='checkbox' class="fold" id="TWD-fold-content"><label for="TWD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-253">TWD</a> <a href="#name-Type">Type</a> = 245</label><span id='TWD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-TZS">	<input type='checkbox' class="fold" id="TZS-fold-content"><label for="TZS-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-254">TZS</a> <a href="#name-Type">Type</a> = 246</label><span id='TZS-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-UAH">	<input type='checkbox' class="fold" id="UAH-fold-content"><label for="UAH-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-255">UAH</a> <a href="#name-Type">Type</a> = 247</label><span id='UAH-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-UAK">	<input type='checkbox' class="fold" id="UAK-fold-content"><label for="UAK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-256">UAK</a> <a href="#name-Type">Type</a> = 248</label><span id='UAK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-UGS">	<input type='checkbox' class="fold" id="UGS-fold-content"><label for="UGS-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-257">UGS</a> <a href="#name-Type">Type</a> = 249</label><span id='UGS-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-UGX">	<input type='checkbox' class="fold" id="UGX-fold-content"><label for="UGX-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-258">UGX</a> <a href="#name-Type">Type</a> = 250</label><span id='UGX-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-USD">	<input type='checkbox' class="fold" id="USD-fold-content"><label for="USD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-259">USD</a> <a href="#name-Type">Type</a> = 251</label><span id='USD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-USN">	<input type='checkbox' class="fold" id="USN-fold-content"><label for="USN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-260">USN</a> <a href="#name-Type">Type</a> = 252</label><span id='USN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-USS">	<input type='checkbox' class="fold" id="USS-fold-content"><label for="USS-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-261">USS</a> <a href="#name-Type">Type</a> = 253</label><span id='USS-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-UYI">	<input type='checkbox' class="fold" id="UYI-fold-content"><label for="UYI-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-262">UYI</a> <a href="#name-Type">Type</a> = 254</label><span id='UYI-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-UYP">	<input type='checkbox' class="fold" id="UYP-fold-content"><label for="UYP-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-263">UYP</a> <a href="#name-Type">Type</a> = 255</label><span id='UYP-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-UYU">	<input type='checkbox' class="fold" id="UYU-fold-content"><label for="UYU-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-264">UYU</a> <a href="#name-Type">Type</a> = 256</label><span id='UYU-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-UZS">	<input type='checkbox' class="fold" id="UZS-fold-content"><label for="UZS-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-265">UZS</a> <a href="#name-Type">Type</a> = 257</label><span id='UZS-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-VEB">	<input type='checkbox' class="fold" id="VEB-fold-content"><label for="VEB-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-266">VEB</a> <a href="#name-Type">Type</a> = 258</label><span id='VEB-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-VEF">	<input type='checkbox' class="fold" id="VEF-fold-content"><label for="VEF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-267">VEF</a> <a href="#name-Type">Type</a> = 259</label><span id='VEF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-VND">	<input type='checkbox' class="fold" id="VND-fold-content"><label for="VND-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-268">VND</a> <a href="#name-Type">Type</a> = 260</label><span id='VND-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-VNN">	<input type='checkbox' class="fold" id="VNN-fold-content"><label for="VNN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-269">VNN</a> <a href="#name-Type">Type</a> = 261</label><span id='VNN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-VUV">	<input type='checkbox' class="fold" id="VUV-fold-content"><label for="VUV-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-270">VUV</a> <a href="#name-Type">Type</a> = 262</label><span id='VUV-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-WST">	<input type='checkbox' class="fold" id="WST-fold-content"><label for="WST-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-271">WST</a> <a href="#name-Type">Type</a> = 263</label><span id='WST-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XAF">	<input type='checkbox' class="fold" id="XAF-fold-content"><label for="XAF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-272">XAF</a> <a href="#name-Type">Type</a> = 264</label><span id='XAF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XAG">	<input type='checkbox' class="fold" id="XAG-fold-content"><label for="XAG-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-273">XAG</a> <a href="#name-Type">Type</a> = 265</label><span id='XAG-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XAU">	<input type='checkbox' class="fold" id="XAU-fold-content"><label for="XAU-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-274">XAU</a> <a href="#name-Type">Type</a> = 266</label><span id='XAU-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XBA">	<input type='checkbox' class="fold" id="XBA-fold-content"><label for="XBA-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-275">XBA</a> <a href="#name-Type">Type</a> = 267</label><span id='XBA-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XBB">	<input type='checkbox' class="fold" id="XBB-fold-content"><label for="XBB-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-276">XBB</a> <a href="#name-Type">Type</a> = 268</label><span id='XBB-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XBC">	<input type='checkbox' class="fold" id="XBC-fold-content"><label for="XBC-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-277">XBC</a> <a href="#name-Type">Type</a> = 269</label><span id='XBC-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XBD">	<input type='checkbox' class="fold" id="XBD-fold-content"><label for="XBD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-278">XBD</a> <a href="#name-Type">Type</a> = 270</label><span id='XBD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XCD">	<input type='checkbox' class="fold" id="XCD-fold-content"><label for="XCD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-279">XCD</a> <a href="#name-Type">Type</a> = 271</label><span id='XCD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XDR">	<input type='checkbox' class="fold" id="XDR-fold-content"><label for="XDR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-280">XDR</a> <a href="#name-Type">Type</a> = 272</label><span id='XDR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XEU">	<input type='checkbox' class="fold" id="XEU-fold-content"><label for="XEU-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-281">XEU</a> <a href="#name-Type">Type</a> = 273</label><span id='XEU-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XFO">	<input type='checkbox' class="fold" id="XFO-fold-content"><label for="XFO-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-282">XFO</a> <a href="#name-Type">Type</a> = 274</label><span id='XFO-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XFU">	<input type='checkbox' class="fold" id="XFU-fold-content"><label for="XFU-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-283">XFU</a> <a href="#name-Type">Type</a> = 275</label><span id='XFU-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XOF">	<input type='checkbox' class="fold" id="XOF-fold-content"><label for="XOF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-284">XOF</a> <a href="#name-Type">Type</a> = 276</label><span id='XOF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XPD">	<input type='checkbox' class="fold" id="XPD-fold-content"><label for="XPD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-285">XPD</a> <a href="#name-Type">Type</a> = 277</label><span id='XPD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XPF">	<input type='checkbox' class="fold" id="XPF-fold-content"><label for="XPF-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-286">XPF</a> <a href="#name-Type">Type</a> = 278</label><span id='XPF-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XPT">	<input type='checkbox' class="fold" id="XPT-fold-content"><label for="XPT-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-287">XPT</a> <a href="#name-Type">Type</a> = 279</label><span id='XPT-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XRE">	<input type='checkbox' class="fold" id="XRE-fold-content"><label for="XRE-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-288">XRE</a> <a href="#name-Type">Type</a> = 280</label><span id='XRE-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XSU">	<input type='checkbox' class="fold" id="XSU-fold-content"><label for="XSU-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-289">XSU</a> <a href="#name-Type">Type</a> = 281</label><span id='XSU-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XTS">	<input type='checkbox' class="fold" id="XTS-fold-content"><label for="XTS-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-290">XTS</a> <a href="#name-Type">Type</a> = 282</label><span id='XTS-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XUA">	<input type='checkbox' class="fold" id="XUA-fold-content"><label for="XUA-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-291">XUA</a> <a href="#name-Type">Type</a> = 283</label><span id='XUA-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-XXX">	<input type='checkbox' class="fold" id="XXX-fold-content"><label for="XXX-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-292">XXX</a> <a href="#name-Type">Type</a> = 284</label><span id='XXX-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-YDD">	<input type='checkbox' class="fold" id="YDD-fold-content"><label for="YDD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-293">YDD</a> <a href="#name-Type">Type</a> = 285</label><span id='YDD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-YER">	<input type='checkbox' class="fold" id="YER-fold-content"><label for="YER-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-294">YER</a> <a href="#name-Type">Type</a> = 286</label><span id='YER-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-YUD">	<input type='checkbox' class="fold" id="YUD-fold-content"><label for="YUD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-295">YUD</a> <a href="#name-Type">Type</a> = 287</label><span id='YUD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-YUM">	<input type='checkbox' class="fold" id="YUM-fold-content"><label for="YUM-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-296">YUM</a> <a href="#name-Type">Type</a> = 288</label><span id='YUM-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-YUN">	<input type='checkbox' class="fold" id="YUN-fold-content"><label for="YUN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-297">YUN</a> <a href="#name-Type">Type</a> = 289</label><span id='YUN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-YUR">	<input type='checkbox' class="fold" id="YUR-fold-content"><label for="YUR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-298">YUR</a> <a href="#name-Type">Type</a> = 290</label><span id='YUR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ZAL">	<input type='checkbox' class="fold" id="ZAL-fold-content"><label for="ZAL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-299">ZAL</a> <a href="#name-Type">Type</a> = 291</label><span id='ZAL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ZAR">	<input type='checkbox' class="fold" id="ZAR-fold-content"><label for="ZAR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-300">ZAR</a> <a href="#name-Type">Type</a> = 292</label><span id='ZAR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ZMK">	<input type='checkbox' class="fold" id="ZMK-fold-content"><label for="ZMK-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-301">ZMK</a> <a href="#name-Type">Type</a> = 293</label><span id='ZMK-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ZMW">	<input type='checkbox' class="fold" id="ZMW-fold-content"><label for="ZMW-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-302">ZMW</a> <a href="#name-Type">Type</a> = 294</label><span id='ZMW-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ZRN">	<input type='checkbox' class="fold" id="ZRN-fold-content"><label for="ZRN-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-303">ZRN</a> <a href="#name-Type">Type</a> = 295</label><span id='ZRN-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ZRZ">	<input type='checkbox' class="fold" id="ZRZ-fold-content"><label for="ZRZ-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-304">ZRZ</a> <a href="#name-Type">Type</a> = 296</label><span id='ZRZ-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ZWD">	<input type='checkbox' class="fold" id="ZWD-fold-content"><label for="ZWD-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-305">ZWD</a> <a href="#name-Type">Type</a> = 297</label><span id='ZWD-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ZWL">	<input type='checkbox' class="fold" id="ZWL-fold-content"><label for="ZWL-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-306">ZWL</a> <a href="#name-Type">Type</a> = 298</label><span id='ZWL-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div><div class="anchor value-res" id="name-ZWR">	<input type='checkbox' class="fold" id="ZWR-fold-content"><label for="ZWR-fold-content">const <a href="../../../../src/github.com/go-playground/locales/currency/currency.go.html#line-307">ZWR</a> <a href="#name-Type">Type</a> = 299</label><span id='ZWR-fold-content-docs' class="fold-docs">
+		locale currencies
+
+</span></div></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

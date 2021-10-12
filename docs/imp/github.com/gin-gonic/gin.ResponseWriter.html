@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method Implmentations: github.com/gin-gonic/gin.ResponseWriter</title>
+<link href="../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+<pre><code><span style="font-size:x-large;">type <a href="../../../pkg/github.com/gin-gonic/gin.html">github.com/gin-gonic/gin</a>.<b><a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-20">ResponseWriter</a></b></span><span style="font-size:large;"> <b><i>(interface)</i></b></span>
+
+<code><span class="title">Method Implmentations<span class="title-stat"><i></i></span></span>
+
+<div class="anchor" id="name-CloseNotify">	<a href="../../../src/net/http/server.go.html#line-230">CloseNotify</a>() &lt;-chan <a href="../../../pkg/builtin.html#name-bool">bool</a>
+		(*<a href="../../../pkg/github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a>).<b><a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-111">CloseNotify</a></b></div>
+<div class="anchor" id="name-Flush">	<a href="../../../src/net/http/server.go.html#line-170">Flush</a>()
+		(*<a href="../../../pkg/github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a>).<b><a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-116">Flush</a></b></div>
+<div class="anchor" id="name-Header">	<a href="../../../src/net/http/server.go.html#line-116">Header</a>() <a href="../../../pkg/net/http.html">http</a>.<a href="../../../pkg/net/http.html#name-Header">Header</a>
+		(*<a href="../../../pkg/github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a>).<i><a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-47">ResponseWriter</a></i>.<b><a href="../../../src/net/http/server.go.html#line-116">Header</a></b></div>
+<div class="anchor" id="name-Hijack">	<a href="../../../src/net/http/server.go.html#line-200">Hijack</a>() (<a href="../../../pkg/net.html">net</a>.<a href="../../../pkg/net.html#name-Conn">Conn</a>, *<a href="../../../pkg/bufio.html">bufio</a>.<a href="../../../pkg/bufio.html#name-ReadWriter">ReadWriter</a>, <a href="../../../pkg/builtin.html#name-error">error</a>)
+		(*<a href="../../../pkg/github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a>).<b><a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-103">Hijack</a></b></div>
+<div class="anchor" id="name-Pusher">	<a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-43">Pusher</a>() <a href="../../../pkg/net/http.html">http</a>.<a href="../../../pkg/net/http.html#name-Pusher">Pusher</a>
+		(*<a href="../../../pkg/github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a>).<b><a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-121">Pusher</a></b></div>
+<div class="anchor" id="name-Size">	<a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-31">Size</a>() <a href="../../../pkg/builtin.html#name-int">int</a>
+		(*<a href="../../../pkg/github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a>).<b><a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-94">Size</a></b></div>
+<div class="anchor" id="name-Status">	<a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-27">Status</a>() <a href="../../../pkg/builtin.html#name-int">int</a>
+		(*<a href="../../../pkg/github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a>).<b><a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-90">Status</a></b></div>
+<div class="anchor" id="name-Write">	<a href="../../../src/net/http/server.go.html#line-139">Write</a>([]<a href="../../../pkg/builtin.html#name-byte">byte</a>) (<a href="../../../pkg/builtin.html#name-int">int</a>, <a href="../../../pkg/builtin.html#name-error">error</a>)
+		(*<a href="../../../pkg/github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a>).<b><a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-76">Write</a></b></div>
+<div class="anchor" id="name-WriteHeader">	<a href="../../../src/net/http/server.go.html#line-154">WriteHeader</a>(statusCode <a href="../../../pkg/builtin.html#name-int">int</a>)
+		(*<a href="../../../pkg/github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a>).<b><a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-60">WriteHeader</a></b></div>
+<div class="anchor" id="name-WriteHeaderNow">	<a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-40">WriteHeaderNow</a>()
+		(*<a href="../../../pkg/github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a>).<b><a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-69">WriteHeaderNow</a></b></div>
+<div class="anchor" id="name-WriteString">	<a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-34">WriteString</a>(<a href="../../../pkg/builtin.html#name-string">string</a>) (<a href="../../../pkg/builtin.html#name-int">int</a>, <a href="../../../pkg/builtin.html#name-error">error</a>)
+		(*<a href="../../../pkg/github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a>).<b><a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-83">WriteString</a></b></div>
+<div class="anchor" id="name-Written">	<a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-37">Written</a>() <a href="../../../pkg/builtin.html#name-bool">bool</a>
+		(*<a href="../../../pkg/github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a>).<b><a href="../../../src/github.com/gin-gonic/gin/response_writer.go.html#line-98">Written</a></b></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

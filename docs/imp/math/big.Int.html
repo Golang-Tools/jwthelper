@@ -10,12 +10,17 @@
 <body onload="onPageLoad()"><div>
 <pre><code><span style="font-size:x-large;">type <a href="../../pkg/math/big.html">math/big</a>.<b><a href="../../src/math/big/int.go.html#line-25">Int</a></b></span><span style="font-size:large;"> <i>(struct)</i></span>
 
-<code><span class="title">Method Implmentations<span class="title-stat"><i> (58 other methods implement nothing)</i></span></span>
+<code><span class="title">Method Implmentations<span class="title-stat"><i> (56 other methods implement nothing)</i></span></span>
 
 <div class="anchor" id="name-Format">	<a href="../../src/math/big/intconv.go.html#line-67">Format</a>(s <a href="../../pkg/fmt.html">fmt</a>.<a href="../../pkg/fmt.html#name-State">State</a>, ch <a href="../../pkg/builtin.html#name-rune">rune</a>)
 		(*T).M : fmt.<a href="../../pkg/fmt.html#name-Formatter">Formatter</a>.<b><a href="../../src/fmt/print.go.html#line-54">Format</a></b></div>
+<div class="anchor" id="name-GobDecode">	<a href="../../src/math/big/intmarsh.go.html#line-33">GobDecode</a>(buf []<a href="../../pkg/builtin.html#name-byte">byte</a>) <a href="../../pkg/builtin.html#name-error">error</a>
+		(*T).M : encoding/gob.<a href="../../pkg/encoding/gob.html#name-GobDecoder">GobDecoder</a>.<b><a href="../../src/encoding/gob/type.go.html#line-797">GobDecode</a></b></div>
+<div class="anchor" id="name-GobEncode">	<a href="../../src/math/big/intmarsh.go.html#line-18">GobEncode</a>() ([]<a href="../../pkg/builtin.html#name-byte">byte</a>, <a href="../../pkg/builtin.html#name-error">error</a>)
+		(*T).M : encoding/gob.<a href="../../pkg/encoding/gob.html#name-GobEncoder">GobEncoder</a>.<b><a href="../../src/encoding/gob/type.go.html#line-788">GobEncode</a></b></div>
 <div class="anchor" id="name-MarshalJSON">	<a href="../../src/math/big/intmarsh.go.html#line-69">MarshalJSON</a>() ([]<a href="../../pkg/builtin.html#name-byte">byte</a>, <a href="../../pkg/builtin.html#name-error">error</a>)
-		(*T).M : encoding/json.<a href="../../pkg/encoding/json.html#name-Marshaler">Marshaler</a>.<b><a href="../../src/encoding/json/encode.go.html#line-226">MarshalJSON</a></b></div>
+		(*T).M : encoding/json.<a href="../../pkg/encoding/json.html#name-Marshaler">Marshaler</a>.<b><a href="../../src/encoding/json/encode.go.html#line-226">MarshalJSON</a></b>
+		(*T).M : github.com/ugorji/go/codec.<a href="../../pkg/github.com/ugorji/go/codec.html#name-jsonMarshaler">jsonMarshaler</a>.<b><a href="../../src/encoding/json/encode.go.html#line-226">MarshalJSON</a></b></div>
 <div class="anchor" id="name-MarshalText">	<a href="../../src/math/big/intmarsh.go.html#line-49">MarshalText</a>() (text []<a href="../../pkg/builtin.html#name-byte">byte</a>, err <a href="../../pkg/builtin.html#name-error">error</a>)
 		(*T).M : encoding.<a href="../../pkg/encoding.html#name-TextMarshaler">TextMarshaler</a>.<b><a href="../../src/encoding/encoding.go.html#line-37">MarshalText</a></b></div>
 <div class="anchor" id="name-Scan">	<a href="../../src/math/big/intconv.go.html#line-238">Scan</a>(s <a href="../../pkg/fmt.html">fmt</a>.<a href="../../pkg/fmt.html#name-ScanState">ScanState</a>, ch <a href="../../pkg/builtin.html#name-rune">rune</a>) <a href="../../pkg/builtin.html#name-error">error</a>
@@ -26,7 +31,8 @@
 		(*T).M : os/signal.<a href="../../pkg/os/signal.html#name-stringer">stringer</a>.<b><a href="../../src/runtime/error.go.html#line-205">String</a></b>
 		(*T).M : runtime.<a href="../../pkg/runtime.html#name-stringer">stringer</a>.<b><a href="../../src/runtime/error.go.html#line-205">String</a></b></div>
 <div class="anchor" id="name-UnmarshalJSON">	<a href="../../src/math/big/intmarsh.go.html#line-74">UnmarshalJSON</a>(text []<a href="../../pkg/builtin.html#name-byte">byte</a>) <a href="../../pkg/builtin.html#name-error">error</a>
-		(*T).M : encoding/json.<a href="../../pkg/encoding/json.html#name-Unmarshaler">Unmarshaler</a>.<b><a href="../../src/encoding/json/decode.go.html#line-119">UnmarshalJSON</a></b></div>
+		(*T).M : encoding/json.<a href="../../pkg/encoding/json.html#name-Unmarshaler">Unmarshaler</a>.<b><a href="../../src/encoding/json/decode.go.html#line-119">UnmarshalJSON</a></b>
+		(*T).M : github.com/ugorji/go/codec.<a href="../../pkg/github.com/ugorji/go/codec.html#name-jsonUnmarshaler">jsonUnmarshaler</a>.<b><a href="../../src/encoding/json/decode.go.html#line-119">UnmarshalJSON</a></b></div>
 <div class="anchor" id="name-UnmarshalText">	<a href="../../src/math/big/intmarsh.go.html#line-57">UnmarshalText</a>(text []<a href="../../pkg/builtin.html#name-byte">byte</a>) <a href="../../pkg/builtin.html#name-error">error</a>
 		(*T).M : encoding.<a href="../../pkg/encoding.html#name-TextUnmarshaler">TextUnmarshaler</a>.<b><a href="../../src/encoding/encoding.go.html#line-47">UnmarshalText</a></b></div></code></pre><pre id="footer">
 <table><tr><td><img src="../../png/go101-twitter.png"></td>

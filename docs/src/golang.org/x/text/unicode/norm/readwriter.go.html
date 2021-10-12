@@ -144,8 +144,8 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-60"><code>}</code></span>
 <span class="codeline" id="line-61"><code></code></span>
 <span class="codeline" id="line-62"><code><span class="comment">// Writer returns a new writer that implements Write(b)</span></code></span>
-<span class="codeline" id="line-63"><code><span class="comment">// by writing f(b) to w.  The returned writer may use an</span></code></span>
-<span class="codeline" id="line-64"><code><span class="comment">// an internal buffer to maintain state across Write calls.</span></code></span>
+<span class="codeline" id="line-63"><code><span class="comment">// by writing f(b) to w. The returned writer may use an</span></code></span>
+<span class="codeline" id="line-64"><code><span class="comment">// internal buffer to maintain state across Write calls.</span></code></span>
 <span class="codeline" id="line-65"><code><span class="comment">// Calling its Close method writes any buffered data to w.</span></code></span>
 <span class="codeline" id="line-66"><code><span class="keyword">func</span> (<label for="r13" class="ident">f</label> <a href="normalize.go.html#line-34" class="ident">Form</a>) <label for="r14" class="ident">Writer</label>(<label for="r15" class="ident">w</label> <a href="../../../../../../pkg/io.html" class="ident i0">io</a>.<a href="../../../../../io/io.go.html#line-96" class="ident">Writer</a>) <a href="../../../../../../pkg/io.html" class="ident i0">io</a>.<a href="../../../../../io/io.go.html#line-138" class="ident">WriteCloser</a> {</code></span>
 <span class="codeline" id="line-67"><code>	<label for="r16" class="ident">wr</label> := &amp;<a href="#line-9" class="ident">normWriter</a>{<a href="#line-10" class="ident">rb</a>: <a href="composition.go.html#line-98" class="ident">reorderBuffer</a>{}, <a href="#line-11" class="ident">w</a>: <label for="r15" class="ident">w</label>}</code></span>

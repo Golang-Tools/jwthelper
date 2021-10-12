@@ -701,11 +701,8 @@
 </span></div><div class="anchor type-res" id="name-HeaderMatcher_ExactMatch" data-popularity="100">	<input type='checkbox' class="fold" id="HeaderMatcher_ExactMatch-fold-content"><label for="HeaderMatcher_ExactMatch-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-3199">HeaderMatcher_ExactMatch</a> <i>(struct)</i></label><span id='HeaderMatcher_ExactMatch-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="HeaderMatcher_ExactMatch-fold-fields"><label for="HeaderMatcher_ExactMatch-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='HeaderMatcher_ExactMatch-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="HeaderMatcher_ExactMatch-fold-field-ExactMatch"><label for="HeaderMatcher_ExactMatch-fold-field-ExactMatch"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-3204">ExactMatch</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='HeaderMatcher_ExactMatch-fold-field-ExactMatch-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="HeaderMatcher_ExactMatch-fold-field-ExactMatch"><label for="HeaderMatcher_ExactMatch-fold-field-ExactMatch"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/api/v2/route/route_components.pb.go.html#line-2902">ExactMatch</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='HeaderMatcher_ExactMatch-fold-field-ExactMatch-docs' class="fold-docs">
 				If specified, header match will be performed based on the value of the header.
-				This field is deprecated. Please use :ref:`string_match &lt;envoy_v3_api_field_config.route.v3.HeaderMatcher.string_match&gt;`.
-
-				Deprecated: Do not use.
 </span></span></span>
 		<input type='checkbox' class="fold" id="HeaderMatcher_ExactMatch-fold-methods"><label for="HeaderMatcher_ExactMatch-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='HeaderMatcher_ExactMatch-fold-methods-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="HeaderMatcher_ExactMatch-showhide-methods"><i><label for="HeaderMatcher_ExactMatch-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="HeaderMatcher_ExactMatch-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
@@ -730,16 +727,13 @@
 </span></div><div class="anchor type-res" id="name-HeaderMatcher_PrefixMatch" data-popularity="100">	<input type='checkbox' class="fold" id="HeaderMatcher_PrefixMatch-fold-content"><label for="HeaderMatcher_PrefixMatch-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-3238">HeaderMatcher_PrefixMatch</a> <i>(struct)</i></label><span id='HeaderMatcher_PrefixMatch-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="HeaderMatcher_PrefixMatch-fold-fields"><label for="HeaderMatcher_PrefixMatch-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='HeaderMatcher_PrefixMatch-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="HeaderMatcher_PrefixMatch-fold-field-PrefixMatch"><label for="HeaderMatcher_PrefixMatch-fold-field-PrefixMatch"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-3248">PrefixMatch</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='HeaderMatcher_PrefixMatch-fold-field-PrefixMatch-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="HeaderMatcher_PrefixMatch-fold-field-PrefixMatch"><label for="HeaderMatcher_PrefixMatch-fold-field-PrefixMatch"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/api/v2/route/route_components.pb.go.html#line-2960">PrefixMatch</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='HeaderMatcher_PrefixMatch-fold-field-PrefixMatch-docs' class="fold-docs">
 				If specified, header match will be performed based on the prefix of the header value.
 				Note: empty prefix is not allowed, please use present_match instead.
-				This field is deprecated. Please use :ref:`string_match &lt;envoy_v3_api_field_config.route.v3.HeaderMatcher.string_match&gt;`.
 
 				Examples:
 
 				* The prefix *abcd* matches the value *abcdxyz*, but not for *abcxyz*.
-
-				Deprecated: Do not use.
 </span></span></span>
 		<input type='checkbox' class="fold" id="HeaderMatcher_PrefixMatch-fold-methods"><label for="HeaderMatcher_PrefixMatch-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='HeaderMatcher_PrefixMatch-fold-methods-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="HeaderMatcher_PrefixMatch-showhide-methods"><i><label for="HeaderMatcher_PrefixMatch-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="HeaderMatcher_PrefixMatch-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
@@ -751,9 +745,9 @@
 </span></div><div class="anchor type-res" id="name-HeaderMatcher_PresentMatch" data-popularity="100">	<input type='checkbox' class="fold" id="HeaderMatcher_PresentMatch-fold-content"><label for="HeaderMatcher_PresentMatch-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-3232">HeaderMatcher_PresentMatch</a> <i>(struct)</i></label><span id='HeaderMatcher_PresentMatch-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="HeaderMatcher_PresentMatch-fold-fields"><label for="HeaderMatcher_PresentMatch-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='HeaderMatcher_PresentMatch-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="HeaderMatcher_PresentMatch-fold-field-PresentMatch"><label for="HeaderMatcher_PresentMatch-fold-field-PresentMatch"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-3235">PresentMatch</a> <i><a href="../../../../../../builtin.html#name-bool">bool</a></i></label><span id='HeaderMatcher_PresentMatch-fold-field-PresentMatch-docs' class="fold-docs">
-				If specified as true, header match will be performed based on whether the header is in the
-				request. If specified as false, header match will be performed based on whether the header is absent.
+			<input type='checkbox' class="fold" id="HeaderMatcher_PresentMatch-fold-field-PresentMatch"><label for="HeaderMatcher_PresentMatch-fold-field-PresentMatch"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/api/v2/route/route_components.pb.go.html#line-2950">PresentMatch</a> <i><a href="../../../../../../builtin.html#name-bool">bool</a></i></label><span id='HeaderMatcher_PresentMatch-fold-field-PresentMatch-docs' class="fold-docs">
+				If specified, header match will be performed based on whether the header is in the
+				request.
 </span></span></span>
 		<input type='checkbox' class="fold" id="HeaderMatcher_PresentMatch-fold-methods"><label for="HeaderMatcher_PresentMatch-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='HeaderMatcher_PresentMatch-fold-methods-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="HeaderMatcher_PresentMatch-showhide-methods"><i><label for="HeaderMatcher_PresentMatch-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="HeaderMatcher_PresentMatch-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
@@ -819,16 +813,13 @@
 </span></div><div class="anchor type-res" id="name-HeaderMatcher_SuffixMatch" data-popularity="100">	<input type='checkbox' class="fold" id="HeaderMatcher_SuffixMatch-fold-content"><label for="HeaderMatcher_SuffixMatch-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-3251">HeaderMatcher_SuffixMatch</a> <i>(struct)</i></label><span id='HeaderMatcher_SuffixMatch-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="HeaderMatcher_SuffixMatch-fold-fields"><label for="HeaderMatcher_SuffixMatch-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='HeaderMatcher_SuffixMatch-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="HeaderMatcher_SuffixMatch-fold-field-SuffixMatch"><label for="HeaderMatcher_SuffixMatch-fold-field-SuffixMatch"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-3261">SuffixMatch</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='HeaderMatcher_SuffixMatch-fold-field-SuffixMatch-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="HeaderMatcher_SuffixMatch-fold-field-SuffixMatch"><label for="HeaderMatcher_SuffixMatch-fold-field-SuffixMatch"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/api/v2/route/route_components.pb.go.html#line-2970">SuffixMatch</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='HeaderMatcher_SuffixMatch-fold-field-SuffixMatch-docs' class="fold-docs">
 				If specified, header match will be performed based on the suffix of the header value.
 				Note: empty suffix is not allowed, please use present_match instead.
-				This field is deprecated. Please use :ref:`string_match &lt;envoy_v3_api_field_config.route.v3.HeaderMatcher.string_match&gt;`.
 
 				Examples:
 
 				* The suffix *abcd* matches the value *xyzabcd*, but not for *xyzbcd*.
-
-				Deprecated: Do not use.
 </span></span></span>
 		<input type='checkbox' class="fold" id="HeaderMatcher_SuffixMatch-fold-methods"><label for="HeaderMatcher_SuffixMatch-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='HeaderMatcher_SuffixMatch-fold-methods-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="HeaderMatcher_SuffixMatch-showhide-methods"><i><label for="HeaderMatcher_SuffixMatch-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="HeaderMatcher_SuffixMatch-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
@@ -1191,7 +1182,7 @@
 </span></div><div class="anchor type-res" id="name-QueryParameterMatcher_PresentMatch" data-popularity="100">	<input type='checkbox' class="fold" id="QueryParameterMatcher_PresentMatch-fold-content"><label for="QueryParameterMatcher_PresentMatch-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-3412">QueryParameterMatcher_PresentMatch</a> <i>(struct)</i></label><span id='QueryParameterMatcher_PresentMatch-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="QueryParameterMatcher_PresentMatch-fold-fields"><label for="QueryParameterMatcher_PresentMatch-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='QueryParameterMatcher_PresentMatch-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="QueryParameterMatcher_PresentMatch-fold-field-PresentMatch"><label for="QueryParameterMatcher_PresentMatch-fold-field-PresentMatch"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-3414">PresentMatch</a> <i><a href="../../../../../../builtin.html#name-bool">bool</a></i></label><span id='QueryParameterMatcher_PresentMatch-fold-field-PresentMatch-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="QueryParameterMatcher_PresentMatch-fold-field-PresentMatch"><label for="QueryParameterMatcher_PresentMatch-fold-field-PresentMatch"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/api/v2/route/route_components.pb.go.html#line-3110">PresentMatch</a> <i><a href="../../../../../../builtin.html#name-bool">bool</a></i></label><span id='QueryParameterMatcher_PresentMatch-fold-field-PresentMatch-docs' class="fold-docs">
 				Specifies whether a query parameter should be present.
 </span></span></span>
 		<input type='checkbox' class="fold" id="QueryParameterMatcher_PresentMatch-fold-methods"><label for="QueryParameterMatcher_PresentMatch-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='QueryParameterMatcher_PresentMatch-fold-methods-items' class="fold-items">
@@ -2482,7 +2473,7 @@
 </span></div><div class="anchor type-res" id="name-RedirectAction_HttpsRedirect" data-popularity="100">	<input type='checkbox' class="fold" id="RedirectAction_HttpsRedirect-fold-content"><label for="RedirectAction_HttpsRedirect-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-2484">RedirectAction_HttpsRedirect</a> <i>(struct)</i></label><span id='RedirectAction_HttpsRedirect-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="RedirectAction_HttpsRedirect-fold-fields"><label for="RedirectAction_HttpsRedirect-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='RedirectAction_HttpsRedirect-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="RedirectAction_HttpsRedirect-fold-field-HttpsRedirect"><label for="RedirectAction_HttpsRedirect-fold-field-HttpsRedirect"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-2486">HttpsRedirect</a> <i><a href="../../../../../../builtin.html#name-bool">bool</a></i></label><span id='RedirectAction_HttpsRedirect-fold-field-HttpsRedirect-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RedirectAction_HttpsRedirect-fold-field-HttpsRedirect"><label for="RedirectAction_HttpsRedirect-fold-field-HttpsRedirect"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/api/v2/route/route_components.pb.go.html#line-2269">HttpsRedirect</a> <i><a href="../../../../../../builtin.html#name-bool">bool</a></i></label><span id='RedirectAction_HttpsRedirect-fold-field-HttpsRedirect-docs' class="fold-docs">
 				The scheme portion of the URL will be swapped with "https".
 </span></span></span>
 		<input type='checkbox' class="fold" id="RedirectAction_HttpsRedirect-fold-methods"><label for="RedirectAction_HttpsRedirect-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='RedirectAction_HttpsRedirect-fold-methods-items' class="fold-items">
@@ -2495,7 +2486,7 @@
 </span></div><div class="anchor type-res" id="name-RedirectAction_PathRedirect" data-popularity="100">	<input type='checkbox' class="fold" id="RedirectAction_PathRedirect-fold-content"><label for="RedirectAction_PathRedirect-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-2502">RedirectAction_PathRedirect</a> <i>(struct)</i></label><span id='RedirectAction_PathRedirect-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="RedirectAction_PathRedirect-fold-fields"><label for="RedirectAction_PathRedirect-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='RedirectAction_PathRedirect-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="RedirectAction_PathRedirect-fold-field-PathRedirect"><label for="RedirectAction_PathRedirect-fold-field-PathRedirect"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-2519">PathRedirect</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='RedirectAction_PathRedirect-fold-field-PathRedirect-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RedirectAction_PathRedirect-fold-field-PathRedirect"><label for="RedirectAction_PathRedirect-fold-field-PathRedirect"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/api/v2/route/route_components.pb.go.html#line-2302">PathRedirect</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='RedirectAction_PathRedirect-fold-field-PathRedirect-docs' class="fold-docs">
 				The path portion of the URL will be swapped with this value.
 				Please note that query string in path_redirect will override the
 				request's query string and will not be stripped.
@@ -2523,7 +2514,7 @@
 </span></div><div class="anchor type-res" id="name-RedirectAction_PrefixRewrite" data-popularity="100">	<input type='checkbox' class="fold" id="RedirectAction_PrefixRewrite-fold-content"><label for="RedirectAction_PrefixRewrite-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-2522">RedirectAction_PrefixRewrite</a> <i>(struct)</i></label><span id='RedirectAction_PrefixRewrite-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="RedirectAction_PrefixRewrite-fold-fields"><label for="RedirectAction_PrefixRewrite-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='RedirectAction_PrefixRewrite-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="RedirectAction_PrefixRewrite-fold-field-PrefixRewrite"><label for="RedirectAction_PrefixRewrite-fold-field-PrefixRewrite"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-2531">PrefixRewrite</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='RedirectAction_PrefixRewrite-fold-field-PrefixRewrite-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RedirectAction_PrefixRewrite-fold-field-PrefixRewrite"><label for="RedirectAction_PrefixRewrite-fold-field-PrefixRewrite"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/api/v2/route/route_components.pb.go.html#line-2314">PrefixRewrite</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='RedirectAction_PrefixRewrite-fold-field-PrefixRewrite-docs' class="fold-docs">
 				Indicates that during redirection, the matched prefix (or path)
 				should be swapped with this value. This option allows redirect URLs be dynamically created
 				based on the request.
@@ -2531,7 +2522,7 @@
 				.. attention::
 
 				  Pay attention to the use of trailing slashes as mentioned in
-				  :ref:`RouteAction's prefix_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.prefix_rewrite&gt;`.
+				  :ref:`RouteAction's prefix_rewrite &lt;envoy_api_field_route.RouteAction.prefix_rewrite&gt;`.
 </span></span></span>
 		<input type='checkbox' class="fold" id="RedirectAction_PrefixRewrite-fold-methods"><label for="RedirectAction_PrefixRewrite-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='RedirectAction_PrefixRewrite-fold-methods-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="RedirectAction_PrefixRewrite-showhide-methods"><i><label for="RedirectAction_PrefixRewrite-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="RedirectAction_PrefixRewrite-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
@@ -2608,7 +2599,7 @@
 </span></div><div class="anchor type-res" id="name-RedirectAction_SchemeRedirect" data-popularity="100">	<input type='checkbox' class="fold" id="RedirectAction_SchemeRedirect-fold-content"><label for="RedirectAction_SchemeRedirect-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-2489">RedirectAction_SchemeRedirect</a> <i>(struct)</i></label><span id='RedirectAction_SchemeRedirect-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="RedirectAction_SchemeRedirect-fold-fields"><label for="RedirectAction_SchemeRedirect-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='RedirectAction_SchemeRedirect-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="RedirectAction_SchemeRedirect-fold-field-SchemeRedirect"><label for="RedirectAction_SchemeRedirect-fold-field-SchemeRedirect"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-2491">SchemeRedirect</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='RedirectAction_SchemeRedirect-fold-field-SchemeRedirect-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RedirectAction_SchemeRedirect-fold-field-SchemeRedirect"><label for="RedirectAction_SchemeRedirect-fold-field-SchemeRedirect"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/api/v2/route/route_components.pb.go.html#line-2274">SchemeRedirect</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='RedirectAction_SchemeRedirect-fold-field-SchemeRedirect-docs' class="fold-docs">
 				The scheme portion of the URL will be swapped with this value.
 </span></span></span>
 		<input type='checkbox' class="fold" id="RedirectAction_SchemeRedirect-fold-methods"><label for="RedirectAction_SchemeRedirect-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='RedirectAction_SchemeRedirect-fold-methods-items' class="fold-items">
@@ -3846,7 +3837,7 @@
 </span></div><div class="anchor type-res" id="name-RouteAction_AutoHostRewrite" data-popularity="100">	<input type='checkbox' class="fold" id="RouteAction_AutoHostRewrite-fold-content"><label for="RouteAction_AutoHostRewrite-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-2028">RouteAction_AutoHostRewrite</a> <i>(struct)</i></label><span id='RouteAction_AutoHostRewrite-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="RouteAction_AutoHostRewrite-fold-fields"><label for="RouteAction_AutoHostRewrite-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='RouteAction_AutoHostRewrite-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="RouteAction_AutoHostRewrite-fold-field-AutoHostRewrite"><label for="RouteAction_AutoHostRewrite-fold-field-AutoHostRewrite"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-2034">AutoHostRewrite</a> <i>*<a href="../../../../../golang/protobuf/ptypes/wrappers.html">wrappers</a>.<a href="../../../../../golang/protobuf/ptypes/wrappers.html#name-BoolValue">BoolValue</a></i></label><span id='RouteAction_AutoHostRewrite-fold-field-AutoHostRewrite-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RouteAction_AutoHostRewrite-fold-field-AutoHostRewrite"><label for="RouteAction_AutoHostRewrite-fold-field-AutoHostRewrite"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/api/v2/route/route_components.pb.go.html#line-1861">AutoHostRewrite</a> <i>*<a href="../../../../../golang/protobuf/ptypes/wrappers.html">wrappers</a>.<a href="../../../../../golang/protobuf/ptypes/wrappers.html#name-BoolValue">BoolValue</a></i></label><span id='RouteAction_AutoHostRewrite-fold-field-AutoHostRewrite-docs' class="fold-docs">
 				Indicates that during forwarding, the host header will be swapped with
 				the hostname of the upstream host chosen by the cluster manager. This
 				option is applicable only when the destination cluster for a route is of
@@ -3863,7 +3854,7 @@
 </span></div><div class="anchor type-res" id="name-RouteAction_Cluster" data-popularity="100">	<input type='checkbox' class="fold" id="RouteAction_Cluster-fold-content"><label for="RouteAction_Cluster-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-1968">RouteAction_Cluster</a> <i>(struct)</i></label><span id='RouteAction_Cluster-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="RouteAction_Cluster-fold-fields"><label for="RouteAction_Cluster-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='RouteAction_Cluster-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="RouteAction_Cluster-fold-field-Cluster"><label for="RouteAction_Cluster-fold-field-Cluster"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-1971">Cluster</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='RouteAction_Cluster-fold-field-Cluster-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RouteAction_Cluster-fold-field-Cluster"><label for="RouteAction_Cluster-fold-field-Cluster"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/api/v2/route/route_components.pb.go.html#line-1810">Cluster</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='RouteAction_Cluster-fold-field-Cluster-docs' class="fold-docs">
 				Indicates the upstream cluster to which the request should be routed
 				to.
 </span></span></span>
@@ -3877,7 +3868,7 @@
 </span></div><div class="anchor type-res" id="name-RouteAction_ClusterHeader" data-popularity="100">	<input type='checkbox' class="fold" id="RouteAction_ClusterHeader-fold-content"><label for="RouteAction_ClusterHeader-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-1974">RouteAction_ClusterHeader</a> <i>(struct)</i></label><span id='RouteAction_ClusterHeader-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="RouteAction_ClusterHeader-fold-fields"><label for="RouteAction_ClusterHeader-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='RouteAction_ClusterHeader-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="RouteAction_ClusterHeader-fold-field-ClusterHeader"><label for="RouteAction_ClusterHeader-fold-field-ClusterHeader"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-1988">ClusterHeader</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='RouteAction_ClusterHeader-fold-field-ClusterHeader-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RouteAction_ClusterHeader-fold-field-ClusterHeader"><label for="RouteAction_ClusterHeader-fold-field-ClusterHeader"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/api/v2/route/route_components.pb.go.html#line-1827">ClusterHeader</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='RouteAction_ClusterHeader-fold-field-ClusterHeader-docs' class="fold-docs">
 				Envoy will determine the cluster to route to by reading the value of the
 				HTTP header named by cluster_header from the request headers. If the
 				header is not found or the referenced cluster does not exist, Envoy will
@@ -5460,7 +5451,7 @@
 </span></div><div class="anchor type-res" id="name-RouteMatch_Path" data-popularity="100">	<input type='checkbox' class="fold" id="RouteMatch_Path-fold-content"><label for="RouteMatch_Path-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-1230">RouteMatch_Path</a> <i>(struct)</i></label><span id='RouteMatch_Path-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="RouteMatch_Path-fold-fields"><label for="RouteMatch_Path-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='RouteMatch_Path-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="RouteMatch_Path-fold-field-Path"><label for="RouteMatch_Path-fold-field-Path"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-1233">Path</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='RouteMatch_Path-fold-field-Path-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RouteMatch_Path-fold-field-Path"><label for="RouteMatch_Path-fold-field-Path"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/api/v2/route/route_components.pb.go.html#line-1101">Path</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='RouteMatch_Path-fold-field-Path-docs' class="fold-docs">
 				If specified, the route is an exact path rule meaning that the path must
 				exactly match the *:path* header once the query string is removed.
 </span></span></span>
@@ -5474,7 +5465,7 @@
 </span></div><div class="anchor type-res" id="name-RouteMatch_Prefix" data-popularity="100">	<input type='checkbox' class="fold" id="RouteMatch_Prefix-fold-content"><label for="RouteMatch_Prefix-fold-content"> type <a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-1224">RouteMatch_Prefix</a> <i>(struct)</i></label><span id='RouteMatch_Prefix-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="RouteMatch_Prefix-fold-fields"><label for="RouteMatch_Prefix-fold-fields">Fields (<i>only one, which is exported</i>)</label><span id='RouteMatch_Prefix-fold-fields-items' class="fold-items"><span>
-			<input type='checkbox' class="fold" id="RouteMatch_Prefix-fold-field-Prefix"><label for="RouteMatch_Prefix-fold-field-Prefix"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.html#line-1227">Prefix</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='RouteMatch_Prefix-fold-field-Prefix-docs' class="fold-docs">
+			<input type='checkbox' class="fold" id="RouteMatch_Prefix-fold-field-Prefix"><label for="RouteMatch_Prefix-fold-field-Prefix"><a href="../../../../../../../src/github.com/envoyproxy/go-control-plane/envoy/api/v2/route/route_components.pb.go.html#line-1095">Prefix</a> <i><a href="../../../../../../builtin.html#name-string">string</a></i></label><span id='RouteMatch_Prefix-fold-field-Prefix-docs' class="fold-docs">
 				If specified, the route is a prefix rule meaning that the prefix must
 				match the beginning of the *:path* header.
 </span></span></span>

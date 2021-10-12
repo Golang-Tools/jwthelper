@@ -765,7 +765,7 @@
 </span></div><div class="anchor type-res" id="name-RawMessage" data-popularity="0">	<input type='checkbox' class="fold" id="RawMessage-fold-content"><label for="RawMessage-fold-content"> type <a href="../../../src/github.com/json-iterator/go/adapter.go.html#line-9">RawMessage</a> <i>([]T)</i></label><span id='RawMessage-fold-content-docs' class="fold-docs">
 		RawMessage to make replace json with jsoniter
 
-</span></div><div class="anchor type-res" id="name-Stream" data-popularity="2720">	<input type='checkbox' class="fold" id="Stream-fold-content"><label for="Stream-fold-content"> type <a href="../../../src/github.com/json-iterator/go/stream.go.html#line-9">Stream</a> <i>(struct)</i></label><span id='Stream-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Stream" data-popularity="2820">	<input type='checkbox' class="fold" id="Stream-fold-content"><label for="Stream-fold-content"> type <a href="../../../src/github.com/json-iterator/go/stream.go.html#line-9">Stream</a> <i>(struct)</i></label><span id='Stream-fold-content-docs' class="fold-docs">
 		stream is a io.Writer like object, with JSON specific write functions.
 		Error is not returned as return value, but stored as Error member on this stream instance.
 
@@ -906,8 +906,11 @@
 			<span class="nodocs">(*T) <a href="../../../src/github.com/json-iterator/go/stream.go.html#line-201">writeIndention</a>(delta <a href="../../builtin.html#name-int">int</a>)</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../src/github.com/json-iterator/go/stream.go.html#line-86">writeThreeBytes</a>(c1 <a href="../../builtin.html#name-byte">byte</a>, c2 <a href="../../builtin.html#name-byte">byte</a>, c3 <a href="../../builtin.html#name-byte">byte</a>)</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../src/github.com/json-iterator/go/stream.go.html#line-82">writeTwoBytes</a>(c1 <a href="../../builtin.html#name-byte">byte</a>, c2 <a href="../../builtin.html#name-byte">byte</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="Stream-fold-impls"><label for="Stream-fold-impls">Implements (<i>at least one exported</i>)</label><span id='Stream-fold-impls-items' class="fold-items"><span>
-			*T : io.<a href="../../io.html#name-Writer">Writer</a></span></span>
+		<input type='checkbox' class="fold" id="Stream-fold-impls"><label for="Stream-fold-impls">Implements (<i>at least 3, in which 1 are exported</i>)</label><span id='Stream-fold-impls-items' class="fold-items"><span>
+			*T : io.<a href="../../io.html#name-Writer">Writer</a></span>
+			<input type='checkbox' class="showhide" id="Stream-showhide-impls"><i><label for="Stream-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="Stream-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : github.com/ugorji/go/codec.<a href="../ugorji/go/codec.html#name-ioBuffered">ioBuffered</a></i></span><span class="hidden"><i>
+			*T : github.com/ugorji/go/codec.<a href="../ugorji/go/codec.html#name-ioFlusher">ioFlusher</a></i></span></span>
 		<input type='checkbox' class="fold" id="Stream-fold-results"><label for="Stream-fold-results">As Outputs Of (<i>at least 3, all are exported</i>)</label><span id='Stream-fold-results-items' class="fold-items"><span>
 			func <a href="#name-NewStream">NewStream</a>(cfg <a href="#name-API">API</a>, out <a href="../../io.html">io</a>.<a href="../../io.html#name-Writer">Writer</a>, bufSize <a href="../../builtin.html#name-int">int</a>) *<b>Stream</b></span><span>
 			func <a href="#name-API">API</a>.<a href="../../../src/github.com/json-iterator/go/pool.go.html#line-15">BorrowStream</a>(writer <a href="../../io.html">io</a>.<a href="../../io.html#name-Writer">Writer</a>) *<b>Stream</b></span><span>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method Implmentations: encoding/gob.gobType</title>
+<link href="../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+<pre><code><span style="font-size:x-large;">type <a href="../../pkg/encoding/gob.html">encoding/gob</a>.<b><a href="../../src/encoding/gob/type.go.html#line-167">gobType</a></b></span><span style="font-size:large;"> <b><i>(interface)</i></b></span>
+
+<code><span class="title">Method Implmentations<span class="title-stat"><i></i></span></span>
+
+<div class="anchor" id="name-encoding/gob.id">	<a href="../../src/encoding/gob/type.go.html#line-168">id</a>() <a href="../../pkg/encoding/gob.html#name-typeId">typeId</a>
+		(*<a href="../../pkg/encoding/gob.html#name-CommonType">CommonType</a>).<b><a href="../../src/encoding/gob/type.go.html#line-221">id</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-arrayType">arrayType</a>).<i><a href="../../src/encoding/gob/type.go.html#line-289">CommonType</a></i>.<b><a href="../../src/encoding/gob/type.go.html#line-221">id</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-gobEncoderType">gobEncoderType</a>).<i><a href="../../src/encoding/gob/type.go.html#line-318">CommonType</a></i>.<b><a href="../../src/encoding/gob/type.go.html#line-221">id</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-mapType">mapType</a>).<i><a href="../../src/encoding/gob/type.go.html#line-335">CommonType</a></i>.<b><a href="../../src/encoding/gob/type.go.html#line-221">id</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-sliceType">sliceType</a>).<i><a href="../../src/encoding/gob/type.go.html#line-366">CommonType</a></i>.<b><a href="../../src/encoding/gob/type.go.html#line-221">id</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-structType">structType</a>).<i><a href="../../src/encoding/gob/type.go.html#line-403">CommonType</a></i>.<b><a href="../../src/encoding/gob/type.go.html#line-221">id</a></b></div>
+<div class="anchor" id="name-encoding/gob.name">	<a href="../../src/encoding/gob/type.go.html#line-170">name</a>() <a href="../../pkg/builtin.html#name-string">string</a>
+		(*<a href="../../pkg/encoding/gob.html#name-CommonType">CommonType</a>).<b><a href="../../src/encoding/gob/type.go.html#line-231">name</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-arrayType">arrayType</a>).<i><a href="../../src/encoding/gob/type.go.html#line-289">CommonType</a></i>.<b><a href="../../src/encoding/gob/type.go.html#line-231">name</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-gobEncoderType">gobEncoderType</a>).<i><a href="../../src/encoding/gob/type.go.html#line-318">CommonType</a></i>.<b><a href="../../src/encoding/gob/type.go.html#line-231">name</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-mapType">mapType</a>).<i><a href="../../src/encoding/gob/type.go.html#line-335">CommonType</a></i>.<b><a href="../../src/encoding/gob/type.go.html#line-231">name</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-sliceType">sliceType</a>).<i><a href="../../src/encoding/gob/type.go.html#line-366">CommonType</a></i>.<b><a href="../../src/encoding/gob/type.go.html#line-231">name</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-structType">structType</a>).<i><a href="../../src/encoding/gob/type.go.html#line-403">CommonType</a></i>.<b><a href="../../src/encoding/gob/type.go.html#line-231">name</a></b></div>
+<div class="anchor" id="name-encoding/gob.safeString">	<a href="../../src/encoding/gob/type.go.html#line-172">safeString</a>(seen map[<a href="../../pkg/encoding/gob.html#name-typeId">typeId</a>]<a href="../../pkg/builtin.html#name-bool">bool</a>) <a href="../../pkg/builtin.html#name-string">string</a>
+		(*<a href="../../pkg/encoding/gob.html#name-CommonType">CommonType</a>).<b><a href="../../src/encoding/gob/type.go.html#line-227">safeString</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-arrayType">arrayType</a>).<b><a href="../../src/encoding/gob/type.go.html#line-306">safeString</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-gobEncoderType">gobEncoderType</a>).<b><a href="../../src/encoding/gob/type.go.html#line-327">safeString</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-mapType">mapType</a>).<b><a href="../../src/encoding/gob/type.go.html#line-352">safeString</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-sliceType">sliceType</a>).<b><a href="../../src/encoding/gob/type.go.html#line-386">safeString</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-structType">structType</a>).<b><a href="../../src/encoding/gob/type.go.html#line-407">safeString</a></b></div>
+<div class="anchor" id="name-encoding/gob.setId">	<a href="../../src/encoding/gob/type.go.html#line-169">setId</a>(id <a href="../../pkg/encoding/gob.html#name-typeId">typeId</a>)
+		(*<a href="../../pkg/encoding/gob.html#name-CommonType">CommonType</a>).<b><a href="../../src/encoding/gob/type.go.html#line-223">setId</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-arrayType">arrayType</a>).<i><a href="../../src/encoding/gob/type.go.html#line-289">CommonType</a></i>.<b><a href="../../src/encoding/gob/type.go.html#line-223">setId</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-gobEncoderType">gobEncoderType</a>).<i><a href="../../src/encoding/gob/type.go.html#line-318">CommonType</a></i>.<b><a href="../../src/encoding/gob/type.go.html#line-223">setId</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-mapType">mapType</a>).<i><a href="../../src/encoding/gob/type.go.html#line-335">CommonType</a></i>.<b><a href="../../src/encoding/gob/type.go.html#line-223">setId</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-sliceType">sliceType</a>).<i><a href="../../src/encoding/gob/type.go.html#line-366">CommonType</a></i>.<b><a href="../../src/encoding/gob/type.go.html#line-223">setId</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-structType">structType</a>).<i><a href="../../src/encoding/gob/type.go.html#line-403">CommonType</a></i>.<b><a href="../../src/encoding/gob/type.go.html#line-223">setId</a></b></div>
+<div class="anchor" id="name-encoding/gob.string">	<a href="../../src/encoding/gob/type.go.html#line-171">string</a>() <a href="../../pkg/builtin.html#name-string">string</a>
+		(*<a href="../../pkg/encoding/gob.html#name-CommonType">CommonType</a>).<b><a href="../../src/encoding/gob/type.go.html#line-225">string</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-arrayType">arrayType</a>).<b><a href="../../src/encoding/gob/type.go.html#line-314">string</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-gobEncoderType">gobEncoderType</a>).<b><a href="../../src/encoding/gob/type.go.html#line-331">string</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-mapType">mapType</a>).<b><a href="../../src/encoding/gob/type.go.html#line-362">string</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-sliceType">sliceType</a>).<b><a href="../../src/encoding/gob/type.go.html#line-394">string</a></b>
+		(*<a href="../../pkg/encoding/gob.html#name-structType">structType</a>).<b><a href="../../src/encoding/gob/type.go.html#line-423">string</a></b></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -64,11 +64,11 @@
 		<input type='checkbox' class="fold" id="EntryPoint-fold-methods"><label for="EntryPoint-fold-methods">Methods (<i>total 16, in which 15 are exported</i>)</label><span id='EntryPoint-fold-methods-items' class="fold-items"><span>
 			<input type='checkbox' class="fold" id="EntryPoint-fold-method-ConfigPtrFromArgparse"><label for="EntryPoint-fold-method-ConfigPtrFromArgparse">(*T) <a href="../../../src/github.com/Golang-Tools^b0a0c/schema-entry-go/entrypoint.go.html#line-279">ConfigPtrFromArgparse</a>(parser *<a href="../akamensky/argparse.html">argparse</a>.<a href="../akamensky/argparse.html#name-Parser">Parser</a>, argv []<a href="../../builtin.html#name-string">string</a>) (*<a href="../../builtin.html#name-string">string</a>, map[<a href="../../builtin.html#name-string">string</a>]interface{}, <a href="../../builtin.html#name-error">error</a>)</label><span id='EntryPoint-fold-method-ConfigPtrFromArgparse-docs' class="fold-docs">
 				ConfigPtrFromArgparse 构造命令行参数解析,并获取flag的ptr
-				@params parser *argparse.Parser flag解析器
-				@params argv []string 待解析的命令行参数
-				@return *string 指定configfile位置字符串
-				@return map[string]interface{} flag的ptr位置
-				@return error 错误信息
+				@Params parser *argparse.Parser flag解析器
+				@Params argv []string 待解析的命令行参数
+				@Returns *string 指定configfile位置字符串
+				@Returns map[string]interface{} flag的ptr位置
+				@Returns error 错误信息
 </span></span><span>
 			<input type='checkbox' class="fold" id="EntryPoint-fold-method-GetConfigFromConfigFile"><label for="EntryPoint-fold-method-GetConfigFromConfigFile">(*T) <a href="../../../src/github.com/Golang-Tools^b0a0c/schema-entry-go/entrypoint.go.html#line-224">GetConfigFromConfigFile</a>() <a href="../../builtin.html#name-error">error</a></label><span id='EntryPoint-fold-method-GetConfigFromConfigFile-docs' class="fold-docs">
 				GetConfigFromConfigFile 从设置的或者默认配置文件中获取配置
@@ -90,13 +90,13 @@
 </span></span><span>
 			<input type='checkbox' class="fold" id="EntryPoint-fold-method-ParseStruct"><label for="EntryPoint-fold-method-ParseStruct">(*T) <a href="../../../src/github.com/Golang-Tools^b0a0c/schema-entry-go/entrypoint.go.html#line-407">ParseStruct</a>(flagConfptr map[<a href="../../builtin.html#name-string">string</a>]interface{}) <a href="../../builtin.html#name-error">error</a></label><span id='EntryPoint-fold-method-ParseStruct-docs' class="fold-docs">
 				ParseStruct 解析结构体,构造命令行参数解析和环境变量解析,并设置到对象的Config值中
-				@params flagConfptr map[string]interface{} 命令行参数除了指定的配置文件位置外的参数-&gt;值的指针的映射
-				@return error 解析过程中的错误
+				@Params flagConfptr map[string]interface{} 命令行参数除了指定的配置文件位置外的参数-&gt;值的指针的映射
+				@Returns error 解析过程中的错误
 </span></span><span>
 			<input type='checkbox' class="fold" id="EntryPoint-fold-method-PassArgs"><label for="EntryPoint-fold-method-PassArgs">(*T) <a href="../../../src/github.com/Golang-Tools^b0a0c/schema-entry-go/entrypoint.go.html#line-653">PassArgs</a>(parser *<a href="../akamensky/argparse.html">argparse</a>.<a href="../akamensky/argparse.html#name-Parser">Parser</a>, argv []<a href="../../builtin.html#name-string">string</a>)</label><span id='EntryPoint-fold-method-PassArgs-docs' class="fold-docs">
 				PassArgs 解析叶子节点
-				@params parser *argparse.Parser 命令行参数解析器对象
-				@params argv []string 待解析的命令行参数
+				@Params parser *argparse.Parser 命令行参数解析器对象
+				@Params argv []string 待解析的命令行参数
 </span></span><span>
 			<input type='checkbox' class="fold" id="EntryPoint-fold-method-PassArgsTosub"><label for="EntryPoint-fold-method-PassArgsTosub">( T) <a href="../../../src/github.com/Golang-Tools^b0a0c/schema-entry-go/entrypoint.go.html#line-116">PassArgsTosub</a>(parser *<a href="../akamensky/argparse.html">argparse</a>.<a href="../akamensky/argparse.html#name-Parser">Parser</a>, argv []<a href="../../builtin.html#name-string">string</a>)</label><span id='EntryPoint-fold-method-PassArgsTosub-docs' class="fold-docs">
 				PassArgsTosub 将解析传导给子节点
@@ -107,15 +107,15 @@
 </span></span><span>
 			<input type='checkbox' class="fold" id="EntryPoint-fold-method-RegistSubNode"><label for="EntryPoint-fold-method-RegistSubNode">(*T) <a href="../../../src/github.com/Golang-Tools^b0a0c/schema-entry-go/entrypoint.go.html#line-111">RegistSubNode</a>(child <a href="#name-EntryPointNode">EntryPointNode</a>)</label><span id='EntryPoint-fold-method-RegistSubNode-docs' class="fold-docs">
 				RegistSubNode 将一个节点注册为当前节点的子节点
-				@params child EntryPointNode 节点对象,注意必须传入的是指针
+				@Params child EntryPointNode 节点对象,注意必须传入的是指针
 </span></span><span>
 			<input type='checkbox' class="fold" id="EntryPoint-fold-method-SetChild"><label for="EntryPoint-fold-method-SetChild">( T) <a href="../../../src/github.com/Golang-Tools^b0a0c/schema-entry-go/entrypointMeta.go^fde83.html#line-29">SetChild</a>(child <a href="#name-EntryPointNode">EntryPointNode</a>)</label><span id='EntryPoint-fold-method-SetChild-docs' class="fold-docs">
 				SetChild 为节点设置子节点
-				@params child EntryPointNode 要作为子节点的节点
+				@Params child EntryPointNode 要作为子节点的节点
 </span></span><span>
 			<input type='checkbox' class="fold" id="EntryPoint-fold-method-SetParent"><label for="EntryPoint-fold-method-SetParent">( T) <a href="../../../src/github.com/Golang-Tools^b0a0c/schema-entry-go/entrypointMeta.go^fde83.html#line-43">SetParent</a>(parent <a href="#name-EntryPointNode">EntryPointNode</a>)</label><span id='EntryPoint-fold-method-SetParent-docs' class="fold-docs">
 				SetParent 为节点设置父节点
-				@params parent EntryPointNode 要作为父节点的节点
+				@Params parent EntryPointNode 要作为父节点的节点
 </span></span><span>
 			<input type='checkbox' class="fold" id="EntryPoint-fold-method-VerifyConfig"><label for="EntryPoint-fold-method-VerifyConfig">(*T) <a href="../../../src/github.com/Golang-Tools^b0a0c/schema-entry-go/entrypoint.go.html#line-707">VerifyConfig</a>() <a href="../../builtin.html#name-bool">bool</a></label><span id='EntryPoint-fold-method-VerifyConfig-docs' class="fold-docs">
 				VerifyConfig 验证config是否符合要求
@@ -123,9 +123,9 @@
 			<input type='checkbox' class="showhide" id="EntryPoint-showhide-methods"><i><label for="EntryPoint-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="EntryPoint-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
 			<input type='checkbox' class="fold" id="EntryPoint-fold-method-loadConfigFile"><label for="EntryPoint-fold-method-loadConfigFile">(*T) <a href="../../../src/github.com/Golang-Tools^b0a0c/schema-entry-go/entrypoint.go.html#line-184">loadConfigFile</a>(filename <a href="../../builtin.html#name-string">string</a>) (<a href="../../builtin.html#name-bool">bool</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='EntryPoint-fold-method-loadConfigFile-docs' class="fold-docs">
 				loadConfigFile 加载文件到配置
-				@params filename 文件路径
-				@return bool 是否结束查找
-				@return error 错误信息
+				@Params filename 文件路径
+				@returns bool 是否结束查找
+				@returns error 错误信息
 </span></i></span></span>
 		<input type='checkbox' class="fold" id="EntryPoint-fold-impls"><label for="EntryPoint-fold-impls">Implements (<i>at least one exported</i>)</label><span id='EntryPoint-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-EntryPointNode">EntryPointNode</a></span></span>
@@ -191,11 +191,11 @@
 </span></span><span>
 			<input type='checkbox' class="fold" id="EntryPointMeta-fold-method-SetChild"><label for="EntryPointMeta-fold-method-SetChild">(*T) <a href="../../../src/github.com/Golang-Tools^b0a0c/schema-entry-go/entrypointMeta.go^fde83.html#line-29">SetChild</a>(child <a href="#name-EntryPointNode">EntryPointNode</a>)</label><span id='EntryPointMeta-fold-method-SetChild-docs' class="fold-docs">
 				SetChild 为节点设置子节点
-				@params child EntryPointNode 要作为子节点的节点
+				@Params child EntryPointNode 要作为子节点的节点
 </span></span><span>
 			<input type='checkbox' class="fold" id="EntryPointMeta-fold-method-SetParent"><label for="EntryPointMeta-fold-method-SetParent">(*T) <a href="../../../src/github.com/Golang-Tools^b0a0c/schema-entry-go/entrypointMeta.go^fde83.html#line-43">SetParent</a>(parent <a href="#name-EntryPointNode">EntryPointNode</a>)</label><span id='EntryPointMeta-fold-method-SetParent-docs' class="fold-docs">
 				SetParent 为节点设置父节点
-				@params parent EntryPointNode 要作为父节点的节点
+				@Params parent EntryPointNode 要作为父节点的节点
 </span></span></span>
 		<input type='checkbox' class="fold" id="EntryPointMeta-fold-results"><label for="EntryPointMeta-fold-results">As Outputs Of (<i>at least 2, both are exported</i>)</label><span id='EntryPointMeta-fold-results-items' class="fold-items"><span>
 			func (*EntryPointMeta).<a href="../../../src/github.com/Golang-Tools^b0a0c/schema-entry-go/entrypointMeta.go^fde83.html#line-23">Meta</a>() *<b>EntryPointMeta</b></span><span>
@@ -249,8 +249,8 @@
 
 </span></div><div class="anchor value-res" id="name-New">	<input type='checkbox' class="fold" id="New-fold-content"><label for="New-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/schema-entry-go/entrypoint.go.html#line-49">New</a>(meta *<a href="#name-EntryPointMeta">EntryPointMeta</a>, config ...<a href="#name-EntryPointConfig">EntryPointConfig</a>) (*<a href="#name-EntryPoint">EntryPoint</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='New-fold-content-docs' class="fold-docs">
 		New 创建一个节点对象
-		@param meta *EntryPointMeta 为节点的元信息
-		@param config ...EntryPointConfig 为一个定义好的struct的对象的指针,根节点和中间节点可以不设置,叶子节点如果不设置则无法执行,最多设置一个
+		@Params meta *EntryPointMeta 为节点的元信息
+		@params config ...EntryPointConfig 为一个定义好的struct的对象的指针,根节点和中间节点可以不设置,叶子节点如果不设置则无法执行,最多设置一个
 
 </span></div><div class="anchor value-res" id="name-RegistSubNode">	<input type='checkbox' class="fold" id="RegistSubNode-fold-content"><label for="RegistSubNode-fold-content"> func <a href="../../../src/github.com/Golang-Tools^b0a0c/schema-entry-go/utils.go.html#line-59">RegistSubNode</a>(parent, child <a href="#name-EntryPointNode">EntryPointNode</a>)</label><span id='RegistSubNode-fold-content-docs' class="fold-docs">
 		RegistSubNode 为节点注册子节点

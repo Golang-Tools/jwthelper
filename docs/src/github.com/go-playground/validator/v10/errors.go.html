@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: errors.go in package github.com/go-playground/validator/v10</title>
+<link href="../../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	errors.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../pkg/github.com/go-playground/validator/v10.html">github.com/go-playground/validator/v10</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12],
+input[id=r13]:checked ~pre label[for=r13],
+input[id=r14]:checked ~pre label[for=r14],
+input[id=r15]:checked ~pre label[for=r15],
+input[id=r16]:checked ~pre label[for=r16],
+input[id=r17]:checked ~pre label[for=r17],
+input[id=r18]:checked ~pre label[for=r18],
+input[id=r19]:checked ~pre label[for=r19],
+input[id=r20]:checked ~pre label[for=r20],
+input[id=r21]:checked ~pre label[for=r21],
+input[id=r22]:checked ~pre label[for=r22],
+input[id=r23]:checked ~pre label[for=r23],
+input[id=r24]:checked ~pre label[for=r24],
+input[id=r25]:checked ~pre label[for=r25],
+input[id=r26]:checked ~pre label[for=r26],
+input[id=r27]:checked ~pre label[for=r27],
+input[id=r28]:checked ~pre label[for=r28],
+input[id=r29]:checked ~pre label[for=r29],
+input[id=r30]:checked ~pre label[for=r30],
+input[id=r31]:checked ~pre label[for=r31],
+input[id=r32]:checked ~pre label[for=r32],
+input[id=r33]:checked ~pre label[for=r33],
+input[id=r34]:checked ~pre label[for=r34],
+input[id=r35]:checked ~pre label[for=r35],
+input[id=r36]:checked ~pre label[for=r36],
+input[id=r37]:checked ~pre label[for=r37],
+input[id=r38]:checked ~pre label[for=r38],
+input[id=r39]:checked ~pre label[for=r39],
+input[id=r40]:checked ~pre label[for=r40]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1,
+input[id=i2]:checked ~pre .i2,
+input[id=i3]:checked ~pre .i3,
+input[id=i4]:checked ~pre .i4
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="r13" type="radio" name="g"/>
+<input id="r14" type="radio" name="g"/>
+<input id="r15" type="radio" name="g"/>
+<input id="r16" type="radio" name="g"/>
+<input id="r17" type="radio" name="g"/>
+<input id="r18" type="radio" name="g"/>
+<input id="r19" type="radio" name="g"/>
+<input id="r20" type="radio" name="g"/>
+<input id="r21" type="radio" name="g"/>
+<input id="r22" type="radio" name="g"/>
+<input id="r23" type="radio" name="g"/>
+<input id="r24" type="radio" name="g"/>
+<input id="r25" type="radio" name="g"/>
+<input id="r26" type="radio" name="g"/>
+<input id="r27" type="radio" name="g"/>
+<input id="r28" type="radio" name="g"/>
+<input id="r29" type="radio" name="g"/>
+<input id="r30" type="radio" name="g"/>
+<input id="r31" type="radio" name="g"/>
+<input id="r32" type="radio" name="g"/>
+<input id="r33" type="radio" name="g"/>
+<input id="r34" type="radio" name="g"/>
+<input id="r35" type="radio" name="g"/>
+<input id="r36" type="radio" name="g"/>
+<input id="r37" type="radio" name="g"/>
+<input id="r38" type="radio" name="g"/>
+<input id="r39" type="radio" name="g"/>
+<input id="r40" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+<input id="i2" type="radio" name="i"/>
+<input id="i3" type="radio" name="i"/>
+<input id="i4" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="keyword">package</span> validator</code></span>
+<span class="codeline" id="line-2"><code></code></span>
+<span class="codeline" id="line-3"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-4"><code>	<label for="i0"><span class="lit-string i0">"bytes"</span></label></code></span>
+<span class="codeline" id="line-5"><code>	<label for="i1"><span class="lit-string i1">"fmt"</span></label></code></span>
+<span class="codeline" id="line-6"><code>	<label for="i2"><span class="lit-string i2">"reflect"</span></label></code></span>
+<span class="codeline" id="line-7"><code>	<label for="i3"><span class="lit-string i3">"strings"</span></label></code></span>
+<span class="codeline" id="line-8"><code></code></span>
+<span class="codeline" id="line-9"><code>	<a href="../../../../../pkg/github.com/go-playground/universal-translator.html" class="ident i4">ut</a> <label for="i4"><span class="lit-string i4">"github.com/go-playground/universal-translator"</span></label></code></span>
+<span class="codeline" id="line-10"><code>)</code></span>
+<span class="codeline" id="line-11"><code></code></span>
+<span class="codeline" id="line-12"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-13"><code>	<a href="../../../../../pkg/github.com/go-playground/validator/v10.html#name-fieldErrMsg" class="ident">fieldErrMsg</a> = <span class="lit-string">"Key: '%s' Error:Field validation for '%s' failed on the '%s' tag"</span></code></span>
+<span class="codeline" id="line-14"><code>)</code></span>
+<span class="codeline" id="line-15"><code></code></span>
+<span class="codeline" id="line-16"><code><span class="comment">// ValidationErrorsTranslations is the translation return type</span></code></span>
+<span class="codeline" id="line-17"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/go-playground/validator/v10.html#name-ValidationErrorsTranslations" class="ident">ValidationErrorsTranslations</a> <span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>]<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-18"><code></code></span>
+<span class="codeline" id="line-19"><code><span class="comment">// InvalidValidationError describes an invalid argument passed to</span></code></span>
+<span class="codeline" id="line-20"><code><span class="comment">// `Struct`, `StructExcept`, StructPartial` or `Field`</span></code></span>
+<span class="codeline" id="line-21"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/go-playground/validator/v10.html#name-InvalidValidationError" class="ident">InvalidValidationError</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-22"><code>	Type <a href="../../../../../pkg/reflect.html" class="ident i2">reflect</a>.<a href="../../../../reflect/type.go.html#line-38" class="ident">Type</a></code></span>
+<span class="codeline" id="line-23"><code>}</code></span>
+<span class="codeline" id="line-24"><code></code></span>
+<span class="codeline" id="line-25"><code><span class="comment">// Error returns InvalidValidationError message</span></code></span>
+<span class="codeline" id="line-26"><code><span class="keyword">func</span> (<label for="r0" class="ident">e</label> *<a href="#line-21" class="ident">InvalidValidationError</a>) <label for="r1" class="ident"><a href="../../../../../imp/github.com/go-playground/validator/v10.InvalidValidationError.html#name-.Error" class="ident">Error</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-27"><code></code></span>
+<span class="codeline" id="line-28"><code>	<span class="keyword">if</span> <label for="r0" class="ident">e</label>.<a href="#line-22" class="ident">Type</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-29"><code>		<span class="keyword">return</span> <span class="lit-string">"validator: (nil)"</span></code></span>
+<span class="codeline" id="line-30"><code>	}</code></span>
+<span class="codeline" id="line-31"><code></code></span>
+<span class="codeline" id="line-32"><code>	<span class="keyword">return</span> <span class="lit-string">"validator: (nil "</span> + <label for="r0" class="ident">e</label>.<a href="#line-22" class="ident">Type</a>.<a href="../../../../reflect/type.go.html#line-97" class="ident">String</a>() + <span class="lit-string">")"</span></code></span>
+<span class="codeline" id="line-33"><code>}</code></span>
+<span class="codeline" id="line-34"><code></code></span>
+<span class="codeline" id="line-35"><code><span class="comment">// ValidationErrors is an array of FieldError's</span></code></span>
+<span class="codeline" id="line-36"><code><span class="comment">// for use in custom error messages post validation.</span></code></span>
+<span class="codeline" id="line-37"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/go-playground/validator/v10.html#name-ValidationErrors" class="ident">ValidationErrors</a> []<a href="#line-83" class="ident">FieldError</a></code></span>
+<span class="codeline" id="line-38"><code></code></span>
+<span class="codeline" id="line-39"><code><span class="comment">// Error is intended for use in development + debugging and not intended to be a production error message.</span></code></span>
+<span class="codeline" id="line-40"><code><span class="comment">// It allows ValidationErrors to subscribe to the Error interface.</span></code></span>
+<span class="codeline" id="line-41"><code><span class="comment">// All information to create an error message specific to your application is contained within</span></code></span>
+<span class="codeline" id="line-42"><code><span class="comment">// the FieldError found within the ValidationErrors array</span></code></span>
+<span class="codeline" id="line-43"><code><span class="keyword">func</span> (<label for="r2" class="ident">ve</label> <a href="#line-37" class="ident">ValidationErrors</a>) <label for="r3" class="ident"><a href="../../../../../imp/github.com/go-playground/validator/v10.ValidationErrors.html#name-.Error" class="ident">Error</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-44"><code></code></span>
+<span class="codeline" id="line-45"><code>	<label for="r4" class="ident">buff</label> := <a href="../../../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../../../bytes/buffer.go.html#line-458" class="ident">NewBufferString</a>(<span class="lit-string">""</span>)</code></span>
+<span class="codeline" id="line-46"><code></code></span>
+<span class="codeline" id="line-47"><code>	<span class="keyword">var</span> <label for="r5" class="ident">fe</label> *<a href="#line-170" class="ident">fieldError</a></code></span>
+<span class="codeline" id="line-48"><code></code></span>
+<span class="codeline" id="line-49"><code>	<span class="keyword">for</span> <label for="r6" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r6" class="ident">i</label> &lt; <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r2" class="ident">ve</label>); <label for="r6" class="ident">i</label>++ {</code></span>
+<span class="codeline" id="line-50"><code></code></span>
+<span class="codeline" id="line-51"><code>		<label for="r5" class="ident">fe</label> = <label for="r2" class="ident">ve</label>[<label for="r6" class="ident">i</label>].(*<a href="#line-170" class="ident">fieldError</a>)</code></span>
+<span class="codeline" id="line-52"><code>		<label for="r4" class="ident">buff</label>.<a href="../../../../bytes/buffer.go.html#line-180" class="ident">WriteString</a>(<label for="r5" class="ident">fe</label>.<a href="#line-253" class="ident">Error</a>())</code></span>
+<span class="codeline" id="line-53"><code>		<label for="r4" class="ident">buff</label>.<a href="../../../../bytes/buffer.go.html#line-180" class="ident">WriteString</a>(<span class="lit-string">"\n"</span>)</code></span>
+<span class="codeline" id="line-54"><code>	}</code></span>
+<span class="codeline" id="line-55"><code></code></span>
+<span class="codeline" id="line-56"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/strings.html" class="ident i3">strings</a>.<a href="../../../../strings/strings.go.html#line-867" class="ident">TrimSpace</a>(<label for="r4" class="ident">buff</label>.<a href="../../../../bytes/buffer.go.html#line-60" class="ident">String</a>())</code></span>
+<span class="codeline" id="line-57"><code>}</code></span>
+<span class="codeline" id="line-58"><code></code></span>
+<span class="codeline" id="line-59"><code><span class="comment">// Translate translates all of the ValidationErrors</span></code></span>
+<span class="codeline" id="line-60"><code><span class="keyword">func</span> (<label for="r7" class="ident">ve</label> <a href="#line-37" class="ident">ValidationErrors</a>) <label for="r8" class="ident">Translate</label>(<label for="r9" class="ident">ut</label> <a href="../../../../../pkg/github.com/go-playground/universal-translator.html" class="ident i4">ut</a>.<a href="../../universal-translator/translator.go.html#line-21" class="ident">Translator</a>) <a href="#line-17" class="ident">ValidationErrorsTranslations</a> {</code></span>
+<span class="codeline" id="line-61"><code></code></span>
+<span class="codeline" id="line-62"><code>	<label for="r10" class="ident">trans</label> := <a href="../../../../../pkg/builtin.html#name-make" class="ident">make</a>(<a href="#line-17" class="ident">ValidationErrorsTranslations</a>)</code></span>
+<span class="codeline" id="line-63"><code></code></span>
+<span class="codeline" id="line-64"><code>	<span class="keyword">var</span> <label for="r11" class="ident">fe</label> *<a href="#line-170" class="ident">fieldError</a></code></span>
+<span class="codeline" id="line-65"><code></code></span>
+<span class="codeline" id="line-66"><code>	<span class="keyword">for</span> <label for="r12" class="ident">i</label> := <span class="lit-number">0</span>; <label for="r12" class="ident">i</label> &lt; <a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r7" class="ident">ve</label>); <label for="r12" class="ident">i</label>++ {</code></span>
+<span class="codeline" id="line-67"><code>		<label for="r11" class="ident">fe</label> = <label for="r7" class="ident">ve</label>[<label for="r12" class="ident">i</label>].(*<a href="#line-170" class="ident">fieldError</a>)</code></span>
+<span class="codeline" id="line-68"><code></code></span>
+<span class="codeline" id="line-69"><code>		<span class="comment">// // in case an Anonymous struct was used, ensure that the key</span></code></span>
+<span class="codeline" id="line-70"><code><span class="comment">		// // would be 'Username' instead of ".Username"</span></code></span>
+<span class="codeline" id="line-71"><code><span class="comment">		// if len(fe.ns) &gt; 0 &amp;&amp; fe.ns[:1] == "." {</span></code></span>
+<span class="codeline" id="line-72"><code><span class="comment">		// 	trans[fe.ns[1:]] = fe.Translate(ut)</span></code></span>
+<span class="codeline" id="line-73"><code><span class="comment">		// 	continue</span></code></span>
+<span class="codeline" id="line-74"><code><span class="comment">		// }</span></code></span>
+<span class="codeline" id="line-75"><code></code></span>
+<span class="codeline" id="line-76"><code>		<label for="r10" class="ident">trans</label>[<label for="r11" class="ident">fe</label>.<a href="#line-174" class="ident">ns</a>] = <label for="r11" class="ident">fe</label>.<a href="#line-262" class="ident">Translate</a>(<label for="r9" class="ident">ut</label>)</code></span>
+<span class="codeline" id="line-77"><code>	}</code></span>
+<span class="codeline" id="line-78"><code></code></span>
+<span class="codeline" id="line-79"><code>	<span class="keyword">return</span> <label for="r10" class="ident">trans</label></code></span>
+<span class="codeline" id="line-80"><code>}</code></span>
+<span class="codeline" id="line-81"><code></code></span>
+<span class="codeline" id="line-82"><code><span class="comment">// FieldError contains all functions to get error details</span></code></span>
+<span class="codeline" id="line-83"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/go-playground/validator/v10.html#name-FieldError" class="ident">FieldError</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-84"><code></code></span>
+<span class="codeline" id="line-85"><code>	<span class="comment">// returns the validation tag that failed. if the</span></code></span>
+<span class="codeline" id="line-86"><code><span class="comment">	// validation was an alias, this will return the</span></code></span>
+<span class="codeline" id="line-87"><code><span class="comment">	// alias name and not the underlying tag that failed.</span></code></span>
+<span class="codeline" id="line-88"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-89"><code><span class="comment">	// eg. alias "iscolor": "hexcolor|rgb|rgba|hsl|hsla"</span></code></span>
+<span class="codeline" id="line-90"><code><span class="comment">	// will return "iscolor"</span></code></span>
+<span class="codeline" id="line-91"><code>	<a href="../../../../../imp/github.com/go-playground/validator/v10.FieldError.html#name-Tag" class="ident">Tag</a>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-92"><code></code></span>
+<span class="codeline" id="line-93"><code>	<span class="comment">// returns the validation tag that failed, even if an</span></code></span>
+<span class="codeline" id="line-94"><code><span class="comment">	// alias the actual tag within the alias will be returned.</span></code></span>
+<span class="codeline" id="line-95"><code><span class="comment">	// If an 'or' validation fails the entire or will be returned.</span></code></span>
+<span class="codeline" id="line-96"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-97"><code><span class="comment">	// eg. alias "iscolor": "hexcolor|rgb|rgba|hsl|hsla"</span></code></span>
+<span class="codeline" id="line-98"><code><span class="comment">	// will return "hexcolor|rgb|rgba|hsl|hsla"</span></code></span>
+<span class="codeline" id="line-99"><code>	<a href="../../../../../imp/github.com/go-playground/validator/v10.FieldError.html#name-ActualTag" class="ident">ActualTag</a>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-100"><code></code></span>
+<span class="codeline" id="line-101"><code>	<span class="comment">// returns the namespace for the field error, with the tag</span></code></span>
+<span class="codeline" id="line-102"><code><span class="comment">	// name taking precedence over the field's actual name.</span></code></span>
+<span class="codeline" id="line-103"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-104"><code><span class="comment">	// eg. JSON name "User.fname"</span></code></span>
+<span class="codeline" id="line-105"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-106"><code><span class="comment">	// See StructNamespace() for a version that returns actual names.</span></code></span>
+<span class="codeline" id="line-107"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-108"><code><span class="comment">	// NOTE: this field can be blank when validating a single primitive field</span></code></span>
+<span class="codeline" id="line-109"><code><span class="comment">	// using validate.Field(...) as there is no way to extract it's name</span></code></span>
+<span class="codeline" id="line-110"><code>	<a href="../../../../../imp/github.com/go-playground/validator/v10.FieldError.html#name-Namespace" class="ident">Namespace</a>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-111"><code></code></span>
+<span class="codeline" id="line-112"><code>	<span class="comment">// returns the namespace for the field error, with the field's</span></code></span>
+<span class="codeline" id="line-113"><code><span class="comment">	// actual name.</span></code></span>
+<span class="codeline" id="line-114"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-115"><code><span class="comment">	// eq. "User.FirstName" see Namespace for comparison</span></code></span>
+<span class="codeline" id="line-116"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-117"><code><span class="comment">	// NOTE: this field can be blank when validating a single primitive field</span></code></span>
+<span class="codeline" id="line-118"><code><span class="comment">	// using validate.Field(...) as there is no way to extract its name</span></code></span>
+<span class="codeline" id="line-119"><code>	<a href="../../../../../imp/github.com/go-playground/validator/v10.FieldError.html#name-StructNamespace" class="ident">StructNamespace</a>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-120"><code></code></span>
+<span class="codeline" id="line-121"><code>	<span class="comment">// returns the fields name with the tag name taking precedence over the</span></code></span>
+<span class="codeline" id="line-122"><code><span class="comment">	// field's actual name.</span></code></span>
+<span class="codeline" id="line-123"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-124"><code><span class="comment">	// eq. JSON name "fname"</span></code></span>
+<span class="codeline" id="line-125"><code><span class="comment">	// see StructField for comparison</span></code></span>
+<span class="codeline" id="line-126"><code>	<a href="../../../../../imp/github.com/go-playground/validator/v10.FieldError.html#name-Field" class="ident">Field</a>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-127"><code></code></span>
+<span class="codeline" id="line-128"><code>	<span class="comment">// returns the field's actual name from the struct, when able to determine.</span></code></span>
+<span class="codeline" id="line-129"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-130"><code><span class="comment">	// eq.  "FirstName"</span></code></span>
+<span class="codeline" id="line-131"><code><span class="comment">	// see Field for comparison</span></code></span>
+<span class="codeline" id="line-132"><code>	<a href="../../../../../imp/github.com/go-playground/validator/v10.FieldError.html#name-StructField" class="ident">StructField</a>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-133"><code></code></span>
+<span class="codeline" id="line-134"><code>	<span class="comment">// returns the actual field's value in case needed for creating the error</span></code></span>
+<span class="codeline" id="line-135"><code><span class="comment">	// message</span></code></span>
+<span class="codeline" id="line-136"><code>	<a href="../../../../../imp/github.com/go-playground/validator/v10.FieldError.html#name-Value" class="ident">Value</a>() <span class="keyword">interface</span>{}</code></span>
+<span class="codeline" id="line-137"><code></code></span>
+<span class="codeline" id="line-138"><code>	<span class="comment">// returns the param value, in string form for comparison; this will also</span></code></span>
+<span class="codeline" id="line-139"><code><span class="comment">	// help with generating an error message</span></code></span>
+<span class="codeline" id="line-140"><code>	<a href="../../../../../imp/github.com/go-playground/validator/v10.FieldError.html#name-Param" class="ident">Param</a>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-141"><code></code></span>
+<span class="codeline" id="line-142"><code>	<span class="comment">// Kind returns the Field's reflect Kind</span></code></span>
+<span class="codeline" id="line-143"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-144"><code><span class="comment">	// eg. time.Time's kind is a struct</span></code></span>
+<span class="codeline" id="line-145"><code>	<a href="../../../../../imp/github.com/go-playground/validator/v10.FieldError.html#name-Kind" class="ident">Kind</a>() <a href="../../../../../pkg/reflect.html" class="ident i2">reflect</a>.<a href="../../../../reflect/type.go.html#line-232" class="ident">Kind</a></code></span>
+<span class="codeline" id="line-146"><code></code></span>
+<span class="codeline" id="line-147"><code>	<span class="comment">// Type returns the Field's reflect Type</span></code></span>
+<span class="codeline" id="line-148"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-149"><code><span class="comment">	// // eg. time.Time's type is time.Time</span></code></span>
+<span class="codeline" id="line-150"><code>	<a href="../../../../../imp/github.com/go-playground/validator/v10.FieldError.html#name-Type" class="ident">Type</a>() <a href="../../../../../pkg/reflect.html" class="ident i2">reflect</a>.<a href="../../../../reflect/type.go.html#line-38" class="ident">Type</a></code></span>
+<span class="codeline" id="line-151"><code></code></span>
+<span class="codeline" id="line-152"><code>	<span class="comment">// returns the FieldError's translated error</span></code></span>
+<span class="codeline" id="line-153"><code><span class="comment">	// from the provided 'ut.Translator' and registered 'TranslationFunc'</span></code></span>
+<span class="codeline" id="line-154"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-155"><code><span class="comment">	// NOTE: if no registered translator can be found it returns the same as</span></code></span>
+<span class="codeline" id="line-156"><code><span class="comment">	// calling fe.Error()</span></code></span>
+<span class="codeline" id="line-157"><code>	<a href="../../../../../imp/github.com/go-playground/validator/v10.FieldError.html#name-Translate" class="ident">Translate</a>(ut <a href="../../../../../pkg/github.com/go-playground/universal-translator.html" class="ident i4">ut</a>.<a href="../../universal-translator/translator.go.html#line-21" class="ident">Translator</a>) <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-158"><code></code></span>
+<span class="codeline" id="line-159"><code>	<span class="comment">// Error returns the FieldError's message</span></code></span>
+<span class="codeline" id="line-160"><code>	<a href="../../../../../imp/github.com/go-playground/validator/v10.FieldError.html#name-Error" class="ident">Error</a>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-161"><code>}</code></span>
+<span class="codeline" id="line-162"><code></code></span>
+<span class="codeline" id="line-163"><code><span class="comment">// compile time interface checks</span></code></span>
+<span class="codeline" id="line-164"><code><span class="keyword">var</span> _ <a href="#line-83" class="ident">FieldError</a> = <a href="../../../../../pkg/builtin.html#name-new" class="ident">new</a>(<a href="#line-170" class="ident">fieldError</a>)</code></span>
+<span class="codeline" id="line-165"><code><span class="keyword">var</span> _ <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> = <a href="../../../../../pkg/builtin.html#name-new" class="ident">new</a>(<a href="#line-170" class="ident">fieldError</a>)</code></span>
+<span class="codeline" id="line-166"><code></code></span>
+<span class="codeline" id="line-167"><code><span class="comment">// fieldError contains a single field's validation error along</span></code></span>
+<span class="codeline" id="line-168"><code><span class="comment">// with other properties that may be needed for error message creation</span></code></span>
+<span class="codeline" id="line-169"><code><span class="comment">// it complies with the FieldError interface</span></code></span>
+<span class="codeline" id="line-170"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/go-playground/validator/v10.html#name-fieldError" class="ident">fieldError</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-171"><code>	v              *<a href="validator_instance.go.html#line-72" class="ident">Validate</a></code></span>
+<span class="codeline" id="line-172"><code>	tag            <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-173"><code>	actualTag      <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-174"><code>	ns             <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-175"><code>	structNs       <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-176"><code>	fieldLen       <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a></code></span>
+<span class="codeline" id="line-177"><code>	structfieldLen <a href="../../../../../pkg/builtin.html#name-uint8" class="ident">uint8</a></code></span>
+<span class="codeline" id="line-178"><code>	value          <span class="keyword">interface</span>{}</code></span>
+<span class="codeline" id="line-179"><code>	param          <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-180"><code>	kind           <a href="../../../../../pkg/reflect.html" class="ident i2">reflect</a>.<a href="../../../../reflect/type.go.html#line-232" class="ident">Kind</a></code></span>
+<span class="codeline" id="line-181"><code>	typ            <a href="../../../../../pkg/reflect.html" class="ident i2">reflect</a>.<a href="../../../../reflect/type.go.html#line-38" class="ident">Type</a></code></span>
+<span class="codeline" id="line-182"><code>}</code></span>
+<span class="codeline" id="line-183"><code></code></span>
+<span class="codeline" id="line-184"><code><span class="comment">// Tag returns the validation tag that failed.</span></code></span>
+<span class="codeline" id="line-185"><code><span class="keyword">func</span> (<label for="r13" class="ident">fe</label> *<a href="#line-170" class="ident">fieldError</a>) <label for="r14" class="ident"><a href="../../../../../imp/github.com/go-playground/validator/v10.fieldError^1be3f.html#name-.Tag" class="ident">Tag</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-186"><code>	<span class="keyword">return</span> <label for="r13" class="ident">fe</label>.<a href="#line-172" class="ident">tag</a></code></span>
+<span class="codeline" id="line-187"><code>}</code></span>
+<span class="codeline" id="line-188"><code></code></span>
+<span class="codeline" id="line-189"><code><span class="comment">// ActualTag returns the validation tag that failed, even if an</span></code></span>
+<span class="codeline" id="line-190"><code><span class="comment">// alias the actual tag within the alias will be returned.</span></code></span>
+<span class="codeline" id="line-191"><code><span class="keyword">func</span> (<label for="r15" class="ident">fe</label> *<a href="#line-170" class="ident">fieldError</a>) <label for="r16" class="ident"><a href="../../../../../imp/github.com/go-playground/validator/v10.fieldError^1be3f.html#name-.ActualTag" class="ident">ActualTag</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-192"><code>	<span class="keyword">return</span> <label for="r15" class="ident">fe</label>.<a href="#line-173" class="ident">actualTag</a></code></span>
+<span class="codeline" id="line-193"><code>}</code></span>
+<span class="codeline" id="line-194"><code></code></span>
+<span class="codeline" id="line-195"><code><span class="comment">// Namespace returns the namespace for the field error, with the tag</span></code></span>
+<span class="codeline" id="line-196"><code><span class="comment">// name taking precedence over the field's actual name.</span></code></span>
+<span class="codeline" id="line-197"><code><span class="keyword">func</span> (<label for="r17" class="ident">fe</label> *<a href="#line-170" class="ident">fieldError</a>) <label for="r18" class="ident"><a href="../../../../../imp/github.com/go-playground/validator/v10.fieldError^1be3f.html#name-.Namespace" class="ident">Namespace</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-198"><code>	<span class="keyword">return</span> <label for="r17" class="ident">fe</label>.<a href="#line-174" class="ident">ns</a></code></span>
+<span class="codeline" id="line-199"><code>}</code></span>
+<span class="codeline" id="line-200"><code></code></span>
+<span class="codeline" id="line-201"><code><span class="comment">// StructNamespace returns the namespace for the field error, with the field's</span></code></span>
+<span class="codeline" id="line-202"><code><span class="comment">// actual name.</span></code></span>
+<span class="codeline" id="line-203"><code><span class="keyword">func</span> (<label for="r19" class="ident">fe</label> *<a href="#line-170" class="ident">fieldError</a>) <label for="r20" class="ident"><a href="../../../../../imp/github.com/go-playground/validator/v10.fieldError^1be3f.html#name-.StructNamespace" class="ident">StructNamespace</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-204"><code>	<span class="keyword">return</span> <label for="r19" class="ident">fe</label>.<a href="#line-175" class="ident">structNs</a></code></span>
+<span class="codeline" id="line-205"><code>}</code></span>
+<span class="codeline" id="line-206"><code></code></span>
+<span class="codeline" id="line-207"><code><span class="comment">// Field returns the field's name with the tag name taking precedence over the</span></code></span>
+<span class="codeline" id="line-208"><code><span class="comment">// field's actual name.</span></code></span>
+<span class="codeline" id="line-209"><code><span class="keyword">func</span> (<label for="r21" class="ident">fe</label> *<a href="#line-170" class="ident">fieldError</a>) <label for="r22" class="ident"><a href="../../../../../imp/github.com/go-playground/validator/v10.fieldError^1be3f.html#name-.Field" class="ident">Field</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-210"><code></code></span>
+<span class="codeline" id="line-211"><code>	<span class="keyword">return</span> <label for="r21" class="ident">fe</label>.<a href="#line-174" class="ident">ns</a>[<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r21" class="ident">fe</label>.<a href="#line-174" class="ident">ns</a>)-<a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r21" class="ident">fe</label>.<a href="#line-176" class="ident">fieldLen</a>):]</code></span>
+<span class="codeline" id="line-212"><code>	<span class="comment">// // return fe.field</span></code></span>
+<span class="codeline" id="line-213"><code><span class="comment">	// fld := fe.ns[len(fe.ns)-int(fe.fieldLen):]</span></code></span>
+<span class="codeline" id="line-214"><code></code></span>
+<span class="codeline" id="line-215"><code>	<span class="comment">// log.Println("FLD:", fld)</span></code></span>
+<span class="codeline" id="line-216"><code></code></span>
+<span class="codeline" id="line-217"><code>	<span class="comment">// if len(fld) &gt; 0 &amp;&amp; fld[:1] == "." {</span></code></span>
+<span class="codeline" id="line-218"><code><span class="comment">	// 	return fld[1:]</span></code></span>
+<span class="codeline" id="line-219"><code><span class="comment">	// }</span></code></span>
+<span class="codeline" id="line-220"><code></code></span>
+<span class="codeline" id="line-221"><code>	<span class="comment">// return fld</span></code></span>
+<span class="codeline" id="line-222"><code>}</code></span>
+<span class="codeline" id="line-223"><code></code></span>
+<span class="codeline" id="line-224"><code><span class="comment">// returns the field's actual name from the struct, when able to determine.</span></code></span>
+<span class="codeline" id="line-225"><code><span class="keyword">func</span> (<label for="r23" class="ident">fe</label> *<a href="#line-170" class="ident">fieldError</a>) <label for="r24" class="ident"><a href="../../../../../imp/github.com/go-playground/validator/v10.fieldError^1be3f.html#name-.StructField" class="ident">StructField</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-226"><code>	<span class="comment">// return fe.structField</span></code></span>
+<span class="codeline" id="line-227"><code>	<span class="keyword">return</span> <label for="r23" class="ident">fe</label>.<a href="#line-175" class="ident">structNs</a>[<a href="../../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r23" class="ident">fe</label>.<a href="#line-175" class="ident">structNs</a>)-<a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a>(<label for="r23" class="ident">fe</label>.<a href="#line-177" class="ident">structfieldLen</a>):]</code></span>
+<span class="codeline" id="line-228"><code>}</code></span>
+<span class="codeline" id="line-229"><code></code></span>
+<span class="codeline" id="line-230"><code><span class="comment">// Value returns the actual field's value in case needed for creating the error</span></code></span>
+<span class="codeline" id="line-231"><code><span class="comment">// message</span></code></span>
+<span class="codeline" id="line-232"><code><span class="keyword">func</span> (<label for="r25" class="ident">fe</label> *<a href="#line-170" class="ident">fieldError</a>) <label for="r26" class="ident"><a href="../../../../../imp/github.com/go-playground/validator/v10.fieldError^1be3f.html#name-.Value" class="ident">Value</a></label>() <span class="keyword">interface</span>{} {</code></span>
+<span class="codeline" id="line-233"><code>	<span class="keyword">return</span> <label for="r25" class="ident">fe</label>.<a href="#line-178" class="ident">value</a></code></span>
+<span class="codeline" id="line-234"><code>}</code></span>
+<span class="codeline" id="line-235"><code></code></span>
+<span class="codeline" id="line-236"><code><span class="comment">// Param returns the param value, in string form for comparison; this will</span></code></span>
+<span class="codeline" id="line-237"><code><span class="comment">// also help with generating an error message</span></code></span>
+<span class="codeline" id="line-238"><code><span class="keyword">func</span> (<label for="r27" class="ident">fe</label> *<a href="#line-170" class="ident">fieldError</a>) <label for="r28" class="ident"><a href="../../../../../imp/github.com/go-playground/validator/v10.fieldError^1be3f.html#name-.Param" class="ident">Param</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-239"><code>	<span class="keyword">return</span> <label for="r27" class="ident">fe</label>.<a href="#line-179" class="ident">param</a></code></span>
+<span class="codeline" id="line-240"><code>}</code></span>
+<span class="codeline" id="line-241"><code></code></span>
+<span class="codeline" id="line-242"><code><span class="comment">// Kind returns the Field's reflect Kind</span></code></span>
+<span class="codeline" id="line-243"><code><span class="keyword">func</span> (<label for="r29" class="ident">fe</label> *<a href="#line-170" class="ident">fieldError</a>) <label for="r30" class="ident"><a href="../../../../../imp/github.com/go-playground/validator/v10.fieldError^1be3f.html#name-.Kind" class="ident">Kind</a></label>() <a href="../../../../../pkg/reflect.html" class="ident i2">reflect</a>.<a href="../../../../reflect/type.go.html#line-232" class="ident">Kind</a> {</code></span>
+<span class="codeline" id="line-244"><code>	<span class="keyword">return</span> <label for="r29" class="ident">fe</label>.<a href="#line-180" class="ident">kind</a></code></span>
+<span class="codeline" id="line-245"><code>}</code></span>
+<span class="codeline" id="line-246"><code></code></span>
+<span class="codeline" id="line-247"><code><span class="comment">// Type returns the Field's reflect Type</span></code></span>
+<span class="codeline" id="line-248"><code><span class="keyword">func</span> (<label for="r31" class="ident">fe</label> *<a href="#line-170" class="ident">fieldError</a>) <label for="r32" class="ident"><a href="../../../../../imp/github.com/go-playground/validator/v10.fieldError^1be3f.html#name-.Type" class="ident">Type</a></label>() <a href="../../../../../pkg/reflect.html" class="ident i2">reflect</a>.<a href="../../../../reflect/type.go.html#line-38" class="ident">Type</a> {</code></span>
+<span class="codeline" id="line-249"><code>	<span class="keyword">return</span> <label for="r31" class="ident">fe</label>.<a href="#line-181" class="ident">typ</a></code></span>
+<span class="codeline" id="line-250"><code>}</code></span>
+<span class="codeline" id="line-251"><code></code></span>
+<span class="codeline" id="line-252"><code><span class="comment">// Error returns the fieldError's error message</span></code></span>
+<span class="codeline" id="line-253"><code><span class="keyword">func</span> (<label for="r33" class="ident">fe</label> *<a href="#line-170" class="ident">fieldError</a>) <label for="r34" class="ident"><a href="../../../../../imp/github.com/go-playground/validator/v10.fieldError^1be3f.html#name-.Error" class="ident">Error</a></label>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-254"><code>	<span class="keyword">return</span> <a href="../../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../../fmt/print.go.html#line-217" class="ident">Sprintf</a>(<a href="#line-13" class="ident">fieldErrMsg</a>, <label for="r33" class="ident">fe</label>.<a href="#line-174" class="ident">ns</a>, <label for="r33" class="ident">fe</label>.<a href="#line-209" class="ident">Field</a>(), <label for="r33" class="ident">fe</label>.<a href="#line-172" class="ident">tag</a>)</code></span>
+<span class="codeline" id="line-255"><code>}</code></span>
+<span class="codeline" id="line-256"><code></code></span>
+<span class="codeline" id="line-257"><code><span class="comment">// Translate returns the FieldError's translated error</span></code></span>
+<span class="codeline" id="line-258"><code><span class="comment">// from the provided 'ut.Translator' and registered 'TranslationFunc'</span></code></span>
+<span class="codeline" id="line-259"><code><span class="comment">//</span></code></span>
+<span class="codeline" id="line-260"><code><span class="comment">// NOTE: if no registered translation can be found, it returns the original</span></code></span>
+<span class="codeline" id="line-261"><code><span class="comment">// untranslated error message.</span></code></span>
+<span class="codeline" id="line-262"><code><span class="keyword">func</span> (<label for="r35" class="ident">fe</label> *<a href="#line-170" class="ident">fieldError</a>) <label for="r36" class="ident"><a href="../../../../../imp/github.com/go-playground/validator/v10.fieldError^1be3f.html#name-.Translate" class="ident">Translate</a></label>(<label for="r37" class="ident">ut</label> <a href="../../../../../pkg/github.com/go-playground/universal-translator.html" class="ident i4">ut</a>.<a href="../../universal-translator/translator.go.html#line-21" class="ident">Translator</a>) <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-263"><code></code></span>
+<span class="codeline" id="line-264"><code>	<label for="r38" class="ident">m</label>, <label for="r39" class="ident">ok</label> := <label for="r35" class="ident">fe</label>.<a href="#line-171" class="ident">v</a>.<a href="validator_instance.go.html#line-82" class="ident">transTagFunc</a>[<label for="r37" class="ident">ut</label>]</code></span>
+<span class="codeline" id="line-265"><code>	<span class="keyword">if</span> !<label for="r39" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-266"><code>		<span class="keyword">return</span> <label for="r35" class="ident">fe</label>.<a href="#line-253" class="ident">Error</a>()</code></span>
+<span class="codeline" id="line-267"><code>	}</code></span>
+<span class="codeline" id="line-268"><code></code></span>
+<span class="codeline" id="line-269"><code>	<label for="r40" class="ident">fn</label>, <label for="r39" class="ident">ok</label> := <label for="r38" class="ident">m</label>[<label for="r35" class="ident">fe</label>.<a href="#line-172" class="ident">tag</a>]</code></span>
+<span class="codeline" id="line-270"><code>	<span class="keyword">if</span> !<label for="r39" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-271"><code>		<span class="keyword">return</span> <label for="r35" class="ident">fe</label>.<a href="#line-253" class="ident">Error</a>()</code></span>
+<span class="codeline" id="line-272"><code>	}</code></span>
+<span class="codeline" id="line-273"><code></code></span>
+<span class="codeline" id="line-274"><code>	<span class="keyword">return</span> <label for="r40" class="ident">fn</label>(<label for="r37" class="ident">ut</label>, <label for="r35" class="ident">fe</label>)</code></span>
+<span class="codeline" id="line-275"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

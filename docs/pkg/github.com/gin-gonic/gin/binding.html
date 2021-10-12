@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Package: github.com/gin-gonic/gin/binding</title>
+<link href="../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="package-details"><code><span style="font-size:xx-large;">package <b>binding</b></span>
+
+<span class="title">Import Path</span>
+	<a href="../../../../index.html#pkg-github.com/gin-gonic/gin/binding">github.com/gin-gonic/gin/binding</a><i> (on <a href="https://pkg.go.dev/github.com/gin-gonic/gin/binding" target="_blank">go.dev</a>)</i>
+
+<span class="title">Dependency Relation</span>
+	imports <a href="../../../../dep/github.com/gin-gonic/gin/binding.html">20 packages</a>, and imported by <a href="../../../../dep/github.com/gin-gonic/gin/binding.html#imported-by">one package</a>
+
+<div id="files"><span class="title">Involved Source Files</span>
+
+	<span class="nodocs">      <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html">binding.go</a></span>
+	<span class="nodocs">      <a href="../../../../src/github.com/gin-gonic/gin/binding/default_validator.go.html">default_validator.go</a></span>
+	<span class="nodocs">      <a href="../../../../src/github.com/gin-gonic/gin/binding/form.go.html">form.go</a></span>
+	<span class="nodocs">      <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html">form_mapping.go</a></span>
+	<span class="nodocs">      <a href="../../../../src/github.com/gin-gonic/gin/binding/header.go.html">header.go</a></span>
+	<span class="nodocs">      <a href="../../../../src/github.com/gin-gonic/gin/binding/json.go.html">json.go</a></span>
+	<span class="nodocs">      <a href="../../../../src/github.com/gin-gonic/gin/binding/msgpack.go.html">msgpack.go</a></span>
+	<span class="nodocs">      <a href="../../../../src/github.com/gin-gonic/gin/binding/multipart_form_mapping.go.html">multipart_form_mapping.go</a></span>
+	<span class="nodocs">      <a href="../../../../src/github.com/gin-gonic/gin/binding/protobuf.go.html">protobuf.go</a></span>
+	<span class="nodocs">      <a href="../../../../src/github.com/gin-gonic/gin/binding/query.go.html">query.go</a></span>
+	<span class="nodocs">      <a href="../../../../src/github.com/gin-gonic/gin/binding/uri.go.html">uri.go</a></span>
+	<span class="nodocs">      <a href="../../../../src/github.com/gin-gonic/gin/binding/xml.go.html">xml.go</a></span>
+	<span class="nodocs">      <a href="../../../../src/github.com/gin-gonic/gin/binding/yaml.go.html">yaml.go</a></span></div>
+<div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 22, in which 4 are exported)</i></span></span>
+
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Binding" data-popularity="1930">	<input type='checkbox' class="fold" id="Binding-fold-content"><label for="Binding-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-30">Binding</a> <b><i>(interface)</i></b></label><span id='Binding-fold-content-docs' class="fold-docs">
+		Binding describes the interface which needs to be implemented for binding the
+		data present in the request such as JSON request body, query parameters or
+		the form POST.
+
+		<input type='checkbox' class="fold" id="Binding-fold-methods"><label for="Binding-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='Binding-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-32">Bind</a>(*<a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Request">Request</a>, interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-31">Name</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="Binding-fold-impledby"><label for="Binding-fold-impledby">Implemented By (<i>at least 11, in which 1 are exported</i>)</label><span id='Binding-fold-impledby-items' class="fold-items"><span>
+			 <a href="#name-BindingBody">BindingBody</a> <i>(interface)</i></span>
+			<input type='checkbox' class="showhide" id="Binding-showhide-impedBys"><i><label for="Binding-showhide-impedBys" class="show-inline">/* 10+ unexporteds ... */</label><label for="Binding-showhide-impedBys" class="hide-inline">/* 10+ unexporteds: */</label></i><span class="hidden"><i>
+			 <a href="#name-formBinding">formBinding</a></i></span><span class="hidden"><i>
+			 <a href="#name-formMultipartBinding">formMultipartBinding</a></i></span><span class="hidden"><i>
+			 <a href="#name-formPostBinding">formPostBinding</a></i></span><span class="hidden"><i>
+			 <a href="#name-headerBinding">headerBinding</a></i></span><span class="hidden"><i>
+			 <a href="#name-jsonBinding">jsonBinding</a></i></span><span class="hidden"><i>
+			 <a href="#name-msgpackBinding">msgpackBinding</a></i></span><span class="hidden"><i>
+			 <a href="#name-protobufBinding">protobufBinding</a></i></span><span class="hidden"><i>
+			 <a href="#name-queryBinding">queryBinding</a></i></span><span class="hidden"><i>
+			 <a href="#name-xmlBinding">xmlBinding</a></i></span><span class="hidden"><i>
+			 <a href="#name-yamlBinding">yamlBinding</a></i></span></span>
+		<input type='checkbox' class="fold" id="Binding-fold-results"><label for="Binding-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Binding-fold-results-items' class="fold-items"><span>
+			func <a href="#name-Default">Default</a>(method, contentType <a href="../../../builtin.html#name-string">string</a>) <b>Binding</b></span></span>
+		<input type='checkbox' class="fold" id="Binding-fold-params"><label for="Binding-fold-params">As Inputs Of (<i>at least 3, all are exported</i>)</label><span id='Binding-fold-params-items' class="fold-items"><span>
+			func github.com/gin-gonic/gin.(*<a href="../gin.html#name-Context">Context</a>).<a href="../../../../src/github.com/gin-gonic/gin/deprecated.go.html#line-15">BindWith</a>(obj interface{}, b <b>Binding</b>) <a href="../../../builtin.html#name-error">error</a></span><span>
+			func github.com/gin-gonic/gin.(*<a href="../gin.html#name-Context">Context</a>).<a href="../../../../src/github.com/gin-gonic/gin/context.go.html#line-645">MustBindWith</a>(obj interface{}, b <b>Binding</b>) <a href="../../../builtin.html#name-error">error</a></span><span>
+			func github.com/gin-gonic/gin.(*<a href="../gin.html#name-Context">Context</a>).<a href="../../../../src/github.com/gin-gonic/gin/context.go.html#line-702">ShouldBindWith</a>(obj interface{}, b <b>Binding</b>) <a href="../../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-BindingBody" data-popularity="985">	<input type='checkbox' class="fold" id="BindingBody-fold-content"><label for="BindingBody-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-37">BindingBody</a> <b><i>(interface)</i></b></label><span id='BindingBody-fold-content-docs' class="fold-docs">
+		BindingBody adds BindBody method to Binding. BindBody is similar with Bind,
+		but it reads the body from supplied bytes instead of req.Body.
+
+		<input type='checkbox' class="fold" id="BindingBody-fold-methods"><label for="BindingBody-fold-methods">Methods (<i>total 3, all are exported</i>)</label><span id='BindingBody-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-32">Bind</a>(*<a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Request">Request</a>, interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-39">BindBody</a>([]<a href="../../../builtin.html#name-byte">byte</a>, interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-31">Name</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="BindingBody-fold-impledby"><label for="BindingBody-fold-impledby">Implemented By (<i>at least 5, none are exported</i>)</label><span id='BindingBody-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="BindingBody-showhide-impedBys"><i><label for="BindingBody-showhide-impedBys" class="show-inline">/* 5+ unexporteds ... */</label><label for="BindingBody-showhide-impedBys" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			 <a href="#name-jsonBinding">jsonBinding</a></i></span><span class="hidden"><i>
+			 <a href="#name-msgpackBinding">msgpackBinding</a></i></span><span class="hidden"><i>
+			 <a href="#name-protobufBinding">protobufBinding</a></i></span><span class="hidden"><i>
+			 <a href="#name-xmlBinding">xmlBinding</a></i></span><span class="hidden"><i>
+			 <a href="#name-yamlBinding">yamlBinding</a></i></span></span>
+		<input type='checkbox' class="fold" id="BindingBody-fold-impls"><label for="BindingBody-fold-impls">Implements (<i>at least one exported</i>)</label><span id='BindingBody-fold-impls-items' class="fold-items"><span>
+			 T : <a href="#name-Binding">Binding</a></span></span>
+		<input type='checkbox' class="fold" id="BindingBody-fold-params"><label for="BindingBody-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='BindingBody-fold-params-items' class="fold-items"><span>
+			func github.com/gin-gonic/gin.(*<a href="../gin.html#name-Context">Context</a>).<a href="../../../../src/github.com/gin-gonic/gin/context.go.html#line-711">ShouldBindBodyWith</a>(obj interface{}, bb <b>BindingBody</b>) (err <a href="../../../builtin.html#name-error">error</a>)</span></span>
+
+</span></div><div class="anchor type-res" id="name-BindingUri" data-popularity="250">	<input type='checkbox' class="fold" id="BindingUri-fold-content"><label for="BindingUri-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-44">BindingUri</a> <b><i>(interface)</i></b></label><span id='BindingUri-fold-content-docs' class="fold-docs">
+		BindingUri adds BindUri method to Binding. BindUri is similar with Bind,
+		but it read the Params.
+
+		<input type='checkbox' class="fold" id="BindingUri-fold-methods"><label for="BindingUri-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='BindingUri-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-46">BindUri</a>(map[<a href="../../../builtin.html#name-string">string</a>][]<a href="../../../builtin.html#name-string">string</a>, interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-45">Name</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="BindingUri-fold-impledby"><label for="BindingUri-fold-impledby">Implemented By (<i>at least one unexported</i>)</label><span id='BindingUri-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="BindingUri-showhide-impedBys"><i><label for="BindingUri-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="BindingUri-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			 <a href="#name-uriBinding">uriBinding</a></i></span></span>
+
+</span></div><div class="anchor type-res" id="name-StructValidator" data-popularity="255">	<input type='checkbox' class="fold" id="StructValidator-fold-content"><label for="StructValidator-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-53">StructValidator</a> <b><i>(interface)</i></b></label><span id='StructValidator-fold-content-docs' class="fold-docs">
+		StructValidator is the minimal interface which needs to be implemented in
+		order for it to be used as the validator engine for ensuring the correctness
+		of the request. Gin provides a default implementation for this using
+		https://github.com/go-playground/validator/tree/v8.18.2.
+
+		<input type='checkbox' class="fold" id="StructValidator-fold-methods"><label for="StructValidator-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='StructValidator-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="StructValidator-fold-method-Engine"><label for="StructValidator-fold-method-Engine">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-64">Engine</a>() interface{}</label><span id='StructValidator-fold-method-Engine-docs' class="fold-docs">
+				Engine returns the underlying validator engine which powers the
+				StructValidator implementation.
+</span></span><span>
+			<input type='checkbox' class="fold" id="StructValidator-fold-method-ValidateStruct"><label for="StructValidator-fold-method-ValidateStruct">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-60">ValidateStruct</a>(interface{}) <a href="../../../builtin.html#name-error">error</a></label><span id='StructValidator-fold-method-ValidateStruct-docs' class="fold-docs">
+				ValidateStruct can receive any kind of type and it should never panic, even if the configuration is not right.
+				If the received type is a slice|array, the validation should be performed travel on every element.
+				If the received type is not a struct or slice|array, any validation should be skipped and nil must be returned.
+				If the received type is a struct or pointer to a struct, the validation should be performed.
+				If the struct is not valid or the validation itself fails, a descriptive error should be returned.
+				Otherwise nil must be returned.
+</span></span></span>
+		<input type='checkbox' class="fold" id="StructValidator-fold-impledby"><label for="StructValidator-fold-impledby">Implemented By (<i>at least one unexported</i>)</label><span id='StructValidator-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="StructValidator-showhide-impedBys"><i><label for="StructValidator-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="StructValidator-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*<a href="#name-defaultValidator">defaultValidator</a></i></span></span>
+		<input type='checkbox' class="fold" id="StructValidator-fold-values"><label for="StructValidator-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='StructValidator-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-Validator">Validator</a></span></span>
+
+</span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 18 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 18 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-defaultValidator" data-popularity="250">	<input type='checkbox' class="fold" id="defaultValidator-fold-content"><label for="defaultValidator-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/default_validator.go.html#line-16">defaultValidator</a> <i>(struct)</i></label><span id='defaultValidator-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="defaultValidator-fold-fields"><label for="defaultValidator-fold-fields">Fields (<i>total 2, neither is exported</i>)</label><span id='defaultValidator-fold-fields-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="defaultValidator-showhide-fields"><i><label for="defaultValidator-showhide-fields" class="show-inline">/* 2 unexporteds ... */</label><label for="defaultValidator-showhide-fields" class="hide-inline">/* 2 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/gin-gonic/gin/binding/default_validator.go.html#line-17">once</a> <i><a href="../../../sync.html">sync</a>.<a href="../../../sync.html#name-Once">Once</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/gin-gonic/gin/binding/default_validator.go.html#line-18">validate</a> <i>*<a href="../../go-playground/validator/v10.html">validator</a>.<a href="../../go-playground/validator/v10.html#name-Validate">Validate</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="defaultValidator-fold-methods"><label for="defaultValidator-fold-methods">Methods (<i>total 4, in which 2 are exported</i>)</label><span id='defaultValidator-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="defaultValidator-fold-method-Engine"><label for="defaultValidator-fold-method-Engine">(*T) <a href="../../../../src/github.com/gin-gonic/gin/binding/default_validator.go.html#line-75">Engine</a>() interface{}</label><span id='defaultValidator-fold-method-Engine-docs' class="fold-docs">
+				Engine returns the underlying validator engine which powers the default
+				Validator instance. This is useful if you want to register custom validations
+				or struct level validations. See validator GoDoc for more info -
+				https://godoc.org/gopkg.in/go-playground/validator.v8
+</span></span><span>
+			<input type='checkbox' class="fold" id="defaultValidator-fold-method-ValidateStruct"><label for="defaultValidator-fold-method-ValidateStruct">(*T) <a href="../../../../src/github.com/gin-gonic/gin/binding/default_validator.go.html#line-37">ValidateStruct</a>(obj interface{}) <a href="../../../builtin.html#name-error">error</a></label><span id='defaultValidator-fold-method-ValidateStruct-docs' class="fold-docs">
+				ValidateStruct receives any kind of type, but only performed struct or pointer to struct type.
+</span></span>
+			<input type='checkbox' checked class="showhide" id="defaultValidator-showhide-methods"><i><label for="defaultValidator-showhide-methods" class="show-inline">/* 2 unexporteds ... */</label><label for="defaultValidator-showhide-methods" class="hide-inline">/* 2 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../../../src/github.com/gin-gonic/gin/binding/default_validator.go.html#line-80">lazyinit</a>()</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="defaultValidator-fold-method-validateStruct"><label for="defaultValidator-fold-method-validateStruct">(*T) <a href="../../../../src/github.com/gin-gonic/gin/binding/default_validator.go.html#line-66">validateStruct</a>(obj interface{}) <a href="../../../builtin.html#name-error">error</a></label><span id='defaultValidator-fold-method-validateStruct-docs' class="fold-docs">
+				validateStruct receives struct type
+</span></i></span></span>
+		<input type='checkbox' class="fold" id="defaultValidator-fold-impls"><label for="defaultValidator-fold-impls">Implements (<i>at least one exported</i>)</label><span id='defaultValidator-fold-impls-items' class="fold-items"><span>
+			*T : <a href="#name-StructValidator">StructValidator</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-formBinding" data-popularity="155">	<input type='checkbox' class="fold" id="formBinding-fold-content"><label for="formBinding-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/form.go.html#line-13">formBinding</a> <i>(struct)</i></label><span id='formBinding-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="formBinding-fold-methods"><label for="formBinding-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='formBinding-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/form.go.html#line-21">Bind</a>(req *<a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Request">Request</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/form.go.html#line-17">Name</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="formBinding-fold-impls"><label for="formBinding-fold-impls">Implements (<i>at least one exported</i>)</label><span id='formBinding-fold-impls-items' class="fold-items"><span>
+			 T : <a href="#name-Binding">Binding</a></span></span>
+		<input type='checkbox' class="fold" id="formBinding-fold-values"><label for="formBinding-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='formBinding-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-Form">Form</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-formMultipartBinding" data-popularity="155">	<input type='checkbox' class="fold" id="formMultipartBinding-fold-content"><label for="formMultipartBinding-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/form.go.html#line-15">formMultipartBinding</a> <i>(struct)</i></label><span id='formMultipartBinding-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="formMultipartBinding-fold-methods"><label for="formMultipartBinding-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='formMultipartBinding-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/form.go.html#line-54">Bind</a>(req *<a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Request">Request</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/form.go.html#line-50">Name</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="formMultipartBinding-fold-impls"><label for="formMultipartBinding-fold-impls">Implements (<i>at least one exported</i>)</label><span id='formMultipartBinding-fold-impls-items' class="fold-items"><span>
+			 T : <a href="#name-Binding">Binding</a></span></span>
+		<input type='checkbox' class="fold" id="formMultipartBinding-fold-values"><label for="formMultipartBinding-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='formMultipartBinding-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-FormMultipart">FormMultipart</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-formPostBinding" data-popularity="155">	<input type='checkbox' class="fold" id="formPostBinding-fold-content"><label for="formPostBinding-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/form.go.html#line-14">formPostBinding</a> <i>(struct)</i></label><span id='formPostBinding-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="formPostBinding-fold-methods"><label for="formPostBinding-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='formPostBinding-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/form.go.html#line-40">Bind</a>(req *<a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Request">Request</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/form.go.html#line-36">Name</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="formPostBinding-fold-impls"><label for="formPostBinding-fold-impls">Implements (<i>at least one exported</i>)</label><span id='formPostBinding-fold-impls-items' class="fold-items"><span>
+			 T : <a href="#name-Binding">Binding</a></span></span>
+		<input type='checkbox' class="fold" id="formPostBinding-fold-values"><label for="formPostBinding-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='formPostBinding-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-FormPost">FormPost</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-formSource" data-popularity="100">	<input type='checkbox' class="fold" id="formSource-fold-content"><label for="formSource-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-55">formSource</a> <i>(map)</i></label><span id='formSource-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="formSource-fold-methods"><label for="formSource-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='formSource-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="formSource-fold-method-TrySet"><label for="formSource-fold-method-TrySet">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-60">TrySet</a>(value <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-StructField">StructField</a>, tagValue <a href="../../../builtin.html#name-string">string</a>, opt <a href="#name-setOptions">setOptions</a>) (isSetted <a href="../../../builtin.html#name-bool">bool</a>, err <a href="../../../builtin.html#name-error">error</a>)</label><span id='formSource-fold-method-TrySet-docs' class="fold-docs">
+				TrySet tries to set a value by request's form source (like map[string][]string)
+</span></span></span>
+		<input type='checkbox' class="fold" id="formSource-fold-impls"><label for="formSource-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='formSource-fold-impls-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="formSource-showhide-impls"><i><label for="formSource-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="formSource-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			 T : <a href="#name-setter">setter</a></i></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-headerBinding" data-popularity="155">	<input type='checkbox' class="fold" id="headerBinding-fold-content"><label for="headerBinding-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/header.go.html#line-9">headerBinding</a> <i>(struct)</i></label><span id='headerBinding-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="headerBinding-fold-methods"><label for="headerBinding-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='headerBinding-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/header.go.html#line-15">Bind</a>(req *<a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Request">Request</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/header.go.html#line-11">Name</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="headerBinding-fold-impls"><label for="headerBinding-fold-impls">Implements (<i>at least one exported</i>)</label><span id='headerBinding-fold-impls-items' class="fold-items"><span>
+			 T : <a href="#name-Binding">Binding</a></span></span>
+		<input type='checkbox' class="fold" id="headerBinding-fold-values"><label for="headerBinding-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='headerBinding-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-Header">Header</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-headerSource" data-popularity="100">	<input type='checkbox' class="fold" id="headerSource-fold-content"><label for="headerSource-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/header.go.html#line-28">headerSource</a> <i>(map)</i></label><span id='headerSource-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="headerSource-fold-methods"><label for="headerSource-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='headerSource-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/header.go.html#line-32">TrySet</a>(value <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-StructField">StructField</a>, tagValue <a href="../../../builtin.html#name-string">string</a>, opt <a href="#name-setOptions">setOptions</a>) (isSetted <a href="../../../builtin.html#name-bool">bool</a>, err <a href="../../../builtin.html#name-error">error</a>)</span></span></span>
+		<input type='checkbox' class="fold" id="headerSource-fold-impls"><label for="headerSource-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='headerSource-fold-impls-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="headerSource-showhide-impls"><i><label for="headerSource-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="headerSource-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			 T : <a href="#name-setter">setter</a></i></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-jsonBinding" data-popularity="255">	<input type='checkbox' class="fold" id="jsonBinding-fold-content"><label for="jsonBinding-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/json.go.html#line-27">jsonBinding</a> <i>(struct)</i></label><span id='jsonBinding-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="jsonBinding-fold-methods"><label for="jsonBinding-fold-methods">Methods (<i>total 3, all are exported</i>)</label><span id='jsonBinding-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/json.go.html#line-33">Bind</a>(req *<a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Request">Request</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/json.go.html#line-40">BindBody</a>(body []<a href="../../../builtin.html#name-byte">byte</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/json.go.html#line-29">Name</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="jsonBinding-fold-impls"><label for="jsonBinding-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='jsonBinding-fold-impls-items' class="fold-items"><span>
+			 T : <a href="#name-Binding">Binding</a></span><span>
+			 T : <a href="#name-BindingBody">BindingBody</a></span></span>
+		<input type='checkbox' class="fold" id="jsonBinding-fold-values"><label for="jsonBinding-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='jsonBinding-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-JSON">JSON</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-msgpackBinding" data-popularity="255">	<input type='checkbox' class="fold" id="msgpackBinding-fold-content"><label for="msgpackBinding-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/msgpack.go.html#line-18">msgpackBinding</a> <i>(struct)</i></label><span id='msgpackBinding-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="msgpackBinding-fold-methods"><label for="msgpackBinding-fold-methods">Methods (<i>total 3, all are exported</i>)</label><span id='msgpackBinding-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/msgpack.go.html#line-24">Bind</a>(req *<a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Request">Request</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/msgpack.go.html#line-28">BindBody</a>(body []<a href="../../../builtin.html#name-byte">byte</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/msgpack.go.html#line-20">Name</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="msgpackBinding-fold-impls"><label for="msgpackBinding-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='msgpackBinding-fold-impls-items' class="fold-items"><span>
+			 T : <a href="#name-Binding">Binding</a></span><span>
+			 T : <a href="#name-BindingBody">BindingBody</a></span></span>
+		<input type='checkbox' class="fold" id="msgpackBinding-fold-values"><label for="msgpackBinding-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='msgpackBinding-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-MsgPack">MsgPack</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-multipartRequest" data-popularity="100">	<input type='checkbox' class="fold" id="multipartRequest-fold-content"><label for="multipartRequest-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/multipart_form_mapping.go.html#line-14">multipartRequest</a> <a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Request">Request</a> <i>(struct)</i></label><span id='multipartRequest-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="multipartRequest-fold-fields"><label for="multipartRequest-fold-fields">Fields (<i>total 22, in which 21 are exported</i>)</label><span id='multipartRequest-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-Body"><label for="multipartRequest-fold-field-Body"><a href="../../../../src/net/http/request.go.html#line-181">Body</a> <i><a href="../../../io.html">io</a>.<a href="../../../io.html#name-ReadCloser">ReadCloser</a></i></label><span id='multipartRequest-fold-field-Body-docs' class="fold-docs">
+				Body is the request's body.
+
+				For client requests, a nil body means the request has no
+				body, such as a GET request. The HTTP Client's Transport
+				is responsible for calling the Close method.
+
+				For server requests, the Request Body is always non-nil
+				but will return EOF immediately when no body is present.
+				The Server will close the request body. The ServeHTTP
+				Handler does not need to.
+
+				Body must allow Read to be called concurrently with Close.
+				In particular, calling Close should unblock a Read waiting
+				for input.
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-Cancel"><label for="multipartRequest-fold-field-Cancel"><a href="../../../../src/net/http/request.go.html#line-311">Cancel</a> <i>&lt;-chan struct{}</i></label><span id='multipartRequest-fold-field-Cancel-docs' class="fold-docs">
+				Cancel is an optional channel whose closure indicates that the client
+				request should be regarded as canceled. Not all implementations of
+				RoundTripper may support Cancel.
+
+				For server requests, this field is not applicable.
+
+				Deprecated: Set the Request's context with NewRequestWithContext
+				instead. If a Request's Cancel field and context are both
+				set, it is undefined whether Cancel is respected.
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-Close"><label for="multipartRequest-fold-field-Close"><a href="../../../../src/net/http/request.go.html#line-217">Close</a> <i><a href="../../../builtin.html#name-bool">bool</a></i></label><span id='multipartRequest-fold-field-Close-docs' class="fold-docs">
+				Close indicates whether to close the connection after
+				replying to this request (for servers) or after sending this
+				request and reading its response (for clients).
+
+				For server requests, the HTTP server handles this automatically
+				and this field is not needed by Handlers.
+
+				For client requests, setting this field prevents re-use of
+				TCP connections between requests to the same hosts, as if
+				Transport.DisableKeepAlives were set.
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-ContentLength"><label for="multipartRequest-fold-field-ContentLength"><a href="../../../../src/net/http/request.go.html#line-198">ContentLength</a> <i><a href="../../../builtin.html#name-int64">int64</a></i></label><span id='multipartRequest-fold-field-ContentLength-docs' class="fold-docs">
+				ContentLength records the length of the associated content.
+				The value -1 indicates that the length is unknown.
+				Values &gt;= 0 indicate that the given number of bytes may
+				be read from Body.
+
+				For client requests, a value of 0 with a non-nil Body is
+				also treated as unknown.
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-Form"><label for="multipartRequest-fold-field-Form"><a href="../../../../src/net/http/request.go.html#line-244">Form</a> <i><a href="../../../net/url.html">url</a>.<a href="../../../net/url.html#name-Values">Values</a></i></label><span id='multipartRequest-fold-field-Form-docs' class="fold-docs">
+				Form contains the parsed form data, including both the URL
+				field's query parameters and the PATCH, POST, or PUT form data.
+				This field is only available after ParseForm is called.
+				The HTTP client ignores Form and uses Body instead.
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-GetBody"><label for="multipartRequest-fold-field-GetBody"><a href="../../../../src/net/http/request.go.html#line-189">GetBody</a> <i>func() (<a href="../../../io.html">io</a>.<a href="../../../io.html#name-ReadCloser">ReadCloser</a>, <a href="../../../builtin.html#name-error">error</a>)</i></label><span id='multipartRequest-fold-field-GetBody-docs' class="fold-docs">
+				GetBody defines an optional func to return a new copy of
+				Body. It is used for client requests when a redirect requires
+				reading the body more than once. Use of GetBody still
+				requires setting Body.
+
+				For server requests, it is unused.
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-Header"><label for="multipartRequest-fold-field-Header"><a href="../../../../src/net/http/request.go.html#line-165">Header</a> <i><a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Header">Header</a></i></label><span id='multipartRequest-fold-field-Header-docs' class="fold-docs">
+				Header contains the request header fields either received
+				by the server or to be sent by the client.
+
+				If a server received a request with header lines,
+
+					Host: example.com
+					accept-encoding: gzip, deflate
+					Accept-Language: en-us
+					fOO: Bar
+					foo: two
+
+				then
+
+					Header = map[string][]string{
+						"Accept-Encoding": {"gzip, deflate"},
+						"Accept-Language": {"en-us"},
+						"Foo": {"Bar", "two"},
+					}
+
+				For incoming requests, the Host header is promoted to the
+				Request.Host field and removed from the Header map.
+
+				HTTP defines that header names are case-insensitive. The
+				request parser implements this by using CanonicalHeaderKey,
+				making the first character and any characters following a
+				hyphen uppercase and the rest lowercase.
+
+				For client requests, certain headers such as Content-Length
+				and Connection are automatically written when needed and
+				values in Header may be ignored. See the documentation
+				for the Request.Write method.
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-Host"><label for="multipartRequest-fold-field-Host"><a href="../../../../src/net/http/request.go.html#line-238">Host</a> <i><a href="../../../builtin.html#name-string">string</a></i></label><span id='multipartRequest-fold-field-Host-docs' class="fold-docs">
+				For server requests, Host specifies the host on which the
+				URL is sought. For HTTP/1 (per RFC 7230, section 5.4), this
+				is either the value of the "Host" header or the host name
+				given in the URL itself. For HTTP/2, it is the value of the
+				":authority" pseudo-header field.
+				It may be of the form "host:port". For international domain
+				names, Host may be in Punycode or Unicode form. Use
+				golang.org/x/net/idna to convert it to either format if
+				needed.
+				To prevent DNS rebinding attacks, server Handlers should
+				validate that the Host header has a value for which the
+				Handler considers itself authoritative. The included
+				ServeMux supports patterns registered to particular host
+				names and thus protects its registered Handlers.
+
+				For client requests, Host optionally overrides the Host
+				header to send. If empty, the Request.Write method uses
+				the value of URL.Host. Host may contain an international
+				domain name.
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-Method"><label for="multipartRequest-fold-field-Method"><a href="../../../../src/net/http/request.go.html#line-109">Method</a> <i><a href="../../../builtin.html#name-string">string</a></i></label><span id='multipartRequest-fold-field-Method-docs' class="fold-docs">
+				Method specifies the HTTP method (GET, POST, PUT, etc.).
+				For client requests, an empty string means GET.
+
+				Go's HTTP client does not support sending a request with
+				the CONNECT method. See the documentation on Transport for
+				details.
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-MultipartForm"><label for="multipartRequest-fold-field-MultipartForm"><a href="../../../../src/net/http/request.go.html#line-256">MultipartForm</a> <i>*<a href="../../../mime/multipart.html">multipart</a>.<a href="../../../mime/multipart.html#name-Form">Form</a></i></label><span id='multipartRequest-fold-field-MultipartForm-docs' class="fold-docs">
+				MultipartForm is the parsed multipart form, including file uploads.
+				This field is only available after ParseMultipartForm is called.
+				The HTTP client ignores MultipartForm and uses Body instead.
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-PostForm"><label for="multipartRequest-fold-field-PostForm"><a href="../../../../src/net/http/request.go.html#line-251">PostForm</a> <i><a href="../../../net/url.html">url</a>.<a href="../../../net/url.html#name-Values">Values</a></i></label><span id='multipartRequest-fold-field-PostForm-docs' class="fold-docs">
+				PostForm contains the parsed form data from PATCH, POST
+				or PUT body parameters.
+
+				This field is only available after ParseForm is called.
+				The HTTP client ignores PostForm and uses Body instead.
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-Proto"><label for="multipartRequest-fold-field-Proto"><a href="../../../../src/net/http/request.go.html#line-130">Proto</a> <i><a href="../../../builtin.html#name-string">string</a></i></label><span id='multipartRequest-fold-field-Proto-docs' class="fold-docs">
+				The protocol version for incoming server requests.
+
+				For client requests, these fields are ignored. The HTTP
+				client code always uses either HTTP/1.1 or HTTP/2.
+				See the docs on Transport for details.
+				// "HTTP/1.0"
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-ProtoMajor"><label for="multipartRequest-fold-field-ProtoMajor"><a href="../../../../src/net/http/request.go.html#line-131">ProtoMajor</a> <i><a href="../../../builtin.html#name-int">int</a></i></label><span id='multipartRequest-fold-field-ProtoMajor-docs' class="fold-docs">
+				// 1
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-ProtoMinor"><label for="multipartRequest-fold-field-ProtoMinor"><a href="../../../../src/net/http/request.go.html#line-132">ProtoMinor</a> <i><a href="../../../builtin.html#name-int">int</a></i></label><span id='multipartRequest-fold-field-ProtoMinor-docs' class="fold-docs">
+				// 0
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-RemoteAddr"><label for="multipartRequest-fold-field-RemoteAddr"><a href="../../../../src/net/http/request.go.html#line-285">RemoteAddr</a> <i><a href="../../../builtin.html#name-string">string</a></i></label><span id='multipartRequest-fold-field-RemoteAddr-docs' class="fold-docs">
+				RemoteAddr allows HTTP servers and other software to record
+				the network address that sent the request, usually for
+				logging. This field is not filled in by ReadRequest and
+				has no defined format. The HTTP server in this package
+				sets RemoteAddr to an "IP:port" address before invoking a
+				handler.
+				This field is ignored by the HTTP client.
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-RequestURI"><label for="multipartRequest-fold-field-RequestURI"><a href="../../../../src/net/http/request.go.html#line-291">RequestURI</a> <i><a href="../../../builtin.html#name-string">string</a></i></label><span id='multipartRequest-fold-field-RequestURI-docs' class="fold-docs">
+				RequestURI is the unmodified request-target of the
+				Request-Line (RFC 7230, Section 3.1.1) as sent by the client
+				to a server. Usually the URL field should be used instead.
+				It is an error to set this field in an HTTP client request.
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-Response"><label for="multipartRequest-fold-field-Response"><a href="../../../../src/net/http/request.go.html#line-316">Response</a> <i>*<a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Response">Response</a></i></label><span id='multipartRequest-fold-field-Response-docs' class="fold-docs">
+				Response is the redirect response which caused this request
+				to be created. This field is only populated during client
+				redirects.
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-TLS"><label for="multipartRequest-fold-field-TLS"><a href="../../../../src/net/http/request.go.html#line-300">TLS</a> <i>*<a href="../../../crypto/tls.html">tls</a>.<a href="../../../crypto/tls.html#name-ConnectionState">ConnectionState</a></i></label><span id='multipartRequest-fold-field-TLS-docs' class="fold-docs">
+				TLS allows HTTP servers and other software to record
+				information about the TLS connection on which the request
+				was received. This field is not filled in by ReadRequest.
+				The HTTP server in this package sets the field for
+				TLS-enabled connections before invoking a handler;
+				otherwise it leaves the field nil.
+				This field is ignored by the HTTP client.
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-Trailer"><label for="multipartRequest-fold-field-Trailer"><a href="../../../../src/net/http/request.go.html#line-276">Trailer</a> <i><a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Header">Header</a></i></label><span id='multipartRequest-fold-field-Trailer-docs' class="fold-docs">
+				Trailer specifies additional headers that are sent after the request
+				body.
+
+				For server requests, the Trailer map initially contains only the
+				trailer keys, with nil values. (The client declares which trailers it
+				will later send.)  While the handler is reading from Body, it must
+				not reference Trailer. After reading from Body returns EOF, Trailer
+				can be read again and will contain non-nil values, if they were sent
+				by the client.
+
+				For client requests, Trailer must be initialized to a map containing
+				the trailer keys to later send. The values may be nil or their final
+				values. The ContentLength must be 0 or -1, to send a chunked request.
+				After the HTTP request is sent the map values can be updated while
+				the request body is read. Once the body returns EOF, the caller must
+				not mutate Trailer.
+
+				Few HTTP clients, servers, or proxies support HTTP trailers.
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-TransferEncoding"><label for="multipartRequest-fold-field-TransferEncoding"><a href="../../../../src/net/http/request.go.html#line-205">TransferEncoding</a> <i>[]<a href="../../../builtin.html#name-string">string</a></i></label><span id='multipartRequest-fold-field-TransferEncoding-docs' class="fold-docs">
+				TransferEncoding lists the transfer encodings from outermost to
+				innermost. An empty list denotes the "identity" encoding.
+				TransferEncoding can usually be ignored; chunked encoding is
+				automatically added and removed as necessary when sending and
+				receiving requests.
+</span></span><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-URL"><label for="multipartRequest-fold-field-URL"><a href="../../../../src/net/http/request.go.html#line-123">URL</a> <i>*<a href="../../../net/url.html">url</a>.<a href="../../../net/url.html#name-URL">URL</a></i></label><span id='multipartRequest-fold-field-URL-docs' class="fold-docs">
+				URL specifies either the URI being requested (for server
+				requests) or the URL to access (for client requests).
+
+				For server requests, the URL is parsed from the URI
+				supplied on the Request-Line as stored in RequestURI.  For
+				most requests, fields other than Path and RawQuery will be
+				empty. (See RFC 7230, Section 5.3)
+
+				For client requests, the URL's Host specifies the server to
+				connect to, while the Request's Host field optionally
+				specifies the Host header value to send in the HTTP
+				request.
+</span></span>
+			<input type='checkbox' checked class="showhide" id="multipartRequest-showhide-fields"><i><label for="multipartRequest-showhide-fields" class="show-inline">/* one unexported ... */</label><label for="multipartRequest-showhide-fields" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-field-ctx"><label for="multipartRequest-fold-field-ctx"><a href="../../../../src/net/http/request.go.html#line-322">ctx</a> <i><a href="../../../context.html">context</a>.<a href="../../../context.html#name-Context">Context</a></i></label><span id='multipartRequest-fold-field-ctx-docs' class="fold-docs">
+				ctx is either the client or server context. It should only
+				be modified via copying the whole Request using WithContext.
+				It is unexported to prevent people from using Context wrong
+				and mutating the contexts held by callers of the same request.
+</span></i></span></span>
+		<input type='checkbox' class="fold" id="multipartRequest-fold-methods"><label for="multipartRequest-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='multipartRequest-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="multipartRequest-fold-method-TrySet"><label for="multipartRequest-fold-method-TrySet">(*T) <a href="../../../../src/github.com/gin-gonic/gin/binding/multipart_form_mapping.go.html#line-19">TrySet</a>(value <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-StructField">StructField</a>, key <a href="../../../builtin.html#name-string">string</a>, opt <a href="#name-setOptions">setOptions</a>) (isSetted <a href="../../../builtin.html#name-bool">bool</a>, err <a href="../../../builtin.html#name-error">error</a>)</label><span id='multipartRequest-fold-method-TrySet-docs' class="fold-docs">
+				TrySet tries to set a value by the multipart request with the binding a form file
+</span></span></span>
+		<input type='checkbox' class="fold" id="multipartRequest-fold-impls"><label for="multipartRequest-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='multipartRequest-fold-impls-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="multipartRequest-showhide-impls"><i><label for="multipartRequest-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="multipartRequest-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : <a href="#name-setter">setter</a></i></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-protobufBinding" data-popularity="255">	<input type='checkbox' class="fold" id="protobufBinding-fold-content"><label for="protobufBinding-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/protobuf.go.html#line-14">protobufBinding</a> <i>(struct)</i></label><span id='protobufBinding-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="protobufBinding-fold-methods"><label for="protobufBinding-fold-methods">Methods (<i>total 3, all are exported</i>)</label><span id='protobufBinding-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/protobuf.go.html#line-20">Bind</a>(req *<a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Request">Request</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/protobuf.go.html#line-28">BindBody</a>(body []<a href="../../../builtin.html#name-byte">byte</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/protobuf.go.html#line-16">Name</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="protobufBinding-fold-impls"><label for="protobufBinding-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='protobufBinding-fold-impls-items' class="fold-items"><span>
+			 T : <a href="#name-Binding">Binding</a></span><span>
+			 T : <a href="#name-BindingBody">BindingBody</a></span></span>
+		<input type='checkbox' class="fold" id="protobufBinding-fold-values"><label for="protobufBinding-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='protobufBinding-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-ProtoBuf">ProtoBuf</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-queryBinding" data-popularity="155">	<input type='checkbox' class="fold" id="queryBinding-fold-content"><label for="queryBinding-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/query.go.html#line-9">queryBinding</a> <i>(struct)</i></label><span id='queryBinding-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="queryBinding-fold-methods"><label for="queryBinding-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='queryBinding-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/query.go.html#line-15">Bind</a>(req *<a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Request">Request</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/query.go.html#line-11">Name</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="queryBinding-fold-impls"><label for="queryBinding-fold-impls">Implements (<i>at least one exported</i>)</label><span id='queryBinding-fold-impls-items' class="fold-items"><span>
+			 T : <a href="#name-Binding">Binding</a></span></span>
+		<input type='checkbox' class="fold" id="queryBinding-fold-values"><label for="queryBinding-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='queryBinding-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-Query">Query</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-setOptions" data-popularity="35">	<input type='checkbox' class="fold" id="setOptions-fold-content"><label for="setOptions-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-123">setOptions</a> <i>(struct)</i></label><span id='setOptions-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="setOptions-fold-fields"><label for="setOptions-fold-fields">Fields (<i>total 2, neither is exported</i>)</label><span id='setOptions-fold-fields-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="setOptions-showhide-fields"><i><label for="setOptions-showhide-fields" class="show-inline">/* 2 unexporteds ... */</label><label for="setOptions-showhide-fields" class="hide-inline">/* 2 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-125">defaultValue</a> <i><a href="../../../builtin.html#name-string">string</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-124">isDefaultExists</a> <i><a href="../../../builtin.html#name-bool">bool</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="setOptions-fold-params"><label for="setOptions-fold-params">As Inputs Of (<i>at least one unexported</i>)</label><span id='setOptions-fold-params-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="setOptions-showhide-outputofs"><i><label for="setOptions-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="setOptions-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func <a href="#name-setByForm">setByForm</a>(value <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-StructField">StructField</a>, form map[<a href="../../../builtin.html#name-string">string</a>][]<a href="../../../builtin.html#name-string">string</a>, tagValue <a href="../../../builtin.html#name-string">string</a>, opt <b>setOptions</b>) (isSetted <a href="../../../builtin.html#name-bool">bool</a>, err <a href="../../../builtin.html#name-error">error</a>)</i></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-setter" data-popularity="605">	<input type='checkbox' class="fold" id="setter-fold-content"><label for="setter-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-51">setter</a> <b><i>(interface)</i></b></label><span id='setter-fold-content-docs' class="fold-docs">
+		setter tries to set value on a walking by fields of a struct
+
+		<input type='checkbox' class="fold" id="setter-fold-methods"><label for="setter-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='setter-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-52">TrySet</a>(value <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-StructField">StructField</a>, key <a href="../../../builtin.html#name-string">string</a>, opt <a href="#name-setOptions">setOptions</a>) (isSetted <a href="../../../builtin.html#name-bool">bool</a>, err <a href="../../../builtin.html#name-error">error</a>)</span></span></span>
+		<input type='checkbox' class="fold" id="setter-fold-impledby"><label for="setter-fold-impledby">Implemented By (<i>at least 3, none are exported</i>)</label><span id='setter-fold-impledby-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="setter-showhide-impedBys"><i><label for="setter-showhide-impedBys" class="show-inline">/* 3+ unexporteds ... */</label><label for="setter-showhide-impedBys" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			 <a href="#name-formSource">formSource</a></i></span><span class="hidden"><i>
+			 <a href="#name-headerSource">headerSource</a></i></span><span class="hidden"><i>
+			*<a href="#name-multipartRequest">multipartRequest</a></i></span></span>
+		<input type='checkbox' class="fold" id="setter-fold-params"><label for="setter-fold-params">As Inputs Of (<i>at least 3, none are exported</i>)</label><span id='setter-fold-params-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="setter-showhide-outputofs"><i><label for="setter-showhide-outputofs" class="show-inline">/* 3+ unexporteds ... */</label><label for="setter-showhide-outputofs" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			func <a href="#name-mapping">mapping</a>(value <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-StructField">StructField</a>, setter <b>setter</b>, tag <a href="../../../builtin.html#name-string">string</a>) (<a href="../../../builtin.html#name-bool">bool</a>, <a href="../../../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func <a href="#name-mappingByPtr">mappingByPtr</a>(ptr interface{}, setter <b>setter</b>, tag <a href="../../../builtin.html#name-string">string</a>) <a href="../../../builtin.html#name-error">error</a></i></span><span class="hidden"><i>
+			func <a href="#name-tryToSetValue">tryToSetValue</a>(value <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-StructField">StructField</a>, setter <b>setter</b>, tag <a href="../../../builtin.html#name-string">string</a>) (<a href="../../../builtin.html#name-bool">bool</a>, <a href="../../../builtin.html#name-error">error</a>)</i></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-sliceValidateError" data-popularity="100">	<input type='checkbox' class="fold" id="sliceValidateError-fold-content"><label for="sliceValidateError-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/default_validator.go.html#line-21">sliceValidateError</a> <i>([]T)</i></label><span id='sliceValidateError-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="sliceValidateError-fold-methods"><label for="sliceValidateError-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='sliceValidateError-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/default_validator.go.html#line-23">Error</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="sliceValidateError-fold-impls"><label for="sliceValidateError-fold-impls">Implements (<i>at least one exported</i>)</label><span id='sliceValidateError-fold-impls-items' class="fold-items"><span>
+			 T : <a href="../../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-uriBinding" data-popularity="155">	<input type='checkbox' class="fold" id="uriBinding-fold-content"><label for="uriBinding-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/uri.go.html#line-7">uriBinding</a> <i>(struct)</i></label><span id='uriBinding-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="uriBinding-fold-methods"><label for="uriBinding-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='uriBinding-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/uri.go.html#line-13">BindUri</a>(m map[<a href="../../../builtin.html#name-string">string</a>][]<a href="../../../builtin.html#name-string">string</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/uri.go.html#line-9">Name</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="uriBinding-fold-impls"><label for="uriBinding-fold-impls">Implements (<i>at least one exported</i>)</label><span id='uriBinding-fold-impls-items' class="fold-items"><span>
+			 T : <a href="#name-BindingUri">BindingUri</a></span></span>
+		<input type='checkbox' class="fold" id="uriBinding-fold-values"><label for="uriBinding-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='uriBinding-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-Uri">Uri</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-xmlBinding" data-popularity="255">	<input type='checkbox' class="fold" id="xmlBinding-fold-content"><label for="xmlBinding-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/xml.go.html#line-14">xmlBinding</a> <i>(struct)</i></label><span id='xmlBinding-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="xmlBinding-fold-methods"><label for="xmlBinding-fold-methods">Methods (<i>total 3, all are exported</i>)</label><span id='xmlBinding-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/xml.go.html#line-20">Bind</a>(req *<a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Request">Request</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/xml.go.html#line-24">BindBody</a>(body []<a href="../../../builtin.html#name-byte">byte</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/xml.go.html#line-16">Name</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="xmlBinding-fold-impls"><label for="xmlBinding-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='xmlBinding-fold-impls-items' class="fold-items"><span>
+			 T : <a href="#name-Binding">Binding</a></span><span>
+			 T : <a href="#name-BindingBody">BindingBody</a></span></span>
+		<input type='checkbox' class="fold" id="xmlBinding-fold-values"><label for="xmlBinding-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='xmlBinding-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-XML">XML</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-yamlBinding" data-popularity="255">	<input type='checkbox' class="fold" id="yamlBinding-fold-content"><label for="yamlBinding-fold-content"> type <a href="../../../../src/github.com/gin-gonic/gin/binding/yaml.go.html#line-15">yamlBinding</a> <i>(struct)</i></label><span id='yamlBinding-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="yamlBinding-fold-methods"><label for="yamlBinding-fold-methods">Methods (<i>total 3, all are exported</i>)</label><span id='yamlBinding-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/yaml.go.html#line-21">Bind</a>(req *<a href="../../../net/http.html">http</a>.<a href="../../../net/http.html#name-Request">Request</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/yaml.go.html#line-25">BindBody</a>(body []<a href="../../../builtin.html#name-byte">byte</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../../src/github.com/gin-gonic/gin/binding/yaml.go.html#line-17">Name</a>() <a href="../../../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="yamlBinding-fold-impls"><label for="yamlBinding-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='yamlBinding-fold-impls-items' class="fold-items"><span>
+			 T : <a href="#name-Binding">Binding</a></span><span>
+			 T : <a href="#name-BindingBody">BindingBody</a></span></span>
+		<input type='checkbox' class="fold" id="yamlBinding-fold-values"><label for="yamlBinding-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='yamlBinding-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-YAML">YAML</a></span></span>
+
+</span></div></div>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 27, in which 1 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-Default">	<input type='checkbox' class="fold" id="Default-fold-content"><label for="Default-fold-content"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-90">Default</a>(method, contentType <a href="../../../builtin.html#name-string">string</a>) <a href="#name-Binding">Binding</a></label><span id='Default-fold-content-docs' class="fold-docs">
+		Default returns the appropriate Binding instance based on the HTTP method
+		and the content type.
+
+</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 26 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 26 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-decodeJSON"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/json.go.html#line-44">decodeJSON</a>(r <a href="../../../io.html">io</a>.<a href="../../../io.html#name-Reader">Reader</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-decodeMsgPack"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/msgpack.go.html#line-32">decodeMsgPack</a>(r <a href="../../../io.html">io</a>.<a href="../../../io.html#name-Reader">Reader</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-decodeXML"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/xml.go.html#line-27">decodeXML</a>(r <a href="../../../io.html">io</a>.<a href="../../../io.html#name-Reader">Reader</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-decodeYAML"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/yaml.go.html#line-29">decodeYAML</a>(r <a href="../../../io.html">io</a>.<a href="../../../io.html#name-Reader">Reader</a>, obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-head"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-360">head</a>(str, sep <a href="../../../builtin.html#name-string">string</a>) (head <a href="../../../builtin.html#name-string">string</a>, tail <a href="../../../builtin.html#name-string">string</a>)</span></i></div><div class="anchor value-res hidden" id="name-mapForm"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-25">mapForm</a>(ptr interface{}, form map[<a href="../../../builtin.html#name-string">string</a>][]<a href="../../../builtin.html#name-string">string</a>) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-mapFormByTag"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-31">mapFormByTag</a>(ptr interface{}, form map[<a href="../../../builtin.html#name-string">string</a>][]<a href="../../../builtin.html#name-string">string</a>, tag <a href="../../../builtin.html#name-string">string</a>) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-mapHeader"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/header.go.html#line-24">mapHeader</a>(ptr interface{}, h map[<a href="../../../builtin.html#name-string">string</a>][]<a href="../../../builtin.html#name-string">string</a>) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-mapping"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-69">mapping</a>(value <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-StructField">StructField</a>, setter <a href="#name-setter">setter</a>, tag <a href="../../../builtin.html#name-string">string</a>) (<a href="../../../builtin.html#name-bool">bool</a>, <a href="../../../builtin.html#name-error">error</a>)</span></i></div><div class="anchor value-res hidden" id="name-mappingByPtr"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-64">mappingByPtr</a>(ptr interface{}, setter <a href="#name-setter">setter</a>, tag <a href="../../../builtin.html#name-string">string</a>) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-mapUri"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-21">mapUri</a>(ptr interface{}, m map[<a href="../../../builtin.html#name-string">string</a>][]<a href="../../../builtin.html#name-string">string</a>) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-setArray"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-331">setArray</a>(vals []<a href="../../../builtin.html#name-string">string</a>, value <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-StructField">StructField</a>) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-setArrayOfMultipartFormFiles"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/multipart_form_mapping.go.html#line-55">setArrayOfMultipartFormFiles</a>(value <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-StructField">StructField</a>, files []*<a href="../../../mime/multipart.html">multipart</a>.<a href="../../../mime/multipart.html#name-FileHeader">FileHeader</a>) (isSetted <a href="../../../builtin.html#name-bool">bool</a>, err <a href="../../../builtin.html#name-error">error</a>)</span></i></div><div class="anchor value-res hidden" id="name-setBoolField"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-258">setBoolField</a>(val <a href="../../../builtin.html#name-string">string</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-setByForm"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-155">setByForm</a>(value <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-StructField">StructField</a>, form map[<a href="../../../builtin.html#name-string">string</a>][]<a href="../../../builtin.html#name-string">string</a>, tagValue <a href="../../../builtin.html#name-string">string</a>, opt <a href="#name-setOptions">setOptions</a>) (isSetted <a href="../../../builtin.html#name-bool">bool</a>, err <a href="../../../builtin.html#name-error">error</a>)</span></i></div><div class="anchor value-res hidden" id="name-setByMultipartFormFile"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/multipart_form_mapping.go.html#line-27">setByMultipartFormFile</a>(value <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-StructField">StructField</a>, files []*<a href="../../../mime/multipart.html">multipart</a>.<a href="../../../mime/multipart.html#name-FileHeader">FileHeader</a>) (isSetted <a href="../../../builtin.html#name-bool">bool</a>, err <a href="../../../builtin.html#name-error">error</a>)</span></i></div><div class="anchor value-res hidden" id="name-setFloatField"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-269">setFloatField</a>(val <a href="../../../builtin.html#name-string">string</a>, bitSize <a href="../../../builtin.html#name-int">int</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-setFormMap"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-368">setFormMap</a>(ptr interface{}, form map[<a href="../../../builtin.html#name-string">string</a>][]<a href="../../../builtin.html#name-string">string</a>) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-setIntField"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-236">setIntField</a>(val <a href="../../../builtin.html#name-string">string</a>, bitSize <a href="../../../builtin.html#name-int">int</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-setSlice"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-341">setSlice</a>(vals []<a href="../../../builtin.html#name-string">string</a>, value <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-StructField">StructField</a>) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-setTimeDuration"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-351">setTimeDuration</a>(val <a href="../../../builtin.html#name-string">string</a>, value <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-StructField">StructField</a>) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-setTimeField"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-280">setTimeField</a>(val <a href="../../../builtin.html#name-string">string</a>, structField <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-StructField">StructField</a>, value <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-setUintField"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-247">setUintField</a>(val <a href="../../../builtin.html#name-string">string</a>, bitSize <a href="../../../builtin.html#name-int">int</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-setWithProperType"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-188">setWithProperType</a>(val <a href="../../../builtin.html#name-string">string</a>, value <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-StructField">StructField</a>) <a href="../../../builtin.html#name-error">error</a></span></i></div><div class="anchor value-res hidden" id="name-tryToSetValue"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-128">tryToSetValue</a>(value <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-Value">Value</a>, field <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-StructField">StructField</a>, setter <a href="#name-setter">setter</a>, tag <a href="../../../builtin.html#name-string">string</a>) (<a href="../../../builtin.html#name-bool">bool</a>, <a href="../../../builtin.html#name-error">error</a>)</span></i></div><div class="anchor value-res hidden" id="name-validate"><i>	<span class="nodocs"> func <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-113">validate</a>(obj interface{}) <a href="../../../builtin.html#name-error">error</a></span></i></div></div>
+<div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (total 16, in which 14 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-EnableDecoderDisallowUnknownFields">	<input type='checkbox' class="fold" id="EnableDecoderDisallowUnknownFields-fold-content"><label for="EnableDecoderDisallowUnknownFields-fold-content">  var <a href="../../../../src/github.com/gin-gonic/gin/binding/json.go.html#line-25">EnableDecoderDisallowUnknownFields</a> <a href="../../../builtin.html#name-bool">bool</a></label><span id='EnableDecoderDisallowUnknownFields-fold-content-docs' class="fold-docs">
+		EnableDecoderDisallowUnknownFields is used to call the DisallowUnknownFields method
+		on the JSON Decoder instance. DisallowUnknownFields causes the Decoder to
+		return an error when the destination is a struct and the input contains object
+		keys which do not match any non-ignored, exported fields in the destination.
+
+</span></div><div class="anchor value-res" id="name-EnableDecoderUseNumber">	<input type='checkbox' class="fold" id="EnableDecoderUseNumber-fold-content"><label for="EnableDecoderUseNumber-fold-content">  var <a href="../../../../src/github.com/gin-gonic/gin/binding/json.go.html#line-19">EnableDecoderUseNumber</a> <a href="../../../builtin.html#name-bool">bool</a></label><span id='EnableDecoderUseNumber-fold-content-docs' class="fold-docs">
+		EnableDecoderUseNumber is used to call the UseNumber method on the JSON
+		Decoder instance. UseNumber causes the Decoder to unmarshal a number into an
+		interface{} as a Number instead of as a float64.
+
+</span></div><div class="anchor value-res" id="name-Form">	<input type='checkbox' class="fold" id="Form-fold-content"><label for="Form-fold-content">  var <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-77">Form</a> <a href="#name-formBinding">formBinding</a></label><span id='Form-fold-content-docs' class="fold-docs">
+		These implement the Binding interface and can be used to bind the data
+		present in the request to struct instances.
+
+</span></div><div class="anchor value-res" id="name-FormMultipart">	<input type='checkbox' class="fold" id="FormMultipart-fold-content"><label for="FormMultipart-fold-content">  var <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-80">FormMultipart</a> <a href="#name-formMultipartBinding">formMultipartBinding</a></label><span id='FormMultipart-fold-content-docs' class="fold-docs">
+		These implement the Binding interface and can be used to bind the data
+		present in the request to struct instances.
+
+</span></div><div class="anchor value-res" id="name-FormPost">	<input type='checkbox' class="fold" id="FormPost-fold-content"><label for="FormPost-fold-content">  var <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-79">FormPost</a> <a href="#name-formPostBinding">formPostBinding</a></label><span id='FormPost-fold-content-docs' class="fold-docs">
+		These implement the Binding interface and can be used to bind the data
+		present in the request to struct instances.
+
+</span></div><div class="anchor value-res" id="name-Header">	<input type='checkbox' class="fold" id="Header-fold-content"><label for="Header-fold-content">  var <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-85">Header</a> <a href="#name-headerBinding">headerBinding</a></label><span id='Header-fold-content-docs' class="fold-docs">
+		These implement the Binding interface and can be used to bind the data
+		present in the request to struct instances.
+
+</span></div><div class="anchor value-res" id="name-JSON">	<input type='checkbox' class="fold" id="JSON-fold-content"><label for="JSON-fold-content">  var <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-75">JSON</a> <a href="#name-jsonBinding">jsonBinding</a></label><span id='JSON-fold-content-docs' class="fold-docs">
+		These implement the Binding interface and can be used to bind the data
+		present in the request to struct instances.
+
+</span></div><div class="anchor value-res" id="name-MsgPack">	<input type='checkbox' class="fold" id="MsgPack-fold-content"><label for="MsgPack-fold-content">  var <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-82">MsgPack</a> <a href="#name-msgpackBinding">msgpackBinding</a></label><span id='MsgPack-fold-content-docs' class="fold-docs">
+		These implement the Binding interface and can be used to bind the data
+		present in the request to struct instances.
+
+</span></div><div class="anchor value-res" id="name-ProtoBuf">	<input type='checkbox' class="fold" id="ProtoBuf-fold-content"><label for="ProtoBuf-fold-content">  var <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-81">ProtoBuf</a> <a href="#name-protobufBinding">protobufBinding</a></label><span id='ProtoBuf-fold-content-docs' class="fold-docs">
+		These implement the Binding interface and can be used to bind the data
+		present in the request to struct instances.
+
+</span></div><div class="anchor value-res" id="name-Query">	<input type='checkbox' class="fold" id="Query-fold-content"><label for="Query-fold-content">  var <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-78">Query</a> <a href="#name-queryBinding">queryBinding</a></label><span id='Query-fold-content-docs' class="fold-docs">
+		These implement the Binding interface and can be used to bind the data
+		present in the request to struct instances.
+
+</span></div><div class="anchor value-res" id="name-Uri">	<input type='checkbox' class="fold" id="Uri-fold-content"><label for="Uri-fold-content">  var <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-84">Uri</a> <a href="#name-uriBinding">uriBinding</a></label><span id='Uri-fold-content-docs' class="fold-docs">
+		These implement the Binding interface and can be used to bind the data
+		present in the request to struct instances.
+
+</span></div><div class="anchor value-res" id="name-Validator">	<input type='checkbox' class="fold" id="Validator-fold-content"><label for="Validator-fold-content">  var <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-70">Validator</a> <a href="#name-StructValidator">StructValidator</a></label><span id='Validator-fold-content-docs' class="fold-docs">
+		Validator is the default validator which implements the StructValidator
+		interface. It uses https://github.com/go-playground/validator/tree/v8.18.2
+		under the hood.
+
+</span></div><div class="anchor value-res" id="name-XML">	<input type='checkbox' class="fold" id="XML-fold-content"><label for="XML-fold-content">  var <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-76">XML</a> <a href="#name-xmlBinding">xmlBinding</a></label><span id='XML-fold-content-docs' class="fold-docs">
+		These implement the Binding interface and can be used to bind the data
+		present in the request to struct instances.
+
+</span></div><div class="anchor value-res" id="name-YAML">	<input type='checkbox' class="fold" id="YAML-fold-content"><label for="YAML-fold-content">  var <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-83">YAML</a> <a href="#name-yamlBinding">yamlBinding</a></label><span id='YAML-fold-content-docs' class="fold-docs">
+		These implement the Binding interface and can be used to bind the data
+		present in the request to struct instances.
+
+</span></div>	<input type='checkbox' class="showhide" id="unexported-variables-showhide"><i><label for="unexported-variables-showhide" class="show-inline">/* 2 unexporteds ... */</label><label for="unexported-variables-showhide" class="hide-inline">/* 2 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-emptyField"><i>	<span class="nodocs">  var <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-29">emptyField</a> <a href="../../../reflect.html">reflect</a>.<a href="../../../reflect.html#name-StructField">StructField</a></span></i></div><div class="anchor value-res hidden" id="name-errUnknownType"><i>	<span class="nodocs">  var <a href="../../../../src/github.com/gin-gonic/gin/binding/form_mapping.go.html#line-19">errUnknownType</a> <a href="../../../builtin.html#name-error">error</a></span></i></div></div>
+<div id="exported-constants"><span class="title">Package-Level Constants<span class="title-stat"><i> (total 12, in which 11 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-MIMEHTML">	<input type='checkbox' class="fold" id="MIMEHTML-fold-content"><label for="MIMEHTML-fold-content">const <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-15">MIMEHTML</a> = "text/html"</label><span id='MIMEHTML-fold-content-docs' class="fold-docs">
+		Content-Type MIME of the most common data formats.
+
+</span></div><div class="anchor value-res" id="name-MIMEJSON">	<input type='checkbox' class="fold" id="MIMEJSON-fold-content"><label for="MIMEJSON-fold-content">const <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-14">MIMEJSON</a> = "application/json"</label><span id='MIMEJSON-fold-content-docs' class="fold-docs">
+		Content-Type MIME of the most common data formats.
+
+</span></div><div class="anchor value-res" id="name-MIMEMSGPACK">	<input type='checkbox' class="fold" id="MIMEMSGPACK-fold-content"><label for="MIMEMSGPACK-fold-content">const <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-22">MIMEMSGPACK</a> = "application/x-msgpack"</label><span id='MIMEMSGPACK-fold-content-docs' class="fold-docs">
+		Content-Type MIME of the most common data formats.
+
+</span></div><div class="anchor value-res" id="name-MIMEMSGPACK2">	<input type='checkbox' class="fold" id="MIMEMSGPACK2-fold-content"><label for="MIMEMSGPACK2-fold-content">const <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-23">MIMEMSGPACK2</a> = "application/msgpack"</label><span id='MIMEMSGPACK2-fold-content-docs' class="fold-docs">
+		Content-Type MIME of the most common data formats.
+
+</span></div><div class="anchor value-res" id="name-MIMEMultipartPOSTForm">	<input type='checkbox' class="fold" id="MIMEMultipartPOSTForm-fold-content"><label for="MIMEMultipartPOSTForm-fold-content">const <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-20">MIMEMultipartPOSTForm</a> = "multipart/form-data"</label><span id='MIMEMultipartPOSTForm-fold-content-docs' class="fold-docs">
+		Content-Type MIME of the most common data formats.
+
+</span></div><div class="anchor value-res" id="name-MIMEPlain">	<input type='checkbox' class="fold" id="MIMEPlain-fold-content"><label for="MIMEPlain-fold-content">const <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-18">MIMEPlain</a> = "text/plain"</label><span id='MIMEPlain-fold-content-docs' class="fold-docs">
+		Content-Type MIME of the most common data formats.
+
+</span></div><div class="anchor value-res" id="name-MIMEPOSTForm">	<input type='checkbox' class="fold" id="MIMEPOSTForm-fold-content"><label for="MIMEPOSTForm-fold-content">const <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-19">MIMEPOSTForm</a> = "application/x-www-form-urlencoded"</label><span id='MIMEPOSTForm-fold-content-docs' class="fold-docs">
+		Content-Type MIME of the most common data formats.
+
+</span></div><div class="anchor value-res" id="name-MIMEPROTOBUF">	<input type='checkbox' class="fold" id="MIMEPROTOBUF-fold-content"><label for="MIMEPROTOBUF-fold-content">const <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-21">MIMEPROTOBUF</a> = "application/x-protobuf"</label><span id='MIMEPROTOBUF-fold-content-docs' class="fold-docs">
+		Content-Type MIME of the most common data formats.
+
+</span></div><div class="anchor value-res" id="name-MIMEXML">	<input type='checkbox' class="fold" id="MIMEXML-fold-content"><label for="MIMEXML-fold-content">const <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-16">MIMEXML</a> = "application/xml"</label><span id='MIMEXML-fold-content-docs' class="fold-docs">
+		Content-Type MIME of the most common data formats.
+
+</span></div><div class="anchor value-res" id="name-MIMEXML2">	<input type='checkbox' class="fold" id="MIMEXML2-fold-content"><label for="MIMEXML2-fold-content">const <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-17">MIMEXML2</a> = "text/xml"</label><span id='MIMEXML2-fold-content-docs' class="fold-docs">
+		Content-Type MIME of the most common data formats.
+
+</span></div><div class="anchor value-res" id="name-MIMEYAML">	<input type='checkbox' class="fold" id="MIMEYAML-fold-content"><label for="MIMEYAML-fold-content">const <a href="../../../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-24">MIMEYAML</a> = "application/x-yaml"</label><span id='MIMEYAML-fold-content-docs' class="fold-docs">
+		Content-Type MIME of the most common data formats.
+
+</span></div>	<input type='checkbox' class="showhide" id="unexported-constants-showhide"><i><label for="unexported-constants-showhide" class="show-inline">/* one unexported ... */</label><label for="unexported-constants-showhide" class="hide-inline">/* one unexported: */</label></i><div class="anchor value-res hidden" id="name-defaultMemory"><i>	<span class="nodocs">const <a href="../../../../src/github.com/gin-gonic/gin/binding/form.go.html#line-11">defaultMemory</a> = 33554432</span></i></div></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

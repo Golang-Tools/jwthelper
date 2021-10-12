@@ -272,7 +272,7 @@
 		<input type='checkbox' class="fold" id="InternalError-fold-impls"><label for="InternalError-fold-impls">Implements (<i>at least one exported</i>)</label><span id='InternalError-fold-impls-items' class="fold-items"><span>
 			 T : <a href="../builtin.html#name-error">error</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-Reader" data-popularity="1325">	<input type='checkbox' class="fold" id="Reader-fold-content"><label for="Reader-fold-content"> type <a href="../../src/compress/flate/inflate.go.html#line-261">Reader</a> <b><i>(interface)</i></b></label><span id='Reader-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Reader" data-popularity="1625">	<input type='checkbox' class="fold" id="Reader-fold-content"><label for="Reader-fold-content"> type <a href="../../src/compress/flate/inflate.go.html#line-261">Reader</a> <b><i>(interface)</i></b></label><span id='Reader-fold-content-docs' class="fold-docs">
 		The actual read interface needed by NewReader.
 		If the passed in io.Reader does not also have ReadByte,
 		the NewReader will introduce its own buffering.
@@ -280,14 +280,16 @@
 		<input type='checkbox' class="fold" id="Reader-fold-methods"><label for="Reader-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='Reader-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../src/io/io.go.html#line-84">Read</a>(p []<a href="../builtin.html#name-byte">byte</a>) (n <a href="../builtin.html#name-int">int</a>, err <a href="../builtin.html#name-error">error</a>)</span></span><span>
 			<span class="nodocs">( T) <a href="../../src/io/io.go.html#line-258">ReadByte</a>() (<a href="../builtin.html#name-byte">byte</a>, <a href="../builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="Reader-fold-impledby"><label for="Reader-fold-impledby">Implemented By (<i>at least 7, in which 5 are exported</i>)</label><span id='Reader-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Reader-fold-impledby"><label for="Reader-fold-impledby">Implemented By (<i>at least 9, in which 5 are exported</i>)</label><span id='Reader-fold-impledby-items' class="fold-items"><span>
 			*bufio.<a href="../bufio.html#name-Reader">Reader</a></span><span>
 			 bufio.<a href="../bufio.html#name-ReadWriter">ReadWriter</a></span><span>
 			*bytes.<a href="../bytes.html#name-Buffer">Buffer</a></span><span>
 			*bytes.<a href="../bytes.html#name-Reader">Reader</a></span><span>
 			*strings.<a href="../strings.html#name-Reader">Reader</a></span>
-			<input type='checkbox' class="showhide" id="Reader-showhide-impedBys"><i><label for="Reader-showhide-impedBys" class="show-inline">/* 2+ unexporteds ... */</label><label for="Reader-showhide-impedBys" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Reader-showhide-impedBys"><i><label for="Reader-showhide-impedBys" class="show-inline">/* 4+ unexporteds ... */</label><label for="Reader-showhide-impedBys" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
+			*encoding/gob.<a href="../encoding/gob.html#name-decBuffer">decBuffer</a></i></span><span class="hidden"><i>
 			*encoding/json.<a href="../encoding/json.html#name-encodeState">encodeState</a></i></span><span class="hidden"><i>
+			*github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-ioDecReader">ioDecReader</a></i></span><span class="hidden"><i>
 			 math/big.<a href="../math/big.html#name-byteReader">byteReader</a></i></span></span>
 		<input type='checkbox' class="fold" id="Reader-fold-impls"><label for="Reader-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='Reader-fold-impls-items' class="fold-items"><span>
 			 T : io.<a href="../io.html#name-ByteReader">ByteReader</a></span><span>
@@ -344,7 +346,7 @@
 		<input type='checkbox' class="fold" id="WriteError-fold-impls"><label for="WriteError-fold-impls">Implements (<i>at least one exported</i>)</label><span id='WriteError-fold-impls-items' class="fold-items"><span>
 			*T : <a href="../builtin.html#name-error">error</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-Writer" data-popularity="500">	<input type='checkbox' class="fold" id="Writer-fold-content"><label for="Writer-fold-content"> type <a href="../../src/compress/flate/deflate.go.html#line-704">Writer</a> <i>(struct)</i></label><span id='Writer-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Writer" data-popularity="550">	<input type='checkbox' class="fold" id="Writer-fold-content"><label for="Writer-fold-content"> type <a href="../../src/compress/flate/deflate.go.html#line-704">Writer</a> <i>(struct)</i></label><span id='Writer-fold-content-docs' class="fold-docs">
 		A Writer takes data written to it and writes the compressed
 		form of that data to an underlying writer (see NewWriter).
 
@@ -376,10 +378,12 @@
 				Write writes data to w, which will eventually write the
 				compressed form of data to its underlying writer.
 </span></span></span>
-		<input type='checkbox' class="fold" id="Writer-fold-impls"><label for="Writer-fold-impls">Implements (<i>at least 3, all are exported</i>)</label><span id='Writer-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Writer-fold-impls"><label for="Writer-fold-impls">Implements (<i>at least 4, in which 3 are exported</i>)</label><span id='Writer-fold-impls-items' class="fold-items"><span>
 			*T : io.<a href="../io.html#name-Closer">Closer</a></span><span>
 			*T : io.<a href="../io.html#name-WriteCloser">WriteCloser</a></span><span>
-			*T : io.<a href="../io.html#name-Writer">Writer</a></span></span>
+			*T : io.<a href="../io.html#name-Writer">Writer</a></span>
+			<input type='checkbox' class="showhide" id="Writer-showhide-impls"><i><label for="Writer-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="Writer-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-ioFlusher">ioFlusher</a></i></span></span>
 		<input type='checkbox' class="fold" id="Writer-fold-results"><label for="Writer-fold-results">As Outputs Of (<i>at least 2, both are exported</i>)</label><span id='Writer-fold-results-items' class="fold-items"><span>
 			func <a href="#name-NewWriter">NewWriter</a>(w <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>, level <a href="../builtin.html#name-int">int</a>) (*<b>Writer</b>, <a href="../builtin.html#name-error">error</a>)</span><span>
 			func <a href="#name-NewWriterDict">NewWriterDict</a>(w <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>, level <a href="../builtin.html#name-int">int</a>, dict []<a href="../builtin.html#name-byte">byte</a>) (*<b>Writer</b>, <a href="../builtin.html#name-error">error</a>)</span></span>

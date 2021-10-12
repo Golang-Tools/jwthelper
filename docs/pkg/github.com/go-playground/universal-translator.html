@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Package: github.com/go-playground/universal-translator</title>
+<link href="../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="package-details"><code><span style="font-size:xx-large;">package <b>ut</b></span>
+
+<span class="title">Import Path</span>
+	<a href="../../../index.html#pkg-github.com/go-playground/universal-translator">github.com/go-playground/universal-translator</a><i> (on <a href="https://pkg.go.dev/github.com/go-playground/universal-translator" target="_blank">go.dev</a>)</i>
+
+<span class="title">Dependency Relation</span>
+	imports <a href="../../../dep/github.com/go-playground/universal-translator.html">10 packages</a>, and imported by <a href="../../../dep/github.com/go-playground/universal-translator.html#imported-by">one package</a>
+
+<div id="files"><span class="title">Involved Source Files</span>
+
+	<span class="nodocs">      <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html">errors.go</a></span>
+	<span class="nodocs">      <a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html">import_export.go</a></span>
+	<span class="nodocs">      <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html">translator.go</a></span>
+	<span class="nodocs">      <a href="../../../src/github.com/go-playground/universal-translator/universal_translator.go.html">universal_translator.go</a></span></div>
+<div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 16, in which 13 are exported)</i></span></span>
+
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-ErrBadParamSyntax" data-popularity="100">	<input type='checkbox' class="fold" id="ErrBadParamSyntax-fold-content"><label for="ErrBadParamSyntax-fold-content"> type <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-114">ErrBadParamSyntax</a> <i>(struct)</i></label><span id='ErrBadParamSyntax-fold-content-docs' class="fold-docs">
+		ErrBadParamSyntax is the error representing a bad parameter definition in a translation
+		eg. This is a {must-be-int}
+
+		<input type='checkbox' class="fold" id="ErrBadParamSyntax-fold-fields"><label for="ErrBadParamSyntax-fold-fields">Fields (<i>total 4, none are exported</i>)</label><span id='ErrBadParamSyntax-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ErrBadParamSyntax-showhide-fields"><i><label for="ErrBadParamSyntax-showhide-fields" class="show-inline">/* 4 unexporteds ... */</label><label for="ErrBadParamSyntax-showhide-fields" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-117">key</a> <i>interface{}</i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-115">locale</a> <i><a href="../../builtin.html#name-string">string</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-116">param</a> <i><a href="../../builtin.html#name-string">string</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-118">text</a> <i><a href="../../builtin.html#name-string">string</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="ErrBadParamSyntax-fold-methods"><label for="ErrBadParamSyntax-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ErrBadParamSyntax-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ErrBadParamSyntax-fold-method-Error"><label for="ErrBadParamSyntax-fold-method-Error">(*T) <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-122">Error</a>() <a href="../../builtin.html#name-string">string</a></label><span id='ErrBadParamSyntax-fold-method-Error-docs' class="fold-docs">
+				Error returns ErrBadParamSyntax error message
+</span></span></span>
+		<input type='checkbox' class="fold" id="ErrBadParamSyntax-fold-impls"><label for="ErrBadParamSyntax-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ErrBadParamSyntax-fold-impls-items' class="fold-items"><span>
+			*T : <a href="../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-ErrBadPluralDefinition" data-popularity="100">	<input type='checkbox' class="fold" id="ErrBadPluralDefinition-fold-content"><label for="ErrBadPluralDefinition-fold-content"> type <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-141">ErrBadPluralDefinition</a> <i>(struct)</i></label><span id='ErrBadPluralDefinition-fold-content-docs' class="fold-docs">
+		ErrBadPluralDefinition is the error representing an incorrect plural definition
+		usually found within translations defined within files during the import process.
+
+		<input type='checkbox' class="fold" id="ErrBadPluralDefinition-fold-fields"><label for="ErrBadPluralDefinition-fold-fields">Fields (<i>only one, which is unexported</i>)</label><span id='ErrBadPluralDefinition-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ErrBadPluralDefinition-showhide-fields"><i><label for="ErrBadPluralDefinition-showhide-fields" class="show-inline">/* one unexported ... */</label><label for="ErrBadPluralDefinition-showhide-fields" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-142">tl</a> <i><a href="#name-translation">translation</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="ErrBadPluralDefinition-fold-methods"><label for="ErrBadPluralDefinition-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ErrBadPluralDefinition-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ErrBadPluralDefinition-fold-method-Error"><label for="ErrBadPluralDefinition-fold-method-Error">(*T) <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-146">Error</a>() <a href="../../builtin.html#name-string">string</a></label><span id='ErrBadPluralDefinition-fold-method-Error-docs' class="fold-docs">
+				Error returns ErrBadPluralDefinition's internal error text
+</span></span></span>
+		<input type='checkbox' class="fold" id="ErrBadPluralDefinition-fold-impls"><label for="ErrBadPluralDefinition-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ErrBadPluralDefinition-fold-impls-items' class="fold-items"><span>
+			*T : <a href="../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-ErrCardinalTranslation" data-popularity="100">	<input type='checkbox' class="fold" id="ErrCardinalTranslation-fold-content"><label for="ErrCardinalTranslation-fold-content"> type <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-71">ErrCardinalTranslation</a> <i>(struct)</i></label><span id='ErrCardinalTranslation-fold-content-docs' class="fold-docs">
+		ErrCardinalTranslation is the error representing a cardinal translation error
+
+		<input type='checkbox' class="fold" id="ErrCardinalTranslation-fold-fields"><label for="ErrCardinalTranslation-fold-fields">Fields (<i>only one, which is unexported</i>)</label><span id='ErrCardinalTranslation-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ErrCardinalTranslation-showhide-fields"><i><label for="ErrCardinalTranslation-showhide-fields" class="show-inline">/* one unexported ... */</label><label for="ErrCardinalTranslation-showhide-fields" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-52">text</a> <i><a href="../../builtin.html#name-string">string</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="ErrCardinalTranslation-fold-methods"><label for="ErrCardinalTranslation-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ErrCardinalTranslation-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ErrCardinalTranslation-fold-method-Error"><label for="ErrCardinalTranslation-fold-method-Error">(*T) <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-76">Error</a>() <a href="../../builtin.html#name-string">string</a></label><span id='ErrCardinalTranslation-fold-method-Error-docs' class="fold-docs">
+				Error returns ErrCardinalTranslation's internal error text
+</span></span></span>
+		<input type='checkbox' class="fold" id="ErrCardinalTranslation-fold-impls"><label for="ErrCardinalTranslation-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ErrCardinalTranslation-fold-impls-items' class="fold-items"><span>
+			*T : <a href="../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-ErrConflictingTranslation" data-popularity="100">	<input type='checkbox' class="fold" id="ErrConflictingTranslation-fold-content"><label for="ErrConflictingTranslation-fold-content"> type <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-33">ErrConflictingTranslation</a> <i>(struct)</i></label><span id='ErrConflictingTranslation-fold-content-docs' class="fold-docs">
+		ErrConflictingTranslation is the error representing a conflicting translation
+
+		<input type='checkbox' class="fold" id="ErrConflictingTranslation-fold-fields"><label for="ErrConflictingTranslation-fold-fields">Fields (<i>total 4, none are exported</i>)</label><span id='ErrConflictingTranslation-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ErrConflictingTranslation-showhide-fields"><i><label for="ErrConflictingTranslation-showhide-fields" class="show-inline">/* 4 unexporteds ... */</label><label for="ErrConflictingTranslation-showhide-fields" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-35">key</a> <i>interface{}</i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-34">locale</a> <i><a href="../../builtin.html#name-string">string</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-36">rule</a> <i><a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-37">text</a> <i><a href="../../builtin.html#name-string">string</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="ErrConflictingTranslation-fold-methods"><label for="ErrConflictingTranslation-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ErrConflictingTranslation-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ErrConflictingTranslation-fold-method-Error"><label for="ErrConflictingTranslation-fold-method-Error">(*T) <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-41">Error</a>() <a href="../../builtin.html#name-string">string</a></label><span id='ErrConflictingTranslation-fold-method-Error-docs' class="fold-docs">
+				Error returns ErrConflictingTranslation's internal error text
+</span></span></span>
+		<input type='checkbox' class="fold" id="ErrConflictingTranslation-fold-impls"><label for="ErrConflictingTranslation-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ErrConflictingTranslation-fold-impls-items' class="fold-items"><span>
+			*T : <a href="../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-ErrExistingTranslator" data-popularity="100">	<input type='checkbox' class="fold" id="ErrExistingTranslator-fold-content"><label for="ErrExistingTranslator-fold-content"> type <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-23">ErrExistingTranslator</a> <i>(struct)</i></label><span id='ErrExistingTranslator-fold-content-docs' class="fold-docs">
+		ErrExistingTranslator is the error representing a conflicting translator
+
+		<input type='checkbox' class="fold" id="ErrExistingTranslator-fold-fields"><label for="ErrExistingTranslator-fold-fields">Fields (<i>only one, which is unexported</i>)</label><span id='ErrExistingTranslator-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ErrExistingTranslator-showhide-fields"><i><label for="ErrExistingTranslator-showhide-fields" class="show-inline">/* one unexported ... */</label><label for="ErrExistingTranslator-showhide-fields" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-24">locale</a> <i><a href="../../builtin.html#name-string">string</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="ErrExistingTranslator-fold-methods"><label for="ErrExistingTranslator-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ErrExistingTranslator-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ErrExistingTranslator-fold-method-Error"><label for="ErrExistingTranslator-fold-method-Error">(*T) <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-28">Error</a>() <a href="../../builtin.html#name-string">string</a></label><span id='ErrExistingTranslator-fold-method-Error-docs' class="fold-docs">
+				Error returns ErrExistingTranslator's internal error text
+</span></span></span>
+		<input type='checkbox' class="fold" id="ErrExistingTranslator-fold-impls"><label for="ErrExistingTranslator-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ErrExistingTranslator-fold-impls-items' class="fold-items"><span>
+			*T : <a href="../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-ErrMissingBracket" data-popularity="100">	<input type='checkbox' class="fold" id="ErrMissingBracket-fold-content"><label for="ErrMissingBracket-fold-content"> type <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-101">ErrMissingBracket</a> <i>(struct)</i></label><span id='ErrMissingBracket-fold-content-docs' class="fold-docs">
+		ErrMissingBracket is the error representing a missing bracket in a translation
+		eg. This is a {0 &lt;-- missing ending '}'
+
+		<input type='checkbox' class="fold" id="ErrMissingBracket-fold-fields"><label for="ErrMissingBracket-fold-fields">Fields (<i>total 3, none are exported</i>)</label><span id='ErrMissingBracket-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ErrMissingBracket-showhide-fields"><i><label for="ErrMissingBracket-showhide-fields" class="show-inline">/* 3 unexporteds ... */</label><label for="ErrMissingBracket-showhide-fields" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-103">key</a> <i>interface{}</i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-102">locale</a> <i><a href="../../builtin.html#name-string">string</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-104">text</a> <i><a href="../../builtin.html#name-string">string</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="ErrMissingBracket-fold-methods"><label for="ErrMissingBracket-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ErrMissingBracket-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ErrMissingBracket-fold-method-Error"><label for="ErrMissingBracket-fold-method-Error">(*T) <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-108">Error</a>() <a href="../../builtin.html#name-string">string</a></label><span id='ErrMissingBracket-fold-method-Error-docs' class="fold-docs">
+				Error returns ErrMissingBracket error message
+</span></span></span>
+		<input type='checkbox' class="fold" id="ErrMissingBracket-fold-impls"><label for="ErrMissingBracket-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ErrMissingBracket-fold-impls-items' class="fold-items"><span>
+			*T : <a href="../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-ErrMissingLocale" data-popularity="100">	<input type='checkbox' class="fold" id="ErrMissingLocale-fold-content"><label for="ErrMissingLocale-fold-content"> type <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-130">ErrMissingLocale</a> <i>(struct)</i></label><span id='ErrMissingLocale-fold-content-docs' class="fold-docs">
+		ErrMissingLocale is the error representing an expected locale that could
+		not be found aka locale not registered with the UniversalTranslator Instance
+
+		<input type='checkbox' class="fold" id="ErrMissingLocale-fold-fields"><label for="ErrMissingLocale-fold-fields">Fields (<i>only one, which is unexported</i>)</label><span id='ErrMissingLocale-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ErrMissingLocale-showhide-fields"><i><label for="ErrMissingLocale-showhide-fields" class="show-inline">/* one unexported ... */</label><label for="ErrMissingLocale-showhide-fields" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-24">locale</a> <i><a href="../../builtin.html#name-string">string</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="ErrMissingLocale-fold-methods"><label for="ErrMissingLocale-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ErrMissingLocale-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ErrMissingLocale-fold-method-Error"><label for="ErrMissingLocale-fold-method-Error">(*T) <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-135">Error</a>() <a href="../../builtin.html#name-string">string</a></label><span id='ErrMissingLocale-fold-method-Error-docs' class="fold-docs">
+				Error returns ErrMissingLocale's internal error text
+</span></span></span>
+		<input type='checkbox' class="fold" id="ErrMissingLocale-fold-impls"><label for="ErrMissingLocale-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ErrMissingLocale-fold-impls-items' class="fold-items"><span>
+			*T : <a href="../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-ErrMissingPluralTranslation" data-popularity="100">	<input type='checkbox' class="fold" id="ErrMissingPluralTranslation-fold-content"><label for="ErrMissingPluralTranslation-fold-content"> type <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-82">ErrMissingPluralTranslation</a> <i>(struct)</i></label><span id='ErrMissingPluralTranslation-fold-content-docs' class="fold-docs">
+		ErrMissingPluralTranslation is the error signifying a missing translation given
+		the locales plural rules.
+
+		<input type='checkbox' class="fold" id="ErrMissingPluralTranslation-fold-fields"><label for="ErrMissingPluralTranslation-fold-fields">Fields (<i>total 4, none are exported</i>)</label><span id='ErrMissingPluralTranslation-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ErrMissingPluralTranslation-showhide-fields"><i><label for="ErrMissingPluralTranslation-showhide-fields" class="show-inline">/* 4 unexporteds ... */</label><label for="ErrMissingPluralTranslation-showhide-fields" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-84">key</a> <i>interface{}</i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-83">locale</a> <i><a href="../../builtin.html#name-string">string</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-85">rule</a> <i><a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-86">translationType</a> <i><a href="../../builtin.html#name-string">string</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="ErrMissingPluralTranslation-fold-methods"><label for="ErrMissingPluralTranslation-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ErrMissingPluralTranslation-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ErrMissingPluralTranslation-fold-method-Error"><label for="ErrMissingPluralTranslation-fold-method-Error">(*T) <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-90">Error</a>() <a href="../../builtin.html#name-string">string</a></label><span id='ErrMissingPluralTranslation-fold-method-Error-docs' class="fold-docs">
+				Error returns ErrMissingPluralTranslation's internal error text
+</span></span></span>
+		<input type='checkbox' class="fold" id="ErrMissingPluralTranslation-fold-impls"><label for="ErrMissingPluralTranslation-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ErrMissingPluralTranslation-fold-impls-items' class="fold-items"><span>
+			*T : <a href="../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-ErrOrdinalTranslation" data-popularity="100">	<input type='checkbox' class="fold" id="ErrOrdinalTranslation-fold-content"><label for="ErrOrdinalTranslation-fold-content"> type <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-61">ErrOrdinalTranslation</a> <i>(struct)</i></label><span id='ErrOrdinalTranslation-fold-content-docs' class="fold-docs">
+		ErrOrdinalTranslation is the error representing an ordinal translation error
+
+		<input type='checkbox' class="fold" id="ErrOrdinalTranslation-fold-fields"><label for="ErrOrdinalTranslation-fold-fields">Fields (<i>only one, which is unexported</i>)</label><span id='ErrOrdinalTranslation-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ErrOrdinalTranslation-showhide-fields"><i><label for="ErrOrdinalTranslation-showhide-fields" class="show-inline">/* one unexported ... */</label><label for="ErrOrdinalTranslation-showhide-fields" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-52">text</a> <i><a href="../../builtin.html#name-string">string</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="ErrOrdinalTranslation-fold-methods"><label for="ErrOrdinalTranslation-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ErrOrdinalTranslation-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ErrOrdinalTranslation-fold-method-Error"><label for="ErrOrdinalTranslation-fold-method-Error">(*T) <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-66">Error</a>() <a href="../../builtin.html#name-string">string</a></label><span id='ErrOrdinalTranslation-fold-method-Error-docs' class="fold-docs">
+				Error returns ErrOrdinalTranslation's internal error text
+</span></span></span>
+		<input type='checkbox' class="fold" id="ErrOrdinalTranslation-fold-impls"><label for="ErrOrdinalTranslation-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ErrOrdinalTranslation-fold-impls-items' class="fold-items"><span>
+			*T : <a href="../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-ErrRangeTranslation" data-popularity="100">	<input type='checkbox' class="fold" id="ErrRangeTranslation-fold-content"><label for="ErrRangeTranslation-fold-content"> type <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-51">ErrRangeTranslation</a> <i>(struct)</i></label><span id='ErrRangeTranslation-fold-content-docs' class="fold-docs">
+		ErrRangeTranslation is the error representing a range translation error
+
+		<input type='checkbox' class="fold" id="ErrRangeTranslation-fold-fields"><label for="ErrRangeTranslation-fold-fields">Fields (<i>only one, which is unexported</i>)</label><span id='ErrRangeTranslation-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ErrRangeTranslation-showhide-fields"><i><label for="ErrRangeTranslation-showhide-fields" class="show-inline">/* one unexported ... */</label><label for="ErrRangeTranslation-showhide-fields" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-52">text</a> <i><a href="../../builtin.html#name-string">string</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="ErrRangeTranslation-fold-methods"><label for="ErrRangeTranslation-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ErrRangeTranslation-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ErrRangeTranslation-fold-method-Error"><label for="ErrRangeTranslation-fold-method-Error">(*T) <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-56">Error</a>() <a href="../../builtin.html#name-string">string</a></label><span id='ErrRangeTranslation-fold-method-Error-docs' class="fold-docs">
+				Error returns ErrRangeTranslation's internal error text
+</span></span></span>
+		<input type='checkbox' class="fold" id="ErrRangeTranslation-fold-impls"><label for="ErrRangeTranslation-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ErrRangeTranslation-fold-impls-items' class="fold-items"><span>
+			*T : <a href="../../builtin.html#name-error">error</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-ImportExportFormat" data-popularity="110">	<input type='checkbox' class="fold" id="ImportExportFormat-fold-content"><label for="ImportExportFormat-fold-content"> type <a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-31">ImportExportFormat</a> <a href="../../builtin.html#name-uint8">uint8</a> <i>(basic type)</i></label><span id='ImportExportFormat-fold-content-docs' class="fold-docs">
+		ImportExportFormat is the format of the file import or export
+
+		<input type='checkbox' class="fold" id="ImportExportFormat-fold-params"><label for="ImportExportFormat-fold-params">As Inputs Of (<i>at least 3, all are exported</i>)</label><span id='ImportExportFormat-fold-params-items' class="fold-items"><span>
+			func (*<a href="#name-UniversalTranslator">UniversalTranslator</a>).<a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-41">Export</a>(format <b>ImportExportFormat</b>, dirname <a href="../../builtin.html#name-string">string</a>) <a href="../../builtin.html#name-error">error</a></span><span>
+			func (*<a href="#name-UniversalTranslator">UniversalTranslator</a>).<a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-155">Import</a>(format <b>ImportExportFormat</b>, dirnameOrFilename <a href="../../builtin.html#name-string">string</a>) <a href="../../builtin.html#name-error">error</a></span><span>
+			func (*<a href="#name-UniversalTranslator">UniversalTranslator</a>).<a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-201">ImportByReader</a>(format <b>ImportExportFormat</b>, reader <a href="../../io.html">io</a>.<a href="../../io.html#name-Reader">Reader</a>) <a href="../../builtin.html#name-error">error</a></span></span>
+		<input type='checkbox' class="fold" id="ImportExportFormat-fold-values"><label for="ImportExportFormat-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='ImportExportFormat-fold-values-items' class="fold-items"><span>
+			const <a href="#name-FormatJSON">FormatJSON</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-Translator" data-popularity="2705">	<input type='checkbox' class="fold" id="Translator-fold-content"><label for="Translator-fold-content"> type <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-21">Translator</a> <b><i>(interface)</i></b></label><span id='Translator-fold-content-docs' class="fold-docs">
+		Translator is universal translators
+		translator instance which is a thin wrapper
+		around locales.Translator instance providing
+		some extra functionality
+
+		<input type='checkbox' class="fold" id="Translator-fold-methods"><label for="Translator-fold-methods">Methods (<i>total 42, all are exported</i>)</label><span id='Translator-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-Add"><label for="Translator-fold-method-Add">( T) <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-27">Add</a>(key interface{}, text <a href="../../builtin.html#name-string">string</a>, override <a href="../../builtin.html#name-bool">bool</a>) <a href="../../builtin.html#name-error">error</a></label><span id='Translator-fold-method-Add-docs' class="fold-docs">
+				adds a normal translation for a particular language/locale
+				{#} is the only replacement type accepted and are ad infinitum
+				eg. one: '{0} day left' other: '{0} days left'
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-AddCardinal"><label for="Translator-fold-method-AddCardinal">( T) <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-34">AddCardinal</a>(key interface{}, text <a href="../../builtin.html#name-string">string</a>, rule <a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a>, override <a href="../../builtin.html#name-bool">bool</a>) <a href="../../builtin.html#name-error">error</a></label><span id='Translator-fold-method-AddCardinal-docs' class="fold-docs">
+				adds a cardinal plural translation for a particular language/locale
+				{0} is the only replacement type accepted and only one variable is accepted as
+				multiple cannot be used for a plural rule determination, unless it is a range;
+				see AddRange below.
+				eg. in locale 'en' one: '{0} day left' other: '{0} days left'
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-AddOrdinal"><label for="Translator-fold-method-AddOrdinal">( T) <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-42">AddOrdinal</a>(key interface{}, text <a href="../../builtin.html#name-string">string</a>, rule <a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a>, override <a href="../../builtin.html#name-bool">bool</a>) <a href="../../builtin.html#name-error">error</a></label><span id='Translator-fold-method-AddOrdinal-docs' class="fold-docs">
+				adds an ordinal plural translation for a particular language/locale
+				{0} is the only replacement type accepted and only one variable is accepted as
+				multiple cannot be used for a plural rule determination, unless it is a range;
+				see AddRange below.
+				eg. in locale 'en' one: '{0}st day of spring' other: '{0}nd day of spring'
+				- 1st, 2nd, 3rd...
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-AddRange"><label for="Translator-fold-method-AddRange">( T) <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-47">AddRange</a>(key interface{}, text <a href="../../builtin.html#name-string">string</a>, rule <a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a>, override <a href="../../builtin.html#name-bool">bool</a>) <a href="../../builtin.html#name-error">error</a></label><span id='Translator-fold-method-AddRange-docs' class="fold-docs">
+				adds a range plural translation for a particular language/locale
+				{0} and {1} are the only replacement types accepted and only these are accepted.
+				eg. in locale 'nl' one: '{0}-{1} day left' other: '{0}-{1} days left'
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-C"><label for="Translator-fold-method-C">( T) <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-54">C</a>(key interface{}, num <a href="../../builtin.html#name-float64">float64</a>, digits <a href="../../builtin.html#name-uint64">uint64</a>, param <a href="../../builtin.html#name-string">string</a>) (<a href="../../builtin.html#name-string">string</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='Translator-fold-method-C-docs' class="fold-docs">
+				creates the cardinal translation for the locale given the 'key', 'num' and 'digit' arguments
+				 and param passed in
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-CardinalPluralRule"><label for="Translator-fold-method-CardinalPluralRule">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-66">CardinalPluralRule</a>(num <a href="../../builtin.html#name-float64">float64</a>, v <a href="../../builtin.html#name-uint64">uint64</a>) <a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a></label><span id='Translator-fold-method-CardinalPluralRule-docs' class="fold-docs">
+				returns the cardinal PluralRule given 'num' and digits/precision of 'v' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-FmtAccounting"><label for="Translator-fold-method-FmtAccounting">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-130">FmtAccounting</a>(num <a href="../../builtin.html#name-float64">float64</a>, v <a href="../../builtin.html#name-uint64">uint64</a>, currency <a href="locales/currency.html">currency</a>.<a href="locales/currency.html#name-Type">Type</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-FmtAccounting-docs' class="fold-docs">
+				returns the currency representation of 'num' with digits/precision of 'v' for locale
+				in accounting notation.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-FmtCurrency"><label for="Translator-fold-method-FmtCurrency">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-126">FmtCurrency</a>(num <a href="../../builtin.html#name-float64">float64</a>, v <a href="../../builtin.html#name-uint64">uint64</a>, currency <a href="locales/currency.html">currency</a>.<a href="locales/currency.html#name-Type">Type</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-FmtCurrency-docs' class="fold-docs">
+				returns the currency representation of 'num' with digits/precision of 'v' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-FmtDateFull"><label for="Translator-fold-method-FmtDateFull">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-142">FmtDateFull</a>(t <a href="../../time.html">time</a>.<a href="../../time.html#name-Time">Time</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-FmtDateFull-docs' class="fold-docs">
+				returns the full date representation of 't' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-FmtDateLong"><label for="Translator-fold-method-FmtDateLong">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-139">FmtDateLong</a>(t <a href="../../time.html">time</a>.<a href="../../time.html#name-Time">Time</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-FmtDateLong-docs' class="fold-docs">
+				 returns the long date representation of 't' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-FmtDateMedium"><label for="Translator-fold-method-FmtDateMedium">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-136">FmtDateMedium</a>(t <a href="../../time.html">time</a>.<a href="../../time.html#name-Time">Time</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-FmtDateMedium-docs' class="fold-docs">
+				returns the medium date representation of 't' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-FmtDateShort"><label for="Translator-fold-method-FmtDateShort">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-133">FmtDateShort</a>(t <a href="../../time.html">time</a>.<a href="../../time.html#name-Time">Time</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-FmtDateShort-docs' class="fold-docs">
+				returns the short date representation of 't' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-FmtNumber"><label for="Translator-fold-method-FmtNumber">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-119">FmtNumber</a>(num <a href="../../builtin.html#name-float64">float64</a>, v <a href="../../builtin.html#name-uint64">uint64</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-FmtNumber-docs' class="fold-docs">
+				returns 'num' with digits/precision of 'v' for locale and handles both Whole and Real numbers based on 'v'
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-FmtPercent"><label for="Translator-fold-method-FmtPercent">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-123">FmtPercent</a>(num <a href="../../builtin.html#name-float64">float64</a>, v <a href="../../builtin.html#name-uint64">uint64</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-FmtPercent-docs' class="fold-docs">
+				returns 'num' with digits/precision of 'v' for locale and handles both Whole and Real numbers based on 'v'
+				NOTE: 'num' passed into FmtPercent is assumed to be in percent already
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-FmtTimeFull"><label for="Translator-fold-method-FmtTimeFull">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-154">FmtTimeFull</a>(t <a href="../../time.html">time</a>.<a href="../../time.html#name-Time">Time</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-FmtTimeFull-docs' class="fold-docs">
+				returns the full time representation of 't' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-FmtTimeLong"><label for="Translator-fold-method-FmtTimeLong">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-151">FmtTimeLong</a>(t <a href="../../time.html">time</a>.<a href="../../time.html#name-Time">Time</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-FmtTimeLong-docs' class="fold-docs">
+				returns the long time representation of 't' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-FmtTimeMedium"><label for="Translator-fold-method-FmtTimeMedium">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-148">FmtTimeMedium</a>(t <a href="../../time.html">time</a>.<a href="../../time.html#name-Time">Time</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-FmtTimeMedium-docs' class="fold-docs">
+				returns the medium time representation of 't' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-FmtTimeShort"><label for="Translator-fold-method-FmtTimeShort">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-145">FmtTimeShort</a>(t <a href="../../time.html">time</a>.<a href="../../time.html#name-Time">Time</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-FmtTimeShort-docs' class="fold-docs">
+				returns the short time representation of 't' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-Locale"><label for="Translator-fold-method-Locale">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-51">Locale</a>() <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-Locale-docs' class="fold-docs">
+				Locale returns the string value of the translator
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-MonthAbbreviated"><label for="Translator-fold-method-MonthAbbreviated">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-75">MonthAbbreviated</a>(month <a href="../../time.html">time</a>.<a href="../../time.html#name-Month">Month</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-MonthAbbreviated-docs' class="fold-docs">
+				returns the locales abbreviated month given the 'month' provided
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-MonthNarrow"><label for="Translator-fold-method-MonthNarrow">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-81">MonthNarrow</a>(month <a href="../../time.html">time</a>.<a href="../../time.html#name-Month">Month</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-MonthNarrow-docs' class="fold-docs">
+				returns the locales narrow month given the 'month' provided
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-MonthWide"><label for="Translator-fold-method-MonthWide">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-87">MonthWide</a>(month <a href="../../time.html">time</a>.<a href="../../time.html#name-Month">Month</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-MonthWide-docs' class="fold-docs">
+				returns the locales wide month given the 'month' provided
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-MonthsAbbreviated"><label for="Translator-fold-method-MonthsAbbreviated">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-78">MonthsAbbreviated</a>() []<a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-MonthsAbbreviated-docs' class="fold-docs">
+				returns the locales abbreviated months
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-MonthsNarrow"><label for="Translator-fold-method-MonthsNarrow">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-84">MonthsNarrow</a>() []<a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-MonthsNarrow-docs' class="fold-docs">
+				returns the locales narrow months
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-MonthsWide"><label for="Translator-fold-method-MonthsWide">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-90">MonthsWide</a>() []<a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-MonthsWide-docs' class="fold-docs">
+				returns the locales wide months
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-O"><label for="Translator-fold-method-O">( T) <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-58">O</a>(key interface{}, num <a href="../../builtin.html#name-float64">float64</a>, digits <a href="../../builtin.html#name-uint64">uint64</a>, param <a href="../../builtin.html#name-string">string</a>) (<a href="../../builtin.html#name-string">string</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='Translator-fold-method-O-docs' class="fold-docs">
+				creates the ordinal translation for the locale given the 'key', 'num' and 'digit' arguments
+				and param passed in
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-OrdinalPluralRule"><label for="Translator-fold-method-OrdinalPluralRule">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-69">OrdinalPluralRule</a>(num <a href="../../builtin.html#name-float64">float64</a>, v <a href="../../builtin.html#name-uint64">uint64</a>) <a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a></label><span id='Translator-fold-method-OrdinalPluralRule-docs' class="fold-docs">
+				returns the ordinal PluralRule given 'num' and digits/precision of 'v' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-PluralsCardinal"><label for="Translator-fold-method-PluralsCardinal">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-55">PluralsCardinal</a>() []<a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a></label><span id='Translator-fold-method-PluralsCardinal-docs' class="fold-docs">
+				returns an array of cardinal plural rules associated
+				with this translator
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-PluralsOrdinal"><label for="Translator-fold-method-PluralsOrdinal">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-59">PluralsOrdinal</a>() []<a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a></label><span id='Translator-fold-method-PluralsOrdinal-docs' class="fold-docs">
+				returns an array of ordinal plural rules associated
+				with this translator
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-PluralsRange"><label for="Translator-fold-method-PluralsRange">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-63">PluralsRange</a>() []<a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a></label><span id='Translator-fold-method-PluralsRange-docs' class="fold-docs">
+				returns an array of range plural rules associated
+				with this translator
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-R"><label for="Translator-fold-method-R">( T) <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-62">R</a>(key interface{}, num1 <a href="../../builtin.html#name-float64">float64</a>, digits1 <a href="../../builtin.html#name-uint64">uint64</a>, num2 <a href="../../builtin.html#name-float64">float64</a>, digits2 <a href="../../builtin.html#name-uint64">uint64</a>, param1, param2 <a href="../../builtin.html#name-string">string</a>) (<a href="../../builtin.html#name-string">string</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='Translator-fold-method-R-docs' class="fold-docs">
+				 creates the range translation for the locale given the 'key', 'num1', 'digit1', 'num2' and
+				 'digit2' arguments and 'param1' and 'param2' passed in
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-RangePluralRule"><label for="Translator-fold-method-RangePluralRule">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-72">RangePluralRule</a>(num1 <a href="../../builtin.html#name-float64">float64</a>, v1 <a href="../../builtin.html#name-uint64">uint64</a>, num2 <a href="../../builtin.html#name-float64">float64</a>, v2 <a href="../../builtin.html#name-uint64">uint64</a>) <a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a></label><span id='Translator-fold-method-RangePluralRule-docs' class="fold-docs">
+				returns the ordinal PluralRule given 'num1', 'num2' and digits/precision of 'v1' and 'v2' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-T"><label for="Translator-fold-method-T">( T) <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-50">T</a>(key interface{}, params ...<a href="../../builtin.html#name-string">string</a>) (<a href="../../builtin.html#name-string">string</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='Translator-fold-method-T-docs' class="fold-docs">
+				creates the translation for the locale given the 'key' and params passed in
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-VerifyTranslations"><label for="Translator-fold-method-VerifyTranslations">( T) <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-66">VerifyTranslations</a>() <a href="../../builtin.html#name-error">error</a></label><span id='Translator-fold-method-VerifyTranslations-docs' class="fold-docs">
+				VerifyTranslations checks to ensures that no plural rules have been
+				missed within the translations.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-WeekdayAbbreviated"><label for="Translator-fold-method-WeekdayAbbreviated">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-93">WeekdayAbbreviated</a>(weekday <a href="../../time.html">time</a>.<a href="../../time.html#name-Weekday">Weekday</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-WeekdayAbbreviated-docs' class="fold-docs">
+				returns the locales abbreviated weekday given the 'weekday' provided
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-WeekdayNarrow"><label for="Translator-fold-method-WeekdayNarrow">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-99">WeekdayNarrow</a>(weekday <a href="../../time.html">time</a>.<a href="../../time.html#name-Weekday">Weekday</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-WeekdayNarrow-docs' class="fold-docs">
+				returns the locales narrow weekday given the 'weekday' provided
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-WeekdayShort"><label for="Translator-fold-method-WeekdayShort">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-105">WeekdayShort</a>(weekday <a href="../../time.html">time</a>.<a href="../../time.html#name-Weekday">Weekday</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-WeekdayShort-docs' class="fold-docs">
+				returns the locales short weekday given the 'weekday' provided
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-WeekdayWide"><label for="Translator-fold-method-WeekdayWide">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-111">WeekdayWide</a>(weekday <a href="../../time.html">time</a>.<a href="../../time.html#name-Weekday">Weekday</a>) <a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-WeekdayWide-docs' class="fold-docs">
+				returns the locales wide weekday given the 'weekday' provided
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-WeekdaysAbbreviated"><label for="Translator-fold-method-WeekdaysAbbreviated">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-96">WeekdaysAbbreviated</a>() []<a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-WeekdaysAbbreviated-docs' class="fold-docs">
+				returns the locales abbreviated weekdays
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-WeekdaysNarrow"><label for="Translator-fold-method-WeekdaysNarrow">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-102">WeekdaysNarrow</a>() []<a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-WeekdaysNarrow-docs' class="fold-docs">
+				WeekdaysNarrowreturns the locales narrow weekdays
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-WeekdaysShort"><label for="Translator-fold-method-WeekdaysShort">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-108">WeekdaysShort</a>() []<a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-WeekdaysShort-docs' class="fold-docs">
+				returns the locales short weekdays
+</span></span><span>
+			<input type='checkbox' class="fold" id="Translator-fold-method-WeekdaysWide"><label for="Translator-fold-method-WeekdaysWide">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-114">WeekdaysWide</a>() []<a href="../../builtin.html#name-string">string</a></label><span id='Translator-fold-method-WeekdaysWide-docs' class="fold-docs">
+				returns the locales wide weekdays
+</span></span></span>
+		<input type='checkbox' class="fold" id="Translator-fold-impledby"><label for="Translator-fold-impledby">Implemented By (<i>at least one unexported</i>)</label><span id='Translator-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Translator-showhide-impedBys"><i><label for="Translator-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="Translator-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*<a href="#name-translator">translator</a></i></span></span>
+		<input type='checkbox' class="fold" id="Translator-fold-impls"><label for="Translator-fold-impls">Implements (<i>at least one exported</i>)</label><span id='Translator-fold-impls-items' class="fold-items"><span>
+			 T : github.com/go-playground/locales.<a href="locales.html#name-Translator">Translator</a></span></span>
+		<input type='checkbox' class="fold" id="Translator-fold-results"><label for="Translator-fold-results">As Outputs Of (<i>at least 4, in which 3 are exported</i>)</label><span id='Translator-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-UniversalTranslator">UniversalTranslator</a>).<a href="../../../src/github.com/go-playground/universal-translator/universal_translator.go.html#line-43">FindTranslator</a>(locales ...<a href="../../builtin.html#name-string">string</a>) (trans <b>Translator</b>, found <a href="../../builtin.html#name-bool">bool</a>)</span><span>
+			func (*<a href="#name-UniversalTranslator">UniversalTranslator</a>).<a href="../../../src/github.com/go-playground/universal-translator/universal_translator.go.html#line-67">GetFallback</a>() <b>Translator</b></span><span>
+			func (*<a href="#name-UniversalTranslator">UniversalTranslator</a>).<a href="../../../src/github.com/go-playground/universal-translator/universal_translator.go.html#line-57">GetTranslator</a>(locale <a href="../../builtin.html#name-string">string</a>) (trans <b>Translator</b>, found <a href="../../builtin.html#name-bool">bool</a>)</span>
+			<input type='checkbox' class="showhide" id="Translator-showhide-inputofs"><i><label for="Translator-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="Translator-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func <a href="#name-newTranslator">newTranslator</a>(trans <a href="locales.html">locales</a>.<a href="locales.html#name-Translator">Translator</a>) <b>Translator</b></i></span></span>
+		<input type='checkbox' class="fold" id="Translator-fold-params"><label for="Translator-fold-params">As Inputs Of (<i>at least 3, all are exported</i>)</label><span id='Translator-fold-params-items' class="fold-items"><span>
+			func github.com/go-playground/validator/v10.<a href="validator/v10.html#name-FieldError">FieldError</a>.<a href="../../../src/github.com/go-playground/validator/v10/errors.go.html#line-157">Translate</a>(ut <b>Translator</b>) <a href="../../builtin.html#name-string">string</a></span><span>
+			func github.com/go-playground/validator/v10.(*<a href="validator/v10.html#name-Validate">Validate</a>).<a href="../../../src/github.com/go-playground/validator/v10/validator_instance.go.html#line-255">RegisterTranslation</a>(tag <a href="../../builtin.html#name-string">string</a>, trans <b>Translator</b>, registerFn <a href="validator/v10.html">validator</a>.<a href="validator/v10.html#name-RegisterTranslationsFunc">RegisterTranslationsFunc</a>, translationFn <a href="validator/v10.html">validator</a>.<a href="validator/v10.html#name-TranslationFunc">TranslationFunc</a>) (err <a href="../../builtin.html#name-error">error</a>)</span><span>
+			func github.com/go-playground/validator/v10.<a href="validator/v10.html#name-ValidationErrors">ValidationErrors</a>.<a href="../../../src/github.com/go-playground/validator/v10/errors.go.html#line-60">Translate</a>(ut <b>Translator</b>) <a href="validator/v10.html">validator</a>.<a href="validator/v10.html#name-ValidationErrorsTranslations">ValidationErrorsTranslations</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-UniversalTranslator" data-popularity="475">	<input type='checkbox' class="fold" id="UniversalTranslator-fold-content"><label for="UniversalTranslator-fold-content"> type <a href="../../../src/github.com/go-playground/universal-translator/universal_translator.go.html#line-10">UniversalTranslator</a> <i>(struct)</i></label><span id='UniversalTranslator-fold-content-docs' class="fold-docs">
+		UniversalTranslator holds all locale &amp; translation data
+
+		<input type='checkbox' class="fold" id="UniversalTranslator-fold-fields"><label for="UniversalTranslator-fold-fields">Fields (<i>total 2, neither is exported</i>)</label><span id='UniversalTranslator-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="UniversalTranslator-showhide-fields"><i><label for="UniversalTranslator-showhide-fields" class="show-inline">/* 2 unexporteds ... */</label><label for="UniversalTranslator-showhide-fields" class="hide-inline">/* 2 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/universal_translator.go.html#line-12">fallback</a> <i><a href="#name-Translator">Translator</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/universal_translator.go.html#line-11">translators</a> <i>map[<a href="../../builtin.html#name-string">string</a>]<a href="#name-Translator">Translator</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="UniversalTranslator-fold-methods"><label for="UniversalTranslator-fold-methods">Methods (<i>total 8, all are exported</i>)</label><span id='UniversalTranslator-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="UniversalTranslator-fold-method-AddTranslator"><label for="UniversalTranslator-fold-method-AddTranslator">(*T) <a href="../../../src/github.com/go-playground/universal-translator/universal_translator.go.html#line-75">AddTranslator</a>(translator <a href="locales.html">locales</a>.<a href="locales.html#name-Translator">Translator</a>, override <a href="../../builtin.html#name-bool">bool</a>) <a href="../../builtin.html#name-error">error</a></label><span id='UniversalTranslator-fold-method-AddTranslator-docs' class="fold-docs">
+				AddTranslator adds the supplied translator, if it already exists the override param
+				will be checked and if false an error will be returned, otherwise the translator will be
+				overridden; if the fallback matches the supplied translator it will be overridden as well
+				NOTE: this is normally only used when translator is embedded within a library
+</span></span><span>
+			<input type='checkbox' class="fold" id="UniversalTranslator-fold-method-Export"><label for="UniversalTranslator-fold-method-Export">(*T) <a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-41">Export</a>(format <a href="#name-ImportExportFormat">ImportExportFormat</a>, dirname <a href="../../builtin.html#name-string">string</a>) <a href="../../builtin.html#name-error">error</a></label><span id='UniversalTranslator-fold-method-Export-docs' class="fold-docs">
+				Export writes the translations out to a file on disk.
+
+				NOTE: this currently only works with string or int translations keys.
+</span></span><span>
+			<input type='checkbox' class="fold" id="UniversalTranslator-fold-method-FindTranslator"><label for="UniversalTranslator-fold-method-FindTranslator">(*T) <a href="../../../src/github.com/go-playground/universal-translator/universal_translator.go.html#line-43">FindTranslator</a>(locales ...<a href="../../builtin.html#name-string">string</a>) (trans <a href="#name-Translator">Translator</a>, found <a href="../../builtin.html#name-bool">bool</a>)</label><span id='UniversalTranslator-fold-method-FindTranslator-docs' class="fold-docs">
+				FindTranslator trys to find a Translator based on an array of locales
+				and returns the first one it can find, otherwise returns the
+				fallback translator.
+</span></span><span>
+			<input type='checkbox' class="fold" id="UniversalTranslator-fold-method-GetFallback"><label for="UniversalTranslator-fold-method-GetFallback">(*T) <a href="../../../src/github.com/go-playground/universal-translator/universal_translator.go.html#line-67">GetFallback</a>() <a href="#name-Translator">Translator</a></label><span id='UniversalTranslator-fold-method-GetFallback-docs' class="fold-docs">
+				GetFallback returns the fallback locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="UniversalTranslator-fold-method-GetTranslator"><label for="UniversalTranslator-fold-method-GetTranslator">(*T) <a href="../../../src/github.com/go-playground/universal-translator/universal_translator.go.html#line-57">GetTranslator</a>(locale <a href="../../builtin.html#name-string">string</a>) (trans <a href="#name-Translator">Translator</a>, found <a href="../../builtin.html#name-bool">bool</a>)</label><span id='UniversalTranslator-fold-method-GetTranslator-docs' class="fold-docs">
+				GetTranslator returns the specified translator for the given locale,
+				or fallback if not found
+</span></span><span>
+			<input type='checkbox' class="fold" id="UniversalTranslator-fold-method-Import"><label for="UniversalTranslator-fold-method-Import">(*T) <a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-155">Import</a>(format <a href="#name-ImportExportFormat">ImportExportFormat</a>, dirnameOrFilename <a href="../../builtin.html#name-string">string</a>) <a href="../../builtin.html#name-error">error</a></label><span id='UniversalTranslator-fold-method-Import-docs' class="fold-docs">
+				Import reads the translations out of a file or directory on disk.
+
+				NOTE: this currently only works with string or int translations keys.
+</span></span><span>
+			<input type='checkbox' class="fold" id="UniversalTranslator-fold-method-ImportByReader"><label for="UniversalTranslator-fold-method-ImportByReader">(*T) <a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-201">ImportByReader</a>(format <a href="#name-ImportExportFormat">ImportExportFormat</a>, reader <a href="../../io.html">io</a>.<a href="../../io.html#name-Reader">Reader</a>) <a href="../../builtin.html#name-error">error</a></label><span id='UniversalTranslator-fold-method-ImportByReader-docs' class="fold-docs">
+				ImportByReader imports the the translations found within the contents read from the supplied reader.
+
+				NOTE: generally used when assets have been embedded into the binary and are already in memory.
+</span></span><span>
+			<input type='checkbox' class="fold" id="UniversalTranslator-fold-method-VerifyTranslations"><label for="UniversalTranslator-fold-method-VerifyTranslations">(*T) <a href="../../../src/github.com/go-playground/universal-translator/universal_translator.go.html#line-103">VerifyTranslations</a>() (err <a href="../../builtin.html#name-error">error</a>)</label><span id='UniversalTranslator-fold-method-VerifyTranslations-docs' class="fold-docs">
+				VerifyTranslations runs through all locales and identifies any issues
+				eg. missing plural rules for a locale
+</span></span></span>
+		<input type='checkbox' class="fold" id="UniversalTranslator-fold-results"><label for="UniversalTranslator-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='UniversalTranslator-fold-results-items' class="fold-items"><span>
+			func <a href="#name-New">New</a>(fallback <a href="locales.html">locales</a>.<a href="locales.html#name-Translator">Translator</a>, supportedLocales ...<a href="locales.html">locales</a>.<a href="locales.html#name-Translator">Translator</a>) *<b>UniversalTranslator</b></span></span>
+
+</span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 3 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 3 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-translation" data-popularity="0">	<input type='checkbox' class="fold" id="translation-fold-content"><label for="translation-fold-content"> type <a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-15">translation</a> <i>(struct)</i></label><span id='translation-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="translation-fold-fields"><label for="translation-fold-fields">Fields (<i>total 6, all are exported</i>)</label><span id='translation-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="translation-fold-field-Key"><label for="translation-fold-field-Key"><a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-17">Key</a> <i>interface{}</i></label><span id='translation-fold-field-Key-docs' class="fold-docs">
+				// either string or integer
+</span></span><span>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-16">Locale</a> <i><a href="../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-21">OverrideExisting</a> <i><a href="../../builtin.html#name-bool">bool</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-20">PluralRule</a> <i><a href="../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-19">PluralType</a> <i><a href="../../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-18">Translation</a> <i><a href="../../builtin.html#name-string">string</a></i></span></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-translator" data-popularity="2200">	<input type='checkbox' class="fold" id="translator-fold-content"><label for="translator-fold-content"> type <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-72">translator</a> <i>(struct)</i></label><span id='translator-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="translator-fold-fields"><label for="translator-fold-fields">Fields (<i>total 5, in which 1 are exported</i>)</label><span id='translator-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-73">Translator</a> <i><a href="locales.html">locales</a>.<a href="locales.html#name-Translator">Translator</a></i></span></span>
+			<input type='checkbox' checked class="showhide" id="translator-showhide-fields"><i><label for="translator-showhide-fields" class="show-inline">/* 4 unexporteds ... */</label><label for="translator-showhide-fields" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="translator-fold-field-cardinalTanslations"><label for="translator-fold-field-cardinalTanslations"><a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-75">cardinalTanslations</a> <i>map[interface{}][]*<a href="#name-transText">transText</a></i></label><span id='translator-fold-field-cardinalTanslations-docs' class="fold-docs">
+				// array index is mapped to locales.PluralRule index + the locales.PluralRuleUnknown
+</span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-76">ordinalTanslations</a> <i>map[interface{}][]*<a href="#name-transText">transText</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-77">rangeTanslations</a> <i>map[interface{}][]*<a href="#name-transText">transText</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-74">translations</a> <i>map[interface{}]*<a href="#name-transText">transText</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="translator-fold-methods"><label for="translator-fold-methods">Methods (<i>total 42, all are exported</i>)</label><span id='translator-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-Add"><label for="translator-fold-method-Add">(*T) <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-98">Add</a>(key interface{}, text <a href="../../builtin.html#name-string">string</a>, override <a href="../../builtin.html#name-bool">bool</a>) <a href="../../builtin.html#name-error">error</a></label><span id='translator-fold-method-Add-docs' class="fold-docs">
+				Add adds a normal translation for a particular language/locale
+				{#} is the only replacement type accepted and are ad infinitum
+				eg. one: '{0} day left' other: '{0} days left'
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-AddCardinal"><label for="translator-fold-method-AddCardinal">(*T) <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-138">AddCardinal</a>(key interface{}, text <a href="../../builtin.html#name-string">string</a>, rule <a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a>, override <a href="../../builtin.html#name-bool">bool</a>) <a href="../../builtin.html#name-error">error</a></label><span id='translator-fold-method-AddCardinal-docs' class="fold-docs">
+				AddCardinal adds a cardinal plural translation for a particular language/locale
+				{0} is the only replacement type accepted and only one variable is accepted as
+				multiple cannot be used for a plural rule determination, unless it is a range;
+				see AddRange below.
+				eg. in locale 'en' one: '{0} day left' other: '{0} days left'
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-AddOrdinal"><label for="translator-fold-method-AddOrdinal">(*T) <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-190">AddOrdinal</a>(key interface{}, text <a href="../../builtin.html#name-string">string</a>, rule <a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a>, override <a href="../../builtin.html#name-bool">bool</a>) <a href="../../builtin.html#name-error">error</a></label><span id='translator-fold-method-AddOrdinal-docs' class="fold-docs">
+				AddOrdinal adds an ordinal plural translation for a particular language/locale
+				{0} is the only replacement type accepted and only one variable is accepted as
+				multiple cannot be used for a plural rule determination, unless it is a range;
+				see AddRange below.
+				eg. in locale 'en' one: '{0}st day of spring' other: '{0}nd day of spring' - 1st, 2nd, 3rd...
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-AddRange"><label for="translator-fold-method-AddRange">(*T) <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-240">AddRange</a>(key interface{}, text <a href="../../builtin.html#name-string">string</a>, rule <a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a>, override <a href="../../builtin.html#name-bool">bool</a>) <a href="../../builtin.html#name-error">error</a></label><span id='translator-fold-method-AddRange-docs' class="fold-docs">
+				AddRange adds a range plural translation for a particular language/locale
+				{0} and {1} are the only replacement types accepted and only these are accepted.
+				eg. in locale 'nl' one: '{0}-{1} day left' other: '{0}-{1} days left'
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-C"><label for="translator-fold-method-C">(*T) <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-323">C</a>(key interface{}, num <a href="../../builtin.html#name-float64">float64</a>, digits <a href="../../builtin.html#name-uint64">uint64</a>, param <a href="../../builtin.html#name-string">string</a>) (<a href="../../builtin.html#name-string">string</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='translator-fold-method-C-docs' class="fold-docs">
+				C creates the cardinal translation for the locale given the 'key', 'num' and 'digit' arguments and param passed in
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-CardinalPluralRule"><label for="translator-fold-method-CardinalPluralRule">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-66">CardinalPluralRule</a>(num <a href="../../builtin.html#name-float64">float64</a>, v <a href="../../builtin.html#name-uint64">uint64</a>) <a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a></label><span id='translator-fold-method-CardinalPluralRule-docs' class="fold-docs">
+				returns the cardinal PluralRule given 'num' and digits/precision of 'v' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-FmtAccounting"><label for="translator-fold-method-FmtAccounting">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-130">FmtAccounting</a>(num <a href="../../builtin.html#name-float64">float64</a>, v <a href="../../builtin.html#name-uint64">uint64</a>, currency <a href="locales/currency.html">currency</a>.<a href="locales/currency.html#name-Type">Type</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-FmtAccounting-docs' class="fold-docs">
+				returns the currency representation of 'num' with digits/precision of 'v' for locale
+				in accounting notation.
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-FmtCurrency"><label for="translator-fold-method-FmtCurrency">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-126">FmtCurrency</a>(num <a href="../../builtin.html#name-float64">float64</a>, v <a href="../../builtin.html#name-uint64">uint64</a>, currency <a href="locales/currency.html">currency</a>.<a href="locales/currency.html#name-Type">Type</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-FmtCurrency-docs' class="fold-docs">
+				returns the currency representation of 'num' with digits/precision of 'v' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-FmtDateFull"><label for="translator-fold-method-FmtDateFull">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-142">FmtDateFull</a>(t <a href="../../time.html">time</a>.<a href="../../time.html#name-Time">Time</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-FmtDateFull-docs' class="fold-docs">
+				returns the full date representation of 't' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-FmtDateLong"><label for="translator-fold-method-FmtDateLong">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-139">FmtDateLong</a>(t <a href="../../time.html">time</a>.<a href="../../time.html#name-Time">Time</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-FmtDateLong-docs' class="fold-docs">
+				 returns the long date representation of 't' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-FmtDateMedium"><label for="translator-fold-method-FmtDateMedium">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-136">FmtDateMedium</a>(t <a href="../../time.html">time</a>.<a href="../../time.html#name-Time">Time</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-FmtDateMedium-docs' class="fold-docs">
+				returns the medium date representation of 't' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-FmtDateShort"><label for="translator-fold-method-FmtDateShort">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-133">FmtDateShort</a>(t <a href="../../time.html">time</a>.<a href="../../time.html#name-Time">Time</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-FmtDateShort-docs' class="fold-docs">
+				returns the short date representation of 't' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-FmtNumber"><label for="translator-fold-method-FmtNumber">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-119">FmtNumber</a>(num <a href="../../builtin.html#name-float64">float64</a>, v <a href="../../builtin.html#name-uint64">uint64</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-FmtNumber-docs' class="fold-docs">
+				returns 'num' with digits/precision of 'v' for locale and handles both Whole and Real numbers based on 'v'
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-FmtPercent"><label for="translator-fold-method-FmtPercent">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-123">FmtPercent</a>(num <a href="../../builtin.html#name-float64">float64</a>, v <a href="../../builtin.html#name-uint64">uint64</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-FmtPercent-docs' class="fold-docs">
+				returns 'num' with digits/precision of 'v' for locale and handles both Whole and Real numbers based on 'v'
+				NOTE: 'num' passed into FmtPercent is assumed to be in percent already
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-FmtTimeFull"><label for="translator-fold-method-FmtTimeFull">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-154">FmtTimeFull</a>(t <a href="../../time.html">time</a>.<a href="../../time.html#name-Time">Time</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-FmtTimeFull-docs' class="fold-docs">
+				returns the full time representation of 't' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-FmtTimeLong"><label for="translator-fold-method-FmtTimeLong">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-151">FmtTimeLong</a>(t <a href="../../time.html">time</a>.<a href="../../time.html#name-Time">Time</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-FmtTimeLong-docs' class="fold-docs">
+				returns the long time representation of 't' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-FmtTimeMedium"><label for="translator-fold-method-FmtTimeMedium">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-148">FmtTimeMedium</a>(t <a href="../../time.html">time</a>.<a href="../../time.html#name-Time">Time</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-FmtTimeMedium-docs' class="fold-docs">
+				returns the medium time representation of 't' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-FmtTimeShort"><label for="translator-fold-method-FmtTimeShort">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-145">FmtTimeShort</a>(t <a href="../../time.html">time</a>.<a href="../../time.html#name-Time">Time</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-FmtTimeShort-docs' class="fold-docs">
+				returns the short time representation of 't' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-Locale"><label for="translator-fold-method-Locale">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-51">Locale</a>() <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-Locale-docs' class="fold-docs">
+				Locale returns the string value of the translator
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-MonthAbbreviated"><label for="translator-fold-method-MonthAbbreviated">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-75">MonthAbbreviated</a>(month <a href="../../time.html">time</a>.<a href="../../time.html#name-Month">Month</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-MonthAbbreviated-docs' class="fold-docs">
+				returns the locales abbreviated month given the 'month' provided
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-MonthNarrow"><label for="translator-fold-method-MonthNarrow">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-81">MonthNarrow</a>(month <a href="../../time.html">time</a>.<a href="../../time.html#name-Month">Month</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-MonthNarrow-docs' class="fold-docs">
+				returns the locales narrow month given the 'month' provided
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-MonthWide"><label for="translator-fold-method-MonthWide">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-87">MonthWide</a>(month <a href="../../time.html">time</a>.<a href="../../time.html#name-Month">Month</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-MonthWide-docs' class="fold-docs">
+				returns the locales wide month given the 'month' provided
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-MonthsAbbreviated"><label for="translator-fold-method-MonthsAbbreviated">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-78">MonthsAbbreviated</a>() []<a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-MonthsAbbreviated-docs' class="fold-docs">
+				returns the locales abbreviated months
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-MonthsNarrow"><label for="translator-fold-method-MonthsNarrow">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-84">MonthsNarrow</a>() []<a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-MonthsNarrow-docs' class="fold-docs">
+				returns the locales narrow months
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-MonthsWide"><label for="translator-fold-method-MonthsWide">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-90">MonthsWide</a>() []<a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-MonthsWide-docs' class="fold-docs">
+				returns the locales wide months
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-O"><label for="translator-fold-method-O">(*T) <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-343">O</a>(key interface{}, num <a href="../../builtin.html#name-float64">float64</a>, digits <a href="../../builtin.html#name-uint64">uint64</a>, param <a href="../../builtin.html#name-string">string</a>) (<a href="../../builtin.html#name-string">string</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='translator-fold-method-O-docs' class="fold-docs">
+				O creates the ordinal translation for the locale given the 'key', 'num' and 'digit' arguments and param passed in
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-OrdinalPluralRule"><label for="translator-fold-method-OrdinalPluralRule">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-69">OrdinalPluralRule</a>(num <a href="../../builtin.html#name-float64">float64</a>, v <a href="../../builtin.html#name-uint64">uint64</a>) <a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a></label><span id='translator-fold-method-OrdinalPluralRule-docs' class="fold-docs">
+				returns the ordinal PluralRule given 'num' and digits/precision of 'v' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-PluralsCardinal"><label for="translator-fold-method-PluralsCardinal">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-55">PluralsCardinal</a>() []<a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a></label><span id='translator-fold-method-PluralsCardinal-docs' class="fold-docs">
+				returns an array of cardinal plural rules associated
+				with this translator
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-PluralsOrdinal"><label for="translator-fold-method-PluralsOrdinal">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-59">PluralsOrdinal</a>() []<a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a></label><span id='translator-fold-method-PluralsOrdinal-docs' class="fold-docs">
+				returns an array of ordinal plural rules associated
+				with this translator
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-PluralsRange"><label for="translator-fold-method-PluralsRange">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-63">PluralsRange</a>() []<a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a></label><span id='translator-fold-method-PluralsRange-docs' class="fold-docs">
+				returns an array of range plural rules associated
+				with this translator
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-R"><label for="translator-fold-method-R">(*T) <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-364">R</a>(key interface{}, num1 <a href="../../builtin.html#name-float64">float64</a>, digits1 <a href="../../builtin.html#name-uint64">uint64</a>, num2 <a href="../../builtin.html#name-float64">float64</a>, digits2 <a href="../../builtin.html#name-uint64">uint64</a>, param1, param2 <a href="../../builtin.html#name-string">string</a>) (<a href="../../builtin.html#name-string">string</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='translator-fold-method-R-docs' class="fold-docs">
+				R creates the range translation for the locale given the 'key', 'num1', 'digit1', 'num2' and 'digit2' arguments
+				and 'param1' and 'param2' passed in
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-RangePluralRule"><label for="translator-fold-method-RangePluralRule">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-72">RangePluralRule</a>(num1 <a href="../../builtin.html#name-float64">float64</a>, v1 <a href="../../builtin.html#name-uint64">uint64</a>, num2 <a href="../../builtin.html#name-float64">float64</a>, v2 <a href="../../builtin.html#name-uint64">uint64</a>) <a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a></label><span id='translator-fold-method-RangePluralRule-docs' class="fold-docs">
+				returns the ordinal PluralRule given 'num1', 'num2' and digits/precision of 'v1' and 'v2' for locale
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-T"><label for="translator-fold-method-T">(*T) <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-297">T</a>(key interface{}, params ...<a href="../../builtin.html#name-string">string</a>) (<a href="../../builtin.html#name-string">string</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='translator-fold-method-T-docs' class="fold-docs">
+				T creates the translation for the locale given the 'key' and params passed in
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-VerifyTranslations"><label for="translator-fold-method-VerifyTranslations">(*T) <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-387">VerifyTranslations</a>() <a href="../../builtin.html#name-error">error</a></label><span id='translator-fold-method-VerifyTranslations-docs' class="fold-docs">
+				VerifyTranslations checks to ensures that no plural rules have been
+				missed within the translations.
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-WeekdayAbbreviated"><label for="translator-fold-method-WeekdayAbbreviated">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-93">WeekdayAbbreviated</a>(weekday <a href="../../time.html">time</a>.<a href="../../time.html#name-Weekday">Weekday</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-WeekdayAbbreviated-docs' class="fold-docs">
+				returns the locales abbreviated weekday given the 'weekday' provided
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-WeekdayNarrow"><label for="translator-fold-method-WeekdayNarrow">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-99">WeekdayNarrow</a>(weekday <a href="../../time.html">time</a>.<a href="../../time.html#name-Weekday">Weekday</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-WeekdayNarrow-docs' class="fold-docs">
+				returns the locales narrow weekday given the 'weekday' provided
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-WeekdayShort"><label for="translator-fold-method-WeekdayShort">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-105">WeekdayShort</a>(weekday <a href="../../time.html">time</a>.<a href="../../time.html#name-Weekday">Weekday</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-WeekdayShort-docs' class="fold-docs">
+				returns the locales short weekday given the 'weekday' provided
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-WeekdayWide"><label for="translator-fold-method-WeekdayWide">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-111">WeekdayWide</a>(weekday <a href="../../time.html">time</a>.<a href="../../time.html#name-Weekday">Weekday</a>) <a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-WeekdayWide-docs' class="fold-docs">
+				returns the locales wide weekday given the 'weekday' provided
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-WeekdaysAbbreviated"><label for="translator-fold-method-WeekdaysAbbreviated">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-96">WeekdaysAbbreviated</a>() []<a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-WeekdaysAbbreviated-docs' class="fold-docs">
+				returns the locales abbreviated weekdays
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-WeekdaysNarrow"><label for="translator-fold-method-WeekdaysNarrow">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-102">WeekdaysNarrow</a>() []<a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-WeekdaysNarrow-docs' class="fold-docs">
+				WeekdaysNarrowreturns the locales narrow weekdays
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-WeekdaysShort"><label for="translator-fold-method-WeekdaysShort">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-108">WeekdaysShort</a>() []<a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-WeekdaysShort-docs' class="fold-docs">
+				returns the locales short weekdays
+</span></span><span>
+			<input type='checkbox' class="fold" id="translator-fold-method-WeekdaysWide"><label for="translator-fold-method-WeekdaysWide">( T) <a href="../../../src/github.com/go-playground/locales/rules.go.html#line-114">WeekdaysWide</a>() []<a href="../../builtin.html#name-string">string</a></label><span id='translator-fold-method-WeekdaysWide-docs' class="fold-docs">
+				returns the locales wide weekdays
+</span></span></span>
+		<input type='checkbox' class="fold" id="translator-fold-impls"><label for="translator-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='translator-fold-impls-items' class="fold-items"><span>
+			*T : <a href="#name-Translator">Translator</a></span><span>
+			 T : github.com/go-playground/locales.<a href="locales.html#name-Translator">Translator</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-transText" data-popularity="0">	<input type='checkbox' class="fold" id="transText-fold-content"><label for="transText-fold-content"> type <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-80">transText</a> <i>(struct)</i></label><span id='transText-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="transText-fold-fields"><label for="transText-fold-fields">Fields (<i>total 2, neither is exported</i>)</label><span id='transText-fold-fields-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="transText-showhide-fields"><i><label for="transText-showhide-fields" class="show-inline">/* 2 unexporteds ... */</label><label for="transText-showhide-fields" class="hide-inline">/* 2 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-82">indexes</a> <i>[]<a href="../../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-81">text</a> <i><a href="../../builtin.html#name-string">string</a></i></span></i></span></span>
+
+</span></div></div>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 3, in which 1 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-New">	<input type='checkbox' class="fold" id="New-fold-content"><label for="New-fold-content"> func <a href="../../../src/github.com/go-playground/universal-translator/universal_translator.go.html#line-17">New</a>(fallback <a href="locales.html">locales</a>.<a href="locales.html#name-Translator">Translator</a>, supportedLocales ...<a href="locales.html">locales</a>.<a href="locales.html#name-Translator">Translator</a>) *<a href="#name-UniversalTranslator">UniversalTranslator</a></label><span id='New-fold-content-docs' class="fold-docs">
+		New returns a new UniversalTranslator instance set with
+		the fallback locale and locales it should support
+
+</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 2 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 2 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-newTranslator"><i>	<span class="nodocs"> func <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-85">newTranslator</a>(trans <a href="locales.html">locales</a>.<a href="locales.html#name-Translator">Translator</a>) <a href="#name-Translator">Translator</a></span></i></div><div class="anchor value-res hidden" id="name-stringToPR"><i>	<span class="nodocs"> func <a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-257">stringToPR</a>(s <a href="../../builtin.html#name-string">string</a>) <a href="locales.html">locales</a>.<a href="locales.html#name-PluralRule">PluralRule</a></span></i></div></div>
+<div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (only one, which is exported)</i></span></span>
+
+<div class="anchor value-res" id="name-ErrUnknowTranslation">	<input type='checkbox' class="fold" id="ErrUnknowTranslation-fold-content"><label for="ErrUnknowTranslation-fold-content">  var <a href="../../../src/github.com/go-playground/universal-translator/errors.go.html#line-12">ErrUnknowTranslation</a> <a href="../../builtin.html#name-error">error</a></label><span id='ErrUnknowTranslation-fold-content-docs' class="fold-docs">
+		ErrUnknowTranslation indicates the translation could not be found
+
+</span></div></div>
+<div id="exported-constants"><span class="title">Package-Level Constants<span class="title-stat"><i> (total 7, in which 1 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-FormatJSON">	<input type='checkbox' class="fold" id="FormatJSON-fold-content"><label for="FormatJSON-fold-content">const <a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-35">FormatJSON</a> <a href="#name-ImportExportFormat">ImportExportFormat</a> = 0</label><span id='FormatJSON-fold-content-docs' class="fold-docs">
+		supported Export Formats
+
+</span></div>	<input type='checkbox' class="showhide" id="unexported-constants-showhide"><i><label for="unexported-constants-showhide" class="show-inline">/* 6 unexporteds ... */</label><label for="unexported-constants-showhide" class="hide-inline">/* 6 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-cardinalType"><i>	<span class="nodocs">const <a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-25">cardinalType</a> = "Cardinal"</span></i></div><div class="anchor value-res hidden" id="name-ordinalType"><i>	<span class="nodocs">const <a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-26">ordinalType</a> = "Ordinal"</span></i></div><div class="anchor value-res hidden" id="name-paramOne"><i>	<span class="nodocs">const <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-13">paramOne</a> = "{1}"</span></i></div><div class="anchor value-res hidden" id="name-paramZero"><i>	<span class="nodocs">const <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-12">paramZero</a> = "{0}"</span></i></div><div class="anchor value-res hidden" id="name-rangeType"><i>	<span class="nodocs">const <a href="../../../src/github.com/go-playground/universal-translator/import_export.go.html#line-27">rangeType</a> = "Range"</span></i></div><div class="anchor value-res hidden" id="name-unknownTranslation"><i>	<span class="nodocs">const <a href="../../../src/github.com/go-playground/universal-translator/translator.go.html#line-14">unknownTranslation</a> = ""</span></i></div></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

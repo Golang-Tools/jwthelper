@@ -317,7 +317,7 @@ input[id=i5]:checked ~pre .i5
 <span class="codeline" id="line-205"><code><span class="comment">// writer returns an error, Flush returns that error.</span></code></span>
 <span class="codeline" id="line-206"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-207"><code><span class="comment">// In the terminology of the zlib library, Flush is equivalent to Z_SYNC_FLUSH.</span></code></span>
-<span class="codeline" id="line-208"><code><span class="keyword">func</span> (<label for="r35" class="ident">z</label> *<a href="#line-28" class="ident">Writer</a>) <label for="r36" class="ident">Flush</label>() <a href="../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-208"><code><span class="keyword">func</span> (<label for="r35" class="ident">z</label> *<a href="#line-28" class="ident">Writer</a>) <label for="r36" class="ident"><a href="../../../imp/compress/gzip.Writer.html#name-.Flush" class="ident">Flush</a></label>() <a href="../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
 <span class="codeline" id="line-209"><code>	<span class="keyword">if</span> <label for="r35" class="ident">z</label>.<a href="#line-38" class="ident">err</a> != <a href="../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-210"><code>		<span class="keyword">return</span> <label for="r35" class="ident">z</label>.<a href="#line-38" class="ident">err</a></code></span>
 <span class="codeline" id="line-211"><code>	}</code></span>

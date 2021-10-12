@@ -15,7 +15,7 @@
 	<a href="../index.html#pkg-io">io</a><i> (on <a href="https://pkg.go.dev/io" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../dep/io.html">2 packages</a>, and imported by <a href="../dep/io.html#imported-by">80 packages</a>
+	imports <a href="../dep/io.html">2 packages</a>, and imported by <a href="../dep/io.html#imported-by">90 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -399,7 +399,7 @@
 </div>
 <div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 34, in which 26 are exported)</i></span></span>
 
-<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-ByteReader" data-popularity="1470">	<input type='checkbox' class="fold" id="ByteReader-fold-content"><label for="ByteReader-fold-content"> type <a href="../src/io/io.go.html#line-257">ByteReader</a> <b><i>(interface)</i></b></label><span id='ByteReader-fold-content-docs' class="fold-docs">
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-ByteReader" data-popularity="1770">	<input type='checkbox' class="fold" id="ByteReader-fold-content"><label for="ByteReader-fold-content"> type <a href="../src/io/io.go.html#line-257">ByteReader</a> <b><i>(interface)</i></b></label><span id='ByteReader-fold-content-docs' class="fold-docs">
 		ByteReader is the interface that wraps the ReadByte method.
 
 		ReadByte reads and returns the next byte from the input or
@@ -412,7 +412,7 @@
 
 		<input type='checkbox' class="fold" id="ByteReader-fold-methods"><label for="ByteReader-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ByteReader-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-258">ReadByte</a>() (<a href="builtin.html#name-byte">byte</a>, <a href="builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="ByteReader-fold-impledby"><label for="ByteReader-fold-impledby">Implemented By (<i>at least 9, in which 7 are exported</i>)</label><span id='ByteReader-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="ByteReader-fold-impledby"><label for="ByteReader-fold-impledby">Implemented By (<i>at least 11, in which 7 are exported</i>)</label><span id='ByteReader-fold-impledby-items' class="fold-items"><span>
 			 <a href="#name-ByteScanner">ByteScanner</a> <i>(interface)</i></span><span>
 			*bufio.<a href="bufio.html#name-Reader">Reader</a></span><span>
 			 bufio.<a href="bufio.html#name-ReadWriter">ReadWriter</a></span><span>
@@ -420,14 +420,16 @@
 			*bytes.<a href="bytes.html#name-Reader">Reader</a></span><span>
 			 compress/flate.<a href="compress/flate.html#name-Reader">Reader</a> <i>(interface)</i></span><span>
 			*strings.<a href="strings.html#name-Reader">Reader</a></span>
-			<input type='checkbox' class="showhide" id="ByteReader-showhide-impedBys"><i><label for="ByteReader-showhide-impedBys" class="show-inline">/* 2+ unexporteds ... */</label><label for="ByteReader-showhide-impedBys" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="ByteReader-showhide-impedBys"><i><label for="ByteReader-showhide-impedBys" class="show-inline">/* 4+ unexporteds ... */</label><label for="ByteReader-showhide-impedBys" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
+			*encoding/gob.<a href="encoding/gob.html#name-decBuffer">decBuffer</a></i></span><span class="hidden"><i>
 			*encoding/json.<a href="encoding/json.html#name-encodeState">encodeState</a></i></span><span class="hidden"><i>
+			*github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-ioDecReader">ioDecReader</a></i></span><span class="hidden"><i>
 			 math/big.<a href="math/big.html#name-byteReader">byteReader</a></i></span></span>
 		<input type='checkbox' class="fold" id="ByteReader-fold-params"><label for="ByteReader-fold-params">As Inputs Of (<i>at least 2, both are exported</i>)</label><span id='ByteReader-fold-params-items' class="fold-items"><span>
 			func encoding/binary.<a href="encoding/binary.html#name-ReadUvarint">ReadUvarint</a>(r <b>ByteReader</b>) (<a href="builtin.html#name-uint64">uint64</a>, <a href="builtin.html#name-error">error</a>)</span><span>
 			func encoding/binary.<a href="encoding/binary.html#name-ReadVarint">ReadVarint</a>(r <b>ByteReader</b>) (<a href="builtin.html#name-int64">int64</a>, <a href="builtin.html#name-error">error</a>)</span></span>
 
-</span></div><div class="anchor type-res" id="name-ByteScanner" data-popularity="1375">	<input type='checkbox' class="fold" id="ByteScanner-fold-content"><label for="ByteScanner-fold-content"> type <a href="../src/io/io.go.html#line-268">ByteScanner</a> <b><i>(interface)</i></b></label><span id='ByteScanner-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-ByteScanner" data-popularity="1525">	<input type='checkbox' class="fold" id="ByteScanner-fold-content"><label for="ByteScanner-fold-content"> type <a href="../src/io/io.go.html#line-268">ByteScanner</a> <b><i>(interface)</i></b></label><span id='ByteScanner-fold-content-docs' class="fold-docs">
 		ByteScanner is the interface that adds the UnreadByte method to the
 		basic ReadByte method.
 
@@ -439,14 +441,15 @@
 		<input type='checkbox' class="fold" id="ByteScanner-fold-methods"><label for="ByteScanner-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='ByteScanner-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-258">ReadByte</a>() (<a href="builtin.html#name-byte">byte</a>, <a href="builtin.html#name-error">error</a>)</span></span><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-270">UnreadByte</a>() <a href="builtin.html#name-error">error</a></span></span></span>
-		<input type='checkbox' class="fold" id="ByteScanner-fold-impledby"><label for="ByteScanner-fold-impledby">Implemented By (<i>at least 7, in which 5 are exported</i>)</label><span id='ByteScanner-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="ByteScanner-fold-impledby"><label for="ByteScanner-fold-impledby">Implemented By (<i>at least 8, in which 5 are exported</i>)</label><span id='ByteScanner-fold-impledby-items' class="fold-items"><span>
 			*bufio.<a href="bufio.html#name-Reader">Reader</a></span><span>
 			 bufio.<a href="bufio.html#name-ReadWriter">ReadWriter</a></span><span>
 			*bytes.<a href="bytes.html#name-Buffer">Buffer</a></span><span>
 			*bytes.<a href="bytes.html#name-Reader">Reader</a></span><span>
 			*strings.<a href="strings.html#name-Reader">Reader</a></span>
-			<input type='checkbox' class="showhide" id="ByteScanner-showhide-impedBys"><i><label for="ByteScanner-showhide-impedBys" class="show-inline">/* 2+ unexporteds ... */</label><label for="ByteScanner-showhide-impedBys" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="ByteScanner-showhide-impedBys"><i><label for="ByteScanner-showhide-impedBys" class="show-inline">/* 3+ unexporteds ... */</label><label for="ByteScanner-showhide-impedBys" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*encoding/json.<a href="encoding/json.html#name-encodeState">encodeState</a></i></span><span class="hidden"><i>
+			*github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-ioDecReader">ioDecReader</a></i></span><span class="hidden"><i>
 			 math/big.<a href="math/big.html#name-byteReader">byteReader</a></i></span></span>
 		<input type='checkbox' class="fold" id="ByteScanner-fold-impls"><label for="ByteScanner-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ByteScanner-fold-impls-items' class="fold-items"><span>
 			 T : <a href="#name-ByteReader">ByteReader</a></span></span>
@@ -458,22 +461,23 @@
 			func math/big.(*<a href="math/big.html#name-Int">Int</a>).<a href="../src/math/big/intconv.go.html#line-182">scan</a>(r <b>ByteScanner</b>, base <a href="builtin.html#name-int">int</a>) (*<a href="math/big.html">big</a>.<a href="math/big.html#name-Int">Int</a>, <a href="builtin.html#name-int">int</a>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func math/big.(*<a href="math/big.html#name-Int">Int</a>).<a href="../src/math/big/int.go.html#line-430">setFromScanner</a>(r <b>ByteScanner</b>, base <a href="builtin.html#name-int">int</a>) (*<a href="math/big.html">big</a>.<a href="math/big.html#name-Int">Int</a>, <a href="builtin.html#name-bool">bool</a>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-ByteWriter" data-popularity="1100">	<input type='checkbox' class="fold" id="ByteWriter-fold-content"><label for="ByteWriter-fold-content"> type <a href="../src/io/io.go.html#line-274">ByteWriter</a> <b><i>(interface)</i></b></label><span id='ByteWriter-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-ByteWriter" data-popularity="1250">	<input type='checkbox' class="fold" id="ByteWriter-fold-content"><label for="ByteWriter-fold-content"> type <a href="../src/io/io.go.html#line-274">ByteWriter</a> <b><i>(interface)</i></b></label><span id='ByteWriter-fold-content-docs' class="fold-docs">
 		ByteWriter is the interface that wraps the WriteByte method.
 
 		<input type='checkbox' class="fold" id="ByteWriter-fold-methods"><label for="ByteWriter-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ByteWriter-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-275">WriteByte</a>(c <a href="builtin.html#name-byte">byte</a>) <a href="builtin.html#name-error">error</a></span></span></span>
-		<input type='checkbox' class="fold" id="ByteWriter-fold-impledby"><label for="ByteWriter-fold-impledby">Implemented By (<i>at least 7, in which 5 are exported</i>)</label><span id='ByteWriter-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="ByteWriter-fold-impledby"><label for="ByteWriter-fold-impledby">Implemented By (<i>at least 8, in which 5 are exported</i>)</label><span id='ByteWriter-fold-impledby-items' class="fold-items"><span>
 			 bufio.<a href="bufio.html#name-ReadWriter">ReadWriter</a></span><span>
 			*bufio.<a href="bufio.html#name-Writer">Writer</a></span><span>
 			*bytes.<a href="bytes.html#name-Buffer">Buffer</a></span><span>
 			 net/http/internal.<a href="net/http/internal.html#name-FlushAfterChunkWriter">FlushAfterChunkWriter</a></span><span>
 			*strings.<a href="strings.html#name-Builder">Builder</a></span>
-			<input type='checkbox' class="showhide" id="ByteWriter-showhide-impedBys"><i><label for="ByteWriter-showhide-impedBys" class="show-inline">/* 2+ unexporteds ... */</label><label for="ByteWriter-showhide-impedBys" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="ByteWriter-showhide-impedBys"><i><label for="ByteWriter-showhide-impedBys" class="show-inline">/* 3+ unexporteds ... */</label><label for="ByteWriter-showhide-impedBys" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			*encoding/json.<a href="encoding/json.html#name-encodeState">encodeState</a></i></span><span class="hidden"><i>
+			 encoding/xml.<a href="encoding/xml.html#name-printer">printer</a></i></span><span class="hidden"><i>
 			*github.com/golang/protobuf/proto.<a href="github.com/golang/protobuf/proto.html#name-textWriter">textWriter</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-Closer" data-popularity="15085">	<input type='checkbox' class="fold" id="Closer-fold-content"><label for="Closer-fold-content"> type <a href="../src/io/io.go.html#line-104">Closer</a> <b><i>(interface)</i></b></label><span id='Closer-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Closer" data-popularity="16470">	<input type='checkbox' class="fold" id="Closer-fold-content"><label for="Closer-fold-content"> type <a href="../src/io/io.go.html#line-104">Closer</a> <b><i>(interface)</i></b></label><span id='Closer-fold-content-docs' class="fold-docs">
 		Closer is the interface that wraps the basic Close method.
 
 		The behavior of Close after the first call is undefined.
@@ -481,7 +485,7 @@
 
 		<input type='checkbox' class="fold" id="Closer-fold-methods"><label for="Closer-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='Closer-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-105">Close</a>() <a href="builtin.html#name-error">error</a></span></span></span>
-		<input type='checkbox' class="fold" id="Closer-fold-impledby"><label for="Closer-fold-impledby">Implemented By (<i>at least 100, in which 52 are exported</i>)</label><span id='Closer-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Closer-fold-impledby"><label for="Closer-fold-impledby">Implemented By (<i>at least 109, in which 55 are exported</i>)</label><span id='Closer-fold-impledby-items' class="fold-items"><span>
 			*<a href="#name-PipeReader">PipeReader</a></span><span>
 			*<a href="#name-PipeWriter">PipeWriter</a></span><span>
 			 <a href="#name-ReadCloser">ReadCloser</a> <i>(interface)</i></span><span>
@@ -530,17 +534,24 @@
 			*net/http.<a href="net/http.html#name-Server">Server</a></span><span>
 			*net/http/httputil.<a href="net/http/httputil.html#name-ClientConn">ClientConn</a></span><span>
 			*net/http/httputil.<a href="net/http/httputil.html#name-ServerConn">ServerConn</a></span><span>
+			*net/rpc.<a href="net/rpc.html#name-Client">Client</a></span><span>
+			 net/rpc.<a href="net/rpc.html#name-ClientCodec">ClientCodec</a> <i>(interface)</i></span><span>
+			 net/rpc.<a href="net/rpc.html#name-ServerCodec">ServerCodec</a> <i>(interface)</i></span><span>
 			*net/textproto.<a href="net/textproto.html#name-Conn">Conn</a></span><span>
 			*os.<a href="os.html#name-File">File</a></span><span>
 			*vendor/golang.org/x/net/http2/hpack.<a href="vendor/golang.org/x/net/http2/hpack.html#name-Decoder">Decoder</a></span><span>
 			*vendor/golang.org/x/text/transform.<a href="vendor/golang.org/x/text/transform.html#name-Writer">Writer</a></span>
-			<input type='checkbox' class="showhide" id="Closer-showhide-impedBys"><i><label for="Closer-showhide-impedBys" class="show-inline">/* 48+ unexporteds ... */</label><label for="Closer-showhide-impedBys" class="hide-inline">/* 48+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Closer-showhide-impedBys"><i><label for="Closer-showhide-impedBys" class="show-inline">/* 54+ unexporteds ... */</label><label for="Closer-showhide-impedBys" class="hide-inline">/* 54+ unexporteds: */</label></i><span class="hidden"><i>
 			 <a href="#name-nopCloser">nopCloser</a></i></span><span class="hidden"><i>
 			*compress/flate.<a href="compress/flate.html#name-decompressor">decompressor</a></i></span><span class="hidden"><i>
 			 crypto/tls.<a href="crypto/tls.html#name-listener">listener</a></i></span><span class="hidden"><i>
 			*encoding/base64.<a href="encoding/base64.html#name-encoder">encoder</a></i></span><span class="hidden"><i>
 			*encoding/hex.<a href="encoding/hex.html#name-dumper">dumper</a></i></span><span class="hidden"><i>
 			*encoding/pem.<a href="encoding/pem.html#name-lineBreaker">lineBreaker</a></i></span><span class="hidden"><i>
+			 github.com/gin-gonic/gin.<a href="github.com/gin-gonic/gin.html#name-neuteredReaddirFile">neuteredReaddirFile</a></i></span><span class="hidden"><i>
+			*github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-goRpcCodec">goRpcCodec</a></i></span><span class="hidden"><i>
+			*github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-msgpackSpecRpcCodec">msgpackSpecRpcCodec</a></i></span><span class="hidden"><i>
+			*github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-rpcCodec">rpcCodec</a></i></span><span class="hidden"><i>
 			*golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-gzipReader">gzipReader</a></i></span><span class="hidden"><i>
 			*golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-requestBody">requestBody</a></i></span><span class="hidden"><i>
 			 golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-transportResponseBody">transportResponseBody</a></i></span><span class="hidden"><i>
@@ -580,11 +591,14 @@
 			*net/http/httputil.<a href="net/http/httputil.html#name-dumpConn">dumpConn</a></i></span><span class="hidden"><i>
 			 net/http/httputil.<a href="net/http/httputil.html#name-failureToReadBody">failureToReadBody</a></i></span><span class="hidden"><i>
 			*net/http/internal.<a href="net/http/internal.html#name-chunkedWriter">chunkedWriter</a></i></span><span class="hidden"><i>
+			*net/rpc.<a href="net/rpc.html#name-gobClientCodec">gobClientCodec</a></i></span><span class="hidden"><i>
+			*net/rpc.<a href="net/rpc.html#name-gobServerCodec">gobServerCodec</a></i></span><span class="hidden"><i>
 			*net/textproto.<a href="net/textproto.html#name-dotWriter">dotWriter</a></i></span><span class="hidden"><i>
 			*os/exec.<a href="os/exec.html#name-closeOnce">closeOnce</a></i></span><span class="hidden"><i>
 			*vendor/golang.org/x/text/unicode/norm.<a href="vendor/golang.org/x/text/unicode/norm.html#name-normWriter">normWriter</a></i></span></span>
-		<input type='checkbox' class="fold" id="Closer-fold-params"><label for="Closer-fold-params">As Inputs Of (<i>at least one unexported</i>)</label><span id='Closer-fold-params-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="Closer-showhide-outputofs"><i><label for="Closer-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="Closer-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+		<input type='checkbox' class="fold" id="Closer-fold-params"><label for="Closer-fold-params">As Inputs Of (<i>at least 2, neither is exported</i>)</label><span id='Closer-fold-params-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Closer-showhide-outputofs"><i><label for="Closer-showhide-outputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="Closer-showhide-outputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-newRPCCodec2">newRPCCodec2</a>(r <a href="#name-Reader">Reader</a>, w <a href="#name-Writer">Writer</a>, c <b>Closer</b>, h <a href="github.com/ugorji/go/codec.html">codec</a>.<a href="github.com/ugorji/go/codec.html#name-Handle">Handle</a>) <a href="github.com/ugorji/go/codec.html">codec</a>.<a href="github.com/ugorji/go/codec.html#name-rpcCodec">rpcCodec</a></i></span><span class="hidden"><i>
 			func os/exec.(*<a href="os/exec.html#name-Cmd">Cmd</a>).<a href="../src/os/exec/exec.go.html#line-318">closeDescriptors</a>(closers []<b>Closer</b>)</i></span></span>
 
 </span></div><div class="anchor type-res" id="name-LimitedReader" data-popularity="100">	<input type='checkbox' class="fold" id="LimitedReader-fold-content"><label for="LimitedReader-fold-content"> type <a href="../src/io/io.go.html#line-461">LimitedReader</a> <i>(struct)</i></label><span id='LimitedReader-fold-content-docs' class="fold-docs">
@@ -680,13 +694,13 @@
 			<input type='checkbox' class="showhide" id="PipeWriter-showhide-outputofs"><i><label for="PipeWriter-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="PipeWriter-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func github.com/sirupsen/logrus.<a href="github.com/sirupsen/logrus.html#name-writerFinalizer">writerFinalizer</a>(writer *<b>PipeWriter</b>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-ReadCloser" data-popularity="8305">	<input type='checkbox' class="fold" id="ReadCloser-fold-content"><label for="ReadCloser-fold-content"> type <a href="../src/io/io.go.html#line-132">ReadCloser</a> <b><i>(interface)</i></b></label><span id='ReadCloser-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-ReadCloser" data-popularity="8455">	<input type='checkbox' class="fold" id="ReadCloser-fold-content"><label for="ReadCloser-fold-content"> type <a href="../src/io/io.go.html#line-132">ReadCloser</a> <b><i>(interface)</i></b></label><span id='ReadCloser-fold-content-docs' class="fold-docs">
 		ReadCloser is the interface that groups the basic Read and Close methods.
 
 		<input type='checkbox' class="fold" id="ReadCloser-fold-methods"><label for="ReadCloser-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='ReadCloser-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-105">Close</a>() <a href="builtin.html#name-error">error</a></span></span><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-84">Read</a>(p []<a href="builtin.html#name-byte">byte</a>) (n <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="ReadCloser-fold-impledby"><label for="ReadCloser-fold-impledby">Implemented By (<i>at least 49, in which 17 are exported</i>)</label><span id='ReadCloser-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="ReadCloser-fold-impledby"><label for="ReadCloser-fold-impledby">Implemented By (<i>at least 50, in which 17 are exported</i>)</label><span id='ReadCloser-fold-impledby-items' class="fold-items"><span>
 			*<a href="#name-PipeReader">PipeReader</a></span><span>
 			 <a href="#name-ReadSeekCloser">ReadSeekCloser</a> <i>(interface)</i></span><span>
 			 <a href="#name-ReadWriteCloser">ReadWriteCloser</a> <i>(interface)</i></span><span>
@@ -704,9 +718,10 @@
 			*net.<a href="net.html#name-UnixConn">UnixConn</a></span><span>
 			 net/http.<a href="net/http.html#name-File">File</a> <i>(interface)</i></span><span>
 			*os.<a href="os.html#name-File">File</a></span>
-			<input type='checkbox' class="showhide" id="ReadCloser-showhide-impedBys"><i><label for="ReadCloser-showhide-impedBys" class="show-inline">/* 32+ unexporteds ... */</label><label for="ReadCloser-showhide-impedBys" class="hide-inline">/* 32+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="ReadCloser-showhide-impedBys"><i><label for="ReadCloser-showhide-impedBys" class="show-inline">/* 33+ unexporteds ... */</label><label for="ReadCloser-showhide-impedBys" class="hide-inline">/* 33+ unexporteds: */</label></i><span class="hidden"><i>
 			 <a href="#name-nopCloser">nopCloser</a></i></span><span class="hidden"><i>
 			*compress/flate.<a href="compress/flate.html#name-decompressor">decompressor</a></i></span><span class="hidden"><i>
+			 github.com/gin-gonic/gin.<a href="github.com/gin-gonic/gin.html#name-neuteredReaddirFile">neuteredReaddirFile</a></i></span><span class="hidden"><i>
 			*golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-gzipReader">gzipReader</a></i></span><span class="hidden"><i>
 			*golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-requestBody">requestBody</a></i></span><span class="hidden"><i>
 			 golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-transportResponseBody">transportResponseBody</a></i></span><span class="hidden"><i>
@@ -762,7 +777,7 @@
 			  var net/http.<a href="net/http.html#name-http2noBody">http2noBody</a></i></span><span class="hidden"><i>
 			  var net/http/httputil.<a href="net/http/httputil.html#name-emptyBody">emptyBody</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-Reader" data-popularity="22245">	<input type='checkbox' class="fold" id="Reader-fold-content"><label for="Reader-fold-content"> type <a href="../src/io/io.go.html#line-83">Reader</a> <b><i>(interface)</i></b></label><span id='Reader-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Reader" data-popularity="23670">	<input type='checkbox' class="fold" id="Reader-fold-content"><label for="Reader-fold-content"> type <a href="../src/io/io.go.html#line-83">Reader</a> <b><i>(interface)</i></b></label><span id='Reader-fold-content-docs' class="fold-docs">
 		Reader is the interface that wraps the basic Read method.
 
 		Read reads up to len(p) bytes into p. It returns the number of bytes
@@ -794,7 +809,7 @@
 
 		<input type='checkbox' class="fold" id="Reader-fold-methods"><label for="Reader-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='Reader-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-84">Read</a>(p []<a href="builtin.html#name-byte">byte</a>) (n <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="Reader-fold-impledby"><label for="Reader-fold-impledby">Implemented By (<i>at least 110, in which 37 are exported</i>)</label><span id='Reader-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Reader-fold-impledby"><label for="Reader-fold-impledby">Implemented By (<i>at least 116, in which 38 are exported</i>)</label><span id='Reader-fold-impledby-items' class="fold-items"><span>
 			*<a href="#name-LimitedReader">LimitedReader</a></span><span>
 			*<a href="#name-PipeReader">PipeReader</a></span><span>
 			 <a href="#name-ReadCloser">ReadCloser</a> <i>(interface)</i></span><span>
@@ -815,6 +830,7 @@
 			 crypto/cipher.<a href="crypto/cipher.html#name-StreamReader">StreamReader</a></span><span>
 			*crypto/tls.<a href="crypto/tls.html#name-Conn">Conn</a></span><span>
 			 fmt.<a href="fmt.html#name-ScanState">ScanState</a> <i>(interface)</i></span><span>
+			 golang.org/x/crypto/sha3.<a href="golang.org/x/crypto/sha3.html#name-ShakeHash">ShakeHash</a> <i>(interface)</i></span><span>
 			*golang.org/x/text/transform.<a href="golang.org/x/text/transform.html#name-Reader">Reader</a></span><span>
 			*google.golang.org/grpc/internal/transport.<a href="google.golang.org/grpc/internal/transport.html#name-Stream">Stream</a></span><span>
 			*internal/poll.<a href="internal/poll.html#name-FD">FD</a></span><span>
@@ -832,7 +848,7 @@
 			*os.<a href="os.html#name-File">File</a></span><span>
 			*strings.<a href="strings.html#name-Reader">Reader</a></span><span>
 			*vendor/golang.org/x/text/transform.<a href="vendor/golang.org/x/text/transform.html#name-Reader">Reader</a></span>
-			<input type='checkbox' class="showhide" id="Reader-showhide-impedBys"><i><label for="Reader-showhide-impedBys" class="show-inline">/* 73+ unexporteds ... */</label><label for="Reader-showhide-impedBys" class="hide-inline">/* 73+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Reader-showhide-impedBys"><i><label for="Reader-showhide-impedBys" class="show-inline">/* 78+ unexporteds ... */</label><label for="Reader-showhide-impedBys" class="hide-inline">/* 78+ unexporteds: */</label></i><span class="hidden"><i>
 			 <a href="#name-eofReader">eofReader</a></i></span><span class="hidden"><i>
 			*<a href="#name-multiReader">multiReader</a></i></span><span class="hidden"><i>
 			 <a href="#name-nopCloser">nopCloser</a></i></span><span class="hidden"><i>
@@ -846,10 +862,15 @@
 			*crypto/tls.<a href="crypto/tls.html#name-atLeastReader">atLeastReader</a></i></span><span class="hidden"><i>
 			*encoding/base64.<a href="encoding/base64.html#name-decoder">decoder</a></i></span><span class="hidden"><i>
 			*encoding/base64.<a href="encoding/base64.html#name-newlineFilteringReader">newlineFilteringReader</a></i></span><span class="hidden"><i>
+			*encoding/gob.<a href="encoding/gob.html#name-decBuffer">decBuffer</a></i></span><span class="hidden"><i>
 			*encoding/hex.<a href="encoding/hex.html#name-decoder">decoder</a></i></span><span class="hidden"><i>
 			*encoding/json.<a href="encoding/json.html#name-encodeState">encodeState</a></i></span><span class="hidden"><i>
 			*fmt.<a href="fmt.html#name-ss">ss</a></i></span><span class="hidden"><i>
 			*fmt.<a href="fmt.html#name-stringReader">stringReader</a></i></span><span class="hidden"><i>
+			 github.com/gin-gonic/gin.<a href="github.com/gin-gonic/gin.html#name-neuteredReaddirFile">neuteredReaddirFile</a></i></span><span class="hidden"><i>
+			*github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-ioDecReader">ioDecReader</a></i></span><span class="hidden"><i>
+			 golang.org/x/crypto/sha3.<a href="golang.org/x/crypto/sha3.html#name-cshakeState">cshakeState</a></i></span><span class="hidden"><i>
+			*golang.org/x/crypto/sha3.<a href="golang.org/x/crypto/sha3.html#name-state">state</a></i></span><span class="hidden"><i>
 			*golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-dataBuffer">dataBuffer</a></i></span><span class="hidden"><i>
 			 golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-errorReader">errorReader</a></i></span><span class="hidden"><i>
 			*golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-gzipReader">gzipReader</a></i></span><span class="hidden"><i>
@@ -926,7 +947,7 @@
 			<input type='checkbox' class="showhide" id="Reader-showhide-inputofs"><i><label for="Reader-showhide-inputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="Reader-showhide-inputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
 			func crypto/rand.<a href="crypto/rand.html#name-newReader">newReader</a>(entropy <b>Reader</b>) <b>Reader</b></i></span><span class="hidden"><i>
 			func crypto/tls.(*<a href="crypto/tls.html#name-Config">Config</a>).<a href="../src/crypto/tls/common.go.html#line-911">rand</a>() <b>Reader</b></i></span></span>
-		<input type='checkbox' class="fold" id="Reader-fold-params"><label for="Reader-fold-params">As Inputs Of (<i>at least 124, in which 90 are exported</i>)</label><span id='Reader-fold-params-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Reader-fold-params"><label for="Reader-fold-params">As Inputs Of (<i>at least 139, in which 97 are exported</i>)</label><span id='Reader-fold-params-items' class="fold-items"><span>
 			func <a href="#name-Copy">Copy</a>(dst <a href="#name-Writer">Writer</a>, src <b>Reader</b>) (written <a href="builtin.html#name-int64">int64</a>, err <a href="builtin.html#name-error">error</a>)</span><span>
 			func <a href="#name-CopyBuffer">CopyBuffer</a>(dst <a href="#name-Writer">Writer</a>, src <b>Reader</b>, buf []<a href="builtin.html#name-byte">byte</a>) (written <a href="builtin.html#name-int64">int64</a>, err <a href="builtin.html#name-error">error</a>)</span><span>
 			func <a href="#name-CopyN">CopyN</a>(dst <a href="#name-Writer">Writer</a>, src <b>Reader</b>, n <a href="builtin.html#name-int64">int64</a>) (written <a href="builtin.html#name-int64">int64</a>, err <a href="builtin.html#name-error">error</a>)</span><span>
@@ -984,17 +1005,24 @@
 			func crypto/x509.(*<a href="crypto/x509.html#name-Certificate">Certificate</a>).<a href="../src/crypto/x509/x509.go.html#line-2292">CreateCRL</a>(rand <b>Reader</b>, priv interface{}, revokedCerts []<a href="crypto/x509/pkix.html">pkix</a>.<a href="crypto/x509/pkix.html#name-RevokedCertificate">RevokedCertificate</a>, now, expiry <a href="time.html">time</a>.<a href="time.html#name-Time">Time</a>) (crlBytes []<a href="builtin.html#name-byte">byte</a>, err <a href="builtin.html#name-error">error</a>)</span><span>
 			func encoding/base64.<a href="encoding/base64.html#name-NewDecoder">NewDecoder</a>(enc *<a href="encoding/base64.html">base64</a>.<a href="encoding/base64.html#name-Encoding">Encoding</a>, r <b>Reader</b>) <b>Reader</b></span><span>
 			func encoding/binary.<a href="encoding/binary.html#name-Read">Read</a>(r <b>Reader</b>, order <a href="encoding/binary.html">binary</a>.<a href="encoding/binary.html#name-ByteOrder">ByteOrder</a>, data interface{}) <a href="builtin.html#name-error">error</a></span><span>
+			func encoding/gob.<a href="encoding/gob.html#name-NewDecoder">NewDecoder</a>(r <b>Reader</b>) *<a href="encoding/gob.html">gob</a>.<a href="encoding/gob.html#name-Decoder">Decoder</a></span><span>
 			func encoding/hex.<a href="encoding/hex.html#name-NewDecoder">NewDecoder</a>(r <b>Reader</b>) <b>Reader</b></span><span>
 			func encoding/json.<a href="encoding/json.html#name-NewDecoder">NewDecoder</a>(r <b>Reader</b>) *<a href="encoding/json.html">json</a>.<a href="encoding/json.html#name-Decoder">Decoder</a></span><span>
+			func encoding/xml.<a href="encoding/xml.html#name-NewDecoder">NewDecoder</a>(r <b>Reader</b>) *<a href="encoding/xml.html">xml</a>.<a href="encoding/xml.html#name-Decoder">Decoder</a></span><span>
 			func fmt.<a href="fmt.html#name-Fscan">Fscan</a>(r <b>Reader</b>, a ...interface{}) (n <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</span><span>
 			func fmt.<a href="fmt.html#name-Fscanf">Fscanf</a>(r <b>Reader</b>, format <a href="builtin.html#name-string">string</a>, a ...interface{}) (n <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</span><span>
 			func fmt.<a href="fmt.html#name-Fscanln">Fscanln</a>(r <b>Reader</b>, a ...interface{}) (n <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</span><span>
+			func github.com/gin-contrib/sse.<a href="github.com/gin-contrib/sse.html#name-Decode">Decode</a>(r <b>Reader</b>) ([]<a href="github.com/gin-contrib/sse.html">sse</a>.<a href="github.com/gin-contrib/sse.html#name-Event">Event</a>, <a href="builtin.html#name-error">error</a>)</span><span>
+			func github.com/gin-gonic/gin.(*<a href="github.com/gin-gonic/gin.html#name-Context">Context</a>).<a href="../src/github.com/gin-gonic/gin/context.go.html#line-1010">DataFromReader</a>(code <a href="builtin.html#name-int">int</a>, contentLength <a href="builtin.html#name-int64">int64</a>, contentType <a href="builtin.html#name-string">string</a>, reader <b>Reader</b>, extraHeaders map[<a href="builtin.html#name-string">string</a>]<a href="builtin.html#name-string">string</a>)</span><span>
+			func github.com/go-playground/universal-translator.(*<a href="github.com/go-playground/universal-translator.html#name-UniversalTranslator">UniversalTranslator</a>).<a href="../src/github.com/go-playground/universal-translator/import_export.go.html#line-201">ImportByReader</a>(format <a href="github.com/go-playground/universal-translator.html">ut</a>.<a href="github.com/go-playground/universal-translator.html#name-ImportExportFormat">ImportExportFormat</a>, reader <b>Reader</b>) <a href="builtin.html#name-error">error</a></span><span>
 			func github.com/golang/protobuf/jsonpb.<a href="github.com/golang/protobuf/jsonpb.html#name-Unmarshal">Unmarshal</a>(r <b>Reader</b>, m <a href="github.com/golang/protobuf/proto.html">proto</a>.<a href="github.com/golang/protobuf/proto.html#name-Message">Message</a>) <a href="builtin.html#name-error">error</a></span><span>
 			func github.com/golang/protobuf/jsonpb.(*<a href="github.com/golang/protobuf/jsonpb.html#name-Unmarshaler">Unmarshaler</a>).<a href="../src/github.com/golang/protobuf/jsonpb/decode.go.html#line-67">Unmarshal</a>(r <b>Reader</b>, m <a href="github.com/golang/protobuf/proto.html">proto</a>.<a href="github.com/golang/protobuf/proto.html#name-Message">Message</a>) <a href="builtin.html#name-error">error</a></span><span>
 			func github.com/json-iterator/go.<a href="github.com/json-iterator/go.html#name-NewDecoder">NewDecoder</a>(reader <b>Reader</b>) *<a href="github.com/json-iterator/go.html">jsoniter</a>.<a href="github.com/json-iterator/go.html#name-Decoder">Decoder</a></span><span>
 			func github.com/json-iterator/go.<a href="github.com/json-iterator/go.html#name-Parse">Parse</a>(cfg <a href="github.com/json-iterator/go.html">jsoniter</a>.<a href="github.com/json-iterator/go.html#name-API">API</a>, reader <b>Reader</b>, bufSize <a href="builtin.html#name-int">int</a>) *<a href="github.com/json-iterator/go.html">jsoniter</a>.<a href="github.com/json-iterator/go.html#name-Iterator">Iterator</a></span><span>
 			func github.com/json-iterator/go.<a href="github.com/json-iterator/go.html#name-API">API</a>.<a href="../src/github.com/json-iterator/go/config.go.html#line-42">NewDecoder</a>(reader <b>Reader</b>) *<a href="github.com/json-iterator/go.html">jsoniter</a>.<a href="github.com/json-iterator/go.html#name-Decoder">Decoder</a></span><span>
 			func github.com/json-iterator/go.(*<a href="github.com/json-iterator/go.html#name-Iterator">Iterator</a>).<a href="../src/github.com/json-iterator/go/iter.go.html#line-131">Reset</a>(reader <b>Reader</b>) *<a href="github.com/json-iterator/go.html">jsoniter</a>.<a href="github.com/json-iterator/go.html#name-Iterator">Iterator</a></span><span>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-NewDecoder">NewDecoder</a>(r <b>Reader</b>, h <a href="github.com/ugorji/go/codec.html">codec</a>.<a href="github.com/ugorji/go/codec.html#name-Handle">Handle</a>) *<a href="github.com/ugorji/go/codec.html">codec</a>.<a href="github.com/ugorji/go/codec.html#name-Decoder">Decoder</a></span><span>
+			func github.com/ugorji/go/codec.(*<a href="github.com/ugorji/go/codec.html#name-Decoder">Decoder</a>).<a href="../src/github.com/ugorji/go/codec/decode.go.html#line-1245">Reset</a>(r <b>Reader</b>)</span><span>
 			func github.com/xeipuuv/gojsonschema.<a href="github.com/xeipuuv/gojsonschema.html#name-NewReaderLoader">NewReaderLoader</a>(source <b>Reader</b>) (<a href="github.com/xeipuuv/gojsonschema.html">gojsonschema</a>.<a href="github.com/xeipuuv/gojsonschema.html#name-JSONLoader">JSONLoader</a>, <b>Reader</b>)</span><span>
 			func golang.org/x/net/context/ctxhttp.<a href="golang.org/x/net/context/ctxhttp.html#name-Post">Post</a>(ctx <a href="context.html">context</a>.<a href="context.html#name-Context">Context</a>, client *<a href="net/http.html">http</a>.<a href="net/http.html#name-Client">Client</a>, url <a href="builtin.html#name-string">string</a>, bodyType <a href="builtin.html#name-string">string</a>, body <b>Reader</b>) (*<a href="net/http.html">http</a>.<a href="net/http.html#name-Response">Response</a>, <a href="builtin.html#name-error">error</a>)</span><span>
 			func golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-NewFramer">NewFramer</a>(w <a href="#name-Writer">Writer</a>, r <b>Reader</b>) *<a href="golang.org/x/net/http2.html">http2</a>.<a href="golang.org/x/net/http2.html#name-Framer">Framer</a></span><span>
@@ -1017,7 +1045,7 @@
 			func os.(*<a href="os.html#name-File">File</a>).<a href="../src/os/file.go.html#line-148">ReadFrom</a>(r <b>Reader</b>) (n <a href="builtin.html#name-int64">int64</a>, err <a href="builtin.html#name-error">error</a>)</span><span>
 			func vendor/golang.org/x/text/transform.<a href="vendor/golang.org/x/text/transform.html#name-NewReader">NewReader</a>(r <b>Reader</b>, t <a href="vendor/golang.org/x/text/transform.html">transform</a>.<a href="vendor/golang.org/x/text/transform.html#name-Transformer">Transformer</a>) *<a href="vendor/golang.org/x/text/transform.html">transform</a>.<a href="vendor/golang.org/x/text/transform.html#name-Reader">Reader</a></span><span>
 			func vendor/golang.org/x/text/unicode/norm.<a href="vendor/golang.org/x/text/unicode/norm.html#name-Form">Form</a>.<a href="../src/vendor/golang.org/x/text/unicode/norm/readwriter.go.html#line-119">Reader</a>(r <b>Reader</b>) <b>Reader</b></span>
-			<input type='checkbox' class="showhide" id="Reader-showhide-outputofs"><i><label for="Reader-showhide-outputofs" class="show-inline">/* 34+ unexporteds ... */</label><label for="Reader-showhide-outputofs" class="hide-inline">/* 34+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Reader-showhide-outputofs"><i><label for="Reader-showhide-outputofs" class="show-inline">/* 42+ unexporteds ... */</label><label for="Reader-showhide-outputofs" class="hide-inline">/* 42+ unexporteds: */</label></i><span class="hidden"><i>
 			func <a href="#name-copyBuffer">copyBuffer</a>(dst <a href="#name-Writer">Writer</a>, src <b>Reader</b>, buf []<a href="builtin.html#name-byte">byte</a>) (written <a href="builtin.html#name-int64">int64</a>, err <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func bufio.(*<a href="bufio.html#name-Reader">Reader</a>).<a href="../src/bufio/bufio.go.html#line-75">reset</a>(buf []<a href="builtin.html#name-byte">byte</a>, r <b>Reader</b>)</i></span><span class="hidden"><i>
 			func compress/flate.<a href="compress/flate.html#name-makeReader">makeReader</a>(r <b>Reader</b>) <a href="compress/flate.html">flate</a>.<a href="compress/flate.html#name-Reader">Reader</a></i></span><span class="hidden"><i>
@@ -1030,7 +1058,15 @@
 			func crypto/rsa.<a href="crypto/rsa.html#name-signPSSWithSalt">signPSSWithSalt</a>(rand <b>Reader</b>, priv *<a href="crypto/rsa.html">rsa</a>.<a href="crypto/rsa.html#name-PrivateKey">PrivateKey</a>, hash <a href="crypto.html">crypto</a>.<a href="crypto.html#name-Hash">Hash</a>, hashed, salt []<a href="builtin.html#name-byte">byte</a>) ([]<a href="builtin.html#name-byte">byte</a>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func crypto/tls.<a href="crypto/tls.html#name-generateECDHEParameters">generateECDHEParameters</a>(rand <b>Reader</b>, curveID <a href="crypto/tls.html">tls</a>.<a href="crypto/tls.html#name-CurveID">CurveID</a>) (<a href="crypto/tls.html">tls</a>.<a href="crypto/tls.html#name-ecdheParameters">ecdheParameters</a>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func crypto/tls.(*<a href="crypto/tls.html#name-Conn">Conn</a>).<a href="../src/crypto/tls/conn.go.html#line-789">readFromUntil</a>(r <b>Reader</b>, n <a href="builtin.html#name-int">int</a>) <a href="builtin.html#name-error">error</a></i></span><span class="hidden"><i>
+			func encoding/gob.<a href="encoding/gob.html#name-decodeUintReader">decodeUintReader</a>(r <b>Reader</b>, buf []<a href="builtin.html#name-byte">byte</a>) (x <a href="builtin.html#name-uint64">uint64</a>, width <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func encoding/xml.(*<a href="encoding/xml.html#name-Decoder">Decoder</a>).<a href="../src/encoding/xml/xml.go.html#line-369">switchToReader</a>(r <b>Reader</b>)</i></span><span class="hidden"><i>
 			func fmt.<a href="fmt.html#name-newScanState">newScanState</a>(r <b>Reader</b>, nlIsSpace, nlIsEnd <a href="builtin.html#name-bool">bool</a>) (s *<a href="fmt.html">fmt</a>.<a href="fmt.html#name-ss">ss</a>, old <a href="fmt.html">fmt</a>.<a href="fmt.html#name-ssave">ssave</a>)</i></span><span class="hidden"><i>
+			func github.com/gin-gonic/gin/binding.<a href="github.com/gin-gonic/gin/binding.html#name-decodeJSON">decodeJSON</a>(r <b>Reader</b>, obj interface{}) <a href="builtin.html#name-error">error</a></i></span><span class="hidden"><i>
+			func github.com/gin-gonic/gin/binding.<a href="github.com/gin-gonic/gin/binding.html#name-decodeMsgPack">decodeMsgPack</a>(r <b>Reader</b>, obj interface{}) <a href="builtin.html#name-error">error</a></i></span><span class="hidden"><i>
+			func github.com/gin-gonic/gin/binding.<a href="github.com/gin-gonic/gin/binding.html#name-decodeXML">decodeXML</a>(r <b>Reader</b>, obj interface{}) <a href="builtin.html#name-error">error</a></i></span><span class="hidden"><i>
+			func github.com/gin-gonic/gin/binding.<a href="github.com/gin-gonic/gin/binding.html#name-decodeYAML">decodeYAML</a>(r <b>Reader</b>, obj interface{}) <a href="builtin.html#name-error">error</a></i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-decReadFull">decReadFull</a>(r <b>Reader</b>, bs []<a href="builtin.html#name-byte">byte</a>) (n <a href="builtin.html#name-uint">uint</a>, err <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-newRPCCodec2">newRPCCodec2</a>(r <b>Reader</b>, w <a href="#name-Writer">Writer</a>, c <a href="#name-Closer">Closer</a>, h <a href="github.com/ugorji/go/codec.html">codec</a>.<a href="github.com/ugorji/go/codec.html#name-Handle">Handle</a>) <a href="github.com/ugorji/go/codec.html">codec</a>.<a href="github.com/ugorji/go/codec.html#name-rpcCodec">rpcCodec</a></i></span><span class="hidden"><i>
 			func github.com/xeipuuv/gojsonschema.<a href="github.com/xeipuuv/gojsonschema.html#name-decodeJSONUsingNumber">decodeJSONUsingNumber</a>(r <b>Reader</b>) (interface{}, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-readFrameHeader">readFrameHeader</a>(buf []<a href="builtin.html#name-byte">byte</a>, r <b>Reader</b>) (<a href="golang.org/x/net/http2.html">http2</a>.<a href="golang.org/x/net/http2.html#name-FrameHeader">FrameHeader</a>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func golang.org/x/net/http2.(*<a href="golang.org/x/net/http2.html#name-Transport">Transport</a>).<a href="../src/golang.org/x/net/http2/transport.go.html#line-2574">getBodyWriterState</a>(cs *<a href="golang.org/x/net/http2.html">http2</a>.<a href="golang.org/x/net/http2.html#name-clientStream">clientStream</a>, body <b>Reader</b>) (s <a href="golang.org/x/net/http2.html">http2</a>.<a href="golang.org/x/net/http2.html#name-bodyWriterState">bodyWriterState</a>)</i></span><span class="hidden"><i>
@@ -1097,7 +1133,7 @@
 		<input type='checkbox' class="fold" id="ReaderAt-fold-params"><label for="ReaderAt-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='ReaderAt-fold-params-items' class="fold-items"><span>
 			func <a href="#name-NewSectionReader">NewSectionReader</a>(r <b>ReaderAt</b>, off <a href="builtin.html#name-int64">int64</a>, n <a href="builtin.html#name-int64">int64</a>) *<a href="#name-SectionReader">SectionReader</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-ReaderFrom" data-popularity="1700">	<input type='checkbox' class="fold" id="ReaderFrom-fold-content"><label for="ReaderFrom-fold-content"> type <a href="../src/io/io.go.html#line-184">ReaderFrom</a> <b><i>(interface)</i></b></label><span id='ReaderFrom-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-ReaderFrom" data-popularity="1850">	<input type='checkbox' class="fold" id="ReaderFrom-fold-content"><label for="ReaderFrom-fold-content"> type <a href="../src/io/io.go.html#line-184">ReaderFrom</a> <b><i>(interface)</i></b></label><span id='ReaderFrom-fold-content-docs' class="fold-docs">
 		ReaderFrom is the interface that wraps the ReadFrom method.
 
 		ReadFrom reads data from r until EOF or error.
@@ -1108,21 +1144,22 @@
 
 		<input type='checkbox' class="fold" id="ReaderFrom-fold-methods"><label for="ReaderFrom-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ReaderFrom-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-185">ReadFrom</a>(r <a href="#name-Reader">Reader</a>) (n <a href="builtin.html#name-int64">int64</a>, err <a href="builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="ReaderFrom-fold-impledby"><label for="ReaderFrom-fold-impledby">Implemented By (<i>at least 11, in which 6 are exported</i>)</label><span id='ReaderFrom-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="ReaderFrom-fold-impledby"><label for="ReaderFrom-fold-impledby">Implemented By (<i>at least 12, in which 6 are exported</i>)</label><span id='ReaderFrom-fold-impledby-items' class="fold-items"><span>
 			 bufio.<a href="bufio.html#name-ReadWriter">ReadWriter</a></span><span>
 			*bufio.<a href="bufio.html#name-Writer">Writer</a></span><span>
 			*bytes.<a href="bytes.html#name-Buffer">Buffer</a></span><span>
 			*net.<a href="net.html#name-TCPConn">TCPConn</a></span><span>
 			 net/http/internal.<a href="net/http/internal.html#name-FlushAfterChunkWriter">FlushAfterChunkWriter</a></span><span>
 			*os.<a href="os.html#name-File">File</a></span>
-			<input type='checkbox' class="showhide" id="ReaderFrom-showhide-impedBys"><i><label for="ReaderFrom-showhide-impedBys" class="show-inline">/* 5+ unexporteds ... */</label><label for="ReaderFrom-showhide-impedBys" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="ReaderFrom-showhide-impedBys"><i><label for="ReaderFrom-showhide-impedBys" class="show-inline">/* 6+ unexporteds ... */</label><label for="ReaderFrom-showhide-impedBys" class="hide-inline">/* 6+ unexporteds: */</label></i><span class="hidden"><i>
 			 <a href="#name-discard">discard</a></i></span><span class="hidden"><i>
 			*encoding/json.<a href="encoding/json.html#name-encodeState">encodeState</a></i></span><span class="hidden"><i>
+			 encoding/xml.<a href="encoding/xml.html#name-printer">printer</a></i></span><span class="hidden"><i>
 			 net/http.<a href="net/http.html#name-persistConnWriter">persistConnWriter</a></i></span><span class="hidden"><i>
 			*net/http.<a href="net/http.html#name-response">response</a></i></span><span class="hidden"><i>
 			 os/exec.<a href="os/exec.html#name-closeOnce">closeOnce</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-ReadSeekCloser" data-popularity="1450">	<input type='checkbox' class="fold" id="ReadSeekCloser-fold-content"><label for="ReadSeekCloser-fold-content"> type <a href="../src/io/io.go.html#line-158">ReadSeekCloser</a> <b><i>(interface)</i></b></label><span id='ReadSeekCloser-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-ReadSeekCloser" data-popularity="1600">	<input type='checkbox' class="fold" id="ReadSeekCloser-fold-content"><label for="ReadSeekCloser-fold-content"> type <a href="../src/io/io.go.html#line-158">ReadSeekCloser</a> <b><i>(interface)</i></b></label><span id='ReadSeekCloser-fold-content-docs' class="fold-docs">
 		ReadSeekCloser is the interface that groups the basic Read, Seek and Close
 		methods.
 
@@ -1130,12 +1167,13 @@
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-105">Close</a>() <a href="builtin.html#name-error">error</a></span></span><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-84">Read</a>(p []<a href="builtin.html#name-byte">byte</a>) (n <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</span></span><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-122">Seek</a>(offset <a href="builtin.html#name-int64">int64</a>, whence <a href="builtin.html#name-int">int</a>) (<a href="builtin.html#name-int64">int64</a>, <a href="builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="ReadSeekCloser-fold-impledby"><label for="ReadSeekCloser-fold-impledby">Implemented By (<i>at least 7, in which 4 are exported</i>)</label><span id='ReadSeekCloser-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="ReadSeekCloser-fold-impledby"><label for="ReadSeekCloser-fold-impledby">Implemented By (<i>at least 8, in which 4 are exported</i>)</label><span id='ReadSeekCloser-fold-impledby-items' class="fold-items"><span>
 			*internal/poll.<a href="internal/poll.html#name-FD">FD</a></span><span>
 			 mime/multipart.<a href="mime/multipart.html#name-File">File</a> <i>(interface)</i></span><span>
 			 net/http.<a href="net/http.html#name-File">File</a> <i>(interface)</i></span><span>
 			*os.<a href="os.html#name-File">File</a></span>
-			<input type='checkbox' class="showhide" id="ReadSeekCloser-showhide-impedBys"><i><label for="ReadSeekCloser-showhide-impedBys" class="show-inline">/* 3+ unexporteds ... */</label><label for="ReadSeekCloser-showhide-impedBys" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="ReadSeekCloser-showhide-impedBys"><i><label for="ReadSeekCloser-showhide-impedBys" class="show-inline">/* 4+ unexporteds ... */</label><label for="ReadSeekCloser-showhide-impedBys" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
+			 github.com/gin-gonic/gin.<a href="github.com/gin-gonic/gin.html#name-neuteredReaddirFile">neuteredReaddirFile</a></i></span><span class="hidden"><i>
 			 mime/multipart.<a href="mime/multipart.html#name-sectionReadCloser">sectionReadCloser</a></i></span><span class="hidden"><i>
 			 net/http.<a href="net/http.html#name-ioFile">ioFile</a></i></span><span class="hidden"><i>
 			*os/exec.<a href="os/exec.html#name-closeOnce">closeOnce</a></i></span></span>
@@ -1146,13 +1184,13 @@
 			 T : <a href="#name-ReadSeeker">ReadSeeker</a></span><span>
 			 T : <a href="#name-Seeker">Seeker</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-ReadSeeker" data-popularity="2070">	<input type='checkbox' class="fold" id="ReadSeeker-fold-content"><label for="ReadSeeker-fold-content"> type <a href="../src/io/io.go.html#line-151">ReadSeeker</a> <b><i>(interface)</i></b></label><span id='ReadSeeker-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-ReadSeeker" data-popularity="2220">	<input type='checkbox' class="fold" id="ReadSeeker-fold-content"><label for="ReadSeeker-fold-content"> type <a href="../src/io/io.go.html#line-151">ReadSeeker</a> <b><i>(interface)</i></b></label><span id='ReadSeeker-fold-content-docs' class="fold-docs">
 		ReadSeeker is the interface that groups the basic Read and Seek methods.
 
 		<input type='checkbox' class="fold" id="ReadSeeker-fold-methods"><label for="ReadSeeker-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='ReadSeeker-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-84">Read</a>(p []<a href="builtin.html#name-byte">byte</a>) (n <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</span></span><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-122">Seek</a>(offset <a href="builtin.html#name-int64">int64</a>, whence <a href="builtin.html#name-int">int</a>) (<a href="builtin.html#name-int64">int64</a>, <a href="builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="ReadSeeker-fold-impledby"><label for="ReadSeeker-fold-impledby">Implemented By (<i>at least 12, in which 9 are exported</i>)</label><span id='ReadSeeker-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="ReadSeeker-fold-impledby"><label for="ReadSeeker-fold-impledby">Implemented By (<i>at least 13, in which 9 are exported</i>)</label><span id='ReadSeeker-fold-impledby-items' class="fold-items"><span>
 			 <a href="#name-ReadSeekCloser">ReadSeekCloser</a> <i>(interface)</i></span><span>
 			 <a href="#name-ReadWriteSeeker">ReadWriteSeeker</a> <i>(interface)</i></span><span>
 			*<a href="#name-SectionReader">SectionReader</a></span><span>
@@ -1162,7 +1200,8 @@
 			 net/http.<a href="net/http.html#name-File">File</a> <i>(interface)</i></span><span>
 			*os.<a href="os.html#name-File">File</a></span><span>
 			*strings.<a href="strings.html#name-Reader">Reader</a></span>
-			<input type='checkbox' class="showhide" id="ReadSeeker-showhide-impedBys"><i><label for="ReadSeeker-showhide-impedBys" class="show-inline">/* 3+ unexporteds ... */</label><label for="ReadSeeker-showhide-impedBys" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="ReadSeeker-showhide-impedBys"><i><label for="ReadSeeker-showhide-impedBys" class="show-inline">/* 4+ unexporteds ... */</label><label for="ReadSeeker-showhide-impedBys" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
+			 github.com/gin-gonic/gin.<a href="github.com/gin-gonic/gin.html#name-neuteredReaddirFile">neuteredReaddirFile</a></i></span><span class="hidden"><i>
 			 mime/multipart.<a href="mime/multipart.html#name-sectionReadCloser">sectionReadCloser</a></i></span><span class="hidden"><i>
 			 net/http.<a href="net/http.html#name-ioFile">ioFile</a></i></span><span class="hidden"><i>
 			 os/exec.<a href="os/exec.html#name-closeOnce">closeOnce</a></i></span></span>
@@ -1174,7 +1213,7 @@
 			<input type='checkbox' class="showhide" id="ReadSeeker-showhide-outputofs"><i><label for="ReadSeeker-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="ReadSeeker-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func net/http.<a href="net/http.html#name-serveContent">serveContent</a>(w <a href="net/http.html">http</a>.<a href="net/http.html#name-ResponseWriter">ResponseWriter</a>, r *<a href="net/http.html">http</a>.<a href="net/http.html#name-Request">Request</a>, name <a href="builtin.html#name-string">string</a>, modtime <a href="time.html">time</a>.<a href="time.html#name-Time">Time</a>, sizeFunc func() (<a href="builtin.html#name-int64">int64</a>, <a href="builtin.html#name-error">error</a>), content <b>ReadSeeker</b>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-ReadWriteCloser" data-popularity="3595">	<input type='checkbox' class="fold" id="ReadWriteCloser-fold-content"><label for="ReadWriteCloser-fold-content"> type <a href="../src/io/io.go.html#line-144">ReadWriteCloser</a> <b><i>(interface)</i></b></label><span id='ReadWriteCloser-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-ReadWriteCloser" data-popularity="3805">	<input type='checkbox' class="fold" id="ReadWriteCloser-fold-content"><label for="ReadWriteCloser-fold-content"> type <a href="../src/io/io.go.html#line-144">ReadWriteCloser</a> <b><i>(interface)</i></b></label><span id='ReadWriteCloser-fold-content-docs' class="fold-docs">
 		ReadWriteCloser is the interface that groups the basic Read, Write and Close methods.
 
 		<input type='checkbox' class="fold" id="ReadWriteCloser-fold-methods"><label for="ReadWriteCloser-fold-methods">Methods (<i>total 3, all are exported</i>)</label><span id='ReadWriteCloser-fold-methods-items' class="fold-items"><span>
@@ -1213,23 +1252,30 @@
 		<input type='checkbox' class="fold" id="ReadWriteCloser-fold-results"><label for="ReadWriteCloser-fold-results">As Outputs Of (<i>at least one unexported</i>)</label><span id='ReadWriteCloser-fold-results-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="ReadWriteCloser-showhide-inputofs"><i><label for="ReadWriteCloser-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="ReadWriteCloser-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func net/http.<a href="net/http.html#name-newReadWriteCloserBody">newReadWriteCloserBody</a>(br *<a href="bufio.html">bufio</a>.<a href="bufio.html#name-Reader">Reader</a>, rwc <b>ReadWriteCloser</b>) <b>ReadWriteCloser</b></i></span></span>
-		<input type='checkbox' class="fold" id="ReadWriteCloser-fold-params"><label for="ReadWriteCloser-fold-params">As Inputs Of (<i>at least 2, in which 1 are exported</i>)</label><span id='ReadWriteCloser-fold-params-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="ReadWriteCloser-fold-params"><label for="ReadWriteCloser-fold-params">As Inputs Of (<i>at least 8, in which 6 are exported</i>)</label><span id='ReadWriteCloser-fold-params-items' class="fold-items"><span>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-Rpc">Rpc</a>.<a href="../src/github.com/ugorji/go/codec/rpc.go.html#line-18">ClientCodec</a>(conn <b>ReadWriteCloser</b>, h <a href="github.com/ugorji/go/codec.html">codec</a>.<a href="github.com/ugorji/go/codec.html#name-Handle">Handle</a>) <a href="net/rpc.html">rpc</a>.<a href="net/rpc.html#name-ClientCodec">ClientCodec</a></span><span>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-Rpc">Rpc</a>.<a href="../src/github.com/ugorji/go/codec/rpc.go.html#line-17">ServerCodec</a>(conn <b>ReadWriteCloser</b>, h <a href="github.com/ugorji/go/codec.html">codec</a>.<a href="github.com/ugorji/go/codec.html#name-Handle">Handle</a>) <a href="net/rpc.html">rpc</a>.<a href="net/rpc.html#name-ServerCodec">ServerCodec</a></span><span>
+			func net/rpc.<a href="net/rpc.html#name-NewClient">NewClient</a>(conn <b>ReadWriteCloser</b>) *<a href="net/rpc.html">rpc</a>.<a href="net/rpc.html#name-Client">Client</a></span><span>
+			func net/rpc.<a href="net/rpc.html#name-ServeConn">ServeConn</a>(conn <b>ReadWriteCloser</b>)</span><span>
+			func net/rpc.(*<a href="net/rpc.html#name-Server">Server</a>).<a href="../src/net/rpc/server.go.html#line-441">ServeConn</a>(conn <b>ReadWriteCloser</b>)</span><span>
 			func net/textproto.<a href="net/textproto.html#name-NewConn">NewConn</a>(conn <b>ReadWriteCloser</b>) *<a href="net/textproto.html">textproto</a>.<a href="net/textproto.html#name-Conn">Conn</a></span>
-			<input type='checkbox' class="showhide" id="ReadWriteCloser-showhide-outputofs"><i><label for="ReadWriteCloser-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="ReadWriteCloser-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="ReadWriteCloser-showhide-outputofs"><i><label for="ReadWriteCloser-showhide-outputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="ReadWriteCloser-showhide-outputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-newRPCCodec">newRPCCodec</a>(conn <b>ReadWriteCloser</b>, h <a href="github.com/ugorji/go/codec.html">codec</a>.<a href="github.com/ugorji/go/codec.html#name-Handle">Handle</a>) <a href="github.com/ugorji/go/codec.html">codec</a>.<a href="github.com/ugorji/go/codec.html#name-rpcCodec">rpcCodec</a></i></span><span class="hidden"><i>
 			func net/http.<a href="net/http.html#name-newReadWriteCloserBody">newReadWriteCloserBody</a>(br *<a href="bufio.html">bufio</a>.<a href="bufio.html#name-Reader">Reader</a>, rwc <b>ReadWriteCloser</b>) <b>ReadWriteCloser</b></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-ReadWriter" data-popularity="5000">	<input type='checkbox' class="fold" id="ReadWriter-fold-content"><label for="ReadWriter-fold-content"> type <a href="../src/io/io.go.html#line-126">ReadWriter</a> <b><i>(interface)</i></b></label><span id='ReadWriter-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-ReadWriter" data-popularity="5450">	<input type='checkbox' class="fold" id="ReadWriter-fold-content"><label for="ReadWriter-fold-content"> type <a href="../src/io/io.go.html#line-126">ReadWriter</a> <b><i>(interface)</i></b></label><span id='ReadWriter-fold-content-docs' class="fold-docs">
 		ReadWriter is the interface that groups the basic Read and Write methods.
 
 		<input type='checkbox' class="fold" id="ReadWriter-fold-methods"><label for="ReadWriter-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='ReadWriter-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-84">Read</a>(p []<a href="builtin.html#name-byte">byte</a>) (n <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</span></span><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-97">Write</a>(p []<a href="builtin.html#name-byte">byte</a>) (n <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="ReadWriter-fold-impledby"><label for="ReadWriter-fold-impledby">Implemented By (<i>at least 32, in which 12 are exported</i>)</label><span id='ReadWriter-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="ReadWriter-fold-impledby"><label for="ReadWriter-fold-impledby">Implemented By (<i>at least 35, in which 13 are exported</i>)</label><span id='ReadWriter-fold-impledby-items' class="fold-items"><span>
 			 <a href="#name-ReadWriteCloser">ReadWriteCloser</a> <i>(interface)</i></span><span>
 			 <a href="#name-ReadWriteSeeker">ReadWriteSeeker</a> <i>(interface)</i></span><span>
 			 bufio.<a href="bufio.html#name-ReadWriter">ReadWriter</a></span><span>
 			*bytes.<a href="bytes.html#name-Buffer">Buffer</a></span><span>
 			*crypto/tls.<a href="crypto/tls.html#name-Conn">Conn</a></span><span>
+			 golang.org/x/crypto/sha3.<a href="golang.org/x/crypto/sha3.html#name-ShakeHash">ShakeHash</a> <i>(interface)</i></span><span>
 			*internal/poll.<a href="internal/poll.html#name-FD">FD</a></span><span>
 			 net.<a href="net.html#name-Conn">Conn</a> <i>(interface)</i></span><span>
 			*net.<a href="net.html#name-IPConn">IPConn</a></span><span>
@@ -1237,9 +1283,11 @@
 			*net.<a href="net.html#name-UDPConn">UDPConn</a></span><span>
 			*net.<a href="net.html#name-UnixConn">UnixConn</a></span><span>
 			*os.<a href="os.html#name-File">File</a></span>
-			<input type='checkbox' class="showhide" id="ReadWriter-showhide-impedBys"><i><label for="ReadWriter-showhide-impedBys" class="show-inline">/* 20+ unexporteds ... */</label><label for="ReadWriter-showhide-impedBys" class="hide-inline">/* 20+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="ReadWriter-showhide-impedBys"><i><label for="ReadWriter-showhide-impedBys" class="show-inline">/* 22+ unexporteds ... */</label><label for="ReadWriter-showhide-impedBys" class="hide-inline">/* 22+ unexporteds: */</label></i><span class="hidden"><i>
 			*<a href="#name-pipe">pipe</a></i></span><span class="hidden"><i>
 			*encoding/json.<a href="encoding/json.html#name-encodeState">encodeState</a></i></span><span class="hidden"><i>
+			 golang.org/x/crypto/sha3.<a href="golang.org/x/crypto/sha3.html#name-cshakeState">cshakeState</a></i></span><span class="hidden"><i>
+			*golang.org/x/crypto/sha3.<a href="golang.org/x/crypto/sha3.html#name-state">state</a></i></span><span class="hidden"><i>
 			*golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-dataBuffer">dataBuffer</a></i></span><span class="hidden"><i>
 			*golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-pipe">pipe</a></i></span><span class="hidden"><i>
 			 golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-pipeBuffer">pipeBuffer</a> <i>(interface)</i></i></span><span class="hidden"><i>
@@ -1366,7 +1414,7 @@
 		<input type='checkbox' class="fold" id="SectionReader-fold-results"><label for="SectionReader-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='SectionReader-fold-results-items' class="fold-items"><span>
 			func <a href="#name-NewSectionReader">NewSectionReader</a>(r <a href="#name-ReaderAt">ReaderAt</a>, off <a href="builtin.html#name-int64">int64</a>, n <a href="builtin.html#name-int64">int64</a>) *<b>SectionReader</b></span></span>
 
-</span></div><div class="anchor type-res" id="name-Seeker" data-popularity="2450">	<input type='checkbox' class="fold" id="Seeker-fold-content"><label for="Seeker-fold-content"> type <a href="../src/io/io.go.html#line-121">Seeker</a> <b><i>(interface)</i></b></label><span id='Seeker-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Seeker" data-popularity="2600">	<input type='checkbox' class="fold" id="Seeker-fold-content"><label for="Seeker-fold-content"> type <a href="../src/io/io.go.html#line-121">Seeker</a> <b><i>(interface)</i></b></label><span id='Seeker-fold-content-docs' class="fold-docs">
 		Seeker is the interface that wraps the basic Seek method.
 
 		Seek sets the offset for the next Read or Write to offset,
@@ -1383,7 +1431,7 @@
 
 		<input type='checkbox' class="fold" id="Seeker-fold-methods"><label for="Seeker-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='Seeker-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-122">Seek</a>(offset <a href="builtin.html#name-int64">int64</a>, whence <a href="builtin.html#name-int">int</a>) (<a href="builtin.html#name-int64">int64</a>, <a href="builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="Seeker-fold-impledby"><label for="Seeker-fold-impledby">Implemented By (<i>at least 16, in which 13 are exported</i>)</label><span id='Seeker-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Seeker-fold-impledby"><label for="Seeker-fold-impledby">Implemented By (<i>at least 17, in which 13 are exported</i>)</label><span id='Seeker-fold-impledby-items' class="fold-items"><span>
 			 <a href="#name-ReadSeekCloser">ReadSeekCloser</a> <i>(interface)</i></span><span>
 			 <a href="#name-ReadSeeker">ReadSeeker</a> <i>(interface)</i></span><span>
 			 <a href="#name-ReadWriteSeeker">ReadWriteSeeker</a> <i>(interface)</i></span><span>
@@ -1397,29 +1445,35 @@
 			*os.<a href="os.html#name-File">File</a></span><span>
 			*strings.<a href="strings.html#name-Reader">Reader</a></span><span>
 			*vendor/golang.org/x/text/unicode/norm.<a href="vendor/golang.org/x/text/unicode/norm.html#name-Iter">Iter</a></span>
-			<input type='checkbox' class="showhide" id="Seeker-showhide-impedBys"><i><label for="Seeker-showhide-impedBys" class="show-inline">/* 3+ unexporteds ... */</label><label for="Seeker-showhide-impedBys" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Seeker-showhide-impedBys"><i><label for="Seeker-showhide-impedBys" class="show-inline">/* 4+ unexporteds ... */</label><label for="Seeker-showhide-impedBys" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
+			 github.com/gin-gonic/gin.<a href="github.com/gin-gonic/gin.html#name-neuteredReaddirFile">neuteredReaddirFile</a></i></span><span class="hidden"><i>
 			 mime/multipart.<a href="mime/multipart.html#name-sectionReadCloser">sectionReadCloser</a></i></span><span class="hidden"><i>
 			 net/http.<a href="net/http.html#name-ioFile">ioFile</a></i></span><span class="hidden"><i>
 			 os/exec.<a href="os/exec.html#name-closeOnce">closeOnce</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-StringWriter" data-popularity="3225">	<input type='checkbox' class="fold" id="StringWriter-fold-content"><label for="StringWriter-fold-content"> type <a href="../src/io/io.go.html#line-300">StringWriter</a> <b><i>(interface)</i></b></label><span id='StringWriter-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-StringWriter" data-popularity="3975">	<input type='checkbox' class="fold" id="StringWriter-fold-content"><label for="StringWriter-fold-content"> type <a href="../src/io/io.go.html#line-300">StringWriter</a> <b><i>(interface)</i></b></label><span id='StringWriter-fold-content-docs' class="fold-docs">
 		StringWriter is the interface that wraps the WriteString method.
 
 		<input type='checkbox' class="fold" id="StringWriter-fold-methods"><label for="StringWriter-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='StringWriter-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-301">WriteString</a>(s <a href="builtin.html#name-string">string</a>) (n <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="StringWriter-fold-impledby"><label for="StringWriter-fold-impledby">Implemented By (<i>at least 20, in which 7 are exported</i>)</label><span id='StringWriter-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="StringWriter-fold-impledby"><label for="StringWriter-fold-impledby">Implemented By (<i>at least 25, in which 8 are exported</i>)</label><span id='StringWriter-fold-impledby-items' class="fold-items"><span>
 			 bufio.<a href="bufio.html#name-ReadWriter">ReadWriter</a></span><span>
 			*bufio.<a href="bufio.html#name-Writer">Writer</a></span><span>
 			*bytes.<a href="bytes.html#name-Buffer">Buffer</a></span><span>
 			*github.com/cespare/xxhash/v2.<a href="github.com/cespare/xxhash/v2.html#name-Digest">Digest</a></span><span>
+			 github.com/gin-gonic/gin.<a href="github.com/gin-gonic/gin.html#name-ResponseWriter">ResponseWriter</a> <i>(interface)</i></span><span>
 			 net/http/internal.<a href="net/http/internal.html#name-FlushAfterChunkWriter">FlushAfterChunkWriter</a></span><span>
 			*os.<a href="os.html#name-File">File</a></span><span>
 			*strings.<a href="strings.html#name-Builder">Builder</a></span>
-			<input type='checkbox' class="showhide" id="StringWriter-showhide-impedBys"><i><label for="StringWriter-showhide-impedBys" class="show-inline">/* 13+ unexporteds ... */</label><label for="StringWriter-showhide-impedBys" class="hide-inline">/* 13+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="StringWriter-showhide-impedBys"><i><label for="StringWriter-showhide-impedBys" class="show-inline">/* 17+ unexporteds ... */</label><label for="StringWriter-showhide-impedBys" class="hide-inline">/* 17+ unexporteds: */</label></i><span class="hidden"><i>
 			 <a href="#name-discard">discard</a></i></span><span class="hidden"><i>
 			*<a href="#name-multiWriter">multiWriter</a></i></span><span class="hidden"><i>
 			*encoding/json.<a href="encoding/json.html#name-encodeState">encodeState</a></i></span><span class="hidden"><i>
+			 encoding/xml.<a href="encoding/xml.html#name-printer">printer</a></i></span><span class="hidden"><i>
 			*fmt.<a href="fmt.html#name-pp">pp</a></i></span><span class="hidden"><i>
+			 github.com/gin-contrib/sse.<a href="github.com/gin-contrib/sse.html#name-stringWrapper">stringWrapper</a></i></span><span class="hidden"><i>
+			 github.com/gin-contrib/sse.<a href="github.com/gin-contrib/sse.html#name-stringWriter">stringWriter</a> <i>(interface)</i></i></span><span class="hidden"><i>
+			*github.com/gin-gonic/gin.<a href="github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a></i></span><span class="hidden"><i>
 			*golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-responseWriter">responseWriter</a></i></span><span class="hidden"><i>
 			 golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-stringWriter">stringWriter</a> <i>(interface)</i></i></span><span class="hidden"><i>
 			*net/http.<a href="net/http.html#name-http2responseWriter">http2responseWriter</a></i></span><span class="hidden"><i>
@@ -1499,7 +1553,7 @@
 		<input type='checkbox' class="fold" id="WriteCloser-fold-params"><label for="WriteCloser-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='WriteCloser-fold-params-items' class="fold-items"><span>
 			func google.golang.org/grpc/internal/binarylog.<a href="google.golang.org/grpc/internal/binarylog.html#name-NewBufferedSink">NewBufferedSink</a>(o <b>WriteCloser</b>) <a href="google.golang.org/grpc/internal/binarylog.html">binarylog</a>.<a href="google.golang.org/grpc/internal/binarylog.html#name-Sink">Sink</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-Writer" data-popularity="21135">	<input type='checkbox' class="fold" id="Writer-fold-content"><label for="Writer-fold-content"> type <a href="../src/io/io.go.html#line-96">Writer</a> <b><i>(interface)</i></b></label><span id='Writer-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Writer" data-popularity="23230">	<input type='checkbox' class="fold" id="Writer-fold-content"><label for="Writer-fold-content"> type <a href="../src/io/io.go.html#line-96">Writer</a> <b><i>(interface)</i></b></label><span id='Writer-fold-content-docs' class="fold-docs">
 		Writer is the interface that wraps the basic Write method.
 
 		Write writes len(p) bytes from p to the underlying data stream.
@@ -1512,7 +1566,7 @@
 
 		<input type='checkbox' class="fold" id="Writer-fold-methods"><label for="Writer-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='Writer-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-97">Write</a>(p []<a href="builtin.html#name-byte">byte</a>) (n <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="Writer-fold-impledby"><label for="Writer-fold-impledby">Implemented By (<i>at least 112, in which 36 are exported</i>)</label><span id='Writer-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Writer-fold-impledby"><label for="Writer-fold-impledby">Implemented By (<i>at least 121, in which 38 are exported</i>)</label><span id='Writer-fold-impledby-items' class="fold-items"><span>
 			*<a href="#name-PipeWriter">PipeWriter</a></span><span>
 			 <a href="#name-ReadWriteCloser">ReadWriteCloser</a> <i>(interface)</i></span><span>
 			 <a href="#name-ReadWriter">ReadWriter</a> <i>(interface)</i></span><span>
@@ -1528,7 +1582,9 @@
 			*crypto/tls.<a href="crypto/tls.html#name-Conn">Conn</a></span><span>
 			 fmt.<a href="fmt.html#name-State">State</a> <i>(interface)</i></span><span>
 			*github.com/cespare/xxhash/v2.<a href="github.com/cespare/xxhash/v2.html#name-Digest">Digest</a></span><span>
+			 github.com/gin-gonic/gin.<a href="github.com/gin-gonic/gin.html#name-ResponseWriter">ResponseWriter</a> <i>(interface)</i></span><span>
 			*github.com/json-iterator/go.<a href="github.com/json-iterator/go.html#name-Stream">Stream</a></span><span>
+			 golang.org/x/crypto/sha3.<a href="golang.org/x/crypto/sha3.html#name-ShakeHash">ShakeHash</a> <i>(interface)</i></span><span>
 			*golang.org/x/net/http2/hpack.<a href="golang.org/x/net/http2/hpack.html#name-Decoder">Decoder</a></span><span>
 			*golang.org/x/text/transform.<a href="golang.org/x/text/transform.html#name-Writer">Writer</a></span><span>
 			 hash.<a href="hash.html#name-Hash">Hash</a> <i>(interface)</i></span><span>
@@ -1549,7 +1605,7 @@
 			*vendor/golang.org/x/crypto/poly1305.<a href="vendor/golang.org/x/crypto/poly1305.html#name-MAC">MAC</a></span><span>
 			*vendor/golang.org/x/net/http2/hpack.<a href="vendor/golang.org/x/net/http2/hpack.html#name-Decoder">Decoder</a></span><span>
 			*vendor/golang.org/x/text/transform.<a href="vendor/golang.org/x/text/transform.html#name-Writer">Writer</a></span>
-			<input type='checkbox' class="showhide" id="Writer-showhide-impedBys"><i><label for="Writer-showhide-impedBys" class="show-inline">/* 76+ unexporteds ... */</label><label for="Writer-showhide-impedBys" class="hide-inline">/* 76+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Writer-showhide-impedBys"><i><label for="Writer-showhide-impedBys" class="show-inline">/* 83+ unexporteds ... */</label><label for="Writer-showhide-impedBys" class="hide-inline">/* 83+ unexporteds: */</label></i><span class="hidden"><i>
 			 <a href="#name-discard">discard</a></i></span><span class="hidden"><i>
 			*<a href="#name-multiWriter">multiWriter</a></i></span><span class="hidden"><i>
 			*<a href="#name-pipe">pipe</a></i></span><span class="hidden"><i>
@@ -1563,12 +1619,19 @@
 			*crypto/tls.<a href="crypto/tls.html#name-cthWrapper">cthWrapper</a></i></span><span class="hidden"><i>
 			*crypto/tls.<a href="crypto/tls.html#name-finishedHash">finishedHash</a></i></span><span class="hidden"><i>
 			*encoding/base64.<a href="encoding/base64.html#name-encoder">encoder</a></i></span><span class="hidden"><i>
+			*encoding/gob.<a href="encoding/gob.html#name-encBuffer">encBuffer</a></i></span><span class="hidden"><i>
 			*encoding/hex.<a href="encoding/hex.html#name-dumper">dumper</a></i></span><span class="hidden"><i>
 			*encoding/hex.<a href="encoding/hex.html#name-encoder">encoder</a></i></span><span class="hidden"><i>
 			*encoding/json.<a href="encoding/json.html#name-encodeState">encodeState</a></i></span><span class="hidden"><i>
 			*encoding/pem.<a href="encoding/pem.html#name-lineBreaker">lineBreaker</a></i></span><span class="hidden"><i>
+			 encoding/xml.<a href="encoding/xml.html#name-printer">printer</a></i></span><span class="hidden"><i>
 			*fmt.<a href="fmt.html#name-pp">pp</a></i></span><span class="hidden"><i>
+			 github.com/gin-contrib/sse.<a href="github.com/gin-contrib/sse.html#name-stringWrapper">stringWrapper</a></i></span><span class="hidden"><i>
+			 github.com/gin-contrib/sse.<a href="github.com/gin-contrib/sse.html#name-stringWriter">stringWriter</a> <i>(interface)</i></i></span><span class="hidden"><i>
+			*github.com/gin-gonic/gin.<a href="github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a></i></span><span class="hidden"><i>
 			*github.com/golang/protobuf/proto.<a href="github.com/golang/protobuf/proto.html#name-textWriter">textWriter</a></i></span><span class="hidden"><i>
+			 golang.org/x/crypto/sha3.<a href="golang.org/x/crypto/sha3.html#name-cshakeState">cshakeState</a></i></span><span class="hidden"><i>
+			*golang.org/x/crypto/sha3.<a href="golang.org/x/crypto/sha3.html#name-state">state</a></i></span><span class="hidden"><i>
 			*golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-bufferedWriter">bufferedWriter</a></i></span><span class="hidden"><i>
 			 golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-chunkWriter">chunkWriter</a></i></span><span class="hidden"><i>
 			*golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-dataBuffer">dataBuffer</a></i></span><span class="hidden"><i>
@@ -1626,7 +1689,7 @@
 			*vendor/golang.org/x/crypto/poly1305.<a href="vendor/golang.org/x/crypto/poly1305.html#name-mac">mac</a></i></span><span class="hidden"><i>
 			*vendor/golang.org/x/crypto/poly1305.<a href="vendor/golang.org/x/crypto/poly1305.html#name-macGeneric">macGeneric</a></i></span><span class="hidden"><i>
 			*vendor/golang.org/x/text/unicode/norm.<a href="vendor/golang.org/x/text/unicode/norm.html#name-normWriter">normWriter</a></i></span></span>
-		<input type='checkbox' class="fold" id="Writer-fold-results"><label for="Writer-fold-results">As Outputs Of (<i>at least 8, all are exported</i>)</label><span id='Writer-fold-results-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Writer-fold-results"><label for="Writer-fold-results">As Outputs Of (<i>at least 9, in which 8 are exported</i>)</label><span id='Writer-fold-results-items' class="fold-items"><span>
 			func <a href="#name-MultiWriter">MultiWriter</a>(writers ...<b>Writer</b>) <b>Writer</b></span><span>
 			func encoding/hex.<a href="encoding/hex.html#name-NewEncoder">NewEncoder</a>(w <b>Writer</b>) <b>Writer</b></span><span>
 			func github.com/xeipuuv/gojsonschema.<a href="github.com/xeipuuv/gojsonschema.html#name-NewWriterLoader">NewWriterLoader</a>(source <b>Writer</b>) (<a href="github.com/xeipuuv/gojsonschema.html">gojsonschema</a>.<a href="github.com/xeipuuv/gojsonschema.html#name-JSONLoader">JSONLoader</a>, <b>Writer</b>)</span><span>
@@ -1634,8 +1697,10 @@
 			func log.(*<a href="log.html#name-Logger">Logger</a>).<a href="../src/log/log.go.html#line-272">Writer</a>() <b>Writer</b></span><span>
 			func mime/multipart.(*<a href="mime/multipart.html#name-Writer">Writer</a>).<a href="../src/mime/multipart/writer.go.html#line-151">CreateFormField</a>(fieldname <a href="builtin.html#name-string">string</a>) (<b>Writer</b>, <a href="builtin.html#name-error">error</a>)</span><span>
 			func mime/multipart.(*<a href="mime/multipart.html#name-Writer">Writer</a>).<a href="../src/mime/multipart/writer.go.html#line-140">CreateFormFile</a>(fieldname, filename <a href="builtin.html#name-string">string</a>) (<b>Writer</b>, <a href="builtin.html#name-error">error</a>)</span><span>
-			func mime/multipart.(*<a href="mime/multipart.html#name-Writer">Writer</a>).<a href="../src/mime/multipart/writer.go.html#line-97">CreatePart</a>(header <a href="net/textproto.html">textproto</a>.<a href="net/textproto.html#name-MIMEHeader">MIMEHeader</a>) (<b>Writer</b>, <a href="builtin.html#name-error">error</a>)</span></span>
-		<input type='checkbox' class="fold" id="Writer-fold-params"><label for="Writer-fold-params">As Inputs Of (<i>at least 105, in which 82 are exported</i>)</label><span id='Writer-fold-params-items' class="fold-items"><span>
+			func mime/multipart.(*<a href="mime/multipart.html#name-Writer">Writer</a>).<a href="../src/mime/multipart/writer.go.html#line-97">CreatePart</a>(header <a href="net/textproto.html">textproto</a>.<a href="net/textproto.html#name-MIMEHeader">MIMEHeader</a>) (<b>Writer</b>, <a href="builtin.html#name-error">error</a>)</span>
+			<input type='checkbox' class="showhide" id="Writer-showhide-inputofs"><i><label for="Writer-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="Writer-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func encoding/gob.(*<a href="encoding/gob.html#name-Encoder">Encoder</a>).<a href="../src/encoding/gob/encoder.go.html#line-43">writer</a>() <b>Writer</b></i></span></span>
+		<input type='checkbox' class="fold" id="Writer-fold-params"><label for="Writer-fold-params">As Inputs Of (<i>at least 124, in which 92 are exported</i>)</label><span id='Writer-fold-params-items' class="fold-items"><span>
 			func <a href="#name-Copy">Copy</a>(dst <b>Writer</b>, src <a href="#name-Reader">Reader</a>) (written <a href="builtin.html#name-int64">int64</a>, err <a href="builtin.html#name-error">error</a>)</span><span>
 			func <a href="#name-CopyBuffer">CopyBuffer</a>(dst <b>Writer</b>, src <a href="#name-Reader">Reader</a>, buf []<a href="builtin.html#name-byte">byte</a>) (written <a href="builtin.html#name-int64">int64</a>, err <a href="builtin.html#name-error">error</a>)</span><span>
 			func <a href="#name-CopyN">CopyN</a>(dst <b>Writer</b>, src <a href="#name-Reader">Reader</a>, n <a href="builtin.html#name-int64">int64</a>) (written <a href="builtin.html#name-int64">int64</a>, err <a href="builtin.html#name-error">error</a>)</span><span>
@@ -1657,13 +1722,21 @@
 			func compress/gzip.(*<a href="compress/gzip.html#name-Writer">Writer</a>).<a href="../src/compress/gzip/gzip.go.html#line-88">Reset</a>(w <b>Writer</b>)</span><span>
 			func encoding/base64.<a href="encoding/base64.html#name-NewEncoder">NewEncoder</a>(enc *<a href="encoding/base64.html">base64</a>.<a href="encoding/base64.html#name-Encoding">Encoding</a>, w <b>Writer</b>) <a href="#name-WriteCloser">WriteCloser</a></span><span>
 			func encoding/binary.<a href="encoding/binary.html#name-Write">Write</a>(w <b>Writer</b>, order <a href="encoding/binary.html">binary</a>.<a href="encoding/binary.html#name-ByteOrder">ByteOrder</a>, data interface{}) <a href="builtin.html#name-error">error</a></span><span>
+			func encoding/gob.<a href="encoding/gob.html#name-NewEncoder">NewEncoder</a>(w <b>Writer</b>) *<a href="encoding/gob.html">gob</a>.<a href="encoding/gob.html#name-Encoder">Encoder</a></span><span>
 			func encoding/hex.<a href="encoding/hex.html#name-Dumper">Dumper</a>(w <b>Writer</b>) <a href="#name-WriteCloser">WriteCloser</a></span><span>
 			func encoding/hex.<a href="encoding/hex.html#name-NewEncoder">NewEncoder</a>(w <b>Writer</b>) <b>Writer</b></span><span>
 			func encoding/json.<a href="encoding/json.html#name-NewEncoder">NewEncoder</a>(w <b>Writer</b>) *<a href="encoding/json.html">json</a>.<a href="encoding/json.html#name-Encoder">Encoder</a></span><span>
 			func encoding/pem.<a href="encoding/pem.html#name-Encode">Encode</a>(out <b>Writer</b>, b *<a href="encoding/pem.html">pem</a>.<a href="encoding/pem.html#name-Block">Block</a>) <a href="builtin.html#name-error">error</a></span><span>
+			func encoding/xml.<a href="encoding/xml.html#name-Escape">Escape</a>(w <b>Writer</b>, s []<a href="builtin.html#name-byte">byte</a>)</span><span>
+			func encoding/xml.<a href="encoding/xml.html#name-EscapeText">EscapeText</a>(w <b>Writer</b>, s []<a href="builtin.html#name-byte">byte</a>) <a href="builtin.html#name-error">error</a></span><span>
+			func encoding/xml.<a href="encoding/xml.html#name-NewEncoder">NewEncoder</a>(w <b>Writer</b>) *<a href="encoding/xml.html">xml</a>.<a href="encoding/xml.html#name-Encoder">Encoder</a></span><span>
 			func fmt.<a href="fmt.html#name-Fprint">Fprint</a>(w <b>Writer</b>, a ...interface{}) (n <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</span><span>
 			func fmt.<a href="fmt.html#name-Fprintf">Fprintf</a>(w <b>Writer</b>, format <a href="builtin.html#name-string">string</a>, a ...interface{}) (n <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</span><span>
 			func fmt.<a href="fmt.html#name-Fprintln">Fprintln</a>(w <b>Writer</b>, a ...interface{}) (n <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</span><span>
+			func github.com/gin-contrib/sse.<a href="github.com/gin-contrib/sse.html#name-Encode">Encode</a>(writer <b>Writer</b>, event <a href="github.com/gin-contrib/sse.html">sse</a>.<a href="github.com/gin-contrib/sse.html#name-Event">Event</a>) <a href="builtin.html#name-error">error</a></span><span>
+			func github.com/gin-gonic/gin.<a href="github.com/gin-gonic/gin.html#name-CustomRecoveryWithWriter">CustomRecoveryWithWriter</a>(out <b>Writer</b>, handle <a href="github.com/gin-gonic/gin.html">gin</a>.<a href="github.com/gin-gonic/gin.html#name-RecoveryFunc">RecoveryFunc</a>) <a href="github.com/gin-gonic/gin.html">gin</a>.<a href="github.com/gin-gonic/gin.html#name-HandlerFunc">HandlerFunc</a></span><span>
+			func github.com/gin-gonic/gin.<a href="github.com/gin-gonic/gin.html#name-LoggerWithWriter">LoggerWithWriter</a>(out <b>Writer</b>, notlogged ...<a href="builtin.html#name-string">string</a>) <a href="github.com/gin-gonic/gin.html">gin</a>.<a href="github.com/gin-gonic/gin.html#name-HandlerFunc">HandlerFunc</a></span><span>
+			func github.com/gin-gonic/gin.<a href="github.com/gin-gonic/gin.html#name-RecoveryWithWriter">RecoveryWithWriter</a>(out <b>Writer</b>, recovery ...<a href="github.com/gin-gonic/gin.html">gin</a>.<a href="github.com/gin-gonic/gin.html#name-RecoveryFunc">RecoveryFunc</a>) <a href="github.com/gin-gonic/gin.html">gin</a>.<a href="github.com/gin-gonic/gin.html#name-HandlerFunc">HandlerFunc</a></span><span>
 			func github.com/Golang-Tools/loggerhelper.<a href="github.com/Golang-Tools^b0a0c/loggerhelper.html#name-WithOutput">WithOutput</a>(writer <b>Writer</b>) <a href="github.com/Golang-Tools^b0a0c/loggerhelper.html">loggerhelper</a>.<a href="github.com/Golang-Tools^b0a0c/loggerhelper.html#name-Option">Option</a></span><span>
 			func github.com/golang/protobuf/jsonpb.(*<a href="github.com/golang/protobuf/jsonpb.html#name-Marshaler">Marshaler</a>).<a href="../src/github.com/golang/protobuf/jsonpb/encode.go.html#line-66">Marshal</a>(w <b>Writer</b>, m <a href="github.com/golang/protobuf/proto.html">proto</a>.<a href="github.com/golang/protobuf/proto.html#name-Message">Message</a>) <a href="builtin.html#name-error">error</a></span><span>
 			func github.com/golang/protobuf/proto.<a href="github.com/golang/protobuf/proto.html#name-CompactText">CompactText</a>(w <b>Writer</b>, m <a href="github.com/golang/protobuf/proto.html">proto</a>.<a href="github.com/golang/protobuf/proto.html#name-Message">Message</a>) <a href="builtin.html#name-error">error</a></span><span>
@@ -1677,6 +1750,8 @@
 			func github.com/json-iterator/go.<a href="github.com/json-iterator/go.html#name-StreamPool">StreamPool</a>.<a href="../src/github.com/json-iterator/go/pool.go.html#line-15">BorrowStream</a>(writer <b>Writer</b>) *<a href="github.com/json-iterator/go.html">jsoniter</a>.<a href="github.com/json-iterator/go.html#name-Stream">Stream</a></span><span>
 			func github.com/sirupsen/logrus.<a href="github.com/sirupsen/logrus.html#name-SetOutput">SetOutput</a>(out <b>Writer</b>)</span><span>
 			func github.com/sirupsen/logrus.(*<a href="github.com/sirupsen/logrus.html#name-Logger">Logger</a>).<a href="../src/github.com/sirupsen/logrus/logger.go.html#line-385">SetOutput</a>(output <b>Writer</b>)</span><span>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-NewEncoder">NewEncoder</a>(w <b>Writer</b>, h <a href="github.com/ugorji/go/codec.html">codec</a>.<a href="github.com/ugorji/go/codec.html#name-Handle">Handle</a>) *<a href="github.com/ugorji/go/codec.html">codec</a>.<a href="github.com/ugorji/go/codec.html#name-Encoder">Encoder</a></span><span>
+			func github.com/ugorji/go/codec.(*<a href="github.com/ugorji/go/codec.html#name-Encoder">Encoder</a>).<a href="../src/github.com/ugorji/go/codec/encode.go.html#line-896">Reset</a>(w <b>Writer</b>)</span><span>
 			func github.com/xeipuuv/gojsonschema.<a href="github.com/xeipuuv/gojsonschema.html#name-NewWriterLoader">NewWriterLoader</a>(source <b>Writer</b>) (<a href="github.com/xeipuuv/gojsonschema.html">gojsonschema</a>.<a href="github.com/xeipuuv/gojsonschema.html#name-JSONLoader">JSONLoader</a>, <b>Writer</b>)</span><span>
 			func golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-NewFramer">NewFramer</a>(w <b>Writer</b>, r <a href="#name-Reader">Reader</a>) *<a href="golang.org/x/net/http2.html">http2</a>.<a href="golang.org/x/net/http2.html#name-Framer">Framer</a></span><span>
 			func golang.org/x/net/http2/hpack.<a href="golang.org/x/net/http2/hpack.html#name-HuffmanDecode">HuffmanDecode</a>(w <b>Writer</b>, v []<a href="builtin.html#name-byte">byte</a>) (<a href="builtin.html#name-int">int</a>, <a href="builtin.html#name-error">error</a>)</span><span>
@@ -1718,13 +1793,22 @@
 			func vendor/golang.org/x/net/http2/hpack.<a href="vendor/golang.org/x/net/http2/hpack.html#name-NewEncoder">NewEncoder</a>(w <b>Writer</b>) *<a href="vendor/golang.org/x/net/http2/hpack.html">hpack</a>.<a href="vendor/golang.org/x/net/http2/hpack.html#name-Encoder">Encoder</a></span><span>
 			func vendor/golang.org/x/text/transform.<a href="vendor/golang.org/x/text/transform.html#name-NewWriter">NewWriter</a>(w <b>Writer</b>, t <a href="vendor/golang.org/x/text/transform.html">transform</a>.<a href="vendor/golang.org/x/text/transform.html#name-Transformer">Transformer</a>) *<a href="vendor/golang.org/x/text/transform.html">transform</a>.<a href="vendor/golang.org/x/text/transform.html#name-Writer">Writer</a></span><span>
 			func vendor/golang.org/x/text/unicode/norm.<a href="vendor/golang.org/x/text/unicode/norm.html#name-Form">Form</a>.<a href="../src/vendor/golang.org/x/text/unicode/norm/readwriter.go.html#line-66">Writer</a>(w <b>Writer</b>) <a href="#name-WriteCloser">WriteCloser</a></span>
-			<input type='checkbox' class="showhide" id="Writer-showhide-outputofs"><i><label for="Writer-showhide-outputofs" class="show-inline">/* 23+ unexporteds ... */</label><label for="Writer-showhide-outputofs" class="hide-inline">/* 23+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Writer-showhide-outputofs"><i><label for="Writer-showhide-outputofs" class="show-inline">/* 32+ unexporteds ... */</label><label for="Writer-showhide-outputofs" class="hide-inline">/* 32+ unexporteds: */</label></i><span class="hidden"><i>
 			func <a href="#name-copyBuffer">copyBuffer</a>(dst <b>Writer</b>, src <a href="#name-Reader">Reader</a>, buf []<a href="builtin.html#name-byte">byte</a>) (written <a href="builtin.html#name-int64">int64</a>, err <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func bufio.(*<a href="bufio.html#name-Reader">Reader</a>).<a href="../src/bufio/bufio.go.html#line-541">writeBuf</a>(w <b>Writer</b>) (<a href="builtin.html#name-int64">int64</a>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func compress/flate.<a href="compress/flate.html#name-newHuffmanBitWriter">newHuffmanBitWriter</a>(w <b>Writer</b>) *<a href="compress/flate.html">flate</a>.<a href="compress/flate.html#name-huffmanBitWriter">huffmanBitWriter</a></i></span><span class="hidden"><i>
 			func compress/gzip.(*<a href="compress/gzip.html#name-Writer">Writer</a>).<a href="../src/compress/gzip/gzip.go.html#line-69">init</a>(w <b>Writer</b>, level <a href="builtin.html#name-int">int</a>)</i></span><span class="hidden"><i>
+			func encoding/gob.(*<a href="encoding/gob.html#name-Encoder">Encoder</a>).<a href="../src/encoding/gob/encoder.go.html#line-48">pushWriter</a>(w <b>Writer</b>)</i></span><span class="hidden"><i>
+			func encoding/gob.(*<a href="encoding/gob.html#name-Encoder">Encoder</a>).<a href="../src/encoding/gob/encoder.go.html#line-93">sendActualType</a>(w <b>Writer</b>, state *<a href="encoding/gob.html">gob</a>.<a href="encoding/gob.html#name-encoderState">encoderState</a>, ut *<a href="encoding/gob.html">gob</a>.<a href="encoding/gob.html#name-userTypeInfo">userTypeInfo</a>, actual <a href="reflect.html">reflect</a>.<a href="reflect.html#name-Type">Type</a>) (sent <a href="builtin.html#name-bool">bool</a>)</i></span><span class="hidden"><i>
+			func encoding/gob.(*<a href="encoding/gob.html#name-Encoder">Encoder</a>).<a href="../src/encoding/gob/encoder.go.html#line-135">sendType</a>(w <b>Writer</b>, state *<a href="encoding/gob.html">gob</a>.<a href="encoding/gob.html#name-encoderState">encoderState</a>, origt <a href="reflect.html">reflect</a>.<a href="reflect.html#name-Type">Type</a>) (sent <a href="builtin.html#name-bool">bool</a>)</i></span><span class="hidden"><i>
+			func encoding/gob.(*<a href="encoding/gob.html#name-Encoder">Encoder</a>).<a href="../src/encoding/gob/encoder.go.html#line-182">sendTypeDescriptor</a>(w <b>Writer</b>, state *<a href="encoding/gob.html">gob</a>.<a href="encoding/gob.html#name-encoderState">encoderState</a>, ut *<a href="encoding/gob.html">gob</a>.<a href="encoding/gob.html#name-userTypeInfo">userTypeInfo</a>)</i></span><span class="hidden"><i>
+			func encoding/gob.(*<a href="encoding/gob.html#name-Encoder">Encoder</a>).<a href="../src/encoding/gob/encoder.go.html#line-64">writeMessage</a>(w <b>Writer</b>, b *<a href="encoding/gob.html">gob</a>.<a href="encoding/gob.html#name-encBuffer">encBuffer</a>)</i></span><span class="hidden"><i>
 			func encoding/pem.<a href="encoding/pem.html#name-writeHeader">writeHeader</a>(out <b>Writer</b>, k, v <a href="builtin.html#name-string">string</a>) <a href="builtin.html#name-error">error</a></i></span><span class="hidden"><i>
+			func encoding/xml.<a href="encoding/xml.html#name-emitCDATA">emitCDATA</a>(w <b>Writer</b>, s []<a href="builtin.html#name-byte">byte</a>) <a href="builtin.html#name-error">error</a></i></span><span class="hidden"><i>
+			func encoding/xml.<a href="encoding/xml.html#name-escapeText">escapeText</a>(w <b>Writer</b>, s []<a href="builtin.html#name-byte">byte</a>, escapeNewline <a href="builtin.html#name-bool">bool</a>) <a href="builtin.html#name-error">error</a></i></span><span class="hidden"><i>
+			func github.com/gin-contrib/sse.<a href="github.com/gin-contrib/sse.html#name-checkWriter">checkWriter</a>(writer <b>Writer</b>) <a href="github.com/gin-contrib/sse.html">sse</a>.<a href="github.com/gin-contrib/sse.html#name-stringWriter">stringWriter</a></i></span><span class="hidden"><i>
 			func github.com/sirupsen/logrus.<a href="github.com/sirupsen/logrus.html#name-checkIfTerminal">checkIfTerminal</a>(w <b>Writer</b>) <a href="builtin.html#name-bool">bool</a></i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-newRPCCodec2">newRPCCodec2</a>(r <a href="#name-Reader">Reader</a>, w <b>Writer</b>, c <a href="#name-Closer">Closer</a>, h <a href="github.com/ugorji/go/codec.html">codec</a>.<a href="github.com/ugorji/go/codec.html#name-Handle">Handle</a>) <a href="github.com/ugorji/go/codec.html">codec</a>.<a href="github.com/ugorji/go/codec.html#name-rpcCodec">rpcCodec</a></i></span><span class="hidden"><i>
 			func golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-newBufferedWriter">newBufferedWriter</a>(w <b>Writer</b>) *<a href="golang.org/x/net/http2.html">http2</a>.<a href="golang.org/x/net/http2.html#name-bufferedWriter">bufferedWriter</a></i></span><span class="hidden"><i>
 			func golang.org/x/net/trace.<a href="golang.org/x/net/trace.html#name-printStackRecord">printStackRecord</a>(w <b>Writer</b>, stk []<a href="builtin.html#name-uintptr">uintptr</a>)</i></span><span class="hidden"><i>
 			func google.golang.org/grpc/internal/binarylog.<a href="google.golang.org/grpc/internal/binarylog.html#name-newWriterSink">newWriterSink</a>(w <b>Writer</b>) <a href="google.golang.org/grpc/internal/binarylog.html">binarylog</a>.<a href="google.golang.org/grpc/internal/binarylog.html#name-Sink">Sink</a></i></span><span class="hidden"><i>
@@ -1742,9 +1826,11 @@
 			func os/exec.(*<a href="os/exec.html#name-Cmd">Cmd</a>).<a href="../src/os/exec/exec.go.html#line-289">writerDescriptor</a>(w <b>Writer</b>) (f *<a href="os.html">os</a>.<a href="os.html#name-File">File</a>, err <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func strings.<a href="strings.html#name-getStringWriter">getStringWriter</a>(w <b>Writer</b>) <a href="#name-StringWriter">StringWriter</a></i></span><span class="hidden"><i>
 			func text/template.(*<a href="text/template.html#name-Template">Template</a>).<a href="../src/text/template/exec.go.html#line-206">execute</a>(wr <b>Writer</b>, data interface{}) (err <a href="builtin.html#name-error">error</a>)</i></span></span>
-		<input type='checkbox' class="fold" id="Writer-fold-values"><label for="Writer-fold-values">As Types Of (<i>total 2, both are exported</i>)</label><span id='Writer-fold-values-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Writer-fold-values"><label for="Writer-fold-values">As Types Of (<i>total 4, all are exported</i>)</label><span id='Writer-fold-values-items' class="fold-items"><span>
 			  var <a href="#name-Discard">Discard</a></span><span>
-			  var io/ioutil.<a href="io/ioutil.html#name-Discard">Discard</a></span></span>
+			  var io/ioutil.<a href="io/ioutil.html#name-Discard">Discard</a></span><span>
+			  var github.com/gin-gonic/gin.<a href="github.com/gin-gonic/gin.html#name-DefaultErrorWriter">DefaultErrorWriter</a></span><span>
+			  var github.com/gin-gonic/gin.<a href="github.com/gin-gonic/gin.html#name-DefaultWriter">DefaultWriter</a></span></span>
 
 </span></div><div class="anchor type-res" id="name-WriterAt" data-popularity="350">	<input type='checkbox' class="fold" id="WriterAt-fold-content"><label for="WriterAt-fold-content"> type <a href="../src/io/io.go.html#line-244">WriterAt</a> <b><i>(interface)</i></b></label><span id='WriterAt-fold-content-docs' class="fold-docs">
 		WriterAt is the interface that wraps the basic WriteAt method.
@@ -1808,17 +1894,18 @@
 			 T : <a href="#name-Seeker">Seeker</a></span><span>
 			 T : <a href="#name-Writer">Writer</a></span></span>
 
-</span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 8 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 8 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-discard" data-popularity="400">	<input type='checkbox' class="fold" id="discard-fold-content"><label for="discard-fold-content"> type <a href="../src/io/io.go.html#line-573">discard</a> <i>(struct)</i></label><span id='discard-fold-content-docs' class="fold-docs">
+</span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 8 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 8 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-discard" data-popularity="450">	<input type='checkbox' class="fold" id="discard-fold-content"><label for="discard-fold-content"> type <a href="../src/io/io.go.html#line-573">discard</a> <i>(struct)</i></label><span id='discard-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="discard-fold-methods"><label for="discard-fold-methods">Methods (<i>total 3, all are exported</i>)</label><span id='discard-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-594">ReadFrom</a>(r <a href="#name-Reader">Reader</a>) (n <a href="builtin.html#name-int64">int64</a>, err <a href="builtin.html#name-error">error</a>)</span></span><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-579">Write</a>(p []<a href="builtin.html#name-byte">byte</a>) (<a href="builtin.html#name-int">int</a>, <a href="builtin.html#name-error">error</a>)</span></span><span>
 			<span class="nodocs">( T) <a href="../src/io/io.go.html#line-583">WriteString</a>(s <a href="builtin.html#name-string">string</a>) (<a href="builtin.html#name-int">int</a>, <a href="builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="discard-fold-impls"><label for="discard-fold-impls">Implements (<i>at least 5, in which 3 are exported</i>)</label><span id='discard-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="discard-fold-impls"><label for="discard-fold-impls">Implements (<i>at least 6, in which 3 are exported</i>)</label><span id='discard-fold-impls-items' class="fold-items"><span>
 			 T : <a href="#name-ReaderFrom">ReaderFrom</a></span><span>
 			 T : <a href="#name-StringWriter">StringWriter</a></span><span>
 			 T : <a href="#name-Writer">Writer</a></span>
-			<input type='checkbox' checked class="showhide" id="discard-showhide-impls"><i><label for="discard-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="discard-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="discard-showhide-impls"><i><label for="discard-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="discard-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			 T : github.com/gin-contrib/sse.<a href="github.com/gin-contrib/sse.html#name-stringWriter">stringWriter</a></i></span><span class="hidden"><i>
 			 T : golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-stringWriter">stringWriter</a></i></span><span class="hidden"><i>
 			 T : net/http.<a href="net/http.html#name-http2stringWriter">http2stringWriter</a></i></span></span>
 
@@ -1839,7 +1926,7 @@
 		<input type='checkbox' class="fold" id="multiReader-fold-impls"><label for="multiReader-fold-impls">Implements (<i>at least one exported</i>)</label><span id='multiReader-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-Reader">Reader</a></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-multiWriter" data-popularity="300">	<input type='checkbox' class="fold" id="multiWriter-fold-content"><label for="multiWriter-fold-content"> type <a href="../src/io/multi.go.html#line-54">multiWriter</a> <i>(struct)</i></label><span id='multiWriter-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-multiWriter" data-popularity="350">	<input type='checkbox' class="fold" id="multiWriter-fold-content"><label for="multiWriter-fold-content"> type <a href="../src/io/multi.go.html#line-54">multiWriter</a> <i>(struct)</i></label><span id='multiWriter-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="multiWriter-fold-fields"><label for="multiWriter-fold-fields">Fields (<i>only one, which is unexported</i>)</label><span id='multiWriter-fold-fields-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="multiWriter-showhide-fields"><i><label for="multiWriter-showhide-fields" class="show-inline">/* one unexported ... */</label><label for="multiWriter-showhide-fields" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
@@ -1847,10 +1934,11 @@
 		<input type='checkbox' class="fold" id="multiWriter-fold-methods"><label for="multiWriter-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='multiWriter-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">(*T) <a href="../src/io/multi.go.html#line-58">Write</a>(p []<a href="builtin.html#name-byte">byte</a>) (n <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</span></span><span>
 			<span class="nodocs">(*T) <a href="../src/io/multi.go.html#line-74">WriteString</a>(s <a href="builtin.html#name-string">string</a>) (n <a href="builtin.html#name-int">int</a>, err <a href="builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="multiWriter-fold-impls"><label for="multiWriter-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='multiWriter-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="multiWriter-fold-impls"><label for="multiWriter-fold-impls">Implements (<i>at least 5, in which 2 are exported</i>)</label><span id='multiWriter-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-StringWriter">StringWriter</a></span><span>
 			*T : <a href="#name-Writer">Writer</a></span>
-			<input type='checkbox' checked class="showhide" id="multiWriter-showhide-impls"><i><label for="multiWriter-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="multiWriter-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="multiWriter-showhide-impls"><i><label for="multiWriter-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="multiWriter-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : github.com/gin-contrib/sse.<a href="github.com/gin-contrib/sse.html#name-stringWriter">stringWriter</a></i></span><span class="hidden"><i>
 			*T : golang.org/x/net/http2.<a href="golang.org/x/net/http2.html#name-stringWriter">stringWriter</a></i></span><span class="hidden"><i>
 			*T : net/http.<a href="net/http.html#name-http2stringWriter">http2stringWriter</a></i></span></span>
 

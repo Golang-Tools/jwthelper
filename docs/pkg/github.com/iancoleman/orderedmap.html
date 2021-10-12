@@ -49,7 +49,7 @@
 			<span class="nodocs"><a href="../../../src/github.com/iancoleman/orderedmap/orderedmap.go.html#line-14">Index</a> <i><a href="../../builtin.html#name-int">int</a></i></span></span><span>
 			<span class="nodocs"><a href="../../../src/github.com/iancoleman/orderedmap/orderedmap.go.html#line-13">Key</a> <i><a href="../../builtin.html#name-string">string</a></i></span></span></span>
 
-</span></div><div class="anchor type-res" id="name-OrderedMap" data-popularity="610">	<input type='checkbox' class="fold" id="OrderedMap-fold-content"><label for="OrderedMap-fold-content"> type <a href="../../../src/github.com/iancoleman/orderedmap/orderedmap.go.html#line-44">OrderedMap</a> <i>(struct)</i></label><span id='OrderedMap-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-OrderedMap" data-popularity="710">	<input type='checkbox' class="fold" id="OrderedMap-fold-content"><label for="OrderedMap-fold-content"> type <a href="../../../src/github.com/iancoleman/orderedmap/orderedmap.go.html#line-44">OrderedMap</a> <i>(struct)</i></label><span id='OrderedMap-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="OrderedMap-fold-fields"><label for="OrderedMap-fold-fields">Fields (<i>total 2, neither is exported</i>)</label><span id='OrderedMap-fold-fields-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="OrderedMap-showhide-fields"><i><label for="OrderedMap-showhide-fields" class="show-inline">/* 2 unexporteds ... */</label><label for="OrderedMap-showhide-fields" class="hide-inline">/* 2 unexporteds: */</label></i><span class="hidden"><i>
@@ -68,9 +68,12 @@
 				SortKeys Sort the map keys using your sort func
 </span></span><span>
 			<span class="nodocs">(*T) <a href="../../../src/github.com/iancoleman/orderedmap/orderedmap.go.html#line-109">UnmarshalJSON</a>(b []<a href="../../builtin.html#name-byte">byte</a>) <a href="../../builtin.html#name-error">error</a></span></span></span>
-		<input type='checkbox' class="fold" id="OrderedMap-fold-impls"><label for="OrderedMap-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='OrderedMap-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="OrderedMap-fold-impls"><label for="OrderedMap-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='OrderedMap-fold-impls-items' class="fold-items"><span>
 			 T : encoding/json.<a href="../../encoding/json.html#name-Marshaler">Marshaler</a></span><span>
-			*T : encoding/json.<a href="../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span></span>
+			*T : encoding/json.<a href="../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span>
+			<input type='checkbox' class="showhide" id="OrderedMap-showhide-impls"><i><label for="OrderedMap-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="OrderedMap-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			 T : github.com/ugorji/go/codec.<a href="../ugorji/go/codec.html#name-jsonMarshaler">jsonMarshaler</a></i></span><span class="hidden"><i>
+			*T : github.com/ugorji/go/codec.<a href="../ugorji/go/codec.html#name-jsonUnmarshaler">jsonUnmarshaler</a></i></span></span>
 		<input type='checkbox' class="fold" id="OrderedMap-fold-results"><label for="OrderedMap-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='OrderedMap-fold-results-items' class="fold-items"><span>
 			func <a href="#name-New">New</a>() *<b>OrderedMap</b></span></span>
 		<input type='checkbox' class="fold" id="OrderedMap-fold-params"><label for="OrderedMap-fold-params">As Inputs Of (<i>at least one unexported</i>)</label><span id='OrderedMap-fold-params-items' class="fold-items">

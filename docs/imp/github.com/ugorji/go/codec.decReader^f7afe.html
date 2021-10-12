@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method Implmentations: github.com/ugorji/go/codec.decReader</title>
+<link href="../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+<pre><code><span style="font-size:x-large;">type <a href="../../../../pkg/github.com/ugorji/go/codec.html">github.com/ugorji/go/codec</a>.<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-10">decReader</a></b></span><span style="font-size:large;"> <b><i>(interface)</i></b></span>
+
+<code><span class="title">Method Implmentations<span class="title-stat"><i></i></span></span>
+
+<div class="anchor" id="name-github.com/ugorji/go/codec.numread">	<a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-20">numread</a>() <a href="../../../../pkg/builtin.html#name-uint">uint</a>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-Decoder">Decoder</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/decode.go.html#line-1156">decRd</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-783">numread</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bufioDecReader">bufioDecReader</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-308">ioDecReaderCommon</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-75">numread</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bytesDecReader">bytesDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-632">numread</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-decRd">decRd</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-783">numread</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-ioDecReader">ioDecReader</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-95">ioDecReaderCommon</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-75">numread</a></b></div>
+<div class="anchor" id="name-github.com/ugorji/go/codec.readTo">	<a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-27">readTo</a>(accept *<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bitset256">bitset256</a>) (out []<a href="../../../../pkg/builtin.html#name-byte">byte</a>)
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-Decoder">Decoder</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/decode.go.html#line-1156">decRd</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-872">readTo</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bufioDecReader">bufioDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-501">readTo</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bytesDecReader">bytesDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-700">readTo</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-decRd">decRd</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-872">readTo</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-ioDecReader">ioDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-259">readTo</a></b></div>
+<div class="anchor" id="name-github.com/ugorji/go/codec.readUntil">	<a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-29">readUntil</a>(stop <a href="../../../../pkg/builtin.html#name-byte">byte</a>, includeLast <a href="../../../../pkg/builtin.html#name-bool">bool</a>) (out []<a href="../../../../pkg/builtin.html#name-byte">byte</a>)
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-Decoder">Decoder</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/decode.go.html#line-1156">decRd</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-882">readUntil</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bufioDecReader">bufioDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-559">readUntil</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bytesDecReader">bytesDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-715">readUntil</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-decRd">decRd</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-882">readUntil</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-ioDecReader">ioDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-274">readUntil</a></b></div>
+<div class="anchor" id="name-github.com/ugorji/go/codec.readb">	<a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-16">readb</a>([]<a href="../../../../pkg/builtin.html#name-byte">byte</a>)
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-Decoder">Decoder</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/decode.go.html#line-1156">decRd</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-842">readb</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bufioDecReader">bufioDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-323">readb</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bytesDecReader">bytesDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-656">readb</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-decRd">decRd</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-842">readb</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-ioDecReader">ioDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-206">readb</a></b></div>
+<div class="anchor" id="name-github.com/ugorji/go/codec.readn">	<a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-19">readn</a>(num <a href="../../../../pkg/builtin.html#name-uint8">uint8</a>) (v [7]<a href="../../../../pkg/builtin.html#name-byte">byte</a>)
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-Decoder">Decoder</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/decode.go.html#line-1156">decRd</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-822">readn</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bufioDecReader">bufioDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-417">readn</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bytesDecReader">bytesDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-666">readn</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-decRd">decRd</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-822">readn</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-ioDecReader">ioDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-181">readn</a></b></div>
+<div class="anchor" id="name-github.com/ugorji/go/codec.readn1">	<a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-17">readn1</a>() <a href="../../../../pkg/builtin.html#name-uint8">uint8</a>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-Decoder">Decoder</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/decode.go.html#line-1156">decRd</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-852">readn1</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bufioDecReader">bufioDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-390">readn1</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bytesDecReader">bytesDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-660">readn1</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-decRd">decRd</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-852">readn1</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-ioDecReader">ioDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-234">readn1</a></b></div>
+<div class="anchor" id="name-github.com/ugorji/go/codec.readx">	<a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-15">readx</a>(n <a href="../../../../pkg/builtin.html#name-uint">uint</a>) []<a href="../../../../pkg/builtin.html#name-byte">byte</a>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-Decoder">Decoder</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/decode.go.html#line-1156">decRd</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-832">readx</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bufioDecReader">bufioDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-423">readx</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bytesDecReader">bytesDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-647">readx</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-decRd">decRd</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-832">readx</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-ioDecReader">ioDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-187">readx</a></b></div>
+<div class="anchor" id="name-github.com/ugorji/go/codec.skip">	<a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-25">skip</a>(accept *<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bitset256">bitset256</a>) (token <a href="../../../../pkg/builtin.html#name-byte">byte</a>)
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-Decoder">Decoder</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/decode.go.html#line-1156">decRd</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-862">skip</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bufioDecReader">bufioDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-444">skip</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bytesDecReader">bytesDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-687">skip</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-decRd">decRd</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-862">skip</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-ioDecReader">ioDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-246">skip</a></b></div>
+<div class="anchor" id="name-github.com/ugorji/go/codec.stopTrack">	<a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-22">stopTrack</a>() []<a href="../../../../pkg/builtin.html#name-byte">byte</a>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-Decoder">Decoder</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/decode.go.html#line-1156">decRd</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-792">stopTrack</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bufioDecReader">bufioDecReader</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-308">ioDecReaderCommon</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-84">stopTrack</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bytesDecReader">bytesDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-740">stopTrack</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-decRd">decRd</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-792">stopTrack</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-ioDecReader">ioDecReader</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-95">ioDecReaderCommon</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-84">stopTrack</a></b></div>
+<div class="anchor" id="name-github.com/ugorji/go/codec.track">	<a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-21">track</a>()
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-Decoder">Decoder</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/decode.go.html#line-1156">decRd</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-802">track</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bufioDecReader">bufioDecReader</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-308">ioDecReaderCommon</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-79">track</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bytesDecReader">bytesDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-736">track</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-decRd">decRd</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-802">track</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-ioDecReader">ioDecReader</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-95">ioDecReaderCommon</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-79">track</a></b></div>
+<div class="anchor" id="name-github.com/ugorji/go/codec.unreadn1">	<a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-11">unreadn1</a>()
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-Decoder">Decoder</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/decode.go.html#line-1156">decRd</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-812">unreadn1</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bufioDecReader">bufioDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-406">unreadn1</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-bytesDecReader">bytesDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-640">unreadn1</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-decRd">decRd</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-812">unreadn1</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-ioDecReader">ioDecReader</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/reader.go.html#line-292">unreadn1</a></b></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

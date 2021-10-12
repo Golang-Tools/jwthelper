@@ -15,7 +15,7 @@
 	<a href="../../../index.html#pkg-github.com/Golang-Tools/jwthelper">github.com/Golang-Tools/jwthelper</a><i> (on <a href="https://pkg.go.dev/github.com/Golang-Tools/jwthelper" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../../../dep/github.com/Golang-Tools^b0a0c/jwthelper.html">15 packages</a>, and imported by <a href="../../../dep/github.com/Golang-Tools^b0a0c/jwthelper.html#imported-by">3 packages</a>
+	imports <a href="../../../dep/github.com/Golang-Tools^b0a0c/jwthelper.html">15 packages</a>, and imported by <a href="../../../dep/github.com/Golang-Tools^b0a0c/jwthelper.html#imported-by">4 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -96,7 +96,7 @@
 		<input type='checkbox' class="fold" id="SignerOptions-fold-values"><label for="SignerOptions-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='SignerOptions-fold-values-items' class="fold-items"><span>
 			  var <a href="#name-DefaultSignerOptions">DefaultSignerOptions</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-UniversalJwtSigner" data-popularity="550">	<input type='checkbox' class="fold" id="UniversalJwtSigner-fold-content"><label for="UniversalJwtSigner-fold-content"> type <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/universal.go.html#line-11">UniversalJwtSigner</a> <b><i>(interface)</i></b></label><span id='UniversalJwtSigner-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-UniversalJwtSigner" data-popularity="585">	<input type='checkbox' class="fold" id="UniversalJwtSigner-fold-content"><label for="UniversalJwtSigner-fold-content"> type <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/universal.go.html#line-11">UniversalJwtSigner</a> <b><i>(interface)</i></b></label><span id='UniversalJwtSigner-fold-content-docs' class="fold-docs">
 		UniversalJwtSigner 通用jwt的签名器
 
 		<input type='checkbox' class="fold" id="UniversalJwtSigner-fold-methods"><label for="UniversalJwtSigner-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='UniversalJwtSigner-fold-methods-items' class="fold-items"><span>
@@ -111,8 +111,10 @@
 			*github.com/Golang-Tools/jwthelper/sdk.<a href="jwthelper/sdk.html#name-Signer">Signer</a></span>
 			<input type='checkbox' class="showhide" id="UniversalJwtSigner-showhide-impedBys"><i><label for="UniversalJwtSigner-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="UniversalJwtSigner-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			 github.com/Golang-Tools/jwthelper/proxy.<a href="jwthelper/proxy.html#name-signerProxy">signerProxy</a></i></span></span>
+		<input type='checkbox' class="fold" id="UniversalJwtSigner-fold-params"><label for="UniversalJwtSigner-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='UniversalJwtSigner-fold-params-items' class="fold-items"><span>
+			func github.com/Golang-Tools/jwthelper/gin_middleware.<a href="jwthelper/gin_middleware.html#name-AuthMiddlewareMaker">AuthMiddlewareMaker</a>(verifier <a href="#name-UniversalJwtVerifier">UniversalJwtVerifier</a>, signer <b>UniversalJwtSigner</b>, verifyfunc <a href="jwthelper/gin_middleware.html">gin_middleware</a>.<a href="jwthelper/gin_middleware.html#name-VerifyFunc">VerifyFunc</a>) <a href="jwthelper/gin_middleware.html">gin_middleware</a>.<a href="jwthelper/gin_middleware.html#name-AuthMiddlewareFactoryFunc">AuthMiddlewareFactoryFunc</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-UniversalJwtVerifier" data-popularity="550">	<input type='checkbox' class="fold" id="UniversalJwtVerifier-fold-content"><label for="UniversalJwtVerifier-fold-content"> type <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/universal.go.html#line-19">UniversalJwtVerifier</a> <b><i>(interface)</i></b></label><span id='UniversalJwtVerifier-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-UniversalJwtVerifier" data-popularity="585">	<input type='checkbox' class="fold" id="UniversalJwtVerifier-fold-content"><label for="UniversalJwtVerifier-fold-content"> type <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/universal.go.html#line-19">UniversalJwtVerifier</a> <b><i>(interface)</i></b></label><span id='UniversalJwtVerifier-fold-content-docs' class="fold-docs">
 		UniversalJwtVerifier 通用jwt的签名器
 
 		<input type='checkbox' class="fold" id="UniversalJwtVerifier-fold-methods"><label for="UniversalJwtVerifier-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='UniversalJwtVerifier-fold-methods-items' class="fold-items"><span>
@@ -127,6 +129,8 @@
 			*github.com/Golang-Tools/jwthelper/sdk.<a href="jwthelper/sdk.html#name-Verifier">Verifier</a></span>
 			<input type='checkbox' class="showhide" id="UniversalJwtVerifier-showhide-impedBys"><i><label for="UniversalJwtVerifier-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="UniversalJwtVerifier-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			 github.com/Golang-Tools/jwthelper/proxy.<a href="jwthelper/proxy.html#name-verifierProxy">verifierProxy</a></i></span></span>
+		<input type='checkbox' class="fold" id="UniversalJwtVerifier-fold-params"><label for="UniversalJwtVerifier-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='UniversalJwtVerifier-fold-params-items' class="fold-items"><span>
+			func github.com/Golang-Tools/jwthelper/gin_middleware.<a href="jwthelper/gin_middleware.html#name-AuthMiddlewareMaker">AuthMiddlewareMaker</a>(verifier <b>UniversalJwtVerifier</b>, signer <a href="#name-UniversalJwtSigner">UniversalJwtSigner</a>, verifyfunc <a href="jwthelper/gin_middleware.html">gin_middleware</a>.<a href="jwthelper/gin_middleware.html#name-VerifyFunc">VerifyFunc</a>) <a href="jwthelper/gin_middleware.html">gin_middleware</a>.<a href="jwthelper/gin_middleware.html#name-AuthMiddlewareFactoryFunc">AuthMiddlewareFactoryFunc</a></span></span>
 
 </span></div><div class="anchor type-res" id="name-Verifier" data-popularity="325">	<input type='checkbox' class="fold" id="Verifier-fold-content"><label for="Verifier-fold-content"> type <a href="../../../src/github.com/Golang-Tools^b0a0c/jwthelper/verifier.go.html#line-16">Verifier</a> <i>(struct)</i></label><span id='Verifier-fold-content-docs' class="fold-docs">
 

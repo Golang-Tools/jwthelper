@@ -15,7 +15,7 @@
 	<a href="../../index.html#pkg-html/template">html/template</a><i> (on <a href="https://pkg.go.dev/html/template" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../../dep/html/template.html">17 packages</a>, and imported by <a href="../../dep/html/template.html#imported-by">one package</a>
+	imports <a href="../../dep/html/template.html">17 packages</a>, and imported by <a href="../../dep/html/template.html#imported-by">4 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -502,7 +502,7 @@
 			const <a href="#name-ErrSlashAmbig">ErrSlashAmbig</a></span><span>
 			const <a href="#name-OK">OK</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-FuncMap" data-popularity="35">	<input type='checkbox' class="fold" id="FuncMap-fold-content"><label for="FuncMap-fold-content"> type <a href="../../src/html/template/template.go.html#line-338">FuncMap</a> <i>(map)</i></label><span id='FuncMap-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-FuncMap" data-popularity="70">	<input type='checkbox' class="fold" id="FuncMap-fold-content"><label for="FuncMap-fold-content"> type <a href="../../src/html/template/template.go.html#line-338">FuncMap</a> <i>(map)</i></label><span id='FuncMap-fold-content-docs' class="fold-docs">
 		FuncMap is the type of the map defining the mapping from names to
 		functions. Each function must have either a single return value, or two
 		return values of which the second has type error. In that case, if the
@@ -511,8 +511,9 @@
 		as FuncMap in "text/template", copied here so clients need not import
 		"text/template".
 
-		<input type='checkbox' class="fold" id="FuncMap-fold-params"><label for="FuncMap-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='FuncMap-fold-params-items' class="fold-items"><span>
-			func (*<a href="#name-Template">Template</a>).<a href="../../src/html/template/template.go.html#line-345">Funcs</a>(funcMap <b>FuncMap</b>) *<a href="#name-Template">Template</a></span></span>
+		<input type='checkbox' class="fold" id="FuncMap-fold-params"><label for="FuncMap-fold-params">As Inputs Of (<i>at least 2, both are exported</i>)</label><span id='FuncMap-fold-params-items' class="fold-items"><span>
+			func (*<a href="#name-Template">Template</a>).<a href="../../src/html/template/template.go.html#line-345">Funcs</a>(funcMap <b>FuncMap</b>) *<a href="#name-Template">Template</a></span><span>
+			func github.com/gin-gonic/gin.(*<a href="../github.com/gin-gonic/gin.html#name-Engine">Engine</a>).<a href="../../src/github.com/gin-gonic/gin/gin.go.html#line-242">SetFuncMap</a>(funcMap <b>FuncMap</b>)</span></span>
 
 </span></div><div class="anchor type-res" id="name-HTML" data-popularity="0">	<input type='checkbox' class="fold" id="HTML-fold-content"><label for="HTML-fold-content"> type <a href="../../src/html/template/content.go.html#line-35">HTML</a> <a href="../builtin.html#name-string">string</a> <i>(basic type)</i></label><span id='HTML-fold-content-docs' class="fold-docs">
 		HTML encapsulates a known safe HTML document fragment.
@@ -571,7 +572,7 @@
 		the encapsulated content should come from a trusted source,
 		as it will be included verbatim in the template output.
 
-</span></div><div class="anchor type-res" id="name-Template" data-popularity="3065">	<input type='checkbox' class="fold" id="Template-fold-content"><label for="Template-fold-content"> type <a href="../../src/html/template/template.go.html#line-21">Template</a> <i>(struct)</i></label><span id='Template-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Template" data-popularity="3210">	<input type='checkbox' class="fold" id="Template-fold-content"><label for="Template-fold-content"> type <a href="../../src/html/template/template.go.html#line-21">Template</a> <i>(struct)</i></label><span id='Template-fold-content-docs' class="fold-docs">
 		Template is a specialized Template from "text/template" that produces a safe
 		HTML document fragment.
 
@@ -745,7 +746,7 @@
 			<input type='checkbox' class="fold" id="Template-fold-method-new"><label for="Template-fold-method-new">(*T) <a href="../../src/html/template/template.go.html#line-311">new</a>(name <a href="../builtin.html#name-string">string</a>) *<b>Template</b></label><span id='Template-fold-method-new-docs' class="fold-docs">
 				new is the implementation of New, without the lock.
 </span></i></span></span>
-		<input type='checkbox' class="fold" id="Template-fold-results"><label for="Template-fold-results">As Outputs Of (<i>at least 25, in which 17 are exported</i>)</label><span id='Template-fold-results-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Template-fold-results"><label for="Template-fold-results">As Outputs Of (<i>at least 26, in which 17 are exported</i>)</label><span id='Template-fold-results-items' class="fold-items"><span>
 			func <a href="#name-Must">Must</a>(t *<b>Template</b>, err <a href="../builtin.html#name-error">error</a>) *<b>Template</b></span><span>
 			func <a href="#name-New">New</a>(name <a href="../builtin.html#name-string">string</a>) *<b>Template</b></span><span>
 			func <a href="#name-ParseFiles">ParseFiles</a>(filenames ...<a href="../builtin.html#name-string">string</a>) (*<b>Template</b>, <a href="../builtin.html#name-error">error</a>)</span><span>
@@ -763,27 +764,31 @@
 			func (*Template).<a href="../../src/html/template/template.go.html#line-505">ParseFS</a>(fs <a href="../io/fs.html">fs</a>.<a href="../io/fs.html#name-FS">FS</a>, patterns ...<a href="../builtin.html#name-string">string</a>) (*<b>Template</b>, <a href="../builtin.html#name-error">error</a>)</span><span>
 			func (*Template).<a href="../../src/html/template/template.go.html#line-467">ParseGlob</a>(pattern <a href="../builtin.html#name-string">string</a>) (*<b>Template</b>, <a href="../builtin.html#name-error">error</a>)</span><span>
 			func (*Template).<a href="../../src/html/template/template.go.html#line-46">Templates</a>() []*<b>Template</b></span>
-			<input type='checkbox' class="showhide" id="Template-showhide-inputofs"><i><label for="Template-showhide-inputofs" class="show-inline">/* 8+ unexporteds ... */</label><label for="Template-showhide-inputofs" class="hide-inline">/* 8+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Template-showhide-inputofs"><i><label for="Template-showhide-inputofs" class="show-inline">/* 9+ unexporteds ... */</label><label for="Template-showhide-inputofs" class="hide-inline">/* 9+ unexporteds: */</label></i><span class="hidden"><i>
 			func <a href="#name-parseFiles">parseFiles</a>(t *<b>Template</b>, readFile func(<a href="../builtin.html#name-string">string</a>) (<a href="../builtin.html#name-string">string</a>, []<a href="../builtin.html#name-byte">byte</a>, <a href="../builtin.html#name-error">error</a>), filenames ...<a href="../builtin.html#name-string">string</a>) (*<b>Template</b>, <a href="../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func <a href="#name-parseFS">parseFS</a>(t *<b>Template</b>, fsys <a href="../io/fs.html">fs</a>.<a href="../io/fs.html#name-FS">FS</a>, patterns []<a href="../builtin.html#name-string">string</a>) (*<b>Template</b>, <a href="../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func <a href="#name-parseGlob">parseGlob</a>(t *<b>Template</b>, pattern <a href="../builtin.html#name-string">string</a>) (*<b>Template</b>, <a href="../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func (*Template).<a href="../../src/html/template/template.go.html#line-145">lookupAndEscapeTemplate</a>(name <a href="../builtin.html#name-string">string</a>) (tmpl *<b>Template</b>, err <a href="../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func (*Template).<a href="../../src/html/template/template.go.html#line-311">new</a>(name <a href="../builtin.html#name-string">string</a>) *<b>Template</b></i></span><span class="hidden"><i>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-HTMLDebug">HTMLDebug</a>.<a href="../../src/github.com/gin-gonic/gin/render/html.go.html#line-66">loadTemplate</a>() *<b>Template</b></i></span><span class="hidden"><i>
 			func golang.org/x/net/trace.<a href="../golang.org/x/net/trace.html#name-distTmpl">distTmpl</a>() *<b>Template</b></i></span><span class="hidden"><i>
 			func golang.org/x/net/trace.<a href="../golang.org/x/net/trace.html#name-eventsTmpl">eventsTmpl</a>() *<b>Template</b></i></span><span class="hidden"><i>
 			func golang.org/x/net/trace.<a href="../golang.org/x/net/trace.html#name-pageTmpl">pageTmpl</a>() *<b>Template</b></i></span></span>
-		<input type='checkbox' class="fold" id="Template-fold-params"><label for="Template-fold-params">As Inputs Of (<i>at least 5, in which 1 are exported</i>)</label><span id='Template-fold-params-items' class="fold-items"><span>
-			func <a href="#name-Must">Must</a>(t *<b>Template</b>, err <a href="../builtin.html#name-error">error</a>) *<b>Template</b></span>
-			<input type='checkbox' class="showhide" id="Template-showhide-outputofs"><i><label for="Template-showhide-outputofs" class="show-inline">/* 4+ unexporteds ... */</label><label for="Template-showhide-outputofs" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
+		<input type='checkbox' class="fold" id="Template-fold-params"><label for="Template-fold-params">As Inputs Of (<i>at least 7, in which 2 are exported</i>)</label><span id='Template-fold-params-items' class="fold-items"><span>
+			func <a href="#name-Must">Must</a>(t *<b>Template</b>, err <a href="../builtin.html#name-error">error</a>) *<b>Template</b></span><span>
+			func github.com/gin-gonic/gin.(*<a href="../github.com/gin-gonic/gin.html#name-Engine">Engine</a>).<a href="../../src/github.com/gin-gonic/gin/gin.go.html#line-233">SetHTMLTemplate</a>(templ *<b>Template</b>)</span>
+			<input type='checkbox' class="showhide" id="Template-showhide-outputofs"><i><label for="Template-showhide-outputofs" class="show-inline">/* 5+ unexporteds ... */</label><label for="Template-showhide-outputofs" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
 			func <a href="#name-escapeTemplate">escapeTemplate</a>(tmpl *<b>Template</b>, node <a href="../text/template/parse.html">parse</a>.<a href="../text/template/parse.html#name-Node">Node</a>, name <a href="../builtin.html#name-string">string</a>) <a href="../builtin.html#name-error">error</a></i></span><span class="hidden"><i>
 			func <a href="#name-parseFiles">parseFiles</a>(t *<b>Template</b>, readFile func(<a href="../builtin.html#name-string">string</a>) (<a href="../builtin.html#name-string">string</a>, []<a href="../builtin.html#name-byte">byte</a>, <a href="../builtin.html#name-error">error</a>), filenames ...<a href="../builtin.html#name-string">string</a>) (*<b>Template</b>, <a href="../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func <a href="#name-parseFS">parseFS</a>(t *<b>Template</b>, fsys <a href="../io/fs.html">fs</a>.<a href="../io/fs.html#name-FS">FS</a>, patterns []<a href="../builtin.html#name-string">string</a>) (*<b>Template</b>, <a href="../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
-			func <a href="#name-parseGlob">parseGlob</a>(t *<b>Template</b>, pattern <a href="../builtin.html#name-string">string</a>) (*<b>Template</b>, <a href="../builtin.html#name-error">error</a>)</i></span></span>
-		<input type='checkbox' class="fold" id="Template-fold-values"><label for="Template-fold-values">As Types Of (<i>total 3, none are exported</i>)</label><span id='Template-fold-values-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="Template-showhide-values"><i><label for="Template-showhide-values" class="show-inline">/* 3 unexporteds ... */</label><label for="Template-showhide-values" class="hide-inline">/* 3 unexporteds: */</label></i><span class="hidden"><i>
+			func <a href="#name-parseGlob">parseGlob</a>(t *<b>Template</b>, pattern <a href="../builtin.html#name-string">string</a>) (*<b>Template</b>, <a href="../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-debugPrintLoadTemplate">debugPrintLoadTemplate</a>(tmpl *<b>Template</b>)</i></span></span>
+		<input type='checkbox' class="fold" id="Template-fold-values"><label for="Template-fold-values">As Types Of (<i>total 4, none are exported</i>)</label><span id='Template-fold-values-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Template-showhide-values"><i><label for="Template-showhide-values" class="show-inline">/* 4 unexporteds ... */</label><label for="Template-showhide-values" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
 			  var golang.org/x/net/trace.<a href="../golang.org/x/net/trace.html#name-distTmplCache">distTmplCache</a> *<a href="">template</a>.<b><a href="#name-Template">Template</a></b></i></span><span class="hidden"><i>
 			  var golang.org/x/net/trace.<a href="../golang.org/x/net/trace.html#name-eventsTmplCache">eventsTmplCache</a> *<a href="">template</a>.<b><a href="#name-Template">Template</a></b></i></span><span class="hidden"><i>
-			  var golang.org/x/net/trace.<a href="../golang.org/x/net/trace.html#name-pageTmplCache">pageTmplCache</a> *<a href="">template</a>.<b><a href="#name-Template">Template</a></b></i></span></span>
+			  var golang.org/x/net/trace.<a href="../golang.org/x/net/trace.html#name-pageTmplCache">pageTmplCache</a> *<a href="">template</a>.<b><a href="#name-Template">Template</a></b></i></span><span class="hidden"><i>
+			  var net/rpc.<a href="../net/rpc.html#name-debug">debug</a> *Template</i></span></span>
 
 </span></div><div class="anchor type-res" id="name-URL" data-popularity="0">	<input type='checkbox' class="fold" id="URL-fold-content"><label for="URL-fold-content"> type <a href="../../src/html/template/content.go.html#line-85">URL</a> <a href="../builtin.html#name-string">string</a> <i>(basic type)</i></label><span id='URL-fold-content-docs' class="fold-docs">
 		URL encapsulates a known safe URL or URL substring (see RFC 3986).

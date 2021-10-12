@@ -15,7 +15,7 @@
 	<a href="../../index.html#pkg-net/http">net/http</a><i> (on <a href="https://pkg.go.dev/net/http" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../../dep/net/http.html">40 packages</a>, and imported by <a href="../../dep/net/http.html#imported-by">12 packages</a>
+	imports <a href="../../dep/net/http.html">40 packages</a>, and imported by <a href="../../dep/net/http.html#imported-by">18 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -743,7 +743,7 @@
 		<input type='checkbox' class="fold" id="Client-fold-values"><label for="Client-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='Client-fold-values-items' class="fold-items"><span>
 			  var <a href="#name-DefaultClient">DefaultClient</a> *Client</span></span>
 
-</span></div><div class="anchor type-res" id="name-CloseNotifier" data-popularity="500">	<input type='checkbox' class="fold" id="CloseNotifier-fold-content"><label for="CloseNotifier-fold-content"> type <a href="../../src/net/http/server.go.html#line-211">CloseNotifier</a> <b><i>(interface)</i></b></label><span id='CloseNotifier-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-CloseNotifier" data-popularity="800">	<input type='checkbox' class="fold" id="CloseNotifier-fold-content"><label for="CloseNotifier-fold-content"> type <a href="../../src/net/http/server.go.html#line-211">CloseNotifier</a> <b><i>(interface)</i></b></label><span id='CloseNotifier-fold-content-docs' class="fold-docs">
 		The CloseNotifier interface is implemented by ResponseWriters which
 		allow detecting when the underlying connection has gone away.
 
@@ -774,10 +774,12 @@
 				is a problem, use HTTP/2 or only use CloseNotify on methods
 				such as POST.
 </span></span></span>
-		<input type='checkbox' class="fold" id="CloseNotifier-fold-impledby"><label for="CloseNotifier-fold-impledby">Implemented By (<i>at least 3, none are exported</i>)</label><span id='CloseNotifier-fold-impledby-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="CloseNotifier-showhide-impedBys"><i><label for="CloseNotifier-showhide-impedBys" class="show-inline">/* 3+ unexporteds ... */</label><label for="CloseNotifier-showhide-impedBys" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+		<input type='checkbox' class="fold" id="CloseNotifier-fold-impledby"><label for="CloseNotifier-fold-impledby">Implemented By (<i>at least 5, in which 1 are exported</i>)</label><span id='CloseNotifier-fold-impledby-items' class="fold-items"><span>
+			 github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-ResponseWriter">ResponseWriter</a> <i>(interface)</i></span>
+			<input type='checkbox' class="showhide" id="CloseNotifier-showhide-impedBys"><i><label for="CloseNotifier-showhide-impedBys" class="show-inline">/* 4+ unexporteds ... */</label><label for="CloseNotifier-showhide-impedBys" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
 			*<a href="#name-http2responseWriter">http2responseWriter</a></i></span><span class="hidden"><i>
 			*<a href="#name-response">response</a></i></span><span class="hidden"><i>
+			*github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a></i></span><span class="hidden"><i>
 			*golang.org/x/net/http2.<a href="../golang.org/x/net/http2.html#name-responseWriter">responseWriter</a></i></span></span>
 
 </span></div><div class="anchor type-res" id="name-ConnState" data-popularity="265">	<input type='checkbox' class="fold" id="ConnState-fold-content"><label for="ConnState-fold-content"> type <a href="../../src/net/http/server.go.html#line-2803">ConnState</a> <a href="../builtin.html#name-int">int</a> <i>(basic type)</i></label><span id='ConnState-fold-content-docs' class="fold-docs">
@@ -904,7 +906,7 @@
 		<input type='checkbox' class="fold" id="Dir-fold-impls"><label for="Dir-fold-impls">Implements (<i>at least one exported</i>)</label><span id='Dir-fold-impls-items' class="fold-items"><span>
 			 T : <a href="#name-FileSystem">FileSystem</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-File" data-popularity="1235">	<input type='checkbox' class="fold" id="File-fold-content"><label for="File-fold-content"> type <a href="../../src/net/http/fs.go.html#line-102">File</a> <b><i>(interface)</i></b></label><span id='File-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-File" data-popularity="1385">	<input type='checkbox' class="fold" id="File-fold-content"><label for="File-fold-content"> type <a href="../../src/net/http/fs.go.html#line-102">File</a> <b><i>(interface)</i></b></label><span id='File-fold-content-docs' class="fold-docs">
 		A File is returned by a FileSystem's Open method and can be
 		served by the FileServer implementation.
 
@@ -916,10 +918,11 @@
 			<span class="nodocs">( T) <a href="../../src/net/http/fs.go.html#line-106">Readdir</a>(count <a href="../builtin.html#name-int">int</a>) ([]<a href="../io/fs.html">fs</a>.<a href="../io/fs.html#name-FileInfo">FileInfo</a>, <a href="../builtin.html#name-error">error</a>)</span></span><span>
 			<span class="nodocs">( T) <a href="../../src/io/io.go.html#line-122">Seek</a>(offset <a href="../builtin.html#name-int64">int64</a>, whence <a href="../builtin.html#name-int">int</a>) (<a href="../builtin.html#name-int64">int64</a>, <a href="../builtin.html#name-error">error</a>)</span></span><span>
 			<span class="nodocs">( T) <a href="../../src/net/http/fs.go.html#line-107">Stat</a>() (<a href="../io/fs.html">fs</a>.<a href="../io/fs.html#name-FileInfo">FileInfo</a>, <a href="../builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="File-fold-impledby"><label for="File-fold-impledby">Implemented By (<i>at least 3, in which 1 are exported</i>)</label><span id='File-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="File-fold-impledby"><label for="File-fold-impledby">Implemented By (<i>at least 4, in which 1 are exported</i>)</label><span id='File-fold-impledby-items' class="fold-items"><span>
 			*os.<a href="../os.html#name-File">File</a></span>
-			<input type='checkbox' class="showhide" id="File-showhide-impedBys"><i><label for="File-showhide-impedBys" class="show-inline">/* 2+ unexporteds ... */</label><label for="File-showhide-impedBys" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="File-showhide-impedBys"><i><label for="File-showhide-impedBys" class="show-inline">/* 3+ unexporteds ... */</label><label for="File-showhide-impedBys" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 <a href="#name-ioFile">ioFile</a></i></span><span class="hidden"><i>
+			 github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-neuteredReaddirFile">neuteredReaddirFile</a></i></span><span class="hidden"><i>
 			*os/exec.<a href="../os/exec.html#name-closeOnce">closeOnce</a></i></span></span>
 		<input type='checkbox' class="fold" id="File-fold-impls"><label for="File-fold-impls">Implements (<i>at least 7, all are exported</i>)</label><span id='File-fold-impls-items' class="fold-items"><span>
 			 T : io.<a href="../io.html#name-Closer">Closer</a></span><span>
@@ -936,7 +939,7 @@
 			<input type='checkbox' class="showhide" id="File-showhide-outputofs"><i><label for="File-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="File-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func <a href="#name-dirList">dirList</a>(w <a href="#name-ResponseWriter">ResponseWriter</a>, r *<a href="#name-Request">Request</a>, f <b>File</b>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-FileSystem" data-popularity="715">	<input type='checkbox' class="fold" id="FileSystem-fold-content"><label for="FileSystem-fold-content"> type <a href="../../src/net/http/fs.go.html#line-94">FileSystem</a> <b><i>(interface)</i></b></label><span id='FileSystem-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-FileSystem" data-popularity="1115">	<input type='checkbox' class="fold" id="FileSystem-fold-content"><label for="FileSystem-fold-content"> type <a href="../../src/net/http/fs.go.html#line-94">FileSystem</a> <b><i>(interface)</i></b></label><span id='FileSystem-fold-content-docs' class="fold-docs">
 		A FileSystem implements access to a collection of named files.
 		The elements in a file path are separated by slash ('/', U+002F)
 		characters, regardless of host operating system convention.
@@ -947,21 +950,28 @@
 
 		<input type='checkbox' class="fold" id="FileSystem-fold-methods"><label for="FileSystem-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='FileSystem-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../src/net/http/fs.go.html#line-95">Open</a>(name <a href="../builtin.html#name-string">string</a>) (<a href="#name-File">File</a>, <a href="../builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="FileSystem-fold-impledby"><label for="FileSystem-fold-impledby">Implemented By (<i>at least 3, in which 1 are exported</i>)</label><span id='FileSystem-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="FileSystem-fold-impledby"><label for="FileSystem-fold-impledby">Implemented By (<i>at least 4, in which 1 are exported</i>)</label><span id='FileSystem-fold-impledby-items' class="fold-items"><span>
 			 <a href="#name-Dir">Dir</a></span>
-			<input type='checkbox' class="showhide" id="FileSystem-showhide-impedBys"><i><label for="FileSystem-showhide-impedBys" class="show-inline">/* 2+ unexporteds ... */</label><label for="FileSystem-showhide-impedBys" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="FileSystem-showhide-impedBys"><i><label for="FileSystem-showhide-impedBys" class="show-inline">/* 3+ unexporteds ... */</label><label for="FileSystem-showhide-impedBys" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
 			 <a href="#name-ioFS">ioFS</a></i></span><span class="hidden"><i>
+			 github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-onlyFilesFS">onlyFilesFS</a></i></span><span class="hidden"><i>
 			 github.com/xeipuuv/gojsonschema.<a href="../github.com/xeipuuv/gojsonschema.html#name-osFileSystem">osFileSystem</a></i></span></span>
-		<input type='checkbox' class="fold" id="FileSystem-fold-results"><label for="FileSystem-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='FileSystem-fold-results-items' class="fold-items"><span>
-			func <a href="#name-FS">FS</a>(fsys <a href="../io/fs.html">fs</a>.<a href="../io/fs.html#name-FS">FS</a>) <b>FileSystem</b></span></span>
-		<input type='checkbox' class="fold" id="FileSystem-fold-params"><label for="FileSystem-fold-params">As Inputs Of (<i>at least 4, in which 3 are exported</i>)</label><span id='FileSystem-fold-params-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="FileSystem-fold-results"><label for="FileSystem-fold-results">As Outputs Of (<i>at least 2, both are exported</i>)</label><span id='FileSystem-fold-results-items' class="fold-items"><span>
+			func <a href="#name-FS">FS</a>(fsys <a href="../io/fs.html">fs</a>.<a href="../io/fs.html#name-FS">FS</a>) <b>FileSystem</b></span><span>
+			func github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-Dir">Dir</a>(root <a href="../builtin.html#name-string">string</a>, listDirectory <a href="../builtin.html#name-bool">bool</a>) <b>FileSystem</b></span></span>
+		<input type='checkbox' class="fold" id="FileSystem-fold-params"><label for="FileSystem-fold-params">As Inputs Of (<i>at least 9, in which 7 are exported</i>)</label><span id='FileSystem-fold-params-items' class="fold-items"><span>
 			func <a href="#name-FileServer">FileServer</a>(root <b>FileSystem</b>) <a href="#name-Handler">Handler</a></span><span>
 			func <a href="#name-NewFileTransport">NewFileTransport</a>(fs <b>FileSystem</b>) <a href="#name-RoundTripper">RoundTripper</a></span><span>
+			func github.com/gin-gonic/gin.(*<a href="../github.com/gin-gonic/gin.html#name-Context">Context</a>).<a href="../../src/github.com/gin-gonic/gin/context.go.html#line-1025">FileFromFS</a>(filepath <a href="../builtin.html#name-string">string</a>, fs <b>FileSystem</b>)</span><span>
+			func github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-IRouter">IRouter</a>.<a href="../../src/github.com/gin-gonic/gin/routergroup.go.html#line-36">StaticFS</a>(<a href="../builtin.html#name-string">string</a>, <b>FileSystem</b>) <a href="../github.com/gin-gonic/gin.html">gin</a>.<a href="../github.com/gin-gonic/gin.html#name-IRoutes">IRoutes</a></span><span>
+			func github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-IRoutes">IRoutes</a>.<a href="../../src/github.com/gin-gonic/gin/routergroup.go.html#line-36">StaticFS</a>(<a href="../builtin.html#name-string">string</a>, <b>FileSystem</b>) <a href="../github.com/gin-gonic/gin.html">gin</a>.<a href="../github.com/gin-gonic/gin.html#name-IRoutes">IRoutes</a></span><span>
+			func github.com/gin-gonic/gin.(*<a href="../github.com/gin-gonic/gin.html#name-RouterGroup">RouterGroup</a>).<a href="../../src/github.com/gin-gonic/gin/routergroup.go.html#line-172">StaticFS</a>(relativePath <a href="../builtin.html#name-string">string</a>, fs <b>FileSystem</b>) <a href="../github.com/gin-gonic/gin.html">gin</a>.<a href="../github.com/gin-gonic/gin.html#name-IRoutes">IRoutes</a></span><span>
 			func github.com/xeipuuv/gojsonschema.<a href="../github.com/xeipuuv/gojsonschema.html#name-NewReferenceLoaderFileSystem">NewReferenceLoaderFileSystem</a>(source <a href="../builtin.html#name-string">string</a>, fs <b>FileSystem</b>) <a href="../github.com/xeipuuv/gojsonschema.html">gojsonschema</a>.<a href="../github.com/xeipuuv/gojsonschema.html#name-JSONLoader">JSONLoader</a></span>
-			<input type='checkbox' class="showhide" id="FileSystem-showhide-outputofs"><i><label for="FileSystem-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="FileSystem-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
-			func <a href="#name-serveFile">serveFile</a>(w <a href="#name-ResponseWriter">ResponseWriter</a>, r *<a href="#name-Request">Request</a>, fs <b>FileSystem</b>, name <a href="../builtin.html#name-string">string</a>, redirect <a href="../builtin.html#name-bool">bool</a>)</i></span></span>
+			<input type='checkbox' class="showhide" id="FileSystem-showhide-outputofs"><i><label for="FileSystem-showhide-outputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="FileSystem-showhide-outputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			func <a href="#name-serveFile">serveFile</a>(w <a href="#name-ResponseWriter">ResponseWriter</a>, r *<a href="#name-Request">Request</a>, fs <b>FileSystem</b>, name <a href="../builtin.html#name-string">string</a>, redirect <a href="../builtin.html#name-bool">bool</a>)</i></span><span class="hidden"><i>
+			func github.com/gin-gonic/gin.(*<a href="../github.com/gin-gonic/gin.html#name-RouterGroup">RouterGroup</a>).<a href="../../src/github.com/gin-gonic/gin/routergroup.go.html#line-185">createStaticHandler</a>(relativePath <a href="../builtin.html#name-string">string</a>, fs <b>FileSystem</b>) <a href="../github.com/gin-gonic/gin.html">gin</a>.<a href="../github.com/gin-gonic/gin.html#name-HandlerFunc">HandlerFunc</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-Flusher" data-popularity="650">	<input type='checkbox' class="fold" id="Flusher-fold-content"><label for="Flusher-fold-content"> type <a href="../../src/net/http/server.go.html#line-168">Flusher</a> <b><i>(interface)</i></b></label><span id='Flusher-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Flusher" data-popularity="950">	<input type='checkbox' class="fold" id="Flusher-fold-content"><label for="Flusher-fold-content"> type <a href="../../src/net/http/server.go.html#line-168">Flusher</a> <b><i>(interface)</i></b></label><span id='Flusher-fold-content-docs' class="fold-docs">
 		The Flusher interface is implemented by ResponseWriters that allow
 		an HTTP handler to flush buffered data to the client.
 
@@ -978,14 +988,16 @@
 			<input type='checkbox' class="fold" id="Flusher-fold-method-Flush"><label for="Flusher-fold-method-Flush">( T) <a href="../../src/net/http/server.go.html#line-170">Flush</a>()</label><span id='Flusher-fold-method-Flush-docs' class="fold-docs">
 				Flush sends any buffered data to the client.
 </span></span></span>
-		<input type='checkbox' class="fold" id="Flusher-fold-impledby"><label for="Flusher-fold-impledby">Implemented By (<i>at least 4, none are exported</i>)</label><span id='Flusher-fold-impledby-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="Flusher-showhide-impedBys"><i><label for="Flusher-showhide-impedBys" class="show-inline">/* 4+ unexporteds ... */</label><label for="Flusher-showhide-impedBys" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
+		<input type='checkbox' class="fold" id="Flusher-fold-impledby"><label for="Flusher-fold-impledby">Implemented By (<i>at least 6, in which 1 are exported</i>)</label><span id='Flusher-fold-impledby-items' class="fold-items"><span>
+			 github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-ResponseWriter">ResponseWriter</a> <i>(interface)</i></span>
+			<input type='checkbox' class="showhide" id="Flusher-showhide-impedBys"><i><label for="Flusher-showhide-impedBys" class="show-inline">/* 5+ unexporteds ... */</label><label for="Flusher-showhide-impedBys" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
 			*<a href="#name-http2responseWriter">http2responseWriter</a></i></span><span class="hidden"><i>
 			*<a href="#name-response">response</a></i></span><span class="hidden"><i>
 			 net/http/httputil.<a href="http/httputil.html#name-writeFlusher">writeFlusher</a> <i>(interface)</i></i></span><span class="hidden"><i>
+			*github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a></i></span><span class="hidden"><i>
 			*golang.org/x/net/http2.<a href="../golang.org/x/net/http2.html#name-responseWriter">responseWriter</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-Handler" data-popularity="2505">	<input type='checkbox' class="fold" id="Handler-fold-content"><label for="Handler-fold-content"> type <a href="../../src/net/http/server.go.html#line-86">Handler</a> <b><i>(interface)</i></b></label><span id='Handler-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Handler" data-popularity="2990">	<input type='checkbox' class="fold" id="Handler-fold-content"><label for="Handler-fold-content"> type <a href="../../src/net/http/server.go.html#line-86">Handler</a> <b><i>(interface)</i></b></label><span id='Handler-fold-content-docs' class="fold-docs">
 		A Handler responds to an HTTP request.
 
 		ServeHTTP should write reply headers and data to the ResponseWriter
@@ -1013,18 +1025,21 @@
 
 		<input type='checkbox' class="fold" id="Handler-fold-methods"><label for="Handler-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='Handler-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../src/net/http/server.go.html#line-87">ServeHTTP</a>(<a href="#name-ResponseWriter">ResponseWriter</a>, *<a href="#name-Request">Request</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="Handler-fold-impledby"><label for="Handler-fold-impledby">Implemented By (<i>at least 10, in which 4 are exported</i>)</label><span id='Handler-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Handler-fold-impledby"><label for="Handler-fold-impledby">Implemented By (<i>at least 13, in which 6 are exported</i>)</label><span id='Handler-fold-impledby-items' class="fold-items"><span>
 			 <a href="#name-HandlerFunc">HandlerFunc</a></span><span>
 			*<a href="#name-ServeMux">ServeMux</a></span><span>
 			*net/http/httputil.<a href="http/httputil.html#name-ReverseProxy">ReverseProxy</a></span><span>
+			*net/rpc.<a href="rpc.html#name-Server">Server</a></span><span>
+			*github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-Engine">Engine</a></span><span>
 			*google.golang.org/grpc.<a href="../google.golang.org/grpc.html#name-Server">Server</a></span>
-			<input type='checkbox' class="showhide" id="Handler-showhide-impedBys"><i><label for="Handler-showhide-impedBys" class="show-inline">/* 6+ unexporteds ... */</label><label for="Handler-showhide-impedBys" class="hide-inline">/* 6+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Handler-showhide-impedBys"><i><label for="Handler-showhide-impedBys" class="show-inline">/* 7+ unexporteds ... */</label><label for="Handler-showhide-impedBys" class="hide-inline">/* 7+ unexporteds: */</label></i><span class="hidden"><i>
 			*<a href="#name-fileHandler">fileHandler</a></i></span><span class="hidden"><i>
 			 <a href="#name-globalOptionsHandler">globalOptionsHandler</a></i></span><span class="hidden"><i>
 			 <a href="#name-initALPNRequest">initALPNRequest</a></i></span><span class="hidden"><i>
 			*<a href="#name-redirectHandler">redirectHandler</a></i></span><span class="hidden"><i>
 			 <a href="#name-serverHandler">serverHandler</a></i></span><span class="hidden"><i>
-			*<a href="#name-timeoutHandler">timeoutHandler</a></i></span></span>
+			*<a href="#name-timeoutHandler">timeoutHandler</a></i></span><span class="hidden"><i>
+			 net/rpc.<a href="rpc.html#name-debugHTTP">debugHTTP</a></i></span></span>
 		<input type='checkbox' class="fold" id="Handler-fold-results"><label for="Handler-fold-results">As Outputs Of (<i>at least 9, in which 6 are exported</i>)</label><span id='Handler-fold-results-items' class="fold-items"><span>
 			func <a href="#name-FileServer">FileServer</a>(root <a href="#name-FileSystem">FileSystem</a>) <b>Handler</b></span><span>
 			func <a href="#name-NotFoundHandler">NotFoundHandler</a>() <b>Handler</b></span><span>
@@ -1036,7 +1051,7 @@
 			func (*<a href="#name-ServeMux">ServeMux</a>).<a href="../../src/net/http/server.go.html#line-2400">handler</a>(host, path <a href="../builtin.html#name-string">string</a>) (h <b>Handler</b>, pattern <a href="../builtin.html#name-string">string</a>)</i></span><span class="hidden"><i>
 			func (*<a href="#name-ServeMux">ServeMux</a>).<a href="../../src/net/http/server.go.html#line-2290">match</a>(path <a href="../builtin.html#name-string">string</a>) (h <b>Handler</b>, pattern <a href="../builtin.html#name-string">string</a>)</i></span><span class="hidden"><i>
 			func golang.org/x/net/http2.(*<a href="../golang.org/x/net/http2.html#name-ServeConnOpts">ServeConnOpts</a>).<a href="../../src/golang.org/x/net/http2/server.go.html#line-338">handler</a>() <b>Handler</b></i></span></span>
-		<input type='checkbox' class="fold" id="Handler-fold-params"><label for="Handler-fold-params">As Inputs Of (<i>at least 8, all are exported</i>)</label><span id='Handler-fold-params-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Handler-fold-params"><label for="Handler-fold-params">As Inputs Of (<i>at least 9, all are exported</i>)</label><span id='Handler-fold-params-items' class="fold-items"><span>
 			func <a href="#name-Handle">Handle</a>(pattern <a href="../builtin.html#name-string">string</a>, handler <b>Handler</b>)</span><span>
 			func <a href="#name-ListenAndServe">ListenAndServe</a>(addr <a href="../builtin.html#name-string">string</a>, handler <b>Handler</b>) <a href="../builtin.html#name-error">error</a></span><span>
 			func <a href="#name-ListenAndServeTLS">ListenAndServeTLS</a>(addr, certFile, keyFile <a href="../builtin.html#name-string">string</a>, handler <b>Handler</b>) <a href="../builtin.html#name-error">error</a></span><span>
@@ -1044,9 +1059,10 @@
 			func <a href="#name-ServeTLS">ServeTLS</a>(l <a href="../net.html">net</a>.<a href="../net.html#name-Listener">Listener</a>, handler <b>Handler</b>, certFile, keyFile <a href="../builtin.html#name-string">string</a>) <a href="../builtin.html#name-error">error</a></span><span>
 			func <a href="#name-StripPrefix">StripPrefix</a>(prefix <a href="../builtin.html#name-string">string</a>, h <b>Handler</b>) <b>Handler</b></span><span>
 			func <a href="#name-TimeoutHandler">TimeoutHandler</a>(h <b>Handler</b>, dt <a href="../time.html">time</a>.<a href="../time.html#name-Duration">Duration</a>, msg <a href="../builtin.html#name-string">string</a>) <b>Handler</b></span><span>
-			func (*<a href="#name-ServeMux">ServeMux</a>).<a href="../../src/net/http/server.go.html#line-2433">Handle</a>(pattern <a href="../builtin.html#name-string">string</a>, handler <b>Handler</b>)</span></span>
+			func (*<a href="#name-ServeMux">ServeMux</a>).<a href="../../src/net/http/server.go.html#line-2433">Handle</a>(pattern <a href="../builtin.html#name-string">string</a>, handler <b>Handler</b>)</span><span>
+			func github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-WrapH">WrapH</a>(h <b>Handler</b>) <a href="../github.com/gin-gonic/gin.html">gin</a>.<a href="../github.com/gin-gonic/gin.html#name-HandlerFunc">HandlerFunc</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-HandlerFunc" data-popularity="250">	<input type='checkbox' class="fold" id="HandlerFunc-fold-content"><label for="HandlerFunc-fold-content"> type <a href="../../src/net/http/server.go.html#line-2045">HandlerFunc</a> <i>(func)</i></label><span id='HandlerFunc-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-HandlerFunc" data-popularity="285">	<input type='checkbox' class="fold" id="HandlerFunc-fold-content"><label for="HandlerFunc-fold-content"> type <a href="../../src/net/http/server.go.html#line-2045">HandlerFunc</a> <i>(func)</i></label><span id='HandlerFunc-fold-content-docs' class="fold-docs">
 		The HandlerFunc type is an adapter to allow the use of
 		ordinary functions as HTTP handlers. If f is a function
 		with the appropriate signature, HandlerFunc(f) is a
@@ -1062,8 +1078,10 @@
 			<input type='checkbox' class="showhide" id="HandlerFunc-showhide-inputofs"><i><label for="HandlerFunc-showhide-inputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="HandlerFunc-showhide-inputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
 			func <a href="#name-http2new400Handler">http2new400Handler</a>(err <a href="../builtin.html#name-error">error</a>) <b>HandlerFunc</b></i></span><span class="hidden"><i>
 			func golang.org/x/net/http2.<a href="../golang.org/x/net/http2.html#name-new400Handler">new400Handler</a>(err <a href="../builtin.html#name-error">error</a>) <b>HandlerFunc</b></i></span></span>
+		<input type='checkbox' class="fold" id="HandlerFunc-fold-params"><label for="HandlerFunc-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='HandlerFunc-fold-params-items' class="fold-items"><span>
+			func github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-WrapF">WrapF</a>(f <b>HandlerFunc</b>) <a href="../github.com/gin-gonic/gin.html">gin</a>.<a href="../github.com/gin-gonic/gin.html#name-HandlerFunc">HandlerFunc</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-Header" data-popularity="1835">	<input type='checkbox' class="fold" id="Header-fold-content"><label for="Header-fold-content"> type <a href="../../src/net/http/header.go.html#line-21">Header</a> <i>(map)</i></label><span id='Header-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Header" data-popularity="1910">	<input type='checkbox' class="fold" id="Header-fold-content"><label for="Header-fold-content"> type <a href="../../src/net/http/header.go.html#line-21">Header</a> <i>(map)</i></label><span id='Header-fold-content-docs' class="fold-docs">
 		A Header represents the key-value pairs in an HTTP header.
 
 		The keys should be in canonical form, as returned by
@@ -1128,9 +1146,10 @@
 </span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../src/net/http/header.go.html#line-85">write</a>(w <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>, trace *<a href="http/httptrace.html">httptrace</a>.<a href="http/httptrace.html#name-ClientTrace">ClientTrace</a>) <a href="../builtin.html#name-error">error</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../src/net/http/header.go.html#line-186">writeSubset</a>(w <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>, exclude map[<a href="../builtin.html#name-string">string</a>]<a href="../builtin.html#name-bool">bool</a>, trace *<a href="http/httptrace.html">httptrace</a>.<a href="http/httptrace.html#name-ClientTrace">ClientTrace</a>) <a href="../builtin.html#name-error">error</a></span></i></span></span>
-		<input type='checkbox' class="fold" id="Header-fold-results"><label for="Header-fold-results">As Outputs Of (<i>at least 6, in which 2 are exported</i>)</label><span id='Header-fold-results-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Header-fold-results"><label for="Header-fold-results">As Outputs Of (<i>at least 7, in which 3 are exported</i>)</label><span id='Header-fold-results-items' class="fold-items"><span>
 			func Header.<a href="../../src/net/http/header.go.html#line-90">Clone</a>() <b>Header</b></span><span>
-			func <a href="#name-ResponseWriter">ResponseWriter</a>.<a href="../../src/net/http/server.go.html#line-116">Header</a>() <b>Header</b></span>
+			func <a href="#name-ResponseWriter">ResponseWriter</a>.<a href="../../src/net/http/server.go.html#line-116">Header</a>() <b>Header</b></span><span>
+			func github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-ResponseWriter">ResponseWriter</a>.<a href="../../src/net/http/server.go.html#line-116">Header</a>() <b>Header</b></span>
 			<input type='checkbox' class="showhide" id="Header-showhide-inputofs"><i><label for="Header-showhide-inputofs" class="show-inline">/* 4+ unexporteds ... */</label><label for="Header-showhide-inputofs" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
 			func <a href="#name-cloneOrMakeHeader">cloneOrMakeHeader</a>(hdr <b>Header</b>) <b>Header</b></i></span><span class="hidden"><i>
 			func <a href="#name-fixTrailer">fixTrailer</a>(header <b>Header</b>, chunked <a href="../builtin.html#name-bool">bool</a>) (<b>Header</b>, <a href="../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
@@ -1160,7 +1179,7 @@
 			func golang.org/x/net/http2.<a href="../golang.org/x/net/http2.html#name-cloneHeader">cloneHeader</a>(h <b>Header</b>) <b>Header</b></i></span><span class="hidden"><i>
 			func golang.org/x/net/http2.<a href="../golang.org/x/net/http2.html#name-encodeHeaders">encodeHeaders</a>(enc *<a href="../golang.org/x/net/http2/hpack.html">hpack</a>.<a href="../golang.org/x/net/http2/hpack.html#name-Encoder">Encoder</a>, h <b>Header</b>, keys []<a href="../builtin.html#name-string">string</a>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-Hijacker" data-popularity="200">	<input type='checkbox' class="fold" id="Hijacker-fold-content"><label for="Hijacker-fold-content"> type <a href="../../src/net/http/server.go.html#line-180">Hijacker</a> <b><i>(interface)</i></b></label><span id='Hijacker-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Hijacker" data-popularity="500">	<input type='checkbox' class="fold" id="Hijacker-fold-content"><label for="Hijacker-fold-content"> type <a href="../../src/net/http/server.go.html#line-180">Hijacker</a> <b><i>(interface)</i></b></label><span id='Hijacker-fold-content-docs' class="fold-docs">
 		The Hijacker interface is implemented by ResponseWriters that allow
 		an HTTP handler to take over the connection.
 
@@ -1191,9 +1210,11 @@
 				is not canceled until the Request's ServeHTTP method
 				returns.
 </span></span></span>
-		<input type='checkbox' class="fold" id="Hijacker-fold-impledby"><label for="Hijacker-fold-impledby">Implemented By (<i>at least one unexported</i>)</label><span id='Hijacker-fold-impledby-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="Hijacker-showhide-impedBys"><i><label for="Hijacker-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="Hijacker-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
-			*<a href="#name-response">response</a></i></span></span>
+		<input type='checkbox' class="fold" id="Hijacker-fold-impledby"><label for="Hijacker-fold-impledby">Implemented By (<i>at least 3, in which 1 are exported</i>)</label><span id='Hijacker-fold-impledby-items' class="fold-items"><span>
+			 github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-ResponseWriter">ResponseWriter</a> <i>(interface)</i></span>
+			<input type='checkbox' class="showhide" id="Hijacker-showhide-impedBys"><i><label for="Hijacker-showhide-impedBys" class="show-inline">/* 2+ unexporteds ... */</label><label for="Hijacker-showhide-impedBys" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			*<a href="#name-response">response</a></i></span><span class="hidden"><i>
+			*github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a></i></span></span>
 
 </span></div><div class="anchor type-res" id="name-ProtocolError" data-popularity="115">	<input type='checkbox' class="fold" id="ProtocolError-fold-content"><label for="ProtocolError-fold-content"> type <a href="../../src/net/http/request.go.html#line-44">ProtocolError</a> <i>(struct)</i></label><span id='ProtocolError-fold-content-docs' class="fold-docs">
 		ProtocolError represents an HTTP protocol error.
@@ -1219,7 +1240,7 @@
 			  var net/http/httputil.<a href="http/httputil.html#name-ErrPersistEOF">ErrPersistEOF</a> *ProtocolError</span><span>
 			  var net/http/httputil.<a href="http/httputil.html#name-ErrPipeline">ErrPipeline</a> *ProtocolError</span></span>
 
-</span></div><div class="anchor type-res" id="name-Pusher" data-popularity="500">	<input type='checkbox' class="fold" id="Pusher-fold-content"><label for="Pusher-fold-content"> type <a href="../../src/net/http/http.go.html#line-142">Pusher</a> <b><i>(interface)</i></b></label><span id='Pusher-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Pusher" data-popularity="575">	<input type='checkbox' class="fold" id="Pusher-fold-content"><label for="Pusher-fold-content"> type <a href="../../src/net/http/http.go.html#line-142">Pusher</a> <b><i>(interface)</i></b></label><span id='Pusher-fold-content-docs' class="fold-docs">
 		Pusher is the interface implemented by ResponseWriters that support
 		HTTP/2 server push. For more background, see
 		https://tools.ietf.org/html/rfc7540#section-8.2.
@@ -1256,6 +1277,8 @@
 			*<a href="#name-http2responseWriter">http2responseWriter</a></i></span><span class="hidden"><i>
 			*<a href="#name-timeoutWriter">timeoutWriter</a></i></span><span class="hidden"><i>
 			*golang.org/x/net/http2.<a href="../golang.org/x/net/http2.html#name-responseWriter">responseWriter</a></i></span></span>
+		<input type='checkbox' class="fold" id="Pusher-fold-results"><label for="Pusher-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Pusher-fold-results-items' class="fold-items"><span>
+			func github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-ResponseWriter">ResponseWriter</a>.<a href="../../src/github.com/gin-gonic/gin/response_writer.go.html#line-43">Pusher</a>() <b>Pusher</b></span></span>
 
 </span></div><div class="anchor type-res" id="name-PushOptions" data-popularity="35">	<input type='checkbox' class="fold" id="PushOptions-fold-content"><label for="PushOptions-fold-content"> type <a href="../../src/net/http/http.go.html#line-128">PushOptions</a> <i>(struct)</i></label><span id='PushOptions-fold-content-docs' class="fold-docs">
 		PushOptions describes options for Pusher.Push.
@@ -1273,7 +1296,7 @@
 		<input type='checkbox' class="fold" id="PushOptions-fold-params"><label for="PushOptions-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='PushOptions-fold-params-items' class="fold-items"><span>
 			func <a href="#name-Pusher">Pusher</a>.<a href="../../src/net/http/http.go.html#line-167">Push</a>(target <a href="../builtin.html#name-string">string</a>, opts *<b>PushOptions</b>) <a href="../builtin.html#name-error">error</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-Request" data-popularity="5785">	<input type='checkbox' class="fold" id="Request-fold-content"><label for="Request-fold-content"> type <a href="../../src/net/http/request.go.html#line-102">Request</a> <i>(struct)</i></label><span id='Request-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Request" data-popularity="5925">	<input type='checkbox' class="fold" id="Request-fold-content"><label for="Request-fold-content"> type <a href="../../src/net/http/request.go.html#line-102">Request</a> <i>(struct)</i></label><span id='Request-fold-content-docs' class="fold-docs">
 		A Request represents an HTTP request received by a server
 		or to be sent by a client.
 
@@ -1710,7 +1733,7 @@
 			func golang.org/x/net/http2.<a href="../golang.org/x/net/http2.html#name-shouldRetryRequest">shouldRetryRequest</a>(req *<b>Request</b>, err <a href="../builtin.html#name-error">error</a>, afterBodyWrite <a href="../builtin.html#name-bool">bool</a>) (*<b>Request</b>, <a href="../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func golang.org/x/oauth2.<a href="../golang.org/x/oauth2.html#name-cloneRequest">cloneRequest</a>(r *<b>Request</b>) *<b>Request</b></i></span><span class="hidden"><i>
 			func golang.org/x/oauth2/internal.<a href="../golang.org/x/oauth2/internal.html#name-newTokenRequest">newTokenRequest</a>(tokenURL, clientID, clientSecret <a href="../builtin.html#name-string">string</a>, v <a href="url.html">url</a>.<a href="url.html#name-Values">Values</a>, authStyle <a href="../golang.org/x/oauth2/internal.html">internal</a>.<a href="../golang.org/x/oauth2/internal.html#name-AuthStyle">AuthStyle</a>) (*<b>Request</b>, <a href="../builtin.html#name-error">error</a>)</i></span></span>
-		<input type='checkbox' class="fold" id="Request-fold-params"><label for="Request-fold-params">As Inputs Of (<i>at least 96, in which 35 are exported</i>)</label><span id='Request-fold-params-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Request-fold-params"><label for="Request-fold-params">As Inputs Of (<i>at least 100, in which 39 are exported</i>)</label><span id='Request-fold-params-items' class="fold-items"><span>
 			func <a href="#name-NotFound">NotFound</a>(w <a href="#name-ResponseWriter">ResponseWriter</a>, r *<b>Request</b>)</span><span>
 			func <a href="#name-ProxyFromEnvironment">ProxyFromEnvironment</a>(req *<b>Request</b>) (*<a href="url.html">url</a>.<a href="url.html#name-URL">URL</a>, <a href="../builtin.html#name-error">error</a>)</span><span>
 			func <a href="#name-ReadResponse">ReadResponse</a>(r *<a href="../bufio.html">bufio</a>.<a href="../bufio.html#name-Reader">Reader</a>, req *<b>Request</b>) (*<a href="#name-Response">Response</a>, <a href="../builtin.html#name-error">error</a>)</span><span>
@@ -1732,6 +1755,10 @@
 			func net/http/httputil.(*<a href="http/httputil.html#name-ClientConn">ClientConn</a>).<a href="../../src/net/http/httputil/persist.go.html#line-299">Write</a>(req *<b>Request</b>) <a href="../builtin.html#name-error">error</a></span><span>
 			func net/http/httputil.(*<a href="http/httputil.html#name-ReverseProxy">ReverseProxy</a>).<a href="../../src/net/http/httputil/reverseproxy.go.html#line-212">ServeHTTP</a>(rw <a href="#name-ResponseWriter">ResponseWriter</a>, req *<b>Request</b>)</span><span>
 			func net/http/httputil.(*<a href="http/httputil.html#name-ServerConn">ServerConn</a>).<a href="../../src/net/http/httputil/persist.go.html#line-175">Write</a>(req *<b>Request</b>, resp *<a href="#name-Response">Response</a>) <a href="../builtin.html#name-error">error</a></span><span>
+			func net/rpc.(*<a href="rpc.html#name-Server">Server</a>).<a href="../../src/net/rpc/server.go.html#line-691">ServeHTTP</a>(w <a href="#name-ResponseWriter">ResponseWriter</a>, req *<b>Request</b>)</span><span>
+			func github.com/gin-gonic/gin.(*<a href="../github.com/gin-gonic/gin.html#name-Engine">Engine</a>).<a href="../../src/github.com/gin-gonic/gin/gin.go.html#line-439">ServeHTTP</a>(w <a href="#name-ResponseWriter">ResponseWriter</a>, req *<b>Request</b>)</span><span>
+			func github.com/gin-gonic/gin/binding.<a href="../github.com/gin-gonic/gin/binding.html#name-Binding">Binding</a>.<a href="../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-32">Bind</a>(*<b>Request</b>, interface{}) <a href="../builtin.html#name-error">error</a></span><span>
+			func github.com/gin-gonic/gin/binding.<a href="../github.com/gin-gonic/gin/binding.html#name-BindingBody">BindingBody</a>.<a href="../../src/github.com/gin-gonic/gin/binding/binding.go.html#line-32">Bind</a>(*<b>Request</b>, interface{}) <a href="../builtin.html#name-error">error</a></span><span>
 			func golang.org/x/net/context/ctxhttp.<a href="../golang.org/x/net/context/ctxhttp.html#name-Do">Do</a>(ctx <a href="../context.html">context</a>.<a href="../context.html#name-Context">Context</a>, client *<a href="#name-Client">Client</a>, req *<b>Request</b>) (*<a href="#name-Response">Response</a>, <a href="../builtin.html#name-error">error</a>)</span><span>
 			func golang.org/x/net/http2.(*<a href="../golang.org/x/net/http2.html#name-ClientConn">ClientConn</a>).<a href="../../src/golang.org/x/net/http2/transport.go.html#line-1017">RoundTrip</a>(req *<b>Request</b>) (*<a href="#name-Response">Response</a>, <a href="../builtin.html#name-error">error</a>)</span><span>
 			func golang.org/x/net/http2.<a href="../golang.org/x/net/http2.html#name-ClientConnPool">ClientConnPool</a>.<a href="../../src/golang.org/x/net/http2/client_conn_pool.go.html#line-17">GetClientConn</a>(req *<b>Request</b>, addr <a href="../builtin.html#name-string">string</a>) (*<a href="../golang.org/x/net/http2.html">http2</a>.<a href="../golang.org/x/net/http2.html#name-ClientConn">ClientConn</a>, <a href="../builtin.html#name-error">error</a>)</span><span>
@@ -2000,7 +2027,7 @@
 			func net/http/httputil.(*<a href="http/httputil.html#name-ReverseProxy">ReverseProxy</a>).<a href="../../src/net/http/httputil/reverseproxy.go.html#line-540">handleUpgradeResponse</a>(rw <a href="#name-ResponseWriter">ResponseWriter</a>, req *<a href="#name-Request">Request</a>, res *<b>Response</b>)</i></span><span class="hidden"><i>
 			func net/http/httputil.(*<a href="http/httputil.html#name-ReverseProxy">ReverseProxy</a>).<a href="../../src/net/http/httputil/reverseproxy.go.html#line-200">modifyResponse</a>(rw <a href="#name-ResponseWriter">ResponseWriter</a>, res *<b>Response</b>, req *<a href="#name-Request">Request</a>) <a href="../builtin.html#name-bool">bool</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-ResponseWriter" data-popularity="2035">	<input type='checkbox' class="fold" id="ResponseWriter-fold-content"><label for="ResponseWriter-fold-content"> type <a href="../../src/net/http/server.go.html#line-95">ResponseWriter</a> <b><i>(interface)</i></b></label><span id='ResponseWriter-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-ResponseWriter" data-popularity="3805">	<input type='checkbox' class="fold" id="ResponseWriter-fold-content"><label for="ResponseWriter-fold-content"> type <a href="../../src/net/http/server.go.html#line-95">ResponseWriter</a> <b><i>(interface)</i></b></label><span id='ResponseWriter-fold-content-docs' class="fold-docs">
 		A ResponseWriter interface is used by an HTTP handler to
 		construct an HTTP response.
 
@@ -2068,16 +2095,18 @@
 				with the exception of 100-continue response header that the
 				Server sends automatically when the Request.Body is read.
 </span></span></span>
-		<input type='checkbox' class="fold" id="ResponseWriter-fold-impledby"><label for="ResponseWriter-fold-impledby">Implemented By (<i>at least 5, none are exported</i>)</label><span id='ResponseWriter-fold-impledby-items' class="fold-items">
-			<input type='checkbox' class="showhide" id="ResponseWriter-showhide-impedBys"><i><label for="ResponseWriter-showhide-impedBys" class="show-inline">/* 5+ unexporteds ... */</label><label for="ResponseWriter-showhide-impedBys" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
+		<input type='checkbox' class="fold" id="ResponseWriter-fold-impledby"><label for="ResponseWriter-fold-impledby">Implemented By (<i>at least 7, in which 1 are exported</i>)</label><span id='ResponseWriter-fold-impledby-items' class="fold-items"><span>
+			 github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-ResponseWriter">ResponseWriter</a> <i>(interface)</i></span>
+			<input type='checkbox' class="showhide" id="ResponseWriter-showhide-impedBys"><i><label for="ResponseWriter-showhide-impedBys" class="show-inline">/* 6+ unexporteds ... */</label><label for="ResponseWriter-showhide-impedBys" class="hide-inline">/* 6+ unexporteds: */</label></i><span class="hidden"><i>
 			*<a href="#name-http2responseWriter">http2responseWriter</a></i></span><span class="hidden"><i>
 			*<a href="#name-populateResponse">populateResponse</a></i></span><span class="hidden"><i>
 			*<a href="#name-response">response</a></i></span><span class="hidden"><i>
 			*<a href="#name-timeoutWriter">timeoutWriter</a></i></span><span class="hidden"><i>
+			*github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a></i></span><span class="hidden"><i>
 			*golang.org/x/net/http2.<a href="../golang.org/x/net/http2.html#name-responseWriter">responseWriter</a></i></span></span>
 		<input type='checkbox' class="fold" id="ResponseWriter-fold-impls"><label for="ResponseWriter-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ResponseWriter-fold-impls-items' class="fold-items"><span>
 			 T : io.<a href="../io.html#name-Writer">Writer</a></span></span>
-		<input type='checkbox' class="fold" id="ResponseWriter-fold-params"><label for="ResponseWriter-fold-params">As Inputs Of (<i>at least 31, in which 16 are exported</i>)</label><span id='ResponseWriter-fold-params-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="ResponseWriter-fold-params"><label for="ResponseWriter-fold-params">As Inputs Of (<i>at least 73, in which 56 are exported</i>)</label><span id='ResponseWriter-fold-params-items' class="fold-items"><span>
 			func <a href="#name-Error">Error</a>(w <b>ResponseWriter</b>, error <a href="../builtin.html#name-string">string</a>, code <a href="../builtin.html#name-int">int</a>)</span><span>
 			func <a href="#name-MaxBytesReader">MaxBytesReader</a>(w <b>ResponseWriter</b>, r <a href="../io.html">io</a>.<a href="../io.html#name-ReadCloser">ReadCloser</a>, n <a href="../builtin.html#name-int64">int64</a>) <a href="../io.html">io</a>.<a href="../io.html#name-ReadCloser">ReadCloser</a></span><span>
 			func <a href="#name-NotFound">NotFound</a>(w <b>ResponseWriter</b>, r *<a href="#name-Request">Request</a>)</span><span>
@@ -2089,12 +2118,52 @@
 			func <a href="#name-HandlerFunc">HandlerFunc</a>.<a href="../../src/net/http/server.go.html#line-2048">ServeHTTP</a>(w <b>ResponseWriter</b>, r *<a href="#name-Request">Request</a>)</span><span>
 			func (*<a href="#name-ServeMux">ServeMux</a>).<a href="../../src/net/http/server.go.html#line-2419">ServeHTTP</a>(w <b>ResponseWriter</b>, r *<a href="#name-Request">Request</a>)</span><span>
 			func net/http/httputil.(*<a href="http/httputil.html#name-ReverseProxy">ReverseProxy</a>).<a href="../../src/net/http/httputil/reverseproxy.go.html#line-212">ServeHTTP</a>(rw <b>ResponseWriter</b>, req *<a href="#name-Request">Request</a>)</span><span>
+			func net/rpc.(*<a href="rpc.html#name-Server">Server</a>).<a href="../../src/net/rpc/server.go.html#line-691">ServeHTTP</a>(w <b>ResponseWriter</b>, req *<a href="#name-Request">Request</a>)</span><span>
+			func github.com/gin-contrib/sse.<a href="../github.com/gin-contrib/sse.html#name-Event">Event</a>.<a href="../../src/github.com/gin-contrib/sse/sse-encoder.go.html#line-89">Render</a>(w <b>ResponseWriter</b>) <a href="../builtin.html#name-error">error</a></span><span>
+			func github.com/gin-contrib/sse.<a href="../github.com/gin-contrib/sse.html#name-Event">Event</a>.<a href="../../src/github.com/gin-contrib/sse/sse-encoder.go.html#line-94">WriteContentType</a>(w <b>ResponseWriter</b>)</span><span>
+			func github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-CreateTestContext">CreateTestContext</a>(w <b>ResponseWriter</b>) (c *<a href="../github.com/gin-gonic/gin.html">gin</a>.<a href="../github.com/gin-gonic/gin.html#name-Context">Context</a>, r *<a href="../github.com/gin-gonic/gin.html">gin</a>.<a href="../github.com/gin-gonic/gin.html#name-Engine">Engine</a>)</span><span>
+			func github.com/gin-gonic/gin.(*<a href="../github.com/gin-gonic/gin.html#name-Engine">Engine</a>).<a href="../../src/github.com/gin-gonic/gin/gin.go.html#line-439">ServeHTTP</a>(w <b>ResponseWriter</b>, req *<a href="#name-Request">Request</a>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-WriteJSON">WriteJSON</a>(w <b>ResponseWriter</b>, obj interface{}) <a href="../builtin.html#name-error">error</a></span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-WriteMsgPack">WriteMsgPack</a>(w <b>ResponseWriter</b>, obj interface{}) <a href="../builtin.html#name-error">error</a></span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-WriteString">WriteString</a>(w <b>ResponseWriter</b>, format <a href="../builtin.html#name-string">string</a>, data []interface{}) (err <a href="../builtin.html#name-error">error</a>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-AsciiJSON">AsciiJSON</a>.<a href="../../src/github.com/gin-gonic/gin/render/json.go.html#line-157">Render</a>(w <b>ResponseWriter</b>) (err <a href="../builtin.html#name-error">error</a>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-AsciiJSON">AsciiJSON</a>.<a href="../../src/github.com/gin-gonic/gin/render/json.go.html#line-178">WriteContentType</a>(w <b>ResponseWriter</b>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-Data">Data</a>.<a href="../../src/github.com/gin-gonic/gin/render/data.go.html#line-16">Render</a>(w <b>ResponseWriter</b>) (err <a href="../builtin.html#name-error">error</a>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-Data">Data</a>.<a href="../../src/github.com/gin-gonic/gin/render/data.go.html#line-23">WriteContentType</a>(w <b>ResponseWriter</b>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-HTML">HTML</a>.<a href="../../src/github.com/gin-gonic/gin/render/html.go.html#line-80">Render</a>(w <b>ResponseWriter</b>) <a href="../builtin.html#name-error">error</a></span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-HTML">HTML</a>.<a href="../../src/github.com/gin-gonic/gin/render/html.go.html#line-90">WriteContentType</a>(w <b>ResponseWriter</b>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-IndentedJSON">IndentedJSON</a>.<a href="../../src/github.com/gin-gonic/gin/render/json.go.html#line-78">Render</a>(w <b>ResponseWriter</b>) <a href="../builtin.html#name-error">error</a></span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-IndentedJSON">IndentedJSON</a>.<a href="../../src/github.com/gin-gonic/gin/render/json.go.html#line-89">WriteContentType</a>(w <b>ResponseWriter</b>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-JSON">JSON</a>.<a href="../../src/github.com/gin-gonic/gin/render/json.go.html#line-54">Render</a>(w <b>ResponseWriter</b>) (err <a href="../builtin.html#name-error">error</a>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-JSON">JSON</a>.<a href="../../src/github.com/gin-gonic/gin/render/json.go.html#line-62">WriteContentType</a>(w <b>ResponseWriter</b>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-JsonpJSON">JsonpJSON</a>.<a href="../../src/github.com/gin-gonic/gin/render/json.go.html#line-118">Render</a>(w <b>ResponseWriter</b>) (err <a href="../builtin.html#name-error">error</a>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-JsonpJSON">JsonpJSON</a>.<a href="../../src/github.com/gin-gonic/gin/render/json.go.html#line-152">WriteContentType</a>(w <b>ResponseWriter</b>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-MsgPack">MsgPack</a>.<a href="../../src/github.com/gin-gonic/gin/render/msgpack.go.html#line-33">Render</a>(w <b>ResponseWriter</b>) <a href="../builtin.html#name-error">error</a></span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-MsgPack">MsgPack</a>.<a href="../../src/github.com/gin-gonic/gin/render/msgpack.go.html#line-28">WriteContentType</a>(w <b>ResponseWriter</b>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-ProtoBuf">ProtoBuf</a>.<a href="../../src/github.com/gin-gonic/gin/render/protobuf.go.html#line-21">Render</a>(w <b>ResponseWriter</b>) <a href="../builtin.html#name-error">error</a></span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-ProtoBuf">ProtoBuf</a>.<a href="../../src/github.com/gin-gonic/gin/render/protobuf.go.html#line-34">WriteContentType</a>(w <b>ResponseWriter</b>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-PureJSON">PureJSON</a>.<a href="../../src/github.com/gin-gonic/gin/render/json.go.html#line-183">Render</a>(w <b>ResponseWriter</b>) <a href="../builtin.html#name-error">error</a></span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-PureJSON">PureJSON</a>.<a href="../../src/github.com/gin-gonic/gin/render/json.go.html#line-191">WriteContentType</a>(w <b>ResponseWriter</b>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-Reader">Reader</a>.<a href="../../src/github.com/gin-gonic/gin/render/reader.go.html#line-22">Render</a>(w <b>ResponseWriter</b>) (err <a href="../builtin.html#name-error">error</a>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-Reader">Reader</a>.<a href="../../src/github.com/gin-gonic/gin/render/reader.go.html#line-36">WriteContentType</a>(w <b>ResponseWriter</b>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-Redirect">Redirect</a>.<a href="../../src/github.com/gin-gonic/gin/render/redirect.go.html#line-20">Render</a>(w <b>ResponseWriter</b>) <a href="../builtin.html#name-error">error</a></span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-Redirect">Redirect</a>.<a href="../../src/github.com/gin-gonic/gin/render/redirect.go.html#line-29">WriteContentType</a>(<b>ResponseWriter</b>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-Render">Render</a>.<a href="../../src/github.com/gin-gonic/gin/render/render.go.html#line-12">Render</a>(<b>ResponseWriter</b>) <a href="../builtin.html#name-error">error</a></span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-Render">Render</a>.<a href="../../src/github.com/gin-gonic/gin/render/render.go.html#line-14">WriteContentType</a>(w <b>ResponseWriter</b>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-SecureJSON">SecureJSON</a>.<a href="../../src/github.com/gin-gonic/gin/render/json.go.html#line-94">Render</a>(w <b>ResponseWriter</b>) <a href="../builtin.html#name-error">error</a></span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-SecureJSON">SecureJSON</a>.<a href="../../src/github.com/gin-gonic/gin/render/json.go.html#line-113">WriteContentType</a>(w <b>ResponseWriter</b>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-String">String</a>.<a href="../../src/github.com/gin-gonic/gin/render/text.go.html#line-23">Render</a>(w <b>ResponseWriter</b>) <a href="../builtin.html#name-error">error</a></span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-String">String</a>.<a href="../../src/github.com/gin-gonic/gin/render/text.go.html#line-28">WriteContentType</a>(w <b>ResponseWriter</b>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-XML">XML</a>.<a href="../../src/github.com/gin-gonic/gin/render/xml.go.html#line-20">Render</a>(w <b>ResponseWriter</b>) <a href="../builtin.html#name-error">error</a></span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-XML">XML</a>.<a href="../../src/github.com/gin-gonic/gin/render/xml.go.html#line-26">WriteContentType</a>(w <b>ResponseWriter</b>)</span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-YAML">YAML</a>.<a href="../../src/github.com/gin-gonic/gin/render/yaml.go.html#line-21">Render</a>(w <b>ResponseWriter</b>) <a href="../builtin.html#name-error">error</a></span><span>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-YAML">YAML</a>.<a href="../../src/github.com/gin-gonic/gin/render/yaml.go.html#line-34">WriteContentType</a>(w <b>ResponseWriter</b>)</span><span>
 			func golang.org/x/net/trace.<a href="../golang.org/x/net/trace.html#name-Events">Events</a>(w <b>ResponseWriter</b>, req *<a href="#name-Request">Request</a>)</span><span>
 			func golang.org/x/net/trace.<a href="../golang.org/x/net/trace.html#name-RenderEvents">RenderEvents</a>(w <b>ResponseWriter</b>, req *<a href="#name-Request">Request</a>, sensitive <a href="../builtin.html#name-bool">bool</a>)</span><span>
 			func golang.org/x/net/trace.<a href="../golang.org/x/net/trace.html#name-Traces">Traces</a>(w <b>ResponseWriter</b>, req *<a href="#name-Request">Request</a>)</span><span>
 			func google.golang.org/grpc.(*<a href="../google.golang.org/grpc.html#name-Server">Server</a>).<a href="../../src/google.golang.org/grpc/server.go.html#line-966">ServeHTTP</a>(w <b>ResponseWriter</b>, r *<a href="#name-Request">Request</a>)</span><span>
 			func google.golang.org/grpc/internal/transport.<a href="../google.golang.org/grpc/internal/transport.html#name-NewServerHandlerTransport">NewServerHandlerTransport</a>(w <b>ResponseWriter</b>, r *<a href="#name-Request">Request</a>, stats <a href="../google.golang.org/grpc/stats.html">stats</a>.<a href="../google.golang.org/grpc/stats.html#name-Handler">Handler</a>) (<a href="../google.golang.org/grpc/internal/transport.html">transport</a>.<a href="../google.golang.org/grpc/internal/transport.html#name-ServerTransport">ServerTransport</a>, <a href="../builtin.html#name-error">error</a>)</span>
-			<input type='checkbox' class="showhide" id="ResponseWriter-showhide-outputofs"><i><label for="ResponseWriter-showhide-outputofs" class="show-inline">/* 15+ unexporteds ... */</label><label for="ResponseWriter-showhide-outputofs" class="hide-inline">/* 15+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="ResponseWriter-showhide-outputofs"><i><label for="ResponseWriter-showhide-outputofs" class="show-inline">/* 17+ unexporteds ... */</label><label for="ResponseWriter-showhide-outputofs" class="hide-inline">/* 17+ unexporteds: */</label></i><span class="hidden"><i>
 			func <a href="#name-checkIfMatch">checkIfMatch</a>(w <b>ResponseWriter</b>, r *<a href="#name-Request">Request</a>) <a href="#name-condResult">condResult</a></i></span><span class="hidden"><i>
 			func <a href="#name-checkIfNoneMatch">checkIfNoneMatch</a>(w <b>ResponseWriter</b>, r *<a href="#name-Request">Request</a>) <a href="#name-condResult">condResult</a></i></span><span class="hidden"><i>
 			func <a href="#name-checkIfRange">checkIfRange</a>(w <b>ResponseWriter</b>, r *<a href="#name-Request">Request</a>, modtime <a href="../time.html">time</a>.<a href="../time.html#name-Time">Time</a>) <a href="#name-condResult">condResult</a></i></span><span class="hidden"><i>
@@ -2109,6 +2178,8 @@
 			func net/http/httputil.(*<a href="http/httputil.html#name-ReverseProxy">ReverseProxy</a>).<a href="../../src/net/http/httputil/reverseproxy.go.html#line-186">defaultErrorHandler</a>(rw <b>ResponseWriter</b>, req *<a href="#name-Request">Request</a>, err <a href="../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func net/http/httputil.(*<a href="http/httputil.html#name-ReverseProxy">ReverseProxy</a>).<a href="../../src/net/http/httputil/reverseproxy.go.html#line-540">handleUpgradeResponse</a>(rw <b>ResponseWriter</b>, req *<a href="#name-Request">Request</a>, res *<a href="#name-Response">Response</a>)</i></span><span class="hidden"><i>
 			func net/http/httputil.(*<a href="http/httputil.html#name-ReverseProxy">ReverseProxy</a>).<a href="../../src/net/http/httputil/reverseproxy.go.html#line-200">modifyResponse</a>(rw <b>ResponseWriter</b>, res *<a href="#name-Response">Response</a>, req *<a href="#name-Request">Request</a>) <a href="../builtin.html#name-bool">bool</a></i></span><span class="hidden"><i>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-writeContentType">writeContentType</a>(w <b>ResponseWriter</b>, value []<a href="../builtin.html#name-string">string</a>)</i></span><span class="hidden"><i>
+			func github.com/gin-gonic/gin/render.<a href="../github.com/gin-gonic/gin/render.html#name-Reader">Reader</a>.<a href="../../src/github.com/gin-gonic/gin/render/reader.go.html#line-41">writeHeaders</a>(w <b>ResponseWriter</b>, headers map[<a href="../builtin.html#name-string">string</a>]<a href="../builtin.html#name-string">string</a>)</i></span><span class="hidden"><i>
 			func golang.org/x/net/http2.<a href="../golang.org/x/net/http2.html#name-handleHeaderListTooLong">handleHeaderListTooLong</a>(w <b>ResponseWriter</b>, r *<a href="#name-Request">Request</a>)</i></span></span>
 
 </span></div><div class="anchor type-res" id="name-RoundTripper" data-popularity="2145">	<input type='checkbox' class="fold" id="RoundTripper-fold-content"><label for="RoundTripper-fold-content"> type <a href="../../src/net/http/client.go.html#line-116">RoundTripper</a> <b><i>(interface)</i></b></label><span id='RoundTripper-fold-content-docs' class="fold-docs">
@@ -2173,7 +2244,7 @@
 		<input type='checkbox' class="fold" id="RoundTripper-fold-values"><label for="RoundTripper-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='RoundTripper-fold-values-items' class="fold-items"><span>
 			  var <a href="#name-DefaultTransport">DefaultTransport</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-SameSite" data-popularity="15">	<input type='checkbox' class="fold" id="SameSite-fold-content"><label for="SameSite-fold-content"> type <a href="../../src/net/http/cookie.go.html#line-46">SameSite</a> <a href="../builtin.html#name-int">int</a> <i>(basic type)</i></label><span id='SameSite-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-SameSite" data-popularity="50">	<input type='checkbox' class="fold" id="SameSite-fold-content"><label for="SameSite-fold-content"> type <a href="../../src/net/http/cookie.go.html#line-46">SameSite</a> <a href="../builtin.html#name-int">int</a> <i>(basic type)</i></label><span id='SameSite-fold-content-docs' class="fold-docs">
 		SameSite allows a server to define a cookie attribute making it impossible for
 		the browser to send this cookie along with cross-site requests. The main
 		goal is to mitigate the risk of cross-origin information leakage, and provide
@@ -2181,6 +2252,8 @@
 
 		See https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site-00 for details.
 
+		<input type='checkbox' class="fold" id="SameSite-fold-params"><label for="SameSite-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='SameSite-fold-params-items' class="fold-items"><span>
+			func github.com/gin-gonic/gin.(*<a href="../github.com/gin-gonic/gin.html#name-Context">Context</a>).<a href="../../src/github.com/gin-gonic/gin/context.go.html#line-867">SetSameSite</a>(samesite <b>SameSite</b>)</span></span>
 		<input type='checkbox' class="fold" id="SameSite-fold-values"><label for="SameSite-fold-values">As Types Of (<i>total 4, all are exported</i>)</label><span id='SameSite-fold-values-items' class="fold-items"><span>
 			const <a href="#name-SameSiteDefaultMode">SameSiteDefaultMode</a></span><span>
 			const <a href="#name-SameSiteLaxMode">SameSiteLaxMode</a></span><span>
@@ -3769,7 +3842,7 @@
 				called until after the headers have been written.
 </span></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-http2bufferedWriter" data-popularity="275">	<input type='checkbox' class="fold" id="http2bufferedWriter-fold-content"><label for="http2bufferedWriter-fold-content"> type <a href="../../src/net/http/h2_bundle.go.html#line-3315">http2bufferedWriter</a> <i>(struct)</i></label><span id='http2bufferedWriter-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-http2bufferedWriter" data-popularity="325">	<input type='checkbox' class="fold" id="http2bufferedWriter-fold-content"><label for="http2bufferedWriter-fold-content"> type <a href="../../src/net/http/h2_bundle.go.html#line-3315">http2bufferedWriter</a> <i>(struct)</i></label><span id='http2bufferedWriter-fold-content-docs' class="fold-docs">
 		bufferedWriter is a buffered writer that writes to w.
 		Its buffered writer is lazily allocated as needed, to minimize
 		idle memory usage with many connections.
@@ -3786,8 +3859,10 @@
 			<span class="nodocs">(*T) <a href="../../src/net/http/h2_bundle.go.html#line-3339">Available</a>() <a href="../builtin.html#name-int">int</a></span></span><span>
 			<span class="nodocs">(*T) <a href="../../src/net/http/h2_bundle.go.html#line-3355">Flush</a>() <a href="../builtin.html#name-error">error</a></span></span><span>
 			<span class="nodocs">(*T) <a href="../../src/net/http/h2_bundle.go.html#line-3346">Write</a>(p []<a href="../builtin.html#name-byte">byte</a>) (n <a href="../builtin.html#name-int">int</a>, err <a href="../builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="http2bufferedWriter-fold-impls"><label for="http2bufferedWriter-fold-impls">Implements (<i>at least one exported</i>)</label><span id='http2bufferedWriter-fold-impls-items' class="fold-items"><span>
-			*T : io.<a href="../io.html#name-Writer">Writer</a></span></span>
+		<input type='checkbox' class="fold" id="http2bufferedWriter-fold-impls"><label for="http2bufferedWriter-fold-impls">Implements (<i>at least 2, in which 1 are exported</i>)</label><span id='http2bufferedWriter-fold-impls-items' class="fold-items"><span>
+			*T : io.<a href="../io.html#name-Writer">Writer</a></span>
+			<input type='checkbox' checked class="showhide" id="http2bufferedWriter-showhide-impls"><i><label for="http2bufferedWriter-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="http2bufferedWriter-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-ioFlusher">ioFlusher</a></i></span></span>
 		<input type='checkbox' class="fold" id="http2bufferedWriter-fold-results"><label for="http2bufferedWriter-fold-results">As Outputs Of (<i>at least one unexported</i>)</label><span id='http2bufferedWriter-fold-results-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="http2bufferedWriter-showhide-inputofs"><i><label for="http2bufferedWriter-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="http2bufferedWriter-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func <a href="#name-http2newBufferedWriter">http2newBufferedWriter</a>(w <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>) *<b>http2bufferedWriter</b></i></span></span>
@@ -5753,7 +5828,7 @@
 			<input type='checkbox' checked class="showhide" id="http2pipeBuffer-showhide-impls"><i><label for="http2pipeBuffer-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="http2pipeBuffer-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			 T : golang.org/x/net/http2.<a href="../golang.org/x/net/http2.html#name-pipeBuffer">pipeBuffer</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-http2PriorityFrame" data-popularity="600">	<input type='checkbox' class="fold" id="http2PriorityFrame-fold-content"><label for="http2PriorityFrame-fold-content"> type <a href="../../src/net/http/h2_bundle.go.html#line-2345">http2PriorityFrame</a> <i>(struct)</i></label><span id='http2PriorityFrame-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-http2PriorityFrame" data-popularity="650">	<input type='checkbox' class="fold" id="http2PriorityFrame-fold-content"><label for="http2PriorityFrame-fold-content"> type <a href="../../src/net/http/h2_bundle.go.html#line-2345">http2PriorityFrame</a> <i>(struct)</i></label><span id='http2PriorityFrame-fold-content-docs' class="fold-docs">
 		A PriorityFrame specifies the sender-advised priority of a stream.
 		See http://http2.github.io/http2-spec/#rfc.section.6.3
 
@@ -5807,12 +5882,13 @@
 			<span class="nodocs">(*T) <a href="../../src/net/http/h2_bundle.go.html#line-1451">checkValid</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../src/net/http/h2_bundle.go.html#line-1457">invalidate</a>()</span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../src/net/http/h2_bundle.go.html#line-1424">writeDebug</a>(buf *<a href="../bytes.html">bytes</a>.<a href="../bytes.html#name-Buffer">Buffer</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="http2PriorityFrame-fold-impls"><label for="http2PriorityFrame-fold-impls">Implements (<i>at least 6, in which 2 are exported</i>)</label><span id='http2PriorityFrame-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="http2PriorityFrame-fold-impls"><label for="http2PriorityFrame-fold-impls">Implements (<i>at least 7, in which 2 are exported</i>)</label><span id='http2PriorityFrame-fold-impls-items' class="fold-items"><span>
 			 T : fmt.<a href="../fmt.html#name-Stringer">Stringer</a></span><span>
 			 T : gopkg.in/yaml.v2.<a href="../gopkg.in/yaml.v2.html#name-IsZeroer">IsZeroer</a></span>
-			<input type='checkbox' checked class="showhide" id="http2PriorityFrame-showhide-impls"><i><label for="http2PriorityFrame-showhide-impls" class="show-inline">/* 4+ unexporteds ... */</label><label for="http2PriorityFrame-showhide-impls" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="http2PriorityFrame-showhide-impls"><i><label for="http2PriorityFrame-showhide-impls" class="show-inline">/* 5+ unexporteds ... */</label><label for="http2PriorityFrame-showhide-impls" class="hide-inline">/* 5+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : <a href="#name-http2Frame">http2Frame</a></i></span><span class="hidden"><i>
 			 T : context.<a href="../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			 T : github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-isZeroer">isZeroer</a></i></span><span class="hidden"><i>
 			 T : os/signal.<a href="../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			 T : runtime.<a href="../runtime.html#name-stringer">stringer</a></i></span></span>
 
@@ -5874,7 +5950,7 @@
 			const <a href="#name-http2priorityNodeIdle">http2priorityNodeIdle</a></i></span><span class="hidden"><i>
 			const <a href="#name-http2priorityNodeOpen">http2priorityNodeOpen</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-http2PriorityParam" data-popularity="135">	<input type='checkbox' class="fold" id="http2PriorityParam-fold-content"><label for="http2PriorityParam-fold-content"> type <a href="../../src/net/http/h2_bundle.go.html#line-2351">http2PriorityParam</a> <i>(struct)</i></label><span id='http2PriorityParam-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-http2PriorityParam" data-popularity="185">	<input type='checkbox' class="fold" id="http2PriorityParam-fold-content"><label for="http2PriorityParam-fold-content"> type <a href="../../src/net/http/h2_bundle.go.html#line-2351">http2PriorityParam</a> <i>(struct)</i></label><span id='http2PriorityParam-fold-content-docs' class="fold-docs">
 		PriorityParam are the stream prioritzation parameters.
 
 		<input type='checkbox' class="fold" id="http2PriorityParam-fold-fields"><label for="http2PriorityParam-fold-fields">Fields (<i>total 3, all are exported</i>)</label><span id='http2PriorityParam-fold-fields-items' class="fold-items"><span>
@@ -5894,8 +5970,10 @@
 </span></span></span>
 		<input type='checkbox' class="fold" id="http2PriorityParam-fold-methods"><label for="http2PriorityParam-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='http2PriorityParam-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../src/net/http/h2_bundle.go.html#line-2367">IsZero</a>() <a href="../builtin.html#name-bool">bool</a></span></span></span>
-		<input type='checkbox' class="fold" id="http2PriorityParam-fold-impls"><label for="http2PriorityParam-fold-impls">Implements (<i>at least one exported</i>)</label><span id='http2PriorityParam-fold-impls-items' class="fold-items"><span>
-			 T : gopkg.in/yaml.v2.<a href="../gopkg.in/yaml.v2.html#name-IsZeroer">IsZeroer</a></span></span>
+		<input type='checkbox' class="fold" id="http2PriorityParam-fold-impls"><label for="http2PriorityParam-fold-impls">Implements (<i>at least 2, in which 1 are exported</i>)</label><span id='http2PriorityParam-fold-impls-items' class="fold-items"><span>
+			 T : gopkg.in/yaml.v2.<a href="../gopkg.in/yaml.v2.html#name-IsZeroer">IsZeroer</a></span>
+			<input type='checkbox' checked class="showhide" id="http2PriorityParam-showhide-impls"><i><label for="http2PriorityParam-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="http2PriorityParam-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			 T : github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-isZeroer">isZeroer</a></i></span></span>
 		<input type='checkbox' class="fold" id="http2PriorityParam-fold-params"><label for="http2PriorityParam-fold-params">As Inputs Of (<i>at least one unexported</i>)</label><span id='http2PriorityParam-fold-params-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="http2PriorityParam-showhide-outputofs"><i><label for="http2PriorityParam-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="http2PriorityParam-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func <a href="#name-http2checkPriority">http2checkPriority</a>(streamID <a href="../builtin.html#name-uint32">uint32</a>, p <b>http2PriorityParam</b>) <a href="../builtin.html#name-error">error</a></i></span></span>
@@ -6164,7 +6242,7 @@
 			<span class="nodocs"><a href="../../src/net/http/h2_bundle.go.html#line-8189">err</a> <i><a href="../builtin.html#name-error">error</a></i></span></i></span><span class="hidden"><i>
 			<span class="nodocs"><a href="../../src/net/http/h2_bundle.go.html#line-8188">res</a> <i>*<a href="#name-Response">Response</a></i></span></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-http2responseWriter" data-popularity="900">	<input type='checkbox' class="fold" id="http2responseWriter-fold-content"><label for="http2responseWriter-fold-content"> type <a href="../../src/net/http/h2_bundle.go.html#line-5897">http2responseWriter</a> <i>(struct)</i></label><span id='http2responseWriter-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-http2responseWriter" data-popularity="950">	<input type='checkbox' class="fold" id="http2responseWriter-fold-content"><label for="http2responseWriter-fold-content"> type <a href="../../src/net/http/h2_bundle.go.html#line-5897">http2responseWriter</a> <i>(struct)</i></label><span id='http2responseWriter-fold-content-docs' class="fold-docs">
 		responseWriter is the http.ResponseWriter implementation. It's
 		intentionally small (1 pointer wide) to minimize garbage. The
 		responseWriterState pointer inside is zeroed at the end of a
@@ -6197,16 +6275,17 @@
 			<input type='checkbox' class="fold" id="http2responseWriter-fold-method-write"><label for="http2responseWriter-fold-method-write">(*T) <a href="../../src/net/http/h2_bundle.go.html#line-6244">write</a>(lenData <a href="../builtin.html#name-int">int</a>, dataB []<a href="../builtin.html#name-byte">byte</a>, dataS <a href="../builtin.html#name-string">string</a>) (n <a href="../builtin.html#name-int">int</a>, err <a href="../builtin.html#name-error">error</a>)</label><span id='http2responseWriter-fold-method-write-docs' class="fold-docs">
 				either dataB or dataS is non-zero.
 </span></i></span></span>
-		<input type='checkbox' class="fold" id="http2responseWriter-fold-impls"><label for="http2responseWriter-fold-impls">Implements (<i>at least 9, in which 6 are exported</i>)</label><span id='http2responseWriter-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="http2responseWriter-fold-impls"><label for="http2responseWriter-fold-impls">Implements (<i>at least 10, in which 6 are exported</i>)</label><span id='http2responseWriter-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-CloseNotifier">CloseNotifier</a></span><span>
 			*T : <a href="#name-Flusher">Flusher</a></span><span>
 			*T : <a href="#name-Pusher">Pusher</a></span><span>
 			*T : <a href="#name-ResponseWriter">ResponseWriter</a></span><span>
 			*T : io.<a href="../io.html#name-StringWriter">StringWriter</a></span><span>
 			*T : io.<a href="../io.html#name-Writer">Writer</a></span>
-			<input type='checkbox' checked class="showhide" id="http2responseWriter-showhide-impls"><i><label for="http2responseWriter-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="http2responseWriter-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="http2responseWriter-showhide-impls"><i><label for="http2responseWriter-showhide-impls" class="show-inline">/* 4+ unexporteds ... */</label><label for="http2responseWriter-showhide-impls" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : <a href="#name-http2stringWriter">http2stringWriter</a></i></span><span class="hidden"><i>
 			*T : net/http/httputil.<a href="http/httputil.html#name-writeFlusher">writeFlusher</a></i></span><span class="hidden"><i>
+			*T : github.com/gin-contrib/sse.<a href="../github.com/gin-contrib/sse.html#name-stringWriter">stringWriter</a></i></span><span class="hidden"><i>
 			*T : golang.org/x/net/http2.<a href="../golang.org/x/net/http2.html#name-stringWriter">stringWriter</a></i></span></span>
 
 </span></div><div class="anchor type-res hidden" id="name-http2responseWriterState" data-popularity="300">	<input type='checkbox' class="fold" id="http2responseWriterState-fold-content"><label for="http2responseWriterState-fold-content"> type <a href="../../src/net/http/h2_bundle.go.html#line-5908">http2responseWriterState</a> <i>(struct)</i></label><span id='http2responseWriterState-fold-content-docs' class="fold-docs">
@@ -6473,7 +6552,7 @@
 			<input type='checkbox' checked class="showhide" id="http2Server-showhide-outputofs"><i><label for="http2Server-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="http2Server-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func <a href="#name-http2ConfigureServer">http2ConfigureServer</a>(s *<a href="#name-Server">Server</a>, conf *<b>http2Server</b>) <a href="../builtin.html#name-error">error</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-http2serverConn" data-popularity="3050">	<input type='checkbox' class="fold" id="http2serverConn-fold-content"><label for="http2serverConn-fold-content"> type <a href="../../src/net/http/h2_bundle.go.html#line-4058">http2serverConn</a> <i>(struct)</i></label><span id='http2serverConn-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-http2serverConn" data-popularity="3100">	<input type='checkbox' class="fold" id="http2serverConn-fold-content"><label for="http2serverConn-fold-content"> type <a href="../../src/net/http/h2_bundle.go.html#line-4058">http2serverConn</a> <i>(struct)</i></label><span id='http2serverConn-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="http2serverConn-fold-fields"><label for="http2serverConn-fold-fields">Fields (<i>total 48, none are exported</i>)</label><span id='http2serverConn-fold-fields-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="http2serverConn-showhide-fields"><i><label for="http2serverConn-showhide-fields" class="show-inline">/* 48 unexporteds ... */</label><label for="http2serverConn-showhide-fields" class="hide-inline">/* 48 unexporteds: */</label></i><span class="hidden"><i>
@@ -6737,9 +6816,10 @@
 				wroteFrame is called on the serve goroutine with the result of
 				whatever happened on writeFrameAsync.
 </span></i></span></span>
-		<input type='checkbox' class="fold" id="http2serverConn-fold-impls"><label for="http2serverConn-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='http2serverConn-fold-impls-items' class="fold-items">
-			<input type='checkbox' checked class="showhide" id="http2serverConn-showhide-impls"><i><label for="http2serverConn-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="http2serverConn-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
-			*T : <a href="#name-http2writeContext">http2writeContext</a></i></span></span>
+		<input type='checkbox' class="fold" id="http2serverConn-fold-impls"><label for="http2serverConn-fold-impls">Implements (<i>at least 2, neither is exported</i>)</label><span id='http2serverConn-fold-impls-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="http2serverConn-showhide-impls"><i><label for="http2serverConn-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="http2serverConn-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : <a href="#name-http2writeContext">http2writeContext</a></i></span><span class="hidden"><i>
+			*T : github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-ioFlusher">ioFlusher</a></i></span></span>
 
 </span></div><div class="anchor type-res hidden" id="name-http2serverInternalState" data-popularity="150">	<input type='checkbox' class="fold" id="http2serverInternalState-fold-content"><label for="http2serverInternalState-fold-content"> type <a href="../../src/net/http/h2_bundle.go.html#line-3742">http2serverInternalState</a> <i>(struct)</i></label><span id='http2serverInternalState-fold-content-docs' class="fold-docs">
 
@@ -7054,26 +7134,31 @@
 			const <a href="#name-http2stateIdle">http2stateIdle</a></i></span><span class="hidden"><i>
 			const <a href="#name-http2stateOpen">http2stateOpen</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-http2stringWriter" data-popularity="3150">	<input type='checkbox' class="fold" id="http2stringWriter-fold-content"><label for="http2stringWriter-fold-content"> type <a href="../../src/net/http/h2_bundle.go.html#line-3280">http2stringWriter</a> <b><i>(interface)</i></b></label><span id='http2stringWriter-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-http2stringWriter" data-popularity="3900">	<input type='checkbox' class="fold" id="http2stringWriter-fold-content"><label for="http2stringWriter-fold-content"> type <a href="../../src/net/http/h2_bundle.go.html#line-3280">http2stringWriter</a> <b><i>(interface)</i></b></label><span id='http2stringWriter-fold-content-docs' class="fold-docs">
 		from pkg io
 
 		<input type='checkbox' class="fold" id="http2stringWriter-fold-methods"><label for="http2stringWriter-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='http2stringWriter-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../src/io/io.go.html#line-301">WriteString</a>(s <a href="../builtin.html#name-string">string</a>) (n <a href="../builtin.html#name-int">int</a>, err <a href="../builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="http2stringWriter-fold-impledby"><label for="http2stringWriter-fold-impledby">Implemented By (<i>at least 20, in which 8 are exported</i>)</label><span id='http2stringWriter-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="http2stringWriter-fold-impledby"><label for="http2stringWriter-fold-impledby">Implemented By (<i>at least 25, in which 9 are exported</i>)</label><span id='http2stringWriter-fold-impledby-items' class="fold-items"><span>
 			 net/http/internal.<a href="http/internal.html#name-FlushAfterChunkWriter">FlushAfterChunkWriter</a></span><span>
 			 bufio.<a href="../bufio.html#name-ReadWriter">ReadWriter</a></span><span>
 			*bufio.<a href="../bufio.html#name-Writer">Writer</a></span><span>
 			*bytes.<a href="../bytes.html#name-Buffer">Buffer</a></span><span>
 			*github.com/cespare/xxhash/v2.<a href="../github.com/cespare/xxhash/v2.html#name-Digest">Digest</a></span><span>
+			 github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-ResponseWriter">ResponseWriter</a> <i>(interface)</i></span><span>
 			 io.<a href="../io.html#name-StringWriter">StringWriter</a> <i>(interface)</i></span><span>
 			*os.<a href="../os.html#name-File">File</a></span><span>
 			*strings.<a href="../strings.html#name-Builder">Builder</a></span>
-			<input type='checkbox' checked class="showhide" id="http2stringWriter-showhide-impedBys"><i><label for="http2stringWriter-showhide-impedBys" class="show-inline">/* 12+ unexporteds ... */</label><label for="http2stringWriter-showhide-impedBys" class="hide-inline">/* 12+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="http2stringWriter-showhide-impedBys"><i><label for="http2stringWriter-showhide-impedBys" class="show-inline">/* 16+ unexporteds ... */</label><label for="http2stringWriter-showhide-impedBys" class="hide-inline">/* 16+ unexporteds: */</label></i><span class="hidden"><i>
 			*<a href="#name-http2responseWriter">http2responseWriter</a></i></span><span class="hidden"><i>
 			*<a href="#name-response">response</a></i></span><span class="hidden"><i>
 			 <a href="#name-stringWriter">stringWriter</a></i></span><span class="hidden"><i>
 			*encoding/json.<a href="../encoding/json.html#name-encodeState">encodeState</a></i></span><span class="hidden"><i>
+			 encoding/xml.<a href="../encoding/xml.html#name-printer">printer</a></i></span><span class="hidden"><i>
 			*fmt.<a href="../fmt.html#name-pp">pp</a></i></span><span class="hidden"><i>
+			 github.com/gin-contrib/sse.<a href="../github.com/gin-contrib/sse.html#name-stringWrapper">stringWrapper</a></i></span><span class="hidden"><i>
+			 github.com/gin-contrib/sse.<a href="../github.com/gin-contrib/sse.html#name-stringWriter">stringWriter</a> <i>(interface)</i></i></span><span class="hidden"><i>
+			*github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a></i></span><span class="hidden"><i>
 			*golang.org/x/net/http2.<a href="../golang.org/x/net/http2.html#name-responseWriter">responseWriter</a></i></span><span class="hidden"><i>
 			 golang.org/x/net/http2.<a href="../golang.org/x/net/http2.html#name-stringWriter">stringWriter</a> <i>(interface)</i></i></span><span class="hidden"><i>
 			 io.<a href="../io.html#name-discard">discard</a></i></span><span class="hidden"><i>
@@ -7338,7 +7423,7 @@
 			<input type='checkbox' checked class="showhide" id="http2write100ContinueHeadersFrame-showhide-impls"><i><label for="http2write100ContinueHeadersFrame-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="http2write100ContinueHeadersFrame-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			 T : <a href="#name-http2writeFramer">http2writeFramer</a></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-http2writeContext" data-popularity="385">	<input type='checkbox' class="fold" id="http2writeContext-fold-content"><label for="http2writeContext-fold-content"> type <a href="../../src/net/http/h2_bundle.go.html#line-9286">http2writeContext</a> <b><i>(interface)</i></b></label><span id='http2writeContext-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-http2writeContext" data-popularity="435">	<input type='checkbox' class="fold" id="http2writeContext-fold-content"><label for="http2writeContext-fold-content"> type <a href="../../src/net/http/h2_bundle.go.html#line-9286">http2writeContext</a> <b><i>(interface)</i></b></label><span id='http2writeContext-fold-content-docs' class="fold-docs">
 		writeContext is the interface needed by the various frame writer
 		types below. All the writeFrame methods below are scheduled via the
 		frame writing scheduler (see writeScheduler in writesched.go).
@@ -7361,6 +7446,9 @@
 		<input type='checkbox' class="fold" id="http2writeContext-fold-impledby"><label for="http2writeContext-fold-impledby">Implemented By (<i>at least one unexported</i>)</label><span id='http2writeContext-fold-impledby-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="http2writeContext-showhide-impedBys"><i><label for="http2writeContext-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="http2writeContext-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			*<a href="#name-http2serverConn">http2serverConn</a></i></span></span>
+		<input type='checkbox' class="fold" id="http2writeContext-fold-impls"><label for="http2writeContext-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='http2writeContext-fold-impls-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="http2writeContext-showhide-impls"><i><label for="http2writeContext-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="http2writeContext-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			 T : github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-ioFlusher">ioFlusher</a></i></span></span>
 		<input type='checkbox' class="fold" id="http2writeContext-fold-params"><label for="http2writeContext-fold-params">As Inputs Of (<i>at least one unexported</i>)</label><span id='http2writeContext-fold-params-items' class="fold-items">
 			<input type='checkbox' checked class="showhide" id="http2writeContext-showhide-outputofs"><i><label for="http2writeContext-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="http2writeContext-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func <a href="#name-http2splitHeaderBlock">http2splitHeaderBlock</a>(ctx <b>http2writeContext</b>, headerBlock []<a href="../builtin.html#name-byte">byte</a>, fn func(ctx <b>http2writeContext</b>, frag []<a href="../builtin.html#name-byte">byte</a>, firstFrag, lastFrag <a href="../builtin.html#name-bool">bool</a>) <a href="../builtin.html#name-error">error</a>) <a href="../builtin.html#name-error">error</a></i></span></span>
@@ -8191,7 +8279,7 @@
 		<input type='checkbox' class="fold" id="requestBodyReadError-fold-impls"><label for="requestBodyReadError-fold-impls">Implements (<i>at least one exported</i>)</label><span id='requestBodyReadError-fold-impls-items' class="fold-items"><span>
 			 T : <a href="../builtin.html#name-error">error</a></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-response" data-popularity="1400">	<input type='checkbox' class="fold" id="response-fold-content"><label for="response-fold-content"> type <a href="../../src/net/http/server.go.html#line-418">response</a> <i>(struct)</i></label><span id='response-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-response" data-popularity="1450">	<input type='checkbox' class="fold" id="response-fold-content"><label for="response-fold-content"> type <a href="../../src/net/http/server.go.html#line-418">response</a> <i>(struct)</i></label><span id='response-fold-content-docs' class="fold-docs">
 		A response represents the server side of an HTTP response.
 
 		<input type='checkbox' class="fold" id="response-fold-fields"><label for="response-fold-fields">Fields (<i>total 26, none are exported</i>)</label><span id='response-fold-fields-items' class="fold-items">
@@ -8367,7 +8455,7 @@
 			<input type='checkbox' class="fold" id="response-fold-method-write"><label for="response-fold-method-write">(*T) <a href="../../src/net/http/server.go.html#line-1561">write</a>(lenData <a href="../builtin.html#name-int">int</a>, dataB []<a href="../builtin.html#name-byte">byte</a>, dataS <a href="../builtin.html#name-string">string</a>) (n <a href="../builtin.html#name-int">int</a>, err <a href="../builtin.html#name-error">error</a>)</label><span id='response-fold-method-write-docs' class="fold-docs">
 				either dataB or dataS is non-zero.
 </span></i></span></span>
-		<input type='checkbox' class="fold" id="response-fold-impls"><label for="response-fold-impls">Implements (<i>at least 10, in which 7 are exported</i>)</label><span id='response-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="response-fold-impls"><label for="response-fold-impls">Implements (<i>at least 11, in which 7 are exported</i>)</label><span id='response-fold-impls-items' class="fold-items"><span>
 			*T : <a href="#name-CloseNotifier">CloseNotifier</a></span><span>
 			*T : <a href="#name-Flusher">Flusher</a></span><span>
 			*T : <a href="#name-Hijacker">Hijacker</a></span><span>
@@ -8375,9 +8463,10 @@
 			*T : io.<a href="../io.html#name-ReaderFrom">ReaderFrom</a></span><span>
 			*T : io.<a href="../io.html#name-StringWriter">StringWriter</a></span><span>
 			*T : io.<a href="../io.html#name-Writer">Writer</a></span>
-			<input type='checkbox' checked class="showhide" id="response-showhide-impls"><i><label for="response-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="response-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="response-showhide-impls"><i><label for="response-showhide-impls" class="show-inline">/* 4+ unexporteds ... */</label><label for="response-showhide-impls" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : <a href="#name-http2stringWriter">http2stringWriter</a></i></span><span class="hidden"><i>
 			*T : net/http/httputil.<a href="http/httputil.html#name-writeFlusher">writeFlusher</a></i></span><span class="hidden"><i>
+			*T : github.com/gin-contrib/sse.<a href="../github.com/gin-contrib/sse.html#name-stringWriter">stringWriter</a></i></span><span class="hidden"><i>
 			*T : golang.org/x/net/http2.<a href="../golang.org/x/net/http2.html#name-stringWriter">stringWriter</a></i></span></span>
 
 </span></div><div class="anchor type-res hidden" id="name-responseAndError" data-popularity="0">	<input type='checkbox' class="fold" id="responseAndError-fold-content"><label for="responseAndError-fold-content"> type <a href="../../src/net/http/transport.go.html#line-2454">responseAndError</a> <i>(struct)</i></label><span id='responseAndError-fold-content-docs' class="fold-docs">

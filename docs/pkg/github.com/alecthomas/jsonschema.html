@@ -111,7 +111,7 @@
 			<span class="nodocs">(*T) <a href="../../../src/github.com/alecthomas/jsonschema/reflect.go.html#line-220">reflectTypeToSchema</a>(definitions <a href="#name-Definitions">Definitions</a>, t <a href="../../reflect.html">reflect</a>.<a href="../../reflect.html#name-Type">Type</a>) *<a href="#name-Type">Type</a></span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../src/github.com/alecthomas/jsonschema/reflect.go.html#line-816">typeName</a>(t <a href="../../reflect.html">reflect</a>.<a href="../../reflect.html#name-Type">Type</a>) <a href="../../builtin.html#name-string">string</a></span></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-Schema" data-popularity="750">	<input type='checkbox' class="fold" id="Schema-fold-content"><label for="Schema-fold-content"> type <a href="../../../src/github.com/alecthomas/jsonschema/reflect.go.html#line-28">Schema</a> <i>(struct)</i></label><span id='Schema-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Schema" data-popularity="800">	<input type='checkbox' class="fold" id="Schema-fold-content"><label for="Schema-fold-content"> type <a href="../../../src/github.com/alecthomas/jsonschema/reflect.go.html#line-28">Schema</a> <i>(struct)</i></label><span id='Schema-fold-content-docs' class="fold-docs">
 		Schema is the root schema.
 		RFC draft-wright-json-schema-00, section 4.5
 
@@ -243,15 +243,17 @@
 				read struct tags for string type keyworks
 </span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../../src/github.com/alecthomas/jsonschema/reflect.go.html#line-439">structKeywordsFromTags</a>(f <a href="../../reflect.html">reflect</a>.<a href="../../reflect.html#name-StructField">StructField</a>, parentType *<a href="#name-Type">Type</a>, propertyName <a href="../../builtin.html#name-string">string</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="Schema-fold-impls"><label for="Schema-fold-impls">Implements (<i>at least one exported</i>)</label><span id='Schema-fold-impls-items' class="fold-items"><span>
-			*T : encoding/json.<a href="../../encoding/json.html#name-Marshaler">Marshaler</a></span></span>
+		<input type='checkbox' class="fold" id="Schema-fold-impls"><label for="Schema-fold-impls">Implements (<i>at least 2, in which 1 are exported</i>)</label><span id='Schema-fold-impls-items' class="fold-items"><span>
+			*T : encoding/json.<a href="../../encoding/json.html#name-Marshaler">Marshaler</a></span>
+			<input type='checkbox' class="showhide" id="Schema-showhide-impls"><i><label for="Schema-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="Schema-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : github.com/ugorji/go/codec.<a href="../ugorji/go/codec.html#name-jsonMarshaler">jsonMarshaler</a></i></span></span>
 		<input type='checkbox' class="fold" id="Schema-fold-results"><label for="Schema-fold-results">As Outputs Of (<i>at least 4, all are exported</i>)</label><span id='Schema-fold-results-items' class="fold-items"><span>
 			func <a href="#name-Reflect">Reflect</a>(v interface{}) *<b>Schema</b></span><span>
 			func <a href="#name-ReflectFromType">ReflectFromType</a>(t <a href="../../reflect.html">reflect</a>.<a href="../../reflect.html#name-Type">Type</a>) *<b>Schema</b></span><span>
 			func (*<a href="#name-Reflector">Reflector</a>).<a href="../../../src/github.com/alecthomas/jsonschema/reflect.go.html#line-164">Reflect</a>(v interface{}) *<b>Schema</b></span><span>
 			func (*<a href="#name-Reflector">Reflector</a>).<a href="../../../src/github.com/alecthomas/jsonschema/reflect.go.html#line-169">ReflectFromType</a>(t <a href="../../reflect.html">reflect</a>.<a href="../../reflect.html#name-Type">Type</a>) *<b>Schema</b></span></span>
 
-</span></div><div class="anchor type-res" id="name-Type" data-popularity="705">	<input type='checkbox' class="fold" id="Type-fold-content"><label for="Type-fold-content"> type <a href="../../../src/github.com/alecthomas/jsonschema/reflect.go.html#line-52">Type</a> <i>(struct)</i></label><span id='Type-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Type" data-popularity="755">	<input type='checkbox' class="fold" id="Type-fold-content"><label for="Type-fold-content"> type <a href="../../../src/github.com/alecthomas/jsonschema/reflect.go.html#line-52">Type</a> <i>(struct)</i></label><span id='Type-fold-content-docs' class="fold-docs">
 		Type represents a JSON Schema object type.
 
 		<input type='checkbox' class="fold" id="Type-fold-fields"><label for="Type-fold-fields">Fields (<i>total 37, all are exported</i>)</label><span id='Type-fold-fields-items' class="fold-items"><span>
@@ -386,8 +388,10 @@
 				read struct tags for string type keyworks
 </span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../../src/github.com/alecthomas/jsonschema/reflect.go.html#line-439">structKeywordsFromTags</a>(f <a href="../../reflect.html">reflect</a>.<a href="../../reflect.html#name-StructField">StructField</a>, parentType *<b>Type</b>, propertyName <a href="../../builtin.html#name-string">string</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="Type-fold-impls"><label for="Type-fold-impls">Implements (<i>at least one exported</i>)</label><span id='Type-fold-impls-items' class="fold-items"><span>
-			*T : encoding/json.<a href="../../encoding/json.html#name-Marshaler">Marshaler</a></span></span>
+		<input type='checkbox' class="fold" id="Type-fold-impls"><label for="Type-fold-impls">Implements (<i>at least 2, in which 1 are exported</i>)</label><span id='Type-fold-impls-items' class="fold-items"><span>
+			*T : encoding/json.<a href="../../encoding/json.html#name-Marshaler">Marshaler</a></span>
+			<input type='checkbox' class="showhide" id="Type-showhide-impls"><i><label for="Type-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="Type-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : github.com/ugorji/go/codec.<a href="../ugorji/go/codec.html#name-jsonMarshaler">jsonMarshaler</a></i></span></span>
 		<input type='checkbox' class="fold" id="Type-fold-results"><label for="Type-fold-results">As Outputs Of (<i>at least 2, neither is exported</i>)</label><span id='Type-fold-results-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="Type-showhide-inputofs"><i><label for="Type-showhide-inputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="Type-showhide-inputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
 			func (*<a href="#name-Reflector">Reflector</a>).<a href="../../../src/github.com/alecthomas/jsonschema/reflect.go.html#line-327">reflectStruct</a>(definitions <a href="#name-Definitions">Definitions</a>, t <a href="../../reflect.html">reflect</a>.<a href="../../reflect.html#name-Type">Type</a>) *<b>Type</b></i></span><span class="hidden"><i>

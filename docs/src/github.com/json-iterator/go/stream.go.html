@@ -242,7 +242,7 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-46"><code>}</code></span>
 <span class="codeline" id="line-47"><code></code></span>
 <span class="codeline" id="line-48"><code><span class="comment">// Buffered returns the number of bytes that have been written into the current buffer.</span></code></span>
-<span class="codeline" id="line-49"><code><span class="keyword">func</span> (<label for="r11" class="ident">stream</label> *<a href="#line-9" class="ident">Stream</a>) <label for="r12" class="ident">Buffered</label>() <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
+<span class="codeline" id="line-49"><code><span class="keyword">func</span> (<label for="r11" class="ident">stream</label> *<a href="#line-9" class="ident">Stream</a>) <label for="r12" class="ident"><a href="../../../../imp/github.com/json-iterator/go.Stream.html#name-.Buffered" class="ident">Buffered</a></label>() <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a> {</code></span>
 <span class="codeline" id="line-50"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r11" class="ident">stream</label>.<a href="#line-12" class="ident">buf</a>)</code></span>
 <span class="codeline" id="line-51"><code>}</code></span>
 <span class="codeline" id="line-52"><code></code></span>
@@ -292,7 +292,7 @@ input[id=i0]:checked ~pre .i0
 <span class="codeline" id="line-96"><code>}</code></span>
 <span class="codeline" id="line-97"><code></code></span>
 <span class="codeline" id="line-98"><code><span class="comment">// Flush writes any buffered data to the underlying io.Writer.</span></code></span>
-<span class="codeline" id="line-99"><code><span class="keyword">func</span> (<label for="r48" class="ident">stream</label> *<a href="#line-9" class="ident">Stream</a>) <label for="r49" class="ident">Flush</label>() <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-99"><code><span class="keyword">func</span> (<label for="r48" class="ident">stream</label> *<a href="#line-9" class="ident">Stream</a>) <label for="r49" class="ident"><a href="../../../../imp/github.com/json-iterator/go.Stream.html#name-.Flush" class="ident">Flush</a></label>() <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
 <span class="codeline" id="line-100"><code>	<span class="keyword">if</span> <label for="r48" class="ident">stream</label>.<a href="#line-11" class="ident">out</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-101"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
 <span class="codeline" id="line-102"><code>	}</code></span>

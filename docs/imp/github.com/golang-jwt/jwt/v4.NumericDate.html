@@ -10,15 +10,21 @@
 <body onload="onPageLoad()"><div>
 <pre><code><span style="font-size:x-large;">type <a href="../../../../pkg/github.com/golang-jwt/jwt/v4.html">github.com/golang-jwt/jwt/v4</a>.<b><a href="../../../../src/github.com/golang-jwt/jwt/v4/types.go.html#line-31">NumericDate</a></b></span><span style="font-size:large;"> <i>(struct)</i></span>
 
-<code><span class="title">Method Implmentations<span class="title-stat"><i> (42 other methods implement nothing)</i></span></span>
+<code><span class="title">Method Implmentations<span class="title-stat"><i> (40 other methods implement nothing)</i></span></span>
 
+<div class="anchor" id="name-GobDecode">	<a href="../../../../src/time/time.go.html#line-1234">GobDecode</a>(data []<a href="../../../../pkg/builtin.html#name-byte">byte</a>) <a href="../../../../pkg/builtin.html#name-error">error</a>
+		(*T).M : encoding/gob.<a href="../../../../pkg/encoding/gob.html#name-GobDecoder">GobDecoder</a>.<b><a href="../../../../src/encoding/gob/type.go.html#line-797">GobDecode</a></b></div>
+<div class="anchor" id="name-GobEncode">	<a href="../../../../src/time/time.go.html#line-1229">GobEncode</a>() ([]<a href="../../../../pkg/builtin.html#name-byte">byte</a>, <a href="../../../../pkg/builtin.html#name-error">error</a>)
+		     M : encoding/gob.<a href="../../../../pkg/encoding/gob.html#name-GobEncoder">GobEncoder</a>.<b><a href="../../../../src/encoding/gob/type.go.html#line-788">GobEncode</a></b></div>
 <div class="anchor" id="name-IsZero">	<a href="../../../../src/time/time.go.html#line-426">IsZero</a>() <a href="../../../../pkg/builtin.html#name-bool">bool</a>
-		     M : gopkg.in/yaml.v2.<a href="../../../../pkg/gopkg.in/yaml.v2.html#name-IsZeroer">IsZeroer</a>.<b><a href="../../../../src/gopkg.in/yaml.v2/yaml.go.html#line-425">IsZero</a></b></div>
+		     M : gopkg.in/yaml.v2.<a href="../../../../pkg/gopkg.in/yaml.v2.html#name-IsZeroer">IsZeroer</a>.<b><a href="../../../../src/gopkg.in/yaml.v2/yaml.go.html#line-425">IsZero</a></b>
+		     M : github.com/ugorji/go/codec.<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-isZeroer">isZeroer</a>.<b><a href="../../../../src/gopkg.in/yaml.v2/yaml.go.html#line-425">IsZero</a></b></div>
 <div class="anchor" id="name-MarshalBinary">	<a href="../../../../src/time/time.go.html#line-1144">MarshalBinary</a>() ([]<a href="../../../../pkg/builtin.html#name-byte">byte</a>, <a href="../../../../pkg/builtin.html#name-error">error</a>)
 		     M : encoding.<a href="../../../../pkg/encoding.html#name-BinaryMarshaler">BinaryMarshaler</a>.<b><a href="../../../../src/encoding/encoding.go.html#line-19">MarshalBinary</a></b>
 		(*T).M : crypto/hmac.<a href="../../../../pkg/crypto/hmac.html#name-marshalable">marshalable</a>.<b><a href="../../../../src/crypto/hmac/hmac.go.html#line-41">MarshalBinary</a></b></div>
 <div class="anchor" id="name-MarshalJSON">	<a href="../../../../src/github.com/golang-jwt/jwt/v4/types.go.html#line-49">MarshalJSON</a>() (b []<a href="../../../../pkg/builtin.html#name-byte">byte</a>, err <a href="../../../../pkg/builtin.html#name-error">error</a>)
-		     M : encoding/json.<a href="../../../../pkg/encoding/json.html#name-Marshaler">Marshaler</a>.<b><a href="../../../../src/encoding/json/encode.go.html#line-226">MarshalJSON</a></b></div>
+		     M : encoding/json.<a href="../../../../pkg/encoding/json.html#name-Marshaler">Marshaler</a>.<b><a href="../../../../src/encoding/json/encode.go.html#line-226">MarshalJSON</a></b>
+		     M : github.com/ugorji/go/codec.<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-jsonMarshaler">jsonMarshaler</a>.<b><a href="../../../../src/encoding/json/encode.go.html#line-226">MarshalJSON</a></b></div>
 <div class="anchor" id="name-MarshalText">	<a href="../../../../src/time/time.go.html#line-1269">MarshalText</a>() ([]<a href="../../../../pkg/builtin.html#name-byte">byte</a>, <a href="../../../../pkg/builtin.html#name-error">error</a>)
 		     M : encoding.<a href="../../../../pkg/encoding.html#name-TextMarshaler">TextMarshaler</a>.<b><a href="../../../../src/encoding/encoding.go.html#line-37">MarshalText</a></b></div>
 <div class="anchor" id="name-String">	<a href="../../../../src/time/format.go.html#line-450">String</a>() <a href="../../../../pkg/builtin.html#name-string">string</a>
@@ -30,7 +36,8 @@
 		(*T).M : encoding.<a href="../../../../pkg/encoding.html#name-BinaryUnmarshaler">BinaryUnmarshaler</a>.<b><a href="../../../../src/encoding/encoding.go.html#line-29">UnmarshalBinary</a></b>
 		(*T).M : crypto/hmac.<a href="../../../../pkg/crypto/hmac.html#name-marshalable">marshalable</a>.<b><a href="../../../../src/crypto/hmac/hmac.go.html#line-42">UnmarshalBinary</a></b></div>
 <div class="anchor" id="name-UnmarshalJSON">	<a href="../../../../src/github.com/golang-jwt/jwt/v4/types.go.html#line-58">UnmarshalJSON</a>(b []<a href="../../../../pkg/builtin.html#name-byte">byte</a>) (err <a href="../../../../pkg/builtin.html#name-error">error</a>)
-		(*T).M : encoding/json.<a href="../../../../pkg/encoding/json.html#name-Unmarshaler">Unmarshaler</a>.<b><a href="../../../../src/encoding/json/decode.go.html#line-119">UnmarshalJSON</a></b></div>
+		(*T).M : encoding/json.<a href="../../../../pkg/encoding/json.html#name-Unmarshaler">Unmarshaler</a>.<b><a href="../../../../src/encoding/json/decode.go.html#line-119">UnmarshalJSON</a></b>
+		(*T).M : github.com/ugorji/go/codec.<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-jsonUnmarshaler">jsonUnmarshaler</a>.<b><a href="../../../../src/encoding/json/decode.go.html#line-119">UnmarshalJSON</a></b></div>
 <div class="anchor" id="name-UnmarshalText">	<a href="../../../../src/time/time.go.html#line-1280">UnmarshalText</a>(data []<a href="../../../../pkg/builtin.html#name-byte">byte</a>) <a href="../../../../pkg/builtin.html#name-error">error</a>
 		(*T).M : encoding.<a href="../../../../pkg/encoding.html#name-TextUnmarshaler">TextUnmarshaler</a>.<b><a href="../../../../src/encoding/encoding.go.html#line-47">UnmarshalText</a></b></div></code></pre><pre id="footer">
 <table><tr><td><img src="../../../../png/go101-twitter.png"></td>

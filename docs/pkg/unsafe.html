@@ -15,7 +15,7 @@
 	<a href="../index.html#pkg-unsafe">unsafe</a><i> (on <a href="https://pkg.go.dev/unsafe" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports 0 packages, and imported by <a href="../dep/unsafe.html#imported-by">33 packages</a>
+	imports 0 packages, and imported by <a href="../dep/unsafe.html#imported-by">36 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -30,7 +30,7 @@
 		ArbitraryType is here for the purposes of documentation only and is not actually
 		part of the unsafe package. It represents the type of an arbitrary Go expression.
 
-</span></div><div class="anchor type-res" id="name-Pointer" data-popularity="27015">	<input type='checkbox' class="fold" id="Pointer-fold-content"><label for="Pointer-fold-content"> type <a href="../src/unsafe/unsafe.go.html#line-180">Pointer</a> <i>(basic type)</i></label><span id='Pointer-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Pointer" data-popularity="28060">	<input type='checkbox' class="fold" id="Pointer-fold-content"><label for="Pointer-fold-content"> type <a href="../src/unsafe/unsafe.go.html#line-180">Pointer</a> <i>(basic type)</i></label><span id='Pointer-fold-content-docs' class="fold-docs">
 		Pointer represents a pointer to an arbitrary type. There are four special operations
 		available for type Pointer that are not available for other types:
 			- A pointer value of any type can be converted to a Pointer.
@@ -194,7 +194,7 @@
 			hdr.Len = n
 			s := *(*string)(unsafe.Pointer(&amp;hdr)) // p possibly already lost
 
-		<input type='checkbox' class="fold" id="Pointer-fold-results"><label for="Pointer-fold-results">As Outputs Of (<i>at least 136, in which 29 are exported</i>)</label><span id='Pointer-fold-results-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Pointer-fold-results"><label for="Pointer-fold-results">As Outputs Of (<i>at least 142, in which 29 are exported</i>)</label><span id='Pointer-fold-results-items' class="fold-items"><span>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-NoEscape">NoEscape</a>(p <b>Pointer</b>) <b>Pointer</b></span><span>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-PtrOf">PtrOf</a>(obj interface{}) <b>Pointer</b></span><span>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-ArrayType">ArrayType</a>.<a href="../src/github.com/modern-go/reflect2/reflect2.go.html#line-43">UnsafeGetIndex</a>(obj <b>Pointer</b>, index <a href="builtin.html#name-int">int</a>) <b>Pointer</b></span><span>
@@ -224,7 +224,7 @@
 			func runtime/internal/atomic.<a href="runtime/internal/atomic.html#name-Loadp">Loadp</a>(ptr <b>Pointer</b>) <b>Pointer</b></span><span>
 			func sync/atomic.<a href="sync/atomic.html#name-LoadPointer">LoadPointer</a>(addr *<b>Pointer</b>) (val <b>Pointer</b>)</span><span>
 			func sync/atomic.<a href="sync/atomic.html#name-SwapPointer">SwapPointer</a>(addr *<b>Pointer</b>, new <b>Pointer</b>) (old <b>Pointer</b>)</span>
-			<input type='checkbox' class="showhide" id="Pointer-showhide-inputofs"><i><label for="Pointer-showhide-inputofs" class="show-inline">/* 107+ unexporteds ... */</label><label for="Pointer-showhide-inputofs" class="hide-inline">/* 107+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Pointer-showhide-inputofs"><i><label for="Pointer-showhide-inputofs" class="show-inline">/* 113+ unexporteds ... */</label><label for="Pointer-showhide-inputofs" class="hide-inline">/* 113+ unexporteds: */</label></i><span class="hidden"><i>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-add">add</a>(p <b>Pointer</b>, x <a href="builtin.html#name-uintptr">uintptr</a>, whySafe <a href="builtin.html#name-string">string</a>) <b>Pointer</b></i></span><span class="hidden"><i>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-arrayAt">arrayAt</a>(p <b>Pointer</b>, i <a href="builtin.html#name-int">int</a>, eltSize <a href="builtin.html#name-uintptr">uintptr</a>, whySafe <a href="builtin.html#name-string">string</a>) <b>Pointer</b></i></span><span class="hidden"><i>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-makemap">makemap</a>(rtype <b>Pointer</b>, cap <a href="builtin.html#name-int">int</a>) (m <b>Pointer</b>)</i></span><span class="hidden"><i>
@@ -234,6 +234,12 @@
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-typelinks2">typelinks2</a>() (sections []<b>Pointer</b>, offset [][]<a href="builtin.html#name-int32">int32</a>)</i></span><span class="hidden"><i>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-unsafe_New">unsafe_New</a>(rtype <b>Pointer</b>) <b>Pointer</b></i></span><span class="hidden"><i>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-unsafe_NewArray">unsafe_NewArray</a>(rtype <b>Pointer</b>, length <a href="builtin.html#name-int">int</a>) <b>Pointer</b></i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-mapaccess">mapaccess</a>(typ <b>Pointer</b>, m <b>Pointer</b>, key <b>Pointer</b>) (val <b>Pointer</b>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-mapiterinit">mapiterinit</a>(typ <b>Pointer</b>, it <b>Pointer</b>) (key <b>Pointer</b>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-mapiternext">mapiternext</a>(it <b>Pointer</b>) (key <b>Pointer</b>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-rv2ptr">rv2ptr</a>(urv *<a href="github.com/ugorji/go/codec.html">codec</a>.<a href="github.com/ugorji/go/codec.html#name-unsafeReflectValue">unsafeReflectValue</a>) (ptr <b>Pointer</b>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-unsafe_New">unsafe_New</a>(typ <b>Pointer</b>) <b>Pointer</b></i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-unsafeMapKVPtr">unsafeMapKVPtr</a>(urv *<a href="github.com/ugorji/go/codec.html">codec</a>.<a href="github.com/ugorji/go/codec.html#name-unsafeReflectValue">unsafeReflectValue</a>) <b>Pointer</b></i></span><span class="hidden"><i>
 			func golang.org/x/sys/unix.(*<a href="golang.org/x/sys/unix.html#name-Cmsghdr">Cmsghdr</a>).<a href="../src/golang.org/x/sys/unix/sockcmsg_unix.go.html#line-27">data</a>(offset <a href="builtin.html#name-uintptr">uintptr</a>) <b>Pointer</b></i></span><span class="hidden"><i>
 			func golang.org/x/sys/unix.(*<a href="golang.org/x/sys/unix.html#name-SockaddrDatalink">SockaddrDatalink</a>).<a href="../src/golang.org/x/sys/unix/syscall_bsd.go.html#line-186">sockaddr</a>() (<b>Pointer</b>, <a href="golang.org/x/sys/unix.html">unix</a>.<a href="golang.org/x/sys/unix.html#name-_Socklen">_Socklen</a>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func golang.org/x/sys/unix.(*<a href="golang.org/x/sys/unix.html#name-SockaddrInet4">SockaddrInet4</a>).<a href="../src/golang.org/x/sys/unix/syscall_bsd.go.html#line-141">sockaddr</a>() (<b>Pointer</b>, <a href="golang.org/x/sys/unix.html">unix</a>.<a href="golang.org/x/sys/unix.html#name-_Socklen">_Socklen</a>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
@@ -332,7 +338,7 @@
 			func syscall.(*<a href="syscall.html#name-SockaddrInet4">SockaddrInet4</a>).<a href="../src/syscall/syscall_bsd.go.html#line-161">sockaddr</a>() (<b>Pointer</b>, <a href="syscall.html">syscall</a>.<a href="syscall.html#name-_Socklen">_Socklen</a>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func syscall.(*<a href="syscall.html#name-SockaddrInet6">SockaddrInet6</a>).<a href="../src/syscall/syscall_bsd.go.html#line-176">sockaddr</a>() (<b>Pointer</b>, <a href="syscall.html">syscall</a>.<a href="syscall.html#name-_Socklen">_Socklen</a>, <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func syscall.(*<a href="syscall.html#name-SockaddrUnix">SockaddrUnix</a>).<a href="../src/syscall/syscall_bsd.go.html#line-192">sockaddr</a>() (<b>Pointer</b>, <a href="syscall.html">syscall</a>.<a href="syscall.html#name-_Socklen">_Socklen</a>, <a href="builtin.html#name-error">error</a>)</i></span></span>
-		<input type='checkbox' class="fold" id="Pointer-fold-params"><label for="Pointer-fold-params">As Inputs Of (<i>at least 480, in which 124 are exported</i>)</label><span id='Pointer-fold-params-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Pointer-fold-params"><label for="Pointer-fold-params">As Inputs Of (<i>at least 497, in which 124 are exported</i>)</label><span id='Pointer-fold-params-items' class="fold-items"><span>
 			func github.com/json-iterator/go.<a href="github.com/json-iterator/go.html#name-IsEmbeddedPtrNil">IsEmbeddedPtrNil</a>.<a href="../src/github.com/json-iterator/go/reflect_struct_encoder.go.html#line-131">IsEmbeddedPtrNil</a>(ptr <b>Pointer</b>) <a href="builtin.html#name-bool">bool</a></span><span>
 			func github.com/json-iterator/go.(*<a href="github.com/json-iterator/go.html#name-OptionalDecoder">OptionalDecoder</a>).<a href="../src/github.com/json-iterator/go/reflect_optional.go.html#line-28">Decode</a>(ptr <b>Pointer</b>, iter *<a href="github.com/json-iterator/go.html">jsoniter</a>.<a href="github.com/json-iterator/go.html#name-Iterator">Iterator</a>)</span><span>
 			func github.com/json-iterator/go.(*<a href="github.com/json-iterator/go.html#name-OptionalEncoder">OptionalEncoder</a>).<a href="../src/github.com/json-iterator/go/reflect_optional.go.html#line-66">Encode</a>(ptr <b>Pointer</b>, stream *<a href="github.com/json-iterator/go.html">jsoniter</a>.<a href="github.com/json-iterator/go.html#name-Stream">Stream</a>)</span><span>
@@ -457,7 +463,7 @@
 			func sync/atomic.<a href="sync/atomic.html#name-StorePointer">StorePointer</a>(addr *<b>Pointer</b>, val <b>Pointer</b>)</span><span>
 			func sync/atomic.<a href="sync/atomic.html#name-SwapPointer">SwapPointer</a>(addr *<b>Pointer</b>, new <b>Pointer</b>) (old <b>Pointer</b>)</span><span>
 			func sync/atomic.<a href="sync/atomic.html#name-SwapPointer">SwapPointer</a>(addr *<b>Pointer</b>, new <b>Pointer</b>) (old <b>Pointer</b>)</span>
-			<input type='checkbox' class="showhide" id="Pointer-showhide-outputofs"><i><label for="Pointer-showhide-outputofs" class="show-inline">/* 356+ unexporteds ... */</label><label for="Pointer-showhide-outputofs" class="hide-inline">/* 356+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Pointer-showhide-outputofs"><i><label for="Pointer-showhide-outputofs" class="show-inline">/* 373+ unexporteds ... */</label><label for="Pointer-showhide-outputofs" class="hide-inline">/* 373+ unexporteds: */</label></i><span class="hidden"><i>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-add">add</a>(p <b>Pointer</b>, x <a href="builtin.html#name-uintptr">uintptr</a>, whySafe <a href="builtin.html#name-string">string</a>) <b>Pointer</b></i></span><span class="hidden"><i>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-arrayAt">arrayAt</a>(p <b>Pointer</b>, i <a href="builtin.html#name-int">int</a>, eltSize <a href="builtin.html#name-uintptr">uintptr</a>, whySafe <a href="builtin.html#name-string">string</a>) <b>Pointer</b></i></span><span class="hidden"><i>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-assertType">assertType</a>(where <a href="builtin.html#name-string">string</a>, expectRType <b>Pointer</b>, actualRType <b>Pointer</b>)</i></span><span class="hidden"><i>
@@ -483,6 +489,23 @@
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-typedslicecopy">typedslicecopy</a>(elemType <b>Pointer</b>, dst, src <a href="github.com/modern-go/reflect2.html">reflect2</a>.<a href="github.com/modern-go/reflect2.html#name-sliceHeader">sliceHeader</a>) <a href="builtin.html#name-int">int</a></i></span><span class="hidden"><i>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-unsafe_New">unsafe_New</a>(rtype <b>Pointer</b>) <b>Pointer</b></i></span><span class="hidden"><i>
 			func github.com/modern-go/reflect2.<a href="github.com/modern-go/reflect2.html#name-unsafe_NewArray">unsafe_NewArray</a>(rtype <b>Pointer</b>, length <a href="builtin.html#name-int">int</a>) <b>Pointer</b></i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-mapaccess">mapaccess</a>(typ <b>Pointer</b>, m <b>Pointer</b>, key <b>Pointer</b>) (val <b>Pointer</b>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-mapaccess">mapaccess</a>(typ <b>Pointer</b>, m <b>Pointer</b>, key <b>Pointer</b>) (val <b>Pointer</b>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-mapaccess">mapaccess</a>(typ <b>Pointer</b>, m <b>Pointer</b>, key <b>Pointer</b>) (val <b>Pointer</b>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-mapassign">mapassign</a>(typ <b>Pointer</b>, m <b>Pointer</b>, key, val <b>Pointer</b>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-mapassign">mapassign</a>(typ <b>Pointer</b>, m <b>Pointer</b>, key, val <b>Pointer</b>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-mapassign">mapassign</a>(typ <b>Pointer</b>, m <b>Pointer</b>, key, val <b>Pointer</b>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-mapdelete">mapdelete</a>(typ <b>Pointer</b>, m <b>Pointer</b>, key <b>Pointer</b>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-mapdelete">mapdelete</a>(typ <b>Pointer</b>, m <b>Pointer</b>, key <b>Pointer</b>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-mapdelete">mapdelete</a>(typ <b>Pointer</b>, m <b>Pointer</b>, key <b>Pointer</b>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-mapiterinit">mapiterinit</a>(typ <b>Pointer</b>, it <b>Pointer</b>) (key <b>Pointer</b>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-mapiterinit">mapiterinit</a>(typ <b>Pointer</b>, it <b>Pointer</b>) (key <b>Pointer</b>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-mapiternext">mapiternext</a>(it <b>Pointer</b>) (key <b>Pointer</b>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-typedmemmove">typedmemmove</a>(typ <b>Pointer</b>, dst, src <b>Pointer</b>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-typedmemmove">typedmemmove</a>(typ <b>Pointer</b>, dst, src <b>Pointer</b>)</i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-typedslicecopy">typedslicecopy</a>(elemType <b>Pointer</b>, dst, src <a href="github.com/ugorji/go/codec.html">codec</a>.<a href="github.com/ugorji/go/codec.html#name-unsafeSlice">unsafeSlice</a>) <a href="builtin.html#name-int">int</a></i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-unsafe_New">unsafe_New</a>(typ <b>Pointer</b>) <b>Pointer</b></i></span><span class="hidden"><i>
+			func github.com/ugorji/go/codec.<a href="github.com/ugorji/go/codec.html#name-unsafeMapSet">unsafeMapSet</a>(p, ptyp, p2 <b>Pointer</b>, isref <a href="builtin.html#name-bool">bool</a>)</i></span><span class="hidden"><i>
 			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-bind">bind</a>(s <a href="builtin.html#name-int">int</a>, addr <b>Pointer</b>, addrlen <a href="golang.org/x/sys/unix.html">unix</a>.<a href="golang.org/x/sys/unix.html#name-_Socklen">_Socklen</a>) (err <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-connect">connect</a>(s <a href="builtin.html#name-int">int</a>, addr <b>Pointer</b>, addrlen <a href="golang.org/x/sys/unix.html">unix</a>.<a href="golang.org/x/sys/unix.html#name-_Socklen">_Socklen</a>) (err <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
 			func golang.org/x/sys/unix.<a href="golang.org/x/sys/unix.html#name-getattrlist">getattrlist</a>(path *<a href="builtin.html#name-byte">byte</a>, list <b>Pointer</b>, buf <b>Pointer</b>, size <a href="builtin.html#name-uintptr">uintptr</a>, options <a href="builtin.html#name-int">int</a>) (err <a href="builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>

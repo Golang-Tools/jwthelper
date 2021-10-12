@@ -15,7 +15,7 @@
 	<a href="../../../index.html#pkg-net/http/httputil">net/http/httputil</a><i> (on <a href="https://pkg.go.dev/net/http/httputil" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../../../dep/net/http/httputil.html">16 packages</a>, and imported by <a href="../../../dep/net/http/httputil.html#imported-by">one package</a>
+	imports <a href="../../../dep/net/http/httputil.html">16 packages</a>, and imported by <a href="../../../dep/net/http/httputil.html#imported-by">2 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -497,17 +497,19 @@
 			<span class="nodocs">( T) <a href="../../../src/net/http/httputil/reverseproxy.go.html#line-605">copyFromBackend</a>(errc chan&lt;- <a href="../../builtin.html#name-error">error</a>)</span></i></span><span class="hidden"><i>
 			<span class="nodocs">( T) <a href="../../../src/net/http/httputil/reverseproxy.go.html#line-610">copyToBackend</a>(errc chan&lt;- <a href="../../builtin.html#name-error">error</a>)</span></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-writeFlusher" data-popularity="650">	<input type='checkbox' class="fold" id="writeFlusher-fold-content"><label for="writeFlusher-fold-content"> type <a href="../../../src/net/http/httputil/reverseproxy.go.html#line-480">writeFlusher</a> <b><i>(interface)</i></b></label><span id='writeFlusher-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-writeFlusher" data-popularity="950">	<input type='checkbox' class="fold" id="writeFlusher-fold-content"><label for="writeFlusher-fold-content"> type <a href="../../../src/net/http/httputil/reverseproxy.go.html#line-480">writeFlusher</a> <b><i>(interface)</i></b></label><span id='writeFlusher-fold-content-docs' class="fold-docs">
 
 		<input type='checkbox' class="fold" id="writeFlusher-fold-methods"><label for="writeFlusher-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='writeFlusher-fold-methods-items' class="fold-items"><span>
 			<input type='checkbox' class="fold" id="writeFlusher-fold-method-Flush"><label for="writeFlusher-fold-method-Flush">( T) <a href="../../../src/net/http/server.go.html#line-170">Flush</a>()</label><span id='writeFlusher-fold-method-Flush-docs' class="fold-docs">
 				Flush sends any buffered data to the client.
 </span></span><span>
 			<span class="nodocs">( T) <a href="../../../src/io/io.go.html#line-97">Write</a>(p []<a href="../../builtin.html#name-byte">byte</a>) (n <a href="../../builtin.html#name-int">int</a>, err <a href="../../builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="writeFlusher-fold-impledby"><label for="writeFlusher-fold-impledby">Implemented By (<i>at least 3, none are exported</i>)</label><span id='writeFlusher-fold-impledby-items' class="fold-items">
-			<input type='checkbox' checked class="showhide" id="writeFlusher-showhide-impedBys"><i><label for="writeFlusher-showhide-impedBys" class="show-inline">/* 3+ unexporteds ... */</label><label for="writeFlusher-showhide-impedBys" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+		<input type='checkbox' class="fold" id="writeFlusher-fold-impledby"><label for="writeFlusher-fold-impledby">Implemented By (<i>at least 5, in which 1 are exported</i>)</label><span id='writeFlusher-fold-impledby-items' class="fold-items"><span>
+			 github.com/gin-gonic/gin.<a href="../../github.com/gin-gonic/gin.html#name-ResponseWriter">ResponseWriter</a> <i>(interface)</i></span>
+			<input type='checkbox' checked class="showhide" id="writeFlusher-showhide-impedBys"><i><label for="writeFlusher-showhide-impedBys" class="show-inline">/* 4+ unexporteds ... */</label><label for="writeFlusher-showhide-impedBys" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
 			*net/http.<a href="../http.html#name-http2responseWriter">http2responseWriter</a></i></span><span class="hidden"><i>
 			*net/http.<a href="../http.html#name-response">response</a></i></span><span class="hidden"><i>
+			*github.com/gin-gonic/gin.<a href="../../github.com/gin-gonic/gin.html#name-responseWriter">responseWriter</a></i></span><span class="hidden"><i>
 			*golang.org/x/net/http2.<a href="../../golang.org/x/net/http2.html#name-responseWriter">responseWriter</a></i></span></span>
 		<input type='checkbox' class="fold" id="writeFlusher-fold-impls"><label for="writeFlusher-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='writeFlusher-fold-impls-items' class="fold-items"><span>
 			 T : net/http.<a href="../http.html#name-Flusher">Flusher</a></span><span>

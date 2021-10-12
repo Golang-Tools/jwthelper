@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: binding.go in package github.com/gin-gonic/gin/binding</title>
+<link href="../../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	binding.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html">github.com/gin-gonic/gin/binding</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="comment">// Copyright 2014 Manu Martinez-Almeida.  All rights reserved.</span></code></span>
+<span class="codeline" id="line-2"><code><span class="comment">// Use of this source code is governed by a MIT style</span></code></span>
+<span class="codeline" id="line-3"><code><span class="comment">// license that can be found in the LICENSE file.</span></code></span>
+<span class="codeline" id="line-4"><code></code></span>
+<span class="codeline" id="line-5"><code><span class="comment">//go:build !nomsgpack</span></code></span>
+<span class="codeline" id="line-6"><code><span class="comment">// +build !nomsgpack</span></code></span>
+<span class="codeline" id="line-7"><code></code></span>
+<span class="codeline" id="line-8"><code><span class="keyword">package</span> binding</code></span>
+<span class="codeline" id="line-9"><code></code></span>
+<span class="codeline" id="line-10"><code><span class="keyword">import</span> <label for="i0"><span class="lit-string i0">"net/http"</span></label></code></span>
+<span class="codeline" id="line-11"><code></code></span>
+<span class="codeline" id="line-12"><code><span class="comment">// Content-Type MIME of the most common data formats.</span></code></span>
+<span class="codeline" id="line-13"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-14"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-MIMEJSON" class="ident">MIMEJSON</a>              = <span class="lit-string">"application/json"</span></code></span>
+<span class="codeline" id="line-15"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-MIMEHTML" class="ident">MIMEHTML</a>              = <span class="lit-string">"text/html"</span></code></span>
+<span class="codeline" id="line-16"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-MIMEXML" class="ident">MIMEXML</a>               = <span class="lit-string">"application/xml"</span></code></span>
+<span class="codeline" id="line-17"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-MIMEXML2" class="ident">MIMEXML2</a>              = <span class="lit-string">"text/xml"</span></code></span>
+<span class="codeline" id="line-18"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-MIMEPlain" class="ident">MIMEPlain</a>             = <span class="lit-string">"text/plain"</span></code></span>
+<span class="codeline" id="line-19"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-MIMEPOSTForm" class="ident">MIMEPOSTForm</a>          = <span class="lit-string">"application/x-www-form-urlencoded"</span></code></span>
+<span class="codeline" id="line-20"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-MIMEMultipartPOSTForm" class="ident">MIMEMultipartPOSTForm</a> = <span class="lit-string">"multipart/form-data"</span></code></span>
+<span class="codeline" id="line-21"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-MIMEPROTOBUF" class="ident">MIMEPROTOBUF</a>          = <span class="lit-string">"application/x-protobuf"</span></code></span>
+<span class="codeline" id="line-22"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-MIMEMSGPACK" class="ident">MIMEMSGPACK</a>           = <span class="lit-string">"application/x-msgpack"</span></code></span>
+<span class="codeline" id="line-23"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-MIMEMSGPACK2" class="ident">MIMEMSGPACK2</a>          = <span class="lit-string">"application/msgpack"</span></code></span>
+<span class="codeline" id="line-24"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-MIMEYAML" class="ident">MIMEYAML</a>              = <span class="lit-string">"application/x-yaml"</span></code></span>
+<span class="codeline" id="line-25"><code>)</code></span>
+<span class="codeline" id="line-26"><code></code></span>
+<span class="codeline" id="line-27"><code><span class="comment">// Binding describes the interface which needs to be implemented for binding the</span></code></span>
+<span class="codeline" id="line-28"><code><span class="comment">// data present in the request such as JSON request body, query parameters or</span></code></span>
+<span class="codeline" id="line-29"><code><span class="comment">// the form POST.</span></code></span>
+<span class="codeline" id="line-30"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-Binding" class="ident">Binding</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-31"><code>	<a href="../../../../../imp/github.com/gin-gonic/gin/binding.Binding.html#name-Name" class="ident">Name</a>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-32"><code>	<a href="../../../../../imp/github.com/gin-gonic/gin/binding.Binding.html#name-Bind" class="ident">Bind</a>(*<a href="../../../../../pkg/net/http.html" class="ident i0">http</a>.<a href="../../../../net/http/request.go.html#line-102" class="ident">Request</a>, <span class="keyword">interface</span>{}) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a></code></span>
+<span class="codeline" id="line-33"><code>}</code></span>
+<span class="codeline" id="line-34"><code></code></span>
+<span class="codeline" id="line-35"><code><span class="comment">// BindingBody adds BindBody method to Binding. BindBody is similar with Bind,</span></code></span>
+<span class="codeline" id="line-36"><code><span class="comment">// but it reads the body from supplied bytes instead of req.Body.</span></code></span>
+<span class="codeline" id="line-37"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-BindingBody" class="ident">BindingBody</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-38"><code>	<a href="#line-30" class="ident">Binding</a></code></span>
+<span class="codeline" id="line-39"><code>	<a href="../../../../../imp/github.com/gin-gonic/gin/binding.BindingBody.html#name-BindBody" class="ident">BindBody</a>([]<a href="../../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <span class="keyword">interface</span>{}) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a></code></span>
+<span class="codeline" id="line-40"><code>}</code></span>
+<span class="codeline" id="line-41"><code></code></span>
+<span class="codeline" id="line-42"><code><span class="comment">// BindingUri adds BindUri method to Binding. BindUri is similar with Bind,</span></code></span>
+<span class="codeline" id="line-43"><code><span class="comment">// but it read the Params.</span></code></span>
+<span class="codeline" id="line-44"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-BindingUri" class="ident">BindingUri</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-45"><code>	<a href="../../../../../imp/github.com/gin-gonic/gin/binding.BindingUri.html#name-Name" class="ident">Name</a>() <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-46"><code>	<a href="../../../../../imp/github.com/gin-gonic/gin/binding.BindingUri.html#name-BindUri" class="ident">BindUri</a>(<span class="keyword">map</span>[<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>][]<a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>, <span class="keyword">interface</span>{}) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a></code></span>
+<span class="codeline" id="line-47"><code>}</code></span>
+<span class="codeline" id="line-48"><code></code></span>
+<span class="codeline" id="line-49"><code><span class="comment">// StructValidator is the minimal interface which needs to be implemented in</span></code></span>
+<span class="codeline" id="line-50"><code><span class="comment">// order for it to be used as the validator engine for ensuring the correctness</span></code></span>
+<span class="codeline" id="line-51"><code><span class="comment">// of the request. Gin provides a default implementation for this using</span></code></span>
+<span class="codeline" id="line-52"><code><span class="comment">// https://github.com/go-playground/validator/tree/v8.18.2.</span></code></span>
+<span class="codeline" id="line-53"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-StructValidator" class="ident">StructValidator</a> <span class="keyword">interface</span> {</code></span>
+<span class="codeline" id="line-54"><code>	<span class="comment">// ValidateStruct can receive any kind of type and it should never panic, even if the configuration is not right.</span></code></span>
+<span class="codeline" id="line-55"><code><span class="comment">	// If the received type is a slice|array, the validation should be performed travel on every element.</span></code></span>
+<span class="codeline" id="line-56"><code><span class="comment">	// If the received type is not a struct or slice|array, any validation should be skipped and nil must be returned.</span></code></span>
+<span class="codeline" id="line-57"><code><span class="comment">	// If the received type is a struct or pointer to a struct, the validation should be performed.</span></code></span>
+<span class="codeline" id="line-58"><code><span class="comment">	// If the struct is not valid or the validation itself fails, a descriptive error should be returned.</span></code></span>
+<span class="codeline" id="line-59"><code><span class="comment">	// Otherwise nil must be returned.</span></code></span>
+<span class="codeline" id="line-60"><code>	<a href="../../../../../imp/github.com/gin-gonic/gin/binding.StructValidator.html#name-ValidateStruct" class="ident">ValidateStruct</a>(<span class="keyword">interface</span>{}) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a></code></span>
+<span class="codeline" id="line-61"><code></code></span>
+<span class="codeline" id="line-62"><code>	<span class="comment">// Engine returns the underlying validator engine which powers the</span></code></span>
+<span class="codeline" id="line-63"><code><span class="comment">	// StructValidator implementation.</span></code></span>
+<span class="codeline" id="line-64"><code>	<a href="../../../../../imp/github.com/gin-gonic/gin/binding.StructValidator.html#name-Engine" class="ident">Engine</a>() <span class="keyword">interface</span>{}</code></span>
+<span class="codeline" id="line-65"><code>}</code></span>
+<span class="codeline" id="line-66"><code></code></span>
+<span class="codeline" id="line-67"><code><span class="comment">// Validator is the default validator which implements the StructValidator</span></code></span>
+<span class="codeline" id="line-68"><code><span class="comment">// interface. It uses https://github.com/go-playground/validator/tree/v8.18.2</span></code></span>
+<span class="codeline" id="line-69"><code><span class="comment">// under the hood.</span></code></span>
+<span class="codeline" id="line-70"><code><span class="keyword">var</span> <a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-Validator" class="ident">Validator</a> <a href="#line-53" class="ident">StructValidator</a> = &amp;<a href="default_validator.go.html#line-16" class="ident">defaultValidator</a>{}</code></span>
+<span class="codeline" id="line-71"><code></code></span>
+<span class="codeline" id="line-72"><code><span class="comment">// These implement the Binding interface and can be used to bind the data</span></code></span>
+<span class="codeline" id="line-73"><code><span class="comment">// present in the request to struct instances.</span></code></span>
+<span class="codeline" id="line-74"><code><span class="keyword">var</span> (</code></span>
+<span class="codeline" id="line-75"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-JSON" class="ident">JSON</a>          = <a href="json.go.html#line-27" class="ident">jsonBinding</a>{}</code></span>
+<span class="codeline" id="line-76"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-XML" class="ident">XML</a>           = <a href="xml.go.html#line-14" class="ident">xmlBinding</a>{}</code></span>
+<span class="codeline" id="line-77"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-Form" class="ident">Form</a>          = <a href="form.go.html#line-13" class="ident">formBinding</a>{}</code></span>
+<span class="codeline" id="line-78"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-Query" class="ident">Query</a>         = <a href="query.go.html#line-9" class="ident">queryBinding</a>{}</code></span>
+<span class="codeline" id="line-79"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-FormPost" class="ident">FormPost</a>      = <a href="form.go.html#line-14" class="ident">formPostBinding</a>{}</code></span>
+<span class="codeline" id="line-80"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-FormMultipart" class="ident">FormMultipart</a> = <a href="form.go.html#line-15" class="ident">formMultipartBinding</a>{}</code></span>
+<span class="codeline" id="line-81"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-ProtoBuf" class="ident">ProtoBuf</a>      = <a href="protobuf.go.html#line-14" class="ident">protobufBinding</a>{}</code></span>
+<span class="codeline" id="line-82"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-MsgPack" class="ident">MsgPack</a>       = <a href="msgpack.go.html#line-18" class="ident">msgpackBinding</a>{}</code></span>
+<span class="codeline" id="line-83"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-YAML" class="ident">YAML</a>          = <a href="yaml.go.html#line-15" class="ident">yamlBinding</a>{}</code></span>
+<span class="codeline" id="line-84"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-Uri" class="ident">Uri</a>           = <a href="uri.go.html#line-7" class="ident">uriBinding</a>{}</code></span>
+<span class="codeline" id="line-85"><code>	<a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-Header" class="ident">Header</a>        = <a href="header.go.html#line-9" class="ident">headerBinding</a>{}</code></span>
+<span class="codeline" id="line-86"><code>)</code></span>
+<span class="codeline" id="line-87"><code></code></span>
+<span class="codeline" id="line-88"><code><span class="comment">// Default returns the appropriate Binding instance based on the HTTP method</span></code></span>
+<span class="codeline" id="line-89"><code><span class="comment">// and the content type.</span></code></span>
+<span class="codeline" id="line-90"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-Default" class="ident">Default</a></label>(<label for="r1" class="ident">method</label>, <label for="r2" class="ident">contentType</label> <a href="../../../../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="#line-30" class="ident">Binding</a> {</code></span>
+<span class="codeline" id="line-91"><code>	<span class="keyword">if</span> <label for="r1" class="ident">method</label> == <a href="../../../../../pkg/net/http.html" class="ident i0">http</a>.<a href="../../../../net/http/method.go.html#line-11" class="ident">MethodGet</a> {</code></span>
+<span class="codeline" id="line-92"><code>		<span class="keyword">return</span> <a href="#line-77" class="ident">Form</a></code></span>
+<span class="codeline" id="line-93"><code>	}</code></span>
+<span class="codeline" id="line-94"><code></code></span>
+<span class="codeline" id="line-95"><code>	<span class="keyword">switch</span> <label for="r2" class="ident">contentType</label> {</code></span>
+<span class="codeline" id="line-96"><code>	<span class="keyword">case</span> <a href="#line-14" class="ident">MIMEJSON</a>:</code></span>
+<span class="codeline" id="line-97"><code>		<span class="keyword">return</span> <a href="#line-75" class="ident">JSON</a></code></span>
+<span class="codeline" id="line-98"><code>	<span class="keyword">case</span> <a href="#line-16" class="ident">MIMEXML</a>, <a href="#line-17" class="ident">MIMEXML2</a>:</code></span>
+<span class="codeline" id="line-99"><code>		<span class="keyword">return</span> <a href="#line-76" class="ident">XML</a></code></span>
+<span class="codeline" id="line-100"><code>	<span class="keyword">case</span> <a href="#line-21" class="ident">MIMEPROTOBUF</a>:</code></span>
+<span class="codeline" id="line-101"><code>		<span class="keyword">return</span> <a href="#line-81" class="ident">ProtoBuf</a></code></span>
+<span class="codeline" id="line-102"><code>	<span class="keyword">case</span> <a href="#line-22" class="ident">MIMEMSGPACK</a>, <a href="#line-23" class="ident">MIMEMSGPACK2</a>:</code></span>
+<span class="codeline" id="line-103"><code>		<span class="keyword">return</span> <a href="#line-82" class="ident">MsgPack</a></code></span>
+<span class="codeline" id="line-104"><code>	<span class="keyword">case</span> <a href="#line-24" class="ident">MIMEYAML</a>:</code></span>
+<span class="codeline" id="line-105"><code>		<span class="keyword">return</span> <a href="#line-83" class="ident">YAML</a></code></span>
+<span class="codeline" id="line-106"><code>	<span class="keyword">case</span> <a href="#line-20" class="ident">MIMEMultipartPOSTForm</a>:</code></span>
+<span class="codeline" id="line-107"><code>		<span class="keyword">return</span> <a href="#line-80" class="ident">FormMultipart</a></code></span>
+<span class="codeline" id="line-108"><code>	<span class="keyword">default</span>: <span class="comment">// case MIMEPOSTForm:</span></code></span>
+<span class="codeline" id="line-109"><code>		<span class="keyword">return</span> <a href="#line-77" class="ident">Form</a></code></span>
+<span class="codeline" id="line-110"><code>	}</code></span>
+<span class="codeline" id="line-111"><code>}</code></span>
+<span class="codeline" id="line-112"><code></code></span>
+<span class="codeline" id="line-113"><code><span class="keyword">func</span> <label for="r3" class="ident"><a href="../../../../../pkg/github.com/gin-gonic/gin/binding.html#name-validate" class="ident">validate</a></label>(<label for="r4" class="ident">obj</label> <span class="keyword">interface</span>{}) <a href="../../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-114"><code>	<span class="keyword">if</span> <a href="#line-70" class="ident">Validator</a> == <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-115"><code>		<span class="keyword">return</span> <a href="../../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-116"><code>	}</code></span>
+<span class="codeline" id="line-117"><code>	<span class="keyword">return</span> <a href="#line-70" class="ident">Validator</a>.<a href="#line-60" class="ident">ValidateStruct</a>(<label for="r4" class="ident">obj</label>)</code></span>
+<span class="codeline" id="line-118"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

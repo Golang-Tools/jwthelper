@@ -15,7 +15,7 @@
 	<a href="../../index.html#pkg-encoding/json">encoding/json</a><i> (on <a href="https://pkg.go.dev/encoding/json" target="_blank">go.dev</a>)</i>
 
 <span class="title">Dependency Relation</span>
-	imports <a href="../../dep/encoding/json.html">15 packages</a>, and imported by <a href="../../dep/encoding/json.html#imported-by">33 packages</a>
+	imports <a href="../../dep/encoding/json.html">15 packages</a>, and imported by <a href="../../dep/encoding/json.html#imported-by">37 packages</a>
 
 <div id="files"><span class="title">Involved Source Files</span>
 
@@ -651,16 +651,17 @@
 		<input type='checkbox' class="fold" id="InvalidUTF8Error-fold-impls"><label for="InvalidUTF8Error-fold-impls">Implements (<i>at least one exported</i>)</label><span id='InvalidUTF8Error-fold-impls-items' class="fold-items"><span>
 			*T : <a href="../builtin.html#name-error">error</a></span></span>
 
-</span></div><div class="anchor type-res" id="name-Marshaler" data-popularity="2000">	<input type='checkbox' class="fold" id="Marshaler-fold-content"><label for="Marshaler-fold-content"> type <a href="../../src/encoding/json/encode.go.html#line-225">Marshaler</a> <b><i>(interface)</i></b></label><span id='Marshaler-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Marshaler" data-popularity="2500">	<input type='checkbox' class="fold" id="Marshaler-fold-content"><label for="Marshaler-fold-content"> type <a href="../../src/encoding/json/encode.go.html#line-225">Marshaler</a> <b><i>(interface)</i></b></label><span id='Marshaler-fold-content-docs' class="fold-docs">
 		Marshaler is the interface implemented by types that
 		can marshal themselves into valid JSON.
 
 		<input type='checkbox' class="fold" id="Marshaler-fold-methods"><label for="Marshaler-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='Marshaler-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../src/encoding/json/encode.go.html#line-226">MarshalJSON</a>() ([]<a href="../builtin.html#name-byte">byte</a>, <a href="../builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="Marshaler-fold-impledby"><label for="Marshaler-fold-impledby">Implemented By (<i>at least 13, all are exported</i>)</label><span id='Marshaler-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Marshaler-fold-impledby"><label for="Marshaler-fold-impledby">Implemented By (<i>at least 16, in which 14 are exported</i>)</label><span id='Marshaler-fold-impledby-items' class="fold-items"><span>
 			 <a href="#name-RawMessage">RawMessage</a></span><span>
 			*github.com/alecthomas/jsonschema.<a href="../github.com/alecthomas/jsonschema.html#name-Schema">Schema</a></span><span>
 			*github.com/alecthomas/jsonschema.<a href="../github.com/alecthomas/jsonschema.html#name-Type">Type</a></span><span>
+			*github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-Error">Error</a></span><span>
 			 github.com/golang-jwt/jwt/v4.<a href="../github.com/golang-jwt/jwt/v4.html#name-ClaimStrings">ClaimStrings</a></span><span>
 			 github.com/golang-jwt/jwt/v4.<a href="../github.com/golang-jwt/jwt/v4.html#name-NumericDate">NumericDate</a></span><span>
 			 github.com/iancoleman/orderedmap.<a href="../github.com/iancoleman/orderedmap.html#name-OrderedMap">OrderedMap</a></span><span>
@@ -670,7 +671,13 @@
 			*google.golang.org/protobuf/types/known/structpb.<a href="../google.golang.org/protobuf/types/known/structpb.html#name-Struct">Struct</a></span><span>
 			*google.golang.org/protobuf/types/known/structpb.<a href="../google.golang.org/protobuf/types/known/structpb.html#name-Value">Value</a></span><span>
 			*math/big.<a href="../math/big.html#name-Int">Int</a></span><span>
-			 time.<a href="../time.html#name-Time">Time</a></span></span>
+			 time.<a href="../time.html#name-Time">Time</a></span>
+			<input type='checkbox' class="showhide" id="Marshaler-showhide-impedBys"><i><label for="Marshaler-showhide-impedBys" class="show-inline">/* 2+ unexporteds ... */</label><label for="Marshaler-showhide-impedBys" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			 github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-errorMsgs">errorMsgs</a></i></span><span class="hidden"><i>
+			 github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-jsonMarshaler">jsonMarshaler</a> <i>(interface)</i></i></span></span>
+		<input type='checkbox' class="fold" id="Marshaler-fold-impls"><label for="Marshaler-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='Marshaler-fold-impls-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Marshaler-showhide-impls"><i><label for="Marshaler-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="Marshaler-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			 T : github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-jsonMarshaler">jsonMarshaler</a></i></span></span>
 
 </span></div><div class="anchor type-res" id="name-MarshalerError" data-popularity="150">	<input type='checkbox' class="fold" id="MarshalerError-fold-content"><label for="MarshalerError-fold-content"> type <a href="../../src/encoding/json/encode.go.html#line-265">MarshalerError</a> <i>(struct)</i></label><span id='MarshalerError-fold-content-docs' class="fold-docs">
 		A MarshalerError represents an error from calling a MarshalJSON or MarshalText method.
@@ -711,7 +718,7 @@
 		<input type='checkbox' class="fold" id="Number-fold-results"><label for="Number-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Number-fold-results-items' class="fold-items"><span>
 			func github.com/json-iterator/go.(*<a href="../github.com/json-iterator/go.html#name-Iterator">Iterator</a>).<a href="../../src/github.com/json-iterator/go/iter_float.go.html#line-340">ReadNumber</a>() (ret <b>Number</b>)</span></span>
 
-</span></div><div class="anchor type-res" id="name-RawMessage" data-popularity="480">	<input type='checkbox' class="fold" id="RawMessage-fold-content"><label for="RawMessage-fold-content"> type <a href="../../src/encoding/json/stream.go.html#line-260">RawMessage</a> <i>([]T)</i></label><span id='RawMessage-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-RawMessage" data-popularity="580">	<input type='checkbox' class="fold" id="RawMessage-fold-content"><label for="RawMessage-fold-content"> type <a href="../../src/encoding/json/stream.go.html#line-260">RawMessage</a> <i>([]T)</i></label><span id='RawMessage-fold-content-docs' class="fold-docs">
 		RawMessage is a raw encoded JSON value.
 		It implements Marshaler and Unmarshaler and can
 		be used to delay JSON decoding or precompute a JSON encoding.
@@ -723,9 +730,12 @@
 			<input type='checkbox' class="fold" id="RawMessage-fold-method-UnmarshalJSON"><label for="RawMessage-fold-method-UnmarshalJSON">(*T) <a href="../../src/encoding/json/stream.go.html#line-271">UnmarshalJSON</a>(data []<a href="../builtin.html#name-byte">byte</a>) <a href="../builtin.html#name-error">error</a></label><span id='RawMessage-fold-method-UnmarshalJSON-docs' class="fold-docs">
 				UnmarshalJSON sets *m to a copy of data.
 </span></span></span>
-		<input type='checkbox' class="fold" id="RawMessage-fold-impls"><label for="RawMessage-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='RawMessage-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="RawMessage-fold-impls"><label for="RawMessage-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='RawMessage-fold-impls-items' class="fold-items"><span>
 			 T : <a href="#name-Marshaler">Marshaler</a></span><span>
-			*T : <a href="#name-Unmarshaler">Unmarshaler</a></span></span>
+			*T : <a href="#name-Unmarshaler">Unmarshaler</a></span>
+			<input type='checkbox' class="showhide" id="RawMessage-showhide-impls"><i><label for="RawMessage-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="RawMessage-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			 T : github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-jsonMarshaler">jsonMarshaler</a></i></span><span class="hidden"><i>
+			*T : github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-jsonUnmarshaler">jsonUnmarshaler</a></i></span></span>
 		<input type='checkbox' class="fold" id="RawMessage-fold-params"><label for="RawMessage-fold-params">As Inputs Of (<i>at least 8, in which 1 are exported</i>)</label><span id='RawMessage-fold-params-items' class="fold-items"><span>
 			func google.golang.org/grpc/balancer.<a href="../google.golang.org/grpc/balancer.html#name-ConfigParser">ConfigParser</a>.<a href="../../src/google.golang.org/grpc/balancer/balancer.go.html#line-213">ParseConfig</a>(LoadBalancingConfigJSON <b>RawMessage</b>) (<a href="../google.golang.org/grpc/serviceconfig.html">serviceconfig</a>.<a href="../google.golang.org/grpc/serviceconfig.html#name-LoadBalancingConfig">LoadBalancingConfig</a>, <a href="../builtin.html#name-error">error</a>)</span>
 			<input type='checkbox' class="showhide" id="RawMessage-showhide-outputofs"><i><label for="RawMessage-showhide-outputofs" class="show-inline">/* 7+ unexporteds ... */</label><label for="RawMessage-showhide-outputofs" class="hide-inline">/* 7+ unexporteds: */</label></i><span class="hidden"><i>
@@ -768,7 +778,7 @@
 			<input type='checkbox' class="showhide" id="Token-showhide-inputofs"><i><label for="Token-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="Token-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func (*<a href="#name-Decoder">Decoder</a>).<a href="../../src/encoding/json/stream.go.html#line-464">tokenError</a>(c <a href="../builtin.html#name-byte">byte</a>) (<b>Token</b>, <a href="../builtin.html#name-error">error</a>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-Unmarshaler" data-popularity="3050">	<input type='checkbox' class="fold" id="Unmarshaler-fold-content"><label for="Unmarshaler-fold-content"> type <a href="../../src/encoding/json/decode.go.html#line-118">Unmarshaler</a> <b><i>(interface)</i></b></label><span id='Unmarshaler-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-Unmarshaler" data-popularity="3250">	<input type='checkbox' class="fold" id="Unmarshaler-fold-content"><label for="Unmarshaler-fold-content"> type <a href="../../src/encoding/json/decode.go.html#line-118">Unmarshaler</a> <b><i>(interface)</i></b></label><span id='Unmarshaler-fold-content-docs' class="fold-docs">
 		Unmarshaler is the interface implemented by types
 		that can unmarshal a JSON description of themselves.
 		The input can be assumed to be a valid encoding of
@@ -780,7 +790,7 @@
 
 		<input type='checkbox' class="fold" id="Unmarshaler-fold-methods"><label for="Unmarshaler-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='Unmarshaler-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../src/encoding/json/decode.go.html#line-119">UnmarshalJSON</a>([]<a href="../builtin.html#name-byte">byte</a>) <a href="../builtin.html#name-error">error</a></span></span></span>
-		<input type='checkbox' class="fold" id="Unmarshaler-fold-impledby"><label for="Unmarshaler-fold-impledby">Implemented By (<i>at least 19, in which 18 are exported</i>)</label><span id='Unmarshaler-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="Unmarshaler-fold-impledby"><label for="Unmarshaler-fold-impledby">Implemented By (<i>at least 20, in which 18 are exported</i>)</label><span id='Unmarshaler-fold-impledby-items' class="fold-items"><span>
 			*<a href="#name-RawMessage">RawMessage</a></span><span>
 			*github.com/golang-jwt/jwt/v4.<a href="../github.com/golang-jwt/jwt/v4.html#name-ClaimStrings">ClaimStrings</a></span><span>
 			*github.com/golang-jwt/jwt/v4.<a href="../github.com/golang-jwt/jwt/v4.html#name-NumericDate">NumericDate</a></span><span>
@@ -799,8 +809,12 @@
 			*google.golang.org/protobuf/types/known/structpb.<a href="../google.golang.org/protobuf/types/known/structpb.html#name-Value">Value</a></span><span>
 			*math/big.<a href="../math/big.html#name-Int">Int</a></span><span>
 			*time.<a href="../time.html#name-Time">Time</a></span>
-			<input type='checkbox' class="showhide" id="Unmarshaler-showhide-impedBys"><i><label for="Unmarshaler-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="Unmarshaler-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="Unmarshaler-showhide-impedBys"><i><label for="Unmarshaler-showhide-impedBys" class="show-inline">/* 2+ unexporteds ... */</label><label for="Unmarshaler-showhide-impedBys" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			 github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-jsonUnmarshaler">jsonUnmarshaler</a> <i>(interface)</i></i></span><span class="hidden"><i>
 			*golang.org/x/oauth2/internal.<a href="../golang.org/x/oauth2/internal.html#name-expirationTime">expirationTime</a></i></span></span>
+		<input type='checkbox' class="fold" id="Unmarshaler-fold-impls"><label for="Unmarshaler-fold-impls">Implements (<i>at least one unexported</i>)</label><span id='Unmarshaler-fold-impls-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Unmarshaler-showhide-impls"><i><label for="Unmarshaler-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="Unmarshaler-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			 T : github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-jsonUnmarshaler">jsonUnmarshaler</a></i></span></span>
 		<input type='checkbox' class="fold" id="Unmarshaler-fold-results"><label for="Unmarshaler-fold-results">As Outputs Of (<i>at least 2, neither is exported</i>)</label><span id='Unmarshaler-fold-results-items' class="fold-items">
 			<input type='checkbox' class="showhide" id="Unmarshaler-showhide-inputofs"><i><label for="Unmarshaler-showhide-inputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="Unmarshaler-showhide-inputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
 			func <a href="#name-indirect">indirect</a>(v <a href="../reflect.html">reflect</a>.<a href="../reflect.html#name-Value">Value</a>, decodingNull <a href="../builtin.html#name-bool">bool</a>) (<b>Unmarshaler</b>, <a href="../encoding.html">encoding</a>.<a href="../encoding.html#name-TextUnmarshaler">TextUnmarshaler</a>, <a href="../reflect.html">reflect</a>.<a href="../reflect.html#name-Value">Value</a>)</i></span><span class="hidden"><i>
@@ -1011,7 +1025,7 @@
 			<input type='checkbox' checked class="showhide" id="encoderFunc-showhide-outputofs"><i><label for="encoderFunc-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="encoderFunc-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
 			func <a href="#name-newCondAddrEncoder">newCondAddrEncoder</a>(canAddrEnc, elseEnc <b>encoderFunc</b>) <b>encoderFunc</b></i></span></span>
 
-</span></div><div class="anchor type-res hidden" id="name-encodeState" data-popularity="2995">	<input type='checkbox' class="fold" id="encodeState-fold-content"><label for="encodeState-fold-content"> type <a href="../../src/encoding/json/encode.go.html#line-287">encodeState</a> <i>(struct)</i></label><span id='encodeState-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res hidden" id="name-encodeState" data-popularity="3045">	<input type='checkbox' class="fold" id="encodeState-fold-content"><label for="encodeState-fold-content"> type <a href="../../src/encoding/json/encode.go.html#line-287">encodeState</a> <i>(struct)</i></label><span id='encodeState-fold-content-docs' class="fold-docs">
 		An encodeState encodes JSON into a bytes.Buffer.
 
 		<input type='checkbox' class="fold" id="encodeState-fold-fields"><label for="encodeState-fold-fields">Fields (<i>total 7, in which 1 are exported</i>)</label><span id='encodeState-fold-fields-items' class="fold-items"><span>
@@ -1190,7 +1204,7 @@
 				internal buffer only needs to be resliced.
 				It returns the index where bytes should be written and whether it succeeded.
 </span></i></span></span>
-		<input type='checkbox' class="fold" id="encodeState-fold-impls"><label for="encodeState-fold-impls">Implements (<i>at least 20, in which 13 are exported</i>)</label><span id='encodeState-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="encodeState-fold-impls"><label for="encodeState-fold-impls">Implements (<i>at least 21, in which 13 are exported</i>)</label><span id='encodeState-fold-impls-items' class="fold-items"><span>
 			*T : compress/flate.<a href="../compress/flate.html#name-Reader">Reader</a></span><span>
 			*T : fmt.<a href="../fmt.html#name-Stringer">Stringer</a></span><span>
 			*T : io.<a href="../io.html#name-ByteReader">ByteReader</a></span><span>
@@ -1204,8 +1218,9 @@
 			*T : io.<a href="../io.html#name-StringWriter">StringWriter</a></span><span>
 			*T : io.<a href="../io.html#name-Writer">Writer</a></span><span>
 			*T : io.<a href="../io.html#name-WriterTo">WriterTo</a></span>
-			<input type='checkbox' checked class="showhide" id="encodeState-showhide-impls"><i><label for="encodeState-showhide-impls" class="show-inline">/* 7+ unexporteds ... */</label><label for="encodeState-showhide-impls" class="hide-inline">/* 7+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' checked class="showhide" id="encodeState-showhide-impls"><i><label for="encodeState-showhide-impls" class="show-inline">/* 8+ unexporteds ... */</label><label for="encodeState-showhide-impls" class="hide-inline">/* 8+ unexporteds: */</label></i><span class="hidden"><i>
 			*T : context.<a href="../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : github.com/gin-contrib/sse.<a href="../github.com/gin-contrib/sse.html#name-stringWriter">stringWriter</a></i></span><span class="hidden"><i>
 			*T : golang.org/x/net/http2.<a href="../golang.org/x/net/http2.html#name-pipeBuffer">pipeBuffer</a></i></span><span class="hidden"><i>
 			*T : golang.org/x/net/http2.<a href="../golang.org/x/net/http2.html#name-stringWriter">stringWriter</a></i></span><span class="hidden"><i>
 			*T : net/http.<a href="../net/http.html#name-http2pipeBuffer">http2pipeBuffer</a></i></span><span class="hidden"><i>

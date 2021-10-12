@@ -160,16 +160,19 @@
 			func (*<a href="#name-Parser">Parser</a>).<a href="../../../../src/github.com/golang-jwt/jwt/v4/parser.go.html#line-96">ParseUnverified</a>(tokenString <a href="../../../builtin.html#name-string">string</a>, claims <b>Claims</b>) (token *<a href="#name-Token">Token</a>, parts []<a href="../../../builtin.html#name-string">string</a>, err <a href="../../../builtin.html#name-error">error</a>)</span><span>
 			func (*<a href="#name-Parser">Parser</a>).<a href="../../../../src/github.com/golang-jwt/jwt/v4/parser.go.html#line-23">ParseWithClaims</a>(tokenString <a href="../../../builtin.html#name-string">string</a>, claims <b>Claims</b>, keyFunc <a href="#name-Keyfunc">Keyfunc</a>) (*<a href="#name-Token">Token</a>, <a href="../../../builtin.html#name-error">error</a>)</span></span>
 
-</span></div><div class="anchor type-res" id="name-ClaimStrings" data-popularity="200">	<input type='checkbox' class="fold" id="ClaimStrings-fold-content"><label for="ClaimStrings-fold-content"> type <a href="../../../../src/github.com/golang-jwt/jwt/v4/types.go.html#line-80">ClaimStrings</a> <i>([]T)</i></label><span id='ClaimStrings-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-ClaimStrings" data-popularity="300">	<input type='checkbox' class="fold" id="ClaimStrings-fold-content"><label for="ClaimStrings-fold-content"> type <a href="../../../../src/github.com/golang-jwt/jwt/v4/types.go.html#line-80">ClaimStrings</a> <i>([]T)</i></label><span id='ClaimStrings-fold-content-docs' class="fold-docs">
 		ClaimStrings is basically just a slice of strings, but it can be either serialized from a string array or just a string.
 		This type is necessary, since the "aud" claim can either be a single string or an array.
 
 		<input type='checkbox' class="fold" id="ClaimStrings-fold-methods"><label for="ClaimStrings-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='ClaimStrings-fold-methods-items' class="fold-items"><span>
 			<span class="nodocs">( T) <a href="../../../../src/github.com/golang-jwt/jwt/v4/types.go.html#line-115">MarshalJSON</a>() (b []<a href="../../../builtin.html#name-byte">byte</a>, err <a href="../../../builtin.html#name-error">error</a>)</span></span><span>
 			<span class="nodocs">(*T) <a href="../../../../src/github.com/golang-jwt/jwt/v4/types.go.html#line-82">UnmarshalJSON</a>(data []<a href="../../../builtin.html#name-byte">byte</a>) (err <a href="../../../builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="ClaimStrings-fold-impls"><label for="ClaimStrings-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='ClaimStrings-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="ClaimStrings-fold-impls"><label for="ClaimStrings-fold-impls">Implements (<i>at least 4, in which 2 are exported</i>)</label><span id='ClaimStrings-fold-impls-items' class="fold-items"><span>
 			 T : encoding/json.<a href="../../../encoding/json.html#name-Marshaler">Marshaler</a></span><span>
-			*T : encoding/json.<a href="../../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span></span>
+			*T : encoding/json.<a href="../../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span>
+			<input type='checkbox' class="showhide" id="ClaimStrings-showhide-impls"><i><label for="ClaimStrings-showhide-impls" class="show-inline">/* 2+ unexporteds ... */</label><label for="ClaimStrings-showhide-impls" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			 T : github.com/ugorji/go/codec.<a href="../../ugorji/go/codec.html#name-jsonMarshaler">jsonMarshaler</a></i></span><span class="hidden"><i>
+			*T : github.com/ugorji/go/codec.<a href="../../ugorji/go/codec.html#name-jsonUnmarshaler">jsonUnmarshaler</a></i></span></span>
 
 </span></div><div class="anchor type-res" id="name-Keyfunc" data-popularity="140">	<input type='checkbox' class="fold" id="Keyfunc-fold-content"><label for="Keyfunc-fold-content"> type <a href="../../../../src/github.com/golang-jwt/jwt/v4/token.go.html#line-19">Keyfunc</a> <i>(func)</i></label><span id='Keyfunc-fold-content-docs' class="fold-docs">
 		Keyfunc will be used by the Parse methods as a callback function to supply
@@ -221,7 +224,7 @@
 			func github.com/Golang-Tools/jwthelper.<a href="../../Golang-Tools^b0a0c/jwthelper.html#name-checkClaims">checkClaims</a>(claims <b>MapClaims</b>, payload interface{}, jwt_status *<a href="../../Golang-Tools^b0a0c/jwthelper/jwt_pb.html">jwt_pb</a>.<a href="../../Golang-Tools^b0a0c/jwthelper/jwt_pb.html#name-JwtStatus">JwtStatus</a>, opts *<a href="../../Golang-Tools^b0a0c/jwthelper/verifyoptions.html">verifyoptions</a>.<a href="../../Golang-Tools^b0a0c/jwthelper/verifyoptions.html#name-VerifyOptions">VerifyOptions</a>) <a href="../../../builtin.html#name-error">error</a></i></span><span class="hidden"><i>
 			func github.com/Golang-Tools/jwthelper.(*<a href="../../Golang-Tools^b0a0c/jwthelper.html#name-Signer">Signer</a>).<a href="../../../../src/github.com/Golang-Tools^b0a0c/jwthelper/signer.go.html#line-72">signany</a>(claims <b>MapClaims</b>, opts ...<a href="../../Golang-Tools^b0a0c/jwthelper/signoptions.html">signoptions</a>.<a href="../../Golang-Tools^b0a0c/jwthelper/signoptions.html#name-SignOption">SignOption</a>) (*<a href="../../Golang-Tools^b0a0c/jwthelper/jwt_pb.html">jwt_pb</a>.<a href="../../Golang-Tools^b0a0c/jwthelper/jwt_pb.html#name-Token">Token</a>, <a href="../../../builtin.html#name-error">error</a>)</i></span></span>
 
-</span></div><div class="anchor type-res" id="name-NumericDate" data-popularity="3250">	<input type='checkbox' class="fold" id="NumericDate-fold-content"><label for="NumericDate-fold-content"> type <a href="../../../../src/github.com/golang-jwt/jwt/v4/types.go.html#line-31">NumericDate</a> <i>(struct)</i></label><span id='NumericDate-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-NumericDate" data-popularity="3500">	<input type='checkbox' class="fold" id="NumericDate-fold-content"><label for="NumericDate-fold-content"> type <a href="../../../../src/github.com/golang-jwt/jwt/v4/types.go.html#line-31">NumericDate</a> <i>(struct)</i></label><span id='NumericDate-fold-content-docs' class="fold-docs">
 		NumericDate represents a JSON numeric date value, as referenced at
 		https://datatracker.ietf.org/doc/html/rfc7519#section-2.
 
@@ -489,16 +492,21 @@
 			<input type='checkbox' class="fold" id="NumericDate-fold-method-unixSec"><label for="NumericDate-fold-method-unixSec">(*T) <a href="../../../../src/time/time.go.html#line-176">unixSec</a>() <a href="../../../builtin.html#name-int64">int64</a></label><span id='NumericDate-fold-method-unixSec-docs' class="fold-docs">
 				unixSec returns the time's seconds since Jan 1 1970 (Unix time).
 </span></i></span></span>
-		<input type='checkbox' class="fold" id="NumericDate-fold-impls"><label for="NumericDate-fold-impls">Implements (<i>at least 12, in which 8 are exported</i>)</label><span id='NumericDate-fold-impls-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="NumericDate-fold-impls"><label for="NumericDate-fold-impls">Implements (<i>at least 17, in which 10 are exported</i>)</label><span id='NumericDate-fold-impls-items' class="fold-items"><span>
 			 T : encoding.<a href="../../../encoding.html#name-BinaryMarshaler">BinaryMarshaler</a></span><span>
 			*T : encoding.<a href="../../../encoding.html#name-BinaryUnmarshaler">BinaryUnmarshaler</a></span><span>
 			 T : encoding.<a href="../../../encoding.html#name-TextMarshaler">TextMarshaler</a></span><span>
 			*T : encoding.<a href="../../../encoding.html#name-TextUnmarshaler">TextUnmarshaler</a></span><span>
+			*T : encoding/gob.<a href="../../../encoding/gob.html#name-GobDecoder">GobDecoder</a></span><span>
+			 T : encoding/gob.<a href="../../../encoding/gob.html#name-GobEncoder">GobEncoder</a></span><span>
 			 T : encoding/json.<a href="../../../encoding/json.html#name-Marshaler">Marshaler</a></span><span>
 			*T : encoding/json.<a href="../../../encoding/json.html#name-Unmarshaler">Unmarshaler</a></span><span>
 			 T : fmt.<a href="../../../fmt.html#name-Stringer">Stringer</a></span><span>
 			 T : gopkg.in/yaml.v2.<a href="../../../gopkg.in/yaml.v2.html#name-IsZeroer">IsZeroer</a></span>
-			<input type='checkbox' class="showhide" id="NumericDate-showhide-impls"><i><label for="NumericDate-showhide-impls" class="show-inline">/* 4+ unexporteds ... */</label><label for="NumericDate-showhide-impls" class="hide-inline">/* 4+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="NumericDate-showhide-impls"><i><label for="NumericDate-showhide-impls" class="show-inline">/* 7+ unexporteds ... */</label><label for="NumericDate-showhide-impls" class="hide-inline">/* 7+ unexporteds: */</label></i><span class="hidden"><i>
+			 T : github.com/ugorji/go/codec.<a href="../../ugorji/go/codec.html#name-isZeroer">isZeroer</a></i></span><span class="hidden"><i>
+			 T : github.com/ugorji/go/codec.<a href="../../ugorji/go/codec.html#name-jsonMarshaler">jsonMarshaler</a></i></span><span class="hidden"><i>
+			*T : github.com/ugorji/go/codec.<a href="../../ugorji/go/codec.html#name-jsonUnmarshaler">jsonUnmarshaler</a></i></span><span class="hidden"><i>
 			 T : context.<a href="../../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
 			*T : crypto/hmac.<a href="../../../crypto/hmac.html#name-marshalable">marshalable</a></i></span><span class="hidden"><i>
 			 T : os/signal.<a href="../../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>

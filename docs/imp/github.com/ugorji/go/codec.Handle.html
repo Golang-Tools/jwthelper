@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method Implmentations: github.com/ugorji/go/codec.Handle</title>
+<link href="../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+<pre><code><span style="font-size:x-large;">type <a href="../../../../pkg/github.com/ugorji/go/codec.html">github.com/ugorji/go/codec</a>.<b><a href="../../../../src/github.com/ugorji/go/codec/helper.go.html#line-992">Handle</a></b></span><span style="font-size:large;"> <b><i>(interface)</i></b></span>
+
+<code><span class="title">Method Implmentations<span class="title-stat"><i></i></span></span>
+
+<div class="anchor" id="name-Name">	<a href="../../../../src/github.com/ugorji/go/codec/helper.go.html#line-993">Name</a>() <a href="../../../../pkg/builtin.html#name-string">string</a>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-BincHandle">BincHandle</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/binc.go.html#line-991">Name</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-CborHandle">CborHandle</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/cbor.go.html#line-816">Name</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-JsonHandle">JsonHandle</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/json.go.html#line-1267">Name</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-MsgpackHandle">MsgpackHandle</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/msgpack.go.html#line-970">Name</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-SimpleHandle">SimpleHandle</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/simple.go.html#line-620">Name</a></b></div>
+<div class="anchor" id="name-github.com/ugorji/go/codec.getBasicHandle">	<a href="../../../../src/github.com/ugorji/go/codec/helper.go.html#line-996">getBasicHandle</a>() *<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-BasicHandle">BasicHandle</a>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-BincHandle">BincHandle</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/binc.go.html#line-963">BasicHandle</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/helper.go.html#line-702">getBasicHandle</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-CborHandle">CborHandle</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/cbor.go.html#line-797">BasicHandle</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/helper.go.html#line-702">getBasicHandle</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-JsonHandle">JsonHandle</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/json.go.html#line-1210">BasicHandle</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/helper.go.html#line-702">getBasicHandle</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-MsgpackHandle">MsgpackHandle</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/msgpack.go.html#line-944">BasicHandle</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/helper.go.html#line-702">getBasicHandle</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-SimpleHandle">SimpleHandle</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/simple.go.html#line-612">BasicHandle</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/helper.go.html#line-702">getBasicHandle</a></b></div>
+<div class="anchor" id="name-github.com/ugorji/go/codec.isBinary">	<a href="../../../../src/github.com/ugorji/go/codec/helper.go.html#line-999">isBinary</a>() <a href="../../../../pkg/builtin.html#name-bool">bool</a>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-BincHandle">BincHandle</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/binc.go.html#line-964">binaryEncodingType</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/helper.go.html#line-1128">isBinary</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-CborHandle">CborHandle</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/cbor.go.html#line-795">binaryEncodingType</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/helper.go.html#line-1128">isBinary</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-JsonHandle">JsonHandle</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/json.go.html#line-1209">textEncodingType</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/helper.go.html#line-1132">isBinary</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-MsgpackHandle">MsgpackHandle</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/msgpack.go.html#line-943">binaryEncodingType</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/helper.go.html#line-1128">isBinary</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-SimpleHandle">SimpleHandle</a>).<i><a href="../../../../src/github.com/ugorji/go/codec/simple.go.html#line-611">binaryEncodingType</a></i>.<b><a href="../../../../src/github.com/ugorji/go/codec/helper.go.html#line-1128">isBinary</a></b></div>
+<div class="anchor" id="name-github.com/ugorji/go/codec.newDecDriver">	<a href="../../../../src/github.com/ugorji/go/codec/helper.go.html#line-998">newDecDriver</a>() <a href="../../../../pkg/github.com/ugorji/go/codec.html#name-decDriver">decDriver</a>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-BincHandle">BincHandle</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/binc.go.html#line-1001">newDecDriver</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-CborHandle">CborHandle</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/cbor.go.html#line-826">newDecDriver</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-JsonHandle">JsonHandle</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/json.go.html#line-1283">newDecDriver</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-MsgpackHandle">MsgpackHandle</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/msgpack.go.html#line-980">newDecDriver</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-SimpleHandle">SimpleHandle</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/simple.go.html#line-630">newDecDriver</a></b></div>
+<div class="anchor" id="name-github.com/ugorji/go/codec.newEncDriver">	<a href="../../../../src/github.com/ugorji/go/codec/helper.go.html#line-997">newEncDriver</a>() <a href="../../../../pkg/github.com/ugorji/go/codec.html#name-encDriver">encDriver</a>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-BincHandle">BincHandle</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/binc.go.html#line-993">newEncDriver</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-CborHandle">CborHandle</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/cbor.go.html#line-818">newEncDriver</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-JsonHandle">JsonHandle</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/json.go.html#line-1274">newEncDriver</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-MsgpackHandle">MsgpackHandle</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/msgpack.go.html#line-972">newEncDriver</a></b>
+		(*<a href="../../../../pkg/github.com/ugorji/go/codec.html#name-SimpleHandle">SimpleHandle</a>).<b><a href="../../../../src/github.com/ugorji/go/codec/simple.go.html#line-622">newEncDriver</a></b></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

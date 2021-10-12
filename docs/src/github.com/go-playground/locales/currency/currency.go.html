@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: currency.go in package github.com/go-playground/locales/currency</title>
+<link href="../../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	currency.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html">github.com/go-playground/locales/currency</a>
+</code></pre>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="keyword">package</span> currency</code></span>
+<span class="codeline" id="line-2"><code></code></span>
+<span class="codeline" id="line-3"><code><span class="comment">// Type is the currency type associated with the locales currency enum</span></code></span>
+<span class="codeline" id="line-4"><code><span class="keyword">type</span> <a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-Type" class="ident">Type</a> <a href="../../../../../pkg/builtin.html#name-int" class="ident">int</a></code></span>
+<span class="codeline" id="line-5"><code></code></span>
+<span class="codeline" id="line-6"><code><span class="comment">// locale currencies</span></code></span>
+<span class="codeline" id="line-7"><code><span class="keyword">const</span> (</code></span>
+<span class="codeline" id="line-8"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ADP" class="ident">ADP</a> <a href="#line-4" class="ident">Type</a> = <a href="../../../../../pkg/builtin.html#name-iota" class="ident">iota</a></code></span>
+<span class="codeline" id="line-9"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-AED" class="ident">AED</a></code></span>
+<span class="codeline" id="line-10"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-AFA" class="ident">AFA</a></code></span>
+<span class="codeline" id="line-11"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-AFN" class="ident">AFN</a></code></span>
+<span class="codeline" id="line-12"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ALK" class="ident">ALK</a></code></span>
+<span class="codeline" id="line-13"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ALL" class="ident">ALL</a></code></span>
+<span class="codeline" id="line-14"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-AMD" class="ident">AMD</a></code></span>
+<span class="codeline" id="line-15"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ANG" class="ident">ANG</a></code></span>
+<span class="codeline" id="line-16"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-AOA" class="ident">AOA</a></code></span>
+<span class="codeline" id="line-17"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-AOK" class="ident">AOK</a></code></span>
+<span class="codeline" id="line-18"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-AON" class="ident">AON</a></code></span>
+<span class="codeline" id="line-19"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-AOR" class="ident">AOR</a></code></span>
+<span class="codeline" id="line-20"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ARA" class="ident">ARA</a></code></span>
+<span class="codeline" id="line-21"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ARL" class="ident">ARL</a></code></span>
+<span class="codeline" id="line-22"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ARM" class="ident">ARM</a></code></span>
+<span class="codeline" id="line-23"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ARP" class="ident">ARP</a></code></span>
+<span class="codeline" id="line-24"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ARS" class="ident">ARS</a></code></span>
+<span class="codeline" id="line-25"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ATS" class="ident">ATS</a></code></span>
+<span class="codeline" id="line-26"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-AUD" class="ident">AUD</a></code></span>
+<span class="codeline" id="line-27"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-AWG" class="ident">AWG</a></code></span>
+<span class="codeline" id="line-28"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-AZM" class="ident">AZM</a></code></span>
+<span class="codeline" id="line-29"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-AZN" class="ident">AZN</a></code></span>
+<span class="codeline" id="line-30"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BAD" class="ident">BAD</a></code></span>
+<span class="codeline" id="line-31"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BAM" class="ident">BAM</a></code></span>
+<span class="codeline" id="line-32"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BAN" class="ident">BAN</a></code></span>
+<span class="codeline" id="line-33"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BBD" class="ident">BBD</a></code></span>
+<span class="codeline" id="line-34"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BDT" class="ident">BDT</a></code></span>
+<span class="codeline" id="line-35"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BEC" class="ident">BEC</a></code></span>
+<span class="codeline" id="line-36"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BEF" class="ident">BEF</a></code></span>
+<span class="codeline" id="line-37"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BEL" class="ident">BEL</a></code></span>
+<span class="codeline" id="line-38"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BGL" class="ident">BGL</a></code></span>
+<span class="codeline" id="line-39"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BGM" class="ident">BGM</a></code></span>
+<span class="codeline" id="line-40"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BGN" class="ident">BGN</a></code></span>
+<span class="codeline" id="line-41"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BGO" class="ident">BGO</a></code></span>
+<span class="codeline" id="line-42"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BHD" class="ident">BHD</a></code></span>
+<span class="codeline" id="line-43"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BIF" class="ident">BIF</a></code></span>
+<span class="codeline" id="line-44"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BMD" class="ident">BMD</a></code></span>
+<span class="codeline" id="line-45"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BND" class="ident">BND</a></code></span>
+<span class="codeline" id="line-46"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BOB" class="ident">BOB</a></code></span>
+<span class="codeline" id="line-47"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BOL" class="ident">BOL</a></code></span>
+<span class="codeline" id="line-48"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BOP" class="ident">BOP</a></code></span>
+<span class="codeline" id="line-49"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BOV" class="ident">BOV</a></code></span>
+<span class="codeline" id="line-50"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BRB" class="ident">BRB</a></code></span>
+<span class="codeline" id="line-51"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BRC" class="ident">BRC</a></code></span>
+<span class="codeline" id="line-52"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BRE" class="ident">BRE</a></code></span>
+<span class="codeline" id="line-53"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BRL" class="ident">BRL</a></code></span>
+<span class="codeline" id="line-54"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BRN" class="ident">BRN</a></code></span>
+<span class="codeline" id="line-55"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BRR" class="ident">BRR</a></code></span>
+<span class="codeline" id="line-56"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BRZ" class="ident">BRZ</a></code></span>
+<span class="codeline" id="line-57"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BSD" class="ident">BSD</a></code></span>
+<span class="codeline" id="line-58"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BTN" class="ident">BTN</a></code></span>
+<span class="codeline" id="line-59"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BUK" class="ident">BUK</a></code></span>
+<span class="codeline" id="line-60"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BWP" class="ident">BWP</a></code></span>
+<span class="codeline" id="line-61"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BYB" class="ident">BYB</a></code></span>
+<span class="codeline" id="line-62"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BYN" class="ident">BYN</a></code></span>
+<span class="codeline" id="line-63"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BYR" class="ident">BYR</a></code></span>
+<span class="codeline" id="line-64"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-BZD" class="ident">BZD</a></code></span>
+<span class="codeline" id="line-65"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CAD" class="ident">CAD</a></code></span>
+<span class="codeline" id="line-66"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CDF" class="ident">CDF</a></code></span>
+<span class="codeline" id="line-67"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CHE" class="ident">CHE</a></code></span>
+<span class="codeline" id="line-68"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CHF" class="ident">CHF</a></code></span>
+<span class="codeline" id="line-69"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CHW" class="ident">CHW</a></code></span>
+<span class="codeline" id="line-70"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CLE" class="ident">CLE</a></code></span>
+<span class="codeline" id="line-71"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CLF" class="ident">CLF</a></code></span>
+<span class="codeline" id="line-72"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CLP" class="ident">CLP</a></code></span>
+<span class="codeline" id="line-73"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CNH" class="ident">CNH</a></code></span>
+<span class="codeline" id="line-74"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CNX" class="ident">CNX</a></code></span>
+<span class="codeline" id="line-75"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CNY" class="ident">CNY</a></code></span>
+<span class="codeline" id="line-76"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-COP" class="ident">COP</a></code></span>
+<span class="codeline" id="line-77"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-COU" class="ident">COU</a></code></span>
+<span class="codeline" id="line-78"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CRC" class="ident">CRC</a></code></span>
+<span class="codeline" id="line-79"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CSD" class="ident">CSD</a></code></span>
+<span class="codeline" id="line-80"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CSK" class="ident">CSK</a></code></span>
+<span class="codeline" id="line-81"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CUC" class="ident">CUC</a></code></span>
+<span class="codeline" id="line-82"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CUP" class="ident">CUP</a></code></span>
+<span class="codeline" id="line-83"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CVE" class="ident">CVE</a></code></span>
+<span class="codeline" id="line-84"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CYP" class="ident">CYP</a></code></span>
+<span class="codeline" id="line-85"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-CZK" class="ident">CZK</a></code></span>
+<span class="codeline" id="line-86"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-DDM" class="ident">DDM</a></code></span>
+<span class="codeline" id="line-87"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-DEM" class="ident">DEM</a></code></span>
+<span class="codeline" id="line-88"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-DJF" class="ident">DJF</a></code></span>
+<span class="codeline" id="line-89"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-DKK" class="ident">DKK</a></code></span>
+<span class="codeline" id="line-90"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-DOP" class="ident">DOP</a></code></span>
+<span class="codeline" id="line-91"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-DZD" class="ident">DZD</a></code></span>
+<span class="codeline" id="line-92"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ECS" class="ident">ECS</a></code></span>
+<span class="codeline" id="line-93"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ECV" class="ident">ECV</a></code></span>
+<span class="codeline" id="line-94"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-EEK" class="ident">EEK</a></code></span>
+<span class="codeline" id="line-95"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-EGP" class="ident">EGP</a></code></span>
+<span class="codeline" id="line-96"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ERN" class="ident">ERN</a></code></span>
+<span class="codeline" id="line-97"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ESA" class="ident">ESA</a></code></span>
+<span class="codeline" id="line-98"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ESB" class="ident">ESB</a></code></span>
+<span class="codeline" id="line-99"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ESP" class="ident">ESP</a></code></span>
+<span class="codeline" id="line-100"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ETB" class="ident">ETB</a></code></span>
+<span class="codeline" id="line-101"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-EUR" class="ident">EUR</a></code></span>
+<span class="codeline" id="line-102"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-FIM" class="ident">FIM</a></code></span>
+<span class="codeline" id="line-103"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-FJD" class="ident">FJD</a></code></span>
+<span class="codeline" id="line-104"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-FKP" class="ident">FKP</a></code></span>
+<span class="codeline" id="line-105"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-FRF" class="ident">FRF</a></code></span>
+<span class="codeline" id="line-106"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-GBP" class="ident">GBP</a></code></span>
+<span class="codeline" id="line-107"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-GEK" class="ident">GEK</a></code></span>
+<span class="codeline" id="line-108"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-GEL" class="ident">GEL</a></code></span>
+<span class="codeline" id="line-109"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-GHC" class="ident">GHC</a></code></span>
+<span class="codeline" id="line-110"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-GHS" class="ident">GHS</a></code></span>
+<span class="codeline" id="line-111"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-GIP" class="ident">GIP</a></code></span>
+<span class="codeline" id="line-112"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-GMD" class="ident">GMD</a></code></span>
+<span class="codeline" id="line-113"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-GNF" class="ident">GNF</a></code></span>
+<span class="codeline" id="line-114"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-GNS" class="ident">GNS</a></code></span>
+<span class="codeline" id="line-115"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-GQE" class="ident">GQE</a></code></span>
+<span class="codeline" id="line-116"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-GRD" class="ident">GRD</a></code></span>
+<span class="codeline" id="line-117"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-GTQ" class="ident">GTQ</a></code></span>
+<span class="codeline" id="line-118"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-GWE" class="ident">GWE</a></code></span>
+<span class="codeline" id="line-119"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-GWP" class="ident">GWP</a></code></span>
+<span class="codeline" id="line-120"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-GYD" class="ident">GYD</a></code></span>
+<span class="codeline" id="line-121"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-HKD" class="ident">HKD</a></code></span>
+<span class="codeline" id="line-122"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-HNL" class="ident">HNL</a></code></span>
+<span class="codeline" id="line-123"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-HRD" class="ident">HRD</a></code></span>
+<span class="codeline" id="line-124"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-HRK" class="ident">HRK</a></code></span>
+<span class="codeline" id="line-125"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-HTG" class="ident">HTG</a></code></span>
+<span class="codeline" id="line-126"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-HUF" class="ident">HUF</a></code></span>
+<span class="codeline" id="line-127"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-IDR" class="ident">IDR</a></code></span>
+<span class="codeline" id="line-128"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-IEP" class="ident">IEP</a></code></span>
+<span class="codeline" id="line-129"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ILP" class="ident">ILP</a></code></span>
+<span class="codeline" id="line-130"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ILR" class="ident">ILR</a></code></span>
+<span class="codeline" id="line-131"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ILS" class="ident">ILS</a></code></span>
+<span class="codeline" id="line-132"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-INR" class="ident">INR</a></code></span>
+<span class="codeline" id="line-133"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-IQD" class="ident">IQD</a></code></span>
+<span class="codeline" id="line-134"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-IRR" class="ident">IRR</a></code></span>
+<span class="codeline" id="line-135"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ISJ" class="ident">ISJ</a></code></span>
+<span class="codeline" id="line-136"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ISK" class="ident">ISK</a></code></span>
+<span class="codeline" id="line-137"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ITL" class="ident">ITL</a></code></span>
+<span class="codeline" id="line-138"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-JMD" class="ident">JMD</a></code></span>
+<span class="codeline" id="line-139"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-JOD" class="ident">JOD</a></code></span>
+<span class="codeline" id="line-140"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-JPY" class="ident">JPY</a></code></span>
+<span class="codeline" id="line-141"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-KES" class="ident">KES</a></code></span>
+<span class="codeline" id="line-142"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-KGS" class="ident">KGS</a></code></span>
+<span class="codeline" id="line-143"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-KHR" class="ident">KHR</a></code></span>
+<span class="codeline" id="line-144"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-KMF" class="ident">KMF</a></code></span>
+<span class="codeline" id="line-145"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-KPW" class="ident">KPW</a></code></span>
+<span class="codeline" id="line-146"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-KRH" class="ident">KRH</a></code></span>
+<span class="codeline" id="line-147"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-KRO" class="ident">KRO</a></code></span>
+<span class="codeline" id="line-148"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-KRW" class="ident">KRW</a></code></span>
+<span class="codeline" id="line-149"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-KWD" class="ident">KWD</a></code></span>
+<span class="codeline" id="line-150"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-KYD" class="ident">KYD</a></code></span>
+<span class="codeline" id="line-151"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-KZT" class="ident">KZT</a></code></span>
+<span class="codeline" id="line-152"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-LAK" class="ident">LAK</a></code></span>
+<span class="codeline" id="line-153"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-LBP" class="ident">LBP</a></code></span>
+<span class="codeline" id="line-154"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-LKR" class="ident">LKR</a></code></span>
+<span class="codeline" id="line-155"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-LRD" class="ident">LRD</a></code></span>
+<span class="codeline" id="line-156"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-LSL" class="ident">LSL</a></code></span>
+<span class="codeline" id="line-157"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-LTL" class="ident">LTL</a></code></span>
+<span class="codeline" id="line-158"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-LTT" class="ident">LTT</a></code></span>
+<span class="codeline" id="line-159"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-LUC" class="ident">LUC</a></code></span>
+<span class="codeline" id="line-160"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-LUF" class="ident">LUF</a></code></span>
+<span class="codeline" id="line-161"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-LUL" class="ident">LUL</a></code></span>
+<span class="codeline" id="line-162"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-LVL" class="ident">LVL</a></code></span>
+<span class="codeline" id="line-163"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-LVR" class="ident">LVR</a></code></span>
+<span class="codeline" id="line-164"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-LYD" class="ident">LYD</a></code></span>
+<span class="codeline" id="line-165"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MAD" class="ident">MAD</a></code></span>
+<span class="codeline" id="line-166"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MAF" class="ident">MAF</a></code></span>
+<span class="codeline" id="line-167"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MCF" class="ident">MCF</a></code></span>
+<span class="codeline" id="line-168"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MDC" class="ident">MDC</a></code></span>
+<span class="codeline" id="line-169"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MDL" class="ident">MDL</a></code></span>
+<span class="codeline" id="line-170"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MGA" class="ident">MGA</a></code></span>
+<span class="codeline" id="line-171"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MGF" class="ident">MGF</a></code></span>
+<span class="codeline" id="line-172"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MKD" class="ident">MKD</a></code></span>
+<span class="codeline" id="line-173"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MKN" class="ident">MKN</a></code></span>
+<span class="codeline" id="line-174"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MLF" class="ident">MLF</a></code></span>
+<span class="codeline" id="line-175"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MMK" class="ident">MMK</a></code></span>
+<span class="codeline" id="line-176"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MNT" class="ident">MNT</a></code></span>
+<span class="codeline" id="line-177"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MOP" class="ident">MOP</a></code></span>
+<span class="codeline" id="line-178"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MRO" class="ident">MRO</a></code></span>
+<span class="codeline" id="line-179"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MTL" class="ident">MTL</a></code></span>
+<span class="codeline" id="line-180"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MTP" class="ident">MTP</a></code></span>
+<span class="codeline" id="line-181"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MUR" class="ident">MUR</a></code></span>
+<span class="codeline" id="line-182"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MVP" class="ident">MVP</a></code></span>
+<span class="codeline" id="line-183"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MVR" class="ident">MVR</a></code></span>
+<span class="codeline" id="line-184"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MWK" class="ident">MWK</a></code></span>
+<span class="codeline" id="line-185"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MXN" class="ident">MXN</a></code></span>
+<span class="codeline" id="line-186"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MXP" class="ident">MXP</a></code></span>
+<span class="codeline" id="line-187"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MXV" class="ident">MXV</a></code></span>
+<span class="codeline" id="line-188"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MYR" class="ident">MYR</a></code></span>
+<span class="codeline" id="line-189"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MZE" class="ident">MZE</a></code></span>
+<span class="codeline" id="line-190"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MZM" class="ident">MZM</a></code></span>
+<span class="codeline" id="line-191"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-MZN" class="ident">MZN</a></code></span>
+<span class="codeline" id="line-192"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-NAD" class="ident">NAD</a></code></span>
+<span class="codeline" id="line-193"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-NGN" class="ident">NGN</a></code></span>
+<span class="codeline" id="line-194"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-NIC" class="ident">NIC</a></code></span>
+<span class="codeline" id="line-195"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-NIO" class="ident">NIO</a></code></span>
+<span class="codeline" id="line-196"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-NLG" class="ident">NLG</a></code></span>
+<span class="codeline" id="line-197"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-NOK" class="ident">NOK</a></code></span>
+<span class="codeline" id="line-198"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-NPR" class="ident">NPR</a></code></span>
+<span class="codeline" id="line-199"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-NZD" class="ident">NZD</a></code></span>
+<span class="codeline" id="line-200"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-OMR" class="ident">OMR</a></code></span>
+<span class="codeline" id="line-201"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-PAB" class="ident">PAB</a></code></span>
+<span class="codeline" id="line-202"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-PEI" class="ident">PEI</a></code></span>
+<span class="codeline" id="line-203"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-PEN" class="ident">PEN</a></code></span>
+<span class="codeline" id="line-204"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-PES" class="ident">PES</a></code></span>
+<span class="codeline" id="line-205"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-PGK" class="ident">PGK</a></code></span>
+<span class="codeline" id="line-206"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-PHP" class="ident">PHP</a></code></span>
+<span class="codeline" id="line-207"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-PKR" class="ident">PKR</a></code></span>
+<span class="codeline" id="line-208"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-PLN" class="ident">PLN</a></code></span>
+<span class="codeline" id="line-209"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-PLZ" class="ident">PLZ</a></code></span>
+<span class="codeline" id="line-210"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-PTE" class="ident">PTE</a></code></span>
+<span class="codeline" id="line-211"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-PYG" class="ident">PYG</a></code></span>
+<span class="codeline" id="line-212"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-QAR" class="ident">QAR</a></code></span>
+<span class="codeline" id="line-213"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-RHD" class="ident">RHD</a></code></span>
+<span class="codeline" id="line-214"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ROL" class="ident">ROL</a></code></span>
+<span class="codeline" id="line-215"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-RON" class="ident">RON</a></code></span>
+<span class="codeline" id="line-216"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-RSD" class="ident">RSD</a></code></span>
+<span class="codeline" id="line-217"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-RUB" class="ident">RUB</a></code></span>
+<span class="codeline" id="line-218"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-RUR" class="ident">RUR</a></code></span>
+<span class="codeline" id="line-219"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-RWF" class="ident">RWF</a></code></span>
+<span class="codeline" id="line-220"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SAR" class="ident">SAR</a></code></span>
+<span class="codeline" id="line-221"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SBD" class="ident">SBD</a></code></span>
+<span class="codeline" id="line-222"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SCR" class="ident">SCR</a></code></span>
+<span class="codeline" id="line-223"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SDD" class="ident">SDD</a></code></span>
+<span class="codeline" id="line-224"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SDG" class="ident">SDG</a></code></span>
+<span class="codeline" id="line-225"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SDP" class="ident">SDP</a></code></span>
+<span class="codeline" id="line-226"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SEK" class="ident">SEK</a></code></span>
+<span class="codeline" id="line-227"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SGD" class="ident">SGD</a></code></span>
+<span class="codeline" id="line-228"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SHP" class="ident">SHP</a></code></span>
+<span class="codeline" id="line-229"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SIT" class="ident">SIT</a></code></span>
+<span class="codeline" id="line-230"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SKK" class="ident">SKK</a></code></span>
+<span class="codeline" id="line-231"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SLL" class="ident">SLL</a></code></span>
+<span class="codeline" id="line-232"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SOS" class="ident">SOS</a></code></span>
+<span class="codeline" id="line-233"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SRD" class="ident">SRD</a></code></span>
+<span class="codeline" id="line-234"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SRG" class="ident">SRG</a></code></span>
+<span class="codeline" id="line-235"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SSP" class="ident">SSP</a></code></span>
+<span class="codeline" id="line-236"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-STD" class="ident">STD</a></code></span>
+<span class="codeline" id="line-237"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-STN" class="ident">STN</a></code></span>
+<span class="codeline" id="line-238"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SUR" class="ident">SUR</a></code></span>
+<span class="codeline" id="line-239"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SVC" class="ident">SVC</a></code></span>
+<span class="codeline" id="line-240"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SYP" class="ident">SYP</a></code></span>
+<span class="codeline" id="line-241"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-SZL" class="ident">SZL</a></code></span>
+<span class="codeline" id="line-242"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-THB" class="ident">THB</a></code></span>
+<span class="codeline" id="line-243"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-TJR" class="ident">TJR</a></code></span>
+<span class="codeline" id="line-244"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-TJS" class="ident">TJS</a></code></span>
+<span class="codeline" id="line-245"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-TMM" class="ident">TMM</a></code></span>
+<span class="codeline" id="line-246"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-TMT" class="ident">TMT</a></code></span>
+<span class="codeline" id="line-247"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-TND" class="ident">TND</a></code></span>
+<span class="codeline" id="line-248"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-TOP" class="ident">TOP</a></code></span>
+<span class="codeline" id="line-249"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-TPE" class="ident">TPE</a></code></span>
+<span class="codeline" id="line-250"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-TRL" class="ident">TRL</a></code></span>
+<span class="codeline" id="line-251"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-TRY" class="ident">TRY</a></code></span>
+<span class="codeline" id="line-252"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-TTD" class="ident">TTD</a></code></span>
+<span class="codeline" id="line-253"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-TWD" class="ident">TWD</a></code></span>
+<span class="codeline" id="line-254"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-TZS" class="ident">TZS</a></code></span>
+<span class="codeline" id="line-255"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-UAH" class="ident">UAH</a></code></span>
+<span class="codeline" id="line-256"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-UAK" class="ident">UAK</a></code></span>
+<span class="codeline" id="line-257"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-UGS" class="ident">UGS</a></code></span>
+<span class="codeline" id="line-258"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-UGX" class="ident">UGX</a></code></span>
+<span class="codeline" id="line-259"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-USD" class="ident">USD</a></code></span>
+<span class="codeline" id="line-260"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-USN" class="ident">USN</a></code></span>
+<span class="codeline" id="line-261"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-USS" class="ident">USS</a></code></span>
+<span class="codeline" id="line-262"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-UYI" class="ident">UYI</a></code></span>
+<span class="codeline" id="line-263"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-UYP" class="ident">UYP</a></code></span>
+<span class="codeline" id="line-264"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-UYU" class="ident">UYU</a></code></span>
+<span class="codeline" id="line-265"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-UZS" class="ident">UZS</a></code></span>
+<span class="codeline" id="line-266"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-VEB" class="ident">VEB</a></code></span>
+<span class="codeline" id="line-267"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-VEF" class="ident">VEF</a></code></span>
+<span class="codeline" id="line-268"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-VND" class="ident">VND</a></code></span>
+<span class="codeline" id="line-269"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-VNN" class="ident">VNN</a></code></span>
+<span class="codeline" id="line-270"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-VUV" class="ident">VUV</a></code></span>
+<span class="codeline" id="line-271"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-WST" class="ident">WST</a></code></span>
+<span class="codeline" id="line-272"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XAF" class="ident">XAF</a></code></span>
+<span class="codeline" id="line-273"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XAG" class="ident">XAG</a></code></span>
+<span class="codeline" id="line-274"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XAU" class="ident">XAU</a></code></span>
+<span class="codeline" id="line-275"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XBA" class="ident">XBA</a></code></span>
+<span class="codeline" id="line-276"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XBB" class="ident">XBB</a></code></span>
+<span class="codeline" id="line-277"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XBC" class="ident">XBC</a></code></span>
+<span class="codeline" id="line-278"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XBD" class="ident">XBD</a></code></span>
+<span class="codeline" id="line-279"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XCD" class="ident">XCD</a></code></span>
+<span class="codeline" id="line-280"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XDR" class="ident">XDR</a></code></span>
+<span class="codeline" id="line-281"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XEU" class="ident">XEU</a></code></span>
+<span class="codeline" id="line-282"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XFO" class="ident">XFO</a></code></span>
+<span class="codeline" id="line-283"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XFU" class="ident">XFU</a></code></span>
+<span class="codeline" id="line-284"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XOF" class="ident">XOF</a></code></span>
+<span class="codeline" id="line-285"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XPD" class="ident">XPD</a></code></span>
+<span class="codeline" id="line-286"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XPF" class="ident">XPF</a></code></span>
+<span class="codeline" id="line-287"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XPT" class="ident">XPT</a></code></span>
+<span class="codeline" id="line-288"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XRE" class="ident">XRE</a></code></span>
+<span class="codeline" id="line-289"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XSU" class="ident">XSU</a></code></span>
+<span class="codeline" id="line-290"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XTS" class="ident">XTS</a></code></span>
+<span class="codeline" id="line-291"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XUA" class="ident">XUA</a></code></span>
+<span class="codeline" id="line-292"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-XXX" class="ident">XXX</a></code></span>
+<span class="codeline" id="line-293"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-YDD" class="ident">YDD</a></code></span>
+<span class="codeline" id="line-294"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-YER" class="ident">YER</a></code></span>
+<span class="codeline" id="line-295"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-YUD" class="ident">YUD</a></code></span>
+<span class="codeline" id="line-296"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-YUM" class="ident">YUM</a></code></span>
+<span class="codeline" id="line-297"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-YUN" class="ident">YUN</a></code></span>
+<span class="codeline" id="line-298"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-YUR" class="ident">YUR</a></code></span>
+<span class="codeline" id="line-299"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ZAL" class="ident">ZAL</a></code></span>
+<span class="codeline" id="line-300"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ZAR" class="ident">ZAR</a></code></span>
+<span class="codeline" id="line-301"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ZMK" class="ident">ZMK</a></code></span>
+<span class="codeline" id="line-302"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ZMW" class="ident">ZMW</a></code></span>
+<span class="codeline" id="line-303"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ZRN" class="ident">ZRN</a></code></span>
+<span class="codeline" id="line-304"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ZRZ" class="ident">ZRZ</a></code></span>
+<span class="codeline" id="line-305"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ZWD" class="ident">ZWD</a></code></span>
+<span class="codeline" id="line-306"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ZWL" class="ident">ZWL</a></code></span>
+<span class="codeline" id="line-307"><code>	<a href="../../../../../pkg/github.com/go-playground/locales/currency.html#name-ZWR" class="ident">ZWR</a></code></span>
+<span class="codeline" id="line-308"><code>)</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

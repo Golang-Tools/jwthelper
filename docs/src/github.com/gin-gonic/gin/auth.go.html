@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: auth.go in package github.com/gin-gonic/gin</title>
+<link href="../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	auth.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../pkg/github.com/gin-gonic/gin.html">github.com/gin-gonic/gin</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12],
+input[id=r13]:checked ~pre label[for=r13],
+input[id=r14]:checked ~pre label[for=r14],
+input[id=r15]:checked ~pre label[for=r15],
+input[id=r16]:checked ~pre label[for=r16],
+input[id=r17]:checked ~pre label[for=r17],
+input[id=r18]:checked ~pre label[for=r18],
+input[id=r19]:checked ~pre label[for=r19],
+input[id=r20]:checked ~pre label[for=r20],
+input[id=r21]:checked ~pre label[for=r21],
+input[id=r22]:checked ~pre label[for=r22],
+input[id=r23]:checked ~pre label[for=r23],
+input[id=r24]:checked ~pre label[for=r24]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1,
+input[id=i2]:checked ~pre .i2,
+input[id=i3]:checked ~pre .i3,
+input[id=i4]:checked ~pre .i4
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="r13" type="radio" name="g"/>
+<input id="r14" type="radio" name="g"/>
+<input id="r15" type="radio" name="g"/>
+<input id="r16" type="radio" name="g"/>
+<input id="r17" type="radio" name="g"/>
+<input id="r18" type="radio" name="g"/>
+<input id="r19" type="radio" name="g"/>
+<input id="r20" type="radio" name="g"/>
+<input id="r21" type="radio" name="g"/>
+<input id="r22" type="radio" name="g"/>
+<input id="r23" type="radio" name="g"/>
+<input id="r24" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+<input id="i2" type="radio" name="i"/>
+<input id="i3" type="radio" name="i"/>
+<input id="i4" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="comment">// Copyright 2014 Manu Martinez-Almeida.  All rights reserved.</span></code></span>
+<span class="codeline" id="line-2"><code><span class="comment">// Use of this source code is governed by a MIT style</span></code></span>
+<span class="codeline" id="line-3"><code><span class="comment">// license that can be found in the LICENSE file.</span></code></span>
+<span class="codeline" id="line-4"><code></code></span>
+<span class="codeline" id="line-5"><code><span class="keyword">package</span> gin</code></span>
+<span class="codeline" id="line-6"><code></code></span>
+<span class="codeline" id="line-7"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-8"><code>	<label for="i0"><span class="lit-string i0">"crypto/subtle"</span></label></code></span>
+<span class="codeline" id="line-9"><code>	<label for="i1"><span class="lit-string i1">"encoding/base64"</span></label></code></span>
+<span class="codeline" id="line-10"><code>	<label for="i2"><span class="lit-string i2">"net/http"</span></label></code></span>
+<span class="codeline" id="line-11"><code>	<label for="i3"><span class="lit-string i3">"strconv"</span></label></code></span>
+<span class="codeline" id="line-12"><code></code></span>
+<span class="codeline" id="line-13"><code>	<label for="i4"><span class="lit-string i4">"github.com/gin-gonic/gin/internal/bytesconv"</span></label></code></span>
+<span class="codeline" id="line-14"><code>)</code></span>
+<span class="codeline" id="line-15"><code></code></span>
+<span class="codeline" id="line-16"><code><span class="comment">// AuthUserKey is the cookie name for user credential in basic auth.</span></code></span>
+<span class="codeline" id="line-17"><code><span class="keyword">const</span> <a href="../../../../pkg/github.com/gin-gonic/gin.html#name-AuthUserKey" class="ident">AuthUserKey</a> = <span class="lit-string">"user"</span></code></span>
+<span class="codeline" id="line-18"><code></code></span>
+<span class="codeline" id="line-19"><code><span class="comment">// Accounts defines a key/value for user/pass list of authorized logins.</span></code></span>
+<span class="codeline" id="line-20"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/gin-gonic/gin.html#name-Accounts" class="ident">Accounts</a> <span class="keyword">map</span>[<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>]<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-21"><code></code></span>
+<span class="codeline" id="line-22"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/gin-gonic/gin.html#name-authPair" class="ident">authPair</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-23"><code>	value <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-24"><code>	user  <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-25"><code>}</code></span>
+<span class="codeline" id="line-26"><code></code></span>
+<span class="codeline" id="line-27"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/gin-gonic/gin.html#name-authPairs" class="ident">authPairs</a> []<a href="#line-22" class="ident">authPair</a></code></span>
+<span class="codeline" id="line-28"><code></code></span>
+<span class="codeline" id="line-29"><code><span class="keyword">func</span> (<label for="r0" class="ident">a</label> <a href="#line-27" class="ident">authPairs</a>) <label for="r1" class="ident">searchCredential</label>(<label for="r2" class="ident">authValue</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>) (<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>, <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) {</code></span>
+<span class="codeline" id="line-30"><code>	<span class="keyword">if</span> <label for="r2" class="ident">authValue</label> == <span class="lit-string">""</span> {</code></span>
+<span class="codeline" id="line-31"><code>		<span class="keyword">return</span> <span class="lit-string">""</span>, <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-32"><code>	}</code></span>
+<span class="codeline" id="line-33"><code>	<span class="keyword">for</span> <label for="r3" class="ident">_</label>, <label for="r4" class="ident">pair</label> := <span class="keyword">range</span> <label for="r0" class="ident">a</label> {</code></span>
+<span class="codeline" id="line-34"><code>		<span class="keyword">if</span> <a href="../../../../pkg/crypto/subtle.html" class="ident i0">subtle</a>.<a href="../../../crypto/subtle/constant_time.go.html#line-12" class="ident">ConstantTimeCompare</a>([]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>(<label for="r4" class="ident">pair</label>.<a href="#line-23" class="ident">value</a>), []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>(<label for="r2" class="ident">authValue</label>)) == <span class="lit-number">1</span> {</code></span>
+<span class="codeline" id="line-35"><code>			<span class="keyword">return</span> <label for="r4" class="ident">pair</label>.<a href="#line-24" class="ident">user</a>, <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-36"><code>		}</code></span>
+<span class="codeline" id="line-37"><code>	}</code></span>
+<span class="codeline" id="line-38"><code>	<span class="keyword">return</span> <span class="lit-string">""</span>, <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-39"><code>}</code></span>
+<span class="codeline" id="line-40"><code></code></span>
+<span class="codeline" id="line-41"><code><span class="comment">// BasicAuthForRealm returns a Basic HTTP Authorization middleware. It takes as arguments a map[string]string where</span></code></span>
+<span class="codeline" id="line-42"><code><span class="comment">// the key is the user name and the value is the password, as well as the name of the Realm.</span></code></span>
+<span class="codeline" id="line-43"><code><span class="comment">// If the realm is empty, "Authorization Required" will be used by default.</span></code></span>
+<span class="codeline" id="line-44"><code><span class="comment">// (see http://tools.ietf.org/html/rfc2617#section-1.2)</span></code></span>
+<span class="codeline" id="line-45"><code><span class="keyword">func</span> <label for="r5" class="ident"><a href="../../../../pkg/github.com/gin-gonic/gin.html#name-BasicAuthForRealm" class="ident">BasicAuthForRealm</a></label>(<label for="r6" class="ident">accounts</label> <a href="#line-20" class="ident">Accounts</a>, <label for="r7" class="ident">realm</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="gin.go.html#line-31" class="ident">HandlerFunc</a> {</code></span>
+<span class="codeline" id="line-46"><code>	<span class="keyword">if</span> <label for="r7" class="ident">realm</label> == <span class="lit-string">""</span> {</code></span>
+<span class="codeline" id="line-47"><code>		<label for="r7" class="ident">realm</label> = <span class="lit-string">"Authorization Required"</span></code></span>
+<span class="codeline" id="line-48"><code>	}</code></span>
+<span class="codeline" id="line-49"><code>	<label for="r7" class="ident">realm</label> = <span class="lit-string">"Basic realm="</span> + <a href="../../../../pkg/strconv.html" class="ident i3">strconv</a>.<a href="../../../strconv/quote.go.html#line-124" class="ident">Quote</a>(<label for="r7" class="ident">realm</label>)</code></span>
+<span class="codeline" id="line-50"><code>	<label for="r8" class="ident">pairs</label> := <a href="#line-73" class="ident">processAccounts</a>(<label for="r6" class="ident">accounts</label>)</code></span>
+<span class="codeline" id="line-51"><code>	<span class="keyword">return</span> <span class="keyword">func</span>(<label for="r9" class="ident">c</label> *<a href="context.go.html#line-46" class="ident">Context</a>) {</code></span>
+<span class="codeline" id="line-52"><code>		<span class="comment">// Search user in the slice of allowed credentials</span></code></span>
+<span class="codeline" id="line-53"><code>		<label for="r10" class="ident">user</label>, <label for="r11" class="ident">found</label> := <label for="r8" class="ident">pairs</label>.<a href="#line-29" class="ident">searchCredential</a>(<label for="r9" class="ident">c</label>.<a href="context.go.html#line-819" class="ident">requestHeader</a>(<span class="lit-string">"Authorization"</span>))</code></span>
+<span class="codeline" id="line-54"><code>		<span class="keyword">if</span> !<label for="r11" class="ident">found</label> {</code></span>
+<span class="codeline" id="line-55"><code>			<span class="comment">// Credentials doesn't match, we return 401 and abort handlers chain.</span></code></span>
+<span class="codeline" id="line-56"><code>			<label for="r9" class="ident">c</label>.<a href="context.go.html#line-848" class="ident">Header</a>(<span class="lit-string">"WWW-Authenticate"</span>, <label for="r7" class="ident">realm</label>)</code></span>
+<span class="codeline" id="line-57"><code>			<label for="r9" class="ident">c</label>.<a href="context.go.html#line-185" class="ident">AbortWithStatus</a>(<a href="../../../../pkg/net/http.html" class="ident i2">http</a>.<a href="../../../net/http/status.go.html#line-37" class="ident">StatusUnauthorized</a>)</code></span>
+<span class="codeline" id="line-58"><code>			<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-59"><code>		}</code></span>
+<span class="codeline" id="line-60"><code></code></span>
+<span class="codeline" id="line-61"><code>		<span class="comment">// The user credentials was found, set user's id to key AuthUserKey in this context, the user's id can be read later using</span></code></span>
+<span class="codeline" id="line-62"><code><span class="comment">		// c.MustGet(gin.AuthUserKey).</span></code></span>
+<span class="codeline" id="line-63"><code>		<label for="r9" class="ident">c</label>.<a href="context.go.html#line-239" class="ident">Set</a>(<a href="#line-17" class="ident">AuthUserKey</a>, <label for="r10" class="ident">user</label>)</code></span>
+<span class="codeline" id="line-64"><code>	}</code></span>
+<span class="codeline" id="line-65"><code>}</code></span>
+<span class="codeline" id="line-66"><code></code></span>
+<span class="codeline" id="line-67"><code><span class="comment">// BasicAuth returns a Basic HTTP Authorization middleware. It takes as argument a map[string]string where</span></code></span>
+<span class="codeline" id="line-68"><code><span class="comment">// the key is the user name and the value is the password.</span></code></span>
+<span class="codeline" id="line-69"><code><span class="keyword">func</span> <label for="r12" class="ident"><a href="../../../../pkg/github.com/gin-gonic/gin.html#name-BasicAuth" class="ident">BasicAuth</a></label>(<label for="r13" class="ident">accounts</label> <a href="#line-20" class="ident">Accounts</a>) <a href="gin.go.html#line-31" class="ident">HandlerFunc</a> {</code></span>
+<span class="codeline" id="line-70"><code>	<span class="keyword">return</span> <a href="#line-45" class="ident">BasicAuthForRealm</a>(<label for="r13" class="ident">accounts</label>, <span class="lit-string">""</span>)</code></span>
+<span class="codeline" id="line-71"><code>}</code></span>
+<span class="codeline" id="line-72"><code></code></span>
+<span class="codeline" id="line-73"><code><span class="keyword">func</span> <label for="r14" class="ident"><a href="../../../../pkg/github.com/gin-gonic/gin.html#name-processAccounts" class="ident">processAccounts</a></label>(<label for="r15" class="ident">accounts</label> <a href="#line-20" class="ident">Accounts</a>) <a href="#line-27" class="ident">authPairs</a> {</code></span>
+<span class="codeline" id="line-74"><code>	<label for="r16" class="ident">length</label> := <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r15" class="ident">accounts</label>)</code></span>
+<span class="codeline" id="line-75"><code>	<a href="utils.go.html#line-77" class="ident">assert1</a>(<label for="r16" class="ident">length</label> &gt; <span class="lit-number">0</span>, <span class="lit-string">"Empty list of authorized credentials"</span>)</code></span>
+<span class="codeline" id="line-76"><code>	<label for="r17" class="ident">pairs</label> := <a href="../../../../pkg/builtin.html#name-make" class="ident">make</a>(<a href="#line-27" class="ident">authPairs</a>, <span class="lit-number">0</span>, <label for="r16" class="ident">length</label>)</code></span>
+<span class="codeline" id="line-77"><code>	<span class="keyword">for</span> <label for="r18" class="ident">user</label>, <label for="r19" class="ident">password</label> := <span class="keyword">range</span> <label for="r15" class="ident">accounts</label> {</code></span>
+<span class="codeline" id="line-78"><code>		<a href="utils.go.html#line-77" class="ident">assert1</a>(<label for="r18" class="ident">user</label> != <span class="lit-string">""</span>, <span class="lit-string">"User can not be empty"</span>)</code></span>
+<span class="codeline" id="line-79"><code>		<label for="r20" class="ident">value</label> := <a href="#line-88" class="ident">authorizationHeader</a>(<label for="r18" class="ident">user</label>, <label for="r19" class="ident">password</label>)</code></span>
+<span class="codeline" id="line-80"><code>		<label for="r17" class="ident">pairs</label> = <a href="../../../../pkg/builtin.html#name-append" class="ident">append</a>(<label for="r17" class="ident">pairs</label>, <a href="#line-22" class="ident">authPair</a>{</code></span>
+<span class="codeline" id="line-81"><code>			<a href="#line-23" class="ident">value</a>: <label for="r20" class="ident">value</label>,</code></span>
+<span class="codeline" id="line-82"><code>			<a href="#line-24" class="ident">user</a>:  <label for="r18" class="ident">user</label>,</code></span>
+<span class="codeline" id="line-83"><code>		})</code></span>
+<span class="codeline" id="line-84"><code>	}</code></span>
+<span class="codeline" id="line-85"><code>	<span class="keyword">return</span> <label for="r17" class="ident">pairs</label></code></span>
+<span class="codeline" id="line-86"><code>}</code></span>
+<span class="codeline" id="line-87"><code></code></span>
+<span class="codeline" id="line-88"><code><span class="keyword">func</span> <label for="r21" class="ident"><a href="../../../../pkg/github.com/gin-gonic/gin.html#name-authorizationHeader" class="ident">authorizationHeader</a></label>(<label for="r22" class="ident">user</label>, <label for="r23" class="ident">password</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>) <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-89"><code>	<label for="r24" class="ident">base</label> := <label for="r22" class="ident">user</label> + <span class="lit-string">":"</span> + <label for="r23" class="ident">password</label></code></span>
+<span class="codeline" id="line-90"><code>	<span class="keyword">return</span> <span class="lit-string">"Basic "</span> + <a href="../../../../pkg/encoding/base64.html" class="ident i1">base64</a>.<a href="../../../encoding/base64/base64.go.html#line-99" class="ident">StdEncoding</a>.<a href="../../../encoding/base64/base64.go.html#line-177" class="ident">EncodeToString</a>(<a href="../../../../pkg/github.com/gin-gonic/gin/internal/bytesconv.html" class="ident i4">bytesconv</a>.<a href="internal/bytesconv/bytesconv.go.html#line-12" class="ident">StringToBytes</a>(<label for="r24" class="ident">base</label>))</code></span>
+<span class="codeline" id="line-91"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

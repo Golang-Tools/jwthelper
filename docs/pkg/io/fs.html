@@ -77,7 +77,7 @@
 			func <a href="#name-walkDir">walkDir</a>(fsys <a href="#name-FS">FS</a>, name <a href="../builtin.html#name-string">string</a>, d <b>DirEntry</b>, walkDirFn <a href="#name-WalkDirFunc">WalkDirFunc</a>) <a href="../builtin.html#name-error">error</a></i></span><span class="hidden"><i>
 			func path/filepath.<a href="../path/filepath.html#name-walkDir">walkDir</a>(path <a href="../builtin.html#name-string">string</a>, d <b>DirEntry</b>, walkDirFn <a href="#name-WalkDirFunc">WalkDirFunc</a>) <a href="../builtin.html#name-error">error</a></i></span></span>
 
-</span></div><div class="anchor type-res" id="name-File" data-popularity="1500">	<input type='checkbox' class="fold" id="File-fold-content"><label for="File-fold-content"> type <a href="../../src/io/fs/fs.go.html#line-78">File</a> <b><i>(interface)</i></b></label><span id='File-fold-content-docs' class="fold-docs">
+</span></div><div class="anchor type-res" id="name-File" data-popularity="1650">	<input type='checkbox' class="fold" id="File-fold-content"><label for="File-fold-content"> type <a href="../../src/io/fs/fs.go.html#line-78">File</a> <b><i>(interface)</i></b></label><span id='File-fold-content-docs' class="fold-docs">
 		A File provides access to a single file.
 		The File interface is the minimum implementation required of the file.
 		A file may implement additional interfaces, such as
@@ -87,11 +87,12 @@
 			<span class="nodocs">( T) <a href="../../src/io/fs/fs.go.html#line-81">Close</a>() <a href="../builtin.html#name-error">error</a></span></span><span>
 			<span class="nodocs">( T) <a href="../../src/io/fs/fs.go.html#line-80">Read</a>([]<a href="../builtin.html#name-byte">byte</a>) (<a href="../builtin.html#name-int">int</a>, <a href="../builtin.html#name-error">error</a>)</span></span><span>
 			<span class="nodocs">( T) <a href="../../src/io/fs/fs.go.html#line-79">Stat</a>() (<a href="#name-FileInfo">FileInfo</a>, <a href="../builtin.html#name-error">error</a>)</span></span></span>
-		<input type='checkbox' class="fold" id="File-fold-impledby"><label for="File-fold-impledby">Implemented By (<i>at least 5, in which 3 are exported</i>)</label><span id='File-fold-impledby-items' class="fold-items"><span>
+		<input type='checkbox' class="fold" id="File-fold-impledby"><label for="File-fold-impledby">Implemented By (<i>at least 6, in which 3 are exported</i>)</label><span id='File-fold-impledby-items' class="fold-items"><span>
 			 <a href="#name-ReadDirFile">ReadDirFile</a> <i>(interface)</i></span><span>
 			 net/http.<a href="../net/http.html#name-File">File</a> <i>(interface)</i></span><span>
 			*os.<a href="../os.html#name-File">File</a></span>
-			<input type='checkbox' class="showhide" id="File-showhide-impedBys"><i><label for="File-showhide-impedBys" class="show-inline">/* 2+ unexporteds ... */</label><label for="File-showhide-impedBys" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="showhide" id="File-showhide-impedBys"><i><label for="File-showhide-impedBys" class="show-inline">/* 3+ unexporteds ... */</label><label for="File-showhide-impedBys" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			 github.com/gin-gonic/gin.<a href="../github.com/gin-gonic/gin.html#name-neuteredReaddirFile">neuteredReaddirFile</a></i></span><span class="hidden"><i>
 			 net/http.<a href="../net/http.html#name-ioFile">ioFile</a></i></span><span class="hidden"><i>
 			*os/exec.<a href="../os/exec.html#name-closeOnce">closeOnce</a></i></span></span>
 		<input type='checkbox' class="fold" id="File-fold-impls"><label for="File-fold-impls">Implements (<i>at least 3, all are exported</i>)</label><span id='File-fold-impls-items' class="fold-items"><span>

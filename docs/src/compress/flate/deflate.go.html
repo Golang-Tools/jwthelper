@@ -1033,7 +1033,7 @@ input[id=i2]:checked ~pre .i2
 <span class="codeline" id="line-721"><code><span class="comment">// If the underlying writer returns an error, Flush returns that error.</span></code></span>
 <span class="codeline" id="line-722"><code><span class="comment">//</span></code></span>
 <span class="codeline" id="line-723"><code><span class="comment">// In the terminology of the zlib library, Flush is equivalent to Z_SYNC_FLUSH.</span></code></span>
-<span class="codeline" id="line-724"><code><span class="keyword">func</span> (<label for="r133" class="ident">w</label> *<a href="#line-704" class="ident">Writer</a>) <label for="r134" class="ident">Flush</label>() <a href="../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-724"><code><span class="keyword">func</span> (<label for="r133" class="ident">w</label> *<a href="#line-704" class="ident">Writer</a>) <label for="r134" class="ident"><a href="../../../imp/compress/flate.Writer.html#name-.Flush" class="ident">Flush</a></label>() <a href="../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
 <span class="codeline" id="line-725"><code>	<span class="comment">// For more about flushing:</span></code></span>
 <span class="codeline" id="line-726"><code><span class="comment">	// https://www.bolet.org/~pornin/deflate-flush.html</span></code></span>
 <span class="codeline" id="line-727"><code>	<span class="keyword">return</span> <label for="r133" class="ident">w</label>.<a href="#line-705" class="ident">d</a>.<a href="#line-563" class="ident">syncFlush</a>()</code></span>

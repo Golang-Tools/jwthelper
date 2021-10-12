@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Package: net/rpc</title>
+<link href="../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="package-details"><code><span style="font-size:xx-large;">package <b>rpc</b></span>
+
+<span class="title">Import Path</span>
+	<a href="../../index.html#pkg-net/rpc">net/rpc</a><i> (on <a href="https://pkg.go.dev/net/rpc" target="_blank">go.dev</a>)</i>
+
+<span class="title">Dependency Relation</span>
+	imports <a href="../../dep/net/rpc.html">14 packages</a>, and imported by <a href="../../dep/net/rpc.html#imported-by">one package</a>
+
+<div id="files"><span class="title">Involved Source Files</span>
+
+	<span class="nodocs">      <a href="../../src/net/rpc/client.go.html">client.go</a></span>
+	<span class="nodocs">      <a href="../../src/net/rpc/debug.go.html">debug.go</a></span>
+	<input type='checkbox' checked class="fold" id="file-2-fold-content"><label for="file-2-fold-content">   <a href="../../src/net/rpc/server.go.html#doc">#d</a> <a href="../../src/net/rpc/server.go.html">server.go</a></label><span id='file-2-fold-content-items' class="fold-items">
+			Package rpc provides access to the exported methods of an object across a
+			network or other I/O connection.  A server registers an object, making it visible
+			as a service with the name of the type of the object.  After registration, exported
+			methods of the object will be accessible remotely.  A server may register multiple
+			objects (services) of different types but it is an error to register multiple
+			objects of the same type.
+
+			Only methods that satisfy these criteria will be made available for remote access;
+			other methods will be ignored:
+
+				- the method's type is exported.
+				- the method is exported.
+				- the method has two arguments, both exported (or builtin) types.
+				- the method's second argument is a pointer.
+				- the method has return type error.
+
+			In effect, the method must look schematically like
+
+				func (t *T) MethodName(argType T1, replyType *T2) error
+
+			where T1 and T2 can be marshaled by encoding/gob.
+			These requirements apply even if a different codec is used.
+			(In the future, these requirements may soften for custom codecs.)
+
+			The method's first argument represents the arguments provided by the caller; the
+			second argument represents the result parameters to be returned to the caller.
+			The method's return value, if non-nil, is passed back as a string that the client
+			sees as if created by errors.New.  If an error is returned, the reply parameter
+			will not be sent back to the client.
+
+			The server may handle requests on a single connection by calling ServeConn.  More
+			typically it will create a network listener and call Accept or, for an HTTP
+			listener, HandleHTTP and http.Serve.
+
+			A client wishing to use the service establishes a connection and then invokes
+			NewClient on the connection.  The convenience function Dial (DialHTTP) performs
+			both steps for a raw network connection (an HTTP connection).  The resulting
+			Client object has two methods, Call and Go, that specify the service and method to
+			call, a pointer containing the arguments, and a pointer to receive the result
+			parameters.
+
+			The Call method waits for the remote call to complete while the Go method
+			launches the call asynchronously and signals completion using the Call
+			structure's Done channel.
+
+			Unless an explicit codec is set up, package encoding/gob is used to
+			transport the data.
+
+			Here is a simple example.  A server wishes to export an object of type Arith:
+
+				package server
+
+				import "errors"
+
+				type Args struct {
+					A, B int
+				}
+
+				type Quotient struct {
+					Quo, Rem int
+				}
+
+				type Arith int
+
+				func (t *Arith) Multiply(args *Args, reply *int) error {
+					*reply = args.A * args.B
+					return nil
+				}
+
+				func (t *Arith) Divide(args *Args, quo *Quotient) error {
+					if args.B == 0 {
+						return errors.New("divide by zero")
+					}
+					quo.Quo = args.A / args.B
+					quo.Rem = args.A % args.B
+					return nil
+				}
+
+			The server calls (for HTTP service):
+
+				arith := new(Arith)
+				rpc.Register(arith)
+				rpc.HandleHTTP()
+				l, e := net.Listen("tcp", ":1234")
+				if e != nil {
+					log.Fatal("listen error:", e)
+				}
+				go http.Serve(l, nil)
+
+			At this point, clients can see a service "Arith" with methods "Arith.Multiply" and
+			"Arith.Divide".  To invoke one, a client first dials the server:
+
+				client, err := rpc.DialHTTP("tcp", serverAddress + ":1234")
+				if err != nil {
+					log.Fatal("dialing:", err)
+				}
+
+			Then it can make a remote call:
+
+				// Synchronous call
+				args := &amp;server.Args{7,8}
+				var reply int
+				err = client.Call("Arith.Multiply", args, &amp;reply)
+				if err != nil {
+					log.Fatal("arith error:", err)
+				}
+				fmt.Printf("Arith: %d*%d=%d", args.A, args.B, reply)
+
+			or
+
+				// Asynchronous call
+				quotient := new(Quotient)
+				divCall := client.Go("Arith.Divide", args, quotient, nil)
+				replyCall := &lt;-divCall.Done	// will be equal to divCall
+				// check errors, print, etc.
+
+			A server implementation will often provide a simple, type-safe wrapper for the
+			client.
+
+			The net/rpc package is frozen and is not accepting new features.</span></div>
+<div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 17, in which 8 are exported)</i></span></span>
+
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Call" data-popularity="195">	<input type='checkbox' class="fold" id="Call-fold-content"><label for="Call-fold-content"> type <a href="../../src/net/rpc/client.go.html#line-29">Call</a> <i>(struct)</i></label><span id='Call-fold-content-docs' class="fold-docs">
+		Call represents an active RPC.
+
+		<input type='checkbox' class="fold" id="Call-fold-fields"><label for="Call-fold-fields">Fields (<i>total 5, all are exported</i>)</label><span id='Call-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Call-fold-field-Args"><label for="Call-fold-field-Args"><a href="../../src/net/rpc/client.go.html#line-31">Args</a> <i>interface{}</i></label><span id='Call-fold-field-Args-docs' class="fold-docs">
+				// The argument to the function (*struct).
+</span></span><span>
+			<input type='checkbox' class="fold" id="Call-fold-field-Done"><label for="Call-fold-field-Done"><a href="../../src/net/rpc/client.go.html#line-34">Done</a> <i>chan *<b>Call</b></i></label><span id='Call-fold-field-Done-docs' class="fold-docs">
+				// Receives *Call when Go is complete.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Call-fold-field-Error"><label for="Call-fold-field-Error"><a href="../../src/net/rpc/client.go.html#line-33">Error</a> <i><a href="../builtin.html#name-error">error</a></i></label><span id='Call-fold-field-Error-docs' class="fold-docs">
+				// After completion, the error status.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Call-fold-field-Reply"><label for="Call-fold-field-Reply"><a href="../../src/net/rpc/client.go.html#line-32">Reply</a> <i>interface{}</i></label><span id='Call-fold-field-Reply-docs' class="fold-docs">
+				// The reply from the function (*struct).
+</span></span><span>
+			<input type='checkbox' class="fold" id="Call-fold-field-ServiceMethod"><label for="Call-fold-field-ServiceMethod"><a href="../../src/net/rpc/client.go.html#line-30">ServiceMethod</a> <i><a href="../builtin.html#name-string">string</a></i></label><span id='Call-fold-field-ServiceMethod-docs' class="fold-docs">
+				// The name of the service and method to call.
+</span></span></span>
+		<input type='checkbox' class="fold" id="Call-fold-methods"><label for="Call-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='Call-fold-methods-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Call-showhide-methods"><i><label for="Call-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="Call-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/client.go.html#line-171">done</a>()</span></i></span></span>
+		<input type='checkbox' class="fold" id="Call-fold-results"><label for="Call-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Call-fold-results-items' class="fold-items"><span>
+			func (*<a href="#name-Client">Client</a>).<a href="../../src/net/rpc/client.go.html#line-298">Go</a>(serviceMethod <a href="../builtin.html#name-string">string</a>, args interface{}, reply interface{}, done chan *<b>Call</b>) *<b>Call</b></span></span>
+		<input type='checkbox' class="fold" id="Call-fold-params"><label for="Call-fold-params">As Inputs Of (<i>at least 2, in which 1 are exported</i>)</label><span id='Call-fold-params-items' class="fold-items"><span>
+			func (*<a href="#name-Client">Client</a>).<a href="../../src/net/rpc/client.go.html#line-298">Go</a>(serviceMethod <a href="../builtin.html#name-string">string</a>, args interface{}, reply interface{}, done chan *<b>Call</b>) *<b>Call</b></span>
+			<input type='checkbox' class="showhide" id="Call-showhide-outputofs"><i><label for="Call-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="Call-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func (*<a href="#name-Client">Client</a>).<a href="../../src/net/rpc/client.go.html#line-71">send</a>(call *<b>Call</b>)</i></span></span>
+
+</span></div><div class="anchor type-res" id="name-Client" data-popularity="675">	<input type='checkbox' class="fold" id="Client-fold-content"><label for="Client-fold-content"> type <a href="../../src/net/rpc/client.go.html#line-41">Client</a> <i>(struct)</i></label><span id='Client-fold-content-docs' class="fold-docs">
+		Client represents an RPC Client.
+		There may be multiple outstanding Calls associated
+		with a single Client, and a Client may be used by
+		multiple goroutines simultaneously.
+
+		<input type='checkbox' class="fold" id="Client-fold-fields"><label for="Client-fold-fields">Fields (<i>total 8, none are exported</i>)</label><span id='Client-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Client-showhide-fields"><i><label for="Client-showhide-fields" class="show-inline">/* 8 unexporteds ... */</label><label for="Client-showhide-fields" class="hide-inline">/* 8 unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Client-fold-field-closing"><label for="Client-fold-field-closing"><a href="../../src/net/rpc/client.go.html#line-50">closing</a> <i><a href="../builtin.html#name-bool">bool</a></i></label><span id='Client-fold-field-closing-docs' class="fold-docs">
+				// user has called Close
+</span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/client.go.html#line-42">codec</a> <i><a href="#name-ClientCodec">ClientCodec</a></i></span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Client-fold-field-mutex"><label for="Client-fold-field-mutex"><a href="../../src/net/rpc/client.go.html#line-47">mutex</a> <i><a href="../sync.html">sync</a>.<a href="../sync.html#name-Mutex">Mutex</a></i></label><span id='Client-fold-field-mutex-docs' class="fold-docs">
+				// protects following
+</span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/client.go.html#line-49">pending</a> <i>map[<a href="../builtin.html#name-uint64">uint64</a>]*<a href="#name-Call">Call</a></i></span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Client-fold-field-reqMutex"><label for="Client-fold-field-reqMutex"><a href="../../src/net/rpc/client.go.html#line-44">reqMutex</a> <i><a href="../sync.html">sync</a>.<a href="../sync.html#name-Mutex">Mutex</a></i></label><span id='Client-fold-field-reqMutex-docs' class="fold-docs">
+				// protects following
+</span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/client.go.html#line-45">request</a> <i><a href="#name-Request">Request</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/client.go.html#line-48">seq</a> <i><a href="../builtin.html#name-uint64">uint64</a></i></span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Client-fold-field-shutdown"><label for="Client-fold-field-shutdown"><a href="../../src/net/rpc/client.go.html#line-51">shutdown</a> <i><a href="../builtin.html#name-bool">bool</a></i></label><span id='Client-fold-field-shutdown-docs' class="fold-docs">
+				// server has told us to stop
+</span></i></span></span>
+		<input type='checkbox' class="fold" id="Client-fold-methods"><label for="Client-fold-methods">Methods (<i>total 5, in which 3 are exported</i>)</label><span id='Client-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Client-fold-method-Call"><label for="Client-fold-method-Call">(*T) <a href="../../src/net/rpc/client.go.html#line-320">Call</a>(serviceMethod <a href="../builtin.html#name-string">string</a>, args interface{}, reply interface{}) <a href="../builtin.html#name-error">error</a></label><span id='Client-fold-method-Call-docs' class="fold-docs">
+				Call invokes the named function, waits for it to complete, and returns its error status.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Client-fold-method-Close"><label for="Client-fold-method-Close">(*T) <a href="../../src/net/rpc/client.go.html#line-283">Close</a>() <a href="../builtin.html#name-error">error</a></label><span id='Client-fold-method-Close-docs' class="fold-docs">
+				Close calls the underlying codec's Close method. If the connection is already
+				shutting down, ErrShutdown is returned.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Client-fold-method-Go"><label for="Client-fold-method-Go">(*T) <a href="../../src/net/rpc/client.go.html#line-298">Go</a>(serviceMethod <a href="../builtin.html#name-string">string</a>, args interface{}, reply interface{}, done chan *<a href="#name-Call">Call</a>) *<a href="#name-Call">Call</a></label><span id='Client-fold-method-Go-docs' class="fold-docs">
+				Go invokes the function asynchronously. It returns the Call structure representing
+				the invocation. The done channel will signal when the call is complete by returning
+				the same Call object. If done is nil, Go will allocate a new channel.
+				If non-nil, done must be buffered or Go will deliberately crash.
+</span></span>
+			<input type='checkbox' class="showhide" id="Client-showhide-methods"><i><label for="Client-showhide-methods" class="show-inline">/* 2 unexporteds ... */</label><label for="Client-showhide-methods" class="hide-inline">/* 2 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/client.go.html#line-104">input</a>()</span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/client.go.html#line-71">send</a>(call *<a href="#name-Call">Call</a>)</span></i></span></span>
+		<input type='checkbox' class="fold" id="Client-fold-impls"><label for="Client-fold-impls">Implements (<i>at least one exported</i>)</label><span id='Client-fold-impls-items' class="fold-items"><span>
+			*T : io.<a href="../io.html#name-Closer">Closer</a></span></span>
+		<input type='checkbox' class="fold" id="Client-fold-results"><label for="Client-fold-results">As Outputs Of (<i>at least 5, all are exported</i>)</label><span id='Client-fold-results-items' class="fold-items"><span>
+			func <a href="#name-Dial">Dial</a>(network, address <a href="../builtin.html#name-string">string</a>) (*<b>Client</b>, <a href="../builtin.html#name-error">error</a>)</span><span>
+			func <a href="#name-DialHTTP">DialHTTP</a>(network, address <a href="../builtin.html#name-string">string</a>) (*<b>Client</b>, <a href="../builtin.html#name-error">error</a>)</span><span>
+			func <a href="#name-DialHTTPPath">DialHTTPPath</a>(network, address, path <a href="../builtin.html#name-string">string</a>) (*<b>Client</b>, <a href="../builtin.html#name-error">error</a>)</span><span>
+			func <a href="#name-NewClient">NewClient</a>(conn <a href="../io.html">io</a>.<a href="../io.html#name-ReadWriteCloser">ReadWriteCloser</a>) *<b>Client</b></span><span>
+			func <a href="#name-NewClientWithCodec">NewClientWithCodec</a>(codec <a href="#name-ClientCodec">ClientCodec</a>) *<b>Client</b></span></span>
+
+</span></div><div class="anchor type-res" id="name-ClientCodec" data-popularity="810">	<input type='checkbox' class="fold" id="ClientCodec-fold-content"><label for="ClientCodec-fold-content"> type <a href="../../src/net/rpc/client.go.html#line-63">ClientCodec</a> <b><i>(interface)</i></b></label><span id='ClientCodec-fold-content-docs' class="fold-docs">
+		A ClientCodec implements writing of RPC requests and
+		reading of RPC responses for the client side of an RPC session.
+		The client calls WriteRequest to write a request to the connection
+		and calls ReadResponseHeader and ReadResponseBody in pairs
+		to read responses. The client calls Close when finished with the
+		connection. ReadResponseBody may be called with a nil
+		argument to force the body of the response to be read and then
+		discarded.
+		See NewClient's comment for information about concurrent access.
+
+		<input type='checkbox' class="fold" id="ClientCodec-fold-methods"><label for="ClientCodec-fold-methods">Methods (<i>total 4, all are exported</i>)</label><span id='ClientCodec-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/client.go.html#line-68">Close</a>() <a href="../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/client.go.html#line-66">ReadResponseBody</a>(interface{}) <a href="../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/client.go.html#line-65">ReadResponseHeader</a>(*<a href="#name-Response">Response</a>) <a href="../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/client.go.html#line-64">WriteRequest</a>(*<a href="#name-Request">Request</a>, interface{}) <a href="../builtin.html#name-error">error</a></span></span></span>
+		<input type='checkbox' class="fold" id="ClientCodec-fold-impledby"><label for="ClientCodec-fold-impledby">Implemented By (<i>at least 3, none are exported</i>)</label><span id='ClientCodec-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ClientCodec-showhide-impedBys"><i><label for="ClientCodec-showhide-impedBys" class="show-inline">/* 3+ unexporteds ... */</label><label for="ClientCodec-showhide-impedBys" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			*<a href="#name-gobClientCodec">gobClientCodec</a></i></span><span class="hidden"><i>
+			*github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-goRpcCodec">goRpcCodec</a></i></span><span class="hidden"><i>
+			*github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-msgpackSpecRpcCodec">msgpackSpecRpcCodec</a></i></span></span>
+		<input type='checkbox' class="fold" id="ClientCodec-fold-impls"><label for="ClientCodec-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ClientCodec-fold-impls-items' class="fold-items"><span>
+			 T : io.<a href="../io.html#name-Closer">Closer</a></span></span>
+		<input type='checkbox' class="fold" id="ClientCodec-fold-results"><label for="ClientCodec-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='ClientCodec-fold-results-items' class="fold-items"><span>
+			func github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-Rpc">Rpc</a>.<a href="../../src/github.com/ugorji/go/codec/rpc.go.html#line-18">ClientCodec</a>(conn <a href="../io.html">io</a>.<a href="../io.html#name-ReadWriteCloser">ReadWriteCloser</a>, h <a href="../github.com/ugorji/go/codec.html">codec</a>.<a href="../github.com/ugorji/go/codec.html#name-Handle">Handle</a>) <b>ClientCodec</b></span></span>
+		<input type='checkbox' class="fold" id="ClientCodec-fold-params"><label for="ClientCodec-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='ClientCodec-fold-params-items' class="fold-items"><span>
+			func <a href="#name-NewClientWithCodec">NewClientWithCodec</a>(codec <b>ClientCodec</b>) *<a href="#name-Client">Client</a></span></span>
+
+</span></div><div class="anchor type-res" id="name-Request" data-popularity="365">	<input type='checkbox' class="fold" id="Request-fold-content"><label for="Request-fold-content"> type <a href="../../src/net/rpc/server.go.html#line-171">Request</a> <i>(struct)</i></label><span id='Request-fold-content-docs' class="fold-docs">
+		Request is a header written before every RPC call. It is used internally
+		but documented here as an aid to debugging, such as when analyzing
+		network traffic.
+
+		<input type='checkbox' class="fold" id="Request-fold-fields"><label for="Request-fold-fields">Fields (<i>total 3, in which 2 are exported</i>)</label><span id='Request-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Request-fold-field-Seq"><label for="Request-fold-field-Seq"><a href="../../src/net/rpc/server.go.html#line-173">Seq</a> <i><a href="../builtin.html#name-uint64">uint64</a></i></label><span id='Request-fold-field-Seq-docs' class="fold-docs">
+				// sequence number chosen by client
+</span></span><span>
+			<input type='checkbox' class="fold" id="Request-fold-field-ServiceMethod"><label for="Request-fold-field-ServiceMethod"><a href="../../src/net/rpc/server.go.html#line-172">ServiceMethod</a> <i><a href="../builtin.html#name-string">string</a></i></label><span id='Request-fold-field-ServiceMethod-docs' class="fold-docs">
+				// format: "Service.Method"
+</span></span>
+			<input type='checkbox' class="showhide" id="Request-showhide-fields"><i><label for="Request-showhide-fields" class="show-inline">/* one unexported ... */</label><label for="Request-showhide-fields" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Request-fold-field-next"><label for="Request-fold-field-next"><a href="../../src/net/rpc/server.go.html#line-174">next</a> <i>*<b>Request</b></i></label><span id='Request-fold-field-next-docs' class="fold-docs">
+				// for free list in Server
+</span></i></span></span>
+		<input type='checkbox' class="fold" id="Request-fold-results"><label for="Request-fold-results">As Outputs Of (<i>at least 3, none are exported</i>)</label><span id='Request-fold-results-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Request-showhide-inputofs"><i><label for="Request-showhide-inputofs" class="show-inline">/* 3+ unexporteds ... */</label><label for="Request-showhide-inputofs" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			func (*<a href="#name-Server">Server</a>).<a href="../../src/net/rpc/server.go.html#line-502">getRequest</a>() *<b>Request</b></i></span><span class="hidden"><i>
+			func (*<a href="#name-Server">Server</a>).<a href="../../src/net/rpc/server.go.html#line-542">readRequest</a>(codec <a href="#name-ServerCodec">ServerCodec</a>) (service *<a href="#name-service">service</a>, mtype *<a href="#name-methodType">methodType</a>, req *<b>Request</b>, argv, replyv <a href="../reflect.html">reflect</a>.<a href="../reflect.html#name-Value">Value</a>, keepReading <a href="../builtin.html#name-bool">bool</a>, err <a href="../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func (*<a href="#name-Server">Server</a>).<a href="../../src/net/rpc/server.go.html#line-580">readRequestHeader</a>(codec <a href="#name-ServerCodec">ServerCodec</a>) (svc *<a href="#name-service">service</a>, mtype *<a href="#name-methodType">methodType</a>, req *<b>Request</b>, keepReading <a href="../builtin.html#name-bool">bool</a>, err <a href="../builtin.html#name-error">error</a>)</i></span></span>
+		<input type='checkbox' class="fold" id="Request-fold-params"><label for="Request-fold-params">As Inputs Of (<i>at least 4, in which 2 are exported</i>)</label><span id='Request-fold-params-items' class="fold-items"><span>
+			func <a href="#name-ClientCodec">ClientCodec</a>.<a href="../../src/net/rpc/client.go.html#line-64">WriteRequest</a>(*<b>Request</b>, interface{}) <a href="../builtin.html#name-error">error</a></span><span>
+			func <a href="#name-ServerCodec">ServerCodec</a>.<a href="../../src/net/rpc/server.go.html#line-652">ReadRequestHeader</a>(*<b>Request</b>) <a href="../builtin.html#name-error">error</a></span>
+			<input type='checkbox' class="showhide" id="Request-showhide-outputofs"><i><label for="Request-showhide-outputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="Request-showhide-outputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			func (*<a href="#name-Server">Server</a>).<a href="../../src/net/rpc/server.go.html#line-515">freeRequest</a>(req *<b>Request</b>)</i></span><span class="hidden"><i>
+			func (*<a href="#name-Server">Server</a>).<a href="../../src/net/rpc/server.go.html#line-343">sendResponse</a>(sending *<a href="../sync.html">sync</a>.<a href="../sync.html#name-Mutex">Mutex</a>, req *<b>Request</b>, reply interface{}, codec <a href="#name-ServerCodec">ServerCodec</a>, errmsg <a href="../builtin.html#name-string">string</a>)</i></span></span>
+
+</span></div><div class="anchor type-res" id="name-Response" data-popularity="180">	<input type='checkbox' class="fold" id="Response-fold-content"><label for="Response-fold-content"> type <a href="../../src/net/rpc/server.go.html#line-180">Response</a> <i>(struct)</i></label><span id='Response-fold-content-docs' class="fold-docs">
+		Response is a header written before every RPC return. It is used internally
+		but documented here as an aid to debugging, such as when analyzing
+		network traffic.
+
+		<input type='checkbox' class="fold" id="Response-fold-fields"><label for="Response-fold-fields">Fields (<i>total 4, in which 3 are exported</i>)</label><span id='Response-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Response-fold-field-Error"><label for="Response-fold-field-Error"><a href="../../src/net/rpc/server.go.html#line-183">Error</a> <i><a href="../builtin.html#name-string">string</a></i></label><span id='Response-fold-field-Error-docs' class="fold-docs">
+				// error, if any.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Response-fold-field-Seq"><label for="Response-fold-field-Seq"><a href="../../src/net/rpc/server.go.html#line-182">Seq</a> <i><a href="../builtin.html#name-uint64">uint64</a></i></label><span id='Response-fold-field-Seq-docs' class="fold-docs">
+				// echoes that of the request
+</span></span><span>
+			<input type='checkbox' class="fold" id="Response-fold-field-ServiceMethod"><label for="Response-fold-field-ServiceMethod"><a href="../../src/net/rpc/server.go.html#line-181">ServiceMethod</a> <i><a href="../builtin.html#name-string">string</a></i></label><span id='Response-fold-field-ServiceMethod-docs' class="fold-docs">
+				// echoes that of the Request
+</span></span>
+			<input type='checkbox' class="showhide" id="Response-showhide-fields"><i><label for="Response-showhide-fields" class="show-inline">/* one unexported ... */</label><label for="Response-showhide-fields" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Response-fold-field-next"><label for="Response-fold-field-next"><a href="../../src/net/rpc/server.go.html#line-184">next</a> <i>*<b>Response</b></i></label><span id='Response-fold-field-next-docs' class="fold-docs">
+				// for free list in Server
+</span></i></span></span>
+		<input type='checkbox' class="fold" id="Response-fold-results"><label for="Response-fold-results">As Outputs Of (<i>at least one unexported</i>)</label><span id='Response-fold-results-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Response-showhide-inputofs"><i><label for="Response-showhide-inputofs" class="show-inline">/* at least one unexported ... */</label><label for="Response-showhide-inputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func (*<a href="#name-Server">Server</a>).<a href="../../src/net/rpc/server.go.html#line-522">getResponse</a>() *<b>Response</b></i></span></span>
+		<input type='checkbox' class="fold" id="Response-fold-params"><label for="Response-fold-params">As Inputs Of (<i>at least 3, in which 2 are exported</i>)</label><span id='Response-fold-params-items' class="fold-items"><span>
+			func <a href="#name-ClientCodec">ClientCodec</a>.<a href="../../src/net/rpc/client.go.html#line-65">ReadResponseHeader</a>(*<b>Response</b>) <a href="../builtin.html#name-error">error</a></span><span>
+			func <a href="#name-ServerCodec">ServerCodec</a>.<a href="../../src/net/rpc/server.go.html#line-654">WriteResponse</a>(*<b>Response</b>, interface{}) <a href="../builtin.html#name-error">error</a></span>
+			<input type='checkbox' class="showhide" id="Response-showhide-outputofs"><i><label for="Response-showhide-outputofs" class="show-inline">/* at least one unexported ... */</label><label for="Response-showhide-outputofs" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			func (*<a href="#name-Server">Server</a>).<a href="../../src/net/rpc/server.go.html#line-535">freeResponse</a>(resp *<b>Response</b>)</i></span></span>
+
+</span></div><div class="anchor type-res" id="name-Server" data-popularity="930">	<input type='checkbox' class="fold" id="Server-fold-content"><label for="Server-fold-content"> type <a href="../../src/net/rpc/server.go.html#line-188">Server</a> <i>(struct)</i></label><span id='Server-fold-content-docs' class="fold-docs">
+		Server represents an RPC Server.
+
+		<input type='checkbox' class="fold" id="Server-fold-fields"><label for="Server-fold-fields">Fields (<i>total 5, none are exported</i>)</label><span id='Server-fold-fields-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Server-showhide-fields"><i><label for="Server-showhide-fields" class="show-inline">/* 5 unexporteds ... */</label><label for="Server-showhide-fields" class="hide-inline">/* 5 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/server.go.html#line-191">freeReq</a> <i>*<a href="#name-Request">Request</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/server.go.html#line-193">freeResp</a> <i>*<a href="#name-Response">Response</a></i></span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Server-fold-field-reqLock"><label for="Server-fold-field-reqLock"><a href="../../src/net/rpc/server.go.html#line-190">reqLock</a> <i><a href="../sync.html">sync</a>.<a href="../sync.html#name-Mutex">Mutex</a></i></label><span id='Server-fold-field-reqLock-docs' class="fold-docs">
+				// protects freeReq
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Server-fold-field-respLock"><label for="Server-fold-field-respLock"><a href="../../src/net/rpc/server.go.html#line-192">respLock</a> <i><a href="../sync.html">sync</a>.<a href="../sync.html#name-Mutex">Mutex</a></i></label><span id='Server-fold-field-respLock-docs' class="fold-docs">
+				// protects freeResp
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="Server-fold-field-serviceMap"><label for="Server-fold-field-serviceMap"><a href="../../src/net/rpc/server.go.html#line-189">serviceMap</a> <i><a href="../sync.html">sync</a>.<a href="../sync.html#name-Map">Map</a></i></label><span id='Server-fold-field-serviceMap-docs' class="fold-docs">
+				// map[string]*service
+</span></i></span></span>
+		<input type='checkbox' class="fold" id="Server-fold-methods"><label for="Server-fold-methods">Methods (<i>total 16, in which 8 are exported</i>)</label><span id='Server-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-Accept"><label for="Server-fold-method-Accept">(*T) <a href="../../src/net/rpc/server.go.html#line-623">Accept</a>(lis <a href="../net.html">net</a>.<a href="../net.html#name-Listener">Listener</a>)</label><span id='Server-fold-method-Accept-docs' class="fold-docs">
+				Accept accepts connections on the listener and serves requests
+				for each incoming connection. Accept blocks until the listener
+				returns a non-nil error. The caller typically invokes Accept in a
+				go statement.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-HandleHTTP"><label for="Server-fold-method-HandleHTTP">(*T) <a href="../../src/net/rpc/server.go.html#line-710">HandleHTTP</a>(rpcPath, debugPath <a href="../builtin.html#name-string">string</a>)</label><span id='Server-fold-method-HandleHTTP-docs' class="fold-docs">
+				HandleHTTP registers an HTTP handler for RPC messages on rpcPath,
+				and a debugging handler on debugPath.
+				It is still necessary to invoke http.Serve(), typically in a go statement.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-Register"><label for="Server-fold-method-Register">(*T) <a href="../../src/net/rpc/server.go.html#line-224">Register</a>(rcvr interface{}) <a href="../builtin.html#name-error">error</a></label><span id='Server-fold-method-Register-docs' class="fold-docs">
+				Register publishes in the server the set of methods of the
+				receiver value that satisfy the following conditions:
+					- exported method of exported type
+					- two arguments, both of exported type
+					- the second argument is a pointer
+					- one return value, of type error
+				It returns an error if the receiver is not an exported type or has
+				no suitable methods. It also logs the error using package log.
+				The client accesses each method using a string of the form "Type.Method",
+				where Type is the receiver's concrete type.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-RegisterName"><label for="Server-fold-method-RegisterName">(*T) <a href="../../src/net/rpc/server.go.html#line-230">RegisterName</a>(name <a href="../builtin.html#name-string">string</a>, rcvr interface{}) <a href="../builtin.html#name-error">error</a></label><span id='Server-fold-method-RegisterName-docs' class="fold-docs">
+				RegisterName is like Register but uses the provided name for the type
+				instead of the receiver's concrete type.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-ServeCodec"><label for="Server-fold-method-ServeCodec">(*T) <a href="../../src/net/rpc/server.go.html#line-454">ServeCodec</a>(codec <a href="#name-ServerCodec">ServerCodec</a>)</label><span id='Server-fold-method-ServeCodec-docs' class="fold-docs">
+				ServeCodec is like ServeConn but uses the specified codec to
+				decode requests and encode responses.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-ServeConn"><label for="Server-fold-method-ServeConn">(*T) <a href="../../src/net/rpc/server.go.html#line-441">ServeConn</a>(conn <a href="../io.html">io</a>.<a href="../io.html#name-ReadWriteCloser">ReadWriteCloser</a>)</label><span id='Server-fold-method-ServeConn-docs' class="fold-docs">
+				ServeConn runs the server on a single connection.
+				ServeConn blocks, serving the connection until the client hangs up.
+				The caller typically invokes ServeConn in a go statement.
+				ServeConn uses the gob wire format (see package gob) on the
+				connection. To use an alternate codec, use ServeCodec.
+				See NewClient's comment for information about concurrent access.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-ServeHTTP"><label for="Server-fold-method-ServeHTTP">(*T) <a href="../../src/net/rpc/server.go.html#line-691">ServeHTTP</a>(w <a href="http.html">http</a>.<a href="http.html#name-ResponseWriter">ResponseWriter</a>, req *<a href="http.html">http</a>.<a href="http.html#name-Request">Request</a>)</label><span id='Server-fold-method-ServeHTTP-docs' class="fold-docs">
+				ServeHTTP implements an http.Handler that answers RPC requests.
+</span></span><span>
+			<input type='checkbox' class="fold" id="Server-fold-method-ServeRequest"><label for="Server-fold-method-ServeRequest">(*T) <a href="../../src/net/rpc/server.go.html#line-484">ServeRequest</a>(codec <a href="#name-ServerCodec">ServerCodec</a>) <a href="../builtin.html#name-error">error</a></label><span id='Server-fold-method-ServeRequest-docs' class="fold-docs">
+				ServeRequest is like ServeCodec but synchronously serves a single request.
+				It does not close the codec upon completion.
+</span></span>
+			<input type='checkbox' class="showhide" id="Server-showhide-methods"><i><label for="Server-showhide-methods" class="show-inline">/* 8 unexporteds ... */</label><label for="Server-showhide-methods" class="hide-inline">/* 8 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/server.go.html#line-515">freeRequest</a>(req *<a href="#name-Request">Request</a>)</span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/server.go.html#line-535">freeResponse</a>(resp *<a href="#name-Response">Response</a>)</span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/server.go.html#line-502">getRequest</a>() *<a href="#name-Request">Request</a></span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/server.go.html#line-522">getResponse</a>() *<a href="#name-Response">Response</a></span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/server.go.html#line-542">readRequest</a>(codec <a href="#name-ServerCodec">ServerCodec</a>) (service *<a href="#name-service">service</a>, mtype *<a href="#name-methodType">methodType</a>, req *<a href="#name-Request">Request</a>, argv, replyv <a href="../reflect.html">reflect</a>.<a href="../reflect.html#name-Value">Value</a>, keepReading <a href="../builtin.html#name-bool">bool</a>, err <a href="../builtin.html#name-error">error</a>)</span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/server.go.html#line-580">readRequestHeader</a>(codec <a href="#name-ServerCodec">ServerCodec</a>) (svc *<a href="#name-service">service</a>, mtype *<a href="#name-methodType">methodType</a>, req *<a href="#name-Request">Request</a>, keepReading <a href="../builtin.html#name-bool">bool</a>, err <a href="../builtin.html#name-error">error</a>)</span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/server.go.html#line-234">register</a>(rcvr interface{}, name <a href="../builtin.html#name-string">string</a>, useName <a href="../builtin.html#name-bool">bool</a>) <a href="../builtin.html#name-error">error</a></span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/server.go.html#line-343">sendResponse</a>(sending *<a href="../sync.html">sync</a>.<a href="../sync.html#name-Mutex">Mutex</a>, req *<a href="#name-Request">Request</a>, reply interface{}, codec <a href="#name-ServerCodec">ServerCodec</a>, errmsg <a href="../builtin.html#name-string">string</a>)</span></i></span></span>
+		<input type='checkbox' class="fold" id="Server-fold-impls"><label for="Server-fold-impls">Implements (<i>at least one exported</i>)</label><span id='Server-fold-impls-items' class="fold-items"><span>
+			*T : net/http.<a href="http.html#name-Handler">Handler</a></span></span>
+		<input type='checkbox' class="fold" id="Server-fold-results"><label for="Server-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Server-fold-results-items' class="fold-items"><span>
+			func <a href="#name-NewServer">NewServer</a>() *<b>Server</b></span></span>
+		<input type='checkbox' class="fold" id="Server-fold-values"><label for="Server-fold-values">As Types Of (<i>only one, which is exported</i>)</label><span id='Server-fold-values-items' class="fold-items"><span>
+			  var <a href="#name-DefaultServer">DefaultServer</a> *Server</span></span>
+
+</span></div><div class="anchor type-res" id="name-ServerCodec" data-popularity="1020">	<input type='checkbox' class="fold" id="ServerCodec-fold-content"><label for="ServerCodec-fold-content"> type <a href="../../src/net/rpc/server.go.html#line-651">ServerCodec</a> <b><i>(interface)</i></b></label><span id='ServerCodec-fold-content-docs' class="fold-docs">
+		A ServerCodec implements reading of RPC requests and writing of
+		RPC responses for the server side of an RPC session.
+		The server calls ReadRequestHeader and ReadRequestBody in pairs
+		to read requests from the connection, and it calls WriteResponse to
+		write a response back. The server calls Close when finished with the
+		connection. ReadRequestBody may be called with a nil
+		argument to force the body of the request to be read and discarded.
+		See NewClient's comment for information about concurrent access.
+
+		<input type='checkbox' class="fold" id="ServerCodec-fold-methods"><label for="ServerCodec-fold-methods">Methods (<i>total 4, all are exported</i>)</label><span id='ServerCodec-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="ServerCodec-fold-method-Close"><label for="ServerCodec-fold-method-Close">( T) <a href="../../src/net/rpc/server.go.html#line-657">Close</a>() <a href="../builtin.html#name-error">error</a></label><span id='ServerCodec-fold-method-Close-docs' class="fold-docs">
+				Close can be called multiple times and must be idempotent.
+</span></span><span>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/server.go.html#line-653">ReadRequestBody</a>(interface{}) <a href="../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/server.go.html#line-652">ReadRequestHeader</a>(*<a href="#name-Request">Request</a>) <a href="../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/server.go.html#line-654">WriteResponse</a>(*<a href="#name-Response">Response</a>, interface{}) <a href="../builtin.html#name-error">error</a></span></span></span>
+		<input type='checkbox' class="fold" id="ServerCodec-fold-impledby"><label for="ServerCodec-fold-impledby">Implemented By (<i>at least 3, none are exported</i>)</label><span id='ServerCodec-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="ServerCodec-showhide-impedBys"><i><label for="ServerCodec-showhide-impedBys" class="show-inline">/* 3+ unexporteds ... */</label><label for="ServerCodec-showhide-impedBys" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			*<a href="#name-gobServerCodec">gobServerCodec</a></i></span><span class="hidden"><i>
+			*github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-goRpcCodec">goRpcCodec</a></i></span><span class="hidden"><i>
+			*github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-msgpackSpecRpcCodec">msgpackSpecRpcCodec</a></i></span></span>
+		<input type='checkbox' class="fold" id="ServerCodec-fold-impls"><label for="ServerCodec-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ServerCodec-fold-impls-items' class="fold-items"><span>
+			 T : io.<a href="../io.html#name-Closer">Closer</a></span></span>
+		<input type='checkbox' class="fold" id="ServerCodec-fold-results"><label for="ServerCodec-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='ServerCodec-fold-results-items' class="fold-items"><span>
+			func github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-Rpc">Rpc</a>.<a href="../../src/github.com/ugorji/go/codec/rpc.go.html#line-17">ServerCodec</a>(conn <a href="../io.html">io</a>.<a href="../io.html#name-ReadWriteCloser">ReadWriteCloser</a>, h <a href="../github.com/ugorji/go/codec.html">codec</a>.<a href="../github.com/ugorji/go/codec.html#name-Handle">Handle</a>) <b>ServerCodec</b></span></span>
+		<input type='checkbox' class="fold" id="ServerCodec-fold-params"><label for="ServerCodec-fold-params">As Inputs Of (<i>at least 7, in which 4 are exported</i>)</label><span id='ServerCodec-fold-params-items' class="fold-items"><span>
+			func <a href="#name-ServeCodec">ServeCodec</a>(codec <b>ServerCodec</b>)</span><span>
+			func <a href="#name-ServeRequest">ServeRequest</a>(codec <b>ServerCodec</b>) <a href="../builtin.html#name-error">error</a></span><span>
+			func (*<a href="#name-Server">Server</a>).<a href="../../src/net/rpc/server.go.html#line-454">ServeCodec</a>(codec <b>ServerCodec</b>)</span><span>
+			func (*<a href="#name-Server">Server</a>).<a href="../../src/net/rpc/server.go.html#line-484">ServeRequest</a>(codec <b>ServerCodec</b>) <a href="../builtin.html#name-error">error</a></span>
+			<input type='checkbox' class="showhide" id="ServerCodec-showhide-outputofs"><i><label for="ServerCodec-showhide-outputofs" class="show-inline">/* 3+ unexporteds ... */</label><label for="ServerCodec-showhide-outputofs" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			func (*<a href="#name-Server">Server</a>).<a href="../../src/net/rpc/server.go.html#line-542">readRequest</a>(codec <b>ServerCodec</b>) (service *<a href="#name-service">service</a>, mtype *<a href="#name-methodType">methodType</a>, req *<a href="#name-Request">Request</a>, argv, replyv <a href="../reflect.html">reflect</a>.<a href="../reflect.html#name-Value">Value</a>, keepReading <a href="../builtin.html#name-bool">bool</a>, err <a href="../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func (*<a href="#name-Server">Server</a>).<a href="../../src/net/rpc/server.go.html#line-580">readRequestHeader</a>(codec <b>ServerCodec</b>) (svc *<a href="#name-service">service</a>, mtype *<a href="#name-methodType">methodType</a>, req *<a href="#name-Request">Request</a>, keepReading <a href="../builtin.html#name-bool">bool</a>, err <a href="../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func (*<a href="#name-Server">Server</a>).<a href="../../src/net/rpc/server.go.html#line-343">sendResponse</a>(sending *<a href="../sync.html">sync</a>.<a href="../sync.html#name-Mutex">Mutex</a>, req *<a href="#name-Request">Request</a>, reply interface{}, codec <b>ServerCodec</b>, errmsg <a href="../builtin.html#name-string">string</a>)</i></span></span>
+
+</span></div><div class="anchor type-res" id="name-ServerError" data-popularity="100">	<input type='checkbox' class="fold" id="ServerError-fold-content"><label for="ServerError-fold-content"> type <a href="../../src/net/rpc/client.go.html#line-20">ServerError</a> <a href="../builtin.html#name-string">string</a> <i>(basic type)</i></label><span id='ServerError-fold-content-docs' class="fold-docs">
+		ServerError represents an error that has been returned from
+		the remote side of the RPC connection.
+
+		<input type='checkbox' class="fold" id="ServerError-fold-methods"><label for="ServerError-fold-methods">Methods (<i>only one, which is exported</i>)</label><span id='ServerError-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/client.go.html#line-22">Error</a>() <a href="../builtin.html#name-string">string</a></span></span></span>
+		<input type='checkbox' class="fold" id="ServerError-fold-impls"><label for="ServerError-fold-impls">Implements (<i>at least one exported</i>)</label><span id='ServerError-fold-impls-items' class="fold-items"><span>
+			 T : <a href="../builtin.html#name-error">error</a></span></span>
+
+</span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* 9 unexporteds ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* 9 unexporteds: */</label></i><div class="anchor type-res hidden" id="name-debugHTTP" data-popularity="850">	<input type='checkbox' class="fold" id="debugHTTP-fold-content"><label for="debugHTTP-fold-content"> type <a href="../../src/net/rpc/debug.go.html#line-67">debugHTTP</a> <i>(struct)</i></label><span id='debugHTTP-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="debugHTTP-fold-fields"><label for="debugHTTP-fold-fields">Fields (<i>total 6, in which 1 are exported</i>)</label><span id='debugHTTP-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../src/net/rpc/debug.go.html#line-68">Server</a> <i>*<a href="#name-Server">Server</a></i></span></span>
+			<input type='checkbox' checked class="showhide" id="debugHTTP-showhide-fields"><i><label for="debugHTTP-showhide-fields" class="show-inline">/* 5 unexporteds ... */</label><label for="debugHTTP-showhide-fields" class="hide-inline">/* 5 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/debug.go.html#line-68" class="path-duplicate">Server</a>.<a href="../../src/net/rpc/server.go.html#line-191">freeReq</a> <i>*<a href="#name-Request">Request</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/debug.go.html#line-68" class="path-duplicate">Server</a>.<a href="../../src/net/rpc/server.go.html#line-193">freeResp</a> <i>*<a href="#name-Response">Response</a></i></span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="debugHTTP-fold-field-reqLock"><label for="debugHTTP-fold-field-reqLock"><a href="../../src/net/rpc/debug.go.html#line-68" class="path-duplicate">Server</a>.<a href="../../src/net/rpc/server.go.html#line-190">reqLock</a> <i><a href="../sync.html">sync</a>.<a href="../sync.html#name-Mutex">Mutex</a></i></label><span id='debugHTTP-fold-field-reqLock-docs' class="fold-docs">
+				// protects freeReq
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="debugHTTP-fold-field-respLock"><label for="debugHTTP-fold-field-respLock"><a href="../../src/net/rpc/debug.go.html#line-68" class="path-duplicate">Server</a>.<a href="../../src/net/rpc/server.go.html#line-192">respLock</a> <i><a href="../sync.html">sync</a>.<a href="../sync.html#name-Mutex">Mutex</a></i></label><span id='debugHTTP-fold-field-respLock-docs' class="fold-docs">
+				// protects freeResp
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="debugHTTP-fold-field-serviceMap"><label for="debugHTTP-fold-field-serviceMap"><a href="../../src/net/rpc/debug.go.html#line-68" class="path-duplicate">Server</a>.<a href="../../src/net/rpc/server.go.html#line-189">serviceMap</a> <i><a href="../sync.html">sync</a>.<a href="../sync.html#name-Map">Map</a></i></label><span id='debugHTTP-fold-field-serviceMap-docs' class="fold-docs">
+				// map[string]*service
+</span></i></span></span>
+		<input type='checkbox' class="fold" id="debugHTTP-fold-methods"><label for="debugHTTP-fold-methods">Methods (<i>total 16, in which 8 are exported</i>)</label><span id='debugHTTP-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="debugHTTP-fold-method-Accept"><label for="debugHTTP-fold-method-Accept">( T) <a href="../../src/net/rpc/server.go.html#line-623">Accept</a>(lis <a href="../net.html">net</a>.<a href="../net.html#name-Listener">Listener</a>)</label><span id='debugHTTP-fold-method-Accept-docs' class="fold-docs">
+				Accept accepts connections on the listener and serves requests
+				for each incoming connection. Accept blocks until the listener
+				returns a non-nil error. The caller typically invokes Accept in a
+				go statement.
+</span></span><span>
+			<input type='checkbox' class="fold" id="debugHTTP-fold-method-HandleHTTP"><label for="debugHTTP-fold-method-HandleHTTP">( T) <a href="../../src/net/rpc/server.go.html#line-710">HandleHTTP</a>(rpcPath, debugPath <a href="../builtin.html#name-string">string</a>)</label><span id='debugHTTP-fold-method-HandleHTTP-docs' class="fold-docs">
+				HandleHTTP registers an HTTP handler for RPC messages on rpcPath,
+				and a debugging handler on debugPath.
+				It is still necessary to invoke http.Serve(), typically in a go statement.
+</span></span><span>
+			<input type='checkbox' class="fold" id="debugHTTP-fold-method-Register"><label for="debugHTTP-fold-method-Register">( T) <a href="../../src/net/rpc/server.go.html#line-224">Register</a>(rcvr interface{}) <a href="../builtin.html#name-error">error</a></label><span id='debugHTTP-fold-method-Register-docs' class="fold-docs">
+				Register publishes in the server the set of methods of the
+				receiver value that satisfy the following conditions:
+					- exported method of exported type
+					- two arguments, both of exported type
+					- the second argument is a pointer
+					- one return value, of type error
+				It returns an error if the receiver is not an exported type or has
+				no suitable methods. It also logs the error using package log.
+				The client accesses each method using a string of the form "Type.Method",
+				where Type is the receiver's concrete type.
+</span></span><span>
+			<input type='checkbox' class="fold" id="debugHTTP-fold-method-RegisterName"><label for="debugHTTP-fold-method-RegisterName">( T) <a href="../../src/net/rpc/server.go.html#line-230">RegisterName</a>(name <a href="../builtin.html#name-string">string</a>, rcvr interface{}) <a href="../builtin.html#name-error">error</a></label><span id='debugHTTP-fold-method-RegisterName-docs' class="fold-docs">
+				RegisterName is like Register but uses the provided name for the type
+				instead of the receiver's concrete type.
+</span></span><span>
+			<input type='checkbox' class="fold" id="debugHTTP-fold-method-ServeCodec"><label for="debugHTTP-fold-method-ServeCodec">( T) <a href="../../src/net/rpc/server.go.html#line-454">ServeCodec</a>(codec <a href="#name-ServerCodec">ServerCodec</a>)</label><span id='debugHTTP-fold-method-ServeCodec-docs' class="fold-docs">
+				ServeCodec is like ServeConn but uses the specified codec to
+				decode requests and encode responses.
+</span></span><span>
+			<input type='checkbox' class="fold" id="debugHTTP-fold-method-ServeConn"><label for="debugHTTP-fold-method-ServeConn">( T) <a href="../../src/net/rpc/server.go.html#line-441">ServeConn</a>(conn <a href="../io.html">io</a>.<a href="../io.html#name-ReadWriteCloser">ReadWriteCloser</a>)</label><span id='debugHTTP-fold-method-ServeConn-docs' class="fold-docs">
+				ServeConn runs the server on a single connection.
+				ServeConn blocks, serving the connection until the client hangs up.
+				The caller typically invokes ServeConn in a go statement.
+				ServeConn uses the gob wire format (see package gob) on the
+				connection. To use an alternate codec, use ServeCodec.
+				See NewClient's comment for information about concurrent access.
+</span></span><span>
+			<input type='checkbox' class="fold" id="debugHTTP-fold-method-ServeHTTP"><label for="debugHTTP-fold-method-ServeHTTP">( T) <a href="../../src/net/rpc/debug.go.html#line-72">ServeHTTP</a>(w <a href="http.html">http</a>.<a href="http.html#name-ResponseWriter">ResponseWriter</a>, req *<a href="http.html">http</a>.<a href="http.html#name-Request">Request</a>)</label><span id='debugHTTP-fold-method-ServeHTTP-docs' class="fold-docs">
+				Runs at /debug/rpc
+</span></span><span>
+			<input type='checkbox' class="fold" id="debugHTTP-fold-method-ServeRequest"><label for="debugHTTP-fold-method-ServeRequest">( T) <a href="../../src/net/rpc/server.go.html#line-484">ServeRequest</a>(codec <a href="#name-ServerCodec">ServerCodec</a>) <a href="../builtin.html#name-error">error</a></label><span id='debugHTTP-fold-method-ServeRequest-docs' class="fold-docs">
+				ServeRequest is like ServeCodec but synchronously serves a single request.
+				It does not close the codec upon completion.
+</span></span>
+			<input type='checkbox' checked class="showhide" id="debugHTTP-showhide-methods"><i><label for="debugHTTP-showhide-methods" class="show-inline">/* 8 unexporteds ... */</label><label for="debugHTTP-showhide-methods" class="hide-inline">/* 8 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/server.go.html#line-515">freeRequest</a>(req *<a href="#name-Request">Request</a>)</span></i></span><span class="hidden"><i>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/server.go.html#line-535">freeResponse</a>(resp *<a href="#name-Response">Response</a>)</span></i></span><span class="hidden"><i>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/server.go.html#line-502">getRequest</a>() *<a href="#name-Request">Request</a></span></i></span><span class="hidden"><i>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/server.go.html#line-522">getResponse</a>() *<a href="#name-Response">Response</a></span></i></span><span class="hidden"><i>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/server.go.html#line-542">readRequest</a>(codec <a href="#name-ServerCodec">ServerCodec</a>) (service *<a href="#name-service">service</a>, mtype *<a href="#name-methodType">methodType</a>, req *<a href="#name-Request">Request</a>, argv, replyv <a href="../reflect.html">reflect</a>.<a href="../reflect.html#name-Value">Value</a>, keepReading <a href="../builtin.html#name-bool">bool</a>, err <a href="../builtin.html#name-error">error</a>)</span></i></span><span class="hidden"><i>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/server.go.html#line-580">readRequestHeader</a>(codec <a href="#name-ServerCodec">ServerCodec</a>) (svc *<a href="#name-service">service</a>, mtype *<a href="#name-methodType">methodType</a>, req *<a href="#name-Request">Request</a>, keepReading <a href="../builtin.html#name-bool">bool</a>, err <a href="../builtin.html#name-error">error</a>)</span></i></span><span class="hidden"><i>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/server.go.html#line-234">register</a>(rcvr interface{}, name <a href="../builtin.html#name-string">string</a>, useName <a href="../builtin.html#name-bool">bool</a>) <a href="../builtin.html#name-error">error</a></span></i></span><span class="hidden"><i>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/server.go.html#line-343">sendResponse</a>(sending *<a href="../sync.html">sync</a>.<a href="../sync.html#name-Mutex">Mutex</a>, req *<a href="#name-Request">Request</a>, reply interface{}, codec <a href="#name-ServerCodec">ServerCodec</a>, errmsg <a href="../builtin.html#name-string">string</a>)</span></i></span></span>
+		<input type='checkbox' class="fold" id="debugHTTP-fold-impls"><label for="debugHTTP-fold-impls">Implements (<i>at least one exported</i>)</label><span id='debugHTTP-fold-impls-items' class="fold-items"><span>
+			 T : net/http.<a href="http.html#name-Handler">Handler</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-debugMethod" data-popularity="0">	<input type='checkbox' class="fold" id="debugMethod-fold-content"><label for="debugMethod-fold-content"> type <a href="../../src/net/rpc/debug.go.html#line-44">debugMethod</a> <i>(struct)</i></label><span id='debugMethod-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="debugMethod-fold-fields"><label for="debugMethod-fold-fields">Fields (<i>total 2, both are exported</i>)</label><span id='debugMethod-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../src/net/rpc/debug.go.html#line-46">Name</a> <i><a href="../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../src/net/rpc/debug.go.html#line-45">Type</a> <i>*<a href="#name-methodType">methodType</a></i></span></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-debugService" data-popularity="0">	<input type='checkbox' class="fold" id="debugService-fold-content"><label for="debugService-fold-content"> type <a href="../../src/net/rpc/debug.go.html#line-51">debugService</a> <i>(struct)</i></label><span id='debugService-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="debugService-fold-fields"><label for="debugService-fold-fields">Fields (<i>total 3, all are exported</i>)</label><span id='debugService-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../src/net/rpc/debug.go.html#line-54">Method</a> <i><a href="#name-methodArray">methodArray</a></i></span></span><span>
+			<span class="nodocs"><a href="../../src/net/rpc/debug.go.html#line-53">Name</a> <i><a href="../builtin.html#name-string">string</a></i></span></span><span>
+			<span class="nodocs"><a href="../../src/net/rpc/debug.go.html#line-52">Service</a> <i>*<a href="#name-service">service</a></i></span></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-gobClientCodec" data-popularity="300">	<input type='checkbox' class="fold" id="gobClientCodec-fold-content"><label for="gobClientCodec-fold-content"> type <a href="../../src/net/rpc/client.go.html#line-210">gobClientCodec</a> <i>(struct)</i></label><span id='gobClientCodec-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="gobClientCodec-fold-fields"><label for="gobClientCodec-fold-fields">Fields (<i>total 4, none are exported</i>)</label><span id='gobClientCodec-fold-fields-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="gobClientCodec-showhide-fields"><i><label for="gobClientCodec-showhide-fields" class="show-inline">/* 4 unexporteds ... */</label><label for="gobClientCodec-showhide-fields" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/client.go.html#line-212">dec</a> <i>*<a href="../encoding/gob.html">gob</a>.<a href="../encoding/gob.html#name-Decoder">Decoder</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/client.go.html#line-213">enc</a> <i>*<a href="../encoding/gob.html">gob</a>.<a href="../encoding/gob.html#name-Encoder">Encoder</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/client.go.html#line-214">encBuf</a> <i>*<a href="../bufio.html">bufio</a>.<a href="../bufio.html#name-Writer">Writer</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/client.go.html#line-211">rwc</a> <i><a href="../io.html">io</a>.<a href="../io.html#name-ReadWriteCloser">ReadWriteCloser</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="gobClientCodec-fold-methods"><label for="gobClientCodec-fold-methods">Methods (<i>total 4, all are exported</i>)</label><span id='gobClientCodec-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/client.go.html#line-235">Close</a>() <a href="../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/client.go.html#line-231">ReadResponseBody</a>(body interface{}) <a href="../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/client.go.html#line-227">ReadResponseHeader</a>(r *<a href="#name-Response">Response</a>) <a href="../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/client.go.html#line-217">WriteRequest</a>(r *<a href="#name-Request">Request</a>, body interface{}) (err <a href="../builtin.html#name-error">error</a>)</span></span></span>
+		<input type='checkbox' class="fold" id="gobClientCodec-fold-impls"><label for="gobClientCodec-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='gobClientCodec-fold-impls-items' class="fold-items"><span>
+			*T : <a href="#name-ClientCodec">ClientCodec</a></span><span>
+			*T : io.<a href="../io.html#name-Closer">Closer</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-gobServerCodec" data-popularity="300">	<input type='checkbox' class="fold" id="gobServerCodec-fold-content"><label for="gobServerCodec-fold-content"> type <a href="../../src/net/rpc/server.go.html#line-388">gobServerCodec</a> <i>(struct)</i></label><span id='gobServerCodec-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="gobServerCodec-fold-fields"><label for="gobServerCodec-fold-fields">Fields (<i>total 5, none are exported</i>)</label><span id='gobServerCodec-fold-fields-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="gobServerCodec-showhide-fields"><i><label for="gobServerCodec-showhide-fields" class="show-inline">/* 5 unexporteds ... */</label><label for="gobServerCodec-showhide-fields" class="hide-inline">/* 5 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/server.go.html#line-393">closed</a> <i><a href="../builtin.html#name-bool">bool</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/server.go.html#line-390">dec</a> <i>*<a href="../encoding/gob.html">gob</a>.<a href="../encoding/gob.html#name-Decoder">Decoder</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/server.go.html#line-391">enc</a> <i>*<a href="../encoding/gob.html">gob</a>.<a href="../encoding/gob.html#name-Encoder">Encoder</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/server.go.html#line-392">encBuf</a> <i>*<a href="../bufio.html">bufio</a>.<a href="../bufio.html#name-Writer">Writer</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/server.go.html#line-389">rwc</a> <i><a href="../io.html">io</a>.<a href="../io.html#name-ReadWriteCloser">ReadWriteCloser</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="gobServerCodec-fold-methods"><label for="gobServerCodec-fold-methods">Methods (<i>total 4, all are exported</i>)</label><span id='gobServerCodec-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/server.go.html#line-426">Close</a>() <a href="../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/server.go.html#line-400">ReadRequestBody</a>(body interface{}) <a href="../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/server.go.html#line-396">ReadRequestHeader</a>(r *<a href="#name-Request">Request</a>) <a href="../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/server.go.html#line-404">WriteResponse</a>(r *<a href="#name-Response">Response</a>, body interface{}) (err <a href="../builtin.html#name-error">error</a>)</span></span></span>
+		<input type='checkbox' class="fold" id="gobServerCodec-fold-impls"><label for="gobServerCodec-fold-impls">Implements (<i>at least 2, both are exported</i>)</label><span id='gobServerCodec-fold-impls-items' class="fold-items"><span>
+			*T : <a href="#name-ServerCodec">ServerCodec</a></span><span>
+			*T : io.<a href="../io.html#name-Closer">Closer</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-methodArray" data-popularity="200">	<input type='checkbox' class="fold" id="methodArray-fold-content"><label for="methodArray-fold-content"> type <a href="../../src/net/rpc/debug.go.html#line-49">methodArray</a> <i>([]T)</i></label><span id='methodArray-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="methodArray-fold-methods"><label for="methodArray-fold-methods">Methods (<i>total 3, all are exported</i>)</label><span id='methodArray-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/debug.go.html#line-63">Len</a>() <a href="../builtin.html#name-int">int</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/debug.go.html#line-64">Less</a>(i, j <a href="../builtin.html#name-int">int</a>) <a href="../builtin.html#name-bool">bool</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/debug.go.html#line-65">Swap</a>(i, j <a href="../builtin.html#name-int">int</a>)</span></span></span>
+		<input type='checkbox' class="fold" id="methodArray-fold-impls"><label for="methodArray-fold-impls">Implements (<i>at least one exported</i>)</label><span id='methodArray-fold-impls-items' class="fold-items"><span>
+			 T : sort.<a href="../sort.html#name-Interface">Interface</a></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-methodType" data-popularity="525">	<input type='checkbox' class="fold" id="methodType-fold-content"><label for="methodType-fold-content"> type <a href="../../src/net/rpc/server.go.html#line-153">methodType</a> <i>(struct)</i></label><span id='methodType-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="methodType-fold-fields"><label for="methodType-fold-fields">Fields (<i>total 7, in which 3 are exported</i>)</label><span id='methodType-fold-fields-items' class="fold-items"><span>
+			<span class="nodocs"><a href="../../src/net/rpc/server.go.html#line-156">ArgType</a> <i><a href="../reflect.html">reflect</a>.<a href="../reflect.html#name-Type">Type</a></i></span></span><span>
+			<input type='checkbox' class="fold" id="methodType-fold-field-Mutex"><label for="methodType-fold-field-Mutex"><a href="../../src/net/rpc/server.go.html#line-154">Mutex</a> <i><a href="../sync.html">sync</a>.<a href="../sync.html#name-Mutex">Mutex</a></i></label><span id='methodType-fold-field-Mutex-docs' class="fold-docs">
+				// protects counters
+</span></span><span>
+			<span class="nodocs"><a href="../../src/net/rpc/server.go.html#line-157">ReplyType</a> <i><a href="../reflect.html">reflect</a>.<a href="../reflect.html#name-Type">Type</a></i></span></span>
+			<input type='checkbox' checked class="showhide" id="methodType-showhide-fields"><i><label for="methodType-showhide-fields" class="show-inline">/* 4 unexporteds ... */</label><label for="methodType-showhide-fields" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/server.go.html#line-155">method</a> <i><a href="../reflect.html">reflect</a>.<a href="../reflect.html#name-Method">Method</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/server.go.html#line-154">Mutex</a>.<a href="../../src/sync/mutex.go.html#line-27">sema</a> <i><a href="../builtin.html#name-uint32">uint32</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/server.go.html#line-154" class="path-duplicate">Mutex</a>.<a href="../../src/sync/mutex.go.html#line-26">state</a> <i><a href="../builtin.html#name-int32">int32</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../src/net/rpc/server.go.html#line-158">numCalls</a> <i><a href="../builtin.html#name-uint">uint</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="methodType-fold-methods"><label for="methodType-fold-methods">Methods (<i>total 5, in which 3 are exported</i>)</label><span id='methodType-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="methodType-fold-method-Lock"><label for="methodType-fold-method-Lock">(*T) <a href="../../src/sync/mutex.go.html#line-72">Lock</a>()</label><span id='methodType-fold-method-Lock-docs' class="fold-docs">
+				Lock locks m.
+				If the lock is already in use, the calling goroutine
+				blocks until the mutex is available.
+</span></span><span>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/server.go.html#line-361">NumCalls</a>() (n <a href="../builtin.html#name-uint">uint</a>)</span></span><span>
+			<input type='checkbox' class="fold" id="methodType-fold-method-Unlock"><label for="methodType-fold-method-Unlock">(*T) <a href="../../src/sync/mutex.go.html#line-179">Unlock</a>()</label><span id='methodType-fold-method-Unlock-docs' class="fold-docs">
+				Unlock unlocks m.
+				It is a run-time error if m is not locked on entry to Unlock.
+
+				A locked Mutex is not associated with a particular goroutine.
+				It is allowed for one goroutine to lock a Mutex and then
+				arrange for another goroutine to unlock it.
+</span></span>
+			<input type='checkbox' checked class="showhide" id="methodType-showhide-methods"><i><label for="methodType-showhide-methods" class="show-inline">/* 2 unexporteds ... */</label><label for="methodType-showhide-methods" class="hide-inline">/* 2 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../src/sync/mutex.go.html#line-84">lockSlow</a>()</span></i></span><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../src/sync/mutex.go.html#line-194">unlockSlow</a>(new <a href="../builtin.html#name-int32">int32</a>)</span></i></span></span>
+		<input type='checkbox' class="fold" id="methodType-fold-impls"><label for="methodType-fold-impls">Implements (<i>at least one exported</i>)</label><span id='methodType-fold-impls-items' class="fold-items"><span>
+			*T : sync.<a href="../sync.html#name-Locker">Locker</a></span></span>
+		<input type='checkbox' class="fold" id="methodType-fold-results"><label for="methodType-fold-results">As Outputs Of (<i>at least 3, none are exported</i>)</label><span id='methodType-fold-results-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="methodType-showhide-inputofs"><i><label for="methodType-showhide-inputofs" class="show-inline">/* 3+ unexporteds ... */</label><label for="methodType-showhide-inputofs" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			func <a href="#name-suitableMethods">suitableMethods</a>(typ <a href="../reflect.html">reflect</a>.<a href="../reflect.html#name-Type">Type</a>, reportErr <a href="../builtin.html#name-bool">bool</a>) map[<a href="../builtin.html#name-string">string</a>]*<b>methodType</b></i></span><span class="hidden"><i>
+			func (*<a href="#name-Server">Server</a>).<a href="../../src/net/rpc/server.go.html#line-542">readRequest</a>(codec <a href="#name-ServerCodec">ServerCodec</a>) (service *<a href="#name-service">service</a>, mtype *<b>methodType</b>, req *<a href="#name-Request">Request</a>, argv, replyv <a href="../reflect.html">reflect</a>.<a href="../reflect.html#name-Value">Value</a>, keepReading <a href="../builtin.html#name-bool">bool</a>, err <a href="../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func (*<a href="#name-Server">Server</a>).<a href="../../src/net/rpc/server.go.html#line-580">readRequestHeader</a>(codec <a href="#name-ServerCodec">ServerCodec</a>) (svc *<a href="#name-service">service</a>, mtype *<b>methodType</b>, req *<a href="#name-Request">Request</a>, keepReading <a href="../builtin.html#name-bool">bool</a>, err <a href="../builtin.html#name-error">error</a>)</i></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-service" data-popularity="200">	<input type='checkbox' class="fold" id="service-fold-content"><label for="service-fold-content"> type <a href="../../src/net/rpc/server.go.html#line-161">service</a> <i>(struct)</i></label><span id='service-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="service-fold-fields"><label for="service-fold-fields">Fields (<i>total 4, none are exported</i>)</label><span id='service-fold-fields-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="service-showhide-fields"><i><label for="service-showhide-fields" class="show-inline">/* 4 unexporteds ... */</label><label for="service-showhide-fields" class="hide-inline">/* 4 unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="service-fold-field-method"><label for="service-fold-field-method"><a href="../../src/net/rpc/server.go.html#line-165">method</a> <i>map[<a href="../builtin.html#name-string">string</a>]*<a href="#name-methodType">methodType</a></i></label><span id='service-fold-field-method-docs' class="fold-docs">
+				// registered methods
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="service-fold-field-name"><label for="service-fold-field-name"><a href="../../src/net/rpc/server.go.html#line-162">name</a> <i><a href="../builtin.html#name-string">string</a></i></label><span id='service-fold-field-name-docs' class="fold-docs">
+				// name of service
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="service-fold-field-rcvr"><label for="service-fold-field-rcvr"><a href="../../src/net/rpc/server.go.html#line-163">rcvr</a> <i><a href="../reflect.html">reflect</a>.<a href="../reflect.html#name-Value">Value</a></i></label><span id='service-fold-field-rcvr-docs' class="fold-docs">
+				// receiver of methods for the service
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="service-fold-field-typ"><label for="service-fold-field-typ"><a href="../../src/net/rpc/server.go.html#line-164">typ</a> <i><a href="../reflect.html">reflect</a>.<a href="../reflect.html#name-Type">Type</a></i></label><span id='service-fold-field-typ-docs' class="fold-docs">
+				// type of the receiver
+</span></i></span></span>
+		<input type='checkbox' class="fold" id="service-fold-methods"><label for="service-fold-methods">Methods (<i>only one, which is unexported</i>)</label><span id='service-fold-methods-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="service-showhide-methods"><i><label for="service-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="service-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../src/net/rpc/server.go.html#line-368">call</a>(server *<a href="#name-Server">Server</a>, sending *<a href="../sync.html">sync</a>.<a href="../sync.html#name-Mutex">Mutex</a>, wg *<a href="../sync.html">sync</a>.<a href="../sync.html#name-WaitGroup">WaitGroup</a>, mtype *<a href="#name-methodType">methodType</a>, req *<a href="#name-Request">Request</a>, argv, replyv <a href="../reflect.html">reflect</a>.<a href="../reflect.html#name-Value">Value</a>, codec <a href="#name-ServerCodec">ServerCodec</a>)</span></i></span></span>
+		<input type='checkbox' class="fold" id="service-fold-results"><label for="service-fold-results">As Outputs Of (<i>at least 2, neither is exported</i>)</label><span id='service-fold-results-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="service-showhide-inputofs"><i><label for="service-showhide-inputofs" class="show-inline">/* 2+ unexporteds ... */</label><label for="service-showhide-inputofs" class="hide-inline">/* 2+ unexporteds: */</label></i><span class="hidden"><i>
+			func (*<a href="#name-Server">Server</a>).<a href="../../src/net/rpc/server.go.html#line-542">readRequest</a>(codec <a href="#name-ServerCodec">ServerCodec</a>) (service *<b>service</b>, mtype *<a href="#name-methodType">methodType</a>, req *<a href="#name-Request">Request</a>, argv, replyv <a href="../reflect.html">reflect</a>.<a href="../reflect.html#name-Value">Value</a>, keepReading <a href="../builtin.html#name-bool">bool</a>, err <a href="../builtin.html#name-error">error</a>)</i></span><span class="hidden"><i>
+			func (*<a href="#name-Server">Server</a>).<a href="../../src/net/rpc/server.go.html#line-580">readRequestHeader</a>(codec <a href="#name-ServerCodec">ServerCodec</a>) (svc *<b>service</b>, mtype *<a href="#name-methodType">methodType</a>, req *<a href="#name-Request">Request</a>, keepReading <a href="../builtin.html#name-bool">bool</a>, err <a href="../builtin.html#name-error">error</a>)</i></span></span>
+
+</span></div><div class="anchor type-res hidden" id="name-serviceArray" data-popularity="200">	<input type='checkbox' class="fold" id="serviceArray-fold-content"><label for="serviceArray-fold-content"> type <a href="../../src/net/rpc/debug.go.html#line-57">serviceArray</a> <i>([]T)</i></label><span id='serviceArray-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="serviceArray-fold-methods"><label for="serviceArray-fold-methods">Methods (<i>total 3, all are exported</i>)</label><span id='serviceArray-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/debug.go.html#line-59">Len</a>() <a href="../builtin.html#name-int">int</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/debug.go.html#line-60">Less</a>(i, j <a href="../builtin.html#name-int">int</a>) <a href="../builtin.html#name-bool">bool</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../src/net/rpc/debug.go.html#line-61">Swap</a>(i, j <a href="../builtin.html#name-int">int</a>)</span></span></span>
+		<input type='checkbox' class="fold" id="serviceArray-fold-impls"><label for="serviceArray-fold-impls">Implements (<i>at least one exported</i>)</label><span id='serviceArray-fold-impls-items' class="fold-items"><span>
+			 T : sort.<a href="../sort.html#name-Interface">Interface</a></span></span>
+
+</span></div></div>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 15, in which 13 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-Accept">	<input type='checkbox' class="fold" id="Accept-fold-content"><label for="Accept-fold-content"> func <a href="../../src/net/rpc/server.go.html#line-685">Accept</a>(lis <a href="../net.html">net</a>.<a href="../net.html#name-Listener">Listener</a>)</label><span id='Accept-fold-content-docs' class="fold-docs">
+		Accept accepts connections on the listener and serves requests
+		to DefaultServer for each incoming connection.
+		Accept blocks; the caller typically invokes it in a go statement.
+
+</span></div><div class="anchor value-res" id="name-Dial">	<input type='checkbox' class="fold" id="Dial-fold-content"><label for="Dial-fold-content"> func <a href="../../src/net/rpc/client.go.html#line-273">Dial</a>(network, address <a href="../builtin.html#name-string">string</a>) (*<a href="#name-Client">Client</a>, <a href="../builtin.html#name-error">error</a>)</label><span id='Dial-fold-content-docs' class="fold-docs">
+		Dial connects to an RPC server at the specified network address.
+
+</span></div><div class="anchor value-res" id="name-DialHTTP">	<input type='checkbox' class="fold" id="DialHTTP-fold-content"><label for="DialHTTP-fold-content"> func <a href="../../src/net/rpc/client.go.html#line-241">DialHTTP</a>(network, address <a href="../builtin.html#name-string">string</a>) (*<a href="#name-Client">Client</a>, <a href="../builtin.html#name-error">error</a>)</label><span id='DialHTTP-fold-content-docs' class="fold-docs">
+		DialHTTP connects to an HTTP RPC server at the specified network address
+		listening on the default HTTP RPC path.
+
+</span></div><div class="anchor value-res" id="name-DialHTTPPath">	<input type='checkbox' class="fold" id="DialHTTPPath-fold-content"><label for="DialHTTPPath-fold-content"> func <a href="../../src/net/rpc/client.go.html#line-247">DialHTTPPath</a>(network, address, path <a href="../builtin.html#name-string">string</a>) (*<a href="#name-Client">Client</a>, <a href="../builtin.html#name-error">error</a>)</label><span id='DialHTTPPath-fold-content-docs' class="fold-docs">
+		DialHTTPPath connects to an HTTP RPC server
+		at the specified network address and path.
+
+</span></div><div class="anchor value-res" id="name-HandleHTTP">	<input type='checkbox' class="fold" id="HandleHTTP-fold-content"><label for="HandleHTTP-fold-content"> func <a href="../../src/net/rpc/server.go.html#line-718">HandleHTTP</a>()</label><span id='HandleHTTP-fold-content-docs' class="fold-docs">
+		HandleHTTP registers an HTTP handler for RPC messages to DefaultServer
+		on DefaultRPCPath and a debugging handler on DefaultDebugPath.
+		It is still necessary to invoke http.Serve(), typically in a go statement.
+
+</span></div><div class="anchor value-res" id="name-NewClient">	<input type='checkbox' class="fold" id="NewClient-fold-content"><label for="NewClient-fold-content"> func <a href="../../src/net/rpc/client.go.html#line-193">NewClient</a>(conn <a href="../io.html">io</a>.<a href="../io.html#name-ReadWriteCloser">ReadWriteCloser</a>) *<a href="#name-Client">Client</a></label><span id='NewClient-fold-content-docs' class="fold-docs">
+		NewClient returns a new Client to handle requests to the
+		set of services at the other end of the connection.
+		It adds a buffer to the write side of the connection so
+		the header and payload are sent as a unit.
+
+		The read and write halves of the connection are serialized independently,
+		so no interlocking is required. However each half may be accessed
+		concurrently so the implementation of conn should protect against
+		concurrent reads or concurrent writes.
+
+</span></div><div class="anchor value-res" id="name-NewClientWithCodec">	<input type='checkbox' class="fold" id="NewClientWithCodec-fold-content"><label for="NewClientWithCodec-fold-content"> func <a href="../../src/net/rpc/client.go.html#line-201">NewClientWithCodec</a>(codec <a href="#name-ClientCodec">ClientCodec</a>) *<a href="#name-Client">Client</a></label><span id='NewClientWithCodec-fold-content-docs' class="fold-docs">
+		NewClientWithCodec is like NewClient but uses the specified
+		codec to encode requests and decode responses.
+
+</span></div><div class="anchor value-res" id="name-NewServer">	<input type='checkbox' class="fold" id="NewServer-fold-content"><label for="NewServer-fold-content"> func <a href="../../src/net/rpc/server.go.html#line-197">NewServer</a>() *<a href="#name-Server">Server</a></label><span id='NewServer-fold-content-docs' class="fold-docs">
+		NewServer returns a new Server.
+
+</span></div><div class="anchor value-res" id="name-Register">	<input type='checkbox' class="fold" id="Register-fold-content"><label for="Register-fold-content"> func <a href="../../src/net/rpc/server.go.html#line-635">Register</a>(rcvr interface{}) <a href="../builtin.html#name-error">error</a></label><span id='Register-fold-content-docs' class="fold-docs">
+		Register publishes the receiver's methods in the DefaultServer.
+
+</span></div><div class="anchor value-res" id="name-RegisterName">	<input type='checkbox' class="fold" id="RegisterName-fold-content"><label for="RegisterName-fold-content"> func <a href="../../src/net/rpc/server.go.html#line-639">RegisterName</a>(name <a href="../builtin.html#name-string">string</a>, rcvr interface{}) <a href="../builtin.html#name-error">error</a></label><span id='RegisterName-fold-content-docs' class="fold-docs">
+		RegisterName is like Register but uses the provided name for the type
+		instead of the receiver's concrete type.
+
+</span></div><div class="anchor value-res" id="name-ServeCodec">	<input type='checkbox' class="fold" id="ServeCodec-fold-content"><label for="ServeCodec-fold-content"> func <a href="../../src/net/rpc/server.go.html#line-672">ServeCodec</a>(codec <a href="#name-ServerCodec">ServerCodec</a>)</label><span id='ServeCodec-fold-content-docs' class="fold-docs">
+		ServeCodec is like ServeConn but uses the specified codec to
+		decode requests and encode responses.
+
+</span></div><div class="anchor value-res" id="name-ServeConn">	<input type='checkbox' class="fold" id="ServeConn-fold-content"><label for="ServeConn-fold-content"> func <a href="../../src/net/rpc/server.go.html#line-666">ServeConn</a>(conn <a href="../io.html">io</a>.<a href="../io.html#name-ReadWriteCloser">ReadWriteCloser</a>)</label><span id='ServeConn-fold-content-docs' class="fold-docs">
+		ServeConn runs the DefaultServer on a single connection.
+		ServeConn blocks, serving the connection until the client hangs up.
+		The caller typically invokes ServeConn in a go statement.
+		ServeConn uses the gob wire format (see package gob) on the
+		connection. To use an alternate codec, use ServeCodec.
+		See NewClient's comment for information about concurrent access.
+
+</span></div><div class="anchor value-res" id="name-ServeRequest">	<input type='checkbox' class="fold" id="ServeRequest-fold-content"><label for="ServeRequest-fold-content"> func <a href="../../src/net/rpc/server.go.html#line-678">ServeRequest</a>(codec <a href="#name-ServerCodec">ServerCodec</a>) <a href="../builtin.html#name-error">error</a></label><span id='ServeRequest-fold-content-docs' class="fold-docs">
+		ServeRequest is like ServeCodec but synchronously serves a single request.
+		It does not close the codec upon completion.
+
+</span></div>	<input type='checkbox' class="showhide" id="unexported-functions-showhide"><i><label for="unexported-functions-showhide" class="show-inline">/* 2 unexporteds ... */</label><label for="unexported-functions-showhide" class="hide-inline">/* 2 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-isExportedOrBuiltinType"><i>	<input type='checkbox' class="fold" id="isExportedOrBuiltinType-fold-content"><label for="isExportedOrBuiltinType-fold-content"> func <a href="../../src/net/rpc/server.go.html#line-205">isExportedOrBuiltinType</a>(t <a href="../reflect.html">reflect</a>.<a href="../reflect.html#name-Type">Type</a>) <a href="../builtin.html#name-bool">bool</a></label><span id='isExportedOrBuiltinType-fold-content-docs' class="fold-docs">
+		Is this type exported or a builtin?
+
+</span></i></div><div class="anchor value-res hidden" id="name-suitableMethods"><i>	<input type='checkbox' class="fold" id="suitableMethods-fold-content"><label for="suitableMethods-fold-content"> func <a href="../../src/net/rpc/server.go.html#line-279">suitableMethods</a>(typ <a href="../reflect.html">reflect</a>.<a href="../reflect.html#name-Type">Type</a>, reportErr <a href="../builtin.html#name-bool">bool</a>) map[<a href="../builtin.html#name-string">string</a>]*<a href="#name-methodType">methodType</a></label><span id='suitableMethods-fold-content-docs' class="fold-docs">
+		suitableMethods returns suitable Rpc methods of typ, it will report
+		error using log if reportErr is true.
+
+</span></i></div></div>
+<div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (total 7, in which 2 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-DefaultServer">	<input type='checkbox' class="fold" id="DefaultServer-fold-content"><label for="DefaultServer-fold-content">  var <a href="../../src/net/rpc/server.go.html#line-202">DefaultServer</a> *<a href="#name-Server">Server</a></label><span id='DefaultServer-fold-content-docs' class="fold-docs">
+		DefaultServer is the default instance of *Server.
+
+</span></div><div class="anchor value-res" id="name-ErrShutdown">	<span class="nodocs">  var <a href="../../src/net/rpc/client.go.html#line-26">ErrShutdown</a> <a href="../builtin.html#name-error">error</a></span></div>	<input type='checkbox' class="showhide" id="unexported-variables-showhide"><i><label for="unexported-variables-showhide" class="show-inline">/* 5 unexporteds ... */</label><label for="unexported-variables-showhide" class="hide-inline">/* 5 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-connected"><i>	<input type='checkbox' class="fold" id="connected-fold-content"><label for="connected-fold-content">  var <a href="../../src/net/rpc/server.go.html#line-688">connected</a> <a href="../builtin.html#name-string">string</a></label><span id='connected-fold-content-docs' class="fold-docs">
+		Can connect to RPC service using HTTP CONNECT to rpcPath.
+
+</span></i></div><div class="anchor value-res hidden" id="name-debug"><i>	<span class="nodocs">  var <a href="../../src/net/rpc/debug.go.html#line-39">debug</a> *<a href="../html/template.html">template</a>.<a href="../html/template.html#name-Template">Template</a></span></i></div><div class="anchor value-res hidden" id="name-debugLog"><i>	<input type='checkbox' class="fold" id="debugLog-fold-content"><label for="debugLog-fold-content">  var <a href="../../src/net/rpc/debug.go.html#line-42">debugLog</a> <a href="../builtin.html#name-bool">bool</a></label><span id='debugLog-fold-content-docs' class="fold-docs">
+		If set, print log statements for internal and I/O errors.
+
+</span></i></div><div class="anchor value-res hidden" id="name-invalidRequest"><i>	<input type='checkbox' class="fold" id="invalidRequest-fold-content"><label for="invalidRequest-fold-content">  var <a href="../../src/net/rpc/server.go.html#line-341">invalidRequest</a> struct{}</label><span id='invalidRequest-fold-content-docs' class="fold-docs">
+		A value sent as a placeholder for the server's response value when the server
+		receives an invalid request. It is never decoded by the client since the Response
+		contains an error when it is used.
+
+</span></i></div><div class="anchor value-res hidden" id="name-typeOfError"><i>	<input type='checkbox' class="fold" id="typeOfError-fold-content"><label for="typeOfError-fold-content">  var <a href="../../src/net/rpc/server.go.html#line-151">typeOfError</a> <a href="../reflect.html">reflect</a>.<a href="../reflect.html#name-Type">Type</a></label><span id='typeOfError-fold-content-docs' class="fold-docs">
+		Precompute the reflect type for error. Can't use error directly
+		because Typeof takes an empty interface value. This is annoying.
+
+</span></i></div></div>
+<div id="exported-constants"><span class="title">Package-Level Constants<span class="title-stat"><i> (total 3, in which 2 are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-DefaultDebugPath">	<span class="nodocs">const <a href="../../src/net/rpc/server.go.html#line-146">DefaultDebugPath</a> = "/debug/rpc"</span></div><div class="anchor value-res" id="name-DefaultRPCPath">	<input type='checkbox' class="fold" id="DefaultRPCPath-fold-content"><label for="DefaultRPCPath-fold-content">const <a href="../../src/net/rpc/server.go.html#line-145">DefaultRPCPath</a> = "/_goRPC_"</label><span id='DefaultRPCPath-fold-content-docs' class="fold-docs">
+		Defaults used by HandleHTTP
+
+</span></div>	<input type='checkbox' class="showhide" id="unexported-constants-showhide"><i><label for="unexported-constants-showhide" class="show-inline">/* one unexported ... */</label><label for="unexported-constants-showhide" class="hide-inline">/* one unexported: */</label></i><div class="anchor value-res hidden" id="name-debugText"><i>	<span class="nodocs">const <a href="../../src/net/rpc/debug.go.html#line-19">debugText</a> = "<html>\n\t<body>\n\t<title>Services</title>\n\t{{range .}}\n\t<hr>\n...</span></i></div></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

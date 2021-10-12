@@ -430,8 +430,8 @@ input[id=i13]:checked ~pre .i13
 <span class="codeline" id="line-44"><code>}</code></span>
 <span class="codeline" id="line-45"><code></code></span>
 <span class="codeline" id="line-46"><code><span class="comment">//New 创建一个节点对象</span></code></span>
-<span class="codeline" id="line-47"><code><span class="comment">//@param meta *EntryPointMeta 为节点的元信息</span></code></span>
-<span class="codeline" id="line-48"><code><span class="comment">//@param config ...EntryPointConfig 为一个定义好的struct的对象的指针,根节点和中间节点可以不设置,叶子节点如果不设置则无法执行,最多设置一个</span></code></span>
+<span class="codeline" id="line-47"><code><span class="comment">//@Params meta *EntryPointMeta 为节点的元信息</span></code></span>
+<span class="codeline" id="line-48"><code><span class="comment">//@params config ...EntryPointConfig 为一个定义好的struct的对象的指针,根节点和中间节点可以不设置,叶子节点如果不设置则无法执行,最多设置一个</span></code></span>
 <span class="codeline" id="line-49"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../pkg/github.com/Golang-Tools^b0a0c/schema-entry-go.html#name-New" class="ident">New</a></label>(<label for="r1" class="ident">meta</label> *<a href="entrypointMeta.go^fde83.html#line-8" class="ident">EntryPointMeta</a>, <label for="r2" class="ident">config</label> ...<a href="#line-35" class="ident">EntryPointConfig</a>) (*<a href="#line-40" class="ident">EntryPoint</a>, <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
 <span class="codeline" id="line-50"><code>	<label for="r3" class="ident">ep</label> := <a href="../../../../pkg/builtin.html#name-new" class="ident">new</a>(<a href="#line-40" class="ident">EntryPoint</a>)</code></span>
 <span class="codeline" id="line-51"><code>	<label for="r4" class="ident">m</label> := <a href="entrypointMeta.go^fde83.html#line-8" class="ident">EntryPointMeta</a>{}</code></span>
@@ -493,7 +493,7 @@ input[id=i13]:checked ~pre .i13
 <span class="codeline" id="line-107"><code>}</code></span>
 <span class="codeline" id="line-108"><code></code></span>
 <span class="codeline" id="line-109"><code><span class="comment">//RegistSubNode 将一个节点注册为当前节点的子节点</span></code></span>
-<span class="codeline" id="line-110"><code><span class="comment">//@params child EntryPointNode 节点对象,注意必须传入的是指针</span></code></span>
+<span class="codeline" id="line-110"><code><span class="comment">//@Params child EntryPointNode 节点对象,注意必须传入的是指针</span></code></span>
 <span class="codeline" id="line-111"><code><span class="keyword">func</span> (<label for="r14" class="ident">ep</label> *<a href="#line-40" class="ident">EntryPoint</a>) <label for="r15" class="ident">RegistSubNode</label>(<label for="r16" class="ident">child</label> <a href="#line-24" class="ident">EntryPointNode</a>) {</code></span>
 <span class="codeline" id="line-112"><code>	<a href="utils.go.html#line-59" class="ident">RegistSubNode</a>(<label for="r14" class="ident">ep</label>, <label for="r16" class="ident">child</label>)</code></span>
 <span class="codeline" id="line-113"><code>}</code></span>
@@ -564,9 +564,9 @@ input[id=i13]:checked ~pre .i13
 <span class="codeline" id="line-178"><code>}</code></span>
 <span class="codeline" id="line-179"><code></code></span>
 <span class="codeline" id="line-180"><code><span class="comment">//loadConfigFile 加载文件到配置</span></code></span>
-<span class="codeline" id="line-181"><code><span class="comment">//@params filename 文件路径</span></code></span>
-<span class="codeline" id="line-182"><code><span class="comment">//@return bool 是否结束查找</span></code></span>
-<span class="codeline" id="line-183"><code><span class="comment">//@return error 错误信息</span></code></span>
+<span class="codeline" id="line-181"><code><span class="comment">//@Params filename 文件路径</span></code></span>
+<span class="codeline" id="line-182"><code><span class="comment">//@returns bool 是否结束查找</span></code></span>
+<span class="codeline" id="line-183"><code><span class="comment">//@returns error 错误信息</span></code></span>
 <span class="codeline" id="line-184"><code><span class="keyword">func</span> (<label for="r37" class="ident">ep</label> *<a href="#line-40" class="ident">EntryPoint</a>) <label for="r38" class="ident">loadConfigFile</label>(<label for="r39" class="ident">filename</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>) (<a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a>, <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
 <span class="codeline" id="line-185"><code>	<span class="keyword">if</span> <label for="r37" class="ident">ep</label>.<a href="#line-42" class="ident">config</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-186"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a>, <a href="../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"Config为空"</span>)</code></span>
@@ -657,11 +657,11 @@ input[id=i13]:checked ~pre .i13
 <span class="codeline" id="line-271"><code>}</code></span>
 <span class="codeline" id="line-272"><code></code></span>
 <span class="codeline" id="line-273"><code><span class="comment">//ConfigPtrFromArgparse 构造命令行参数解析,并获取flag的ptr</span></code></span>
-<span class="codeline" id="line-274"><code><span class="comment">//@params parser *argparse.Parser flag解析器</span></code></span>
-<span class="codeline" id="line-275"><code><span class="comment">//@params argv []string 待解析的命令行参数</span></code></span>
-<span class="codeline" id="line-276"><code><span class="comment">//@return *string 指定configfile位置字符串</span></code></span>
-<span class="codeline" id="line-277"><code><span class="comment">//@return map[string]interface{} flag的ptr位置</span></code></span>
-<span class="codeline" id="line-278"><code><span class="comment">//@return error 错误信息</span></code></span>
+<span class="codeline" id="line-274"><code><span class="comment">//@Params parser *argparse.Parser flag解析器</span></code></span>
+<span class="codeline" id="line-275"><code><span class="comment">//@Params argv []string 待解析的命令行参数</span></code></span>
+<span class="codeline" id="line-276"><code><span class="comment">//@Returns *string 指定configfile位置字符串</span></code></span>
+<span class="codeline" id="line-277"><code><span class="comment">//@Returns map[string]interface{} flag的ptr位置</span></code></span>
+<span class="codeline" id="line-278"><code><span class="comment">//@Returns error 错误信息</span></code></span>
 <span class="codeline" id="line-279"><code><span class="keyword">func</span> (<label for="r56" class="ident">ep</label> *<a href="#line-40" class="ident">EntryPoint</a>) <label for="r57" class="ident">ConfigPtrFromArgparse</label>(<label for="r58" class="ident">parser</label> *<a href="../../../../pkg/github.com/akamensky/argparse.html" class="ident i9">argparse</a>.<a href="../../akamensky/argparse/argparse.go.html#line-76" class="ident">Parser</a>, <label for="r59" class="ident">argv</label> []<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>) (*<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>, <span class="keyword">map</span>[<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>]<span class="keyword">interface</span>{}, <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
 <span class="codeline" id="line-280"><code>	<span class="keyword">if</span> <label for="r56" class="ident">ep</label>.<a href="#line-42" class="ident">config</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-281"><code>		<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a>, <a href="../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"Config为nil"</span>)</code></span>
@@ -788,8 +788,8 @@ input[id=i13]:checked ~pre .i13
 <span class="codeline" id="line-402"><code>}</code></span>
 <span class="codeline" id="line-403"><code></code></span>
 <span class="codeline" id="line-404"><code><span class="comment">//ParseStruct 解析结构体,构造命令行参数解析和环境变量解析,并设置到对象的Config值中</span></code></span>
-<span class="codeline" id="line-405"><code><span class="comment">//@params flagConfptr map[string]interface{} 命令行参数除了指定的配置文件位置外的参数-&gt;值的指针的映射</span></code></span>
-<span class="codeline" id="line-406"><code><span class="comment">//@return error 解析过程中的错误</span></code></span>
+<span class="codeline" id="line-405"><code><span class="comment">//@Params flagConfptr map[string]interface{} 命令行参数除了指定的配置文件位置外的参数-&gt;值的指针的映射</span></code></span>
+<span class="codeline" id="line-406"><code><span class="comment">//@Returns error 解析过程中的错误</span></code></span>
 <span class="codeline" id="line-407"><code><span class="keyword">func</span> (<label for="r75" class="ident">ep</label> *<a href="#line-40" class="ident">EntryPoint</a>) <label for="r76" class="ident">ParseStruct</label>(<label for="r77" class="ident">flagConfptr</label> <span class="keyword">map</span>[<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>]<span class="keyword">interface</span>{}) <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
 <span class="codeline" id="line-408"><code>	<span class="keyword">if</span> <label for="r75" class="ident">ep</label>.<a href="#line-42" class="ident">config</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-409"><code>		<span class="keyword">return</span> <a href="../../../../pkg/errors.html" class="ident i0">errors</a>.<a href="../../../errors/errors.go.html#line-58" class="ident">New</a>(<span class="lit-string">"Config为nil"</span>)</code></span>
@@ -1034,8 +1034,8 @@ input[id=i13]:checked ~pre .i13
 <span class="codeline" id="line-648"><code>}</code></span>
 <span class="codeline" id="line-649"><code></code></span>
 <span class="codeline" id="line-650"><code><span class="comment">//PassArgs 解析叶子节点</span></code></span>
-<span class="codeline" id="line-651"><code><span class="comment">//@params parser *argparse.Parser 命令行参数解析器对象</span></code></span>
-<span class="codeline" id="line-652"><code><span class="comment">//@params argv []string 待解析的命令行参数</span></code></span>
+<span class="codeline" id="line-651"><code><span class="comment">//@Params parser *argparse.Parser 命令行参数解析器对象</span></code></span>
+<span class="codeline" id="line-652"><code><span class="comment">//@Params argv []string 待解析的命令行参数</span></code></span>
 <span class="codeline" id="line-653"><code><span class="keyword">func</span> (<label for="r139" class="ident">ep</label> *<a href="#line-40" class="ident">EntryPoint</a>) <label for="r140" class="ident">PassArgs</label>(<label for="r141" class="ident">parser</label> *<a href="../../../../pkg/github.com/akamensky/argparse.html" class="ident i9">argparse</a>.<a href="../../akamensky/argparse/argparse.go.html#line-76" class="ident">Parser</a>, <label for="r142" class="ident">argv</label> []<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>) {</code></span>
 <span class="codeline" id="line-654"><code>	<span class="keyword">if</span> <label for="r139" class="ident">ep</label>.<a href="#line-42" class="ident">config</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
 <span class="codeline" id="line-655"><code>		<a href="../../../../pkg/github.com/Golang-Tools^b0a0c/loggerhelper.html" class="ident i8">log</a>.<a href="../loggerhelper/loggerhelper.go.html#line-241" class="ident">Error</a>(<span class="lit-string">"叶子节点必须有Config设置"</span>)</code></span>

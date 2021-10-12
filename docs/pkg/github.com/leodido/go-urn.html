@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Package: github.com/leodido/go-urn</title>
+<link href="../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="package-details"><code><span style="font-size:xx-large;">package <b>urn</b></span>
+
+<span class="title">Import Path</span>
+	<a href="../../../index.html#pkg-github.com/leodido/go-urn">github.com/leodido/go-urn</a><i> (on <a href="https://pkg.go.dev/github.com/leodido/go-urn" target="_blank">go.dev</a>)</i>
+
+<span class="title">Dependency Relation</span>
+	imports <a href="../../../dep/github.com/leodido/go-urn.html">2 packages</a>, and imported by <a href="../../../dep/github.com/leodido/go-urn.html#imported-by">one package</a>
+
+<div id="files"><span class="title">Involved Source Files</span>
+
+	<span class="nodocs">      <a href="../../../src/github.com/leodido/go-urn/machine.go.html">machine.go</a></span>
+	<span class="nodocs">      <a href="../../../src/github.com/leodido/go-urn/urn.go.html">urn.go</a></span></div>
+<div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 3, in which 2 are exported)</i></span></span>
+
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Machine" data-popularity="325">	<input type='checkbox' class="fold" id="Machine-fold-content"><label for="Machine-fold-content"> type <a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-23">Machine</a> <b><i>(interface)</i></b></label><span id='Machine-fold-content-docs' class="fold-docs">
+		Machine is the interface representing the FSM
+
+		<input type='checkbox' class="fold" id="Machine-fold-methods"><label for="Machine-fold-methods">Methods (<i>total 2, both are exported</i>)</label><span id='Machine-fold-methods-items' class="fold-items"><span>
+			<span class="nodocs">( T) <a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-24">Error</a>() <a href="../../builtin.html#name-error">error</a></span></span><span>
+			<span class="nodocs">( T) <a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-25">Parse</a>(input []<a href="../../builtin.html#name-byte">byte</a>) (*<a href="#name-URN">URN</a>, <a href="../../builtin.html#name-error">error</a>)</span></span></span>
+		<input type='checkbox' class="fold" id="Machine-fold-impledby"><label for="Machine-fold-impledby">Implemented By (<i>at least one unexported</i>)</label><span id='Machine-fold-impledby-items' class="fold-items">
+			<input type='checkbox' class="showhide" id="Machine-showhide-impedBys"><i><label for="Machine-showhide-impedBys" class="show-inline">/* at least one unexported ... */</label><label for="Machine-showhide-impedBys" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*<a href="#name-machine">machine</a></i></span></span>
+		<input type='checkbox' class="fold" id="Machine-fold-results"><label for="Machine-fold-results">As Outputs Of (<i>at least one exported</i>)</label><span id='Machine-fold-results-items' class="fold-items"><span>
+			func <a href="#name-NewMachine">NewMachine</a>() <b>Machine</b></span></span>
+
+</span></div><div class="anchor type-res" id="name-URN" data-popularity="610">	<input type='checkbox' class="fold" id="URN-fold-content"><label for="URN-fold-content"> type <a href="../../../src/github.com/leodido/go-urn/urn.go.html#line-14">URN</a> <i>(struct)</i></label><span id='URN-fold-content-docs' class="fold-docs">
+		URN represents an Uniform Resource Name.
+
+		The general form represented is:
+
+			urn:&lt;id&gt;:&lt;ss&gt;
+
+		Details at https://tools.ietf.org/html/rfc2141.
+
+		<input type='checkbox' class="fold" id="URN-fold-fields"><label for="URN-fold-fields">Fields (<i>total 4, in which 2 are exported</i>)</label><span id='URN-fold-fields-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="URN-fold-field-ID"><label for="URN-fold-field-ID"><a href="../../../src/github.com/leodido/go-urn/urn.go.html#line-16">ID</a> <i><a href="../../builtin.html#name-string">string</a></i></label><span id='URN-fold-field-ID-docs' class="fold-docs">
+				// Namespace identifier
+</span></span><span>
+			<input type='checkbox' class="fold" id="URN-fold-field-SS"><label for="URN-fold-field-SS"><a href="../../../src/github.com/leodido/go-urn/urn.go.html#line-17">SS</a> <i><a href="../../builtin.html#name-string">string</a></i></label><span id='URN-fold-field-SS-docs' class="fold-docs">
+				// Namespace specific string
+</span></span>
+			<input type='checkbox' class="showhide" id="URN-showhide-fields"><i><label for="URN-showhide-fields" class="show-inline">/* 2 unexporteds ... */</label><label for="URN-showhide-fields" class="hide-inline">/* 2 unexporteds: */</label></i><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="URN-fold-field-norm"><label for="URN-fold-field-norm"><a href="../../../src/github.com/leodido/go-urn/urn.go.html#line-18">norm</a> <i><a href="../../builtin.html#name-string">string</a></i></label><span id='URN-fold-field-norm-docs' class="fold-docs">
+				// Normalized namespace specific string
+</span></i></span><span class="hidden"><i>
+			<input type='checkbox' class="fold" id="URN-fold-field-prefix"><label for="URN-fold-field-prefix"><a href="../../../src/github.com/leodido/go-urn/urn.go.html#line-15">prefix</a> <i><a href="../../builtin.html#name-string">string</a></i></label><span id='URN-fold-field-prefix-docs' class="fold-docs">
+				// Static prefix. Equal to "urn" when empty.
+</span></i></span></span>
+		<input type='checkbox' class="fold" id="URN-fold-methods"><label for="URN-fold-methods">Methods (<i>total 3, all are exported</i>)</label><span id='URN-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="URN-fold-method-Equal"><label for="URN-fold-method-Equal">(*T) <a href="../../../src/github.com/leodido/go-urn/urn.go.html#line-33">Equal</a>(x *<b>URN</b>) <a href="../../builtin.html#name-bool">bool</a></label><span id='URN-fold-method-Equal-docs' class="fold-docs">
+				Equal checks the lexical equivalence of the current URN with another one.
+</span></span><span>
+			<input type='checkbox' class="fold" id="URN-fold-method-Normalize"><label for="URN-fold-method-Normalize">(*T) <a href="../../../src/github.com/leodido/go-urn/urn.go.html#line-24">Normalize</a>() *<b>URN</b></label><span id='URN-fold-method-Normalize-docs' class="fold-docs">
+				Normalize turns the receiving URN into its norm version.
+
+				Which means: lowercase prefix, lowercase namespace identifier, and immutate namespace specific string chars (except &lt;hex&gt; tokens which are lowercased).
+</span></span><span>
+			<input type='checkbox' class="fold" id="URN-fold-method-String"><label for="URN-fold-method-String">(*T) <a href="../../../src/github.com/leodido/go-urn/urn.go.html#line-43">String</a>() <a href="../../builtin.html#name-string">string</a></label><span id='URN-fold-method-String-docs' class="fold-docs">
+				String reassembles the URN into a valid URN string.
+
+				This requires both ID and SS fields to be non-empty.
+				Otherwise it returns an empty string.
+
+				Default URN prefix is "urn".
+</span></span></span>
+		<input type='checkbox' class="fold" id="URN-fold-impls"><label for="URN-fold-impls">Implements (<i>at least 4, in which 1 are exported</i>)</label><span id='URN-fold-impls-items' class="fold-items"><span>
+			*T : fmt.<a href="../../fmt.html#name-Stringer">Stringer</a></span>
+			<input type='checkbox' class="showhide" id="URN-showhide-impls"><i><label for="URN-showhide-impls" class="show-inline">/* 3+ unexporteds ... */</label><label for="URN-showhide-impls" class="hide-inline">/* 3+ unexporteds: */</label></i><span class="hidden"><i>
+			*T : context.<a href="../../context.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : os/signal.<a href="../../os/signal.html#name-stringer">stringer</a></i></span><span class="hidden"><i>
+			*T : runtime.<a href="../../runtime.html#name-stringer">stringer</a></i></span></span>
+		<input type='checkbox' class="fold" id="URN-fold-results"><label for="URN-fold-results">As Outputs Of (<i>at least 3, all are exported</i>)</label><span id='URN-fold-results-items' class="fold-items"><span>
+			func <a href="#name-Parse">Parse</a>(u []<a href="../../builtin.html#name-byte">byte</a>) (*<b>URN</b>, <a href="../../builtin.html#name-bool">bool</a>)</span><span>
+			func <a href="#name-Machine">Machine</a>.<a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-25">Parse</a>(input []<a href="../../builtin.html#name-byte">byte</a>) (*<b>URN</b>, <a href="../../builtin.html#name-error">error</a>)</span><span>
+			func (*URN).<a href="../../../src/github.com/leodido/go-urn/urn.go.html#line-24">Normalize</a>() *<b>URN</b></span></span>
+		<input type='checkbox' class="fold" id="URN-fold-params"><label for="URN-fold-params">As Inputs Of (<i>at least one exported</i>)</label><span id='URN-fold-params-items' class="fold-items"><span>
+			func (*URN).<a href="../../../src/github.com/leodido/go-urn/urn.go.html#line-33">Equal</a>(x *<b>URN</b>) <a href="../../builtin.html#name-bool">bool</a></span></span>
+
+</span></div></div><div>	<input type='checkbox' class="showhide" id="unexported-typenames-showhide"><i><label for="unexported-typenames-showhide" class="show-inline">/* one unexported ... */</label><label for="unexported-typenames-showhide" class="hide-inline">/* one unexported: */</label></i><div class="anchor type-res hidden" id="name-machine" data-popularity="200">	<input type='checkbox' class="fold" id="machine-fold-content"><label for="machine-fold-content"> type <a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-28">machine</a> <i>(struct)</i></label><span id='machine-fold-content-docs' class="fold-docs">
+
+		<input type='checkbox' class="fold" id="machine-fold-fields"><label for="machine-fold-fields">Fields (<i>total 8, none are exported</i>)</label><span id='machine-fold-fields-items' class="fold-items">
+			<input type='checkbox' checked class="showhide" id="machine-showhide-fields"><i><label for="machine-showhide-fields" class="show-inline">/* 8 unexporteds ... */</label><label for="machine-showhide-fields" class="hide-inline">/* 8 unexporteds: */</label></i><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-30">cs</a> <i><a href="../../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-29">data</a> <i>[]<a href="../../builtin.html#name-byte">byte</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-31">eof</a> <i><a href="../../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-32">err</a> <i><a href="../../builtin.html#name-error">error</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-31">p</a> <i><a href="../../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-31">pb</a> <i><a href="../../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-31">pe</a> <i><a href="../../builtin.html#name-int">int</a></i></span></i></span><span class="hidden"><i>
+			<span class="nodocs"><a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-33">tolower</a> <i>[]<a href="../../builtin.html#name-int">int</a></i></span></i></span></span>
+		<input type='checkbox' class="fold" id="machine-fold-methods"><label for="machine-fold-methods">Methods (<i>total 3, in which 2 are exported</i>)</label><span id='machine-fold-methods-items' class="fold-items"><span>
+			<input type='checkbox' class="fold" id="machine-fold-method-Error"><label for="machine-fold-method-Error">(*T) <a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-46">Error</a>() <a href="../../builtin.html#name-error">error</a></label><span id='machine-fold-method-Error-docs' class="fold-docs">
+				Err returns the error that occurred on the last call to Parse.
+
+				If the result is nil, then the line was parsed successfully.
+</span></span><span>
+			<input type='checkbox' class="fold" id="machine-fold-method-Parse"><label for="machine-fold-method-Parse">(*T) <a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-55">Parse</a>(input []<a href="../../builtin.html#name-byte">byte</a>) (*<a href="#name-URN">URN</a>, <a href="../../builtin.html#name-error">error</a>)</label><span id='machine-fold-method-Parse-docs' class="fold-docs">
+				Parse parses the input byte array as a RFC 2141 string.
+</span></span>
+			<input type='checkbox' checked class="showhide" id="machine-showhide-methods"><i><label for="machine-showhide-methods" class="show-inline">/* one unexported ... */</label><label for="machine-showhide-methods" class="hide-inline">/* one unexported: */</label></i><span class="hidden"><i>
+			<span class="nodocs">(*T) <a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-50">text</a>() []<a href="../../builtin.html#name-byte">byte</a></span></i></span></span>
+		<input type='checkbox' class="fold" id="machine-fold-impls"><label for="machine-fold-impls">Implements (<i>at least one exported</i>)</label><span id='machine-fold-impls-items' class="fold-items"><span>
+			*T : <a href="#name-Machine">Machine</a></span></span>
+
+</span></div></div>
+<div id="exported-functions"><span class="title">Package-Level Functions<span class="title-stat"><i> (total 2, both are exported)</i></span></span>
+
+<div class="anchor value-res" id="name-NewMachine">	<input type='checkbox' class="fold" id="NewMachine-fold-content"><label for="NewMachine-fold-content"> func <a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-37">NewMachine</a>() <a href="#name-Machine">Machine</a></label><span id='NewMachine-fold-content-docs' class="fold-docs">
+		NewMachine creates a new FSM able to parse RFC 2141 strings.
+
+</span></div><div class="anchor value-res" id="name-Parse">	<input type='checkbox' class="fold" id="Parse-fold-content"><label for="Parse-fold-content"> func <a href="../../../src/github.com/leodido/go-urn/urn.go.html#line-56">Parse</a>(u []<a href="../../builtin.html#name-byte">byte</a>) (*<a href="#name-URN">URN</a>, <a href="../../builtin.html#name-bool">bool</a>)</label><span id='Parse-fold-content-docs' class="fold-docs">
+		Parse is responsible to create an URN instance from a byte array matching the correct URN syntax.
+
+</span></div></div>
+<div id="exported-variables"><span class="title">Package-Level Variables<span class="title-stat"><i> (total 6, none are exported)</i></span></span>
+
+	<input type='checkbox' class="showhide" id="unexported-variables-showhide"><i><label for="unexported-variables-showhide" class="show-inline">/* 6 unexporteds ... */</label><label for="unexported-variables-showhide" class="hide-inline">/* 6 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-errHex"><i>	<span class="nodocs">  var <a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-12">errHex</a> <a href="../../builtin.html#name-string">string</a></span></i></div><div class="anchor value-res hidden" id="name-errIdentifier"><i>	<span class="nodocs">  var <a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-9">errIdentifier</a> <a href="../../builtin.html#name-string">string</a></span></i></div><div class="anchor value-res hidden" id="name-errNoUrnWithinID"><i>	<span class="nodocs">  var <a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-11">errNoUrnWithinID</a> <a href="../../builtin.html#name-string">string</a></span></i></div><div class="anchor value-res hidden" id="name-errParse"><i>	<span class="nodocs">  var <a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-13">errParse</a> <a href="../../builtin.html#name-string">string</a></span></i></div><div class="anchor value-res hidden" id="name-errPrefix"><i>	<span class="nodocs">  var <a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-8">errPrefix</a> <a href="../../builtin.html#name-string">string</a></span></i></div><div class="anchor value-res hidden" id="name-errSpecificString"><i>	<span class="nodocs">  var <a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-10">errSpecificString</a> <a href="../../builtin.html#name-string">string</a></span></i></div></div>
+<div id="exported-constants"><span class="title">Package-Level Constants<span class="title-stat"><i> (total 4, none are exported)</i></span></span>
+
+	<input type='checkbox' class="showhide" id="unexported-constants-showhide"><i><label for="unexported-constants-showhide" class="show-inline">/* 4 unexporteds ... */</label><label for="unexported-constants-showhide" class="hide-inline">/* 4 unexporteds: */</label></i><div class="anchor value-res hidden" id="name-enFail"><i>	<span class="nodocs">const <a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-19">enFail</a> <a href="../../builtin.html#name-int">int</a> = 46</span></i></div><div class="anchor value-res hidden" id="name-enMain"><i>	<span class="nodocs">const <a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-20">enMain</a> <a href="../../builtin.html#name-int">int</a> = 1</span></i></div><div class="anchor value-res hidden" id="name-firstFinal"><i>	<span class="nodocs">const <a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-17">firstFinal</a> <a href="../../builtin.html#name-int">int</a> = 44</span></i></div><div class="anchor value-res hidden" id="name-start"><i>	<span class="nodocs">const <a href="../../../src/github.com/leodido/go-urn/machine.go.html#line-16">start</a> <a href="../../builtin.html#name-int">int</a> = 1</span></i></div></div></code></pre><pre id="footer">
+<table><tr><td><img src="../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

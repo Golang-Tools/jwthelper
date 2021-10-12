@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: doc.go in package github.com/go-playground/validator/v10</title>
+<link href="../../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	doc.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../pkg/github.com/go-playground/validator/v10.html">github.com/go-playground/validator/v10</a>
+</code></pre>
+
+<pre class="line-numbers">
+<div class="anchor" id="doc"><span class="codeline" id="line-1"><code><span class="comment">/*</span></code></span>
+<span class="codeline" id="line-2"><code><span class="comment">Package validator implements value validations for structs and individual fields</span></code></span>
+<span class="codeline" id="line-3"><code><span class="comment">based on tags.</span></code></span>
+<span class="codeline" id="line-4"><code></code></span>
+<span class="codeline" id="line-5"><code><span class="comment">It can also handle Cross-Field and Cross-Struct validation for nested structs</span></code></span>
+<span class="codeline" id="line-6"><code><span class="comment">and has the ability to dive into arrays and maps of any type.</span></code></span>
+<span class="codeline" id="line-7"><code></code></span>
+<span class="codeline" id="line-8"><code><span class="comment">see more examples https://github.com/go-playground/validator/tree/master/_examples</span></code></span>
+<span class="codeline" id="line-9"><code></code></span>
+<span class="codeline" id="line-10"><code><span class="comment">Validation Functions Return Type error</span></code></span>
+<span class="codeline" id="line-11"><code></code></span>
+<span class="codeline" id="line-12"><code><span class="comment">Doing things this way is actually the way the standard library does, see the</span></code></span>
+<span class="codeline" id="line-13"><code><span class="comment">file.Open method here:</span></code></span>
+<span class="codeline" id="line-14"><code></code></span>
+<span class="codeline" id="line-15"><code><span class="comment">	https://golang.org/pkg/os/#Open.</span></code></span>
+<span class="codeline" id="line-16"><code></code></span>
+<span class="codeline" id="line-17"><code><span class="comment">The authors return type "error" to avoid the issue discussed in the following,</span></code></span>
+<span class="codeline" id="line-18"><code><span class="comment">where err is always != nil:</span></code></span>
+<span class="codeline" id="line-19"><code></code></span>
+<span class="codeline" id="line-20"><code><span class="comment">	http://stackoverflow.com/a/29138676/3158232</span></code></span>
+<span class="codeline" id="line-21"><code><span class="comment">	https://github.com/go-playground/validator/issues/134</span></code></span>
+<span class="codeline" id="line-22"><code></code></span>
+<span class="codeline" id="line-23"><code><span class="comment">Validator only InvalidValidationError for bad validation input, nil or</span></code></span>
+<span class="codeline" id="line-24"><code><span class="comment">ValidationErrors as type error; so, in your code all you need to do is check</span></code></span>
+<span class="codeline" id="line-25"><code><span class="comment">if the error returned is not nil, and if it's not check if error is</span></code></span>
+<span class="codeline" id="line-26"><code><span class="comment">InvalidValidationError ( if necessary, most of the time it isn't ) type cast</span></code></span>
+<span class="codeline" id="line-27"><code><span class="comment">it to type ValidationErrors like so err.(validator.ValidationErrors).</span></code></span>
+<span class="codeline" id="line-28"><code></code></span>
+<span class="codeline" id="line-29"><code><span class="comment">Custom Validation Functions</span></code></span>
+<span class="codeline" id="line-30"><code></code></span>
+<span class="codeline" id="line-31"><code><span class="comment">Custom Validation functions can be added. Example:</span></code></span>
+<span class="codeline" id="line-32"><code></code></span>
+<span class="codeline" id="line-33"><code><span class="comment">	// Structure</span></code></span>
+<span class="codeline" id="line-34"><code><span class="comment">	func customFunc(fl validator.FieldLevel) bool {</span></code></span>
+<span class="codeline" id="line-35"><code></code></span>
+<span class="codeline" id="line-36"><code><span class="comment">		if fl.Field().String() == "invalid" {</span></code></span>
+<span class="codeline" id="line-37"><code><span class="comment">			return false</span></code></span>
+<span class="codeline" id="line-38"><code><span class="comment">		}</span></code></span>
+<span class="codeline" id="line-39"><code></code></span>
+<span class="codeline" id="line-40"><code><span class="comment">		return true</span></code></span>
+<span class="codeline" id="line-41"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-42"><code></code></span>
+<span class="codeline" id="line-43"><code><span class="comment">	validate.RegisterValidation("custom tag name", customFunc)</span></code></span>
+<span class="codeline" id="line-44"><code><span class="comment">	// NOTES: using the same tag name as an existing function</span></code></span>
+<span class="codeline" id="line-45"><code><span class="comment">	//        will overwrite the existing one</span></code></span>
+<span class="codeline" id="line-46"><code></code></span>
+<span class="codeline" id="line-47"><code><span class="comment">Cross-Field Validation</span></code></span>
+<span class="codeline" id="line-48"><code></code></span>
+<span class="codeline" id="line-49"><code><span class="comment">Cross-Field Validation can be done via the following tags:</span></code></span>
+<span class="codeline" id="line-50"><code><span class="comment">	- eqfield</span></code></span>
+<span class="codeline" id="line-51"><code><span class="comment">	- nefield</span></code></span>
+<span class="codeline" id="line-52"><code><span class="comment">	- gtfield</span></code></span>
+<span class="codeline" id="line-53"><code><span class="comment">	- gtefield</span></code></span>
+<span class="codeline" id="line-54"><code><span class="comment">	- ltfield</span></code></span>
+<span class="codeline" id="line-55"><code><span class="comment">	- ltefield</span></code></span>
+<span class="codeline" id="line-56"><code><span class="comment">	- eqcsfield</span></code></span>
+<span class="codeline" id="line-57"><code><span class="comment">	- necsfield</span></code></span>
+<span class="codeline" id="line-58"><code><span class="comment">	- gtcsfield</span></code></span>
+<span class="codeline" id="line-59"><code><span class="comment">	- gtecsfield</span></code></span>
+<span class="codeline" id="line-60"><code><span class="comment">	- ltcsfield</span></code></span>
+<span class="codeline" id="line-61"><code><span class="comment">	- ltecsfield</span></code></span>
+<span class="codeline" id="line-62"><code></code></span>
+<span class="codeline" id="line-63"><code><span class="comment">If, however, some custom cross-field validation is required, it can be done</span></code></span>
+<span class="codeline" id="line-64"><code><span class="comment">using a custom validation.</span></code></span>
+<span class="codeline" id="line-65"><code></code></span>
+<span class="codeline" id="line-66"><code><span class="comment">Why not just have cross-fields validation tags (i.e. only eqcsfield and not</span></code></span>
+<span class="codeline" id="line-67"><code><span class="comment">eqfield)?</span></code></span>
+<span class="codeline" id="line-68"><code></code></span>
+<span class="codeline" id="line-69"><code><span class="comment">The reason is efficiency. If you want to check a field within the same struct</span></code></span>
+<span class="codeline" id="line-70"><code><span class="comment">"eqfield" only has to find the field on the same struct (1 level). But, if we</span></code></span>
+<span class="codeline" id="line-71"><code><span class="comment">used "eqcsfield" it could be multiple levels down. Example:</span></code></span>
+<span class="codeline" id="line-72"><code></code></span>
+<span class="codeline" id="line-73"><code><span class="comment">	type Inner struct {</span></code></span>
+<span class="codeline" id="line-74"><code><span class="comment">		StartDate time.Time</span></code></span>
+<span class="codeline" id="line-75"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-76"><code></code></span>
+<span class="codeline" id="line-77"><code><span class="comment">	type Outer struct {</span></code></span>
+<span class="codeline" id="line-78"><code><span class="comment">		InnerStructField *Inner</span></code></span>
+<span class="codeline" id="line-79"><code><span class="comment">		CreatedAt time.Time      `validate:"ltecsfield=InnerStructField.StartDate"`</span></code></span>
+<span class="codeline" id="line-80"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-81"><code></code></span>
+<span class="codeline" id="line-82"><code><span class="comment">	now := time.Now()</span></code></span>
+<span class="codeline" id="line-83"><code></code></span>
+<span class="codeline" id="line-84"><code><span class="comment">	inner := &amp;Inner{</span></code></span>
+<span class="codeline" id="line-85"><code><span class="comment">		StartDate: now,</span></code></span>
+<span class="codeline" id="line-86"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-87"><code></code></span>
+<span class="codeline" id="line-88"><code><span class="comment">	outer := &amp;Outer{</span></code></span>
+<span class="codeline" id="line-89"><code><span class="comment">		InnerStructField: inner,</span></code></span>
+<span class="codeline" id="line-90"><code><span class="comment">		CreatedAt: now,</span></code></span>
+<span class="codeline" id="line-91"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-92"><code></code></span>
+<span class="codeline" id="line-93"><code><span class="comment">	errs := validate.Struct(outer)</span></code></span>
+<span class="codeline" id="line-94"><code></code></span>
+<span class="codeline" id="line-95"><code><span class="comment">	// NOTE: when calling validate.Struct(val) topStruct will be the top level struct passed</span></code></span>
+<span class="codeline" id="line-96"><code><span class="comment">	//       into the function</span></code></span>
+<span class="codeline" id="line-97"><code><span class="comment">	//       when calling validate.VarWithValue(val, field, tag) val will be</span></code></span>
+<span class="codeline" id="line-98"><code><span class="comment">	//       whatever you pass, struct, field...</span></code></span>
+<span class="codeline" id="line-99"><code><span class="comment">	//       when calling validate.Field(field, tag) val will be nil</span></code></span>
+<span class="codeline" id="line-100"><code></code></span>
+<span class="codeline" id="line-101"><code><span class="comment">Multiple Validators</span></code></span>
+<span class="codeline" id="line-102"><code></code></span>
+<span class="codeline" id="line-103"><code><span class="comment">Multiple validators on a field will process in the order defined. Example:</span></code></span>
+<span class="codeline" id="line-104"><code></code></span>
+<span class="codeline" id="line-105"><code><span class="comment">	type Test struct {</span></code></span>
+<span class="codeline" id="line-106"><code><span class="comment">		Field `validate:"max=10,min=1"`</span></code></span>
+<span class="codeline" id="line-107"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-108"><code></code></span>
+<span class="codeline" id="line-109"><code><span class="comment">	// max will be checked then min</span></code></span>
+<span class="codeline" id="line-110"><code></code></span>
+<span class="codeline" id="line-111"><code><span class="comment">Bad Validator definitions are not handled by the library. Example:</span></code></span>
+<span class="codeline" id="line-112"><code></code></span>
+<span class="codeline" id="line-113"><code><span class="comment">	type Test struct {</span></code></span>
+<span class="codeline" id="line-114"><code><span class="comment">		Field `validate:"min=10,max=0"`</span></code></span>
+<span class="codeline" id="line-115"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-116"><code></code></span>
+<span class="codeline" id="line-117"><code><span class="comment">	// this definition of min max will never succeed</span></code></span>
+<span class="codeline" id="line-118"><code></code></span>
+<span class="codeline" id="line-119"><code><span class="comment">Using Validator Tags</span></code></span>
+<span class="codeline" id="line-120"><code></code></span>
+<span class="codeline" id="line-121"><code><span class="comment">Baked In Cross-Field validation only compares fields on the same struct.</span></code></span>
+<span class="codeline" id="line-122"><code><span class="comment">If Cross-Field + Cross-Struct validation is needed you should implement your</span></code></span>
+<span class="codeline" id="line-123"><code><span class="comment">own custom validator.</span></code></span>
+<span class="codeline" id="line-124"><code></code></span>
+<span class="codeline" id="line-125"><code><span class="comment">Comma (",") is the default separator of validation tags. If you wish to</span></code></span>
+<span class="codeline" id="line-126"><code><span class="comment">have a comma included within the parameter (i.e. excludesall=,) you will need to</span></code></span>
+<span class="codeline" id="line-127"><code><span class="comment">use the UTF-8 hex representation 0x2C, which is replaced in the code as a comma,</span></code></span>
+<span class="codeline" id="line-128"><code><span class="comment">so the above will become excludesall=0x2C.</span></code></span>
+<span class="codeline" id="line-129"><code></code></span>
+<span class="codeline" id="line-130"><code><span class="comment">	type Test struct {</span></code></span>
+<span class="codeline" id="line-131"><code><span class="comment">		Field `validate:"excludesall=,"`    // BAD! Do not include a comma.</span></code></span>
+<span class="codeline" id="line-132"><code><span class="comment">		Field `validate:"excludesall=0x2C"` // GOOD! Use the UTF-8 hex representation.</span></code></span>
+<span class="codeline" id="line-133"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-134"><code></code></span>
+<span class="codeline" id="line-135"><code><span class="comment">Pipe ("|") is the 'or' validation tags deparator. If you wish to</span></code></span>
+<span class="codeline" id="line-136"><code><span class="comment">have a pipe included within the parameter i.e. excludesall=| you will need to</span></code></span>
+<span class="codeline" id="line-137"><code><span class="comment">use the UTF-8 hex representation 0x7C, which is replaced in the code as a pipe,</span></code></span>
+<span class="codeline" id="line-138"><code><span class="comment">so the above will become excludesall=0x7C</span></code></span>
+<span class="codeline" id="line-139"><code></code></span>
+<span class="codeline" id="line-140"><code><span class="comment">	type Test struct {</span></code></span>
+<span class="codeline" id="line-141"><code><span class="comment">		Field `validate:"excludesall=|"`    // BAD! Do not include a a pipe!</span></code></span>
+<span class="codeline" id="line-142"><code><span class="comment">		Field `validate:"excludesall=0x7C"` // GOOD! Use the UTF-8 hex representation.</span></code></span>
+<span class="codeline" id="line-143"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-144"><code></code></span>
+<span class="codeline" id="line-145"><code></code></span>
+<span class="codeline" id="line-146"><code><span class="comment">Baked In Validators and Tags</span></code></span>
+<span class="codeline" id="line-147"><code></code></span>
+<span class="codeline" id="line-148"><code><span class="comment">Here is a list of the current built in validators:</span></code></span>
+<span class="codeline" id="line-149"><code></code></span>
+<span class="codeline" id="line-150"><code></code></span>
+<span class="codeline" id="line-151"><code><span class="comment">Skip Field</span></code></span>
+<span class="codeline" id="line-152"><code></code></span>
+<span class="codeline" id="line-153"><code><span class="comment">Tells the validation to skip this struct field; this is particularly</span></code></span>
+<span class="codeline" id="line-154"><code><span class="comment">handy in ignoring embedded structs from being validated. (Usage: -)</span></code></span>
+<span class="codeline" id="line-155"><code><span class="comment">	Usage: -</span></code></span>
+<span class="codeline" id="line-156"><code></code></span>
+<span class="codeline" id="line-157"><code></code></span>
+<span class="codeline" id="line-158"><code><span class="comment">Or Operator</span></code></span>
+<span class="codeline" id="line-159"><code></code></span>
+<span class="codeline" id="line-160"><code><span class="comment">This is the 'or' operator allowing multiple validators to be used and</span></code></span>
+<span class="codeline" id="line-161"><code><span class="comment">accepted. (Usage: rgb|rgba) &lt;-- this would allow either rgb or rgba</span></code></span>
+<span class="codeline" id="line-162"><code><span class="comment">colors to be accepted. This can also be combined with 'and' for example</span></code></span>
+<span class="codeline" id="line-163"><code><span class="comment">( Usage: omitempty,rgb|rgba)</span></code></span>
+<span class="codeline" id="line-164"><code></code></span>
+<span class="codeline" id="line-165"><code><span class="comment">	Usage: |</span></code></span>
+<span class="codeline" id="line-166"><code></code></span>
+<span class="codeline" id="line-167"><code><span class="comment">StructOnly</span></code></span>
+<span class="codeline" id="line-168"><code></code></span>
+<span class="codeline" id="line-169"><code><span class="comment">When a field that is a nested struct is encountered, and contains this flag</span></code></span>
+<span class="codeline" id="line-170"><code><span class="comment">any validation on the nested struct will be run, but none of the nested</span></code></span>
+<span class="codeline" id="line-171"><code><span class="comment">struct fields will be validated. This is useful if inside of your program</span></code></span>
+<span class="codeline" id="line-172"><code><span class="comment">you know the struct will be valid, but need to verify it has been assigned.</span></code></span>
+<span class="codeline" id="line-173"><code><span class="comment">NOTE: only "required" and "omitempty" can be used on a struct itself.</span></code></span>
+<span class="codeline" id="line-174"><code></code></span>
+<span class="codeline" id="line-175"><code><span class="comment">	Usage: structonly</span></code></span>
+<span class="codeline" id="line-176"><code></code></span>
+<span class="codeline" id="line-177"><code><span class="comment">NoStructLevel</span></code></span>
+<span class="codeline" id="line-178"><code></code></span>
+<span class="codeline" id="line-179"><code><span class="comment">Same as structonly tag except that any struct level validations will not run.</span></code></span>
+<span class="codeline" id="line-180"><code></code></span>
+<span class="codeline" id="line-181"><code><span class="comment">	Usage: nostructlevel</span></code></span>
+<span class="codeline" id="line-182"><code></code></span>
+<span class="codeline" id="line-183"><code><span class="comment">Omit Empty</span></code></span>
+<span class="codeline" id="line-184"><code></code></span>
+<span class="codeline" id="line-185"><code><span class="comment">Allows conditional validation, for example if a field is not set with</span></code></span>
+<span class="codeline" id="line-186"><code><span class="comment">a value (Determined by the "required" validator) then other validation</span></code></span>
+<span class="codeline" id="line-187"><code><span class="comment">such as min or max won't run, but if a value is set validation will run.</span></code></span>
+<span class="codeline" id="line-188"><code></code></span>
+<span class="codeline" id="line-189"><code><span class="comment">	Usage: omitempty</span></code></span>
+<span class="codeline" id="line-190"><code></code></span>
+<span class="codeline" id="line-191"><code><span class="comment">Dive</span></code></span>
+<span class="codeline" id="line-192"><code></code></span>
+<span class="codeline" id="line-193"><code><span class="comment">This tells the validator to dive into a slice, array or map and validate that</span></code></span>
+<span class="codeline" id="line-194"><code><span class="comment">level of the slice, array or map with the validation tags that follow.</span></code></span>
+<span class="codeline" id="line-195"><code><span class="comment">Multidimensional nesting is also supported, each level you wish to dive will</span></code></span>
+<span class="codeline" id="line-196"><code><span class="comment">require another dive tag. dive has some sub-tags, 'keys' &amp; 'endkeys', please see</span></code></span>
+<span class="codeline" id="line-197"><code><span class="comment">the Keys &amp; EndKeys section just below.</span></code></span>
+<span class="codeline" id="line-198"><code></code></span>
+<span class="codeline" id="line-199"><code><span class="comment">	Usage: dive</span></code></span>
+<span class="codeline" id="line-200"><code></code></span>
+<span class="codeline" id="line-201"><code><span class="comment">Example #1</span></code></span>
+<span class="codeline" id="line-202"><code></code></span>
+<span class="codeline" id="line-203"><code><span class="comment">	[][]string with validation tag "gt=0,dive,len=1,dive,required"</span></code></span>
+<span class="codeline" id="line-204"><code><span class="comment">	// gt=0 will be applied to []</span></code></span>
+<span class="codeline" id="line-205"><code><span class="comment">	// len=1 will be applied to []string</span></code></span>
+<span class="codeline" id="line-206"><code><span class="comment">	// required will be applied to string</span></code></span>
+<span class="codeline" id="line-207"><code></code></span>
+<span class="codeline" id="line-208"><code><span class="comment">Example #2</span></code></span>
+<span class="codeline" id="line-209"><code></code></span>
+<span class="codeline" id="line-210"><code><span class="comment">	[][]string with validation tag "gt=0,dive,dive,required"</span></code></span>
+<span class="codeline" id="line-211"><code><span class="comment">	// gt=0 will be applied to []</span></code></span>
+<span class="codeline" id="line-212"><code><span class="comment">	// []string will be spared validation</span></code></span>
+<span class="codeline" id="line-213"><code><span class="comment">	// required will be applied to string</span></code></span>
+<span class="codeline" id="line-214"><code></code></span>
+<span class="codeline" id="line-215"><code><span class="comment">Keys &amp; EndKeys</span></code></span>
+<span class="codeline" id="line-216"><code></code></span>
+<span class="codeline" id="line-217"><code><span class="comment">These are to be used together directly after the dive tag and tells the validator</span></code></span>
+<span class="codeline" id="line-218"><code><span class="comment">that anything between 'keys' and 'endkeys' applies to the keys of a map and not the</span></code></span>
+<span class="codeline" id="line-219"><code><span class="comment">values; think of it like the 'dive' tag, but for map keys instead of values.</span></code></span>
+<span class="codeline" id="line-220"><code><span class="comment">Multidimensional nesting is also supported, each level you wish to validate will</span></code></span>
+<span class="codeline" id="line-221"><code><span class="comment">require another 'keys' and 'endkeys' tag. These tags are only valid for maps.</span></code></span>
+<span class="codeline" id="line-222"><code></code></span>
+<span class="codeline" id="line-223"><code><span class="comment">	Usage: dive,keys,othertagvalidation(s),endkeys,valuevalidationtags</span></code></span>
+<span class="codeline" id="line-224"><code></code></span>
+<span class="codeline" id="line-225"><code><span class="comment">Example #1</span></code></span>
+<span class="codeline" id="line-226"><code></code></span>
+<span class="codeline" id="line-227"><code><span class="comment">	map[string]string with validation tag "gt=0,dive,keys,eg=1|eq=2,endkeys,required"</span></code></span>
+<span class="codeline" id="line-228"><code><span class="comment">	// gt=0 will be applied to the map itself</span></code></span>
+<span class="codeline" id="line-229"><code><span class="comment">	// eg=1|eq=2 will be applied to the map keys</span></code></span>
+<span class="codeline" id="line-230"><code><span class="comment">	// required will be applied to map values</span></code></span>
+<span class="codeline" id="line-231"><code></code></span>
+<span class="codeline" id="line-232"><code><span class="comment">Example #2</span></code></span>
+<span class="codeline" id="line-233"><code></code></span>
+<span class="codeline" id="line-234"><code><span class="comment">	map[[2]string]string with validation tag "gt=0,dive,keys,dive,eq=1|eq=2,endkeys,required"</span></code></span>
+<span class="codeline" id="line-235"><code><span class="comment">	// gt=0 will be applied to the map itself</span></code></span>
+<span class="codeline" id="line-236"><code><span class="comment">	// eg=1|eq=2 will be applied to each array element in the the map keys</span></code></span>
+<span class="codeline" id="line-237"><code><span class="comment">	// required will be applied to map values</span></code></span>
+<span class="codeline" id="line-238"><code></code></span>
+<span class="codeline" id="line-239"><code><span class="comment">Required</span></code></span>
+<span class="codeline" id="line-240"><code></code></span>
+<span class="codeline" id="line-241"><code><span class="comment">This validates that the value is not the data types default zero value.</span></code></span>
+<span class="codeline" id="line-242"><code><span class="comment">For numbers ensures value is not zero. For strings ensures value is</span></code></span>
+<span class="codeline" id="line-243"><code><span class="comment">not "". For slices, maps, pointers, interfaces, channels and functions</span></code></span>
+<span class="codeline" id="line-244"><code><span class="comment">ensures the value is not nil.</span></code></span>
+<span class="codeline" id="line-245"><code></code></span>
+<span class="codeline" id="line-246"><code><span class="comment">	Usage: required</span></code></span>
+<span class="codeline" id="line-247"><code></code></span>
+<span class="codeline" id="line-248"><code><span class="comment">Required If</span></code></span>
+<span class="codeline" id="line-249"><code></code></span>
+<span class="codeline" id="line-250"><code><span class="comment">The field under validation must be present and not empty only if all</span></code></span>
+<span class="codeline" id="line-251"><code><span class="comment">the other specified fields are equal to the value following the specified</span></code></span>
+<span class="codeline" id="line-252"><code><span class="comment">field. For strings ensures value is not "". For slices, maps, pointers,</span></code></span>
+<span class="codeline" id="line-253"><code><span class="comment">interfaces, channels and functions ensures the value is not nil.</span></code></span>
+<span class="codeline" id="line-254"><code></code></span>
+<span class="codeline" id="line-255"><code><span class="comment">	Usage: required_if</span></code></span>
+<span class="codeline" id="line-256"><code></code></span>
+<span class="codeline" id="line-257"><code><span class="comment">Examples:</span></code></span>
+<span class="codeline" id="line-258"><code></code></span>
+<span class="codeline" id="line-259"><code><span class="comment">	// require the field if the Field1 is equal to the parameter given:</span></code></span>
+<span class="codeline" id="line-260"><code><span class="comment">	Usage: required_if=Field1 foobar</span></code></span>
+<span class="codeline" id="line-261"><code></code></span>
+<span class="codeline" id="line-262"><code><span class="comment">	// require the field if the Field1 and Field2 is equal to the value respectively:</span></code></span>
+<span class="codeline" id="line-263"><code><span class="comment">	Usage: required_if=Field1 foo Field2 bar</span></code></span>
+<span class="codeline" id="line-264"><code></code></span>
+<span class="codeline" id="line-265"><code><span class="comment">Required Unless</span></code></span>
+<span class="codeline" id="line-266"><code></code></span>
+<span class="codeline" id="line-267"><code><span class="comment">The field under validation must be present and not empty unless all</span></code></span>
+<span class="codeline" id="line-268"><code><span class="comment">the other specified fields are equal to the value following the specified</span></code></span>
+<span class="codeline" id="line-269"><code><span class="comment">field. For strings ensures value is not "". For slices, maps, pointers,</span></code></span>
+<span class="codeline" id="line-270"><code><span class="comment">interfaces, channels and functions ensures the value is not nil.</span></code></span>
+<span class="codeline" id="line-271"><code></code></span>
+<span class="codeline" id="line-272"><code><span class="comment">	Usage: required_unless</span></code></span>
+<span class="codeline" id="line-273"><code></code></span>
+<span class="codeline" id="line-274"><code><span class="comment">Examples:</span></code></span>
+<span class="codeline" id="line-275"><code></code></span>
+<span class="codeline" id="line-276"><code><span class="comment">	// require the field unless the Field1 is equal to the parameter given:</span></code></span>
+<span class="codeline" id="line-277"><code><span class="comment">	Usage: required_unless=Field1 foobar</span></code></span>
+<span class="codeline" id="line-278"><code></code></span>
+<span class="codeline" id="line-279"><code><span class="comment">	// require the field unless the Field1 and Field2 is equal to the value respectively:</span></code></span>
+<span class="codeline" id="line-280"><code><span class="comment">	Usage: required_unless=Field1 foo Field2 bar</span></code></span>
+<span class="codeline" id="line-281"><code></code></span>
+<span class="codeline" id="line-282"><code><span class="comment">Required With</span></code></span>
+<span class="codeline" id="line-283"><code></code></span>
+<span class="codeline" id="line-284"><code><span class="comment">The field under validation must be present and not empty only if any</span></code></span>
+<span class="codeline" id="line-285"><code><span class="comment">of the other specified fields are present. For strings ensures value is</span></code></span>
+<span class="codeline" id="line-286"><code><span class="comment">not "". For slices, maps, pointers, interfaces, channels and functions</span></code></span>
+<span class="codeline" id="line-287"><code><span class="comment">ensures the value is not nil.</span></code></span>
+<span class="codeline" id="line-288"><code></code></span>
+<span class="codeline" id="line-289"><code><span class="comment">	Usage: required_with</span></code></span>
+<span class="codeline" id="line-290"><code></code></span>
+<span class="codeline" id="line-291"><code><span class="comment">Examples:</span></code></span>
+<span class="codeline" id="line-292"><code></code></span>
+<span class="codeline" id="line-293"><code><span class="comment">	// require the field if the Field1 is present:</span></code></span>
+<span class="codeline" id="line-294"><code><span class="comment">	Usage: required_with=Field1</span></code></span>
+<span class="codeline" id="line-295"><code></code></span>
+<span class="codeline" id="line-296"><code><span class="comment">	// require the field if the Field1 or Field2 is present:</span></code></span>
+<span class="codeline" id="line-297"><code><span class="comment">	Usage: required_with=Field1 Field2</span></code></span>
+<span class="codeline" id="line-298"><code></code></span>
+<span class="codeline" id="line-299"><code><span class="comment">Required With All</span></code></span>
+<span class="codeline" id="line-300"><code></code></span>
+<span class="codeline" id="line-301"><code><span class="comment">The field under validation must be present and not empty only if all</span></code></span>
+<span class="codeline" id="line-302"><code><span class="comment">of the other specified fields are present. For strings ensures value is</span></code></span>
+<span class="codeline" id="line-303"><code><span class="comment">not "". For slices, maps, pointers, interfaces, channels and functions</span></code></span>
+<span class="codeline" id="line-304"><code><span class="comment">ensures the value is not nil.</span></code></span>
+<span class="codeline" id="line-305"><code></code></span>
+<span class="codeline" id="line-306"><code><span class="comment">	Usage: required_with_all</span></code></span>
+<span class="codeline" id="line-307"><code></code></span>
+<span class="codeline" id="line-308"><code><span class="comment">Example:</span></code></span>
+<span class="codeline" id="line-309"><code></code></span>
+<span class="codeline" id="line-310"><code><span class="comment">	// require the field if the Field1 and Field2 is present:</span></code></span>
+<span class="codeline" id="line-311"><code><span class="comment">	Usage: required_with_all=Field1 Field2</span></code></span>
+<span class="codeline" id="line-312"><code></code></span>
+<span class="codeline" id="line-313"><code><span class="comment">Required Without</span></code></span>
+<span class="codeline" id="line-314"><code></code></span>
+<span class="codeline" id="line-315"><code><span class="comment">The field under validation must be present and not empty only when any</span></code></span>
+<span class="codeline" id="line-316"><code><span class="comment">of the other specified fields are not present. For strings ensures value is</span></code></span>
+<span class="codeline" id="line-317"><code><span class="comment">not "". For slices, maps, pointers, interfaces, channels and functions</span></code></span>
+<span class="codeline" id="line-318"><code><span class="comment">ensures the value is not nil.</span></code></span>
+<span class="codeline" id="line-319"><code></code></span>
+<span class="codeline" id="line-320"><code><span class="comment">	Usage: required_without</span></code></span>
+<span class="codeline" id="line-321"><code></code></span>
+<span class="codeline" id="line-322"><code><span class="comment">Examples:</span></code></span>
+<span class="codeline" id="line-323"><code></code></span>
+<span class="codeline" id="line-324"><code><span class="comment">	// require the field if the Field1 is not present:</span></code></span>
+<span class="codeline" id="line-325"><code><span class="comment">	Usage: required_without=Field1</span></code></span>
+<span class="codeline" id="line-326"><code></code></span>
+<span class="codeline" id="line-327"><code><span class="comment">	// require the field if the Field1 or Field2 is not present:</span></code></span>
+<span class="codeline" id="line-328"><code><span class="comment">	Usage: required_without=Field1 Field2</span></code></span>
+<span class="codeline" id="line-329"><code></code></span>
+<span class="codeline" id="line-330"><code><span class="comment">Required Without All</span></code></span>
+<span class="codeline" id="line-331"><code></code></span>
+<span class="codeline" id="line-332"><code><span class="comment">The field under validation must be present and not empty only when all</span></code></span>
+<span class="codeline" id="line-333"><code><span class="comment">of the other specified fields are not present. For strings ensures value is</span></code></span>
+<span class="codeline" id="line-334"><code><span class="comment">not "". For slices, maps, pointers, interfaces, channels and functions</span></code></span>
+<span class="codeline" id="line-335"><code><span class="comment">ensures the value is not nil.</span></code></span>
+<span class="codeline" id="line-336"><code></code></span>
+<span class="codeline" id="line-337"><code><span class="comment">	Usage: required_without_all</span></code></span>
+<span class="codeline" id="line-338"><code></code></span>
+<span class="codeline" id="line-339"><code><span class="comment">Example:</span></code></span>
+<span class="codeline" id="line-340"><code></code></span>
+<span class="codeline" id="line-341"><code><span class="comment">	// require the field if the Field1 and Field2 is not present:</span></code></span>
+<span class="codeline" id="line-342"><code><span class="comment">	Usage: required_without_all=Field1 Field2</span></code></span>
+<span class="codeline" id="line-343"><code></code></span>
+<span class="codeline" id="line-344"><code><span class="comment">Is Default</span></code></span>
+<span class="codeline" id="line-345"><code></code></span>
+<span class="codeline" id="line-346"><code><span class="comment">This validates that the value is the default value and is almost the</span></code></span>
+<span class="codeline" id="line-347"><code><span class="comment">opposite of required.</span></code></span>
+<span class="codeline" id="line-348"><code></code></span>
+<span class="codeline" id="line-349"><code><span class="comment">	Usage: isdefault</span></code></span>
+<span class="codeline" id="line-350"><code></code></span>
+<span class="codeline" id="line-351"><code><span class="comment">Length</span></code></span>
+<span class="codeline" id="line-352"><code></code></span>
+<span class="codeline" id="line-353"><code><span class="comment">For numbers, length will ensure that the value is</span></code></span>
+<span class="codeline" id="line-354"><code><span class="comment">equal to the parameter given. For strings, it checks that</span></code></span>
+<span class="codeline" id="line-355"><code><span class="comment">the string length is exactly that number of characters. For slices,</span></code></span>
+<span class="codeline" id="line-356"><code><span class="comment">arrays, and maps, validates the number of items.</span></code></span>
+<span class="codeline" id="line-357"><code></code></span>
+<span class="codeline" id="line-358"><code><span class="comment">Example #1</span></code></span>
+<span class="codeline" id="line-359"><code></code></span>
+<span class="codeline" id="line-360"><code><span class="comment">	Usage: len=10</span></code></span>
+<span class="codeline" id="line-361"><code></code></span>
+<span class="codeline" id="line-362"><code><span class="comment">Example #2 (time.Duration)</span></code></span>
+<span class="codeline" id="line-363"><code></code></span>
+<span class="codeline" id="line-364"><code><span class="comment">For time.Duration, len will ensure that the value is equal to the duration given</span></code></span>
+<span class="codeline" id="line-365"><code><span class="comment">in the parameter.</span></code></span>
+<span class="codeline" id="line-366"><code></code></span>
+<span class="codeline" id="line-367"><code><span class="comment">	Usage: len=1h30m</span></code></span>
+<span class="codeline" id="line-368"><code></code></span>
+<span class="codeline" id="line-369"><code><span class="comment">Maximum</span></code></span>
+<span class="codeline" id="line-370"><code></code></span>
+<span class="codeline" id="line-371"><code><span class="comment">For numbers, max will ensure that the value is</span></code></span>
+<span class="codeline" id="line-372"><code><span class="comment">less than or equal to the parameter given. For strings, it checks</span></code></span>
+<span class="codeline" id="line-373"><code><span class="comment">that the string length is at most that number of characters. For</span></code></span>
+<span class="codeline" id="line-374"><code><span class="comment">slices, arrays, and maps, validates the number of items.</span></code></span>
+<span class="codeline" id="line-375"><code></code></span>
+<span class="codeline" id="line-376"><code><span class="comment">Example #1</span></code></span>
+<span class="codeline" id="line-377"><code></code></span>
+<span class="codeline" id="line-378"><code><span class="comment">	Usage: max=10</span></code></span>
+<span class="codeline" id="line-379"><code></code></span>
+<span class="codeline" id="line-380"><code><span class="comment">Example #2 (time.Duration)</span></code></span>
+<span class="codeline" id="line-381"><code></code></span>
+<span class="codeline" id="line-382"><code><span class="comment">For time.Duration, max will ensure that the value is less than or equal to the</span></code></span>
+<span class="codeline" id="line-383"><code><span class="comment">duration given in the parameter.</span></code></span>
+<span class="codeline" id="line-384"><code></code></span>
+<span class="codeline" id="line-385"><code><span class="comment">	Usage: max=1h30m</span></code></span>
+<span class="codeline" id="line-386"><code></code></span>
+<span class="codeline" id="line-387"><code><span class="comment">Minimum</span></code></span>
+<span class="codeline" id="line-388"><code></code></span>
+<span class="codeline" id="line-389"><code><span class="comment">For numbers, min will ensure that the value is</span></code></span>
+<span class="codeline" id="line-390"><code><span class="comment">greater or equal to the parameter given. For strings, it checks that</span></code></span>
+<span class="codeline" id="line-391"><code><span class="comment">the string length is at least that number of characters. For slices,</span></code></span>
+<span class="codeline" id="line-392"><code><span class="comment">arrays, and maps, validates the number of items.</span></code></span>
+<span class="codeline" id="line-393"><code></code></span>
+<span class="codeline" id="line-394"><code><span class="comment">Example #1</span></code></span>
+<span class="codeline" id="line-395"><code></code></span>
+<span class="codeline" id="line-396"><code><span class="comment">	Usage: min=10</span></code></span>
+<span class="codeline" id="line-397"><code></code></span>
+<span class="codeline" id="line-398"><code><span class="comment">Example #2 (time.Duration)</span></code></span>
+<span class="codeline" id="line-399"><code></code></span>
+<span class="codeline" id="line-400"><code><span class="comment">For time.Duration, min will ensure that the value is greater than or equal to</span></code></span>
+<span class="codeline" id="line-401"><code><span class="comment">the duration given in the parameter.</span></code></span>
+<span class="codeline" id="line-402"><code></code></span>
+<span class="codeline" id="line-403"><code><span class="comment">	Usage: min=1h30m</span></code></span>
+<span class="codeline" id="line-404"><code></code></span>
+<span class="codeline" id="line-405"><code><span class="comment">Equals</span></code></span>
+<span class="codeline" id="line-406"><code></code></span>
+<span class="codeline" id="line-407"><code><span class="comment">For strings &amp; numbers, eq will ensure that the value is</span></code></span>
+<span class="codeline" id="line-408"><code><span class="comment">equal to the parameter given. For slices, arrays, and maps,</span></code></span>
+<span class="codeline" id="line-409"><code><span class="comment">validates the number of items.</span></code></span>
+<span class="codeline" id="line-410"><code></code></span>
+<span class="codeline" id="line-411"><code><span class="comment">Example #1</span></code></span>
+<span class="codeline" id="line-412"><code></code></span>
+<span class="codeline" id="line-413"><code><span class="comment">	Usage: eq=10</span></code></span>
+<span class="codeline" id="line-414"><code></code></span>
+<span class="codeline" id="line-415"><code><span class="comment">Example #2 (time.Duration)</span></code></span>
+<span class="codeline" id="line-416"><code></code></span>
+<span class="codeline" id="line-417"><code><span class="comment">For time.Duration, eq will ensure that the value is equal to the duration given</span></code></span>
+<span class="codeline" id="line-418"><code><span class="comment">in the parameter.</span></code></span>
+<span class="codeline" id="line-419"><code></code></span>
+<span class="codeline" id="line-420"><code><span class="comment">	Usage: eq=1h30m</span></code></span>
+<span class="codeline" id="line-421"><code></code></span>
+<span class="codeline" id="line-422"><code><span class="comment">Not Equal</span></code></span>
+<span class="codeline" id="line-423"><code></code></span>
+<span class="codeline" id="line-424"><code><span class="comment">For strings &amp; numbers, ne will ensure that the value is not</span></code></span>
+<span class="codeline" id="line-425"><code><span class="comment">equal to the parameter given. For slices, arrays, and maps,</span></code></span>
+<span class="codeline" id="line-426"><code><span class="comment">validates the number of items.</span></code></span>
+<span class="codeline" id="line-427"><code></code></span>
+<span class="codeline" id="line-428"><code><span class="comment">Example #1</span></code></span>
+<span class="codeline" id="line-429"><code></code></span>
+<span class="codeline" id="line-430"><code><span class="comment">	Usage: ne=10</span></code></span>
+<span class="codeline" id="line-431"><code></code></span>
+<span class="codeline" id="line-432"><code><span class="comment">Example #2 (time.Duration)</span></code></span>
+<span class="codeline" id="line-433"><code></code></span>
+<span class="codeline" id="line-434"><code><span class="comment">For time.Duration, ne will ensure that the value is not equal to the duration</span></code></span>
+<span class="codeline" id="line-435"><code><span class="comment">given in the parameter.</span></code></span>
+<span class="codeline" id="line-436"><code></code></span>
+<span class="codeline" id="line-437"><code><span class="comment">	Usage: ne=1h30m</span></code></span>
+<span class="codeline" id="line-438"><code></code></span>
+<span class="codeline" id="line-439"><code><span class="comment">One Of</span></code></span>
+<span class="codeline" id="line-440"><code></code></span>
+<span class="codeline" id="line-441"><code><span class="comment">For strings, ints, and uints, oneof will ensure that the value</span></code></span>
+<span class="codeline" id="line-442"><code><span class="comment">is one of the values in the parameter.  The parameter should be</span></code></span>
+<span class="codeline" id="line-443"><code><span class="comment">a list of values separated by whitespace. Values may be</span></code></span>
+<span class="codeline" id="line-444"><code><span class="comment">strings or numbers. To match strings with spaces in them, include</span></code></span>
+<span class="codeline" id="line-445"><code><span class="comment">the target string between single quotes.</span></code></span>
+<span class="codeline" id="line-446"><code></code></span>
+<span class="codeline" id="line-447"><code><span class="comment">    Usage: oneof=red green</span></code></span>
+<span class="codeline" id="line-448"><code><span class="comment">           oneof='red green' 'blue yellow'</span></code></span>
+<span class="codeline" id="line-449"><code><span class="comment">           oneof=5 7 9</span></code></span>
+<span class="codeline" id="line-450"><code></code></span>
+<span class="codeline" id="line-451"><code><span class="comment">Greater Than</span></code></span>
+<span class="codeline" id="line-452"><code></code></span>
+<span class="codeline" id="line-453"><code><span class="comment">For numbers, this will ensure that the value is greater than the</span></code></span>
+<span class="codeline" id="line-454"><code><span class="comment">parameter given. For strings, it checks that the string length</span></code></span>
+<span class="codeline" id="line-455"><code><span class="comment">is greater than that number of characters. For slices, arrays</span></code></span>
+<span class="codeline" id="line-456"><code><span class="comment">and maps it validates the number of items.</span></code></span>
+<span class="codeline" id="line-457"><code></code></span>
+<span class="codeline" id="line-458"><code><span class="comment">Example #1</span></code></span>
+<span class="codeline" id="line-459"><code></code></span>
+<span class="codeline" id="line-460"><code><span class="comment">	Usage: gt=10</span></code></span>
+<span class="codeline" id="line-461"><code></code></span>
+<span class="codeline" id="line-462"><code><span class="comment">Example #2 (time.Time)</span></code></span>
+<span class="codeline" id="line-463"><code></code></span>
+<span class="codeline" id="line-464"><code><span class="comment">For time.Time ensures the time value is greater than time.Now.UTC().</span></code></span>
+<span class="codeline" id="line-465"><code></code></span>
+<span class="codeline" id="line-466"><code><span class="comment">	Usage: gt</span></code></span>
+<span class="codeline" id="line-467"><code></code></span>
+<span class="codeline" id="line-468"><code><span class="comment">Example #3 (time.Duration)</span></code></span>
+<span class="codeline" id="line-469"><code></code></span>
+<span class="codeline" id="line-470"><code><span class="comment">For time.Duration, gt will ensure that the value is greater than the duration</span></code></span>
+<span class="codeline" id="line-471"><code><span class="comment">given in the parameter.</span></code></span>
+<span class="codeline" id="line-472"><code></code></span>
+<span class="codeline" id="line-473"><code><span class="comment">	Usage: gt=1h30m</span></code></span>
+<span class="codeline" id="line-474"><code></code></span>
+<span class="codeline" id="line-475"><code><span class="comment">Greater Than or Equal</span></code></span>
+<span class="codeline" id="line-476"><code></code></span>
+<span class="codeline" id="line-477"><code><span class="comment">Same as 'min' above. Kept both to make terminology with 'len' easier.</span></code></span>
+<span class="codeline" id="line-478"><code></code></span>
+<span class="codeline" id="line-479"><code><span class="comment">Example #1</span></code></span>
+<span class="codeline" id="line-480"><code></code></span>
+<span class="codeline" id="line-481"><code><span class="comment">	Usage: gte=10</span></code></span>
+<span class="codeline" id="line-482"><code></code></span>
+<span class="codeline" id="line-483"><code><span class="comment">Example #2 (time.Time)</span></code></span>
+<span class="codeline" id="line-484"><code></code></span>
+<span class="codeline" id="line-485"><code><span class="comment">For time.Time ensures the time value is greater than or equal to time.Now.UTC().</span></code></span>
+<span class="codeline" id="line-486"><code></code></span>
+<span class="codeline" id="line-487"><code><span class="comment">	Usage: gte</span></code></span>
+<span class="codeline" id="line-488"><code></code></span>
+<span class="codeline" id="line-489"><code><span class="comment">Example #3 (time.Duration)</span></code></span>
+<span class="codeline" id="line-490"><code></code></span>
+<span class="codeline" id="line-491"><code><span class="comment">For time.Duration, gte will ensure that the value is greater than or equal to</span></code></span>
+<span class="codeline" id="line-492"><code><span class="comment">the duration given in the parameter.</span></code></span>
+<span class="codeline" id="line-493"><code></code></span>
+<span class="codeline" id="line-494"><code><span class="comment">	Usage: gte=1h30m</span></code></span>
+<span class="codeline" id="line-495"><code></code></span>
+<span class="codeline" id="line-496"><code><span class="comment">Less Than</span></code></span>
+<span class="codeline" id="line-497"><code></code></span>
+<span class="codeline" id="line-498"><code><span class="comment">For numbers, this will ensure that the value is less than the parameter given.</span></code></span>
+<span class="codeline" id="line-499"><code><span class="comment">For strings, it checks that the string length is less than that number of</span></code></span>
+<span class="codeline" id="line-500"><code><span class="comment">characters. For slices, arrays, and maps it validates the number of items.</span></code></span>
+<span class="codeline" id="line-501"><code></code></span>
+<span class="codeline" id="line-502"><code><span class="comment">Example #1</span></code></span>
+<span class="codeline" id="line-503"><code></code></span>
+<span class="codeline" id="line-504"><code><span class="comment">	Usage: lt=10</span></code></span>
+<span class="codeline" id="line-505"><code></code></span>
+<span class="codeline" id="line-506"><code><span class="comment">Example #2 (time.Time)</span></code></span>
+<span class="codeline" id="line-507"><code></code></span>
+<span class="codeline" id="line-508"><code><span class="comment">For time.Time ensures the time value is less than time.Now.UTC().</span></code></span>
+<span class="codeline" id="line-509"><code></code></span>
+<span class="codeline" id="line-510"><code><span class="comment">	Usage: lt</span></code></span>
+<span class="codeline" id="line-511"><code></code></span>
+<span class="codeline" id="line-512"><code><span class="comment">Example #3 (time.Duration)</span></code></span>
+<span class="codeline" id="line-513"><code></code></span>
+<span class="codeline" id="line-514"><code><span class="comment">For time.Duration, lt will ensure that the value is less than the duration given</span></code></span>
+<span class="codeline" id="line-515"><code><span class="comment">in the parameter.</span></code></span>
+<span class="codeline" id="line-516"><code></code></span>
+<span class="codeline" id="line-517"><code><span class="comment">	Usage: lt=1h30m</span></code></span>
+<span class="codeline" id="line-518"><code></code></span>
+<span class="codeline" id="line-519"><code><span class="comment">Less Than or Equal</span></code></span>
+<span class="codeline" id="line-520"><code></code></span>
+<span class="codeline" id="line-521"><code><span class="comment">Same as 'max' above. Kept both to make terminology with 'len' easier.</span></code></span>
+<span class="codeline" id="line-522"><code></code></span>
+<span class="codeline" id="line-523"><code><span class="comment">Example #1</span></code></span>
+<span class="codeline" id="line-524"><code></code></span>
+<span class="codeline" id="line-525"><code><span class="comment">	Usage: lte=10</span></code></span>
+<span class="codeline" id="line-526"><code></code></span>
+<span class="codeline" id="line-527"><code><span class="comment">Example #2 (time.Time)</span></code></span>
+<span class="codeline" id="line-528"><code></code></span>
+<span class="codeline" id="line-529"><code><span class="comment">For time.Time ensures the time value is less than or equal to time.Now.UTC().</span></code></span>
+<span class="codeline" id="line-530"><code></code></span>
+<span class="codeline" id="line-531"><code><span class="comment">	Usage: lte</span></code></span>
+<span class="codeline" id="line-532"><code></code></span>
+<span class="codeline" id="line-533"><code><span class="comment">Example #3 (time.Duration)</span></code></span>
+<span class="codeline" id="line-534"><code></code></span>
+<span class="codeline" id="line-535"><code><span class="comment">For time.Duration, lte will ensure that the value is less than or equal to the</span></code></span>
+<span class="codeline" id="line-536"><code><span class="comment">duration given in the parameter.</span></code></span>
+<span class="codeline" id="line-537"><code></code></span>
+<span class="codeline" id="line-538"><code><span class="comment">	Usage: lte=1h30m</span></code></span>
+<span class="codeline" id="line-539"><code></code></span>
+<span class="codeline" id="line-540"><code><span class="comment">Field Equals Another Field</span></code></span>
+<span class="codeline" id="line-541"><code></code></span>
+<span class="codeline" id="line-542"><code><span class="comment">This will validate the field value against another fields value either within</span></code></span>
+<span class="codeline" id="line-543"><code><span class="comment">a struct or passed in field.</span></code></span>
+<span class="codeline" id="line-544"><code></code></span>
+<span class="codeline" id="line-545"><code><span class="comment">Example #1:</span></code></span>
+<span class="codeline" id="line-546"><code></code></span>
+<span class="codeline" id="line-547"><code><span class="comment">	// Validation on Password field using:</span></code></span>
+<span class="codeline" id="line-548"><code><span class="comment">	Usage: eqfield=ConfirmPassword</span></code></span>
+<span class="codeline" id="line-549"><code></code></span>
+<span class="codeline" id="line-550"><code><span class="comment">Example #2:</span></code></span>
+<span class="codeline" id="line-551"><code></code></span>
+<span class="codeline" id="line-552"><code><span class="comment">	// Validating by field:</span></code></span>
+<span class="codeline" id="line-553"><code><span class="comment">	validate.VarWithValue(password, confirmpassword, "eqfield")</span></code></span>
+<span class="codeline" id="line-554"><code></code></span>
+<span class="codeline" id="line-555"><code><span class="comment">Field Equals Another Field (relative)</span></code></span>
+<span class="codeline" id="line-556"><code></code></span>
+<span class="codeline" id="line-557"><code><span class="comment">This does the same as eqfield except that it validates the field provided relative</span></code></span>
+<span class="codeline" id="line-558"><code><span class="comment">to the top level struct.</span></code></span>
+<span class="codeline" id="line-559"><code></code></span>
+<span class="codeline" id="line-560"><code><span class="comment">	Usage: eqcsfield=InnerStructField.Field)</span></code></span>
+<span class="codeline" id="line-561"><code></code></span>
+<span class="codeline" id="line-562"><code><span class="comment">Field Does Not Equal Another Field</span></code></span>
+<span class="codeline" id="line-563"><code></code></span>
+<span class="codeline" id="line-564"><code><span class="comment">This will validate the field value against another fields value either within</span></code></span>
+<span class="codeline" id="line-565"><code><span class="comment">a struct or passed in field.</span></code></span>
+<span class="codeline" id="line-566"><code></code></span>
+<span class="codeline" id="line-567"><code><span class="comment">Examples:</span></code></span>
+<span class="codeline" id="line-568"><code></code></span>
+<span class="codeline" id="line-569"><code><span class="comment">	// Confirm two colors are not the same:</span></code></span>
+<span class="codeline" id="line-570"><code><span class="comment">	//</span></code></span>
+<span class="codeline" id="line-571"><code><span class="comment">	// Validation on Color field:</span></code></span>
+<span class="codeline" id="line-572"><code><span class="comment">	Usage: nefield=Color2</span></code></span>
+<span class="codeline" id="line-573"><code></code></span>
+<span class="codeline" id="line-574"><code><span class="comment">	// Validating by field:</span></code></span>
+<span class="codeline" id="line-575"><code><span class="comment">	validate.VarWithValue(color1, color2, "nefield")</span></code></span>
+<span class="codeline" id="line-576"><code></code></span>
+<span class="codeline" id="line-577"><code><span class="comment">Field Does Not Equal Another Field (relative)</span></code></span>
+<span class="codeline" id="line-578"><code></code></span>
+<span class="codeline" id="line-579"><code><span class="comment">This does the same as nefield except that it validates the field provided</span></code></span>
+<span class="codeline" id="line-580"><code><span class="comment">relative to the top level struct.</span></code></span>
+<span class="codeline" id="line-581"><code></code></span>
+<span class="codeline" id="line-582"><code><span class="comment">	Usage: necsfield=InnerStructField.Field</span></code></span>
+<span class="codeline" id="line-583"><code></code></span>
+<span class="codeline" id="line-584"><code><span class="comment">Field Greater Than Another Field</span></code></span>
+<span class="codeline" id="line-585"><code></code></span>
+<span class="codeline" id="line-586"><code><span class="comment">Only valid for Numbers, time.Duration and time.Time types, this will validate</span></code></span>
+<span class="codeline" id="line-587"><code><span class="comment">the field value against another fields value either within a struct or passed in</span></code></span>
+<span class="codeline" id="line-588"><code><span class="comment">field. usage examples are for validation of a Start and End date:</span></code></span>
+<span class="codeline" id="line-589"><code></code></span>
+<span class="codeline" id="line-590"><code><span class="comment">Example #1:</span></code></span>
+<span class="codeline" id="line-591"><code></code></span>
+<span class="codeline" id="line-592"><code><span class="comment">	// Validation on End field using:</span></code></span>
+<span class="codeline" id="line-593"><code><span class="comment">	validate.Struct Usage(gtfield=Start)</span></code></span>
+<span class="codeline" id="line-594"><code></code></span>
+<span class="codeline" id="line-595"><code><span class="comment">Example #2:</span></code></span>
+<span class="codeline" id="line-596"><code></code></span>
+<span class="codeline" id="line-597"><code><span class="comment">	// Validating by field:</span></code></span>
+<span class="codeline" id="line-598"><code><span class="comment">	validate.VarWithValue(start, end, "gtfield")</span></code></span>
+<span class="codeline" id="line-599"><code></code></span>
+<span class="codeline" id="line-600"><code><span class="comment">Field Greater Than Another Relative Field</span></code></span>
+<span class="codeline" id="line-601"><code></code></span>
+<span class="codeline" id="line-602"><code><span class="comment">This does the same as gtfield except that it validates the field provided</span></code></span>
+<span class="codeline" id="line-603"><code><span class="comment">relative to the top level struct.</span></code></span>
+<span class="codeline" id="line-604"><code></code></span>
+<span class="codeline" id="line-605"><code><span class="comment">	Usage: gtcsfield=InnerStructField.Field</span></code></span>
+<span class="codeline" id="line-606"><code></code></span>
+<span class="codeline" id="line-607"><code><span class="comment">Field Greater Than or Equal To Another Field</span></code></span>
+<span class="codeline" id="line-608"><code></code></span>
+<span class="codeline" id="line-609"><code><span class="comment">Only valid for Numbers, time.Duration and time.Time types, this will validate</span></code></span>
+<span class="codeline" id="line-610"><code><span class="comment">the field value against another fields value either within a struct or passed in</span></code></span>
+<span class="codeline" id="line-611"><code><span class="comment">field. usage examples are for validation of a Start and End date:</span></code></span>
+<span class="codeline" id="line-612"><code></code></span>
+<span class="codeline" id="line-613"><code><span class="comment">Example #1:</span></code></span>
+<span class="codeline" id="line-614"><code></code></span>
+<span class="codeline" id="line-615"><code><span class="comment">	// Validation on End field using:</span></code></span>
+<span class="codeline" id="line-616"><code><span class="comment">	validate.Struct Usage(gtefield=Start)</span></code></span>
+<span class="codeline" id="line-617"><code></code></span>
+<span class="codeline" id="line-618"><code><span class="comment">Example #2:</span></code></span>
+<span class="codeline" id="line-619"><code></code></span>
+<span class="codeline" id="line-620"><code><span class="comment">	// Validating by field:</span></code></span>
+<span class="codeline" id="line-621"><code><span class="comment">	validate.VarWithValue(start, end, "gtefield")</span></code></span>
+<span class="codeline" id="line-622"><code></code></span>
+<span class="codeline" id="line-623"><code><span class="comment">Field Greater Than or Equal To Another Relative Field</span></code></span>
+<span class="codeline" id="line-624"><code></code></span>
+<span class="codeline" id="line-625"><code><span class="comment">This does the same as gtefield except that it validates the field provided relative</span></code></span>
+<span class="codeline" id="line-626"><code><span class="comment">to the top level struct.</span></code></span>
+<span class="codeline" id="line-627"><code></code></span>
+<span class="codeline" id="line-628"><code><span class="comment">	Usage: gtecsfield=InnerStructField.Field</span></code></span>
+<span class="codeline" id="line-629"><code></code></span>
+<span class="codeline" id="line-630"><code><span class="comment">Less Than Another Field</span></code></span>
+<span class="codeline" id="line-631"><code></code></span>
+<span class="codeline" id="line-632"><code><span class="comment">Only valid for Numbers, time.Duration and time.Time types, this will validate</span></code></span>
+<span class="codeline" id="line-633"><code><span class="comment">the field value against another fields value either within a struct or passed in</span></code></span>
+<span class="codeline" id="line-634"><code><span class="comment">field. usage examples are for validation of a Start and End date:</span></code></span>
+<span class="codeline" id="line-635"><code></code></span>
+<span class="codeline" id="line-636"><code><span class="comment">Example #1:</span></code></span>
+<span class="codeline" id="line-637"><code></code></span>
+<span class="codeline" id="line-638"><code><span class="comment">	// Validation on End field using:</span></code></span>
+<span class="codeline" id="line-639"><code><span class="comment">	validate.Struct Usage(ltfield=Start)</span></code></span>
+<span class="codeline" id="line-640"><code></code></span>
+<span class="codeline" id="line-641"><code><span class="comment">Example #2:</span></code></span>
+<span class="codeline" id="line-642"><code></code></span>
+<span class="codeline" id="line-643"><code><span class="comment">	// Validating by field:</span></code></span>
+<span class="codeline" id="line-644"><code><span class="comment">	validate.VarWithValue(start, end, "ltfield")</span></code></span>
+<span class="codeline" id="line-645"><code></code></span>
+<span class="codeline" id="line-646"><code><span class="comment">Less Than Another Relative Field</span></code></span>
+<span class="codeline" id="line-647"><code></code></span>
+<span class="codeline" id="line-648"><code><span class="comment">This does the same as ltfield except that it validates the field provided relative</span></code></span>
+<span class="codeline" id="line-649"><code><span class="comment">to the top level struct.</span></code></span>
+<span class="codeline" id="line-650"><code></code></span>
+<span class="codeline" id="line-651"><code><span class="comment">	Usage: ltcsfield=InnerStructField.Field</span></code></span>
+<span class="codeline" id="line-652"><code></code></span>
+<span class="codeline" id="line-653"><code><span class="comment">Less Than or Equal To Another Field</span></code></span>
+<span class="codeline" id="line-654"><code></code></span>
+<span class="codeline" id="line-655"><code><span class="comment">Only valid for Numbers, time.Duration and time.Time types, this will validate</span></code></span>
+<span class="codeline" id="line-656"><code><span class="comment">the field value against another fields value either within a struct or passed in</span></code></span>
+<span class="codeline" id="line-657"><code><span class="comment">field. usage examples are for validation of a Start and End date:</span></code></span>
+<span class="codeline" id="line-658"><code></code></span>
+<span class="codeline" id="line-659"><code><span class="comment">Example #1:</span></code></span>
+<span class="codeline" id="line-660"><code></code></span>
+<span class="codeline" id="line-661"><code><span class="comment">	// Validation on End field using:</span></code></span>
+<span class="codeline" id="line-662"><code><span class="comment">	validate.Struct Usage(ltefield=Start)</span></code></span>
+<span class="codeline" id="line-663"><code></code></span>
+<span class="codeline" id="line-664"><code><span class="comment">Example #2:</span></code></span>
+<span class="codeline" id="line-665"><code></code></span>
+<span class="codeline" id="line-666"><code><span class="comment">	// Validating by field:</span></code></span>
+<span class="codeline" id="line-667"><code><span class="comment">	validate.VarWithValue(start, end, "ltefield")</span></code></span>
+<span class="codeline" id="line-668"><code></code></span>
+<span class="codeline" id="line-669"><code><span class="comment">Less Than or Equal To Another Relative Field</span></code></span>
+<span class="codeline" id="line-670"><code></code></span>
+<span class="codeline" id="line-671"><code><span class="comment">This does the same as ltefield except that it validates the field provided relative</span></code></span>
+<span class="codeline" id="line-672"><code><span class="comment">to the top level struct.</span></code></span>
+<span class="codeline" id="line-673"><code></code></span>
+<span class="codeline" id="line-674"><code><span class="comment">	Usage: ltecsfield=InnerStructField.Field</span></code></span>
+<span class="codeline" id="line-675"><code></code></span>
+<span class="codeline" id="line-676"><code><span class="comment">Field Contains Another Field</span></code></span>
+<span class="codeline" id="line-677"><code></code></span>
+<span class="codeline" id="line-678"><code><span class="comment">This does the same as contains except for struct fields. It should only be used</span></code></span>
+<span class="codeline" id="line-679"><code><span class="comment">with string types. See the behavior of reflect.Value.String() for behavior on</span></code></span>
+<span class="codeline" id="line-680"><code><span class="comment">other types.</span></code></span>
+<span class="codeline" id="line-681"><code></code></span>
+<span class="codeline" id="line-682"><code><span class="comment">	Usage: containsfield=InnerStructField.Field</span></code></span>
+<span class="codeline" id="line-683"><code></code></span>
+<span class="codeline" id="line-684"><code><span class="comment">Field Excludes Another Field</span></code></span>
+<span class="codeline" id="line-685"><code></code></span>
+<span class="codeline" id="line-686"><code><span class="comment">This does the same as excludes except for struct fields. It should only be used</span></code></span>
+<span class="codeline" id="line-687"><code><span class="comment">with string types. See the behavior of reflect.Value.String() for behavior on</span></code></span>
+<span class="codeline" id="line-688"><code><span class="comment">other types.</span></code></span>
+<span class="codeline" id="line-689"><code></code></span>
+<span class="codeline" id="line-690"><code><span class="comment">	Usage: excludesfield=InnerStructField.Field</span></code></span>
+<span class="codeline" id="line-691"><code></code></span>
+<span class="codeline" id="line-692"><code><span class="comment">Unique</span></code></span>
+<span class="codeline" id="line-693"><code></code></span>
+<span class="codeline" id="line-694"><code><span class="comment">For arrays &amp; slices, unique will ensure that there are no duplicates.</span></code></span>
+<span class="codeline" id="line-695"><code><span class="comment">For maps, unique will ensure that there are no duplicate values.</span></code></span>
+<span class="codeline" id="line-696"><code><span class="comment">For slices of struct, unique will ensure that there are no duplicate values</span></code></span>
+<span class="codeline" id="line-697"><code><span class="comment">in a field of the struct specified via a parameter.</span></code></span>
+<span class="codeline" id="line-698"><code></code></span>
+<span class="codeline" id="line-699"><code><span class="comment">	// For arrays, slices, and maps:</span></code></span>
+<span class="codeline" id="line-700"><code><span class="comment">	Usage: unique</span></code></span>
+<span class="codeline" id="line-701"><code></code></span>
+<span class="codeline" id="line-702"><code><span class="comment">	// For slices of struct:</span></code></span>
+<span class="codeline" id="line-703"><code><span class="comment">	Usage: unique=field</span></code></span>
+<span class="codeline" id="line-704"><code></code></span>
+<span class="codeline" id="line-705"><code><span class="comment">Alpha Only</span></code></span>
+<span class="codeline" id="line-706"><code></code></span>
+<span class="codeline" id="line-707"><code><span class="comment">This validates that a string value contains ASCII alpha characters only</span></code></span>
+<span class="codeline" id="line-708"><code></code></span>
+<span class="codeline" id="line-709"><code><span class="comment">	Usage: alpha</span></code></span>
+<span class="codeline" id="line-710"><code></code></span>
+<span class="codeline" id="line-711"><code><span class="comment">Alphanumeric</span></code></span>
+<span class="codeline" id="line-712"><code></code></span>
+<span class="codeline" id="line-713"><code><span class="comment">This validates that a string value contains ASCII alphanumeric characters only</span></code></span>
+<span class="codeline" id="line-714"><code></code></span>
+<span class="codeline" id="line-715"><code><span class="comment">	Usage: alphanum</span></code></span>
+<span class="codeline" id="line-716"><code></code></span>
+<span class="codeline" id="line-717"><code><span class="comment">Alpha Unicode</span></code></span>
+<span class="codeline" id="line-718"><code></code></span>
+<span class="codeline" id="line-719"><code><span class="comment">This validates that a string value contains unicode alpha characters only</span></code></span>
+<span class="codeline" id="line-720"><code></code></span>
+<span class="codeline" id="line-721"><code><span class="comment">	Usage: alphaunicode</span></code></span>
+<span class="codeline" id="line-722"><code></code></span>
+<span class="codeline" id="line-723"><code><span class="comment">Alphanumeric Unicode</span></code></span>
+<span class="codeline" id="line-724"><code></code></span>
+<span class="codeline" id="line-725"><code><span class="comment">This validates that a string value contains unicode alphanumeric characters only</span></code></span>
+<span class="codeline" id="line-726"><code></code></span>
+<span class="codeline" id="line-727"><code><span class="comment">	Usage: alphanumunicode</span></code></span>
+<span class="codeline" id="line-728"><code></code></span>
+<span class="codeline" id="line-729"><code><span class="comment">Number</span></code></span>
+<span class="codeline" id="line-730"><code></code></span>
+<span class="codeline" id="line-731"><code><span class="comment">This validates that a string value contains number values only.</span></code></span>
+<span class="codeline" id="line-732"><code><span class="comment">For integers or float it returns true.</span></code></span>
+<span class="codeline" id="line-733"><code></code></span>
+<span class="codeline" id="line-734"><code><span class="comment">	Usage: number</span></code></span>
+<span class="codeline" id="line-735"><code></code></span>
+<span class="codeline" id="line-736"><code><span class="comment">Numeric</span></code></span>
+<span class="codeline" id="line-737"><code></code></span>
+<span class="codeline" id="line-738"><code><span class="comment">This validates that a string value contains a basic numeric value.</span></code></span>
+<span class="codeline" id="line-739"><code><span class="comment">basic excludes exponents etc...</span></code></span>
+<span class="codeline" id="line-740"><code><span class="comment">for integers or float it returns true.</span></code></span>
+<span class="codeline" id="line-741"><code></code></span>
+<span class="codeline" id="line-742"><code><span class="comment">	Usage: numeric</span></code></span>
+<span class="codeline" id="line-743"><code></code></span>
+<span class="codeline" id="line-744"><code><span class="comment">Hexadecimal String</span></code></span>
+<span class="codeline" id="line-745"><code></code></span>
+<span class="codeline" id="line-746"><code><span class="comment">This validates that a string value contains a valid hexadecimal.</span></code></span>
+<span class="codeline" id="line-747"><code></code></span>
+<span class="codeline" id="line-748"><code><span class="comment">	Usage: hexadecimal</span></code></span>
+<span class="codeline" id="line-749"><code></code></span>
+<span class="codeline" id="line-750"><code><span class="comment">Hexcolor String</span></code></span>
+<span class="codeline" id="line-751"><code></code></span>
+<span class="codeline" id="line-752"><code><span class="comment">This validates that a string value contains a valid hex color including</span></code></span>
+<span class="codeline" id="line-753"><code><span class="comment">hashtag (#)</span></code></span>
+<span class="codeline" id="line-754"><code></code></span>
+<span class="codeline" id="line-755"><code><span class="comment">		Usage: hexcolor</span></code></span>
+<span class="codeline" id="line-756"><code></code></span>
+<span class="codeline" id="line-757"><code><span class="comment">Lowercase String</span></code></span>
+<span class="codeline" id="line-758"><code></code></span>
+<span class="codeline" id="line-759"><code><span class="comment">This validates that a string value contains only lowercase characters. An empty string is not a valid lowercase string.</span></code></span>
+<span class="codeline" id="line-760"><code></code></span>
+<span class="codeline" id="line-761"><code><span class="comment">	Usage: lowercase</span></code></span>
+<span class="codeline" id="line-762"><code></code></span>
+<span class="codeline" id="line-763"><code><span class="comment">Uppercase String</span></code></span>
+<span class="codeline" id="line-764"><code></code></span>
+<span class="codeline" id="line-765"><code><span class="comment">This validates that a string value contains only uppercase characters. An empty string is not a valid uppercase string.</span></code></span>
+<span class="codeline" id="line-766"><code></code></span>
+<span class="codeline" id="line-767"><code><span class="comment">	Usage: uppercase</span></code></span>
+<span class="codeline" id="line-768"><code></code></span>
+<span class="codeline" id="line-769"><code><span class="comment">RGB String</span></code></span>
+<span class="codeline" id="line-770"><code></code></span>
+<span class="codeline" id="line-771"><code><span class="comment">This validates that a string value contains a valid rgb color</span></code></span>
+<span class="codeline" id="line-772"><code></code></span>
+<span class="codeline" id="line-773"><code><span class="comment">	Usage: rgb</span></code></span>
+<span class="codeline" id="line-774"><code></code></span>
+<span class="codeline" id="line-775"><code><span class="comment">RGBA String</span></code></span>
+<span class="codeline" id="line-776"><code></code></span>
+<span class="codeline" id="line-777"><code><span class="comment">This validates that a string value contains a valid rgba color</span></code></span>
+<span class="codeline" id="line-778"><code></code></span>
+<span class="codeline" id="line-779"><code><span class="comment">	Usage: rgba</span></code></span>
+<span class="codeline" id="line-780"><code></code></span>
+<span class="codeline" id="line-781"><code><span class="comment">HSL String</span></code></span>
+<span class="codeline" id="line-782"><code></code></span>
+<span class="codeline" id="line-783"><code><span class="comment">This validates that a string value contains a valid hsl color</span></code></span>
+<span class="codeline" id="line-784"><code></code></span>
+<span class="codeline" id="line-785"><code><span class="comment">	Usage: hsl</span></code></span>
+<span class="codeline" id="line-786"><code></code></span>
+<span class="codeline" id="line-787"><code><span class="comment">HSLA String</span></code></span>
+<span class="codeline" id="line-788"><code></code></span>
+<span class="codeline" id="line-789"><code><span class="comment">This validates that a string value contains a valid hsla color</span></code></span>
+<span class="codeline" id="line-790"><code></code></span>
+<span class="codeline" id="line-791"><code><span class="comment">	Usage: hsla</span></code></span>
+<span class="codeline" id="line-792"><code></code></span>
+<span class="codeline" id="line-793"><code><span class="comment">E.164 Phone Number String</span></code></span>
+<span class="codeline" id="line-794"><code></code></span>
+<span class="codeline" id="line-795"><code><span class="comment">This validates that a string value contains a valid E.164 Phone number</span></code></span>
+<span class="codeline" id="line-796"><code><span class="comment">https://en.wikipedia.org/wiki/E.164 (ex. +1123456789)</span></code></span>
+<span class="codeline" id="line-797"><code></code></span>
+<span class="codeline" id="line-798"><code><span class="comment">	Usage: e164</span></code></span>
+<span class="codeline" id="line-799"><code></code></span>
+<span class="codeline" id="line-800"><code><span class="comment">E-mail String</span></code></span>
+<span class="codeline" id="line-801"><code></code></span>
+<span class="codeline" id="line-802"><code><span class="comment">This validates that a string value contains a valid email</span></code></span>
+<span class="codeline" id="line-803"><code><span class="comment">This may not conform to all possibilities of any rfc standard, but neither</span></code></span>
+<span class="codeline" id="line-804"><code><span class="comment">does any email provider accept all possibilities.</span></code></span>
+<span class="codeline" id="line-805"><code></code></span>
+<span class="codeline" id="line-806"><code><span class="comment">	Usage: email</span></code></span>
+<span class="codeline" id="line-807"><code></code></span>
+<span class="codeline" id="line-808"><code><span class="comment">JSON String</span></code></span>
+<span class="codeline" id="line-809"><code></code></span>
+<span class="codeline" id="line-810"><code><span class="comment">This validates that a string value is valid JSON</span></code></span>
+<span class="codeline" id="line-811"><code></code></span>
+<span class="codeline" id="line-812"><code><span class="comment">	Usage: json</span></code></span>
+<span class="codeline" id="line-813"><code></code></span>
+<span class="codeline" id="line-814"><code><span class="comment">File path</span></code></span>
+<span class="codeline" id="line-815"><code></code></span>
+<span class="codeline" id="line-816"><code><span class="comment">This validates that a string value contains a valid file path and that</span></code></span>
+<span class="codeline" id="line-817"><code><span class="comment">the file exists on the machine.</span></code></span>
+<span class="codeline" id="line-818"><code><span class="comment">This is done using os.Stat, which is a platform independent function.</span></code></span>
+<span class="codeline" id="line-819"><code></code></span>
+<span class="codeline" id="line-820"><code><span class="comment">	Usage: file</span></code></span>
+<span class="codeline" id="line-821"><code></code></span>
+<span class="codeline" id="line-822"><code><span class="comment">URL String</span></code></span>
+<span class="codeline" id="line-823"><code></code></span>
+<span class="codeline" id="line-824"><code><span class="comment">This validates that a string value contains a valid url</span></code></span>
+<span class="codeline" id="line-825"><code><span class="comment">This will accept any url the golang request uri accepts but must contain</span></code></span>
+<span class="codeline" id="line-826"><code><span class="comment">a schema for example http:// or rtmp://</span></code></span>
+<span class="codeline" id="line-827"><code></code></span>
+<span class="codeline" id="line-828"><code><span class="comment">	Usage: url</span></code></span>
+<span class="codeline" id="line-829"><code></code></span>
+<span class="codeline" id="line-830"><code><span class="comment">URI String</span></code></span>
+<span class="codeline" id="line-831"><code></code></span>
+<span class="codeline" id="line-832"><code><span class="comment">This validates that a string value contains a valid uri</span></code></span>
+<span class="codeline" id="line-833"><code><span class="comment">This will accept any uri the golang request uri accepts</span></code></span>
+<span class="codeline" id="line-834"><code></code></span>
+<span class="codeline" id="line-835"><code><span class="comment">	Usage: uri</span></code></span>
+<span class="codeline" id="line-836"><code></code></span>
+<span class="codeline" id="line-837"><code><span class="comment">Urn RFC 2141 String</span></code></span>
+<span class="codeline" id="line-838"><code></code></span>
+<span class="codeline" id="line-839"><code><span class="comment">This validataes that a string value contains a valid URN</span></code></span>
+<span class="codeline" id="line-840"><code><span class="comment">according to the RFC 2141 spec.</span></code></span>
+<span class="codeline" id="line-841"><code></code></span>
+<span class="codeline" id="line-842"><code><span class="comment">	Usage: urn_rfc2141</span></code></span>
+<span class="codeline" id="line-843"><code></code></span>
+<span class="codeline" id="line-844"><code><span class="comment">Base64 String</span></code></span>
+<span class="codeline" id="line-845"><code></code></span>
+<span class="codeline" id="line-846"><code><span class="comment">This validates that a string value contains a valid base64 value.</span></code></span>
+<span class="codeline" id="line-847"><code><span class="comment">Although an empty string is valid base64 this will report an empty string</span></code></span>
+<span class="codeline" id="line-848"><code><span class="comment">as an error, if you wish to accept an empty string as valid you can use</span></code></span>
+<span class="codeline" id="line-849"><code><span class="comment">this with the omitempty tag.</span></code></span>
+<span class="codeline" id="line-850"><code></code></span>
+<span class="codeline" id="line-851"><code><span class="comment">	Usage: base64</span></code></span>
+<span class="codeline" id="line-852"><code></code></span>
+<span class="codeline" id="line-853"><code><span class="comment">Base64URL String</span></code></span>
+<span class="codeline" id="line-854"><code></code></span>
+<span class="codeline" id="line-855"><code><span class="comment">This validates that a string value contains a valid base64 URL safe value</span></code></span>
+<span class="codeline" id="line-856"><code><span class="comment">according the the RFC4648 spec.</span></code></span>
+<span class="codeline" id="line-857"><code><span class="comment">Although an empty string is a valid base64 URL safe value, this will report</span></code></span>
+<span class="codeline" id="line-858"><code><span class="comment">an empty string as an error, if you wish to accept an empty string as valid</span></code></span>
+<span class="codeline" id="line-859"><code><span class="comment">you can use this with the omitempty tag.</span></code></span>
+<span class="codeline" id="line-860"><code></code></span>
+<span class="codeline" id="line-861"><code><span class="comment">	Usage: base64url</span></code></span>
+<span class="codeline" id="line-862"><code></code></span>
+<span class="codeline" id="line-863"><code><span class="comment">Bitcoin Address</span></code></span>
+<span class="codeline" id="line-864"><code></code></span>
+<span class="codeline" id="line-865"><code><span class="comment">This validates that a string value contains a valid bitcoin address.</span></code></span>
+<span class="codeline" id="line-866"><code><span class="comment">The format of the string is checked to ensure it matches one of the three formats</span></code></span>
+<span class="codeline" id="line-867"><code><span class="comment">P2PKH, P2SH and performs checksum validation.</span></code></span>
+<span class="codeline" id="line-868"><code></code></span>
+<span class="codeline" id="line-869"><code><span class="comment">	Usage: btc_addr</span></code></span>
+<span class="codeline" id="line-870"><code></code></span>
+<span class="codeline" id="line-871"><code><span class="comment">Bitcoin Bech32 Address (segwit)</span></code></span>
+<span class="codeline" id="line-872"><code></code></span>
+<span class="codeline" id="line-873"><code><span class="comment">This validates that a string value contains a valid bitcoin Bech32 address as defined</span></code></span>
+<span class="codeline" id="line-874"><code><span class="comment">by bip-0173 (https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki)</span></code></span>
+<span class="codeline" id="line-875"><code><span class="comment">Special thanks to Pieter Wuille for providng reference implementations.</span></code></span>
+<span class="codeline" id="line-876"><code></code></span>
+<span class="codeline" id="line-877"><code><span class="comment">	Usage: btc_addr_bech32</span></code></span>
+<span class="codeline" id="line-878"><code></code></span>
+<span class="codeline" id="line-879"><code><span class="comment">Ethereum Address</span></code></span>
+<span class="codeline" id="line-880"><code></code></span>
+<span class="codeline" id="line-881"><code><span class="comment">This validates that a string value contains a valid ethereum address.</span></code></span>
+<span class="codeline" id="line-882"><code><span class="comment">The format of the string is checked to ensure it matches the standard Ethereum address format.</span></code></span>
+<span class="codeline" id="line-883"><code></code></span>
+<span class="codeline" id="line-884"><code><span class="comment">	Usage: eth_addr</span></code></span>
+<span class="codeline" id="line-885"><code></code></span>
+<span class="codeline" id="line-886"><code><span class="comment">Contains</span></code></span>
+<span class="codeline" id="line-887"><code></code></span>
+<span class="codeline" id="line-888"><code><span class="comment">This validates that a string value contains the substring value.</span></code></span>
+<span class="codeline" id="line-889"><code></code></span>
+<span class="codeline" id="line-890"><code><span class="comment">	Usage: contains=@</span></code></span>
+<span class="codeline" id="line-891"><code></code></span>
+<span class="codeline" id="line-892"><code><span class="comment">Contains Any</span></code></span>
+<span class="codeline" id="line-893"><code></code></span>
+<span class="codeline" id="line-894"><code><span class="comment">This validates that a string value contains any Unicode code points</span></code></span>
+<span class="codeline" id="line-895"><code><span class="comment">in the substring value.</span></code></span>
+<span class="codeline" id="line-896"><code></code></span>
+<span class="codeline" id="line-897"><code><span class="comment">	Usage: containsany=!@#?</span></code></span>
+<span class="codeline" id="line-898"><code></code></span>
+<span class="codeline" id="line-899"><code><span class="comment">Contains Rune</span></code></span>
+<span class="codeline" id="line-900"><code></code></span>
+<span class="codeline" id="line-901"><code><span class="comment">This validates that a string value contains the supplied rune value.</span></code></span>
+<span class="codeline" id="line-902"><code></code></span>
+<span class="codeline" id="line-903"><code><span class="comment">	Usage: containsrune=@</span></code></span>
+<span class="codeline" id="line-904"><code></code></span>
+<span class="codeline" id="line-905"><code><span class="comment">Excludes</span></code></span>
+<span class="codeline" id="line-906"><code></code></span>
+<span class="codeline" id="line-907"><code><span class="comment">This validates that a string value does not contain the substring value.</span></code></span>
+<span class="codeline" id="line-908"><code></code></span>
+<span class="codeline" id="line-909"><code><span class="comment">	Usage: excludes=@</span></code></span>
+<span class="codeline" id="line-910"><code></code></span>
+<span class="codeline" id="line-911"><code><span class="comment">Excludes All</span></code></span>
+<span class="codeline" id="line-912"><code></code></span>
+<span class="codeline" id="line-913"><code><span class="comment">This validates that a string value does not contain any Unicode code</span></code></span>
+<span class="codeline" id="line-914"><code><span class="comment">points in the substring value.</span></code></span>
+<span class="codeline" id="line-915"><code></code></span>
+<span class="codeline" id="line-916"><code><span class="comment">	Usage: excludesall=!@#?</span></code></span>
+<span class="codeline" id="line-917"><code></code></span>
+<span class="codeline" id="line-918"><code><span class="comment">Excludes Rune</span></code></span>
+<span class="codeline" id="line-919"><code></code></span>
+<span class="codeline" id="line-920"><code><span class="comment">This validates that a string value does not contain the supplied rune value.</span></code></span>
+<span class="codeline" id="line-921"><code></code></span>
+<span class="codeline" id="line-922"><code><span class="comment">	Usage: excludesrune=@</span></code></span>
+<span class="codeline" id="line-923"><code></code></span>
+<span class="codeline" id="line-924"><code><span class="comment">Starts With</span></code></span>
+<span class="codeline" id="line-925"><code></code></span>
+<span class="codeline" id="line-926"><code><span class="comment">This validates that a string value starts with the supplied string value</span></code></span>
+<span class="codeline" id="line-927"><code></code></span>
+<span class="codeline" id="line-928"><code><span class="comment">	Usage: startswith=hello</span></code></span>
+<span class="codeline" id="line-929"><code></code></span>
+<span class="codeline" id="line-930"><code><span class="comment">Ends With</span></code></span>
+<span class="codeline" id="line-931"><code></code></span>
+<span class="codeline" id="line-932"><code><span class="comment">This validates that a string value ends with the supplied string value</span></code></span>
+<span class="codeline" id="line-933"><code></code></span>
+<span class="codeline" id="line-934"><code><span class="comment">	Usage: endswith=goodbye</span></code></span>
+<span class="codeline" id="line-935"><code></code></span>
+<span class="codeline" id="line-936"><code><span class="comment">Does Not Start With</span></code></span>
+<span class="codeline" id="line-937"><code></code></span>
+<span class="codeline" id="line-938"><code><span class="comment">This validates that a string value does not start with the supplied string value</span></code></span>
+<span class="codeline" id="line-939"><code></code></span>
+<span class="codeline" id="line-940"><code><span class="comment">	Usage: startsnotwith=hello</span></code></span>
+<span class="codeline" id="line-941"><code></code></span>
+<span class="codeline" id="line-942"><code><span class="comment">Does Not End With</span></code></span>
+<span class="codeline" id="line-943"><code></code></span>
+<span class="codeline" id="line-944"><code><span class="comment">This validates that a string value does not end with the supplied string value</span></code></span>
+<span class="codeline" id="line-945"><code></code></span>
+<span class="codeline" id="line-946"><code><span class="comment">	Usage: endsnotwith=goodbye</span></code></span>
+<span class="codeline" id="line-947"><code></code></span>
+<span class="codeline" id="line-948"><code><span class="comment">International Standard Book Number</span></code></span>
+<span class="codeline" id="line-949"><code></code></span>
+<span class="codeline" id="line-950"><code><span class="comment">This validates that a string value contains a valid isbn10 or isbn13 value.</span></code></span>
+<span class="codeline" id="line-951"><code></code></span>
+<span class="codeline" id="line-952"><code><span class="comment">	Usage: isbn</span></code></span>
+<span class="codeline" id="line-953"><code></code></span>
+<span class="codeline" id="line-954"><code><span class="comment">International Standard Book Number 10</span></code></span>
+<span class="codeline" id="line-955"><code></code></span>
+<span class="codeline" id="line-956"><code><span class="comment">This validates that a string value contains a valid isbn10 value.</span></code></span>
+<span class="codeline" id="line-957"><code></code></span>
+<span class="codeline" id="line-958"><code><span class="comment">	Usage: isbn10</span></code></span>
+<span class="codeline" id="line-959"><code></code></span>
+<span class="codeline" id="line-960"><code><span class="comment">International Standard Book Number 13</span></code></span>
+<span class="codeline" id="line-961"><code></code></span>
+<span class="codeline" id="line-962"><code><span class="comment">This validates that a string value contains a valid isbn13 value.</span></code></span>
+<span class="codeline" id="line-963"><code></code></span>
+<span class="codeline" id="line-964"><code><span class="comment">	Usage: isbn13</span></code></span>
+<span class="codeline" id="line-965"><code></code></span>
+<span class="codeline" id="line-966"><code><span class="comment">Universally Unique Identifier UUID</span></code></span>
+<span class="codeline" id="line-967"><code></code></span>
+<span class="codeline" id="line-968"><code><span class="comment">This validates that a string value contains a valid UUID. Uppercase UUID values will not pass - use `uuid_rfc4122` instead.</span></code></span>
+<span class="codeline" id="line-969"><code></code></span>
+<span class="codeline" id="line-970"><code><span class="comment">	Usage: uuid</span></code></span>
+<span class="codeline" id="line-971"><code></code></span>
+<span class="codeline" id="line-972"><code><span class="comment">Universally Unique Identifier UUID v3</span></code></span>
+<span class="codeline" id="line-973"><code></code></span>
+<span class="codeline" id="line-974"><code><span class="comment">This validates that a string value contains a valid version 3 UUID.  Uppercase UUID values will not pass - use `uuid3_rfc4122` instead.</span></code></span>
+<span class="codeline" id="line-975"><code></code></span>
+<span class="codeline" id="line-976"><code><span class="comment">	Usage: uuid3</span></code></span>
+<span class="codeline" id="line-977"><code></code></span>
+<span class="codeline" id="line-978"><code><span class="comment">Universally Unique Identifier UUID v4</span></code></span>
+<span class="codeline" id="line-979"><code></code></span>
+<span class="codeline" id="line-980"><code><span class="comment">This validates that a string value contains a valid version 4 UUID.  Uppercase UUID values will not pass - use `uuid4_rfc4122` instead.</span></code></span>
+<span class="codeline" id="line-981"><code></code></span>
+<span class="codeline" id="line-982"><code><span class="comment">	Usage: uuid4</span></code></span>
+<span class="codeline" id="line-983"><code></code></span>
+<span class="codeline" id="line-984"><code><span class="comment">Universally Unique Identifier UUID v5</span></code></span>
+<span class="codeline" id="line-985"><code></code></span>
+<span class="codeline" id="line-986"><code><span class="comment">This validates that a string value contains a valid version 5 UUID.  Uppercase UUID values will not pass - use `uuid5_rfc4122` instead.</span></code></span>
+<span class="codeline" id="line-987"><code></code></span>
+<span class="codeline" id="line-988"><code><span class="comment">	Usage: uuid5</span></code></span>
+<span class="codeline" id="line-989"><code></code></span>
+<span class="codeline" id="line-990"><code><span class="comment">ASCII</span></code></span>
+<span class="codeline" id="line-991"><code></code></span>
+<span class="codeline" id="line-992"><code><span class="comment">This validates that a string value contains only ASCII characters.</span></code></span>
+<span class="codeline" id="line-993"><code><span class="comment">NOTE: if the string is blank, this validates as true.</span></code></span>
+<span class="codeline" id="line-994"><code></code></span>
+<span class="codeline" id="line-995"><code><span class="comment">	Usage: ascii</span></code></span>
+<span class="codeline" id="line-996"><code></code></span>
+<span class="codeline" id="line-997"><code><span class="comment">Printable ASCII</span></code></span>
+<span class="codeline" id="line-998"><code></code></span>
+<span class="codeline" id="line-999"><code><span class="comment">This validates that a string value contains only printable ASCII characters.</span></code></span>
+<span class="codeline" id="line-1000"><code><span class="comment">NOTE: if the string is blank, this validates as true.</span></code></span>
+<span class="codeline" id="line-1001"><code></code></span>
+<span class="codeline" id="line-1002"><code><span class="comment">	Usage: printascii</span></code></span>
+<span class="codeline" id="line-1003"><code></code></span>
+<span class="codeline" id="line-1004"><code><span class="comment">Multi-Byte Characters</span></code></span>
+<span class="codeline" id="line-1005"><code></code></span>
+<span class="codeline" id="line-1006"><code><span class="comment">This validates that a string value contains one or more multibyte characters.</span></code></span>
+<span class="codeline" id="line-1007"><code><span class="comment">NOTE: if the string is blank, this validates as true.</span></code></span>
+<span class="codeline" id="line-1008"><code></code></span>
+<span class="codeline" id="line-1009"><code><span class="comment">	Usage: multibyte</span></code></span>
+<span class="codeline" id="line-1010"><code></code></span>
+<span class="codeline" id="line-1011"><code><span class="comment">Data URL</span></code></span>
+<span class="codeline" id="line-1012"><code></code></span>
+<span class="codeline" id="line-1013"><code><span class="comment">This validates that a string value contains a valid DataURI.</span></code></span>
+<span class="codeline" id="line-1014"><code><span class="comment">NOTE: this will also validate that the data portion is valid base64</span></code></span>
+<span class="codeline" id="line-1015"><code></code></span>
+<span class="codeline" id="line-1016"><code><span class="comment">	Usage: datauri</span></code></span>
+<span class="codeline" id="line-1017"><code></code></span>
+<span class="codeline" id="line-1018"><code><span class="comment">Latitude</span></code></span>
+<span class="codeline" id="line-1019"><code></code></span>
+<span class="codeline" id="line-1020"><code><span class="comment">This validates that a string value contains a valid latitude.</span></code></span>
+<span class="codeline" id="line-1021"><code></code></span>
+<span class="codeline" id="line-1022"><code><span class="comment">	Usage: latitude</span></code></span>
+<span class="codeline" id="line-1023"><code></code></span>
+<span class="codeline" id="line-1024"><code><span class="comment">Longitude</span></code></span>
+<span class="codeline" id="line-1025"><code></code></span>
+<span class="codeline" id="line-1026"><code><span class="comment">This validates that a string value contains a valid longitude.</span></code></span>
+<span class="codeline" id="line-1027"><code></code></span>
+<span class="codeline" id="line-1028"><code><span class="comment">	Usage: longitude</span></code></span>
+<span class="codeline" id="line-1029"><code></code></span>
+<span class="codeline" id="line-1030"><code><span class="comment">Social Security Number SSN</span></code></span>
+<span class="codeline" id="line-1031"><code></code></span>
+<span class="codeline" id="line-1032"><code><span class="comment">This validates that a string value contains a valid U.S. Social Security Number.</span></code></span>
+<span class="codeline" id="line-1033"><code></code></span>
+<span class="codeline" id="line-1034"><code><span class="comment">	Usage: ssn</span></code></span>
+<span class="codeline" id="line-1035"><code></code></span>
+<span class="codeline" id="line-1036"><code><span class="comment">Internet Protocol Address IP</span></code></span>
+<span class="codeline" id="line-1037"><code></code></span>
+<span class="codeline" id="line-1038"><code><span class="comment">This validates that a string value contains a valid IP Address.</span></code></span>
+<span class="codeline" id="line-1039"><code></code></span>
+<span class="codeline" id="line-1040"><code><span class="comment">	Usage: ip</span></code></span>
+<span class="codeline" id="line-1041"><code></code></span>
+<span class="codeline" id="line-1042"><code><span class="comment">Internet Protocol Address IPv4</span></code></span>
+<span class="codeline" id="line-1043"><code></code></span>
+<span class="codeline" id="line-1044"><code><span class="comment">This validates that a string value contains a valid v4 IP Address.</span></code></span>
+<span class="codeline" id="line-1045"><code></code></span>
+<span class="codeline" id="line-1046"><code><span class="comment">	Usage: ipv4</span></code></span>
+<span class="codeline" id="line-1047"><code></code></span>
+<span class="codeline" id="line-1048"><code><span class="comment">Internet Protocol Address IPv6</span></code></span>
+<span class="codeline" id="line-1049"><code></code></span>
+<span class="codeline" id="line-1050"><code><span class="comment">This validates that a string value contains a valid v6 IP Address.</span></code></span>
+<span class="codeline" id="line-1051"><code></code></span>
+<span class="codeline" id="line-1052"><code><span class="comment">	Usage: ipv6</span></code></span>
+<span class="codeline" id="line-1053"><code></code></span>
+<span class="codeline" id="line-1054"><code><span class="comment">Classless Inter-Domain Routing CIDR</span></code></span>
+<span class="codeline" id="line-1055"><code></code></span>
+<span class="codeline" id="line-1056"><code><span class="comment">This validates that a string value contains a valid CIDR Address.</span></code></span>
+<span class="codeline" id="line-1057"><code></code></span>
+<span class="codeline" id="line-1058"><code><span class="comment">	Usage: cidr</span></code></span>
+<span class="codeline" id="line-1059"><code></code></span>
+<span class="codeline" id="line-1060"><code><span class="comment">Classless Inter-Domain Routing CIDRv4</span></code></span>
+<span class="codeline" id="line-1061"><code></code></span>
+<span class="codeline" id="line-1062"><code><span class="comment">This validates that a string value contains a valid v4 CIDR Address.</span></code></span>
+<span class="codeline" id="line-1063"><code></code></span>
+<span class="codeline" id="line-1064"><code><span class="comment">	Usage: cidrv4</span></code></span>
+<span class="codeline" id="line-1065"><code></code></span>
+<span class="codeline" id="line-1066"><code><span class="comment">Classless Inter-Domain Routing CIDRv6</span></code></span>
+<span class="codeline" id="line-1067"><code></code></span>
+<span class="codeline" id="line-1068"><code><span class="comment">This validates that a string value contains a valid v6 CIDR Address.</span></code></span>
+<span class="codeline" id="line-1069"><code></code></span>
+<span class="codeline" id="line-1070"><code><span class="comment">	Usage: cidrv6</span></code></span>
+<span class="codeline" id="line-1071"><code></code></span>
+<span class="codeline" id="line-1072"><code><span class="comment">Transmission Control Protocol Address TCP</span></code></span>
+<span class="codeline" id="line-1073"><code></code></span>
+<span class="codeline" id="line-1074"><code><span class="comment">This validates that a string value contains a valid resolvable TCP Address.</span></code></span>
+<span class="codeline" id="line-1075"><code></code></span>
+<span class="codeline" id="line-1076"><code><span class="comment">	Usage: tcp_addr</span></code></span>
+<span class="codeline" id="line-1077"><code></code></span>
+<span class="codeline" id="line-1078"><code><span class="comment">Transmission Control Protocol Address TCPv4</span></code></span>
+<span class="codeline" id="line-1079"><code></code></span>
+<span class="codeline" id="line-1080"><code><span class="comment">This validates that a string value contains a valid resolvable v4 TCP Address.</span></code></span>
+<span class="codeline" id="line-1081"><code></code></span>
+<span class="codeline" id="line-1082"><code><span class="comment">	Usage: tcp4_addr</span></code></span>
+<span class="codeline" id="line-1083"><code></code></span>
+<span class="codeline" id="line-1084"><code><span class="comment">Transmission Control Protocol Address TCPv6</span></code></span>
+<span class="codeline" id="line-1085"><code></code></span>
+<span class="codeline" id="line-1086"><code><span class="comment">This validates that a string value contains a valid resolvable v6 TCP Address.</span></code></span>
+<span class="codeline" id="line-1087"><code></code></span>
+<span class="codeline" id="line-1088"><code><span class="comment">	Usage: tcp6_addr</span></code></span>
+<span class="codeline" id="line-1089"><code></code></span>
+<span class="codeline" id="line-1090"><code><span class="comment">User Datagram Protocol Address UDP</span></code></span>
+<span class="codeline" id="line-1091"><code></code></span>
+<span class="codeline" id="line-1092"><code><span class="comment">This validates that a string value contains a valid resolvable UDP Address.</span></code></span>
+<span class="codeline" id="line-1093"><code></code></span>
+<span class="codeline" id="line-1094"><code><span class="comment">	Usage: udp_addr</span></code></span>
+<span class="codeline" id="line-1095"><code></code></span>
+<span class="codeline" id="line-1096"><code><span class="comment">User Datagram Protocol Address UDPv4</span></code></span>
+<span class="codeline" id="line-1097"><code></code></span>
+<span class="codeline" id="line-1098"><code><span class="comment">This validates that a string value contains a valid resolvable v4 UDP Address.</span></code></span>
+<span class="codeline" id="line-1099"><code></code></span>
+<span class="codeline" id="line-1100"><code><span class="comment">	Usage: udp4_addr</span></code></span>
+<span class="codeline" id="line-1101"><code></code></span>
+<span class="codeline" id="line-1102"><code><span class="comment">User Datagram Protocol Address UDPv6</span></code></span>
+<span class="codeline" id="line-1103"><code></code></span>
+<span class="codeline" id="line-1104"><code><span class="comment">This validates that a string value contains a valid resolvable v6 UDP Address.</span></code></span>
+<span class="codeline" id="line-1105"><code></code></span>
+<span class="codeline" id="line-1106"><code><span class="comment">	Usage: udp6_addr</span></code></span>
+<span class="codeline" id="line-1107"><code></code></span>
+<span class="codeline" id="line-1108"><code><span class="comment">Internet Protocol Address IP</span></code></span>
+<span class="codeline" id="line-1109"><code></code></span>
+<span class="codeline" id="line-1110"><code><span class="comment">This validates that a string value contains a valid resolvable IP Address.</span></code></span>
+<span class="codeline" id="line-1111"><code></code></span>
+<span class="codeline" id="line-1112"><code><span class="comment">	Usage: ip_addr</span></code></span>
+<span class="codeline" id="line-1113"><code></code></span>
+<span class="codeline" id="line-1114"><code><span class="comment">Internet Protocol Address IPv4</span></code></span>
+<span class="codeline" id="line-1115"><code></code></span>
+<span class="codeline" id="line-1116"><code><span class="comment">This validates that a string value contains a valid resolvable v4 IP Address.</span></code></span>
+<span class="codeline" id="line-1117"><code></code></span>
+<span class="codeline" id="line-1118"><code><span class="comment">	Usage: ip4_addr</span></code></span>
+<span class="codeline" id="line-1119"><code></code></span>
+<span class="codeline" id="line-1120"><code><span class="comment">Internet Protocol Address IPv6</span></code></span>
+<span class="codeline" id="line-1121"><code></code></span>
+<span class="codeline" id="line-1122"><code><span class="comment">This validates that a string value contains a valid resolvable v6 IP Address.</span></code></span>
+<span class="codeline" id="line-1123"><code></code></span>
+<span class="codeline" id="line-1124"><code><span class="comment">	Usage: ip6_addr</span></code></span>
+<span class="codeline" id="line-1125"><code></code></span>
+<span class="codeline" id="line-1126"><code><span class="comment">Unix domain socket end point Address</span></code></span>
+<span class="codeline" id="line-1127"><code></code></span>
+<span class="codeline" id="line-1128"><code><span class="comment">This validates that a string value contains a valid Unix Address.</span></code></span>
+<span class="codeline" id="line-1129"><code></code></span>
+<span class="codeline" id="line-1130"><code><span class="comment">	Usage: unix_addr</span></code></span>
+<span class="codeline" id="line-1131"><code></code></span>
+<span class="codeline" id="line-1132"><code><span class="comment">Media Access Control Address MAC</span></code></span>
+<span class="codeline" id="line-1133"><code></code></span>
+<span class="codeline" id="line-1134"><code><span class="comment">This validates that a string value contains a valid MAC Address.</span></code></span>
+<span class="codeline" id="line-1135"><code></code></span>
+<span class="codeline" id="line-1136"><code><span class="comment">	Usage: mac</span></code></span>
+<span class="codeline" id="line-1137"><code></code></span>
+<span class="codeline" id="line-1138"><code><span class="comment">Note: See Go's ParseMAC for accepted formats and types:</span></code></span>
+<span class="codeline" id="line-1139"><code></code></span>
+<span class="codeline" id="line-1140"><code><span class="comment">	http://golang.org/src/net/mac.go?s=866:918#L29</span></code></span>
+<span class="codeline" id="line-1141"><code></code></span>
+<span class="codeline" id="line-1142"><code><span class="comment">Hostname RFC 952</span></code></span>
+<span class="codeline" id="line-1143"><code></code></span>
+<span class="codeline" id="line-1144"><code><span class="comment">This validates that a string value is a valid Hostname according to RFC 952 https://tools.ietf.org/html/rfc952</span></code></span>
+<span class="codeline" id="line-1145"><code></code></span>
+<span class="codeline" id="line-1146"><code><span class="comment">	Usage: hostname</span></code></span>
+<span class="codeline" id="line-1147"><code></code></span>
+<span class="codeline" id="line-1148"><code><span class="comment">Hostname RFC 1123</span></code></span>
+<span class="codeline" id="line-1149"><code></code></span>
+<span class="codeline" id="line-1150"><code><span class="comment">This validates that a string value is a valid Hostname according to RFC 1123 https://tools.ietf.org/html/rfc1123</span></code></span>
+<span class="codeline" id="line-1151"><code></code></span>
+<span class="codeline" id="line-1152"><code><span class="comment">	Usage: hostname_rfc1123 or if you want to continue to use 'hostname' in your tags, create an alias.</span></code></span>
+<span class="codeline" id="line-1153"><code></code></span>
+<span class="codeline" id="line-1154"><code><span class="comment">Full Qualified Domain Name (FQDN)</span></code></span>
+<span class="codeline" id="line-1155"><code></code></span>
+<span class="codeline" id="line-1156"><code><span class="comment">This validates that a string value contains a valid FQDN.</span></code></span>
+<span class="codeline" id="line-1157"><code></code></span>
+<span class="codeline" id="line-1158"><code><span class="comment">	Usage: fqdn</span></code></span>
+<span class="codeline" id="line-1159"><code></code></span>
+<span class="codeline" id="line-1160"><code><span class="comment">HTML Tags</span></code></span>
+<span class="codeline" id="line-1161"><code></code></span>
+<span class="codeline" id="line-1162"><code><span class="comment">This validates that a string value appears to be an HTML element tag</span></code></span>
+<span class="codeline" id="line-1163"><code><span class="comment">including those described at https://developer.mozilla.org/en-US/docs/Web/HTML/Element</span></code></span>
+<span class="codeline" id="line-1164"><code></code></span>
+<span class="codeline" id="line-1165"><code><span class="comment">	Usage: html</span></code></span>
+<span class="codeline" id="line-1166"><code></code></span>
+<span class="codeline" id="line-1167"><code><span class="comment">HTML Encoded</span></code></span>
+<span class="codeline" id="line-1168"><code></code></span>
+<span class="codeline" id="line-1169"><code><span class="comment">This validates that a string value is a proper character reference in decimal</span></code></span>
+<span class="codeline" id="line-1170"><code><span class="comment">or hexadecimal format</span></code></span>
+<span class="codeline" id="line-1171"><code></code></span>
+<span class="codeline" id="line-1172"><code><span class="comment">	Usage: html_encoded</span></code></span>
+<span class="codeline" id="line-1173"><code></code></span>
+<span class="codeline" id="line-1174"><code><span class="comment">URL Encoded</span></code></span>
+<span class="codeline" id="line-1175"><code></code></span>
+<span class="codeline" id="line-1176"><code><span class="comment">This validates that a string value is percent-encoded (URL encoded) according</span></code></span>
+<span class="codeline" id="line-1177"><code><span class="comment">to https://tools.ietf.org/html/rfc3986#section-2.1</span></code></span>
+<span class="codeline" id="line-1178"><code></code></span>
+<span class="codeline" id="line-1179"><code><span class="comment">	Usage: url_encoded</span></code></span>
+<span class="codeline" id="line-1180"><code></code></span>
+<span class="codeline" id="line-1181"><code><span class="comment">Directory</span></code></span>
+<span class="codeline" id="line-1182"><code></code></span>
+<span class="codeline" id="line-1183"><code><span class="comment">This validates that a string value contains a valid directory and that</span></code></span>
+<span class="codeline" id="line-1184"><code><span class="comment">it exists on the machine.</span></code></span>
+<span class="codeline" id="line-1185"><code><span class="comment">This is done using os.Stat, which is a platform independent function.</span></code></span>
+<span class="codeline" id="line-1186"><code></code></span>
+<span class="codeline" id="line-1187"><code><span class="comment">	Usage: dir</span></code></span>
+<span class="codeline" id="line-1188"><code></code></span>
+<span class="codeline" id="line-1189"><code><span class="comment">HostPort</span></code></span>
+<span class="codeline" id="line-1190"><code></code></span>
+<span class="codeline" id="line-1191"><code><span class="comment">This validates that a string value contains a valid DNS hostname and port that</span></code></span>
+<span class="codeline" id="line-1192"><code><span class="comment">can be used to valiate fields typically passed to sockets and connections.</span></code></span>
+<span class="codeline" id="line-1193"><code></code></span>
+<span class="codeline" id="line-1194"><code><span class="comment">	Usage: hostname_port</span></code></span>
+<span class="codeline" id="line-1195"><code></code></span>
+<span class="codeline" id="line-1196"><code><span class="comment">Datetime</span></code></span>
+<span class="codeline" id="line-1197"><code></code></span>
+<span class="codeline" id="line-1198"><code><span class="comment">This validates that a string value is a valid datetime based on the supplied datetime format.</span></code></span>
+<span class="codeline" id="line-1199"><code><span class="comment">Supplied format must match the official Go time format layout as documented in https://golang.org/pkg/time/</span></code></span>
+<span class="codeline" id="line-1200"><code></code></span>
+<span class="codeline" id="line-1201"><code><span class="comment">	Usage: datetime=2006-01-02</span></code></span>
+<span class="codeline" id="line-1202"><code></code></span>
+<span class="codeline" id="line-1203"><code><span class="comment">Iso3166-1 alpha-2</span></code></span>
+<span class="codeline" id="line-1204"><code></code></span>
+<span class="codeline" id="line-1205"><code><span class="comment">This validates that a string value is a valid country code based on iso3166-1 alpha-2 standard.</span></code></span>
+<span class="codeline" id="line-1206"><code><span class="comment">see: https://www.iso.org/iso-3166-country-codes.html</span></code></span>
+<span class="codeline" id="line-1207"><code></code></span>
+<span class="codeline" id="line-1208"><code><span class="comment">	Usage: iso3166_1_alpha2</span></code></span>
+<span class="codeline" id="line-1209"><code></code></span>
+<span class="codeline" id="line-1210"><code><span class="comment">Iso3166-1 alpha-3</span></code></span>
+<span class="codeline" id="line-1211"><code></code></span>
+<span class="codeline" id="line-1212"><code><span class="comment">This validates that a string value is a valid country code based on iso3166-1 alpha-3 standard.</span></code></span>
+<span class="codeline" id="line-1213"><code><span class="comment">see: https://www.iso.org/iso-3166-country-codes.html</span></code></span>
+<span class="codeline" id="line-1214"><code></code></span>
+<span class="codeline" id="line-1215"><code><span class="comment">	Usage: iso3166_1_alpha3</span></code></span>
+<span class="codeline" id="line-1216"><code></code></span>
+<span class="codeline" id="line-1217"><code><span class="comment">Iso3166-1 alpha-numeric</span></code></span>
+<span class="codeline" id="line-1218"><code></code></span>
+<span class="codeline" id="line-1219"><code><span class="comment">This validates that a string value is a valid country code based on iso3166-1 alpha-numeric standard.</span></code></span>
+<span class="codeline" id="line-1220"><code><span class="comment">see: https://www.iso.org/iso-3166-country-codes.html</span></code></span>
+<span class="codeline" id="line-1221"><code></code></span>
+<span class="codeline" id="line-1222"><code><span class="comment">	Usage: iso3166_1_alpha3</span></code></span>
+<span class="codeline" id="line-1223"><code></code></span>
+<span class="codeline" id="line-1224"><code><span class="comment">TimeZone</span></code></span>
+<span class="codeline" id="line-1225"><code></code></span>
+<span class="codeline" id="line-1226"><code><span class="comment">This validates that a string value is a valid time zone based on the time zone database present on the system.</span></code></span>
+<span class="codeline" id="line-1227"><code><span class="comment">Although empty value and Local value are allowed by time.LoadLocation golang function, they are not allowed by this validator.</span></code></span>
+<span class="codeline" id="line-1228"><code><span class="comment">More information on https://golang.org/pkg/time/#LoadLocation</span></code></span>
+<span class="codeline" id="line-1229"><code></code></span>
+<span class="codeline" id="line-1230"><code><span class="comment">	Usage: timezone</span></code></span>
+<span class="codeline" id="line-1231"><code><span class="comment">  </span></code></span>
+<span class="codeline" id="line-1232"><code></code></span>
+<span class="codeline" id="line-1233"><code><span class="comment">Alias Validators and Tags</span></code></span>
+<span class="codeline" id="line-1234"><code></code></span>
+<span class="codeline" id="line-1235"><code><span class="comment">NOTE: When returning an error, the tag returned in "FieldError" will be</span></code></span>
+<span class="codeline" id="line-1236"><code><span class="comment">the alias tag unless the dive tag is part of the alias. Everything after the</span></code></span>
+<span class="codeline" id="line-1237"><code><span class="comment">dive tag is not reported as the alias tag. Also, the "ActualTag" in the before</span></code></span>
+<span class="codeline" id="line-1238"><code><span class="comment">case will be the actual tag within the alias that failed.</span></code></span>
+<span class="codeline" id="line-1239"><code></code></span>
+<span class="codeline" id="line-1240"><code><span class="comment">Here is a list of the current built in alias tags:</span></code></span>
+<span class="codeline" id="line-1241"><code></code></span>
+<span class="codeline" id="line-1242"><code><span class="comment">	"iscolor"</span></code></span>
+<span class="codeline" id="line-1243"><code><span class="comment">		alias is "hexcolor|rgb|rgba|hsl|hsla" (Usage: iscolor)</span></code></span>
+<span class="codeline" id="line-1244"><code><span class="comment">	"country_code"</span></code></span>
+<span class="codeline" id="line-1245"><code><span class="comment">		alias is "iso3166_1_alpha2|iso3166_1_alpha3|iso3166_1_alpha_numeric" (Usage: country_code)</span></code></span>
+<span class="codeline" id="line-1246"><code></code></span>
+<span class="codeline" id="line-1247"><code><span class="comment">Validator notes:</span></code></span>
+<span class="codeline" id="line-1248"><code></code></span>
+<span class="codeline" id="line-1249"><code><span class="comment">	regex</span></code></span>
+<span class="codeline" id="line-1250"><code><span class="comment">		a regex validator won't be added because commas and = signs can be part</span></code></span>
+<span class="codeline" id="line-1251"><code><span class="comment">		of a regex which conflict with the validation definitions. Although</span></code></span>
+<span class="codeline" id="line-1252"><code><span class="comment">		workarounds can be made, they take away from using pure regex's.</span></code></span>
+<span class="codeline" id="line-1253"><code><span class="comment">		Furthermore it's quick and dirty but the regex's become harder to</span></code></span>
+<span class="codeline" id="line-1254"><code><span class="comment">		maintain and are not reusable, so it's as much a programming philosophy</span></code></span>
+<span class="codeline" id="line-1255"><code><span class="comment">		as anything.</span></code></span>
+<span class="codeline" id="line-1256"><code></code></span>
+<span class="codeline" id="line-1257"><code><span class="comment">		In place of this new validator functions should be created; a regex can</span></code></span>
+<span class="codeline" id="line-1258"><code><span class="comment">		be used within the validator function and even be precompiled for better</span></code></span>
+<span class="codeline" id="line-1259"><code><span class="comment">		efficiency within regexes.go.</span></code></span>
+<span class="codeline" id="line-1260"><code></code></span>
+<span class="codeline" id="line-1261"><code><span class="comment">		And the best reason, you can submit a pull request and we can keep on</span></code></span>
+<span class="codeline" id="line-1262"><code><span class="comment">		adding to the validation library of this package!</span></code></span>
+<span class="codeline" id="line-1263"><code></code></span>
+<span class="codeline" id="line-1264"><code><span class="comment">Non standard validators</span></code></span>
+<span class="codeline" id="line-1265"><code></code></span>
+<span class="codeline" id="line-1266"><code><span class="comment">A collection of validation rules that are frequently needed but are more</span></code></span>
+<span class="codeline" id="line-1267"><code><span class="comment">complex than the ones found in the baked in validators.</span></code></span>
+<span class="codeline" id="line-1268"><code><span class="comment">A non standard validator must be registered manually like you would</span></code></span>
+<span class="codeline" id="line-1269"><code><span class="comment">with your own custom validation functions.</span></code></span>
+<span class="codeline" id="line-1270"><code></code></span>
+<span class="codeline" id="line-1271"><code><span class="comment">Example of registration and use:</span></code></span>
+<span class="codeline" id="line-1272"><code></code></span>
+<span class="codeline" id="line-1273"><code><span class="comment">	type Test struct {</span></code></span>
+<span class="codeline" id="line-1274"><code><span class="comment">		TestField string `validate:"yourtag"`</span></code></span>
+<span class="codeline" id="line-1275"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-1276"><code></code></span>
+<span class="codeline" id="line-1277"><code><span class="comment">	t := &amp;Test{</span></code></span>
+<span class="codeline" id="line-1278"><code><span class="comment">		TestField: "Test"</span></code></span>
+<span class="codeline" id="line-1279"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-1280"><code></code></span>
+<span class="codeline" id="line-1281"><code><span class="comment">	validate := validator.New()</span></code></span>
+<span class="codeline" id="line-1282"><code><span class="comment">	validate.RegisterValidation("yourtag", validators.NotBlank)</span></code></span>
+<span class="codeline" id="line-1283"><code></code></span>
+<span class="codeline" id="line-1284"><code><span class="comment">Here is a list of the current non standard validators:</span></code></span>
+<span class="codeline" id="line-1285"><code></code></span>
+<span class="codeline" id="line-1286"><code><span class="comment">	NotBlank</span></code></span>
+<span class="codeline" id="line-1287"><code><span class="comment">		This validates that the value is not blank or with length zero.</span></code></span>
+<span class="codeline" id="line-1288"><code><span class="comment">		For strings ensures they do not contain only spaces. For channels, maps, slices and arrays</span></code></span>
+<span class="codeline" id="line-1289"><code><span class="comment">		ensures they don't have zero length. For others, a non empty value is required.</span></code></span>
+<span class="codeline" id="line-1290"><code></code></span>
+<span class="codeline" id="line-1291"><code><span class="comment">		Usage: notblank</span></code></span>
+<span class="codeline" id="line-1292"><code></code></span>
+<span class="codeline" id="line-1293"><code><span class="comment">Panics</span></code></span>
+<span class="codeline" id="line-1294"><code></code></span>
+<span class="codeline" id="line-1295"><code><span class="comment">This package panics when bad input is provided, this is by design, bad code like</span></code></span>
+<span class="codeline" id="line-1296"><code><span class="comment">that should not make it to production.</span></code></span>
+<span class="codeline" id="line-1297"><code></code></span>
+<span class="codeline" id="line-1298"><code><span class="comment">	type Test struct {</span></code></span>
+<span class="codeline" id="line-1299"><code><span class="comment">		TestField string `validate:"nonexistantfunction=1"`</span></code></span>
+<span class="codeline" id="line-1300"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-1301"><code></code></span>
+<span class="codeline" id="line-1302"><code><span class="comment">	t := &amp;Test{</span></code></span>
+<span class="codeline" id="line-1303"><code><span class="comment">		TestField: "Test"</span></code></span>
+<span class="codeline" id="line-1304"><code><span class="comment">	}</span></code></span>
+<span class="codeline" id="line-1305"><code></code></span>
+<span class="codeline" id="line-1306"><code><span class="comment">	validate.Struct(t) // this will panic</span></code></span>
+<span class="codeline" id="line-1307"><code><span class="comment">*/</span></code></span></div><span class="codeline" id="line-1308"><code><span class="keyword">package</span> validator</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: doc.go in package github.com/ugorji/go/codec</title>
+<link href="../../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	doc.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../../pkg/github.com/ugorji/go/codec.html">github.com/ugorji/go/codec</a>
+</code></pre>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="comment">// Copyright (c) 2012-2018 Ugorji Nwoke. All rights reserved.</span></code></span>
+<span class="codeline" id="line-2"><code><span class="comment">// Use of this source code is governed by a MIT license found in the LICENSE file.</span></code></span>
+<span class="codeline" id="line-3"><code></code></span>
+<div class="anchor" id="doc"><span class="codeline" id="line-4"><code><span class="comment">/*</span></code></span>
+<span class="codeline" id="line-5"><code><span class="comment">Package codec provides a</span></code></span>
+<span class="codeline" id="line-6"><code><span class="comment">High Performance, Feature-Rich Idiomatic Go 1.4+ codec/encoding library</span></code></span>
+<span class="codeline" id="line-7"><code><span class="comment">for binc, msgpack, cbor, json.</span></code></span>
+<span class="codeline" id="line-8"><code></code></span>
+<span class="codeline" id="line-9"><code><span class="comment">Supported Serialization formats are:</span></code></span>
+<span class="codeline" id="line-10"><code></code></span>
+<span class="codeline" id="line-11"><code><span class="comment">  - msgpack: https://github.com/msgpack/msgpack</span></code></span>
+<span class="codeline" id="line-12"><code><span class="comment">  - binc:    http://github.com/ugorji/binc</span></code></span>
+<span class="codeline" id="line-13"><code><span class="comment">  - cbor:    http://cbor.io http://tools.ietf.org/html/rfc7049</span></code></span>
+<span class="codeline" id="line-14"><code><span class="comment">  - json:    http://json.org http://tools.ietf.org/html/rfc7159</span></code></span>
+<span class="codeline" id="line-15"><code><span class="comment">  - simple:</span></code></span>
+<span class="codeline" id="line-16"><code></code></span>
+<span class="codeline" id="line-17"><code><span class="comment">This package will carefully use 'package unsafe' for performance reasons in specific places.</span></code></span>
+<span class="codeline" id="line-18"><code><span class="comment">You can build without unsafe use by passing the safe or appengine tag</span></code></span>
+<span class="codeline" id="line-19"><code><span class="comment">i.e. 'go install -tags=safe ...'.</span></code></span>
+<span class="codeline" id="line-20"><code></code></span>
+<span class="codeline" id="line-21"><code><span class="comment">For detailed usage information, read the primer at http://ugorji.net/blog/go-codec-primer .</span></code></span>
+<span class="codeline" id="line-22"><code></code></span>
+<span class="codeline" id="line-23"><code><span class="comment">The idiomatic Go support is as seen in other encoding packages in</span></code></span>
+<span class="codeline" id="line-24"><code><span class="comment">the standard library (ie json, xml, gob, etc).</span></code></span>
+<span class="codeline" id="line-25"><code></code></span>
+<span class="codeline" id="line-26"><code><span class="comment">Rich Feature Set includes:</span></code></span>
+<span class="codeline" id="line-27"><code></code></span>
+<span class="codeline" id="line-28"><code><span class="comment">  - Simple but extremely powerful and feature-rich API</span></code></span>
+<span class="codeline" id="line-29"><code><span class="comment">  - Support for go 1.4 and above, while selectively using newer APIs for later releases</span></code></span>
+<span class="codeline" id="line-30"><code><span class="comment">  - Excellent code coverage ( &gt; 90% )</span></code></span>
+<span class="codeline" id="line-31"><code><span class="comment">  - Very High Performance.</span></code></span>
+<span class="codeline" id="line-32"><code><span class="comment">    Our extensive benchmarks show us outperforming Gob, Json, Bson, etc by 2-4X.</span></code></span>
+<span class="codeline" id="line-33"><code><span class="comment">  - Careful selected use of 'unsafe' for targeted performance gains.</span></code></span>
+<span class="codeline" id="line-34"><code><span class="comment">  - 100% safe mode supported, where 'unsafe' is not used at all.</span></code></span>
+<span class="codeline" id="line-35"><code><span class="comment">  - Lock-free (sans mutex) concurrency for scaling to 100's of cores</span></code></span>
+<span class="codeline" id="line-36"><code><span class="comment">  - In-place updates during decode, with option to zero value in maps and slices prior to decode</span></code></span>
+<span class="codeline" id="line-37"><code><span class="comment">  - Coerce types where appropriate</span></code></span>
+<span class="codeline" id="line-38"><code><span class="comment">    e.g. decode an int in the stream into a float, decode numbers from formatted strings, etc</span></code></span>
+<span class="codeline" id="line-39"><code><span class="comment">  - Corner Cases:</span></code></span>
+<span class="codeline" id="line-40"><code><span class="comment">    Overflows, nil maps/slices, nil values in streams are handled correctly</span></code></span>
+<span class="codeline" id="line-41"><code><span class="comment">  - Standard field renaming via tags</span></code></span>
+<span class="codeline" id="line-42"><code><span class="comment">  - Support for omitting empty fields during an encoding</span></code></span>
+<span class="codeline" id="line-43"><code><span class="comment">  - Encoding from any value and decoding into pointer to any value</span></code></span>
+<span class="codeline" id="line-44"><code><span class="comment">    (struct, slice, map, primitives, pointers, interface{}, etc)</span></code></span>
+<span class="codeline" id="line-45"><code><span class="comment">  - Extensions to support efficient encoding/decoding of any named types</span></code></span>
+<span class="codeline" id="line-46"><code><span class="comment">  - Support encoding.(Binary|Text)(M|Unm)arshaler interfaces</span></code></span>
+<span class="codeline" id="line-47"><code><span class="comment">  - Support IsZero() bool to determine if a value is a zero value.</span></code></span>
+<span class="codeline" id="line-48"><code><span class="comment">    Analogous to time.Time.IsZero() bool.</span></code></span>
+<span class="codeline" id="line-49"><code><span class="comment">  - Decoding without a schema (into a interface{}).</span></code></span>
+<span class="codeline" id="line-50"><code><span class="comment">    Includes Options to configure what specific map or slice type to use</span></code></span>
+<span class="codeline" id="line-51"><code><span class="comment">    when decoding an encoded list or map into a nil interface{}</span></code></span>
+<span class="codeline" id="line-52"><code><span class="comment">  - Mapping a non-interface type to an interface, so we can decode appropriately</span></code></span>
+<span class="codeline" id="line-53"><code><span class="comment">    into any interface type with a correctly configured non-interface value.</span></code></span>
+<span class="codeline" id="line-54"><code><span class="comment">  - Encode a struct as an array, and decode struct from an array in the data stream</span></code></span>
+<span class="codeline" id="line-55"><code><span class="comment">  - Option to encode struct keys as numbers (instead of strings)</span></code></span>
+<span class="codeline" id="line-56"><code><span class="comment">    (to support structured streams with fields encoded as numeric codes)</span></code></span>
+<span class="codeline" id="line-57"><code><span class="comment">  - Comprehensive support for anonymous fields</span></code></span>
+<span class="codeline" id="line-58"><code><span class="comment">  - Fast (no-reflection) encoding/decoding of common maps and slices</span></code></span>
+<span class="codeline" id="line-59"><code><span class="comment">  - Code-generation for faster performance, supported in go 1.6+</span></code></span>
+<span class="codeline" id="line-60"><code><span class="comment">  - Support binary (e.g. messagepack, cbor) and text (e.g. json) formats</span></code></span>
+<span class="codeline" id="line-61"><code><span class="comment">  - Support indefinite-length formats to enable true streaming</span></code></span>
+<span class="codeline" id="line-62"><code><span class="comment">    (for formats which support it e.g. json, cbor)</span></code></span>
+<span class="codeline" id="line-63"><code><span class="comment">  - Support canonical encoding, where a value is ALWAYS encoded as same sequence of bytes.</span></code></span>
+<span class="codeline" id="line-64"><code><span class="comment">    This mostly applies to maps, where iteration order is non-deterministic.</span></code></span>
+<span class="codeline" id="line-65"><code><span class="comment">  - NIL in data stream decoded as zero value</span></code></span>
+<span class="codeline" id="line-66"><code><span class="comment">  - Never silently skip data when decoding.</span></code></span>
+<span class="codeline" id="line-67"><code><span class="comment">    User decides whether to return an error or silently skip data when keys or indexes</span></code></span>
+<span class="codeline" id="line-68"><code><span class="comment">    in the data stream do not map to fields in the struct.</span></code></span>
+<span class="codeline" id="line-69"><code><span class="comment">  - Detect and error when encoding a cyclic reference (instead of stack overflow shutdown)</span></code></span>
+<span class="codeline" id="line-70"><code><span class="comment">  - Encode/Decode from/to chan types (for iterative streaming support)</span></code></span>
+<span class="codeline" id="line-71"><code><span class="comment">  - Drop-in replacement for encoding/json. `json:` key in struct tag supported.</span></code></span>
+<span class="codeline" id="line-72"><code><span class="comment">  - Provides a RPC Server and Client Codec for net/rpc communication protocol.</span></code></span>
+<span class="codeline" id="line-73"><code><span class="comment">  - Handle unique idiosyncrasies of codecs e.g.</span></code></span>
+<span class="codeline" id="line-74"><code><span class="comment">    - For messagepack, configure how ambiguities in handling raw bytes are resolved</span></code></span>
+<span class="codeline" id="line-75"><code><span class="comment">    - For messagepack, provide rpc server/client codec to support</span></code></span>
+<span class="codeline" id="line-76"><code><span class="comment">      msgpack-rpc protocol defined at:</span></code></span>
+<span class="codeline" id="line-77"><code><span class="comment">      https://github.com/msgpack-rpc/msgpack-rpc/blob/master/spec.md</span></code></span>
+<span class="codeline" id="line-78"><code></code></span>
+<span class="codeline" id="line-79"><code><span class="comment">Extension Support</span></code></span>
+<span class="codeline" id="line-80"><code></code></span>
+<span class="codeline" id="line-81"><code><span class="comment">Users can register a function to handle the encoding or decoding of</span></code></span>
+<span class="codeline" id="line-82"><code><span class="comment">their custom types.</span></code></span>
+<span class="codeline" id="line-83"><code></code></span>
+<span class="codeline" id="line-84"><code><span class="comment">There are no restrictions on what the custom type can be. Some examples:</span></code></span>
+<span class="codeline" id="line-85"><code></code></span>
+<span class="codeline" id="line-86"><code><span class="comment">    type BisSet   []int</span></code></span>
+<span class="codeline" id="line-87"><code><span class="comment">    type BitSet64 uint64</span></code></span>
+<span class="codeline" id="line-88"><code><span class="comment">    type UUID     string</span></code></span>
+<span class="codeline" id="line-89"><code><span class="comment">    type MyStructWithUnexportedFields struct { a int; b bool; c []int; }</span></code></span>
+<span class="codeline" id="line-90"><code><span class="comment">    type GifImage struct { ... }</span></code></span>
+<span class="codeline" id="line-91"><code></code></span>
+<span class="codeline" id="line-92"><code><span class="comment">As an illustration, MyStructWithUnexportedFields would normally be</span></code></span>
+<span class="codeline" id="line-93"><code><span class="comment">encoded as an empty map because it has no exported fields, while UUID</span></code></span>
+<span class="codeline" id="line-94"><code><span class="comment">would be encoded as a string. However, with extension support, you can</span></code></span>
+<span class="codeline" id="line-95"><code><span class="comment">encode any of these however you like.</span></code></span>
+<span class="codeline" id="line-96"><code></code></span>
+<span class="codeline" id="line-97"><code><span class="comment">There is also seamless support provided for registering an extension (with a tag)</span></code></span>
+<span class="codeline" id="line-98"><code><span class="comment">but letting the encoding mechanism default to the standard way.</span></code></span>
+<span class="codeline" id="line-99"><code></code></span>
+<span class="codeline" id="line-100"><code><span class="comment">Custom Encoding and Decoding</span></code></span>
+<span class="codeline" id="line-101"><code></code></span>
+<span class="codeline" id="line-102"><code><span class="comment">This package maintains symmetry in the encoding and decoding halfs.</span></code></span>
+<span class="codeline" id="line-103"><code><span class="comment">We determine how to encode or decode by walking this decision tree</span></code></span>
+<span class="codeline" id="line-104"><code></code></span>
+<span class="codeline" id="line-105"><code><span class="comment">  - is there an extension registered for the type?</span></code></span>
+<span class="codeline" id="line-106"><code><span class="comment">  - is type a codec.Selfer?</span></code></span>
+<span class="codeline" id="line-107"><code><span class="comment">  - is format binary, and is type a encoding.BinaryMarshaler and BinaryUnmarshaler?</span></code></span>
+<span class="codeline" id="line-108"><code><span class="comment">  - is format specifically json, and is type a encoding/json.Marshaler and Unmarshaler?</span></code></span>
+<span class="codeline" id="line-109"><code><span class="comment">  - is format text-based, and type an encoding.TextMarshaler and TextUnmarshaler?</span></code></span>
+<span class="codeline" id="line-110"><code><span class="comment">  - else we use a pair of functions based on the "kind" of the type e.g. map, slice, int64, etc</span></code></span>
+<span class="codeline" id="line-111"><code></code></span>
+<span class="codeline" id="line-112"><code><span class="comment">This symmetry is important to reduce chances of issues happening because the</span></code></span>
+<span class="codeline" id="line-113"><code><span class="comment">encoding and decoding sides are out of sync e.g. decoded via very specific</span></code></span>
+<span class="codeline" id="line-114"><code><span class="comment">encoding.TextUnmarshaler but encoded via kind-specific generalized mode.</span></code></span>
+<span class="codeline" id="line-115"><code></code></span>
+<span class="codeline" id="line-116"><code><span class="comment">Consequently, if a type only defines one-half of the symmetry</span></code></span>
+<span class="codeline" id="line-117"><code><span class="comment">(e.g. it implements UnmarshalJSON() but not MarshalJSON() ),</span></code></span>
+<span class="codeline" id="line-118"><code><span class="comment">then that type doesn't satisfy the check and we will continue walking down the</span></code></span>
+<span class="codeline" id="line-119"><code><span class="comment">decision tree.</span></code></span>
+<span class="codeline" id="line-120"><code></code></span>
+<span class="codeline" id="line-121"><code><span class="comment">RPC</span></code></span>
+<span class="codeline" id="line-122"><code></code></span>
+<span class="codeline" id="line-123"><code><span class="comment">RPC Client and Server Codecs are implemented, so the codecs can be used</span></code></span>
+<span class="codeline" id="line-124"><code><span class="comment">with the standard net/rpc package.</span></code></span>
+<span class="codeline" id="line-125"><code></code></span>
+<span class="codeline" id="line-126"><code><span class="comment">Usage</span></code></span>
+<span class="codeline" id="line-127"><code></code></span>
+<span class="codeline" id="line-128"><code><span class="comment">The Handle is SAFE for concurrent READ, but NOT SAFE for concurrent modification.</span></code></span>
+<span class="codeline" id="line-129"><code></code></span>
+<span class="codeline" id="line-130"><code><span class="comment">The Encoder and Decoder are NOT safe for concurrent use.</span></code></span>
+<span class="codeline" id="line-131"><code></code></span>
+<span class="codeline" id="line-132"><code><span class="comment">Consequently, the usage model is basically:</span></code></span>
+<span class="codeline" id="line-133"><code></code></span>
+<span class="codeline" id="line-134"><code><span class="comment">    - Create and initialize the Handle before any use.</span></code></span>
+<span class="codeline" id="line-135"><code><span class="comment">      Once created, DO NOT modify it.</span></code></span>
+<span class="codeline" id="line-136"><code><span class="comment">    - Multiple Encoders or Decoders can now use the Handle concurrently.</span></code></span>
+<span class="codeline" id="line-137"><code><span class="comment">      They only read information off the Handle (never write).</span></code></span>
+<span class="codeline" id="line-138"><code><span class="comment">    - However, each Encoder or Decoder MUST not be used concurrently</span></code></span>
+<span class="codeline" id="line-139"><code><span class="comment">    - To re-use an Encoder/Decoder, call Reset(...) on it first.</span></code></span>
+<span class="codeline" id="line-140"><code><span class="comment">      This allows you use state maintained on the Encoder/Decoder.</span></code></span>
+<span class="codeline" id="line-141"><code></code></span>
+<span class="codeline" id="line-142"><code><span class="comment">Sample usage model:</span></code></span>
+<span class="codeline" id="line-143"><code></code></span>
+<span class="codeline" id="line-144"><code><span class="comment">    // create and configure Handle</span></code></span>
+<span class="codeline" id="line-145"><code><span class="comment">    var (</span></code></span>
+<span class="codeline" id="line-146"><code><span class="comment">      bh codec.BincHandle</span></code></span>
+<span class="codeline" id="line-147"><code><span class="comment">      mh codec.MsgpackHandle</span></code></span>
+<span class="codeline" id="line-148"><code><span class="comment">      ch codec.CborHandle</span></code></span>
+<span class="codeline" id="line-149"><code><span class="comment">    )</span></code></span>
+<span class="codeline" id="line-150"><code></code></span>
+<span class="codeline" id="line-151"><code><span class="comment">    mh.MapType = reflect.TypeOf(map[string]interface{}(nil))</span></code></span>
+<span class="codeline" id="line-152"><code></code></span>
+<span class="codeline" id="line-153"><code><span class="comment">    // configure extensions</span></code></span>
+<span class="codeline" id="line-154"><code><span class="comment">    // e.g. for msgpack, define functions and enable Time support for tag 1</span></code></span>
+<span class="codeline" id="line-155"><code><span class="comment">    // mh.SetExt(reflect.TypeOf(time.Time{}), 1, myExt)</span></code></span>
+<span class="codeline" id="line-156"><code></code></span>
+<span class="codeline" id="line-157"><code><span class="comment">    // create and use decoder/encoder</span></code></span>
+<span class="codeline" id="line-158"><code><span class="comment">    var (</span></code></span>
+<span class="codeline" id="line-159"><code><span class="comment">      r io.Reader</span></code></span>
+<span class="codeline" id="line-160"><code><span class="comment">      w io.Writer</span></code></span>
+<span class="codeline" id="line-161"><code><span class="comment">      b []byte</span></code></span>
+<span class="codeline" id="line-162"><code><span class="comment">      h = &amp;bh // or mh to use msgpack</span></code></span>
+<span class="codeline" id="line-163"><code><span class="comment">    )</span></code></span>
+<span class="codeline" id="line-164"><code></code></span>
+<span class="codeline" id="line-165"><code><span class="comment">    dec = codec.NewDecoder(r, h)</span></code></span>
+<span class="codeline" id="line-166"><code><span class="comment">    dec = codec.NewDecoderBytes(b, h)</span></code></span>
+<span class="codeline" id="line-167"><code><span class="comment">    err = dec.Decode(&amp;v)</span></code></span>
+<span class="codeline" id="line-168"><code></code></span>
+<span class="codeline" id="line-169"><code><span class="comment">    enc = codec.NewEncoder(w, h)</span></code></span>
+<span class="codeline" id="line-170"><code><span class="comment">    enc = codec.NewEncoderBytes(&amp;b, h)</span></code></span>
+<span class="codeline" id="line-171"><code><span class="comment">    err = enc.Encode(v)</span></code></span>
+<span class="codeline" id="line-172"><code></code></span>
+<span class="codeline" id="line-173"><code><span class="comment">    //RPC Server</span></code></span>
+<span class="codeline" id="line-174"><code><span class="comment">    go func() {</span></code></span>
+<span class="codeline" id="line-175"><code><span class="comment">        for {</span></code></span>
+<span class="codeline" id="line-176"><code><span class="comment">            conn, err := listener.Accept()</span></code></span>
+<span class="codeline" id="line-177"><code><span class="comment">            rpcCodec := codec.GoRpc.ServerCodec(conn, h)</span></code></span>
+<span class="codeline" id="line-178"><code><span class="comment">            //OR rpcCodec := codec.MsgpackSpecRpc.ServerCodec(conn, h)</span></code></span>
+<span class="codeline" id="line-179"><code><span class="comment">            rpc.ServeCodec(rpcCodec)</span></code></span>
+<span class="codeline" id="line-180"><code><span class="comment">        }</span></code></span>
+<span class="codeline" id="line-181"><code><span class="comment">    }()</span></code></span>
+<span class="codeline" id="line-182"><code></code></span>
+<span class="codeline" id="line-183"><code><span class="comment">    //RPC Communication (client side)</span></code></span>
+<span class="codeline" id="line-184"><code><span class="comment">    conn, err = net.Dial("tcp", "localhost:5555")</span></code></span>
+<span class="codeline" id="line-185"><code><span class="comment">    rpcCodec := codec.GoRpc.ClientCodec(conn, h)</span></code></span>
+<span class="codeline" id="line-186"><code><span class="comment">    //OR rpcCodec := codec.MsgpackSpecRpc.ClientCodec(conn, h)</span></code></span>
+<span class="codeline" id="line-187"><code><span class="comment">    client := rpc.NewClientWithCodec(rpcCodec)</span></code></span>
+<span class="codeline" id="line-188"><code></code></span>
+<span class="codeline" id="line-189"><code><span class="comment">Running Tests</span></code></span>
+<span class="codeline" id="line-190"><code></code></span>
+<span class="codeline" id="line-191"><code><span class="comment">To run tests, use the following:</span></code></span>
+<span class="codeline" id="line-192"><code></code></span>
+<span class="codeline" id="line-193"><code><span class="comment">    go test</span></code></span>
+<span class="codeline" id="line-194"><code></code></span>
+<span class="codeline" id="line-195"><code><span class="comment">To run the full suite of tests, use the following:</span></code></span>
+<span class="codeline" id="line-196"><code></code></span>
+<span class="codeline" id="line-197"><code><span class="comment">    go test -tags alltests -run Suite</span></code></span>
+<span class="codeline" id="line-198"><code></code></span>
+<span class="codeline" id="line-199"><code><span class="comment">You can run the tag 'safe' to run tests or build in safe mode. e.g.</span></code></span>
+<span class="codeline" id="line-200"><code></code></span>
+<span class="codeline" id="line-201"><code><span class="comment">    go test -tags safe -run Json</span></code></span>
+<span class="codeline" id="line-202"><code><span class="comment">    go test -tags "alltests safe" -run Suite</span></code></span>
+<span class="codeline" id="line-203"><code></code></span>
+<span class="codeline" id="line-204"><code><span class="comment">Running Benchmarks</span></code></span>
+<span class="codeline" id="line-205"><code></code></span>
+<span class="codeline" id="line-206"><code><span class="comment">    cd bench</span></code></span>
+<span class="codeline" id="line-207"><code><span class="comment">    go test -bench . -benchmem -benchtime 1s</span></code></span>
+<span class="codeline" id="line-208"><code><span class="comment">    </span></code></span>
+<span class="codeline" id="line-209"><code><span class="comment">Please see http://github.com/ugorji/go-codec-bench .</span></code></span>
+<span class="codeline" id="line-210"><code></code></span>
+<span class="codeline" id="line-211"><code><span class="comment">Caveats</span></code></span>
+<span class="codeline" id="line-212"><code></code></span>
+<span class="codeline" id="line-213"><code><span class="comment">Struct fields matching the following are ignored during encoding and decoding</span></code></span>
+<span class="codeline" id="line-214"><code><span class="comment">    - struct tag value set to -</span></code></span>
+<span class="codeline" id="line-215"><code><span class="comment">    - func, complex numbers, unsafe pointers</span></code></span>
+<span class="codeline" id="line-216"><code><span class="comment">    - unexported and not embedded</span></code></span>
+<span class="codeline" id="line-217"><code><span class="comment">    - unexported and embedded and not struct kind</span></code></span>
+<span class="codeline" id="line-218"><code><span class="comment">    - unexported and embedded pointers (from go1.10)</span></code></span>
+<span class="codeline" id="line-219"><code></code></span>
+<span class="codeline" id="line-220"><code><span class="comment">Every other field in a struct will be encoded/decoded.</span></code></span>
+<span class="codeline" id="line-221"><code></code></span>
+<span class="codeline" id="line-222"><code><span class="comment">Embedded fields are encoded as if they exist in the top-level struct,</span></code></span>
+<span class="codeline" id="line-223"><code><span class="comment">with some caveats. See Encode documentation.</span></code></span>
+<span class="codeline" id="line-224"><code></code></span>
+<span class="codeline" id="line-225"><code><span class="comment">*/</span></code></span></div><span class="codeline" id="line-226"><code><span class="keyword">package</span> codec</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

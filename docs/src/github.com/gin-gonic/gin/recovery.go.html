@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: recovery.go in package github.com/gin-gonic/gin</title>
+<link href="../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	recovery.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../pkg/github.com/gin-gonic/gin.html">github.com/gin-gonic/gin</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12],
+input[id=r13]:checked ~pre label[for=r13],
+input[id=r14]:checked ~pre label[for=r14],
+input[id=r15]:checked ~pre label[for=r15],
+input[id=r16]:checked ~pre label[for=r16],
+input[id=r17]:checked ~pre label[for=r17],
+input[id=r18]:checked ~pre label[for=r18],
+input[id=r19]:checked ~pre label[for=r19],
+input[id=r20]:checked ~pre label[for=r20],
+input[id=r21]:checked ~pre label[for=r21],
+input[id=r22]:checked ~pre label[for=r22],
+input[id=r23]:checked ~pre label[for=r23],
+input[id=r24]:checked ~pre label[for=r24],
+input[id=r25]:checked ~pre label[for=r25],
+input[id=r26]:checked ~pre label[for=r26],
+input[id=r27]:checked ~pre label[for=r27],
+input[id=r28]:checked ~pre label[for=r28],
+input[id=r29]:checked ~pre label[for=r29],
+input[id=r30]:checked ~pre label[for=r30],
+input[id=r31]:checked ~pre label[for=r31],
+input[id=r32]:checked ~pre label[for=r32],
+input[id=r33]:checked ~pre label[for=r33],
+input[id=r34]:checked ~pre label[for=r34],
+input[id=r35]:checked ~pre label[for=r35],
+input[id=r36]:checked ~pre label[for=r36],
+input[id=r37]:checked ~pre label[for=r37],
+input[id=r38]:checked ~pre label[for=r38],
+input[id=r39]:checked ~pre label[for=r39],
+input[id=r40]:checked ~pre label[for=r40],
+input[id=r41]:checked ~pre label[for=r41],
+input[id=r42]:checked ~pre label[for=r42],
+input[id=r43]:checked ~pre label[for=r43],
+input[id=r44]:checked ~pre label[for=r44],
+input[id=r45]:checked ~pre label[for=r45],
+input[id=r46]:checked ~pre label[for=r46],
+input[id=r47]:checked ~pre label[for=r47],
+input[id=r48]:checked ~pre label[for=r48],
+input[id=r49]:checked ~pre label[for=r49],
+input[id=r50]:checked ~pre label[for=r50],
+input[id=r51]:checked ~pre label[for=r51]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1,
+input[id=i2]:checked ~pre .i2,
+input[id=i3]:checked ~pre .i3,
+input[id=i4]:checked ~pre .i4,
+input[id=i5]:checked ~pre .i5,
+input[id=i6]:checked ~pre .i6,
+input[id=i7]:checked ~pre .i7,
+input[id=i8]:checked ~pre .i8,
+input[id=i9]:checked ~pre .i9,
+input[id=i10]:checked ~pre .i10,
+input[id=i11]:checked ~pre .i11
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="r13" type="radio" name="g"/>
+<input id="r14" type="radio" name="g"/>
+<input id="r15" type="radio" name="g"/>
+<input id="r16" type="radio" name="g"/>
+<input id="r17" type="radio" name="g"/>
+<input id="r18" type="radio" name="g"/>
+<input id="r19" type="radio" name="g"/>
+<input id="r20" type="radio" name="g"/>
+<input id="r21" type="radio" name="g"/>
+<input id="r22" type="radio" name="g"/>
+<input id="r23" type="radio" name="g"/>
+<input id="r24" type="radio" name="g"/>
+<input id="r25" type="radio" name="g"/>
+<input id="r26" type="radio" name="g"/>
+<input id="r27" type="radio" name="g"/>
+<input id="r28" type="radio" name="g"/>
+<input id="r29" type="radio" name="g"/>
+<input id="r30" type="radio" name="g"/>
+<input id="r31" type="radio" name="g"/>
+<input id="r32" type="radio" name="g"/>
+<input id="r33" type="radio" name="g"/>
+<input id="r34" type="radio" name="g"/>
+<input id="r35" type="radio" name="g"/>
+<input id="r36" type="radio" name="g"/>
+<input id="r37" type="radio" name="g"/>
+<input id="r38" type="radio" name="g"/>
+<input id="r39" type="radio" name="g"/>
+<input id="r40" type="radio" name="g"/>
+<input id="r41" type="radio" name="g"/>
+<input id="r42" type="radio" name="g"/>
+<input id="r43" type="radio" name="g"/>
+<input id="r44" type="radio" name="g"/>
+<input id="r45" type="radio" name="g"/>
+<input id="r46" type="radio" name="g"/>
+<input id="r47" type="radio" name="g"/>
+<input id="r48" type="radio" name="g"/>
+<input id="r49" type="radio" name="g"/>
+<input id="r50" type="radio" name="g"/>
+<input id="r51" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+<input id="i2" type="radio" name="i"/>
+<input id="i3" type="radio" name="i"/>
+<input id="i4" type="radio" name="i"/>
+<input id="i5" type="radio" name="i"/>
+<input id="i6" type="radio" name="i"/>
+<input id="i7" type="radio" name="i"/>
+<input id="i8" type="radio" name="i"/>
+<input id="i9" type="radio" name="i"/>
+<input id="i10" type="radio" name="i"/>
+<input id="i11" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="comment">// Copyright 2014 Manu Martinez-Almeida.  All rights reserved.</span></code></span>
+<span class="codeline" id="line-2"><code><span class="comment">// Use of this source code is governed by a MIT style</span></code></span>
+<span class="codeline" id="line-3"><code><span class="comment">// license that can be found in the LICENSE file.</span></code></span>
+<span class="codeline" id="line-4"><code></code></span>
+<span class="codeline" id="line-5"><code><span class="keyword">package</span> gin</code></span>
+<span class="codeline" id="line-6"><code></code></span>
+<span class="codeline" id="line-7"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-8"><code>	<label for="i0"><span class="lit-string i0">"bytes"</span></label></code></span>
+<span class="codeline" id="line-9"><code>	<label for="i1"><span class="lit-string i1">"fmt"</span></label></code></span>
+<span class="codeline" id="line-10"><code>	<label for="i2"><span class="lit-string i2">"io"</span></label></code></span>
+<span class="codeline" id="line-11"><code>	<label for="i3"><span class="lit-string i3">"io/ioutil"</span></label></code></span>
+<span class="codeline" id="line-12"><code>	<label for="i4"><span class="lit-string i4">"log"</span></label></code></span>
+<span class="codeline" id="line-13"><code>	<label for="i5"><span class="lit-string i5">"net"</span></label></code></span>
+<span class="codeline" id="line-14"><code>	<label for="i6"><span class="lit-string i6">"net/http"</span></label></code></span>
+<span class="codeline" id="line-15"><code>	<label for="i7"><span class="lit-string i7">"net/http/httputil"</span></label></code></span>
+<span class="codeline" id="line-16"><code>	<label for="i8"><span class="lit-string i8">"os"</span></label></code></span>
+<span class="codeline" id="line-17"><code>	<label for="i9"><span class="lit-string i9">"runtime"</span></label></code></span>
+<span class="codeline" id="line-18"><code>	<label for="i10"><span class="lit-string i10">"strings"</span></label></code></span>
+<span class="codeline" id="line-19"><code>	<label for="i11"><span class="lit-string i11">"time"</span></label></code></span>
+<span class="codeline" id="line-20"><code>)</code></span>
+<span class="codeline" id="line-21"><code></code></span>
+<span class="codeline" id="line-22"><code><span class="keyword">var</span> (</code></span>
+<span class="codeline" id="line-23"><code>	<a href="../../../../pkg/github.com/gin-gonic/gin.html#name-dunno" class="ident">dunno</a>     = []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>(<span class="lit-string">"???"</span>)</code></span>
+<span class="codeline" id="line-24"><code>	<a href="../../../../pkg/github.com/gin-gonic/gin.html#name-centerDot" class="ident">centerDot</a> = []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>(<span class="lit-string">"·"</span>)</code></span>
+<span class="codeline" id="line-25"><code>	<a href="../../../../pkg/github.com/gin-gonic/gin.html#name-dot" class="ident">dot</a>       = []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>(<span class="lit-string">"."</span>)</code></span>
+<span class="codeline" id="line-26"><code>	<a href="../../../../pkg/github.com/gin-gonic/gin.html#name-slash" class="ident">slash</a>     = []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>(<span class="lit-string">"/"</span>)</code></span>
+<span class="codeline" id="line-27"><code>)</code></span>
+<span class="codeline" id="line-28"><code></code></span>
+<span class="codeline" id="line-29"><code><span class="comment">// RecoveryFunc defines the function passable to CustomRecovery.</span></code></span>
+<span class="codeline" id="line-30"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/gin-gonic/gin.html#name-RecoveryFunc" class="ident">RecoveryFunc</a> <span class="keyword">func</span>(c *<a href="context.go.html#line-46" class="ident">Context</a>, err <span class="keyword">interface</span>{})</code></span>
+<span class="codeline" id="line-31"><code></code></span>
+<span class="codeline" id="line-32"><code><span class="comment">// Recovery returns a middleware that recovers from any panics and writes a 500 if there was one.</span></code></span>
+<span class="codeline" id="line-33"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../pkg/github.com/gin-gonic/gin.html#name-Recovery" class="ident">Recovery</a></label>() <a href="gin.go.html#line-31" class="ident">HandlerFunc</a> {</code></span>
+<span class="codeline" id="line-34"><code>	<span class="keyword">return</span> <a href="#line-43" class="ident">RecoveryWithWriter</a>(<a href="mode.go.html#line-42" class="ident">DefaultErrorWriter</a>)</code></span>
+<span class="codeline" id="line-35"><code>}</code></span>
+<span class="codeline" id="line-36"><code></code></span>
+<span class="codeline" id="line-37"><code><span class="comment">//CustomRecovery returns a middleware that recovers from any panics and calls the provided handle func to handle it.</span></code></span>
+<span class="codeline" id="line-38"><code><span class="keyword">func</span> <label for="r1" class="ident"><a href="../../../../pkg/github.com/gin-gonic/gin.html#name-CustomRecovery" class="ident">CustomRecovery</a></label>(<label for="r2" class="ident">handle</label> <a href="#line-30" class="ident">RecoveryFunc</a>) <a href="gin.go.html#line-31" class="ident">HandlerFunc</a> {</code></span>
+<span class="codeline" id="line-39"><code>	<span class="keyword">return</span> <a href="#line-43" class="ident">RecoveryWithWriter</a>(<a href="mode.go.html#line-42" class="ident">DefaultErrorWriter</a>, <label for="r2" class="ident">handle</label>)</code></span>
+<span class="codeline" id="line-40"><code>}</code></span>
+<span class="codeline" id="line-41"><code></code></span>
+<span class="codeline" id="line-42"><code><span class="comment">// RecoveryWithWriter returns a middleware for a given writer that recovers from any panics and writes a 500 if there was one.</span></code></span>
+<span class="codeline" id="line-43"><code><span class="keyword">func</span> <label for="r3" class="ident"><a href="../../../../pkg/github.com/gin-gonic/gin.html#name-RecoveryWithWriter" class="ident">RecoveryWithWriter</a></label>(<label for="r4" class="ident">out</label> <a href="../../../../pkg/io.html" class="ident i2">io</a>.<a href="../../../io/io.go.html#line-96" class="ident">Writer</a>, <label for="r5" class="ident">recovery</label> ...<a href="#line-30" class="ident">RecoveryFunc</a>) <a href="gin.go.html#line-31" class="ident">HandlerFunc</a> {</code></span>
+<span class="codeline" id="line-44"><code>	<span class="keyword">if</span> <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r5" class="ident">recovery</label>) &gt; <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-45"><code>		<span class="keyword">return</span> <a href="#line-51" class="ident">CustomRecoveryWithWriter</a>(<label for="r4" class="ident">out</label>, <label for="r5" class="ident">recovery</label>[<span class="lit-number">0</span>])</code></span>
+<span class="codeline" id="line-46"><code>	}</code></span>
+<span class="codeline" id="line-47"><code>	<span class="keyword">return</span> <a href="#line-51" class="ident">CustomRecoveryWithWriter</a>(<label for="r4" class="ident">out</label>, <a href="#line-103" class="ident">defaultHandleRecovery</a>)</code></span>
+<span class="codeline" id="line-48"><code>}</code></span>
+<span class="codeline" id="line-49"><code></code></span>
+<span class="codeline" id="line-50"><code><span class="comment">// CustomRecoveryWithWriter returns a middleware for a given writer that recovers from any panics and calls the provided handle func to handle it.</span></code></span>
+<span class="codeline" id="line-51"><code><span class="keyword">func</span> <label for="r6" class="ident"><a href="../../../../pkg/github.com/gin-gonic/gin.html#name-CustomRecoveryWithWriter" class="ident">CustomRecoveryWithWriter</a></label>(<label for="r7" class="ident">out</label> <a href="../../../../pkg/io.html" class="ident i2">io</a>.<a href="../../../io/io.go.html#line-96" class="ident">Writer</a>, <label for="r8" class="ident">handle</label> <a href="#line-30" class="ident">RecoveryFunc</a>) <a href="gin.go.html#line-31" class="ident">HandlerFunc</a> {</code></span>
+<span class="codeline" id="line-52"><code>	<span class="keyword">var</span> <label for="r9" class="ident">logger</label> *<a href="../../../../pkg/log.html" class="ident i4">log</a>.<a href="../../../log/log.go.html#line-52" class="ident">Logger</a></code></span>
+<span class="codeline" id="line-53"><code>	<span class="keyword">if</span> <label for="r7" class="ident">out</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-54"><code>		<label for="r9" class="ident">logger</label> = <a href="../../../../pkg/log.html" class="ident i4">log</a>.<a href="../../../log/log.go.html#line-65" class="ident">New</a>(<label for="r7" class="ident">out</label>, <span class="lit-string">"\n\n\x1b[31m"</span>, <a href="../../../../pkg/log.html" class="ident i4">log</a>.<a href="../../../log/log.go.html#line-45" class="ident">LstdFlags</a>)</code></span>
+<span class="codeline" id="line-55"><code>	}</code></span>
+<span class="codeline" id="line-56"><code>	<span class="keyword">return</span> <span class="keyword">func</span>(<label for="r10" class="ident">c</label> *<a href="context.go.html#line-46" class="ident">Context</a>) {</code></span>
+<span class="codeline" id="line-57"><code>		<span class="keyword">defer</span> <span class="keyword">func</span>() {</code></span>
+<span class="codeline" id="line-58"><code>			<span class="keyword">if</span> <label for="r11" class="ident">err</label> := <a href="../../../../pkg/builtin.html#name-recover" class="ident">recover</a>(); <label for="r11" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-59"><code>				<span class="comment">// Check for a broken connection, as it is not really a</span></code></span>
+<span class="codeline" id="line-60"><code><span class="comment">				// condition that warrants a panic stack trace.</span></code></span>
+<span class="codeline" id="line-61"><code>				<span class="keyword">var</span> <label for="r12" class="ident">brokenPipe</label> <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a></code></span>
+<span class="codeline" id="line-62"><code>				<span class="keyword">if</span> <label for="r13" class="ident">ne</label>, <label for="r14" class="ident">ok</label> := <label for="r11" class="ident">err</label>.(*<a href="../../../../pkg/net.html" class="ident i5">net</a>.<a href="../../../net/net.go.html#line-435" class="ident">OpError</a>); <label for="r14" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-63"><code>					<span class="keyword">if</span> <label for="r15" class="ident">se</label>, <label for="r16" class="ident">ok</label> := <label for="r13" class="ident">ne</label>.<a href="../../../net/net.go.html#line-459" class="ident">Err</a>.(*<a href="../../../../pkg/os.html" class="ident i8">os</a>.<a href="../../../os/error.go.html#line-51" class="ident">SyscallError</a>); <label for="r16" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-64"><code>						<span class="keyword">if</span> <a href="../../../../pkg/strings.html" class="ident i10">strings</a>.<a href="../../../strings/strings.go.html#line-61" class="ident">Contains</a>(<a href="../../../../pkg/strings.html" class="ident i10">strings</a>.<a href="../../../strings/strings.go.html#line-580" class="ident">ToLower</a>(<label for="r15" class="ident">se</label>.<a href="../../../os/error.go.html#line-56" class="ident">Error</a>()), <span class="lit-string">"broken pipe"</span>) || <a href="../../../../pkg/strings.html" class="ident i10">strings</a>.<a href="../../../strings/strings.go.html#line-61" class="ident">Contains</a>(<a href="../../../../pkg/strings.html" class="ident i10">strings</a>.<a href="../../../strings/strings.go.html#line-580" class="ident">ToLower</a>(<label for="r15" class="ident">se</label>.<a href="../../../os/error.go.html#line-56" class="ident">Error</a>()), <span class="lit-string">"connection reset by peer"</span>) {</code></span>
+<span class="codeline" id="line-65"><code>							<label for="r12" class="ident">brokenPipe</label> = <a href="../../../../pkg/builtin.html#name-true" class="ident">true</a></code></span>
+<span class="codeline" id="line-66"><code>						}</code></span>
+<span class="codeline" id="line-67"><code>					}</code></span>
+<span class="codeline" id="line-68"><code>				}</code></span>
+<span class="codeline" id="line-69"><code>				<span class="keyword">if</span> <label for="r9" class="ident">logger</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-70"><code>					<label for="r17" class="ident">stack</label> := <a href="#line-108" class="ident">stack</a>(<span class="lit-number">3</span>)</code></span>
+<span class="codeline" id="line-71"><code>					<label for="r18" class="ident">httpRequest</label>, <label for="r19" class="ident">_</label> := <a href="../../../../pkg/net/http/httputil.html" class="ident i7">httputil</a>.<a href="../../../net/http/httputil/dump.go.html#line-218" class="ident">DumpRequest</a>(<label for="r10" class="ident">c</label>.<a href="context.go.html#line-48" class="ident">Request</a>, <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a>)</code></span>
+<span class="codeline" id="line-72"><code>					<label for="r20" class="ident">headers</label> := <a href="../../../../pkg/strings.html" class="ident i10">strings</a>.<a href="../../../strings/strings.go.html#line-299" class="ident">Split</a>(<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>(<label for="r18" class="ident">httpRequest</label>), <span class="lit-string">"\r\n"</span>)</code></span>
+<span class="codeline" id="line-73"><code>					<span class="keyword">for</span> <label for="r21" class="ident">idx</label>, <label for="r22" class="ident">header</label> := <span class="keyword">range</span> <label for="r20" class="ident">headers</label> {</code></span>
+<span class="codeline" id="line-74"><code>						<label for="r23" class="ident">current</label> := <a href="../../../../pkg/strings.html" class="ident i10">strings</a>.<a href="../../../strings/strings.go.html#line-299" class="ident">Split</a>(<label for="r22" class="ident">header</label>, <span class="lit-string">":"</span>)</code></span>
+<span class="codeline" id="line-75"><code>						<span class="keyword">if</span> <label for="r23" class="ident">current</label>[<span class="lit-number">0</span>] == <span class="lit-string">"Authorization"</span> {</code></span>
+<span class="codeline" id="line-76"><code>							<label for="r20" class="ident">headers</label>[<label for="r21" class="ident">idx</label>] = <label for="r23" class="ident">current</label>[<span class="lit-number">0</span>] + <span class="lit-string">": *"</span></code></span>
+<span class="codeline" id="line-77"><code>						}</code></span>
+<span class="codeline" id="line-78"><code>					}</code></span>
+<span class="codeline" id="line-79"><code>					<label for="r24" class="ident">headersToStr</label> := <a href="../../../../pkg/strings.html" class="ident i10">strings</a>.<a href="../../../strings/strings.go.html#line-421" class="ident">Join</a>(<label for="r20" class="ident">headers</label>, <span class="lit-string">"\r\n"</span>)</code></span>
+<span class="codeline" id="line-80"><code>					<span class="keyword">if</span> <label for="r12" class="ident">brokenPipe</label> {</code></span>
+<span class="codeline" id="line-81"><code>						<label for="r9" class="ident">logger</label>.<a href="../../../log/log.go.html#line-190" class="ident">Printf</a>(<span class="lit-string">"%s\n%s%s"</span>, <label for="r11" class="ident">err</label>, <label for="r24" class="ident">headersToStr</label>, <a href="logger.go.html#line-33" class="ident">reset</a>)</code></span>
+<span class="codeline" id="line-82"><code>					} <span class="keyword">else</span> <span class="keyword">if</span> <a href="debug.go.html#line-19" class="ident">IsDebugging</a>() {</code></span>
+<span class="codeline" id="line-83"><code>						<label for="r9" class="ident">logger</label>.<a href="../../../log/log.go.html#line-190" class="ident">Printf</a>(<span class="lit-string">"[Recovery] %s panic recovered:\n%s\n%s\n%s%s"</span>,</code></span>
+<span class="codeline" id="line-84"><code>							<a href="#line-168" class="ident">timeFormat</a>(<a href="../../../../pkg/time.html" class="ident i11">time</a>.<a href="../../../time/time.go.html#line-1066" class="ident">Now</a>()), <label for="r24" class="ident">headersToStr</label>, <label for="r11" class="ident">err</label>, <label for="r17" class="ident">stack</label>, <a href="logger.go.html#line-33" class="ident">reset</a>)</code></span>
+<span class="codeline" id="line-85"><code>					} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-86"><code>						<label for="r9" class="ident">logger</label>.<a href="../../../log/log.go.html#line-190" class="ident">Printf</a>(<span class="lit-string">"[Recovery] %s panic recovered:\n%s\n%s%s"</span>,</code></span>
+<span class="codeline" id="line-87"><code>							<a href="#line-168" class="ident">timeFormat</a>(<a href="../../../../pkg/time.html" class="ident i11">time</a>.<a href="../../../time/time.go.html#line-1066" class="ident">Now</a>()), <label for="r11" class="ident">err</label>, <label for="r17" class="ident">stack</label>, <a href="logger.go.html#line-33" class="ident">reset</a>)</code></span>
+<span class="codeline" id="line-88"><code>					}</code></span>
+<span class="codeline" id="line-89"><code>				}</code></span>
+<span class="codeline" id="line-90"><code>				<span class="keyword">if</span> <label for="r12" class="ident">brokenPipe</label> {</code></span>
+<span class="codeline" id="line-91"><code>					<span class="comment">// If the connection is dead, we can't write a status to it.</span></code></span>
+<span class="codeline" id="line-92"><code>					<label for="r10" class="ident">c</label>.<a href="context.go.html#line-216" class="ident">Error</a>(<label for="r11" class="ident">err</label>.(<a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>)) <span class="comment">// nolint: errcheck</span></code></span>
+<span class="codeline" id="line-93"><code>					<label for="r10" class="ident">c</label>.<a href="context.go.html#line-179" class="ident">Abort</a>()</code></span>
+<span class="codeline" id="line-94"><code>				} <span class="keyword">else</span> {</code></span>
+<span class="codeline" id="line-95"><code>					<label for="r8" class="ident">handle</label>(<label for="r10" class="ident">c</label>, <label for="r11" class="ident">err</label>)</code></span>
+<span class="codeline" id="line-96"><code>				}</code></span>
+<span class="codeline" id="line-97"><code>			}</code></span>
+<span class="codeline" id="line-98"><code>		}()</code></span>
+<span class="codeline" id="line-99"><code>		<label for="r10" class="ident">c</label>.<a href="context.go.html#line-162" class="ident">Next</a>()</code></span>
+<span class="codeline" id="line-100"><code>	}</code></span>
+<span class="codeline" id="line-101"><code>}</code></span>
+<span class="codeline" id="line-102"><code></code></span>
+<span class="codeline" id="line-103"><code><span class="keyword">func</span> <label for="r25" class="ident"><a href="../../../../pkg/github.com/gin-gonic/gin.html#name-defaultHandleRecovery" class="ident">defaultHandleRecovery</a></label>(<label for="r26" class="ident">c</label> *<a href="context.go.html#line-46" class="ident">Context</a>, <label for="r27" class="ident">err</label> <span class="keyword">interface</span>{}) {</code></span>
+<span class="codeline" id="line-104"><code>	<label for="r26" class="ident">c</label>.<a href="context.go.html#line-185" class="ident">AbortWithStatus</a>(<a href="../../../../pkg/net/http.html" class="ident i6">http</a>.<a href="../../../net/http/status.go.html#line-66" class="ident">StatusInternalServerError</a>)</code></span>
+<span class="codeline" id="line-105"><code>}</code></span>
+<span class="codeline" id="line-106"><code></code></span>
+<span class="codeline" id="line-107"><code><span class="comment">// stack returns a nicely formatted stack frame, skipping skip frames.</span></code></span>
+<span class="codeline" id="line-108"><code><span class="keyword">func</span> <label for="r28" class="ident"><a href="../../../../pkg/github.com/gin-gonic/gin.html#name-stack" class="ident">stack</a></label>(<label for="r29" class="ident">skip</label> <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a>) []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a> {</code></span>
+<span class="codeline" id="line-109"><code>	<label for="r30" class="ident">buf</label> := <a href="../../../../pkg/builtin.html#name-new" class="ident">new</a>(<a href="../../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../../bytes/buffer.go.html#line-20" class="ident">Buffer</a>) <span class="comment">// the returned data</span></code></span>
+<span class="codeline" id="line-110"><code>	<span class="comment">// As we loop, we open files and read them. These variables record the currently</span></code></span>
+<span class="codeline" id="line-111"><code><span class="comment">	// loaded file.</span></code></span>
+<span class="codeline" id="line-112"><code>	<span class="keyword">var</span> <label for="r31" class="ident">lines</label> [][]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a></code></span>
+<span class="codeline" id="line-113"><code>	<span class="keyword">var</span> <label for="r32" class="ident">lastFile</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a></code></span>
+<span class="codeline" id="line-114"><code>	<span class="keyword">for</span> <label for="r33" class="ident">i</label> := <label for="r29" class="ident">skip</label>; ; <label for="r33" class="ident">i</label>++ { <span class="comment">// Skip the expected number of frames</span></code></span>
+<span class="codeline" id="line-115"><code>		<label for="r34" class="ident">pc</label>, <label for="r35" class="ident">file</label>, <label for="r36" class="ident">line</label>, <label for="r37" class="ident">ok</label> := <a href="../../../../pkg/runtime.html" class="ident i9">runtime</a>.<a href="../../../runtime/extern.go.html#line-199" class="ident">Caller</a>(<label for="r33" class="ident">i</label>)</code></span>
+<span class="codeline" id="line-116"><code>		<span class="keyword">if</span> !<label for="r37" class="ident">ok</label> {</code></span>
+<span class="codeline" id="line-117"><code>			<span class="keyword">break</span></code></span>
+<span class="codeline" id="line-118"><code>		}</code></span>
+<span class="codeline" id="line-119"><code>		<span class="comment">// Print this much at least.  If we can't find the source, it won't show.</span></code></span>
+<span class="codeline" id="line-120"><code>		<a href="../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../fmt/print.go.html#line-202" class="ident">Fprintf</a>(<label for="r30" class="ident">buf</label>, <span class="lit-string">"%s:%d (0x%x)\n"</span>, <label for="r35" class="ident">file</label>, <label for="r36" class="ident">line</label>, <label for="r34" class="ident">pc</label>)</code></span>
+<span class="codeline" id="line-121"><code>		<span class="keyword">if</span> <label for="r35" class="ident">file</label> != <label for="r32" class="ident">lastFile</label> {</code></span>
+<span class="codeline" id="line-122"><code>			<label for="r38" class="ident">data</label>, <label for="r39" class="ident">err</label> := <a href="../../../../pkg/io/ioutil.html" class="ident i3">ioutil</a>.<a href="../../../io/ioutil/ioutil.go.html#line-36" class="ident">ReadFile</a>(<label for="r35" class="ident">file</label>)</code></span>
+<span class="codeline" id="line-123"><code>			<span class="keyword">if</span> <label for="r39" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-124"><code>				<span class="keyword">continue</span></code></span>
+<span class="codeline" id="line-125"><code>			}</code></span>
+<span class="codeline" id="line-126"><code>			<label for="r31" class="ident">lines</label> = <a href="../../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../../bytes/bytes.go.html#line-392" class="ident">Split</a>(<label for="r38" class="ident">data</label>, []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>{<span class="lit-number">'\n'</span>})</code></span>
+<span class="codeline" id="line-127"><code>			<label for="r32" class="ident">lastFile</label> = <label for="r35" class="ident">file</label></code></span>
+<span class="codeline" id="line-128"><code>		}</code></span>
+<span class="codeline" id="line-129"><code>		<a href="../../../../pkg/fmt.html" class="ident i1">fmt</a>.<a href="../../../fmt/print.go.html#line-202" class="ident">Fprintf</a>(<label for="r30" class="ident">buf</label>, <span class="lit-string">"\t%s: %s\n"</span>, <a href="#line-144" class="ident">function</a>(<label for="r34" class="ident">pc</label>), <a href="#line-135" class="ident">source</a>(<label for="r31" class="ident">lines</label>, <label for="r36" class="ident">line</label>))</code></span>
+<span class="codeline" id="line-130"><code>	}</code></span>
+<span class="codeline" id="line-131"><code>	<span class="keyword">return</span> <label for="r30" class="ident">buf</label>.<a href="../../../bytes/buffer.go.html#line-54" class="ident">Bytes</a>()</code></span>
+<span class="codeline" id="line-132"><code>}</code></span>
+<span class="codeline" id="line-133"><code></code></span>
+<span class="codeline" id="line-134"><code><span class="comment">// source returns a space-trimmed slice of the n'th line.</span></code></span>
+<span class="codeline" id="line-135"><code><span class="keyword">func</span> <label for="r40" class="ident"><a href="../../../../pkg/github.com/gin-gonic/gin.html#name-source" class="ident">source</a></label>(<label for="r41" class="ident">lines</label> [][]<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>, <label for="r42" class="ident">n</label> <a href="../../../../pkg/builtin.html#name-int" class="ident">int</a>) []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a> {</code></span>
+<span class="codeline" id="line-136"><code>	<label for="r42" class="ident">n</label>-- <span class="comment">// in stack trace, lines are 1-indexed but our array is 0-indexed</span></code></span>
+<span class="codeline" id="line-137"><code>	<span class="keyword">if</span> <label for="r42" class="ident">n</label> &lt; <span class="lit-number">0</span> || <label for="r42" class="ident">n</label> &gt;= <a href="../../../../pkg/builtin.html#name-len" class="ident">len</a>(<label for="r41" class="ident">lines</label>) {</code></span>
+<span class="codeline" id="line-138"><code>		<span class="keyword">return</span> <a href="#line-23" class="ident">dunno</a></code></span>
+<span class="codeline" id="line-139"><code>	}</code></span>
+<span class="codeline" id="line-140"><code>	<span class="keyword">return</span> <a href="../../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../../bytes/bytes.go.html#line-931" class="ident">TrimSpace</a>(<label for="r41" class="ident">lines</label>[<label for="r42" class="ident">n</label>])</code></span>
+<span class="codeline" id="line-141"><code>}</code></span>
+<span class="codeline" id="line-142"><code></code></span>
+<span class="codeline" id="line-143"><code><span class="comment">// function returns, if possible, the name of the function containing the PC.</span></code></span>
+<span class="codeline" id="line-144"><code><span class="keyword">func</span> <label for="r43" class="ident"><a href="../../../../pkg/github.com/gin-gonic/gin.html#name-function" class="ident">function</a></label>(<label for="r44" class="ident">pc</label> <a href="../../../../pkg/builtin.html#name-uintptr" class="ident">uintptr</a>) []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a> {</code></span>
+<span class="codeline" id="line-145"><code>	<label for="r45" class="ident">fn</label> := <a href="../../../../pkg/runtime.html" class="ident i9">runtime</a>.<a href="../../../runtime/symtab.go.html#line-586" class="ident">FuncForPC</a>(<label for="r44" class="ident">pc</label>)</code></span>
+<span class="codeline" id="line-146"><code>	<span class="keyword">if</span> <label for="r45" class="ident">fn</label> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-147"><code>		<span class="keyword">return</span> <a href="#line-23" class="ident">dunno</a></code></span>
+<span class="codeline" id="line-148"><code>	}</code></span>
+<span class="codeline" id="line-149"><code>	<label for="r46" class="ident">name</label> := []<a href="../../../../pkg/builtin.html#name-byte" class="ident">byte</a>(<label for="r45" class="ident">fn</label>.<a href="../../../runtime/symtab.go.html#line-613" class="ident">Name</a>())</code></span>
+<span class="codeline" id="line-150"><code>	<span class="comment">// The name includes the path name to the package, which is unnecessary</span></code></span>
+<span class="codeline" id="line-151"><code><span class="comment">	// since the file name is already included.  Plus, it has center dots.</span></code></span>
+<span class="codeline" id="line-152"><code><span class="comment">	// That is, we see</span></code></span>
+<span class="codeline" id="line-153"><code><span class="comment">	//	runtime/debug.*T·ptrmethod</span></code></span>
+<span class="codeline" id="line-154"><code><span class="comment">	// and want</span></code></span>
+<span class="codeline" id="line-155"><code><span class="comment">	//	*T.ptrmethod</span></code></span>
+<span class="codeline" id="line-156"><code><span class="comment">	// Also the package path might contains dot (e.g. code.google.com/...),</span></code></span>
+<span class="codeline" id="line-157"><code><span class="comment">	// so first eliminate the path prefix</span></code></span>
+<span class="codeline" id="line-158"><code>	<span class="keyword">if</span> <label for="r47" class="ident">lastSlash</label> := <a href="../../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../../bytes/bytes.go.html#line-104" class="ident">LastIndex</a>(<label for="r46" class="ident">name</label>, <a href="#line-26" class="ident">slash</a>); <label for="r47" class="ident">lastSlash</label> &gt;= <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-159"><code>		<label for="r46" class="ident">name</label> = <label for="r46" class="ident">name</label>[<label for="r47" class="ident">lastSlash</label>+<span class="lit-number">1</span>:]</code></span>
+<span class="codeline" id="line-160"><code>	}</code></span>
+<span class="codeline" id="line-161"><code>	<span class="keyword">if</span> <label for="r48" class="ident">period</label> := <a href="../../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../../bytes/bytes.go.html#line-1091" class="ident">Index</a>(<label for="r46" class="ident">name</label>, <a href="#line-25" class="ident">dot</a>); <label for="r48" class="ident">period</label> &gt;= <span class="lit-number">0</span> {</code></span>
+<span class="codeline" id="line-162"><code>		<label for="r46" class="ident">name</label> = <label for="r46" class="ident">name</label>[<label for="r48" class="ident">period</label>+<span class="lit-number">1</span>:]</code></span>
+<span class="codeline" id="line-163"><code>	}</code></span>
+<span class="codeline" id="line-164"><code>	<label for="r46" class="ident">name</label> = <a href="../../../../pkg/bytes.html" class="ident i0">bytes</a>.<a href="../../../bytes/bytes.go.html#line-989" class="ident">Replace</a>(<label for="r46" class="ident">name</label>, <a href="#line-24" class="ident">centerDot</a>, <a href="#line-25" class="ident">dot</a>, -<span class="lit-number">1</span>)</code></span>
+<span class="codeline" id="line-165"><code>	<span class="keyword">return</span> <label for="r46" class="ident">name</label></code></span>
+<span class="codeline" id="line-166"><code>}</code></span>
+<span class="codeline" id="line-167"><code></code></span>
+<span class="codeline" id="line-168"><code><span class="keyword">func</span> <label for="r49" class="ident"><a href="../../../../pkg/github.com/gin-gonic/gin.html#name-timeFormat" class="ident">timeFormat</a></label>(<label for="r50" class="ident">t</label> <a href="../../../../pkg/time.html" class="ident i11">time</a>.<a href="../../../time/time.go.html#line-127" class="ident">Time</a>) <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a> {</code></span>
+<span class="codeline" id="line-169"><code>	<label for="r51" class="ident">timeString</label> := <label for="r50" class="ident">t</label>.<a href="../../../time/format.go.html#line-495" class="ident">Format</a>(<span class="lit-string">"2006/01/02 - 15:04:05"</span>)</code></span>
+<span class="codeline" id="line-170"><code>	<span class="keyword">return</span> <label for="r51" class="ident">timeString</label></code></span>
+<span class="codeline" id="line-171"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

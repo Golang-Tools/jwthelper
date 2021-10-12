@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source: universal_translator.go in package github.com/go-playground/universal-translator</title>
+<link href="../../../../css/light-v0.3.6.css" rel="stylesheet">
+<script src="../../../../jvs/golds-v0.3.6.js"></script>
+<body onload="onPageLoad()"><div>
+
+<pre id="header"><code><span class="title">Source File</span>
+	universal_translator.go
+
+<span class="title">Belonging Package</span>
+	<a href="../../../../pkg/github.com/go-playground/universal-translator.html">github.com/go-playground/universal-translator</a>
+</code></pre>
+<style>input[type=radio] {display: none;}
+input[id=r0]:checked ~pre label[for=r0],
+input[id=r1]:checked ~pre label[for=r1],
+input[id=r2]:checked ~pre label[for=r2],
+input[id=r3]:checked ~pre label[for=r3],
+input[id=r4]:checked ~pre label[for=r4],
+input[id=r5]:checked ~pre label[for=r5],
+input[id=r6]:checked ~pre label[for=r6],
+input[id=r7]:checked ~pre label[for=r7],
+input[id=r8]:checked ~pre label[for=r8],
+input[id=r9]:checked ~pre label[for=r9],
+input[id=r10]:checked ~pre label[for=r10],
+input[id=r11]:checked ~pre label[for=r11],
+input[id=r12]:checked ~pre label[for=r12],
+input[id=r13]:checked ~pre label[for=r13],
+input[id=r14]:checked ~pre label[for=r14],
+input[id=r15]:checked ~pre label[for=r15],
+input[id=r16]:checked ~pre label[for=r16],
+input[id=r17]:checked ~pre label[for=r17],
+input[id=r18]:checked ~pre label[for=r18],
+input[id=r19]:checked ~pre label[for=r19],
+input[id=r20]:checked ~pre label[for=r20],
+input[id=r21]:checked ~pre label[for=r21],
+input[id=r22]:checked ~pre label[for=r22],
+input[id=r23]:checked ~pre label[for=r23],
+input[id=r24]:checked ~pre label[for=r24],
+input[id=r25]:checked ~pre label[for=r25],
+input[id=r26]:checked ~pre label[for=r26],
+input[id=r27]:checked ~pre label[for=r27],
+input[id=r28]:checked ~pre label[for=r28],
+input[id=r29]:checked ~pre label[for=r29],
+input[id=r30]:checked ~pre label[for=r30],
+input[id=r31]:checked ~pre label[for=r31],
+input[id=r32]:checked ~pre label[for=r32],
+input[id=r33]:checked ~pre label[for=r33]
+{background: #226; color: #ff8;}
+input[id=i0]:checked ~pre .i0,
+input[id=i1]:checked ~pre .i1
+{background: brown; color: #eed;}
+</style><input id="r0" type="radio" name="g"/>
+<input id="r1" type="radio" name="g"/>
+<input id="r2" type="radio" name="g"/>
+<input id="r3" type="radio" name="g"/>
+<input id="r4" type="radio" name="g"/>
+<input id="r5" type="radio" name="g"/>
+<input id="r6" type="radio" name="g"/>
+<input id="r7" type="radio" name="g"/>
+<input id="r8" type="radio" name="g"/>
+<input id="r9" type="radio" name="g"/>
+<input id="r10" type="radio" name="g"/>
+<input id="r11" type="radio" name="g"/>
+<input id="r12" type="radio" name="g"/>
+<input id="r13" type="radio" name="g"/>
+<input id="r14" type="radio" name="g"/>
+<input id="r15" type="radio" name="g"/>
+<input id="r16" type="radio" name="g"/>
+<input id="r17" type="radio" name="g"/>
+<input id="r18" type="radio" name="g"/>
+<input id="r19" type="radio" name="g"/>
+<input id="r20" type="radio" name="g"/>
+<input id="r21" type="radio" name="g"/>
+<input id="r22" type="radio" name="g"/>
+<input id="r23" type="radio" name="g"/>
+<input id="r24" type="radio" name="g"/>
+<input id="r25" type="radio" name="g"/>
+<input id="r26" type="radio" name="g"/>
+<input id="r27" type="radio" name="g"/>
+<input id="r28" type="radio" name="g"/>
+<input id="r29" type="radio" name="g"/>
+<input id="r30" type="radio" name="g"/>
+<input id="r31" type="radio" name="g"/>
+<input id="r32" type="radio" name="g"/>
+<input id="r33" type="radio" name="g"/>
+<input id="i0" type="radio" name="i"/>
+<input id="i1" type="radio" name="i"/>
+
+<pre class="line-numbers">
+<span class="codeline" id="line-1"><code><span class="keyword">package</span> ut</code></span>
+<span class="codeline" id="line-2"><code></code></span>
+<span class="codeline" id="line-3"><code><span class="keyword">import</span> (</code></span>
+<span class="codeline" id="line-4"><code>	<label for="i0"><span class="lit-string i0">"strings"</span></label></code></span>
+<span class="codeline" id="line-5"><code></code></span>
+<span class="codeline" id="line-6"><code>	<label for="i1"><span class="lit-string i1">"github.com/go-playground/locales"</span></label></code></span>
+<span class="codeline" id="line-7"><code>)</code></span>
+<span class="codeline" id="line-8"><code></code></span>
+<span class="codeline" id="line-9"><code><span class="comment">// UniversalTranslator holds all locale &amp; translation data</span></code></span>
+<span class="codeline" id="line-10"><code><span class="keyword">type</span> <a href="../../../../pkg/github.com/go-playground/universal-translator.html#name-UniversalTranslator" class="ident">UniversalTranslator</a> <span class="keyword">struct</span> {</code></span>
+<span class="codeline" id="line-11"><code>	translators <span class="keyword">map</span>[<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>]<a href="translator.go.html#line-21" class="ident">Translator</a></code></span>
+<span class="codeline" id="line-12"><code>	fallback    <a href="translator.go.html#line-21" class="ident">Translator</a></code></span>
+<span class="codeline" id="line-13"><code>}</code></span>
+<span class="codeline" id="line-14"><code></code></span>
+<span class="codeline" id="line-15"><code><span class="comment">// New returns a new UniversalTranslator instance set with</span></code></span>
+<span class="codeline" id="line-16"><code><span class="comment">// the fallback locale and locales it should support</span></code></span>
+<span class="codeline" id="line-17"><code><span class="keyword">func</span> <label for="r0" class="ident"><a href="../../../../pkg/github.com/go-playground/universal-translator.html#name-New" class="ident">New</a></label>(<label for="r1" class="ident">fallback</label> <a href="../../../../pkg/github.com/go-playground/locales.html" class="ident i1">locales</a>.<a href="../locales/rules.go.html#line-45" class="ident">Translator</a>, <label for="r2" class="ident">supportedLocales</label> ...<a href="../../../../pkg/github.com/go-playground/locales.html" class="ident i1">locales</a>.<a href="../locales/rules.go.html#line-45" class="ident">Translator</a>) *<a href="#line-10" class="ident">UniversalTranslator</a> {</code></span>
+<span class="codeline" id="line-18"><code></code></span>
+<span class="codeline" id="line-19"><code>	<label for="r3" class="ident">t</label> := &amp;<a href="#line-10" class="ident">UniversalTranslator</a>{</code></span>
+<span class="codeline" id="line-20"><code>		<a href="#line-11" class="ident">translators</a>: <a href="../../../../pkg/builtin.html#name-make" class="ident">make</a>(<span class="keyword">map</span>[<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>]<a href="translator.go.html#line-21" class="ident">Translator</a>),</code></span>
+<span class="codeline" id="line-21"><code>	}</code></span>
+<span class="codeline" id="line-22"><code></code></span>
+<span class="codeline" id="line-23"><code>	<span class="keyword">for</span> <label for="r4" class="ident">_</label>, <label for="r5" class="ident">v</label> := <span class="keyword">range</span> <label for="r2" class="ident">supportedLocales</label> {</code></span>
+<span class="codeline" id="line-24"><code></code></span>
+<span class="codeline" id="line-25"><code>		<label for="r6" class="ident">trans</label> := <a href="translator.go.html#line-85" class="ident">newTranslator</a>(<label for="r5" class="ident">v</label>)</code></span>
+<span class="codeline" id="line-26"><code>		<label for="r3" class="ident">t</label>.<a href="#line-11" class="ident">translators</a>[<a href="../../../../pkg/strings.html" class="ident i0">strings</a>.<a href="../../../strings/strings.go.html#line-580" class="ident">ToLower</a>(<label for="r6" class="ident">trans</label>.<a href="../locales/rules.go.html#line-51" class="ident">Locale</a>())] = <label for="r6" class="ident">trans</label></code></span>
+<span class="codeline" id="line-27"><code></code></span>
+<span class="codeline" id="line-28"><code>		<span class="keyword">if</span> <label for="r1" class="ident">fallback</label>.<a href="../locales/rules.go.html#line-51" class="ident">Locale</a>() == <label for="r5" class="ident">v</label>.<a href="../locales/rules.go.html#line-51" class="ident">Locale</a>() {</code></span>
+<span class="codeline" id="line-29"><code>			<label for="r3" class="ident">t</label>.<a href="#line-12" class="ident">fallback</a> = <label for="r6" class="ident">trans</label></code></span>
+<span class="codeline" id="line-30"><code>		}</code></span>
+<span class="codeline" id="line-31"><code>	}</code></span>
+<span class="codeline" id="line-32"><code></code></span>
+<span class="codeline" id="line-33"><code>	<span class="keyword">if</span> <label for="r3" class="ident">t</label>.<a href="#line-12" class="ident">fallback</a> == <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> &amp;&amp; <label for="r1" class="ident">fallback</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-34"><code>		<label for="r3" class="ident">t</label>.<a href="#line-12" class="ident">fallback</a> = <a href="translator.go.html#line-85" class="ident">newTranslator</a>(<label for="r1" class="ident">fallback</label>)</code></span>
+<span class="codeline" id="line-35"><code>	}</code></span>
+<span class="codeline" id="line-36"><code></code></span>
+<span class="codeline" id="line-37"><code>	<span class="keyword">return</span> <label for="r3" class="ident">t</label></code></span>
+<span class="codeline" id="line-38"><code>}</code></span>
+<span class="codeline" id="line-39"><code></code></span>
+<span class="codeline" id="line-40"><code><span class="comment">// FindTranslator trys to find a Translator based on an array of locales</span></code></span>
+<span class="codeline" id="line-41"><code><span class="comment">// and returns the first one it can find, otherwise returns the</span></code></span>
+<span class="codeline" id="line-42"><code><span class="comment">// fallback translator.</span></code></span>
+<span class="codeline" id="line-43"><code><span class="keyword">func</span> (<label for="r7" class="ident">t</label> *<a href="#line-10" class="ident">UniversalTranslator</a>) <label for="r8" class="ident">FindTranslator</label>(<label for="r9" class="ident">locales</label> ...<a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>) (<label for="r10" class="ident">trans</label> <a href="translator.go.html#line-21" class="ident">Translator</a>, <label for="r11" class="ident">found</label> <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) {</code></span>
+<span class="codeline" id="line-44"><code></code></span>
+<span class="codeline" id="line-45"><code>	<span class="keyword">for</span> <label for="r12" class="ident">_</label>, <label for="r13" class="ident">locale</label> := <span class="keyword">range</span> <label for="r9" class="ident">locales</label> {</code></span>
+<span class="codeline" id="line-46"><code></code></span>
+<span class="codeline" id="line-47"><code>		<span class="keyword">if</span> <label for="r10" class="ident">trans</label>, <label for="r11" class="ident">found</label> = <label for="r7" class="ident">t</label>.<a href="#line-11" class="ident">translators</a>[<a href="../../../../pkg/strings.html" class="ident i0">strings</a>.<a href="../../../strings/strings.go.html#line-580" class="ident">ToLower</a>(<label for="r13" class="ident">locale</label>)]; <label for="r11" class="ident">found</label> {</code></span>
+<span class="codeline" id="line-48"><code>			<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-49"><code>		}</code></span>
+<span class="codeline" id="line-50"><code>	}</code></span>
+<span class="codeline" id="line-51"><code></code></span>
+<span class="codeline" id="line-52"><code>	<span class="keyword">return</span> <label for="r7" class="ident">t</label>.<a href="#line-12" class="ident">fallback</a>, <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-53"><code>}</code></span>
+<span class="codeline" id="line-54"><code></code></span>
+<span class="codeline" id="line-55"><code><span class="comment">// GetTranslator returns the specified translator for the given locale,</span></code></span>
+<span class="codeline" id="line-56"><code><span class="comment">// or fallback if not found</span></code></span>
+<span class="codeline" id="line-57"><code><span class="keyword">func</span> (<label for="r14" class="ident">t</label> *<a href="#line-10" class="ident">UniversalTranslator</a>) <label for="r15" class="ident">GetTranslator</label>(<label for="r16" class="ident">locale</label> <a href="../../../../pkg/builtin.html#name-string" class="ident">string</a>) (<label for="r17" class="ident">trans</label> <a href="translator.go.html#line-21" class="ident">Translator</a>, <label for="r18" class="ident">found</label> <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) {</code></span>
+<span class="codeline" id="line-58"><code></code></span>
+<span class="codeline" id="line-59"><code>	<span class="keyword">if</span> <label for="r17" class="ident">trans</label>, <label for="r18" class="ident">found</label> = <label for="r14" class="ident">t</label>.<a href="#line-11" class="ident">translators</a>[<a href="../../../../pkg/strings.html" class="ident i0">strings</a>.<a href="../../../strings/strings.go.html#line-580" class="ident">ToLower</a>(<label for="r16" class="ident">locale</label>)]; <label for="r18" class="ident">found</label> {</code></span>
+<span class="codeline" id="line-60"><code>		<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-61"><code>	}</code></span>
+<span class="codeline" id="line-62"><code></code></span>
+<span class="codeline" id="line-63"><code>	<span class="keyword">return</span> <label for="r14" class="ident">t</label>.<a href="#line-12" class="ident">fallback</a>, <a href="../../../../pkg/builtin.html#name-false" class="ident">false</a></code></span>
+<span class="codeline" id="line-64"><code>}</code></span>
+<span class="codeline" id="line-65"><code></code></span>
+<span class="codeline" id="line-66"><code><span class="comment">// GetFallback returns the fallback locale</span></code></span>
+<span class="codeline" id="line-67"><code><span class="keyword">func</span> (<label for="r19" class="ident">t</label> *<a href="#line-10" class="ident">UniversalTranslator</a>) <label for="r20" class="ident">GetFallback</label>() <a href="translator.go.html#line-21" class="ident">Translator</a> {</code></span>
+<span class="codeline" id="line-68"><code>	<span class="keyword">return</span> <label for="r19" class="ident">t</label>.<a href="#line-12" class="ident">fallback</a></code></span>
+<span class="codeline" id="line-69"><code>}</code></span>
+<span class="codeline" id="line-70"><code></code></span>
+<span class="codeline" id="line-71"><code><span class="comment">// AddTranslator adds the supplied translator, if it already exists the override param</span></code></span>
+<span class="codeline" id="line-72"><code><span class="comment">// will be checked and if false an error will be returned, otherwise the translator will be</span></code></span>
+<span class="codeline" id="line-73"><code><span class="comment">// overridden; if the fallback matches the supplied translator it will be overridden as well</span></code></span>
+<span class="codeline" id="line-74"><code><span class="comment">// NOTE: this is normally only used when translator is embedded within a library</span></code></span>
+<span class="codeline" id="line-75"><code><span class="keyword">func</span> (<label for="r21" class="ident">t</label> *<a href="#line-10" class="ident">UniversalTranslator</a>) <label for="r22" class="ident">AddTranslator</label>(<label for="r23" class="ident">translator</label> <a href="../../../../pkg/github.com/go-playground/locales.html" class="ident i1">locales</a>.<a href="../locales/rules.go.html#line-45" class="ident">Translator</a>, <label for="r24" class="ident">override</label> <a href="../../../../pkg/builtin.html#name-bool" class="ident">bool</a>) <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a> {</code></span>
+<span class="codeline" id="line-76"><code></code></span>
+<span class="codeline" id="line-77"><code>	<label for="r25" class="ident">lc</label> := <a href="../../../../pkg/strings.html" class="ident i0">strings</a>.<a href="../../../strings/strings.go.html#line-580" class="ident">ToLower</a>(<label for="r23" class="ident">translator</label>.<a href="../locales/rules.go.html#line-51" class="ident">Locale</a>())</code></span>
+<span class="codeline" id="line-78"><code>	<label for="r26" class="ident">_</label>, <label for="r27" class="ident">ok</label> := <label for="r21" class="ident">t</label>.<a href="#line-11" class="ident">translators</a>[<label for="r25" class="ident">lc</label>]</code></span>
+<span class="codeline" id="line-79"><code>	<span class="keyword">if</span> <label for="r27" class="ident">ok</label> &amp;&amp; !<label for="r24" class="ident">override</label> {</code></span>
+<span class="codeline" id="line-80"><code>		<span class="keyword">return</span> &amp;<a href="errors.go.html#line-23" class="ident">ErrExistingTranslator</a>{<a href="errors.go.html#line-24" class="ident">locale</a>: <label for="r23" class="ident">translator</label>.<a href="../locales/rules.go.html#line-51" class="ident">Locale</a>()}</code></span>
+<span class="codeline" id="line-81"><code>	}</code></span>
+<span class="codeline" id="line-82"><code></code></span>
+<span class="codeline" id="line-83"><code>	<label for="r28" class="ident">trans</label> := <a href="translator.go.html#line-85" class="ident">newTranslator</a>(<label for="r23" class="ident">translator</label>)</code></span>
+<span class="codeline" id="line-84"><code></code></span>
+<span class="codeline" id="line-85"><code>	<span class="keyword">if</span> <label for="r21" class="ident">t</label>.<a href="#line-12" class="ident">fallback</a>.<a href="../locales/rules.go.html#line-51" class="ident">Locale</a>() == <label for="r23" class="ident">translator</label>.<a href="../locales/rules.go.html#line-51" class="ident">Locale</a>() {</code></span>
+<span class="codeline" id="line-86"><code></code></span>
+<span class="codeline" id="line-87"><code>		<span class="comment">// because it's optional to have a fallback, I don't impose that limitation</span></code></span>
+<span class="codeline" id="line-88"><code><span class="comment">		// don't know why you wouldn't but...</span></code></span>
+<span class="codeline" id="line-89"><code>		<span class="keyword">if</span> !<label for="r24" class="ident">override</label> {</code></span>
+<span class="codeline" id="line-90"><code>			<span class="keyword">return</span> &amp;<a href="errors.go.html#line-23" class="ident">ErrExistingTranslator</a>{<a href="errors.go.html#line-24" class="ident">locale</a>: <label for="r23" class="ident">translator</label>.<a href="../locales/rules.go.html#line-51" class="ident">Locale</a>()}</code></span>
+<span class="codeline" id="line-91"><code>		}</code></span>
+<span class="codeline" id="line-92"><code></code></span>
+<span class="codeline" id="line-93"><code>		<label for="r21" class="ident">t</label>.<a href="#line-12" class="ident">fallback</a> = <label for="r28" class="ident">trans</label></code></span>
+<span class="codeline" id="line-94"><code>	}</code></span>
+<span class="codeline" id="line-95"><code></code></span>
+<span class="codeline" id="line-96"><code>	<label for="r21" class="ident">t</label>.<a href="#line-11" class="ident">translators</a>[<label for="r25" class="ident">lc</label>] = <label for="r28" class="ident">trans</label></code></span>
+<span class="codeline" id="line-97"><code></code></span>
+<span class="codeline" id="line-98"><code>	<span class="keyword">return</span> <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a></code></span>
+<span class="codeline" id="line-99"><code>}</code></span>
+<span class="codeline" id="line-100"><code></code></span>
+<span class="codeline" id="line-101"><code><span class="comment">// VerifyTranslations runs through all locales and identifies any issues</span></code></span>
+<span class="codeline" id="line-102"><code><span class="comment">// eg. missing plural rules for a locale</span></code></span>
+<span class="codeline" id="line-103"><code><span class="keyword">func</span> (<label for="r29" class="ident">t</label> *<a href="#line-10" class="ident">UniversalTranslator</a>) <label for="r30" class="ident">VerifyTranslations</label>() (<label for="r31" class="ident">err</label> <a href="../../../../pkg/builtin.html#name-error" class="ident">error</a>) {</code></span>
+<span class="codeline" id="line-104"><code></code></span>
+<span class="codeline" id="line-105"><code>	<span class="keyword">for</span> <label for="r32" class="ident">_</label>, <label for="r33" class="ident">trans</label> := <span class="keyword">range</span> <label for="r29" class="ident">t</label>.<a href="#line-11" class="ident">translators</a> {</code></span>
+<span class="codeline" id="line-106"><code>		<label for="r31" class="ident">err</label> = <label for="r33" class="ident">trans</label>.<a href="translator.go.html#line-66" class="ident">VerifyTranslations</a>()</code></span>
+<span class="codeline" id="line-107"><code>		<span class="keyword">if</span> <label for="r31" class="ident">err</label> != <a href="../../../../pkg/builtin.html#name-nil" class="ident">nil</a> {</code></span>
+<span class="codeline" id="line-108"><code>			<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-109"><code>		}</code></span>
+<span class="codeline" id="line-110"><code>	}</code></span>
+<span class="codeline" id="line-111"><code></code></span>
+<span class="codeline" id="line-112"><code>	<span class="keyword">return</span></code></span>
+<span class="codeline" id="line-113"><code>}</code></span>
+</pre><pre id="footer">
+<table><tr><td><img src="../../../../png/go101-twitter.png"></td>
+<td>The pages are generated with <a href="https://go101.org/article/tool-golds.html"><b>Golds</b></a> <i>v0.3.6</i>. (GOOS=darwin GOARCH=amd64)
+<b>Golds</b> is a <a href="https://go101.org">Go 101</a> project developed by <a href="https://tapirgames.com">Tapir Liu</a>.
+PR and bug reports are welcome and can be submitted to <a href="https://github.com/go101/golds">the issue list</a>.
+Please follow <a href="https://twitter.com/go100and1">@Go100and1</a> (reachable from the left QR code) to get the latest news of <b>Golds</b>.</td></tr></table></pre>

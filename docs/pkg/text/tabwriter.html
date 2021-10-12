@@ -105,7 +105,7 @@
 </div>
 <div id="exported-types"><span class="title">Package-Level Type Names<span class="title-stat"><i> (total 3, in which 1 are exported)</i></span></span>
 
-<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Writer" data-popularity="1150">	<input type='checkbox' class="fold" id="Writer-fold-content"><label for="Writer-fold-content"> type <a href="../../src/text/tabwriter/tabwriter.go.html#line-91">Writer</a> <i>(struct)</i></label><span id='Writer-fold-content-docs' class="fold-docs">
+<div id="exported-types-buttons" class="js-on">	/* sort exporteds by: <label id="sort-types-by-alphabet" class="button">alphabet</label> | <label id="sort-types-by-popularity" class="button">popularity</label> */</div><div class="anchor type-res" id="name-Writer" data-popularity="1200">	<input type='checkbox' class="fold" id="Writer-fold-content"><label for="Writer-fold-content"> type <a href="../../src/text/tabwriter/tabwriter.go.html#line-91">Writer</a> <i>(struct)</i></label><span id='Writer-fold-content-docs' class="fold-docs">
 		A Writer is a filter that inserts padding around tab-delimited
 		columns in its input to align them in the output.
 
@@ -271,8 +271,10 @@
 			<span class="nodocs">(*T) <a href="../../src/text/tabwriter/tabwriter.go.html#line-298">writeLines</a>(pos0 <a href="../builtin.html#name-int">int</a>, line0, line1 <a href="../builtin.html#name-int">int</a>) (pos <a href="../builtin.html#name-int">int</a>)</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../src/text/tabwriter/tabwriter.go.html#line-263">writeN</a>(src []<a href="../builtin.html#name-byte">byte</a>, n <a href="../builtin.html#name-int">int</a>)</span></i></span><span class="hidden"><i>
 			<span class="nodocs">(*T) <a href="../../src/text/tabwriter/tabwriter.go.html#line-276">writePadding</a>(textw, cellw <a href="../builtin.html#name-int">int</a>, useTabs <a href="../builtin.html#name-bool">bool</a>)</span></i></span></span>
-		<input type='checkbox' class="fold" id="Writer-fold-impls"><label for="Writer-fold-impls">Implements (<i>at least one exported</i>)</label><span id='Writer-fold-impls-items' class="fold-items"><span>
-			*T : io.<a href="../io.html#name-Writer">Writer</a></span></span>
+		<input type='checkbox' class="fold" id="Writer-fold-impls"><label for="Writer-fold-impls">Implements (<i>at least 2, in which 1 are exported</i>)</label><span id='Writer-fold-impls-items' class="fold-items"><span>
+			*T : io.<a href="../io.html#name-Writer">Writer</a></span>
+			<input type='checkbox' class="showhide" id="Writer-showhide-impls"><i><label for="Writer-showhide-impls" class="show-inline">/* at least one unexported ... */</label><label for="Writer-showhide-impls" class="hide-inline">/* at least one unexported: */</label></i><span class="hidden"><i>
+			*T : github.com/ugorji/go/codec.<a href="../github.com/ugorji/go/codec.html#name-ioFlusher">ioFlusher</a></i></span></span>
 		<input type='checkbox' class="fold" id="Writer-fold-results"><label for="Writer-fold-results">As Outputs Of (<i>at least 2, both are exported</i>)</label><span id='Writer-fold-results-items' class="fold-items"><span>
 			func <a href="#name-NewWriter">NewWriter</a>(output <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>, minwidth, tabwidth, padding <a href="../builtin.html#name-int">int</a>, padchar <a href="../builtin.html#name-byte">byte</a>, flags <a href="../builtin.html#name-uint">uint</a>) *<b>Writer</b></span><span>
 			func (*Writer).<a href="../../src/text/tabwriter/tabwriter.go.html#line-211">Init</a>(output <a href="../io.html">io</a>.<a href="../io.html#name-Writer">Writer</a>, minwidth, tabwidth, padding <a href="../builtin.html#name-int">int</a>, padchar <a href="../builtin.html#name-byte">byte</a>, flags <a href="../builtin.html#name-uint">uint</a>) *<b>Writer</b></span></span>
