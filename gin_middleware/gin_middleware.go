@@ -80,6 +80,9 @@ type AuthMiddlewareFactoryFunc func(opts ...Option) gin.HandlerFunc
 type VerifyFunc func(verifier jwthelper.UniversalJwtVerifier, signer jwthelper.UniversalJwtSigner, token *jwt_pb.Token, ip, aud string, selfuid int64, superuser bool) (string, error)
 
 //AuthMiddlewareMaker 用于构造`AuthMiddlewareFactoryFunc`的函数
+//@Params verifier jwthelper.UniversalJwtVerifier 校验器
+//@Params signer jwthelper.UniversalJwtSigner 签名器,用于在有Refresh-Token时刷新token
+//@Params verifyfunc VerifyFunc 具体的校验逻辑
 func AuthMiddlewareMaker(verifier jwthelper.UniversalJwtVerifier, signer jwthelper.UniversalJwtSigner, verifyfunc VerifyFunc) AuthMiddlewareFactoryFunc {
 	return func(opts ...Option) gin.HandlerFunc {
 		dopts := options{}
