@@ -1,3 +1,13 @@
+# v0.0.4
+
+## 依赖更新
+
++ `github.com/Golang-Tools/schema-entry-go`->`v0.0.7`
+
+## 增加模块
+
++ `gin_middleware`gin的校验模块工具
+
 # v0.0.3
 
 ## 接口变化

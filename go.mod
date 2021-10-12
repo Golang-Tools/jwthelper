@@ -4,7 +4,8 @@ go 1.16
 
 require (
 	github.com/Golang-Tools/loggerhelper v0.0.4
-	github.com/Golang-Tools/schema-entry-go v0.0.6
+	github.com/Golang-Tools/schema-entry-go v0.0.7
+	github.com/gin-gonic/gin v1.7.4
 	github.com/golang-jwt/jwt/v4 v4.1.0
 	github.com/json-iterator/go v1.1.12
 	github.com/satori/go.uuid v1.2.0
