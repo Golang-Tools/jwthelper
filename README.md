@@ -95,3 +95,4 @@ jwt标准过于简单,往往在生产上并不是简单使用,本项目基于[�
 + `utils/keygener`模块用于生成随机的公私钥对
 + `proxy`用于代理满足`UniversalJwtSigner`和`UniversalJwtVerifier`接口的对象
 + `sdk`用于对接`cmd`中提供的grpc,使用它构造的对象也分别满足`UniversalJwtSigner`和`UniversalJwtVerifier`接口
++ `gin_middleware`gin的校验模块工具
