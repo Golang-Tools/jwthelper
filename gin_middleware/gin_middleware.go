@@ -17,7 +17,7 @@ type SelfFinder func(*gin.Context) (int64, error)
 type options struct {
 	CheckIP    bool
 	CheckAdmin []string
-	CheckRole  string
+	CheckRole  []string
 	Finder     SelfFinder
 }
 
@@ -56,7 +56,7 @@ func WithCheckAdmin(rolenames ...string) Option {
 }
 
 //WithCheckRole 校验拥有特定权限
-func WithCheckRole(role string) Option {
+func WithCheckRole(role ...string) Option {
 	return newFuncOption(func(o *options) {
 		o.CheckRole = role
 	})
@@ -77,7 +77,7 @@ func WithCheckSelf(finder SelfFinder) Option {
 //没有设置WithCheckSuperUser时如果有设置WithCheckSelf则会校验令牌的sub是否和用户自己的id一致
 //当用户是superuser时则不看是否有role或者id是否一致统一通过
 type AuthMiddlewareFactoryFunc func(opts ...Option) gin.HandlerFunc
-type VerifyFunc func(verifier jwthelper.UniversalJwtVerifier, signer jwthelper.UniversalJwtSigner, token *jwt_pb.Token, ip, aud string, selfuid int64, admins ...string) (string, error)
+type VerifyFunc func(verifier jwthelper.UniversalJwtVerifier, signer jwthelper.UniversalJwtSigner, token *jwt_pb.Token, ip string, aud []string, selfuid int64, admins ...string) (string, error)
 
 //AuthMiddlewareMaker 用于构造`AuthMiddlewareFactoryFunc`的函数
 //@Params verifier jwthelper.UniversalJwtVerifier 校验器
