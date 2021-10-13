@@ -48,21 +48,21 @@ func WithCheckIP() Option {
 	})
 }
 
-//WithCheckAdmin 校验是否是管理员用户,也就是aud是否必须包含其中的至少一个
+//WithCheckAdmin 校验是否是管理员用户,也就是aud是否必须包含其中的至少一个,如果不包含则不能通过
 func WithCheckAdmin(rolenames ...string) Option {
 	return newFuncOption(func(o *options) {
 		o.CheckAdmin = rolenames
 	})
 }
 
-//WithCheckRole 校验拥有特定权限
+//WithCheckRole 校验拥有特定权限,如果未设置WithCheckAdmin则会生效,校验aud是否包含其中至少一个
 func WithCheckRole(role ...string) Option {
 	return newFuncOption(func(o *options) {
 		o.CheckRole = role
 	})
 }
 
-//WithCheckSelf 校验资源是请求者自己的
+//WithCheckSelf 校验资源是请求者自己的,和WithCheckRole优先级一样,如果未设置WithCheckAdmin则会生效,校验sub是否和finder找到的uid一致
 func WithCheckSelf(finder SelfFinder) Option {
 	return newFuncOption(func(o *options) {
 		o.Finder = finder
