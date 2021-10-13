@@ -292,12 +292,12 @@ func TestHashVerifierVerifyCheckAudNotMatch(t *testing.T) {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
 	sub := "test"
-	aud := "test_aud"
+	aud := []string{"aud1", "aud2", "aud3"}
 	payload := map[string]interface{}{"a": 1.0, "b": "B"}
 	token, err := signer.Sign(
 		payload,
 		signoptions.WithSub(sub),
-		signoptions.WithAud(aud))
+		signoptions.WithAud(aud...))
 	if err != nil {
 		assert.FailNow(t, err.Error(), "signer.Sign get error")
 	}
@@ -306,15 +306,55 @@ func TestHashVerifierVerifyCheckAudNotMatch(t *testing.T) {
 		token,
 		&payload1,
 		verifyoptions.WithSUBMustBe(sub),
-		verifyoptions.WithAUDMustHas(aud+"1"),
+		verifyoptions.WithAUDMustHas("aud1", "aud2", "aud4"),
 		verifyoptions.WithIssMustIn(signer.opts.Iss))
 	if err == nil {
 		assert.FailNow(t, "verifier Verify should get error")
 	}
-	t.Log("get status", status)
+	t.Log("WithAUDMustHas get status", status)
 	assert.Nil(t, status)
-	t.Log("get err", err)
+	t.Log("WithAUDMustHas get err", err)
 	assert.EqualError(t, err, "AUD validation failed")
+	status, err2 := verifier.Verify(
+		token,
+		&payload1,
+		verifyoptions.WithSUBMustBe(sub),
+		verifyoptions.WithAUDMustNotHas("aud1", "aud2", "aud4"),
+		verifyoptions.WithIssMustIn(signer.opts.Iss))
+	if err2 == nil {
+		assert.FailNow(t, "verifier Verify should get error")
+	}
+	t.Log("WithAUDMustNotHas get status", status)
+	assert.Nil(t, status)
+	t.Log("WithAUDMustNotHas get err", err2)
+	assert.EqualError(t, err2, "AUD validation failed")
+
+	status, err3 := verifier.Verify(
+		token,
+		&payload1,
+		verifyoptions.WithSUBMustBe(sub),
+		verifyoptions.WithAUDMustHasAny("aud5", "aud6", "aud4"),
+		verifyoptions.WithIssMustIn(signer.opts.Iss))
+	if err3 == nil {
+		assert.FailNow(t, "verifier Verify should get error")
+	}
+	t.Log("WithAUDMustHasAny get status", status)
+	assert.Nil(t, status)
+	t.Log("WithAUDMustHasAny get err", err3)
+	assert.EqualError(t, err3, "AUD validation failed")
+
+	status, err4 := verifier.Verify(
+		token,
+		&payload1,
+		verifyoptions.WithSUBMustBe(sub),
+		verifyoptions.WithAUDMustHasAny("aud5", "aud6", "aud1"),
+		verifyoptions.WithIssMustIn(signer.opts.Iss))
+	t.Log("WithAUDMustHasAnyok get status", status)
+	t.Log("WithAUDMustHasAnyok get err", err4)
+	if err4 != nil {
+		assert.FailNow(t, "verifier Verify should not get error")
+	}
+	assert.Nil(t, err4)
 }
 
 //TestHashVerifierVerifyCheckIssNotMatch 测试校验iss不匹配

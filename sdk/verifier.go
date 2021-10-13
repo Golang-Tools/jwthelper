@@ -72,7 +72,9 @@ func (c *Verifier) Verify(token *jwt_pb.Token, payload interface{}, opts ...veri
 	query := jwtverifier_pb.VerifyRequest{
 		Token:                   token,
 		CheckMatchSub:           defaultopt.CheckMatchSUB,
-		CheckMatchAud:           defaultopt.CheckMatchAUD,
+		CheckMatchallAud:        defaultopt.CheckMatchALLAUD,
+		CheckMatchanyAud:        defaultopt.CheckMatchAnyAUD,
+		CheckNotmatchAud:        defaultopt.CheckNotMatchAUD,
 		CheckMatchIss:           defaultopt.CheckMatchISS,
 		NotCheckRefreshTokenAud: defaultopt.NotCheckRefreshTokenAUD,
 		NotCheckRefreshTokenJti: defaultopt.NotCheckRefreshTokenJTI,

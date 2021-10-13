@@ -4,7 +4,9 @@ package verifyoptions
 //VerifyOptions 校验函数参数
 type VerifyOptions struct {
 	CheckMatchSUB           string   //校验token的sub是否符合这个字段填写的值
-	CheckMatchAUD           string   // 校验token的aud是不是包含这个字段中指定的值
+	CheckMatchALLAUD        []string // 校验token的aud是不是包含这个字段中指定的所有值
+	CheckMatchAnyAUD        []string // 校验token的aud是不是包含这个字段中指定的至少一个值
+	CheckNotMatchAUD        []string // 校验token的aud是不是不包含这个字段中指定的任何一个值
 	CheckMatchISS           []string //校验token的签发人是否在这个字段给定的范围中
 	NotCheckRefreshTokenAUD bool     //是否校验RefreshToken中的AUD必须和对应AccessToken的一致
 	NotCheckRefreshTokenJTI bool     //是否校验RefreshToken中的JTI必须和对应AccessToken的一致
@@ -35,14 +37,28 @@ func WithSUBMustBe(sub string) VerifyOption {
 	})
 }
 
-//WithAUDMusthas 校验token的aud中必须包含指定值
-func WithAUDMustHas(aud string) VerifyOption {
+//WithAUDMustHas 校验token的aud中必须包含指定所有值
+func WithAUDMustHas(auds ...string) VerifyOption {
 	return newFuncVerifyOption(func(o *VerifyOptions) {
-		o.CheckMatchAUD = aud
+		o.CheckMatchALLAUD = auds
 	})
 }
 
-//WithAUDMusthas 校验token的iss必须在指定范围内
+//WithAUDMustHasAny 校验token的aud中必须包含指定值范围内的至少一个值
+func WithAUDMustHasAny(auds ...string) VerifyOption {
+	return newFuncVerifyOption(func(o *VerifyOptions) {
+		o.CheckMatchAnyAUD = auds
+	})
+}
+
+//WithAUDMustNotHas 校验token的aud中必须不包含指定值范围内的所有值
+func WithAUDMustNotHas(auds ...string) VerifyOption {
+	return newFuncVerifyOption(func(o *VerifyOptions) {
+		o.CheckNotMatchAUD = auds
+	})
+}
+
+//WithIssMustIn 校验token的iss必须在指定范围内
 func WithIssMustIn(isss ...string) VerifyOption {
 	return newFuncVerifyOption(func(o *VerifyOptions) {
 		o.CheckMatchISS = isss

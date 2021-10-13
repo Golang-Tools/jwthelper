@@ -1,5 +1,9 @@
 # v0.0.4
 
+## 接口变化
+
++ `UniversalJwtVerify`接口关于aud的参数改为集合计算`verifyoptions.WithAUDMustHas`,`verifyoptions.WithAUDMustHasAny`,`verifyoptions.WithAUDMustNotHas`而不再是单纯检验某个aud是否在其中
+
 ## 依赖更新
 
 + `github.com/Golang-Tools/schema-entry-go`->`v0.0.7`

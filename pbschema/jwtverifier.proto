@@ -19,10 +19,12 @@ message MetaResponse {
 message VerifyRequest {
     jwt.Token token = 1; //要校验的token
     string check_match_sub = 2; //校验sub是否符合这个字段填写的值
-    string check_match_aud = 3; // 校验token的aud是不是包含这个字段中指定的值
-    repeated string check_match_iss = 4; //校验token的签发人是否在这个字段给定的范围中
-    bool not_check_refresh_token_aud = 5; //是否校验RefreshToken中的AUD必须和对应AccessToken的一致
-    bool not_check_refresh_token_jti = 6; //是否校验RefreshToken中的JTI必须和对应AccessToken的一致
+    repeated string check_matchall_aud = 3; // 校验token的aud是不是包含这个字段中指定的值
+    repeated string check_matchany_aud = 4; // 校验token的aud是不是包含这个字段中指定的值
+    repeated string check_notmatch_aud = 5; // 校验token的aud是不是包含这个字段中指定的值
+    repeated string check_match_iss = 6; //校验token的签发人是否在这个字段给定的范围中
+    bool not_check_refresh_token_aud = 7; //是否校验RefreshToken中的AUD必须和对应AccessToken的一致
+    bool not_check_refresh_token_jti = 8; //是否校验RefreshToken中的JTI必须和对应AccessToken的一致
 }
 
 

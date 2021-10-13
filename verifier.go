@@ -75,11 +75,6 @@ func checkClaims(claims jwt.MapClaims, payload interface{}, jwt_status *jwt_pb.J
 			return exceptions.ErrValidationErrorSubject
 		}
 	}
-	if opts.CheckMatchAUD != "" {
-		if !claims.VerifyAudience(opts.CheckMatchAUD, true) {
-			return exceptions.ErrValidationErrorAudience
-		}
-	}
 	if opts.CheckMatchISS != nil && len(opts.CheckMatchISS) > 0 {
 		find := false
 		for _, iss := range opts.CheckMatchISS {
@@ -98,19 +93,45 @@ func checkClaims(claims jwt.MapClaims, payload interface{}, jwt_status *jwt_pb.J
 	}
 	audi, ok := claims["aud"]
 	if ok {
-		jwt_status.Aud = []string{}
+		Aud := strset.New()
 		switch reflect.TypeOf(audi).Kind() {
 		case reflect.Slice, reflect.Array:
 			s := reflect.ValueOf(audi)
 			for i := 0; i < s.Len(); i++ {
 				va := s.Index(i).Interface().(string)
-				jwt_status.Aud = append(jwt_status.Aud, va)
+				Aud.Add(va)
 			}
 		case reflect.String:
 			s := reflect.ValueOf(audi)
-			jwt_status.Aud = append(jwt_status.Aud, s.Interface().(string))
+			Aud.Add(s.Interface().(string))
 		}
+		if opts.CheckMatchALLAUD != nil && len(opts.CheckMatchALLAUD) > 0 {
+			if !Aud.Has(opts.CheckMatchALLAUD...) {
+				return exceptions.ErrValidationErrorAudience
+			}
+		}
+		if opts.CheckMatchAnyAUD != nil && len(opts.CheckMatchAnyAUD) > 0 {
+			if !Aud.HasAny(opts.CheckMatchAnyAUD...) {
+				return exceptions.ErrValidationErrorAudience
+			}
+		}
+		if opts.CheckNotMatchAUD != nil && len(opts.CheckNotMatchAUD) > 0 {
+			if Aud.HasAny(opts.CheckNotMatchAUD...) {
+				return exceptions.ErrValidationErrorAudience
+			}
+		}
+		jwt_status.Aud = Aud.List()
 		delete(claims, "aud")
+	} else {
+		if opts.CheckMatchALLAUD != nil && len(opts.CheckMatchALLAUD) > 0 {
+			return exceptions.ErrValidationErrorAudience
+		}
+		if opts.CheckMatchAnyAUD != nil && len(opts.CheckMatchAnyAUD) > 0 {
+			return exceptions.ErrValidationErrorAudience
+		}
+		if opts.CheckNotMatchAUD != nil && len(opts.CheckNotMatchAUD) > 0 {
+			return exceptions.ErrValidationErrorAudience
+		}
 	}
 	jtii, ok := claims["jti"]
 	if ok {
@@ -315,9 +336,12 @@ payload在有access且可以解析的情况下都会被解析出来
 @Returns error 各种验证失败的错误,注意当access_token过期但有refresh_token且refresh_token未过期时一样会报错exceptions.ErrValidationErrorExpired
 */
 func (verifier *Verifier) Verify(token *jwt_pb.Token, payload interface{}, opts ...verifyoptions.VerifyOption) (*jwt_pb.JwtStatus, error) {
-	defaultopt := verifyoptions.VerifyOptions{
-		CheckMatchAUD: verifier.opts.DefaultAUD,
-		CheckMatchISS: verifier.opts.DefaultISSRange,
+	defaultopt := verifyoptions.VerifyOptions{}
+	if verifier.opts.DefaultAUD != "" {
+		defaultopt.CheckMatchALLAUD = []string{verifier.opts.DefaultAUD}
+	}
+	if verifier.opts.DefaultISSRange != nil && len(verifier.opts.DefaultISSRange) > 0 {
+		defaultopt.CheckMatchISS = verifier.opts.DefaultISSRange
 	}
 	for _, opt := range opts {
 		opt.Apply(&defaultopt)

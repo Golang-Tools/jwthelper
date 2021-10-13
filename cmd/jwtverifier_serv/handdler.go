@@ -38,8 +38,14 @@ func (s *Server) Verify(ctx context.Context, in *jwtverifier_pb.VerifyRequest) (
 	if in.CheckMatchSub != "" {
 		opts = append(opts, verifyoptions.WithSUBMustBe(in.CheckMatchSub))
 	}
-	if in.CheckMatchAud != "" {
-		opts = append(opts, verifyoptions.WithAUDMustHas(in.CheckMatchAud))
+	if in.CheckMatchallAud != nil && len(in.CheckMatchallAud) > 0 {
+		opts = append(opts, verifyoptions.WithAUDMustHas(in.CheckMatchallAud...))
+	}
+	if in.CheckMatchanyAud != nil && len(in.CheckMatchanyAud) > 0 {
+		opts = append(opts, verifyoptions.WithAUDMustHasAny(in.CheckMatchanyAud...))
+	}
+	if in.CheckNotmatchAud != nil && len(in.CheckNotmatchAud) > 0 {
+		opts = append(opts, verifyoptions.WithAUDMustNotHas(in.CheckNotmatchAud...))
 	}
 	if in.CheckMatchIss != nil && len(in.CheckMatchIss) > 0 {
 		opts = append(opts, verifyoptions.WithIssMustIn(in.CheckMatchIss...))
