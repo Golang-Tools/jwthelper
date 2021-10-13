@@ -15,10 +15,10 @@ type SelfFinder func(*gin.Context) (int64, error)
 
 //option 设置校验选项
 type options struct {
-	CheckIP        bool
-	CheckSuperUser bool
-	CheckRole      string
-	Finder         SelfFinder
+	CheckIP    bool
+	CheckAdmin []string
+	CheckRole  string
+	Finder     SelfFinder
 }
 
 // Option 设置校验选项
@@ -48,10 +48,10 @@ func WithCheckIP() Option {
 	})
 }
 
-//WithCheckSuperUser 校验是SuperUser
-func WithCheckSuperUser() Option {
+//WithCheckAdmin 校验是否是管理员用户,也就是aud是否必须包含其中的至少一个
+func WithCheckAdmin(rolenames ...string) Option {
 	return newFuncOption(func(o *options) {
-		o.CheckSuperUser = true
+		o.CheckAdmin = rolenames
 	})
 }
 
@@ -77,7 +77,7 @@ func WithCheckSelf(finder SelfFinder) Option {
 //没有设置WithCheckSuperUser时如果有设置WithCheckSelf则会校验令牌的sub是否和用户自己的id一致
 //当用户是superuser时则不看是否有role或者id是否一致统一通过
 type AuthMiddlewareFactoryFunc func(opts ...Option) gin.HandlerFunc
-type VerifyFunc func(verifier jwthelper.UniversalJwtVerifier, signer jwthelper.UniversalJwtSigner, token *jwt_pb.Token, ip, aud string, selfuid int64, superuser bool) (string, error)
+type VerifyFunc func(verifier jwthelper.UniversalJwtVerifier, signer jwthelper.UniversalJwtSigner, token *jwt_pb.Token, ip, aud string, selfuid int64, admins ...string) (string, error)
 
 //AuthMiddlewareMaker 用于构造`AuthMiddlewareFactoryFunc`的函数
 //@Params verifier jwthelper.UniversalJwtVerifier 校验器
@@ -92,7 +92,7 @@ func AuthMiddlewareMaker(verifier jwthelper.UniversalJwtVerifier, signer jwthelp
 		return func(c *gin.Context) {
 			ip := ""
 			var selfuid int64 = 0
-			superuser := false
+			admins := []string{}
 			if dopts.Finder != nil {
 				_selfuid, err := dopts.Finder(c)
 				if err != nil {
@@ -104,8 +104,8 @@ func AuthMiddlewareMaker(verifier jwthelper.UniversalJwtVerifier, signer jwthelp
 			if dopts.CheckIP {
 				ip = c.ClientIP()
 			}
-			if dopts.CheckSuperUser {
-				superuser = true
+			if dopts.CheckAdmin != nil && len(dopts.CheckAdmin) > 0 {
+				admins = dopts.CheckAdmin
 			}
 			Authorization := c.GetHeader("Authorization")
 			accessToken := strings.ReplaceAll(Authorization, "Bearer ", "")
@@ -113,7 +113,7 @@ func AuthMiddlewareMaker(verifier jwthelper.UniversalJwtVerifier, signer jwthelp
 				RefreshToken: c.GetHeader("Refresh-Token"),
 				AccessToken:  accessToken,
 			}
-			newaccesstoken, err := verifyfunc(verifier, signer, &token, ip, dopts.CheckRole, selfuid, superuser)
+			newaccesstoken, err := verifyfunc(verifier, signer, &token, ip, dopts.CheckRole, selfuid, admins...)
 			if err != nil {
 				c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"Message": err.Error()})
 			} else {
