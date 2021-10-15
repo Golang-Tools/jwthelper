@@ -1,13 +1,13 @@
 package gin_middleware
 
 import (
-	"fmt"
 	"net/http"
 	"strings"
 
 	"github.com/Golang-Tools/jwthelper"
 	"github.com/Golang-Tools/jwthelper/jwt_pb"
 	"github.com/gin-gonic/gin"
+	"github.com/sirupsen/logrus"
 )
 
 //SelfFinder 找到用户id的函数
@@ -19,6 +19,11 @@ type options struct {
 	CheckAdmin []string
 	CheckRole  []string
 	Finder     SelfFinder
+	Logger     logrus.FieldLogger
+}
+
+var defaultOptions = options{
+	Logger: logrus.New().WithField("logger", "jwthelper-middlerware"),
 }
 
 // Option 设置校验选项
@@ -62,6 +67,13 @@ func WithCheckRole(role ...string) Option {
 	})
 }
 
+//WithLogger 用指定的log替换默认
+func WithLogger(logger logrus.FieldLogger) Option {
+	return newFuncOption(func(o *options) {
+		o.Logger = logger
+	})
+}
+
 //WithCheckSelf 校验资源是请求者自己的,和WithCheckRole优先级一样,如果未设置WithCheckAdmin则会生效,校验sub是否和finder找到的uid一致
 func WithCheckSelf(finder SelfFinder) Option {
 	return newFuncOption(func(o *options) {
@@ -85,7 +97,7 @@ type VerifyFunc func(verifier jwthelper.UniversalJwtVerifier, signer jwthelper.U
 //@Params verifyfunc VerifyFunc 具体的校验逻辑
 func AuthMiddlewareMaker(verifier jwthelper.UniversalJwtVerifier, signer jwthelper.UniversalJwtSigner, verifyfunc VerifyFunc) AuthMiddlewareFactoryFunc {
 	return func(opts ...Option) gin.HandlerFunc {
-		dopts := options{}
+		dopts := defaultOptions
 		for _, opt := range opts {
 			opt.Apply(&dopts)
 		}
@@ -96,6 +108,7 @@ func AuthMiddlewareMaker(verifier jwthelper.UniversalJwtVerifier, signer jwthelp
 			if dopts.Finder != nil {
 				_selfuid, err := dopts.Finder(c)
 				if err != nil {
+					dopts.Logger.WithError(err).WithField("HttpStatus", http.StatusForbidden).Warn("SelfFinder get error")
 					c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"Message": err.Error()})
 				} else {
 					selfuid = _selfuid
@@ -115,9 +128,10 @@ func AuthMiddlewareMaker(verifier jwthelper.UniversalJwtVerifier, signer jwthelp
 			}
 			newaccesstoken, err := verifyfunc(verifier, signer, &token, ip, dopts.CheckRole, selfuid, admins...)
 			if err != nil {
+				dopts.Logger.WithError(err).WithField("HttpStatus", http.StatusForbidden).Warn("verifyfunc get error")
 				c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"Message": err.Error()})
 			} else {
-				c.Header("Authorization", fmt.Sprintf("Bearer %s", newaccesstoken))
+				c.Header("New-Access-Token", newaccesstoken)
 			}
 			// 请求前
 			c.Next()
