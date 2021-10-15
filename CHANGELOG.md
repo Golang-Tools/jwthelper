@@ -1,3 +1,13 @@
+# v0.0.5
+
+## 修改实现
+
++ 修改`gin_middleware`的实现,现在重新刷新的`access_token`将放在`New-Access-Token`中
+
+## 接口变化
+
++ `gin_middleware`的`AuthMiddlewareMaker`函数新增可用参数`WithLogger`,当校验不通过时会打印信息
+
 # v0.0.4
 
 ## 接口变化

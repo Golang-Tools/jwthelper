@@ -108,8 +108,8 @@ func AuthMiddlewareMaker(verifier jwthelper.UniversalJwtVerifier, signer jwthelp
 			if dopts.Finder != nil {
 				_selfuid, err := dopts.Finder(c)
 				if err != nil {
-					dopts.Logger.WithError(err).WithField("HttpStatus", http.StatusForbidden).Warn("SelfFinder get error")
-					c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"Message": err.Error()})
+					dopts.Logger.WithError(err).WithField("HttpStatus", http.StatusInternalServerError).Warn("SelfFinder get error")
+					c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"Message": err.Error()})
 				} else {
 					selfuid = _selfuid
 				}
