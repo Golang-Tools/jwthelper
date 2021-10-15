@@ -4,6 +4,10 @@
 
 + 修改`gin_middleware`的实现,现在重新刷新的`access_token`将放在`New-Access-Token`中
 
+## bug修复
+
++ 修复`gin_middleware`无法返回错误信息的问题
+
 ## 接口变化
 
 + `gin_middleware`的`AuthMiddlewareMaker`函数新增可用参数`WithLogger`,当校验不通过时会打印信息

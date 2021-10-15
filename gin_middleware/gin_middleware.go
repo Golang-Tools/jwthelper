@@ -132,10 +132,8 @@ func AuthMiddlewareMaker(verifier jwthelper.UniversalJwtVerifier, signer jwthelp
 				c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"Message": err.Error()})
 			} else {
 				c.Header("New-Access-Token", newaccesstoken)
+				c.Next()
 			}
-			// 请求前
-			c.Next()
-			// 请求后
 		}
 	}
 }
