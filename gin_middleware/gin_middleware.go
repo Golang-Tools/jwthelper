@@ -121,9 +121,16 @@ func AuthMiddlewareMaker(verifier jwthelper.UniversalJwtVerifier, signer jwthelp
 				admins = dopts.CheckAdmin
 			}
 			Authorization := c.GetHeader("Authorization")
+			if Authorization == "" {
+				Authorization = c.GetHeader("authorization")
+			}
 			accessToken := strings.ReplaceAll(Authorization, "Bearer ", "")
+			refreshtoken := c.GetHeader("Refresh-Token")
+			if refreshtoken == "" {
+				refreshtoken = c.GetHeader("refresh-token")
+			}
 			token := jwt_pb.Token{
-				RefreshToken: c.GetHeader("Refresh-Token"),
+				RefreshToken: refreshtoken,
 				AccessToken:  accessToken,
 			}
 			newaccesstoken, err := verifyfunc(verifier, signer, &token, ip, dopts.CheckRole, selfuid, admins...)
