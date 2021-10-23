@@ -2,11 +2,12 @@
 
 ## 修改实现
 
-+ 修改`gin_middleware`的实现,现在重新刷新的`access_token`将放在`New-Access-Token`中
++ 修改`gin_middleware`的实现,现在重新刷新的`access_token`将放在`new-access-token`中
 
 ## bug修复
 
 + 修复`gin_middleware`无法返回错误信息的问题
++ 修复`gin_middleware`对http2的兼容性问题,现在小写的对应headers也可以被识别
 
 ## 接口变化
 

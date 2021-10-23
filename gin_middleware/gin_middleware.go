@@ -138,7 +138,7 @@ func AuthMiddlewareMaker(verifier jwthelper.UniversalJwtVerifier, signer jwthelp
 				dopts.Logger.WithError(err).WithField("HttpStatus", http.StatusForbidden).Warn("verifyfunc get error")
 				c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"Message": err.Error()})
 			} else {
-				c.Header("New-Access-Token", newaccesstoken)
+				c.Header("new-access-token", newaccesstoken)
 				c.Next()
 			}
 		}
