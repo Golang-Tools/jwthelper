@@ -1,7 +1,7 @@
 package proxy
 
 import (
-	"github.com/Golang-Tools/jwthelper"
+	jwthelper "github.com/Golang-Tools/jwthelper/v2"
 )
 
 //VerifierCallback 签名校验器操作的回调函数

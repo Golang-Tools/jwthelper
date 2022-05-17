@@ -7,7 +7,7 @@ import (
 	"github.com/Golang-Tools/jwthelper/jwt_pb"
 	"github.com/Golang-Tools/jwthelper/jwtsigner_pb"
 	"github.com/Golang-Tools/jwthelper/signoptions"
-	log "github.com/Golang-Tools/loggerhelper"
+	log "github.com/Golang-Tools/loggerhelper/v2"
 	jsoniter "github.com/json-iterator/go"
 )
 

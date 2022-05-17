@@ -1,7 +1,7 @@
 package proxy
 
 import (
-	"github.com/Golang-Tools/jwthelper"
+	jwthelper "github.com/Golang-Tools/jwthelper/v2"
 )
 
 //SignerCallback 签名器操作的回调函数

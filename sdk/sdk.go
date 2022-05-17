@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	log "github.com/Golang-Tools/loggerhelper"
+	log "github.com/Golang-Tools/loggerhelper/v2"
 	jsoniter "github.com/json-iterator/go"
 	grpc "google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
@@ -24,6 +24,14 @@ import (
 )
 
 var json = jsoniter.ConfigCompatibleWithStandardLibrary
+
+var logger *log.Log
+
+func init() {
+	log.Set(log.WithExtFields(log.Dict{"module": "sdk-jwthelper"}))
+	logger = log.Export()
+	log.Set(log.WithExtFields(log.Dict{}))
+}
 
 //SDKConfig 的客户端类型
 type SDKConfig struct {
@@ -189,13 +197,13 @@ func (c *SDK) initTLS() error {
 		if c.Client_Cert_Path != "" && c.Client_Key_Path != "" {
 			cert, err := tls.LoadX509KeyPair(c.Client_Cert_Path, c.Client_Key_Path)
 			if err != nil {
-				log.Error("read client pem file error:", log.Dict{"err": err.Error(), "Cert_path": c.Client_Cert_Path, "Key_Path": c.Client_Key_Path})
+				logger.Error("read client pem file error:", log.Dict{"err": err.Error(), "Cert_path": c.Client_Cert_Path, "Key_Path": c.Client_Key_Path})
 				return err
 			}
 			capool := x509.NewCertPool()
 			caCrt, err := ioutil.ReadFile(c.Ca_Cert_Path)
 			if err != nil {
-				log.Error("read ca pem file error:", log.Dict{"err": err.Error(), "path": c.Ca_Cert_Path})
+				logger.Error("read ca pem file error:", log.Dict{"err": err.Error(), "path": c.Ca_Cert_Path})
 				return err
 			}
 			capool.AppendCertsFromPEM(caCrt)
@@ -208,7 +216,7 @@ func (c *SDK) initTLS() error {
 		} else {
 			creds, err := credentials.NewClientTLSFromFile(c.Ca_Cert_Path, "")
 			if err != nil {
-				log.Error("failed to load credentials", log.Dict{"err": err.Error()})
+				logger.Error("failed to load credentials", log.Dict{"err": err.Error()})
 				return err
 			}
 			c.opts = append(c.opts, grpc.WithTransportCredentials(creds))

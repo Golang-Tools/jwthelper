@@ -1,8 +1,10 @@
-# jwthelper
+# jwthelperV2
 
 jwt标准过于简单,往往在生产上并不是简单使用,本项目基于[我的这篇博文](https://blog.hszofficial.site/introduce/2021/05/25/%E7%BD%91%E7%BB%9C%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81/).在可以进行简单签名简单验签的同时也支持使用伴生的刷新jwt做自动刷新令牌.
 
 本项目本质上只是`github.com/golang-jwt/jwt/v4`的封装,只是提供了相对更友好的接口和一些专用模式封装而已
+
+V2版本只支持go 1.18+,低版本请使用V0版本
 
 ## 特性
 

@@ -12,12 +12,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Golang-Tools/jwthelper"
 	"github.com/Golang-Tools/jwthelper/jwt_pb"
 	"github.com/Golang-Tools/jwthelper/jwtverifier_pb"
 	"github.com/Golang-Tools/jwthelper/utils"
+	jwthelper "github.com/Golang-Tools/jwthelper/v2"
 
-	log "github.com/Golang-Tools/loggerhelper"
+	log "github.com/Golang-Tools/loggerhelper/v2"
 
 	grpc "google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
@@ -40,10 +40,10 @@ import (
 //TLS支持
 //keep alive 支持
 type Server struct {
-	App_Name    string `json:"app_name,omitempty" jsonschema:"required,description=服务名"`
-	App_Version string `json:"app_version,omitempty" jsonschema:"description=服务版本"`
-	Address     string `json:"address,omitempty" jsonschema:"required,description=服务的主机和端口"`
-	Log_Level   string `json:"log_level,omitempty" jsonschema:"required,description=项目的log等级,enum=TRACE,enum=DEBUG,enum=INFO,enum=WARN,enum=ERROR"`
+	App_Name    string `json:"app_name,omitempty" jsonschema:"required,description=服务名,default=jwthelper_verifierrpc"`
+	App_Version string `json:"app_version,omitempty" jsonschema:"description=服务版本,default=2.0.0"`
+	Address     string `json:"address,omitempty" jsonschema:"required,description=服务的主机和端口,default=0.0.0.0:5000"`
+	Log_Level   string `json:"log_level,omitempty" jsonschema:"required,description=项目的log等级,enum=TRACE,enum=DEBUG,enum=INFO,enum=WARN,enum=ERROR,default=DEBUG"`
 
 	// 性能设置
 	Max_Recv_Msg_Size                           int  `json:"max_recv_msg_size,omitempty" jsonschema:"description=允许接收的最大消息长度"`
@@ -83,7 +83,7 @@ type Server struct {
 //Main 服务的入口函数
 func (s *Server) Main() {
 	// 初始化log
-	log.Init(log.WithLevel(s.Log_Level),
+	log.Set(log.WithLevel(s.Log_Level),
 		log.AddExtField("app_name", s.App_Name),
 		log.AddExtField("app_version", s.App_Version),
 	)
@@ -298,12 +298,4 @@ func (s *Server) RunServer() {
 //Run 执行grpc服务
 func (s *Server) Run() {
 	s.RunServer()
-}
-
-var Node = Server{
-	App_Name:          "jwthelper_verifierrpc",
-	App_Version:       "0.0.1",
-	Address:           "0.0.0.0:5000",
-	Log_Level:         "DEBUG",
-	Default_ISS_Range: []string{},
 }
