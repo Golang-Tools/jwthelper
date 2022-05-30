@@ -2,7 +2,20 @@ package proxy
 
 import (
 	jwthelper "github.com/Golang-Tools/jwthelper/v2"
+	log "github.com/Golang-Tools/loggerhelper/v2"
+	"github.com/Golang-Tools/optparams"
 )
+
+var logger *log.Log
+
+var Default *signerProxy
+
+func init() {
+	log.Set(log.WithExtFields(log.Dict{"module": "jwtsigner-proxy"}))
+	logger = log.Export()
+	log.Set(log.WithExtFields(log.Dict{}))
+	Default = NewSignerProxy()
+}
 
 //SignerCallback 签名器操作的回调函数
 type SignerCallback func(cli jwthelper.UniversalJwtSigner) error
@@ -27,22 +40,20 @@ func (proxy *signerProxy) IsOk() bool {
 }
 
 //Init 条件初始化代理对象
-func (proxy *signerProxy) Init(signer jwthelper.UniversalJwtSigner, opts ...Option) error {
+func (proxy *signerProxy) Init(signer jwthelper.UniversalJwtSigner, opts ...optparams.Option[Options]) error {
 	if proxy.IsOk() {
 		return ErrProxyAllreadySettedUniversalObject
 	}
 	proxy.UniversalJwtSigner = signer
-	for _, opt := range opts {
-		opt.Apply(&proxy.opts)
-	}
+	optparams.GetOption(&proxy.opts, opts...)
 	if proxy.opts.Parallelcallback {
 		for _, cb := range proxy.callBacks {
 			go func(cb SignerCallback) {
 				err := cb(proxy.UniversalJwtSigner)
 				if err != nil {
-					proxy.opts.Logger.WithError(err).Error("regist callback get error")
+					logger.Error("regist callback get error", log.Dict{"err": err.Error()})
 				} else {
-					proxy.opts.Logger.Debug("regist callback done")
+					logger.Debug("regist callback done")
 				}
 			}(cb)
 		}
@@ -50,9 +61,9 @@ func (proxy *signerProxy) Init(signer jwthelper.UniversalJwtSigner, opts ...Opti
 		for _, cb := range proxy.callBacks {
 			err := cb(proxy.UniversalJwtSigner)
 			if err != nil {
-				proxy.opts.Logger.WithError(err).Error("regist callback get error")
+				logger.Error("regist callback get error", log.Dict{"err": err.Error()})
 			} else {
-				proxy.opts.Logger.Debug("regist callback done")
+				logger.Debug("regist callback done")
 			}
 		}
 	}

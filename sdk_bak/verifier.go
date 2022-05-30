@@ -4,10 +4,10 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/Golang-Tools/jwthelper/exceptions"
-	"github.com/Golang-Tools/jwthelper/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/jwtverifier_pb"
-	"github.com/Golang-Tools/jwthelper/verifyoptions"
+	"github.com/Golang-Tools/jwthelper/v2/exceptions"
+	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v2/jwtverifier_pb"
+	"github.com/Golang-Tools/jwthelper/v2/verifyoptions"
 	"google.golang.org/grpc"
 )
 

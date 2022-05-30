@@ -3,10 +3,10 @@ package jwtverifier_serv
 import (
 	"context"
 
-	"github.com/Golang-Tools/jwthelper/exceptions"
-	"github.com/Golang-Tools/jwthelper/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/jwtverifier_pb"
-	"github.com/Golang-Tools/jwthelper/verifyoptions"
+	"github.com/Golang-Tools/jwthelper/v2/exceptions"
+	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v2/jwtverifier_pb"
+	"github.com/Golang-Tools/jwthelper/v2/verifyoptions"
 	log "github.com/Golang-Tools/loggerhelper/v2"
 	jsoniter "github.com/json-iterator/go"
 )

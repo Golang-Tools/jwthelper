@@ -5,10 +5,11 @@ import (
 	"reflect"
 	"regexp"
 
-	"github.com/Golang-Tools/jwthelper/exceptions"
-	"github.com/Golang-Tools/jwthelper/jwt_pb"
-	utils "github.com/Golang-Tools/jwthelper/utils"
-	"github.com/Golang-Tools/jwthelper/verifyoptions"
+	"github.com/Golang-Tools/jwthelper/v2/exceptions"
+	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
+	utils "github.com/Golang-Tools/jwthelper/v2/utils"
+	"github.com/Golang-Tools/jwthelper/v2/verifyoptions"
+	"github.com/Golang-Tools/optparams"
 	jwt "github.com/golang-jwt/jwt/v4"
 	"github.com/scylladb/go-set/strset"
 )
@@ -20,12 +21,10 @@ type Verifier struct {
 }
 
 // NewVerifier 创建一个签名校验器对象
-func NewVerifier(opts ...VerifierOption) (*Verifier, error) {
+func NewVerifier(opts ...optparams.Option[VerifierOptions]) (*Verifier, error) {
 	s := new(Verifier)
 	s.opts = DefaultVerifierOptions
-	for _, opt := range opts {
-		opt.Apply(&s.opts)
-	}
+	optparams.GetOption(&s.opts, opts...)
 	if !utils.IsAsymmetric(s.opts.Algo) && !utils.IsSymmetric(s.opts.Algo) {
 		return nil, exceptions.ErrUnsupportAlgoType
 	}

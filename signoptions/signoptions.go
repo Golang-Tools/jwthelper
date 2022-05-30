@@ -4,6 +4,7 @@ package signoptions
 import (
 	"time"
 
+	"github.com/Golang-Tools/optparams"
 	"github.com/scylladb/go-set/strset"
 )
 
@@ -19,35 +20,16 @@ type SignOptions struct {
 
 var DefaultSignOptions = SignOptions{}
 
-type SignOption interface {
-	Apply(*SignOptions)
-}
-
-// func (emptyOption) apply(*SignOptions) {}
-type funcSignOption struct {
-	f func(*SignOptions)
-}
-
-func (fo *funcSignOption) Apply(do *SignOptions) {
-	fo.f(do)
-}
-
-func newFuncSignOption(f func(*SignOptions)) *funcSignOption {
-	return &funcSignOption{
-		f: f,
-	}
-}
-
 //WithSub 设置jwt所面向的用户,即它的所有人
-func WithSub(sub string) SignOption {
-	return newFuncSignOption(func(o *SignOptions) {
+func WithSub(sub string) optparams.Option[SignOptions] {
+	return optparams.NewFuncOption(func(o *SignOptions) {
 		o.Sub = sub
 	})
 }
 
 //WithAud 设置接收jwt的一方标识,即访问权限的所有方,比如`b.com`
-func WithAud(aud ...string) SignOption {
-	return newFuncSignOption(func(o *SignOptions) {
+func WithAud(aud ...string) optparams.Option[SignOptions] {
+	return optparams.NewFuncOption(func(o *SignOptions) {
 		if o.Aud == nil {
 			o.Aud = []string{}
 		}
@@ -58,8 +40,8 @@ func WithAud(aud ...string) SignOption {
 }
 
 //AddAud 设置接收jwt的一方标识,即访问权限的所有方,比如`b.com`
-func AddAud(aud string) SignOption {
-	return newFuncSignOption(func(o *SignOptions) {
+func AddAud(aud string) optparams.Option[SignOptions] {
+	return optparams.NewFuncOption(func(o *SignOptions) {
 		if o.Aud == nil {
 			o.Aud = []string{}
 		}
@@ -70,57 +52,57 @@ func AddAud(aud string) SignOption {
 }
 
 //WithExpAt 设置jwt的有效期截止时间
-func WithExpAt(exp time.Time) SignOption {
-	return newFuncSignOption(func(o *SignOptions) {
+func WithExpAt(exp time.Time) optparams.Option[SignOptions] {
+	return optparams.NewFuncOption(func(o *SignOptions) {
 		o.Exp = exp.Unix()
 	})
 }
 
 //WithTTL 设置jwt的生命周期
-func WithTTL(ttl time.Duration) SignOption {
-	return newFuncSignOption(func(o *SignOptions) {
+func WithTTL(ttl time.Duration) optparams.Option[SignOptions] {
+	return optparams.NewFuncOption(func(o *SignOptions) {
 		o.Exp = time.Now().Add(ttl).Unix()
 	})
 }
 
 //WithNbf 设置jwt的生效开始时间
-func WithNbf(nbf int64) SignOption {
-	return newFuncSignOption(func(o *SignOptions) {
+func WithNbf(nbf int64) optparams.Option[SignOptions] {
+	return optparams.NewFuncOption(func(o *SignOptions) {
 		o.Nbf = nbf
 	})
 }
 
 //WillEffectiveOn 设置jwt的生效开始时间
-func WillEffectiveOn(nbf time.Time) SignOption {
-	return newFuncSignOption(func(o *SignOptions) {
+func WillEffectiveOn(nbf time.Time) optparams.Option[SignOptions] {
+	return optparams.NewFuncOption(func(o *SignOptions) {
 		o.Nbf = nbf.Unix()
 	})
 }
 
 //WillEffectiveAfter 设置jwt开始时间,从调用时间起过多久开始生效
-func WillEffectiveAfter(nbftime time.Duration) SignOption {
-	return newFuncSignOption(func(o *SignOptions) {
+func WillEffectiveAfter(nbftime time.Duration) optparams.Option[SignOptions] {
+	return optparams.NewFuncOption(func(o *SignOptions) {
 		o.Nbf = time.Now().Add(nbftime).Unix()
 	})
 }
 
 //WithRefreshExpAt 设置jwt的伴生refreshtoken有效期截止时间
-func WithRefreshExpAt(exp time.Time) SignOption {
-	return newFuncSignOption(func(o *SignOptions) {
+func WithRefreshExpAt(exp time.Time) optparams.Option[SignOptions] {
+	return optparams.NewFuncOption(func(o *SignOptions) {
 		o.RefreshExp = exp.Unix()
 	})
 }
 
 //WithRefreshTTL 设置jwt的伴生refreshtoken的生命周期
-func WithRefreshTTL(ttl time.Duration) SignOption {
-	return newFuncSignOption(func(o *SignOptions) {
+func WithRefreshTTL(ttl time.Duration) optparams.Option[SignOptions] {
+	return optparams.NewFuncOption(func(o *SignOptions) {
 		o.RefreshExp = time.Now().Add(ttl).Unix()
 	})
 }
 
 //WithJTI 设置jwt的jti,不设置则会使用默认生成器创建
-func WithJTI(jti string) SignOption {
-	return newFuncSignOption(func(o *SignOptions) {
+func WithJTI(jti string) optparams.Option[SignOptions] {
+	return optparams.NewFuncOption(func(o *SignOptions) {
 		o.Jti = jti
 	})
 }

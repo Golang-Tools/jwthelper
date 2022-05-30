@@ -7,8 +7,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/Golang-Tools/jwthelper/exceptions"
-	"github.com/Golang-Tools/jwthelper/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v2/exceptions"
+	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
 )
 
 //AlgoStrTOAlgoEnum 加密算法名转化为算法枚举值

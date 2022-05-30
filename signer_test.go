@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Golang-Tools/jwthelper/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/signoptions"
-	"github.com/Golang-Tools/jwthelper/utils/idgener"
+	"github.com/Golang-Tools/idgener"
+	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v2/signoptions"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -36,7 +36,7 @@ func TestDefaultSignerMeta(t *testing.T) {
 func TestNewHashSignerWithOpts(t *testing.T) {
 	signer, err := NewSigner(
 		WithSignAlgo(jwt_pb.EncryptionAlgorithm_HS512),
-		WithSignJtiGen(idgener.NewSonyflakeGen()),
+		WithSignJtiGen(idgener.DefaultSonyflake),
 		WithDefaultEffectiveInterval(time.Second*15),
 		WithDefaultTTL(time.Second*60*5),
 	)

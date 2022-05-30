@@ -7,7 +7,7 @@
 package jwtsigner_pb
 
 import (
-	jwt_pb "github.com/Golang-Tools/jwthelper/jwt_pb"
+	jwt_pb "github.com/Golang-Tools/jwthelper/v2/jwt_pb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"

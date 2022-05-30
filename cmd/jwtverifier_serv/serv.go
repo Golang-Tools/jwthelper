@@ -12,10 +12,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Golang-Tools/jwthelper/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/jwtverifier_pb"
-	"github.com/Golang-Tools/jwthelper/utils"
 	jwthelper "github.com/Golang-Tools/jwthelper/v2"
+	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v2/jwtverifier_pb"
+	"github.com/Golang-Tools/jwthelper/v2/utils"
 
 	log "github.com/Golang-Tools/loggerhelper/v2"
 

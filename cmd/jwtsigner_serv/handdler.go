@@ -4,9 +4,9 @@ import (
 	"context"
 	"time"
 
-	"github.com/Golang-Tools/jwthelper/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/jwtsigner_pb"
-	"github.com/Golang-Tools/jwthelper/signoptions"
+	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v2/jwtsigner_pb"
+	"github.com/Golang-Tools/jwthelper/v2/signoptions"
 	log "github.com/Golang-Tools/loggerhelper/v2"
 	jsoniter "github.com/json-iterator/go"
 )

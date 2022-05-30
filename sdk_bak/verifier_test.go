@@ -4,9 +4,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Golang-Tools/jwthelper/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/signoptions"
-	"github.com/Golang-Tools/jwthelper/verifyoptions"
+	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v2/signoptions"
+	"github.com/Golang-Tools/jwthelper/v2/verifyoptions"
 	"github.com/stretchr/testify/assert"
 )
 

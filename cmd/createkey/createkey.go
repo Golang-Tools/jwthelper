@@ -3,7 +3,7 @@ package createkey
 import (
 	"os"
 
-	"github.com/Golang-Tools/jwthelper/utils/keygener"
+	"github.com/Golang-Tools/jwthelper/v2/utils/keygener"
 	log "github.com/Golang-Tools/loggerhelper/v2"
 )
 

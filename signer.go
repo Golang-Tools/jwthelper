@@ -5,10 +5,11 @@ package jwthelper
 import (
 	"time"
 
-	"github.com/Golang-Tools/jwthelper/exceptions"
-	"github.com/Golang-Tools/jwthelper/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/signoptions"
-	utils "github.com/Golang-Tools/jwthelper/utils"
+	"github.com/Golang-Tools/jwthelper/v2/exceptions"
+	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v2/signoptions"
+	utils "github.com/Golang-Tools/jwthelper/v2/utils"
+	"github.com/Golang-Tools/optparams"
 	jwt "github.com/golang-jwt/jwt/v4"
 )
 
@@ -19,12 +20,10 @@ type Signer struct {
 }
 
 // NewSigner 创建一个签名器对象
-func NewSigner(opts ...SignerOption) (*Signer, error) {
+func NewSigner(opts ...optparams.Option[SignerOptions]) (*Signer, error) {
 	s := new(Signer)
 	s.opts = DefaultSignerOptions
-	for _, opt := range opts {
-		opt.Apply(&s.opts)
-	}
+	optparams.GetOption(&s.opts, opts...)
 	if !utils.IsAsymmetric(s.opts.Algo) && !utils.IsSymmetric(s.opts.Algo) {
 		return nil, exceptions.ErrUnsupportAlgoType
 	}

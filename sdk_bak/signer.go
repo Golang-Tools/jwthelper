@@ -3,9 +3,9 @@ package sdk
 import (
 	"errors"
 
-	"github.com/Golang-Tools/jwthelper/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/jwtsigner_pb"
-	"github.com/Golang-Tools/jwthelper/signoptions"
+	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v2/jwtsigner_pb"
+	"github.com/Golang-Tools/jwthelper/v2/signoptions"
 	"google.golang.org/grpc"
 )
 
