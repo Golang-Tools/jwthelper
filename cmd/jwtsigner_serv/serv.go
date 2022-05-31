@@ -78,7 +78,7 @@ type Server struct {
 	Iss                               string `json:"iss,omitempty" jsonschema:"description=签发人默认为机器id-算法名"`
 	Default_TTL_Minute                int    `json:"default_ttl_minute,omitempty" jsonschema:"description=默认token超时单位min"`
 	Default_Effective_Interval_Minute int    `json:"default_effective_interval_minute,omitempty" jsonschema:"description=默认token生效离签发时间间隔单位min"`
-	JtiGen_Name                       string `json:"jtigen_name,omitempty" jsonschema:"description=jti的生成器默认uuid4,enum=uuid4,enum=sonyflake,default=uuid4"`
+	JtiGen_Name                       string `json:"jtigen_name,omitempty" jsonschema:"description=jti的生成器默认uuidv4,enum=uuidv4,enum=snowflake,enum=sonyflake,default=uuidv4"`
 
 	jwtsigner_pb.UnimplementedJwtsignerServer `json:"-"`
 	opts                                      []grpc.ServerOption
@@ -118,11 +118,39 @@ func (s *Server) Main() {
 	}
 
 	if s.JtiGen_Name != "" {
-		idgen, err := idgener.IDGenNameToIDGen(s.JtiGen_Name)
-		if err != nil {
-			log.Warn("IDGenNameToIDGen get error, use default")
-		} else {
-			opts = append(opts, jwthelper.WithSignJtiGen(idgen))
+		switch s.JtiGen_Name {
+		case "uuidv4":
+			{
+				idgen, err := idgener.IDGenNameToIDGen(idgener.IDGEN_UUIDV4)
+				if err != nil {
+					log.Warn("IDGenNameToIDGen get error, use default")
+				} else {
+					opts = append(opts, jwthelper.WithSignJtiGen(idgen))
+				}
+			}
+		case "snowflake":
+			{
+				idgen, err := idgener.IDGenNameToIDGen(idgener.IDGEN_SNOWFLAKE)
+				if err != nil {
+					log.Warn("IDGenNameToIDGen get error, use default")
+				} else {
+					opts = append(opts, jwthelper.WithSignJtiGen(idgen))
+				}
+			}
+		case "sonyflake":
+			{
+				idgen, err := idgener.IDGenNameToIDGen(idgener.IDGEN_SNOYFLAKE)
+				if err != nil {
+					log.Warn("IDGenNameToIDGen get error, use default")
+				} else {
+					opts = append(opts, jwthelper.WithSignJtiGen(idgen))
+				}
+			}
+		default:
+			{
+				log.Error("IDGenNameToIDGen get unsupported JtiGen_Name, use default", log.Dict{"JtiGen_Name": s.JtiGen_Name})
+				os.Exit(2)
+			}
 		}
 	}
 	signer, err := jwthelper.NewSigner(opts...)

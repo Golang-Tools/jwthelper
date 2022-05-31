@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/Golang-Tools/grpcsdk v0.0.2
-	github.com/Golang-Tools/idgener v0.0.1
+	github.com/Golang-Tools/idgener v0.0.3
 	github.com/Golang-Tools/loggerhelper/v2 v2.0.2
 	github.com/Golang-Tools/optparams v0.0.1
 	github.com/Golang-Tools/schema-entry-go/v2 v2.1.0

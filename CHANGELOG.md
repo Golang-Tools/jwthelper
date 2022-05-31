@@ -1,3 +1,9 @@
+# v2.0.2
+
+## 优化实现
+
++ 更新`github.com/Golang-Tools/idgener`至v0.0.3,使用枚举替代字符串选择id生成器
+
 # v2.0.1
 
 + 使用`github.com/Golang-Tools/grpcsdk`重构了sdk
