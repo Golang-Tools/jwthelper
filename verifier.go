@@ -10,8 +10,8 @@ import (
 	utils "github.com/Golang-Tools/jwthelper/v2/utils"
 	"github.com/Golang-Tools/jwthelper/v2/verifyoptions"
 	"github.com/Golang-Tools/optparams"
+	mapset "github.com/deckarep/golang-set/v2"
 	jwt "github.com/golang-jwt/jwt/v4"
-	"github.com/scylladb/go-set/strset"
 )
 
 type Verifier struct {
@@ -92,7 +92,7 @@ func checkClaims(claims jwt.MapClaims, payload interface{}, jwt_status *jwt_pb.J
 	}
 	audi, ok := claims["aud"]
 	if ok {
-		Aud := strset.New()
+		Aud := mapset.NewSet[string]()
 		switch reflect.TypeOf(audi).Kind() {
 		case reflect.Slice, reflect.Array:
 			s := reflect.ValueOf(audi)
@@ -105,21 +105,21 @@ func checkClaims(claims jwt.MapClaims, payload interface{}, jwt_status *jwt_pb.J
 			Aud.Add(s.Interface().(string))
 		}
 		if opts.CheckMatchALLAUD != nil && len(opts.CheckMatchALLAUD) > 0 {
-			if !Aud.Has(opts.CheckMatchALLAUD...) {
+			if !Aud.Contains(opts.CheckMatchALLAUD...) {
 				return exceptions.ErrValidationErrorAudience
 			}
 		}
 		if opts.CheckMatchAnyAUD != nil && len(opts.CheckMatchAnyAUD) > 0 {
-			if !Aud.HasAny(opts.CheckMatchAnyAUD...) {
+			if Aud.Intersect(mapset.NewSet(opts.CheckMatchAnyAUD...)).Cardinality() <= 0 {
 				return exceptions.ErrValidationErrorAudience
 			}
 		}
 		if opts.CheckNotMatchAUD != nil && len(opts.CheckNotMatchAUD) > 0 {
-			if Aud.HasAny(opts.CheckNotMatchAUD...) {
+			if Aud.Intersect(mapset.NewSet(opts.CheckNotMatchAUD...)).Cardinality() > 0 {
 				return exceptions.ErrValidationErrorAudience
 			}
 		}
-		jwt_status.Aud = Aud.List()
+		jwt_status.Aud = Aud.ToSlice()
 		delete(claims, "aud")
 	} else {
 		if opts.CheckMatchALLAUD != nil && len(opts.CheckMatchALLAUD) > 0 {
@@ -267,8 +267,8 @@ func (verifier *Verifier) checkRefreshToken(refreshtokenData string, jwt_status 
 				if !ok {
 					return exceptions.ErrRefreshTokenAudNotMatch
 				}
-				shareaudset := strset.New(jwt_status.Aud...)
-				refreshaudset := strset.New()
+				shareaudset := mapset.NewSet(jwt_status.Aud...)
+				refreshaudset := mapset.NewSet[string]()
 				switch reflect.TypeOf(audi).Kind() {
 				case reflect.Slice, reflect.Array:
 					s := reflect.ValueOf(audi)
@@ -280,7 +280,7 @@ func (verifier *Verifier) checkRefreshToken(refreshtokenData string, jwt_status 
 					s := reflect.ValueOf(audi)
 					refreshaudset.Add(s.Interface().(string))
 				}
-				if !shareaudset.IsEqual(refreshaudset) {
+				if !shareaudset.Equal(refreshaudset) {
 					return exceptions.ErrRefreshTokenAudNotMatch
 				}
 			}

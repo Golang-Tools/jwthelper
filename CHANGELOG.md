@@ -3,6 +3,7 @@
 + 使用`github.com/Golang-Tools/grpcsdk`重构了sdk
 + 使用`github.com/Golang-Tools/optparams`重构了所有可选参数
 + 抽离id创建工具idgener和相关的获取本机id的代码为独立项目`github.com/Golang-Tools/idgener`
++ 使用`github.com/deckarep/golang-set/v2`替代原本的set实现
 
 # v2.0.0
 

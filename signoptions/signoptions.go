@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/Golang-Tools/optparams"
-	"github.com/scylladb/go-set/strset"
+	mapset "github.com/deckarep/golang-set/v2"
 )
 
 //SignOptions 签名函数参数
@@ -33,9 +33,12 @@ func WithAud(aud ...string) optparams.Option[SignOptions] {
 		if o.Aud == nil {
 			o.Aud = []string{}
 		}
-		s := strset.New(o.Aud...)
-		s.Add(aud...)
-		o.Aud = s.List()
+		s := mapset.NewSet(o.Aud...)
+		for _, a := range aud {
+			s.Add(a)
+		}
+
+		o.Aud = s.ToSlice()
 	})
 }
 
@@ -45,9 +48,9 @@ func AddAud(aud string) optparams.Option[SignOptions] {
 		if o.Aud == nil {
 			o.Aud = []string{}
 		}
-		s := strset.New(o.Aud...)
+		s := mapset.NewSet(o.Aud...)
 		s.Add(aud)
-		o.Aud = s.List()
+		o.Aud = s.ToSlice()
 	})
 }
 

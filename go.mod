@@ -8,10 +8,10 @@ require (
 	github.com/Golang-Tools/loggerhelper/v2 v2.0.2
 	github.com/Golang-Tools/optparams v0.0.1
 	github.com/Golang-Tools/schema-entry-go/v2 v2.1.0
+	github.com/deckarep/golang-set/v2 v2.1.0
 	github.com/gin-gonic/gin v1.7.4
 	github.com/golang-jwt/jwt/v4 v4.1.0
 	github.com/json-iterator/go v1.1.12
-	github.com/scylladb/go-set v1.0.2
 	github.com/stretchr/testify v1.7.1
 	google.golang.org/grpc v1.46.2
 	google.golang.org/protobuf v1.27.1
