@@ -16,6 +16,7 @@ import (
 	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
 	"github.com/Golang-Tools/jwthelper/v2/jwtverifier_pb"
 	"github.com/Golang-Tools/jwthelper/v2/utils"
+	"github.com/Golang-Tools/optparams"
 
 	log "github.com/Golang-Tools/loggerhelper/v2"
 
@@ -90,7 +91,7 @@ func (s *Server) Main() {
 	log.Info("grpc服务获得参数", log.Dict{"ServiceConfig": s})
 
 	// 创建校验器
-	opts := []jwthelper.VerifierOption{}
+	opts := []optparams.Option[jwthelper.VerifierOptions]{}
 	algo, err := utils.AlgoStrTOAlgoEnum(s.Algo_Name)
 	if err != nil {
 		algo = jwt_pb.EncryptionAlgorithm_HS256

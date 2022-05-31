@@ -1,54 +1,51 @@
 package sdk
 
 import (
+	"encoding/json"
 	"errors"
 	"strings"
 
+	"github.com/Golang-Tools/grpcsdk"
 	"github.com/Golang-Tools/jwthelper/v2/exceptions"
 	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
 	"github.com/Golang-Tools/jwthelper/v2/jwtverifier_pb"
 	"github.com/Golang-Tools/jwthelper/v2/verifyoptions"
-	"google.golang.org/grpc"
+	"github.com/Golang-Tools/loggerhelper/v2"
+	"github.com/Golang-Tools/optparams"
 )
 
-//NewVerifier 建立一个新的连接
-func (c *SDK) NewVerifier() (*Verifier, error) {
-	conn, err := newVerifier(c, c.addr, c.opts...)
-	if err != nil {
-		return nil, err
-	}
-	return conn, nil
+type VerifierSDK struct {
+	client *grpcsdk.SDK[jwtverifier_pb.JwtverifierClient]
 }
 
-//Verifier 客户端类
-type Verifier struct {
-	rpc  jwtverifier_pb.JwtverifierClient
-	conn *grpc.ClientConn
-	sdk  *SDK
+func NewVerifierSDK() *VerifierSDK {
+	s := new(VerifierSDK)
+	s.client = grpcsdk.New(jwtverifier_pb.NewJwtverifierClient, &jwtverifier_pb.Jwtverifier_ServiceDesc)
+	return s
 }
 
-func newVerifier(sdk *SDK, addr string, opts ...grpc.DialOption) (*Verifier, error) {
-	c := new(Verifier)
-	conn, err := grpc.Dial(addr, opts...)
-	if err != nil {
-		return nil, err
-	}
-	c.sdk = sdk
-	c.conn = conn
-	c.rpc = jwtverifier_pb.NewJwtverifierClient(conn)
-	return c, nil
+func (s *VerifierSDK) Init(opts ...optparams.Option[grpcsdk.SDKConfig]) {
+	s.client.Init(opts...)
+}
+
+func (s *VerifierSDK) GetLogger() *loggerhelper.Log {
+	return s.client.Logger
+}
+
+//Close 断开连接
+func (c *VerifierSDK) Close() error {
+	return c.client.Close()
 }
 
 //Meta 查看远端签名器的元信息
-func (c *Verifier) Meta() (*jwt_pb.VerifierMeta, error) {
-	ctx, cancel := c.sdk.NewCtx()
+func (c *VerifierSDK) Meta() (*jwt_pb.VerifierMeta, error) {
+	ctx, cancel := c.client.NewCtx()
 	defer cancel()
-	res, err := c.rpc.Meta(ctx, &jwtverifier_pb.MetaRequest{})
+	Conn, release := c.client.GetClient()
+	defer release()
+	res, err := Conn.Meta(ctx, &jwtverifier_pb.MetaRequest{})
 	if err != nil {
 		return nil, err
-	}
-	if res.Data.DefaultISSRange == nil {
-		res.Data.DefaultISSRange = []string{}
 	}
 	if res.Status == nil || res.Status.Status == jwt_pb.ResponseStatus_FAILED {
 		var err error
@@ -62,8 +59,8 @@ func (c *Verifier) Meta() (*jwt_pb.VerifierMeta, error) {
 	return res.Data, nil
 }
 
-// Verify 签名一个token
-func (c *Verifier) Verify(token *jwt_pb.Token, payload interface{}, opts ...verifyoptions.VerifyOption) (*jwt_pb.JwtStatus, error) {
+// Verify 校验一个token
+func (c *VerifierSDK) Verify(token *jwt_pb.Token, payload interface{}, opts ...optparams.Option[verifyoptions.VerifyOptions]) (*jwt_pb.JwtStatus, error) {
 	var jwt_status *jwt_pb.JwtStatus
 	defaultopt := verifyoptions.VerifyOptions{}
 	for _, opt := range opts {
@@ -79,9 +76,11 @@ func (c *Verifier) Verify(token *jwt_pb.Token, payload interface{}, opts ...veri
 		NotCheckRefreshTokenAud: defaultopt.NotCheckRefreshTokenAUD,
 		NotCheckRefreshTokenJti: defaultopt.NotCheckRefreshTokenJTI,
 	}
-	ctx, cancel := c.sdk.NewCtx()
+	ctx, cancel := c.client.NewCtx()
 	defer cancel()
-	res, err := c.rpc.Verify(ctx, &query)
+	Conn, release := c.client.GetClient()
+	defer release()
+	res, err := Conn.Verify(ctx, &query)
 	if res != nil {
 		if res.Payload != nil && string(res.Payload) != "" {
 			err := json.Unmarshal(res.Payload, payload)
@@ -207,7 +206,8 @@ func (c *Verifier) Verify(token *jwt_pb.Token, payload interface{}, opts ...veri
 	}
 }
 
-//Close 断开连接
-func (c *Verifier) Close() error {
-	return c.conn.Close()
+var DefaultVerifier *VerifierSDK
+
+func init() {
+	DefaultVerifier = NewVerifierSDK()
 }

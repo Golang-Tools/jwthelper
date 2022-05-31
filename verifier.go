@@ -334,7 +334,7 @@ payload在有access且可以解析的情况下都会被解析出来
 @Returns *jwt_pb.JwtStatus jwt的状态信息,包括剩余时间,签发人,sub,aud等
 @Returns error 各种验证失败的错误,注意当access_token过期但有refresh_token且refresh_token未过期时一样会报错exceptions.ErrValidationErrorExpired
 */
-func (verifier *Verifier) Verify(token *jwt_pb.Token, payload interface{}, opts ...verifyoptions.VerifyOption) (*jwt_pb.JwtStatus, error) {
+func (verifier *Verifier) Verify(token *jwt_pb.Token, payload interface{}, opts ...optparams.Option[verifyoptions.VerifyOptions]) (*jwt_pb.JwtStatus, error) {
 	defaultopt := verifyoptions.VerifyOptions{}
 	if verifier.opts.DefaultAUD != "" {
 		defaultopt.CheckMatchALLAUD = []string{verifier.opts.DefaultAUD}
@@ -342,9 +342,7 @@ func (verifier *Verifier) Verify(token *jwt_pb.Token, payload interface{}, opts 
 	if verifier.opts.DefaultISSRange != nil && len(verifier.opts.DefaultISSRange) > 0 {
 		defaultopt.CheckMatchISS = verifier.opts.DefaultISSRange
 	}
-	for _, opt := range opts {
-		opt.Apply(&defaultopt)
-	}
+	optparams.GetOption(&defaultopt, opts...)
 	jwt_status := jwt_pb.JwtStatus{}
 	if token.AccessToken == "" {
 		return nil, exceptions.ErrAccessTokenNotFound

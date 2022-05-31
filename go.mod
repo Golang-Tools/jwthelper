@@ -3,8 +3,8 @@ module github.com/Golang-Tools/jwthelper/v2
 go 1.18
 
 require (
+	github.com/Golang-Tools/grpcsdk v0.0.2
 	github.com/Golang-Tools/idgener v0.0.1
-	github.com/Golang-Tools/jwthelper v0.0.4
 	github.com/Golang-Tools/loggerhelper/v2 v2.0.2
 	github.com/Golang-Tools/optparams v0.0.1
 	github.com/Golang-Tools/schema-entry-go/v2 v2.1.0
@@ -13,24 +13,23 @@ require (
 	github.com/json-iterator/go v1.1.12
 	github.com/scylladb/go-set v1.0.2
 	github.com/stretchr/testify v1.7.1
-	google.golang.org/grpc v1.41.0
+	google.golang.org/grpc v1.46.2
 	google.golang.org/protobuf v1.27.1
 )
 
 require (
 	cloud.google.com/go v0.34.0 // indirect
-	github.com/Golang-Tools/loggerhelper v0.0.4 // indirect
 	github.com/akamensky/argparse v1.3.1 // indirect
 	github.com/bwmarrin/snowflake v0.3.0 // indirect
 	github.com/census-instrumentation/opencensus-proto v0.2.1 // indirect
 	github.com/cespare/xxhash/v2 v2.1.1 // indirect
-	github.com/cncf/udpa/go v0.0.0-20201120205902-5459f2c99403 // indirect
-	github.com/cncf/xds/go v0.0.0-20210805033703-aa0b78936158 // indirect
+	github.com/cncf/udpa/go v0.0.0-20210930031921-04548b0d99d4 // indirect
+	github.com/cncf/xds/go v0.0.0-20211011173535-cb28da3451f1 // indirect
 	github.com/coreos/go-semver v0.3.0 // indirect
 	github.com/coreos/go-systemd/v22 v22.3.2 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/docker/docker v20.10.16+incompatible // indirect
-	github.com/envoyproxy/go-control-plane v0.9.10-0.20210907150352-cf90f659a021 // indirect
+	github.com/envoyproxy/go-control-plane v0.10.2-0.20220325020618-49ff273808a1 // indirect
 	github.com/envoyproxy/protoc-gen-validate v0.1.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect

@@ -8,6 +8,7 @@ import (
 	"github.com/Golang-Tools/jwthelper/v2/jwtverifier_pb"
 	"github.com/Golang-Tools/jwthelper/v2/verifyoptions"
 	log "github.com/Golang-Tools/loggerhelper/v2"
+	"github.com/Golang-Tools/optparams"
 	jsoniter "github.com/json-iterator/go"
 )
 
@@ -34,7 +35,7 @@ func (s *Server) Meta(ctx context.Context, in *jwtverifier_pb.MetaRequest) (*jwt
 func (s *Server) Verify(ctx context.Context, in *jwtverifier_pb.VerifyRequest) (*jwtverifier_pb.VerifyResponse, error) {
 	res := &jwtverifier_pb.VerifyResponse{}
 	log.Debug("Sign get message", log.Dict{"in": in})
-	opts := []verifyoptions.VerifyOption{}
+	opts := []optparams.Option[verifyoptions.VerifyOptions]{}
 	if in.CheckMatchSub != "" {
 		opts = append(opts, verifyoptions.WithSUBMustBe(in.CheckMatchSub))
 	}

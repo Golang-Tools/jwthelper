@@ -18,6 +18,7 @@ import (
 	"github.com/Golang-Tools/jwthelper/v2/jwtsigner_pb"
 	"github.com/Golang-Tools/jwthelper/v2/utils"
 	log "github.com/Golang-Tools/loggerhelper/v2"
+	"github.com/Golang-Tools/optparams"
 
 	grpc "google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
@@ -94,7 +95,7 @@ func (s *Server) Main() {
 	)
 	log.Info("grpc服务获得参数", log.Dict{"ServiceConfig": s})
 	// 创建签名器
-	opts := []jwthelper.SignerOption{}
+	opts := []optparams.Option[jwthelper.SignerOptions]{}
 	algo, err := utils.AlgoStrTOAlgoEnum(s.Algo_Name)
 	if err != nil {
 		algo = jwt_pb.EncryptionAlgorithm_HS256

@@ -68,11 +68,9 @@ func (signer *Signer) Meta() (*jwt_pb.SignerMeta, error) {
 	}, nil
 }
 
-func (signer *Signer) signany(claims jwt.MapClaims, opts ...signoptions.SignOption) (*jwt_pb.Token, error) {
+func (signer *Signer) signany(claims jwt.MapClaims, opts ...optparams.Option[signoptions.SignOptions]) (*jwt_pb.Token, error) {
 	defaultopt := signoptions.DefaultSignOptions
-	for _, opt := range opts {
-		opt.Apply(&defaultopt)
-	}
+	optparams.GetOption(&defaultopt, opts...)
 	// 构造iss
 	iss := ""
 	result := jwt_pb.Token{}
@@ -172,7 +170,7 @@ func (signer *Signer) signany(claims jwt.MapClaims, opts ...signoptions.SignOpti
 //@Params payload interface{} 负载对象,需要是可以用json解析的对象
 //@Params opts ...signoptions.SignOption 签名的设置项,详见signoptions模块
 //@Returns *jwt_pb.Token jwt的token对象,其中AccessToken是jwt主体token,如果成功一定会有,如果设置了`WithRefreshExpAt`或者`WithRefreshTTL`则会创建一个伴生的RefreshToken用于自动刷新
-func (signer *Signer) Sign(payload interface{}, opts ...signoptions.SignOption) (*jwt_pb.Token, error) {
+func (signer *Signer) Sign(payload interface{}, opts ...optparams.Option[signoptions.SignOptions]) (*jwt_pb.Token, error) {
 	var payloadb []byte
 	var err error
 	if payload == nil {

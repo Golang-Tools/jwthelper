@@ -6,9 +6,9 @@ import (
 	"time"
 
 	"github.com/Golang-Tools/idgener"
+	"github.com/Golang-Tools/idgener/machineid"
 	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
 	"github.com/Golang-Tools/jwthelper/v2/utils"
-	"github.com/Golang-Tools/jwthelper/v2/utils/machineid"
 	"github.com/Golang-Tools/optparams"
 )
 
@@ -24,7 +24,7 @@ type SignerOptions struct {
 
 var DefaultSignerOptions = SignerOptions{
 	Algo:       jwt_pb.EncryptionAlgorithm_HS256,
-	Iss:        fmt.Sprintf("%s-%s", machineid.GetMachineID(), jwt_pb.EncryptionAlgorithm_HS256.String()),
+	Iss:        fmt.Sprintf("%s-%s", machineid.MachineIDStr, jwt_pb.EncryptionAlgorithm_HS256.String()),
 	DefaultTTL: time.Minute * 10,
 	JtiGen:     idgener.DefaultUUID4,
 	Key:        []byte("a secret"),
@@ -62,8 +62,8 @@ func WithSignJtiGen(jtiGen idgener.IDGenInterface) optparams.Option[SignerOption
 func WithSignAlgo(algo jwt_pb.EncryptionAlgorithm) optparams.Option[SignerOptions] {
 	return optparams.NewFuncOption(func(o *SignerOptions) {
 		o.Algo = algo
-		if strings.HasPrefix(o.Iss, machineid.GetMachineID()) {
-			o.Iss = fmt.Sprintf("%s-%s", machineid.GetMachineID(), algo.String())
+		if strings.HasPrefix(o.Iss, machineid.MachineIDStr) {
+			o.Iss = fmt.Sprintf("%s-%s", machineid.MachineIDStr, algo.String())
 		}
 	})
 }

@@ -1,3 +1,9 @@
+# v2.0.1
+
++ 使用`github.com/Golang-Tools/grpcsdk`重构了sdk
++ 使用`github.com/Golang-Tools/optparams`重构了所有可选参数
++ 抽离id创建工具idgener和相关的获取本机id的代码为独立项目`github.com/Golang-Tools/idgener`
+
 # v2.0.0
 
 更新支持 go 1.18+

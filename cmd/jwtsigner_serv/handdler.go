@@ -8,6 +8,7 @@ import (
 	"github.com/Golang-Tools/jwthelper/v2/jwtsigner_pb"
 	"github.com/Golang-Tools/jwthelper/v2/signoptions"
 	log "github.com/Golang-Tools/loggerhelper/v2"
+	"github.com/Golang-Tools/optparams"
 	jsoniter "github.com/json-iterator/go"
 )
 
@@ -39,7 +40,7 @@ func (s *Server) Sign(ctx context.Context, in *jwtsigner_pb.SignRequest) (*jwtsi
 	if err != nil {
 		return nil, err
 	}
-	opts := []signoptions.SignOption{}
+	opts := []optparams.Option[signoptions.SignOptions]{}
 	if in.Sub != "" {
 		opts = append(opts, signoptions.WithSub(in.Sub))
 	}
