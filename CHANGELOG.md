@@ -1,3 +1,43 @@
+# v4.0.0
+
+架构重构版本:核心与特定场景依赖解耦,重依赖能力迁移到 `contrib/*` 独立子模块;领域类型与 pb 解耦;API 大规模现代化(破坏性)。
+
+## 架构变化
+
++ **核心零重依赖**:`github.com/Golang-Tools/jwthelper/v4` 不再依赖 grpc/protobuf/gin/grpcsdk/schema-entry-go,只保留 jwt/idgener/loggerhelper/optparams/mapset 等轻量依赖
++ **contrib 子模块**(路径不含 /v4,独立版本与 tag,go.mod 带本地 replace 仅供开发联调):
+  + `contrib/pb`:proto 定义(`protos/`)与生成码(`jwtpb`/`signerpb`/`verifierpb`)及转换层 `pbconv`;`ResponseStatus` 新增 `error_kind` 字段
+  + `contrib/grpcsrv`:grpc 服务端与 CLI(原 `cmd/`),公共骨架抽到 `serverbase`,业务服务端为 `signerserv`/`verifierserv`
+  + `contrib/sdk`:grpc 客户端 sdk(原 `sdk/`)
+  + `contrib/ginmiddleware`:gin 中间件(原 `gin_middleware/`)
+
+## 破坏性变更
+
++ 模块路径 `/v3` -> `/v4`,最低 go 版本 1.25 -> 1.26
++ `Sign`/`Verify`/`Meta` 等接口 ctx 化(首参 `context.Context`)
++ 领域类型与 pb 解耦:`jwt_pb.Token`/`jwt_pb.JwtStatus`/加密算法枚举替换为 `jwthelper.Token`/`jwthelper.JwtStatus`/`jwthelper.Algo`(字符串枚举,配 `ParseAlgo`)
++ `JwtStatus.TimeLeft` 语义由"绝对过期时间戳"变更为"剩余秒数",新增 `ExpAt`(绝对过期时间戳,Unix 秒)
++ 选项不再 panic(读取密钥文件失败等错误由构造函数返回);`DefaultSignerOptions`/`DefaultVerifierOptions` 不再导出
++ 错误模型结构化:字段级错误为 `*exceptions.ValidationError`(支持 `errors.Is`),新增 `KindOf`/`SentinelByKind` 稳定分类名;refresh 相关错误消息带字段前缀(如 `refresh.sub : refresh token sub not match`)
++ `gin_middleware` 迁移为 `contrib/ginmiddleware`(包名 `ginmiddleware`);pb 包名 `jwt_pb`->`jwtpb`、`jwtsigner_pb`->`signerpb`、`jwtverifier_pb`->`verifierpb`
+
+## 新特性
+
++ 可插拔抽口:`SignerKeyProvider`/`VerifierKeyProvider`(动态密钥来源)、`Clock`(时间源,便于测试注入)、`Codec`(编解码,默认标准库 `encoding/json`)、`IDGen`(窄接口,idgener 天然满足)
++ `sdk` 错误映射改为消费 `error_kind`(移除全部字符串匹配实现)
++ `signerproxy`/`verifierproxy`/`ginmiddleware` 支持 `SetLogger` 注入,去除 init 中的全局日志副作用
+
+## bug修复
+
++ 修复 gRPC 服务端业务错误经由 error 返回导致响应体被丢弃的问题:过期+伴生refresh场景的 `JwtStatus` 客户端此前无法获得;现在业务错误统一经 `ResponseStatus.ErrorKind` 传递,`sdk` 据此映射哨兵错误
++ 修复 CLI `verifier` 子命令因 `default_iss_range` 为 nil slice 无法通过 schema 校验而无法启动的问题(默认初始化为空数组)
+
+## 其它
+
++ 测试全面适配:接口 ctx 化、核心类型断言、`assert.ErrorIs`;新增 pbconv 往返、错误分类映射往返、sdk 协议(fake 服务端)等测试
++ dockerfile 构建路径改为 `contrib/grpcsrv`,基础镜像升级至 go1.26;镜像 tag 更新为 4.0.0
++ 端到端验证:真实 grpc 服务端 + sdk 完成签名/校验/过期刷新场景
+
 # v3.0.0
 
 模块路径变更为 `github.com/Golang-Tools/jwthelper/v3`,最低 go 版本提升到 1.25。
