@@ -61,10 +61,11 @@ func (s *Server) Verify(ctx context.Context, in *verifierpb.VerifyRequest) (*ver
 	payloadb, err1 := json.Marshal(payload)
 	if err1 != nil {
 		res.Status = &jwtpb.ResponseStatus{
-			Status:  jwtpb.ResponseStatus_FAILED,
-			Message: "get payload error",
+			Status:    jwtpb.ResponseStatus_FAILED,
+			Message:   "get payload error",
+			ErrorKind: exceptions.KindOf(err1),
 		}
-		return res, err1
+		return res, nil
 	}
 	if err == nil {
 		res.Status = &jwtpb.ResponseStatus{
@@ -78,28 +79,31 @@ func (s *Server) Verify(ctx context.Context, in *verifierpb.VerifyRequest) (*ver
 		if err == exceptions.ErrValidationErrorExpired {
 			if status != nil {
 				res.Status = &jwtpb.ResponseStatus{
-					Status: jwtpb.ResponseStatus_SUCCEED,
+					Status:    jwtpb.ResponseStatus_SUCCEED,
+					ErrorKind: exceptions.KindOf(err),
 				}
 				res.JwtStatus = pbconv.JwtStatusToPB(status)
 				res.Payload = payloadb
 				log.Debug("Verify send resp", log.Dict{"result": res})
-				return res, err
+				return res, nil
 			} else {
 				res.Status = &jwtpb.ResponseStatus{
-					Status:  jwtpb.ResponseStatus_FAILED,
-					Message: "olny access token and is expored",
+					Status:    jwtpb.ResponseStatus_FAILED,
+					Message:   "olny access token and is expored",
+					ErrorKind: exceptions.KindOf(err),
 				}
 				res.Payload = payloadb
 				log.Debug("Verify send resp", log.Dict{"result": res})
-				return res, err
+				return res, nil
 			}
 		} else {
 			res.Status = &jwtpb.ResponseStatus{
-				Status:  jwtpb.ResponseStatus_FAILED,
-				Message: "token verify error",
+				Status:    jwtpb.ResponseStatus_FAILED,
+				Message:   "token verify error",
+				ErrorKind: exceptions.KindOf(err),
 			}
 			res.Payload = payloadb
-			return res, err
+			return res, nil
 		}
 	}
 }

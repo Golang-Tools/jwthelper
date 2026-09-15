@@ -11,6 +11,7 @@ import (
 	"github.com/Golang-Tools/jwthelper/contrib/pb/pbconv"
 	"github.com/Golang-Tools/jwthelper/contrib/pb/signerpb"
 	jwthelper "github.com/Golang-Tools/jwthelper/v4"
+	"github.com/Golang-Tools/jwthelper/v4/exceptions"
 	"github.com/Golang-Tools/jwthelper/v4/signoptions"
 	"github.com/Golang-Tools/optparams"
 )
@@ -56,6 +57,9 @@ func (c *SignerSDK) Meta(ctx context.Context) (*jwthelper.SignerMeta, error) {
 		return nil, ErrRpcResponseError
 	}
 	if res.Status.Status == jwtpb.ResponseStatus_FAILED {
+		if sentinel := exceptions.SentinelByKind(res.Status.ErrorKind); sentinel != nil {
+			return nil, sentinel
+		}
 		if res.Status.Message != "" {
 			return nil, errors.New(res.Status.Message)
 		}
@@ -93,12 +97,20 @@ func (c *SignerSDK) Sign(ctx context.Context, payload interface{}, opts ...optpa
 	defer release()
 	res, err := Conn.Sign(ctx, &query)
 	if err != nil {
+		if res != nil && res.Status != nil {
+			if sentinel := exceptions.SentinelByKind(res.Status.ErrorKind); sentinel != nil {
+				return nil, sentinel
+			}
+		}
 		return nil, err
 	}
 	if res.Status == nil {
 		return nil, ErrRpcResponseError
 	}
 	if res.Status.Status == jwtpb.ResponseStatus_FAILED {
+		if sentinel := exceptions.SentinelByKind(res.Status.ErrorKind); sentinel != nil {
+			return nil, sentinel
+		}
 		if res.Status.Message != "" {
 			return nil, errors.New(res.Status.Message)
 		}

@@ -1,4 +1,4 @@
-package gin_middleware
+package ginmiddleware
 
 import (
 	"net/http"

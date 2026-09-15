@@ -8,6 +8,7 @@ import (
 	"github.com/Golang-Tools/jwthelper/contrib/pb/jwtpb"
 	"github.com/Golang-Tools/jwthelper/contrib/pb/pbconv"
 	"github.com/Golang-Tools/jwthelper/contrib/pb/signerpb"
+	"github.com/Golang-Tools/jwthelper/v4/exceptions"
 	"github.com/Golang-Tools/jwthelper/v4/signoptions"
 	log "github.com/Golang-Tools/loggerhelper/v4"
 	"github.com/Golang-Tools/optparams"
@@ -60,7 +61,13 @@ func (s *Server) Sign(ctx context.Context, in *signerpb.SignRequest) (*signerpb.
 	}
 	token, err := s.signer.Sign(ctx, payload, opts...)
 	if err != nil {
-		return nil, err
+		return &signerpb.SignResponse{
+			Status: &jwtpb.ResponseStatus{
+				Status:    jwtpb.ResponseStatus_FAILED,
+				Message:   err.Error(),
+				ErrorKind: exceptions.KindOf(err),
+			},
+		}, nil
 	}
 	res := &signerpb.SignResponse{
 		Status: &jwtpb.ResponseStatus{
