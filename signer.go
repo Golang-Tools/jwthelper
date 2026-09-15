@@ -6,10 +6,10 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/Golang-Tools/jwthelper/v3/exceptions"
-	"github.com/Golang-Tools/jwthelper/v3/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/v3/signoptions"
-	utils "github.com/Golang-Tools/jwthelper/v3/utils"
+	"github.com/Golang-Tools/jwthelper/v4/exceptions"
+	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v4/signoptions"
+	utils "github.com/Golang-Tools/jwthelper/v4/utils"
 	"github.com/Golang-Tools/optparams"
 	jwt "github.com/golang-jwt/jwt/v4"
 )

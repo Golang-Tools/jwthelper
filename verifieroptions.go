@@ -1,8 +1,8 @@
 package jwthelper
 
 import (
-	"github.com/Golang-Tools/jwthelper/v3/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/v3/utils"
+	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v4/utils"
 	"github.com/Golang-Tools/optparams"
 )
 

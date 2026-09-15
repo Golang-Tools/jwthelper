@@ -3,8 +3,8 @@ package utils
 import (
 	"testing"
 
-	"github.com/Golang-Tools/jwthelper/v3/exceptions"
-	"github.com/Golang-Tools/jwthelper/v3/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v4/exceptions"
+	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
 	"github.com/stretchr/testify/assert"
 )
 

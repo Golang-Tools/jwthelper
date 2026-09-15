@@ -4,10 +4,10 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/Golang-Tools/jwthelper/v3/exceptions"
-	"github.com/Golang-Tools/jwthelper/v3/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/v3/jwtverifier_pb"
-	"github.com/Golang-Tools/jwthelper/v3/verifyoptions"
+	"github.com/Golang-Tools/jwthelper/v4/exceptions"
+	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v4/jwtverifier_pb"
+	"github.com/Golang-Tools/jwthelper/v4/verifyoptions"
 	log "github.com/Golang-Tools/loggerhelper/v4"
 	"github.com/Golang-Tools/optparams"
 )

@@ -1,13 +1,13 @@
-package main //import "github.com/Golang-Tools/jwthelper/v3/rsa-generator"
+package main //import "github.com/Golang-Tools/jwthelper/v4/rsa-generator"
 
 import (
 	"errors"
 	"fmt"
 	"os"
 
-	"github.com/Golang-Tools/jwthelper/v3/cmd/createkey"
-	"github.com/Golang-Tools/jwthelper/v3/cmd/jwtsigner_serv"
-	"github.com/Golang-Tools/jwthelper/v3/cmd/jwtverifier_serv"
+	"github.com/Golang-Tools/jwthelper/v4/cmd/createkey"
+	"github.com/Golang-Tools/jwthelper/v4/cmd/jwtsigner_serv"
+	"github.com/Golang-Tools/jwthelper/v4/cmd/jwtverifier_serv"
 	log "github.com/Golang-Tools/loggerhelper/v4"
 	s "github.com/Golang-Tools/schema-entry-go/v4"
 )

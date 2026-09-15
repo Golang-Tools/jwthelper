@@ -11,10 +11,10 @@ import (
 	"strings"
 	"time"
 
-	jwthelper "github.com/Golang-Tools/jwthelper/v3"
-	"github.com/Golang-Tools/jwthelper/v3/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/v3/jwtverifier_pb"
-	"github.com/Golang-Tools/jwthelper/v3/utils"
+	jwthelper "github.com/Golang-Tools/jwthelper/v4"
+	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v4/jwtverifier_pb"
+	"github.com/Golang-Tools/jwthelper/v4/utils"
 	"github.com/Golang-Tools/optparams"
 
 	log "github.com/Golang-Tools/loggerhelper/v4"

@@ -6,7 +6,7 @@ import (
 
 	jwt "github.com/golang-jwt/jwt/v4"
 
-	"github.com/Golang-Tools/jwthelper/v3/signoptions"
+	"github.com/Golang-Tools/jwthelper/v4/signoptions"
 	"github.com/stretchr/testify/assert"
 )
 

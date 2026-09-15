@@ -6,9 +6,9 @@ import (
 	"log/slog"
 
 	"github.com/Golang-Tools/grpcsdk/v2"
-	"github.com/Golang-Tools/jwthelper/v3/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/v3/jwtsigner_pb"
-	"github.com/Golang-Tools/jwthelper/v3/signoptions"
+	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v4/jwtsigner_pb"
+	"github.com/Golang-Tools/jwthelper/v4/signoptions"
 	"github.com/Golang-Tools/optparams"
 )
 

@@ -1,7 +1,7 @@
 package proxy
 
 import (
-	jwthelper "github.com/Golang-Tools/jwthelper/v3"
+	jwthelper "github.com/Golang-Tools/jwthelper/v4"
 	log "github.com/Golang-Tools/loggerhelper/v4"
 	"github.com/Golang-Tools/optparams"
 )

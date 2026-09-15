@@ -1,4 +1,4 @@
-module github.com/Golang-Tools/jwthelper/v3
+module github.com/Golang-Tools/jwthelper/v4
 
 go 1.26.0
 

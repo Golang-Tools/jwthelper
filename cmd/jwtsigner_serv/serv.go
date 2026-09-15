@@ -12,10 +12,10 @@ import (
 	"time"
 
 	"github.com/Golang-Tools/idgener"
-	jwthelper "github.com/Golang-Tools/jwthelper/v3"
-	"github.com/Golang-Tools/jwthelper/v3/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/v3/jwtsigner_pb"
-	"github.com/Golang-Tools/jwthelper/v3/utils"
+	jwthelper "github.com/Golang-Tools/jwthelper/v4"
+	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v4/jwtsigner_pb"
+	"github.com/Golang-Tools/jwthelper/v4/utils"
 	log "github.com/Golang-Tools/loggerhelper/v4"
 	"github.com/Golang-Tools/optparams"
 

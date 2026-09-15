@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"strings"
 
-	jwthelper "github.com/Golang-Tools/jwthelper/v3"
-	"github.com/Golang-Tools/jwthelper/v3/jwt_pb"
+	jwthelper "github.com/Golang-Tools/jwthelper/v4"
+	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
 	log "github.com/Golang-Tools/loggerhelper/v4"
 	"github.com/Golang-Tools/optparams"
 	"github.com/gin-gonic/gin"

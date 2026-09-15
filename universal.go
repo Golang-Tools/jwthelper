@@ -2,9 +2,9 @@
 package jwthelper
 
 import (
-	"github.com/Golang-Tools/jwthelper/v3/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/v3/signoptions"
-	"github.com/Golang-Tools/jwthelper/v3/verifyoptions"
+	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v4/signoptions"
+	"github.com/Golang-Tools/jwthelper/v4/verifyoptions"
 	"github.com/Golang-Tools/optparams"
 )
 

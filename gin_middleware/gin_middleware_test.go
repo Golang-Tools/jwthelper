@@ -9,10 +9,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
 
-	jwthelper "github.com/Golang-Tools/jwthelper/v3"
-	"github.com/Golang-Tools/jwthelper/v3/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/v3/signoptions"
-	"github.com/Golang-Tools/jwthelper/v3/verifyoptions"
+	jwthelper "github.com/Golang-Tools/jwthelper/v4"
+	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v4/signoptions"
+	"github.com/Golang-Tools/jwthelper/v4/verifyoptions"
 	"github.com/Golang-Tools/optparams"
 )
 
