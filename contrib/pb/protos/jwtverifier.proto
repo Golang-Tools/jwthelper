@@ -1,7 +1,7 @@
 syntax = "proto3";
 package jwt.verifier;
-option go_package = "./jwtverifier_pb";
-import "pbschema/jwt.proto";
+option go_package = "github.com/Golang-Tools/jwthelper/contrib/pb/verifierpb";
+import "protos/jwt.proto";
 
 service jwtverifier {
     //查看jwt服务元信息的算法

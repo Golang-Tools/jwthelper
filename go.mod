@@ -5,6 +5,7 @@ go 1.26.0
 require (
 	github.com/Golang-Tools/grpcsdk/v2 v2.2.0
 	github.com/Golang-Tools/idgener v1.0.0
+	github.com/Golang-Tools/jwthelper/contrib/pb v0.0.0-00010101000000-000000000000
 	github.com/Golang-Tools/loggerhelper/v4 v4.0.0
 	github.com/Golang-Tools/optparams v1.0.0
 	github.com/Golang-Tools/schema-entry-go/v4 v4.0.1
@@ -85,3 +86,5 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20260911204522-f61a6ca850bd // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+replace github.com/Golang-Tools/jwthelper/contrib/pb => ./contrib/pb

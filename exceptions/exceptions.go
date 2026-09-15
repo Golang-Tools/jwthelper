@@ -173,3 +173,61 @@ func KindOf(err error) string {
 		return "unknown"
 	}
 }
+
+// SentinelByKind 按错误分类名(见KindOf)返回对应哨兵错误,未知或空分类返回nil
+func SentinelByKind(kind string) error {
+	switch kind {
+	case "validation_expired":
+		return ErrValidationErrorExpired
+	case "validation_malformed":
+		return ErrValidationErrorMalformed
+	case "validation_unverifiable":
+		return ErrValidationErrorUnverifiable
+	case "validation_signature_invalid":
+		return ErrValidationErrorSignatureInvalid
+	case "validation_audience":
+		return ErrValidationErrorAudience
+	case "validation_subject":
+		return ErrValidationErrorSubject
+	case "validation_issued_at":
+		return ErrValidationErrorIssuedAt
+	case "validation_issuer":
+		return ErrValidationErrorIssuer
+	case "validation_not_valid_yet":
+		return ErrValidationErrorNotValidYet
+	case "validation_id":
+		return ErrValidationErrorId
+	case "validation_claims_invalid":
+		return ErrValidationErrorClaimsInvalid
+	case "validation_can_not_handle":
+		return ErrValidationErrorCanNotHandle
+	case "validation_unknown":
+		return ErrValidationErrorUnknown
+	case "access_token_not_found":
+		return ErrAccessTokenNotFound
+	case "sign_with_refresh_token_need_sub":
+		return ErrSignWithRefreshTokenNeedSUB
+	case "refresh_token_not_have_exp":
+		return ErrRefreshTokenNotHaveEXP
+	case "refresh_token_sub_not_match":
+		return ErrRefreshTokenSUBNotMatch
+	case "refresh_token_aud_not_match":
+		return ErrRefreshTokenAudNotMatch
+	case "refresh_token_jti_not_match":
+		return ErrRefreshTokenJtiNotMatch
+	case "refresh_token_iss_not_in_range":
+		return ErrRefreshTokenIssNotInRange
+	case "refresh_token_not_validate":
+		return ErrRefreshTokenValidationError
+	case "refresh_token_parse_error":
+		return ErrRefreshTokenParseError
+	case "algo_type_unknown":
+		return ErrAlgoType
+	case "algo_type_unsupport":
+		return ErrUnsupportAlgoType
+	case "algo_type_not_match":
+		return ErrAlgoTypeNotMatch
+	default:
+		return nil
+	}
+}

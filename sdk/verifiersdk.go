@@ -8,22 +8,22 @@ import (
 	"strings"
 
 	"github.com/Golang-Tools/grpcsdk/v2"
+	"github.com/Golang-Tools/jwthelper/contrib/pb/jwtpb"
+	"github.com/Golang-Tools/jwthelper/contrib/pb/pbconv"
+	"github.com/Golang-Tools/jwthelper/contrib/pb/verifierpb"
 	jwthelper "github.com/Golang-Tools/jwthelper/v4"
 	"github.com/Golang-Tools/jwthelper/v4/exceptions"
-	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/v4/jwtverifier_pb"
-	"github.com/Golang-Tools/jwthelper/v4/pbconv"
 	"github.com/Golang-Tools/jwthelper/v4/verifyoptions"
 	"github.com/Golang-Tools/optparams"
 )
 
 type VerifierSDK struct {
-	client *grpcsdk.SDK[jwtverifier_pb.JwtverifierClient]
+	client *grpcsdk.SDK[verifierpb.JwtverifierClient]
 }
 
 func NewVerifierSDK() *VerifierSDK {
 	s := new(VerifierSDK)
-	s.client = grpcsdk.New(jwtverifier_pb.NewJwtverifierClient, &jwtverifier_pb.Jwtverifier_ServiceDesc)
+	s.client = grpcsdk.New(verifierpb.NewJwtverifierClient, &verifierpb.Jwtverifier_ServiceDesc)
 	return s
 }
 
@@ -50,14 +50,14 @@ func (c *VerifierSDK) Meta(ctx context.Context) (*jwthelper.VerifierMeta, error)
 	}
 	Conn, release := c.client.GetClient()
 	defer release()
-	res, err := Conn.Meta(ctx, &jwtverifier_pb.MetaRequest{})
+	res, err := Conn.Meta(ctx, &verifierpb.MetaRequest{})
 	if err != nil {
 		return nil, err
 	}
 	if res.Status == nil {
 		return nil, ErrRpcResponseError
 	}
-	if res.Status.Status == jwt_pb.ResponseStatus_FAILED {
+	if res.Status.Status == jwtpb.ResponseStatus_FAILED {
 		if res.Status.Message != "" {
 			return nil, errors.New(res.Status.Message)
 		}
@@ -71,7 +71,7 @@ func (c *VerifierSDK) Meta(ctx context.Context) (*jwthelper.VerifierMeta, error)
 func (c *VerifierSDK) Verify(ctx context.Context, token *jwthelper.Token, payload interface{}, opts ...optparams.Option[verifyoptions.VerifyOptions]) (*jwthelper.JwtStatus, error) {
 	var jwt_status *jwthelper.JwtStatus
 	defaultopt := optparams.GetOption(new(verifyoptions.VerifyOptions), opts...)
-	query := jwtverifier_pb.VerifyRequest{
+	query := verifierpb.VerifyRequest{
 		Token:                   pbconv.TokenToPB(token),
 		CheckMatchSub:           defaultopt.CheckMatchSUB,
 		CheckMatchallAud:        defaultopt.CheckMatchALLAUD,
@@ -102,7 +102,7 @@ func (c *VerifierSDK) Verify(ctx context.Context, token *jwthelper.Token, payloa
 		if res == nil || res.Status == nil {
 			return jwt_status, ErrRpcResponseError
 		}
-		if res.Status.Status == jwt_pb.ResponseStatus_FAILED {
+		if res.Status.Status == jwtpb.ResponseStatus_FAILED {
 			if res.Status.Message != "" {
 				return jwt_status, errors.New(res.Status.Message)
 			}

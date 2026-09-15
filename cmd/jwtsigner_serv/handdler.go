@@ -5,24 +5,24 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/v4/jwtsigner_pb"
-	"github.com/Golang-Tools/jwthelper/v4/pbconv"
+	"github.com/Golang-Tools/jwthelper/contrib/pb/jwtpb"
+	"github.com/Golang-Tools/jwthelper/contrib/pb/pbconv"
+	"github.com/Golang-Tools/jwthelper/contrib/pb/signerpb"
 	"github.com/Golang-Tools/jwthelper/v4/signoptions"
 	log "github.com/Golang-Tools/loggerhelper/v4"
 	"github.com/Golang-Tools/optparams"
 )
 
 // Meta 查看签名器的元信息
-func (s *Server) Meta(ctx context.Context, in *jwtsigner_pb.MetaRequest) (*jwtsigner_pb.MetaResponse, error) {
+func (s *Server) Meta(ctx context.Context, in *signerpb.MetaRequest) (*signerpb.MetaResponse, error) {
 	log.Debug("Meta get message", log.Dict{"in": in})
 	meta, err := s.signer.Meta(ctx)
 	if err != nil {
 		return nil, err
 	}
-	res := &jwtsigner_pb.MetaResponse{
-		Status: &jwt_pb.ResponseStatus{
-			Status: jwt_pb.ResponseStatus_SUCCEED,
+	res := &signerpb.MetaResponse{
+		Status: &jwtpb.ResponseStatus{
+			Status: jwtpb.ResponseStatus_SUCCEED,
 		},
 		Data: pbconv.SignerMetaToPB(meta),
 	}
@@ -32,7 +32,7 @@ func (s *Server) Meta(ctx context.Context, in *jwtsigner_pb.MetaRequest) (*jwtsi
 }
 
 // Sign 用签名器签名
-func (s *Server) Sign(ctx context.Context, in *jwtsigner_pb.SignRequest) (*jwtsigner_pb.SignResponse, error) {
+func (s *Server) Sign(ctx context.Context, in *signerpb.SignRequest) (*signerpb.SignResponse, error) {
 	log.Debug("Sign get message", log.Dict{"in": in})
 	payload := map[string]interface{}{}
 	err := json.Unmarshal(in.Payload, &payload)
@@ -62,9 +62,9 @@ func (s *Server) Sign(ctx context.Context, in *jwtsigner_pb.SignRequest) (*jwtsi
 	if err != nil {
 		return nil, err
 	}
-	res := &jwtsigner_pb.SignResponse{
-		Status: &jwt_pb.ResponseStatus{
-			Status: jwt_pb.ResponseStatus_SUCCEED,
+	res := &signerpb.SignResponse{
+		Status: &jwtpb.ResponseStatus{
+			Status: jwtpb.ResponseStatus_SUCCEED,
 		},
 		Token: pbconv.TokenToPB(token),
 	}

@@ -7,21 +7,21 @@ import (
 	"log/slog"
 
 	"github.com/Golang-Tools/grpcsdk/v2"
+	"github.com/Golang-Tools/jwthelper/contrib/pb/jwtpb"
+	"github.com/Golang-Tools/jwthelper/contrib/pb/pbconv"
+	"github.com/Golang-Tools/jwthelper/contrib/pb/signerpb"
 	jwthelper "github.com/Golang-Tools/jwthelper/v4"
-	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/v4/jwtsigner_pb"
-	"github.com/Golang-Tools/jwthelper/v4/pbconv"
 	"github.com/Golang-Tools/jwthelper/v4/signoptions"
 	"github.com/Golang-Tools/optparams"
 )
 
 type SignerSDK struct {
-	client *grpcsdk.SDK[jwtsigner_pb.JwtsignerClient]
+	client *grpcsdk.SDK[signerpb.JwtsignerClient]
 }
 
 func NewSignerSDK() *SignerSDK {
 	s := new(SignerSDK)
-	s.client = grpcsdk.New(jwtsigner_pb.NewJwtsignerClient, &jwtsigner_pb.Jwtsigner_ServiceDesc)
+	s.client = grpcsdk.New(signerpb.NewJwtsignerClient, &signerpb.Jwtsigner_ServiceDesc)
 	return s
 }
 
@@ -48,14 +48,14 @@ func (c *SignerSDK) Meta(ctx context.Context) (*jwthelper.SignerMeta, error) {
 	}
 	Conn, release := c.client.GetClient()
 	defer release()
-	res, err := Conn.Meta(ctx, &jwtsigner_pb.MetaRequest{})
+	res, err := Conn.Meta(ctx, &signerpb.MetaRequest{})
 	if err != nil {
 		return nil, err
 	}
 	if res.Status == nil {
 		return nil, ErrRpcResponseError
 	}
-	if res.Status.Status == jwt_pb.ResponseStatus_FAILED {
+	if res.Status.Status == jwtpb.ResponseStatus_FAILED {
 		if res.Status.Message != "" {
 			return nil, errors.New(res.Status.Message)
 		}
@@ -75,7 +75,7 @@ func (c *SignerSDK) Sign(ctx context.Context, payload interface{}, opts ...optpa
 		return nil, err
 	}
 	defaultopt := optparams.GetOption(&signoptions.DefaultSignOptions, opts...)
-	query := jwtsigner_pb.SignRequest{
+	query := signerpb.SignRequest{
 		Sub:        defaultopt.Sub,
 		Exp:        defaultopt.Exp,
 		Nbf:        defaultopt.Nbf,
@@ -98,7 +98,7 @@ func (c *SignerSDK) Sign(ctx context.Context, payload interface{}, opts ...optpa
 	if res.Status == nil {
 		return nil, ErrRpcResponseError
 	}
-	if res.Status.Status == jwt_pb.ResponseStatus_FAILED {
+	if res.Status.Status == jwtpb.ResponseStatus_FAILED {
 		if res.Status.Message != "" {
 			return nil, errors.New(res.Status.Message)
 		}

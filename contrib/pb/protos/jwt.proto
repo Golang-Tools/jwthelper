@@ -1,6 +1,6 @@
 syntax = "proto3";
 package jwt;
-option go_package = "./jwt_pb";
+option go_package = "github.com/Golang-Tools/jwthelper/contrib/pb/jwtpb";
 
 enum EncryptionAlgorithm {
     UNKNOWN = 0;
@@ -41,6 +41,7 @@ message ResponseStatus {
     }
     Stat status = 1;
     string message = 2;
+    string error_kind = 3; //结构化错误分类名,取值见 exceptions.KindOf
 }
 
 message JwtStatus {

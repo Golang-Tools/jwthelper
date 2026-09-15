@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/Golang-Tools/jwthelper/contrib/pb/verifierpb"
 	jwthelper "github.com/Golang-Tools/jwthelper/v4"
-	"github.com/Golang-Tools/jwthelper/v4/jwtverifier_pb"
 	"github.com/Golang-Tools/optparams"
 
 	log "github.com/Golang-Tools/loggerhelper/v4"
@@ -72,10 +72,10 @@ type Server struct {
 	Default_AUD       string   `json:"default_aud" jsonschema:"description=设置默认要匹配的aud值"`
 	Default_ISS_Range []string `json:"default_iss_range" jsonschema:"description=设置默认要匹配的iss值范围"`
 
-	jwtverifier_pb.UnimplementedJwtverifierServer `json:"-"`
-	opts                                          []grpc.ServerOption
-	healthservice                                 *health.Server
-	verifier                                      *jwthelper.Verifier
+	verifierpb.UnimplementedJwtverifierServer `json:"-"`
+	opts                                      []grpc.ServerOption
+	healthservice                             *health.Server
+	verifier                                  *jwthelper.Verifier
 }
 
 // Main 服务的入口函数
@@ -230,7 +230,7 @@ func (s *Server) RunServer() {
 			os.Exit(2)
 		}
 		defer gs.Stop()
-		jwtverifier_pb.RegisterJwtverifierServer(gs, s)
+		verifierpb.RegisterJwtverifierServer(gs, s)
 		// 注册健康检查
 		hostinfo := strings.Split(s.Address, ":")
 		if len(hostinfo) != 2 {
@@ -285,7 +285,7 @@ func (s *Server) RunServer() {
 		// 注册反射
 		reflection.Register(gs)
 		// 注册服务
-		jwtverifier_pb.RegisterJwtverifierServer(gs, s)
+		verifierpb.RegisterJwtverifierServer(gs, s)
 
 		// 启动服务
 		log.Info("Server Start", log.Dict{"address": s.Address})

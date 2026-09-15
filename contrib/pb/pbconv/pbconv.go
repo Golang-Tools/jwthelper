@@ -4,61 +4,61 @@
 package pbconv
 
 import (
+	"github.com/Golang-Tools/jwthelper/contrib/pb/jwtpb"
 	jwthelper "github.com/Golang-Tools/jwthelper/v4"
 	"github.com/Golang-Tools/jwthelper/v4/exceptions"
-	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
 )
 
 // AlgoToPB 核心算法名转pb枚举,未知算法返回UNKNOWN
-func AlgoToPB(a jwthelper.Algo) jwt_pb.EncryptionAlgorithm {
+func AlgoToPB(a jwthelper.Algo) jwtpb.EncryptionAlgorithm {
 	switch a {
 	case jwthelper.AlgoHS256:
-		return jwt_pb.EncryptionAlgorithm_HS256
+		return jwtpb.EncryptionAlgorithm_HS256
 	case jwthelper.AlgoHS384:
-		return jwt_pb.EncryptionAlgorithm_HS384
+		return jwtpb.EncryptionAlgorithm_HS384
 	case jwthelper.AlgoHS512:
-		return jwt_pb.EncryptionAlgorithm_HS512
+		return jwtpb.EncryptionAlgorithm_HS512
 	case jwthelper.AlgoRS256:
-		return jwt_pb.EncryptionAlgorithm_RS256
+		return jwtpb.EncryptionAlgorithm_RS256
 	case jwthelper.AlgoRS384:
-		return jwt_pb.EncryptionAlgorithm_RS384
+		return jwtpb.EncryptionAlgorithm_RS384
 	case jwthelper.AlgoRS512:
-		return jwt_pb.EncryptionAlgorithm_RS512
+		return jwtpb.EncryptionAlgorithm_RS512
 	case jwthelper.AlgoES256:
-		return jwt_pb.EncryptionAlgorithm_ES256
+		return jwtpb.EncryptionAlgorithm_ES256
 	case jwthelper.AlgoES384:
-		return jwt_pb.EncryptionAlgorithm_ES384
+		return jwtpb.EncryptionAlgorithm_ES384
 	case jwthelper.AlgoES512:
-		return jwt_pb.EncryptionAlgorithm_ES512
+		return jwtpb.EncryptionAlgorithm_ES512
 	case jwthelper.AlgoEdDSA:
-		return jwt_pb.EncryptionAlgorithm_EdDSA
+		return jwtpb.EncryptionAlgorithm_EdDSA
 	default:
-		return jwt_pb.EncryptionAlgorithm_UNKNOWN
+		return jwtpb.EncryptionAlgorithm_UNKNOWN
 	}
 }
 
 // AlgoFromPB pb枚举转核心算法名,UNKNOWN返回ErrAlgoType
-func AlgoFromPB(a jwt_pb.EncryptionAlgorithm) (jwthelper.Algo, error) {
+func AlgoFromPB(a jwtpb.EncryptionAlgorithm) (jwthelper.Algo, error) {
 	switch a {
-	case jwt_pb.EncryptionAlgorithm_HS256:
+	case jwtpb.EncryptionAlgorithm_HS256:
 		return jwthelper.AlgoHS256, nil
-	case jwt_pb.EncryptionAlgorithm_HS384:
+	case jwtpb.EncryptionAlgorithm_HS384:
 		return jwthelper.AlgoHS384, nil
-	case jwt_pb.EncryptionAlgorithm_HS512:
+	case jwtpb.EncryptionAlgorithm_HS512:
 		return jwthelper.AlgoHS512, nil
-	case jwt_pb.EncryptionAlgorithm_RS256:
+	case jwtpb.EncryptionAlgorithm_RS256:
 		return jwthelper.AlgoRS256, nil
-	case jwt_pb.EncryptionAlgorithm_RS384:
+	case jwtpb.EncryptionAlgorithm_RS384:
 		return jwthelper.AlgoRS384, nil
-	case jwt_pb.EncryptionAlgorithm_RS512:
+	case jwtpb.EncryptionAlgorithm_RS512:
 		return jwthelper.AlgoRS512, nil
-	case jwt_pb.EncryptionAlgorithm_ES256:
+	case jwtpb.EncryptionAlgorithm_ES256:
 		return jwthelper.AlgoES256, nil
-	case jwt_pb.EncryptionAlgorithm_ES384:
+	case jwtpb.EncryptionAlgorithm_ES384:
 		return jwthelper.AlgoES384, nil
-	case jwt_pb.EncryptionAlgorithm_ES512:
+	case jwtpb.EncryptionAlgorithm_ES512:
 		return jwthelper.AlgoES512, nil
-	case jwt_pb.EncryptionAlgorithm_EdDSA:
+	case jwtpb.EncryptionAlgorithm_EdDSA:
 		return jwthelper.AlgoEdDSA, nil
 	default:
 		return "", exceptions.ErrAlgoType
@@ -66,18 +66,18 @@ func AlgoFromPB(a jwt_pb.EncryptionAlgorithm) (jwthelper.Algo, error) {
 }
 
 // TokenToPB 核心令牌转pb令牌,nil输入返回nil
-func TokenToPB(t *jwthelper.Token) *jwt_pb.Token {
+func TokenToPB(t *jwthelper.Token) *jwtpb.Token {
 	if t == nil {
 		return nil
 	}
-	return &jwt_pb.Token{
+	return &jwtpb.Token{
 		AccessToken:  t.AccessToken,
 		RefreshToken: t.RefreshToken,
 	}
 }
 
 // TokenFromPB pb令牌转核心令牌,nil输入返回空令牌(便于后续统一返回AccessTokenNotFound)
-func TokenFromPB(t *jwt_pb.Token) *jwthelper.Token {
+func TokenFromPB(t *jwtpb.Token) *jwthelper.Token {
 	if t == nil {
 		return &jwthelper.Token{}
 	}
@@ -88,11 +88,11 @@ func TokenFromPB(t *jwt_pb.Token) *jwthelper.Token {
 }
 
 // SignerMetaToPB 签名器元信息转pb,nil输入返回nil
-func SignerMetaToPB(m *jwthelper.SignerMeta) *jwt_pb.SignerMeta {
+func SignerMetaToPB(m *jwthelper.SignerMeta) *jwtpb.SignerMeta {
 	if m == nil {
 		return nil
 	}
-	return &jwt_pb.SignerMeta{
+	return &jwtpb.SignerMeta{
 		Algo:                     AlgoToPB(m.Algo),
 		Iss:                      m.Iss,
 		DefaultTTL:               m.DefaultTTL,
@@ -102,7 +102,7 @@ func SignerMetaToPB(m *jwthelper.SignerMeta) *jwt_pb.SignerMeta {
 }
 
 // SignerMetaFromPB pb签名器元信息转核心,nil输入返回nil,算法无法识别时返回ErrAlgoType
-func SignerMetaFromPB(m *jwt_pb.SignerMeta) (*jwthelper.SignerMeta, error) {
+func SignerMetaFromPB(m *jwtpb.SignerMeta) (*jwthelper.SignerMeta, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -120,11 +120,11 @@ func SignerMetaFromPB(m *jwt_pb.SignerMeta) (*jwthelper.SignerMeta, error) {
 }
 
 // VerifierMetaToPB 校验器元信息转pb,nil输入返回nil
-func VerifierMetaToPB(m *jwthelper.VerifierMeta) *jwt_pb.VerifierMeta {
+func VerifierMetaToPB(m *jwthelper.VerifierMeta) *jwtpb.VerifierMeta {
 	if m == nil {
 		return nil
 	}
-	return &jwt_pb.VerifierMeta{
+	return &jwtpb.VerifierMeta{
 		Algo:            AlgoToPB(m.Algo),
 		DefaultAUD:      m.DefaultAUD,
 		DefaultISSRange: m.DefaultISSRange,
@@ -132,7 +132,7 @@ func VerifierMetaToPB(m *jwthelper.VerifierMeta) *jwt_pb.VerifierMeta {
 }
 
 // VerifierMetaFromPB pb校验器元信息转核心,nil输入返回nil,算法无法识别时返回ErrAlgoType
-func VerifierMetaFromPB(m *jwt_pb.VerifierMeta) (*jwthelper.VerifierMeta, error) {
+func VerifierMetaFromPB(m *jwtpb.VerifierMeta) (*jwthelper.VerifierMeta, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -149,11 +149,11 @@ func VerifierMetaFromPB(m *jwt_pb.VerifierMeta) (*jwthelper.VerifierMeta, error)
 
 // JwtStatusToPB 核心校验状态转pb,nil输入返回nil。
 // 注意pb当前没有exp_at字段,ExpAt不参与传输,接收方可通过TimeLeft自行推算
-func JwtStatusToPB(s *jwthelper.JwtStatus) *jwt_pb.JwtStatus {
+func JwtStatusToPB(s *jwthelper.JwtStatus) *jwtpb.JwtStatus {
 	if s == nil {
 		return nil
 	}
-	return &jwt_pb.JwtStatus{
+	return &jwtpb.JwtStatus{
 		Jti:      s.Jti,
 		Sub:      s.Sub,
 		Iss:      s.Iss,
@@ -163,7 +163,7 @@ func JwtStatusToPB(s *jwthelper.JwtStatus) *jwt_pb.JwtStatus {
 }
 
 // JwtStatusFromPB pb校验状态转核心,nil输入返回nil(ExpAt置0,由调用方按需补充)
-func JwtStatusFromPB(s *jwt_pb.JwtStatus) *jwthelper.JwtStatus {
+func JwtStatusFromPB(s *jwtpb.JwtStatus) *jwthelper.JwtStatus {
 	if s == nil {
 		return nil
 	}

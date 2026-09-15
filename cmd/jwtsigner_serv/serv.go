@@ -12,8 +12,8 @@ import (
 	"time"
 
 	"github.com/Golang-Tools/idgener"
+	"github.com/Golang-Tools/jwthelper/contrib/pb/signerpb"
 	jwthelper "github.com/Golang-Tools/jwthelper/v4"
-	"github.com/Golang-Tools/jwthelper/v4/jwtsigner_pb"
 	log "github.com/Golang-Tools/loggerhelper/v4"
 	"github.com/Golang-Tools/optparams"
 
@@ -77,10 +77,10 @@ type Server struct {
 	Default_Effective_Interval_Minute int    `json:"default_effective_interval_minute,omitempty" jsonschema:"description=默认token生效离签发时间间隔单位min"`
 	JtiGen_Name                       string `json:"jtigen_name,omitempty" jsonschema:"description=jti的生成器默认uuidv4,enum=uuidv4,enum=snowflake,enum=sonyflake,default=uuidv4"`
 
-	jwtsigner_pb.UnimplementedJwtsignerServer `json:"-"`
-	opts                                      []grpc.ServerOption
-	healthservice                             *health.Server
-	signer                                    *jwthelper.Signer
+	signerpb.UnimplementedJwtsignerServer `json:"-"`
+	opts                                  []grpc.ServerOption
+	healthservice                         *health.Server
+	signer                                *jwthelper.Signer
 }
 
 // Main 服务的入口函数
@@ -273,7 +273,7 @@ func (s *Server) RunServer() {
 			os.Exit(2)
 		}
 		defer gs.Stop()
-		jwtsigner_pb.RegisterJwtsignerServer(gs, s)
+		signerpb.RegisterJwtsignerServer(gs, s)
 		// 注册健康检查
 		hostinfo := strings.Split(s.Address, ":")
 		if len(hostinfo) != 2 {
@@ -328,7 +328,7 @@ func (s *Server) RunServer() {
 		// 注册反射
 		reflection.Register(gs)
 		// 注册服务
-		jwtsigner_pb.RegisterJwtsignerServer(gs, s)
+		signerpb.RegisterJwtsignerServer(gs, s)
 
 		// 启动服务
 		log.Info("Server Start", log.Dict{"address": s.Address})
