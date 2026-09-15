@@ -1,1 +1,1 @@
-docker buildx build --push --platform=linux/amd64,linux/arm64 -t hsz1273327/jwthelper:latest -t hsz1273327/jwthelper:3.0.0 .
+docker buildx build --push --platform=linux/amd64,linux/arm64 -t hsz1273327/jwthelper:latest -t hsz1273327/jwthelper:4.0.0 .

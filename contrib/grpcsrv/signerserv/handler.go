@@ -1,4 +1,4 @@
-package jwtsigner_serv
+package signerserv
 
 import (
 	"context"

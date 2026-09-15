@@ -1,27 +1,31 @@
 # 构造可执行文件
-FROM --platform=$TARGETPLATFORM golang:1.25-alpine as build_bin
+FROM --platform=$TARGETPLATFORM golang:1.26-alpine as build_bin
 ENV GOPROXY=https://goproxy.cn,https://goproxy.io,direct
 # 停用cgo
 ENV CGO_ENABLED=0
 WORKDIR /code
 COPY go.mod /code/go.mod
 COPY go.sum /code/go.sum
-# 添加源文件
-COPY cmd /code/cmd
+# 添加核心源文件
 COPY exceptions /code/exceptions
-COPY jwt_pb /code/jwt_pb
-COPY jwtsigner_pb /code/jwtsigner_pb
-COPY jwtverifier_pb /code/jwtverifier_pb
 COPY signoptions /code/signoptions
 COPY utils /code/utils
 COPY verifyoptions /code/verifyoptions
 COPY jwthelper.go /code/jwthelper.go
+COPY algo.go /code/algo.go
+COPY types.go /code/types.go
+COPY keys.go /code/keys.go
+COPY clock.go /code/clock.go
+COPY codec.go /code/codec.go
+COPY idgen.go /code/idgen.go
 COPY signer.go /code/signer.go
 COPY signeroptions.go /code/signeroptions.go
 COPY universal.go /code/universal.go
 COPY verifier.go /code/verifier.go
 COPY verifieroptions.go /code/verifieroptions.go
-RUN go build -ldflags "-s -w" -o jwthelper-go cmd/main.go
+# 添加contrib模块(pb生成码与grpc服务端)
+COPY contrib /code/contrib
+RUN go build -ldflags "-s -w" -o jwthelper-go ./contrib/grpcsrv
 
 # 使用upx压缩可执行文件
 FROM --platform=$TARGETPLATFORM alpine:3.22 as upx
@@ -33,7 +37,7 @@ COPY --from=build_bin /code/jwthelper-go .
 RUN upx --best --lzma -o jwthelper jwthelper-go
 
 # 编译获得grpc-health-probe
-FROM --platform=$TARGETPLATFORM golang:1.25-bookworm as build_grpc-health-probe
+FROM --platform=$TARGETPLATFORM golang:1.26-bookworm as build_grpc-health-probe
 ENV GOPROXY=https://goproxy.cn,https://goproxy.io,direct
 # 停用cgo
 ENV CGO_ENABLED=0

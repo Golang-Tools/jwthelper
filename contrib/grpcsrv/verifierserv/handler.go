@@ -1,4 +1,4 @@
-package jwtverifier_serv
+package verifierserv
 
 import (
 	"context"
