@@ -1,4 +1,5 @@
-package proxy
+// 签名器代理模块
+package signerproxy
 
 import (
 	jwthelper "github.com/Golang-Tools/jwthelper/v4"
@@ -6,16 +7,21 @@ import (
 	"github.com/Golang-Tools/optparams"
 )
 
-var logger *log.Log
+// moduleName 日志中的模块标识
+const moduleName = "jwtsigner-proxy"
 
-var Default *SignerProxy
+// logger 代理使用的日志器,可通过SetLogger替换
+var logger = log.Export()
 
-func init() {
-	log.Set(log.WithExtFields(log.Dict{"module": "jwtsigner-proxy"}))
-	logger = log.Export()
-	log.Set(log.WithExtFields(log.Dict{}))
-	Default = NewSignerProxy()
+// SetLogger 设置代理使用的日志器(传入nil时保持默认)
+func SetLogger(l *log.Log) {
+	if l != nil {
+		logger = l
+	}
 }
+
+// Default 默认的签名器代理对象
+var Default = NewSignerProxy()
 
 // SignerCallback 签名器操作的回调函数
 type SignerCallback func(cli jwthelper.UniversalJwtSigner) error
@@ -51,9 +57,9 @@ func (proxy *SignerProxy) Init(signer jwthelper.UniversalJwtSigner, opts ...optp
 			go func(cb SignerCallback) {
 				err := cb(proxy.UniversalJwtSigner)
 				if err != nil {
-					logger.Error("regist callback get error", log.Dict{"err": err.Error()})
+					logger.Error("regist callback get error", log.Dict{"module": moduleName, "err": err.Error()})
 				} else {
-					logger.Debug("regist callback done")
+					logger.Debug("regist callback done", log.Dict{"module": moduleName})
 				}
 			}(cb)
 		}
@@ -61,9 +67,9 @@ func (proxy *SignerProxy) Init(signer jwthelper.UniversalJwtSigner, opts ...optp
 		for _, cb := range proxy.callBacks {
 			err := cb(proxy.UniversalJwtSigner)
 			if err != nil {
-				logger.Error("regist callback get error", log.Dict{"err": err.Error()})
+				logger.Error("regist callback get error", log.Dict{"module": moduleName, "err": err.Error()})
 			} else {
-				logger.Debug("regist callback done")
+				logger.Debug("regist callback done", log.Dict{"module": moduleName})
 			}
 		}
 	}

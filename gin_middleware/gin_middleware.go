@@ -5,18 +5,22 @@ import (
 	"strings"
 
 	jwthelper "github.com/Golang-Tools/jwthelper/v4"
-	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
 	log "github.com/Golang-Tools/loggerhelper/v4"
 	"github.com/Golang-Tools/optparams"
 	"github.com/gin-gonic/gin"
 )
 
-var logger *log.Log
+// moduleName 日志中的模块标识
+const moduleName = "jwthelper-middleware"
 
-func init() {
-	log.Set(log.WithExtFields(log.Dict{"module": "jwthelper-middlerware"}))
-	logger = log.Export()
-	log.Set(log.WithExtFields(log.Dict{}))
+// logger 中间件使用的日志器,可通过SetLogger替换
+var logger = log.Export()
+
+// SetLogger 设置中间件使用的日志器(传入nil时保持默认)
+func SetLogger(l *log.Log) {
+	if l != nil {
+		logger = l
+	}
 }
 
 // SelfFinder 找到用户id的函数
@@ -68,7 +72,7 @@ func WithCheckSelf(finder SelfFinder) optparams.Option[options] {
 // 没有设置WithCheckSuperUser时如果有设置WithCheckSelf则会校验令牌的sub是否和用户自己的id一致
 // 当用户是superuser时则不看是否有role或者id是否一致统一通过
 type AuthMiddlewareFactoryFunc func(opts ...optparams.Option[options]) gin.HandlerFunc
-type VerifyFunc func(verifier jwthelper.UniversalJwtVerifier, signer jwthelper.UniversalJwtSigner, token *jwt_pb.Token, ip string, aud []string, selfuid int64, admins ...string) (string, error)
+type VerifyFunc func(verifier jwthelper.UniversalJwtVerifier, signer jwthelper.UniversalJwtSigner, token *jwthelper.Token, ip string, aud []string, selfuid int64, admins ...string) (string, error)
 
 // AuthMiddlewareMaker 用于构造`AuthMiddlewareFactoryFunc`的函数
 // @Params verifier jwthelper.UniversalJwtVerifier 校验器
@@ -84,7 +88,7 @@ func AuthMiddlewareMaker(verifier jwthelper.UniversalJwtVerifier, signer jwthelp
 			if dopts.Finder != nil {
 				_selfuid, err := dopts.Finder(c)
 				if err != nil {
-					logger.Warn("SelfFinder get error", log.Dict{"err": err.Error(), "HttpStatus": http.StatusInternalServerError})
+					logger.Warn("SelfFinder get error", log.Dict{"module": moduleName, "err": err.Error(), "HttpStatus": http.StatusInternalServerError})
 					c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"Message": err.Error()})
 					return
 				}
@@ -105,13 +109,13 @@ func AuthMiddlewareMaker(verifier jwthelper.UniversalJwtVerifier, signer jwthelp
 			if refreshtoken == "" {
 				refreshtoken = c.GetHeader("refresh-token")
 			}
-			token := jwt_pb.Token{
+			token := jwthelper.Token{
 				RefreshToken: refreshtoken,
 				AccessToken:  accessToken,
 			}
 			newaccesstoken, err := verifyfunc(verifier, signer, &token, ip, dopts.CheckRole, selfuid, admins...)
 			if err != nil {
-				logger.Warn("verifyfunc get error", log.Dict{"err": err.Error(), "HttpStatus": http.StatusForbidden})
+				logger.Warn("verifyfunc get error", log.Dict{"module": moduleName, "err": err.Error(), "HttpStatus": http.StatusForbidden})
 				c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"Message": err.Error()})
 				return
 			}

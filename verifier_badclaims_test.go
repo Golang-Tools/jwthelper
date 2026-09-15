@@ -1,16 +1,16 @@
 package jwthelper
 
 import (
+	"context"
 	"testing"
 	"time"
 
 	jwt "github.com/golang-jwt/jwt/v4"
 
-	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
 	"github.com/stretchr/testify/assert"
 )
 
-//signRawClaims 用默认key(HS256)直接签一组原始claims,用于构造含非法类型的载荷
+// signRawClaims 用默认key(HS256)直接签一组原始claims,用于构造含非法类型的载荷
 func signRawClaims(t *testing.T, claims jwt.MapClaims) string {
 	t.Helper()
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
@@ -21,7 +21,7 @@ func signRawClaims(t *testing.T, claims jwt.MapClaims) string {
 	return s
 }
 
-//TestVerifyMaliciousClaimsNoPanic 校验含非法类型claims的token时应返回错误而不是panic
+// TestVerifyMaliciousClaimsNoPanic 校验含非法类型claims的token时应返回错误而不是panic
 func TestVerifyMaliciousClaimsNoPanic(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -42,17 +42,17 @@ func TestVerifyMaliciousClaimsNoPanic(t *testing.T) {
 	}
 	for _, c := range cases {
 		t.Run(c.name, func(t *testing.T) {
-			token := jwt_pb.Token{AccessToken: signRawClaims(t, c.claims)}
+			token := Token{AccessToken: signRawClaims(t, c.claims)}
 			payload := testPayLoad{}
 			assert.NotPanics(t, func() {
-				status, err := verifier.Verify(&token, &payload)
+				status, err := verifier.Verify(context.Background(), &token, &payload)
 				t.Log(status, err)
 			})
 		})
 	}
 }
 
-//TestVerifyMaliciousRefreshClaimsNoPanic 校验伴生refresh_token含非法类型claims时应返回错误而不是panic
+// TestVerifyMaliciousRefreshClaimsNoPanic 校验伴生refresh_token含非法类型claims时应返回错误而不是panic
 func TestVerifyMaliciousRefreshClaimsNoPanic(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -77,10 +77,10 @@ func TestVerifyMaliciousRefreshClaimsNoPanic(t *testing.T) {
 	}
 	for _, c := range cases {
 		t.Run(c.name, func(t *testing.T) {
-			token := jwt_pb.Token{AccessToken: access, RefreshToken: signRawClaims(t, c.refresh)}
+			token := Token{AccessToken: access, RefreshToken: signRawClaims(t, c.refresh)}
 			payload := testPayLoad{}
 			assert.NotPanics(t, func() {
-				status, err := verifier.Verify(&token, &payload)
+				status, err := verifier.Verify(context.Background(), &token, &payload)
 				t.Log(status, err)
 			})
 		})

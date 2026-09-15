@@ -12,9 +12,7 @@ import (
 	"time"
 
 	jwthelper "github.com/Golang-Tools/jwthelper/v4"
-	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
 	"github.com/Golang-Tools/jwthelper/v4/jwtverifier_pb"
-	"github.com/Golang-Tools/jwthelper/v4/utils"
 	"github.com/Golang-Tools/optparams"
 
 	log "github.com/Golang-Tools/loggerhelper/v4"
@@ -91,12 +89,12 @@ func (s *Server) Main() {
 
 	// 创建校验器
 	opts := []optparams.Option[jwthelper.VerifierOptions]{}
-	algo, err := utils.AlgoStrTOAlgoEnum(s.Algo_Name)
+	algo, err := jwthelper.ParseAlgo(s.Algo_Name)
 	if err != nil {
-		algo = jwt_pb.EncryptionAlgorithm_HS256
-		log.Warn("AlgoStrTOAlgoEnum error,use HS256 as default", log.Dict{"error": err.Error()})
+		algo = jwthelper.AlgoHS256
+		log.Warn("ParseAlgo error,use HS256 as default", log.Dict{"error": err.Error()})
 	}
-	if utils.IsAsymmetric(algo) {
+	if jwthelper.IsAsymmetric(algo) {
 		opts = append(opts, jwthelper.WithVerifyAlgo(algo), jwthelper.WithPemPublicKeyFromFile(s.Key_Path))
 	} else {
 		opts = append(opts, jwthelper.WithVerifyAlgo(algo), jwthelper.WithVerifySecretKeyFromFile(s.Key_Path))

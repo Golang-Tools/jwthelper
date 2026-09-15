@@ -3,84 +3,75 @@
 package jwthelper
 
 import (
-	"encoding/json"
+	"context"
 	"time"
 
 	"github.com/Golang-Tools/jwthelper/v4/exceptions"
-	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
 	"github.com/Golang-Tools/jwthelper/v4/signoptions"
-	utils "github.com/Golang-Tools/jwthelper/v4/utils"
 	"github.com/Golang-Tools/optparams"
 	jwt "github.com/golang-jwt/jwt/v4"
 )
 
 type Signer struct {
-	algo jwt.SigningMethod
-	key  interface{}
-	opts SignerOptions
+	algo        jwt.SigningMethod
+	keyProvider SignerKeyProvider
+	opts        SignerOptions
 }
 
 // NewSigner 创建一个签名器对象
 func NewSigner(opts ...optparams.Option[SignerOptions]) (*Signer, error) {
 	s := new(Signer)
-	s.opts = DefaultSignerOptions
-	s.opts = *optparams.GetOption(&s.opts, opts...)
-	if !utils.IsAsymmetric(s.opts.Algo) && !utils.IsSymmetric(s.opts.Algo) {
+	s.opts = *optparams.GetOption(&defaultSignerOptions, opts...)
+	if s.opts.err != nil {
+		return nil, s.opts.err
+	}
+	if !IsAsymmetric(s.opts.Algo) && !IsSymmetric(s.opts.Algo) {
 		return nil, exceptions.ErrUnsupportAlgoType
 	}
 	algo := jwt.GetSigningMethod(s.opts.Algo.String())
+	if algo == nil {
+		return nil, exceptions.ErrUnsupportAlgoType
+	}
 	s.algo = algo
-	if utils.IsAsymmetric(s.opts.Algo) {
-		if utils.IsEs(s.opts.Algo) {
-			key, err := jwt.ParseECPrivateKeyFromPEM(s.opts.Key)
-			if err != nil {
-				return nil, err
-			}
-			s.key = key
-		} else if utils.IsRs(s.opts.Algo) {
-			key, err := jwt.ParseRSAPrivateKeyFromPEM(s.opts.Key)
-			if err != nil {
-				return nil, err
-			}
-			s.key = key
-		} else if utils.IsEdDSA(s.opts.Algo) {
-			key, err := jwt.ParseEdPrivateKeyFromPEM(s.opts.Key)
-			if err != nil {
-				return nil, err
-			}
-			s.key = key
-		} else {
-			return nil, exceptions.ErrUnsupportAlgoType
-		}
+	if s.opts.KeyProvider != nil {
+		s.keyProvider = s.opts.KeyProvider
 	} else {
-		s.key = s.opts.Key
+		keyProvider, err := NewSignerKey(s.opts.Key, s.opts.Algo)
+		if err != nil {
+			return nil, err
+		}
+		s.keyProvider = keyProvider
 	}
 	return s, nil
 }
 
 // Meta 获取签名器元数据
-func (signer *Signer) Meta() (*jwt_pb.SignerMeta, error) {
-	return &jwt_pb.SignerMeta{
+func (signer *Signer) Meta(ctx context.Context) (*SignerMeta, error) {
+	jtiGen := ""
+	if signer.opts.JtiGen != nil {
+		jtiGen = signer.opts.JtiGen.String()
+	}
+	return &SignerMeta{
 		Algo:                     signer.opts.Algo,
 		Iss:                      signer.opts.Iss,
 		DefaultTTL:               int64(signer.opts.DefaultTTL.Seconds()),
 		DefaultEffectiveInterval: int64(signer.opts.DefaultEffectiveInterval.Seconds()),
-		JtiGen:                   signer.opts.JtiGen.String(),
+		JtiGen:                   jtiGen,
 	}, nil
 }
 
-func (signer *Signer) signany(claims jwt.MapClaims, opts ...optparams.Option[signoptions.SignOptions]) (*jwt_pb.Token, error) {
+func (signer *Signer) signany(ctx context.Context, claims jwt.MapClaims, opts ...optparams.Option[signoptions.SignOptions]) (*Token, error) {
 	defaultopt := optparams.GetOption(&signoptions.DefaultSignOptions, opts...)
 	// 构造iss
 	iss := ""
-	result := jwt_pb.Token{}
+	result := Token{}
 	if signer.opts.Iss != "" {
 		iss = signer.opts.Iss
 	}
 	claims["iss"] = iss
 
 	// 构造iat
-	iat := time.Now().Unix()
+	iat := nowUnix(signer.opts.Clock)
 	claims["iat"] = iat
 	// 构造jti
 	var jti string
@@ -115,7 +106,7 @@ func (signer *Signer) signany(claims jwt.MapClaims, opts ...optparams.Option[sig
 		nbf = defaultopt.Nbf
 	} else {
 		if signer.opts.DefaultEffectiveInterval > 0 {
-			nbf = time.Now().Add(signer.opts.DefaultEffectiveInterval).Unix()
+			nbf = time.Unix(iat, 0).Add(signer.opts.DefaultEffectiveInterval).Unix()
 		}
 	}
 	if defaultopt.Exp > 0 {
@@ -125,15 +116,19 @@ func (signer *Signer) signany(claims jwt.MapClaims, opts ...optparams.Option[sig
 			if nbf > 0 {
 				claims["exp"] = time.Unix(nbf, 0).Add(signer.opts.DefaultTTL).Unix()
 			} else {
-				claims["exp"] = time.Now().Add(signer.opts.DefaultTTL).Unix()
+				claims["exp"] = time.Unix(iat, 0).Add(signer.opts.DefaultTTL).Unix()
 			}
 		}
 	}
 	if nbf > 0 {
 		claims["nbf"] = nbf
 	}
+	signingKey, err := signer.keyProvider.SigningKey(ctx, signer.opts.Algo)
+	if err != nil {
+		return nil, err
+	}
 	accesstoken := jwt.NewWithClaims(signer.algo, claims)
-	accesstokenb, err := accesstoken.SignedString(signer.key)
+	accesstokenb, err := accesstoken.SignedString(signingKey)
 	if err != nil {
 		return nil, err
 	}
@@ -157,7 +152,7 @@ func (signer *Signer) signany(claims jwt.MapClaims, opts ...optparams.Option[sig
 			refresh_claims["nbf"] = nbf
 		}
 		refresh_token := jwt.NewWithClaims(signer.algo, refresh_claims)
-		refresh_tokenb, err := refresh_token.SignedString(signer.key)
+		refresh_tokenb, err := refresh_token.SignedString(signingKey)
 		if err != nil {
 			return nil, err
 		}
@@ -167,25 +162,27 @@ func (signer *Signer) signany(claims jwt.MapClaims, opts ...optparams.Option[sig
 }
 
 // Sign 签名一个token
-// @Params payload interface{} 负载对象,需要是可以用json解析的对象
-// @Params opts ...signoptions.SignOption 签名的设置项,详见signoptions模块
-// @Returns *jwt_pb.Token jwt的token对象,其中AccessToken是jwt主体token,如果成功一定会有,如果设置了`WithRefreshExpAt`或者`WithRefreshTTL`则会创建一个伴生的RefreshToken用于自动刷新
-func (signer *Signer) Sign(payload interface{}, opts ...optparams.Option[signoptions.SignOptions]) (*jwt_pb.Token, error) {
+// @Params ctx context.Context 上下文
+// @Params payload interface{} 负载对象,需要是可以用codec解析的对象
+// @Params opts ...optparams.Option[signoptions.SignOptions] 签名的设置项,详见signoptions模块
+// @Returns *Token jwt的token对象,其中AccessToken是jwt主体token,如果成功一定会有,如果设置了`WithRefreshExpAt`或者`WithRefreshTTL`则会创建一个伴生的RefreshToken用于自动刷新
+func (signer *Signer) Sign(ctx context.Context, payload interface{}, opts ...optparams.Option[signoptions.SignOptions]) (*Token, error) {
+	codec := codecOrStd(signer.opts.Codec)
 	var payloadb []byte
 	var err error
 	if payload == nil {
-		payloadb, err = json.Marshal(map[string]interface{}{})
+		payloadb, err = codec.Marshal(map[string]interface{}{})
 	} else {
-		payloadb, err = json.Marshal(payload)
+		payloadb, err = codec.Marshal(payload)
 	}
 
 	if err != nil {
 		return nil, err //ErrParseClaimsToJSON
 	}
 	payloadclaims := jwt.MapClaims{}
-	err = json.Unmarshal(payloadb, &payloadclaims)
+	err = codec.Unmarshal(payloadb, &payloadclaims)
 	if err != nil {
 		return nil, err //ErrParseClaimsToJSON
 	}
-	return signer.signany(payloadclaims, opts...)
+	return signer.signany(ctx, payloadclaims, opts...)
 }

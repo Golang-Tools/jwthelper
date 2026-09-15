@@ -3,11 +3,11 @@
 package jwthelper
 
 import (
+	"context"
 	"testing"
 	"time"
 
 	"github.com/Golang-Tools/idgener"
-	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
 	"github.com/Golang-Tools/jwthelper/v4/signoptions"
 	"github.com/stretchr/testify/assert"
 )
@@ -18,9 +18,9 @@ func TestDefaultSignerMeta(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
-	res, _ := signer.Meta()
+	res, _ := signer.Meta(context.Background())
 	t.Log("get algo", res.Algo.String())
-	assert.Equal(t, jwt_pb.EncryptionAlgorithm_HS256, res.Algo)
+	assert.Equal(t, AlgoHS256, res.Algo)
 	t.Log("get jtigen", res.JtiGen)
 	assert.Equal(t, "uuid4", res.JtiGen)
 	t.Log("get DefaultTTL", res.DefaultTTL)
@@ -35,7 +35,7 @@ func TestDefaultSignerMeta(t *testing.T) {
 // 注意没有设置iss,但iss应该会随着设置算法更改
 func TestNewHashSignerWithOpts(t *testing.T) {
 	signer, err := NewSigner(
-		WithSignAlgo(jwt_pb.EncryptionAlgorithm_HS512),
+		WithSignAlgo(AlgoHS512),
 		WithSignJtiGen(idgener.DefaultSonyflake),
 		WithDefaultEffectiveInterval(time.Second*15),
 		WithDefaultTTL(time.Second*60*5),
@@ -43,9 +43,9 @@ func TestNewHashSignerWithOpts(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
-	res, _ := signer.Meta()
+	res, _ := signer.Meta(context.Background())
 	t.Log("get algo", res.Algo.String())
-	assert.Equal(t, jwt_pb.EncryptionAlgorithm_HS512, res.Algo)
+	assert.Equal(t, AlgoHS512, res.Algo)
 	t.Log("get jtigen", res.JtiGen)
 	assert.Equal(t, "sonyflake", res.JtiGen)
 	t.Log("get DefaultTTL", res.DefaultTTL)
@@ -65,10 +65,12 @@ func TestNewHashSignerWithNewKey(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
-	res, _ := signer.Meta()
+	res, _ := signer.Meta(context.Background())
 	t.Log("get Iss", res.Iss)
 	assert.Equal(t, "test", res.Iss)
-	key := string(signer.key.([]byte))
+	kp, ok := signer.keyProvider.(staticSignerKey)
+	assert.True(t, ok)
+	key := string(kp.key.([]byte))
 	t.Log("get key", key)
 	assert.Equal(t, "testkey", key)
 }
@@ -82,25 +84,20 @@ func TestNewHashSignerWithNewKeyInFile(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
-	res, _ := signer.Meta()
+	res, _ := signer.Meta(context.Background())
 	t.Log("get Iss", res.Iss)
 	assert.Equal(t, "test", res.Iss)
-	key := string(signer.key.([]byte))
+	kp, ok := signer.keyProvider.(staticSignerKey)
+	assert.True(t, ok)
+	key := string(kp.key.([]byte))
 	t.Log("get key", key)
 	assert.Equal(t, "key in file", key)
 }
 
-// TestNewHashSignerWithWrongKeyFilepath 测试从错误文件路径中读取秘钥
+// TestNewHashSignerWithWrongKeyFilepath 测试从错误文件路径中读取秘钥,应直接返回错误而不是panic
 func TestNewHashSignerWithWrongKeyFilepath(t *testing.T) {
-	func() {
-		defer func() {
-			if err := recover(); err != nil {
-				t.Log("get err", err.(error).Error())
-			}
-		}()
-		NewSigner(WithSignSecretKeyFromFile("key.txt1"))
-		assert.FailNow(t, "init signer should error")
-	}()
+	_, err := NewSigner(WithSignSecretKeyFromFile("key.txt1"))
+	assert.Error(t, err)
 }
 
 // TestHashSignerSign 测试hash类型的签名器签名一个负载
@@ -115,14 +112,14 @@ func TestHashSignerSign(t *testing.T) {
 		B: "B",
 		C: 1.2,
 	}
-	token1, err := signer.Sign(payload)
+	token1, err := signer.Sign(context.Background(), payload)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "signer sign error")
 	}
 
 	t.Log("get RefreshToken", token1.RefreshToken)
 	assert.Equal(t, "", token1.RefreshToken)
-	token2, err := signer.Sign(payload)
+	token2, err := signer.Sign(context.Background(), payload)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "signer sign error")
 	}
@@ -137,7 +134,7 @@ func TestHashSignerSignPayloadNil(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
-	token1, err := signer.Sign(nil)
+	token1, err := signer.Sign(context.Background(), nil)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "signer sign error")
 	}
@@ -155,7 +152,7 @@ func TestHashSignerSignPayloadEmpty(t *testing.T) {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
 	payload := testPayLoad{}
-	token1, err := signer.Sign(payload)
+	token1, err := signer.Sign(context.Background(), payload)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "signer sign error")
 	}
@@ -172,7 +169,7 @@ func TestHashSignerSignPayloadEmptyMap(t *testing.T) {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
 	payload := map[string]interface{}{}
-	token1, err := signer.Sign(payload)
+	token1, err := signer.Sign(context.Background(), payload)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "signer sign error")
 	}
@@ -194,7 +191,7 @@ func TestHashSignerSignWithRefreshToken(t *testing.T) {
 		B: "B",
 		C: 1.2,
 	}
-	token1, err := signer.Sign(payload, signoptions.WithSub("test"), signoptions.WithRefreshTTL(time.Hour*24))
+	token1, err := signer.Sign(context.Background(), payload, signoptions.WithSub("test"), signoptions.WithRefreshTTL(time.Hour*24))
 	if err != nil {
 		assert.FailNow(t, err.Error(), "signer sign error")
 	}
@@ -215,7 +212,7 @@ func TestHashSignerSignWithRefreshTokenWithoutSUB(t *testing.T) {
 		B: "B",
 		C: 1.2,
 	}
-	_, err = signer.Sign(payload, signoptions.WithRefreshTTL(time.Hour*24))
+	_, err = signer.Sign(context.Background(), payload, signoptions.WithRefreshTTL(time.Hour*24))
 	if err == nil {
 		assert.FailNow(t, err.Error(), "signer sign should get error")
 	}
@@ -226,15 +223,15 @@ func TestHashSignerSignWithRefreshTokenWithoutSUB(t *testing.T) {
 // TestNewRSASignerMeta 测试创建一个RSA的签名器
 func TestNewRSASignerMeta(t *testing.T) {
 	signer, err := NewSigner(
-		WithSignAlgo(jwt_pb.EncryptionAlgorithm_RS256),
+		WithSignAlgo(AlgoRS256),
 		WithPemPrivateKeyFromFile("utils/keygener/newkey_rsa.pem"),
 	)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
-	res, _ := signer.Meta()
+	res, _ := signer.Meta(context.Background())
 	t.Log("get algo", res.Algo.String())
-	assert.Equal(t, jwt_pb.EncryptionAlgorithm_RS256, res.Algo)
+	assert.Equal(t, AlgoRS256, res.Algo)
 	t.Log("get jtigen", res.JtiGen)
 	assert.Equal(t, "uuid4", res.JtiGen)
 	t.Log("get DefaultTTL", res.DefaultTTL)
@@ -248,15 +245,15 @@ func TestNewRSASignerMeta(t *testing.T) {
 // TestNewESSignerMeta 测试创建一个Ecdsa的签名器
 func TestNewESSignerMeta(t *testing.T) {
 	signer, err := NewSigner(
-		WithSignAlgo(jwt_pb.EncryptionAlgorithm_ES256),
+		WithSignAlgo(AlgoES256),
 		WithPemPrivateKeyFromFile("utils/keygener/newkey_ecdsa.pem"),
 	)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
-	res, _ := signer.Meta()
+	res, _ := signer.Meta(context.Background())
 	t.Log("get algo", res.Algo.String())
-	assert.Equal(t, jwt_pb.EncryptionAlgorithm_ES256, res.Algo)
+	assert.Equal(t, AlgoES256, res.Algo)
 	t.Log("get jtigen", res.JtiGen)
 	assert.Equal(t, "uuid4", res.JtiGen)
 	t.Log("get DefaultTTL", res.DefaultTTL)
@@ -270,15 +267,15 @@ func TestNewESSignerMeta(t *testing.T) {
 // TestNewEdDSASignerMeta 测试创建一个EdDSA的签名器
 func TestNewEdDSASignerMeta(t *testing.T) {
 	signer, err := NewSigner(
-		WithSignAlgo(jwt_pb.EncryptionAlgorithm_EdDSA),
+		WithSignAlgo(AlgoEdDSA),
 		WithPemPrivateKeyFromFile("utils/keygener/newkey_ed25519.pem"),
 	)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
-	res, _ := signer.Meta()
+	res, _ := signer.Meta(context.Background())
 	t.Log("get algo", res.Algo.String())
-	assert.Equal(t, jwt_pb.EncryptionAlgorithm_EdDSA, res.Algo)
+	assert.Equal(t, AlgoEdDSA, res.Algo)
 	t.Log("get jtigen", res.JtiGen)
 	assert.Equal(t, "uuid4", res.JtiGen)
 	t.Log("get DefaultTTL", res.DefaultTTL)
@@ -289,26 +286,18 @@ func TestNewEdDSASignerMeta(t *testing.T) {
 	assert.Contains(t, res.Iss, res.Algo.String())
 }
 
-// TestNewRSASignerWithWrongKeyPath
+// TestNewRSASignerWithWrongKeyPath 私钥路径错误时应直接返回错误而不是panic
 func TestNewRSASignerWithWrongKeyPath(t *testing.T) {
-	func() {
-		defer func() {
-			if err := recover(); err != nil {
-				t.Log("get err", err.(error).Error())
-			}
-		}()
-		NewSigner(WithSignAlgo(
-			jwt_pb.EncryptionAlgorithm_RS256),
-			WithPemPrivateKeyFromFile("utils/keygener/newkey_rsa.pem1"),
-		)
-		assert.FailNow(t, "init signer should error")
-	}()
+	_, err := NewSigner(WithSignAlgo(AlgoRS256),
+		WithPemPrivateKeyFromFile("utils/keygener/newkey_rsa.pem1"),
+	)
+	assert.Error(t, err)
 }
 
 // TestRSASignerSign 测试RSA签名器签名一个负载
 func TestRSASignerSign(t *testing.T) {
 	signer, err := NewSigner(
-		WithSignAlgo(jwt_pb.EncryptionAlgorithm_RS256),
+		WithSignAlgo(AlgoRS256),
 		WithPemPrivateKeyFromFile("utils/keygener/newkey_rsa.pem"),
 	)
 	if err != nil {
@@ -319,14 +308,14 @@ func TestRSASignerSign(t *testing.T) {
 		B: "B",
 		C: 1.2,
 	}
-	rsatoken1, err := signer.Sign(payload)
+	rsatoken1, err := signer.Sign(context.Background(), payload)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "signer sign error")
 	}
 
 	t.Log("get RefreshToken", rsatoken1.RefreshToken)
 	assert.Equal(t, "", rsatoken1.RefreshToken)
-	rsatoken2, err := signer.Sign(payload)
+	rsatoken2, err := signer.Sign(context.Background(), payload)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "signer sign error")
 	}

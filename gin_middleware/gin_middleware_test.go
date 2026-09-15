@@ -1,6 +1,7 @@
 package gin_middleware
 
 import (
+	"context"
 	"errors"
 	"net/http"
 	"net/http/httptest"
@@ -10,33 +11,36 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	jwthelper "github.com/Golang-Tools/jwthelper/v4"
-	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
 	"github.com/Golang-Tools/jwthelper/v4/signoptions"
 	"github.com/Golang-Tools/jwthelper/v4/verifyoptions"
 	"github.com/Golang-Tools/optparams"
 )
 
-//fakeVerifier 实现jwthelper.UniversalJwtVerifier的测试替身
+// fakeVerifier 实现jwthelper.UniversalJwtVerifier的测试替身
 type fakeVerifier struct{}
 
-func (fakeVerifier) Meta() (*jwt_pb.VerifierMeta, error) { return &jwt_pb.VerifierMeta{}, nil }
-
-func (fakeVerifier) Verify(token *jwt_pb.Token, payload interface{}, opts ...optparams.Option[verifyoptions.VerifyOptions]) (*jwt_pb.JwtStatus, error) {
-	return &jwt_pb.JwtStatus{}, nil
+func (fakeVerifier) Meta(ctx context.Context) (*jwthelper.VerifierMeta, error) {
+	return &jwthelper.VerifierMeta{}, nil
 }
 
-//fakeSigner 实现jwthelper.UniversalJwtSigner的测试替身
+func (fakeVerifier) Verify(ctx context.Context, token *jwthelper.Token, payload interface{}, opts ...optparams.Option[verifyoptions.VerifyOptions]) (*jwthelper.JwtStatus, error) {
+	return &jwthelper.JwtStatus{}, nil
+}
+
+// fakeSigner 实现jwthelper.UniversalJwtSigner的测试替身
 type fakeSigner struct{}
 
-func (fakeSigner) Meta() (*jwt_pb.SignerMeta, error) { return &jwt_pb.SignerMeta{}, nil }
-
-func (fakeSigner) Sign(payload interface{}, opts ...optparams.Option[signoptions.SignOptions]) (*jwt_pb.Token, error) {
-	return &jwt_pb.Token{}, nil
+func (fakeSigner) Meta(ctx context.Context) (*jwthelper.SignerMeta, error) {
+	return &jwthelper.SignerMeta{}, nil
 }
 
-//fakeVerifyFunc 构造固定的校验函数
+func (fakeSigner) Sign(ctx context.Context, payload interface{}, opts ...optparams.Option[signoptions.SignOptions]) (*jwthelper.Token, error) {
+	return &jwthelper.Token{}, nil
+}
+
+// fakeVerifyFunc 构造固定的校验函数
 func fakeVerifyFunc(err error) VerifyFunc {
-	return func(verifier jwthelper.UniversalJwtVerifier, signer jwthelper.UniversalJwtSigner, token *jwt_pb.Token, ip string, aud []string, selfuid int64, admins ...string) (string, error) {
+	return func(verifier jwthelper.UniversalJwtVerifier, signer jwthelper.UniversalJwtSigner, token *jwthelper.Token, ip string, aud []string, selfuid int64, admins ...string) (string, error) {
 		if err != nil {
 			return "", err
 		}
@@ -44,7 +48,7 @@ func fakeVerifyFunc(err error) VerifyFunc {
 	}
 }
 
-//setupRouter 构造带中间件的测试路由
+// setupRouter 构造带中间件的测试路由
 func setupRouter(mw gin.HandlerFunc, next *bool) *gin.Engine {
 	gin.SetMode(gin.TestMode)
 	r := gin.New()
@@ -56,7 +60,7 @@ func setupRouter(mw gin.HandlerFunc, next *bool) *gin.Engine {
 	return r
 }
 
-//TestMiddlewareFinderErrorAborts Finder出错时应直接返回500,不继续执行后续handler
+// TestMiddlewareFinderErrorAborts Finder出错时应直接返回500,不继续执行后续handler
 func TestMiddlewareFinderErrorAborts(t *testing.T) {
 	nextCalled := false
 	finder := func(c *gin.Context) (int64, error) {
@@ -71,7 +75,7 @@ func TestMiddlewareFinderErrorAborts(t *testing.T) {
 	assert.False(t, nextCalled, "Abort 后不应继续执行后续 handler")
 }
 
-//TestMiddlewareVerifyErrorAborts 校验失败时应返回403,不继续执行
+// TestMiddlewareVerifyErrorAborts 校验失败时应返回403,不继续执行
 func TestMiddlewareVerifyErrorAborts(t *testing.T) {
 	nextCalled := false
 	mw := AuthMiddlewareMaker(fakeVerifier{}, fakeSigner{}, fakeVerifyFunc(errors.New("verify error")))()
@@ -82,7 +86,7 @@ func TestMiddlewareVerifyErrorAborts(t *testing.T) {
 	assert.False(t, nextCalled)
 }
 
-//TestMiddlewareVerifyOK 校验通过时放行并透出新令牌
+// TestMiddlewareVerifyOK 校验通过时放行并透出新令牌
 func TestMiddlewareVerifyOK(t *testing.T) {
 	nextCalled := false
 	mw := AuthMiddlewareMaker(fakeVerifier{}, fakeSigner{}, fakeVerifyFunc(nil))()

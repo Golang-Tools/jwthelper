@@ -7,6 +7,7 @@ import (
 
 	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
 	"github.com/Golang-Tools/jwthelper/v4/jwtsigner_pb"
+	"github.com/Golang-Tools/jwthelper/v4/pbconv"
 	"github.com/Golang-Tools/jwthelper/v4/signoptions"
 	log "github.com/Golang-Tools/loggerhelper/v4"
 	"github.com/Golang-Tools/optparams"
@@ -15,7 +16,7 @@ import (
 // Meta 查看签名器的元信息
 func (s *Server) Meta(ctx context.Context, in *jwtsigner_pb.MetaRequest) (*jwtsigner_pb.MetaResponse, error) {
 	log.Debug("Meta get message", log.Dict{"in": in})
-	meta, err := s.signer.Meta()
+	meta, err := s.signer.Meta(ctx)
 	if err != nil {
 		return nil, err
 	}
@@ -23,7 +24,7 @@ func (s *Server) Meta(ctx context.Context, in *jwtsigner_pb.MetaRequest) (*jwtsi
 		Status: &jwt_pb.ResponseStatus{
 			Status: jwt_pb.ResponseStatus_SUCCEED,
 		},
-		Data: meta,
+		Data: pbconv.SignerMetaToPB(meta),
 	}
 
 	log.Debug("Meta send resp", log.Dict{"result": res})
@@ -57,7 +58,7 @@ func (s *Server) Sign(ctx context.Context, in *jwtsigner_pb.SignRequest) (*jwtsi
 	if in.Aud != nil && len(in.Aud) > 0 {
 		opts = append(opts, signoptions.WithAud(in.Aud...))
 	}
-	token, err := s.signer.Sign(payload, opts...)
+	token, err := s.signer.Sign(ctx, payload, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +66,7 @@ func (s *Server) Sign(ctx context.Context, in *jwtsigner_pb.SignRequest) (*jwtsi
 		Status: &jwt_pb.ResponseStatus{
 			Status: jwt_pb.ResponseStatus_SUCCEED,
 		},
-		Token: token,
+		Token: pbconv.TokenToPB(token),
 	}
 	log.Debug("Sign send resp", log.Dict{"result": res})
 	return res, nil

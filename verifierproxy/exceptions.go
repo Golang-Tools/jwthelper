@@ -1,4 +1,4 @@
-package proxy
+package verifierproxy
 
 import (
 	"errors"

@@ -1,15 +1,18 @@
 package sdk
 
 import (
+	"context"
 	"encoding/json"
 	"errors"
 	"log/slog"
 	"strings"
 
 	"github.com/Golang-Tools/grpcsdk/v2"
+	jwthelper "github.com/Golang-Tools/jwthelper/v4"
 	"github.com/Golang-Tools/jwthelper/v4/exceptions"
 	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
 	"github.com/Golang-Tools/jwthelper/v4/jwtverifier_pb"
+	"github.com/Golang-Tools/jwthelper/v4/pbconv"
 	"github.com/Golang-Tools/jwthelper/v4/verifyoptions"
 	"github.com/Golang-Tools/optparams"
 )
@@ -38,9 +41,13 @@ func (c *VerifierSDK) Close() error {
 }
 
 // Meta 查看远端签名器的元信息
-func (c *VerifierSDK) Meta() (*jwt_pb.VerifierMeta, error) {
-	ctx, cancel := c.client.NewCtx()
-	defer cancel()
+// ctx 为nil时使用SDK配置的默认超时上下文
+func (c *VerifierSDK) Meta(ctx context.Context) (*jwthelper.VerifierMeta, error) {
+	if ctx == nil {
+		var cancel context.CancelFunc
+		ctx, cancel = c.client.NewCtx()
+		defer cancel()
+	}
 	Conn, release := c.client.GetClient()
 	defer release()
 	res, err := Conn.Meta(ctx, &jwtverifier_pb.MetaRequest{})
@@ -56,15 +63,16 @@ func (c *VerifierSDK) Meta() (*jwt_pb.VerifierMeta, error) {
 		}
 		return nil, ErrRpcResponseError
 	}
-	return res.Data, nil
+	return pbconv.VerifierMetaFromPB(res.Data)
 }
 
 // Verify 校验一个token
-func (c *VerifierSDK) Verify(token *jwt_pb.Token, payload interface{}, opts ...optparams.Option[verifyoptions.VerifyOptions]) (*jwt_pb.JwtStatus, error) {
-	var jwt_status *jwt_pb.JwtStatus
+// ctx 为nil时使用SDK配置的默认超时上下文
+func (c *VerifierSDK) Verify(ctx context.Context, token *jwthelper.Token, payload interface{}, opts ...optparams.Option[verifyoptions.VerifyOptions]) (*jwthelper.JwtStatus, error) {
+	var jwt_status *jwthelper.JwtStatus
 	defaultopt := optparams.GetOption(new(verifyoptions.VerifyOptions), opts...)
 	query := jwtverifier_pb.VerifyRequest{
-		Token:                   token,
+		Token:                   pbconv.TokenToPB(token),
 		CheckMatchSub:           defaultopt.CheckMatchSUB,
 		CheckMatchallAud:        defaultopt.CheckMatchALLAUD,
 		CheckMatchanyAud:        defaultopt.CheckMatchAnyAUD,
@@ -73,8 +81,11 @@ func (c *VerifierSDK) Verify(token *jwt_pb.Token, payload interface{}, opts ...o
 		NotCheckRefreshTokenAud: defaultopt.NotCheckRefreshTokenAUD,
 		NotCheckRefreshTokenJti: defaultopt.NotCheckRefreshTokenJTI,
 	}
-	ctx, cancel := c.client.NewCtx()
-	defer cancel()
+	if ctx == nil {
+		var cancel context.CancelFunc
+		ctx, cancel = c.client.NewCtx()
+		defer cancel()
+	}
 	Conn, release := c.client.GetClient()
 	defer release()
 	res, err := Conn.Verify(ctx, &query)
@@ -85,7 +96,7 @@ func (c *VerifierSDK) Verify(token *jwt_pb.Token, payload interface{}, opts ...o
 				return nil, err
 			}
 		}
-		jwt_status = res.JwtStatus
+		jwt_status = pbconv.JwtStatusFromPB(res.JwtStatus)
 	}
 	if err == nil {
 		if res == nil || res.Status == nil {

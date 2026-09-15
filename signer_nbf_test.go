@@ -1,6 +1,7 @@
 package jwthelper
 
 import (
+	"context"
 	"testing"
 	"time"
 
@@ -10,7 +11,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-//TestSignRefreshTokenNbf 回归:伴生refresh_token应携带nbf(历史上曾误写为nbr)
+// TestSignRefreshTokenNbf 回归:伴生refresh_token应携带nbf(历史上曾误写为nbr)
 func TestSignRefreshTokenNbf(t *testing.T) {
 	signer, err := NewSigner()
 	if err != nil {
@@ -19,6 +20,7 @@ func TestSignRefreshTokenNbf(t *testing.T) {
 	payload := testPayLoad{A: 1, B: "B", C: 1.2}
 	nbf := time.Now().Add(-time.Minute).Unix()
 	token, err := signer.Sign(
+		context.Background(),
 		payload,
 		signoptions.WithSub("test"),
 		signoptions.WithNbf(nbf),

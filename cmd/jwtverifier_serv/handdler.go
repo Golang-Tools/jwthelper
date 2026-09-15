@@ -7,6 +7,7 @@ import (
 	"github.com/Golang-Tools/jwthelper/v4/exceptions"
 	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
 	"github.com/Golang-Tools/jwthelper/v4/jwtverifier_pb"
+	"github.com/Golang-Tools/jwthelper/v4/pbconv"
 	"github.com/Golang-Tools/jwthelper/v4/verifyoptions"
 	log "github.com/Golang-Tools/loggerhelper/v4"
 	"github.com/Golang-Tools/optparams"
@@ -15,7 +16,7 @@ import (
 // Meta 查看签名器的元信息
 func (s *Server) Meta(ctx context.Context, in *jwtverifier_pb.MetaRequest) (*jwtverifier_pb.MetaResponse, error) {
 	log.Debug("Meta get message", log.Dict{"in": in})
-	meta, err := s.verifier.Meta()
+	meta, err := s.verifier.Meta(ctx)
 	if err != nil {
 		return nil, err
 	}
@@ -23,7 +24,7 @@ func (s *Server) Meta(ctx context.Context, in *jwtverifier_pb.MetaRequest) (*jwt
 		Status: &jwt_pb.ResponseStatus{
 			Status: jwt_pb.ResponseStatus_SUCCEED,
 		},
-		Data: meta,
+		Data: pbconv.VerifierMetaToPB(meta),
 	}
 	log.Debug("Meta send resp", log.Dict{"result": res})
 	return res, nil
@@ -56,7 +57,7 @@ func (s *Server) Verify(ctx context.Context, in *jwtverifier_pb.VerifyRequest) (
 		opts = append(opts, verifyoptions.WithNotCheckRefreshTokenJTI())
 	}
 	payload := map[string]interface{}{}
-	status, err := s.verifier.Verify(in.Token, &payload, opts...)
+	status, err := s.verifier.Verify(ctx, pbconv.TokenFromPB(in.Token), &payload, opts...)
 	payloadb, err1 := json.Marshal(payload)
 	if err1 != nil {
 		res.Status = &jwt_pb.ResponseStatus{
@@ -69,7 +70,7 @@ func (s *Server) Verify(ctx context.Context, in *jwtverifier_pb.VerifyRequest) (
 		res.Status = &jwt_pb.ResponseStatus{
 			Status: jwt_pb.ResponseStatus_SUCCEED,
 		}
-		res.JwtStatus = status
+		res.JwtStatus = pbconv.JwtStatusToPB(status)
 		res.Payload = payloadb
 		log.Debug("Verify send resp", log.Dict{"result": res})
 		return res, nil
@@ -79,7 +80,7 @@ func (s *Server) Verify(ctx context.Context, in *jwtverifier_pb.VerifyRequest) (
 				res.Status = &jwt_pb.ResponseStatus{
 					Status: jwt_pb.ResponseStatus_SUCCEED,
 				}
-				res.JwtStatus = status
+				res.JwtStatus = pbconv.JwtStatusToPB(status)
 				res.Payload = payloadb
 				log.Debug("Verify send resp", log.Dict{"result": res})
 				return res, err

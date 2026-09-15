@@ -2,7 +2,8 @@
 package jwthelper
 
 import (
-	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
+	"context"
+
 	"github.com/Golang-Tools/jwthelper/v4/signoptions"
 	"github.com/Golang-Tools/jwthelper/v4/verifyoptions"
 	"github.com/Golang-Tools/optparams"
@@ -11,15 +12,15 @@ import (
 // UniversalJwtSigner 通用jwt的签名器
 type UniversalJwtSigner interface {
 	//Meta 查看签名器元信息
-	Meta() (*jwt_pb.SignerMeta, error)
+	Meta(ctx context.Context) (*SignerMeta, error)
 	// Sign 签名一个token
-	Sign(payload interface{}, opts ...optparams.Option[signoptions.SignOptions]) (*jwt_pb.Token, error)
+	Sign(ctx context.Context, payload interface{}, opts ...optparams.Option[signoptions.SignOptions]) (*Token, error)
 }
 
-// UniversalJwtVerifier 通用jwt的签名器
+// UniversalJwtVerifier 通用jwt的校验器
 type UniversalJwtVerifier interface {
-	//Meta 查看签名器元信息
-	Meta() (*jwt_pb.VerifierMeta, error)
-	// 校验一个签名是否复合
-	Verify(token *jwt_pb.Token, payload interface{}, opts ...optparams.Option[verifyoptions.VerifyOptions]) (*jwt_pb.JwtStatus, error)
+	//Meta 查看校验器元信息
+	Meta(ctx context.Context) (*VerifierMeta, error)
+	// Verify 校验一个签名是否符合
+	Verify(ctx context.Context, token *Token, payload interface{}, opts ...optparams.Option[verifyoptions.VerifyOptions]) (*JwtStatus, error)
 }

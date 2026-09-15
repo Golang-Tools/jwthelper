@@ -1,13 +1,16 @@
 package sdk
 
 import (
+	"context"
 	"encoding/json"
 	"errors"
 	"log/slog"
 
 	"github.com/Golang-Tools/grpcsdk/v2"
+	jwthelper "github.com/Golang-Tools/jwthelper/v4"
 	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
 	"github.com/Golang-Tools/jwthelper/v4/jwtsigner_pb"
+	"github.com/Golang-Tools/jwthelper/v4/pbconv"
 	"github.com/Golang-Tools/jwthelper/v4/signoptions"
 	"github.com/Golang-Tools/optparams"
 )
@@ -36,9 +39,13 @@ func (c *SignerSDK) Close() error {
 }
 
 // Meta 查看远端签名器的元信息
-func (c *SignerSDK) Meta() (*jwt_pb.SignerMeta, error) {
-	ctx, cancel := c.client.NewCtx()
-	defer cancel()
+// ctx 为nil时使用SDK配置的默认超时上下文
+func (c *SignerSDK) Meta(ctx context.Context) (*jwthelper.SignerMeta, error) {
+	if ctx == nil {
+		var cancel context.CancelFunc
+		ctx, cancel = c.client.NewCtx()
+		defer cancel()
+	}
 	Conn, release := c.client.GetClient()
 	defer release()
 	res, err := Conn.Meta(ctx, &jwtsigner_pb.MetaRequest{})
@@ -54,11 +61,12 @@ func (c *SignerSDK) Meta() (*jwt_pb.SignerMeta, error) {
 		}
 		return nil, ErrRpcResponseError
 	}
-	return res.Data, nil
+	return pbconv.SignerMetaFromPB(res.Data)
 }
 
 // Sign 签名一个token
-func (c *SignerSDK) Sign(payload interface{}, opts ...optparams.Option[signoptions.SignOptions]) (*jwt_pb.Token, error) {
+// ctx 为nil时使用SDK配置的默认超时上下文
+func (c *SignerSDK) Sign(ctx context.Context, payload interface{}, opts ...optparams.Option[signoptions.SignOptions]) (*jwthelper.Token, error) {
 	if payload == nil {
 		payload = map[string]interface{}{}
 	}
@@ -76,8 +84,11 @@ func (c *SignerSDK) Sign(payload interface{}, opts ...optparams.Option[signoptio
 		Jti:        defaultopt.Jti,
 		Aud:        defaultopt.Aud,
 	}
-	ctx, cancel := c.client.NewCtx()
-	defer cancel()
+	if ctx == nil {
+		var cancel context.CancelFunc
+		ctx, cancel = c.client.NewCtx()
+		defer cancel()
+	}
 	Conn, release := c.client.GetClient()
 	defer release()
 	res, err := Conn.Sign(ctx, &query)
@@ -93,7 +104,7 @@ func (c *SignerSDK) Sign(payload interface{}, opts ...optparams.Option[signoptio
 		}
 		return nil, ErrRpcResponseError
 	}
-	return res.Token, nil
+	return pbconv.TokenFromPB(res.Token), nil
 }
 
 var DefaultSigner *SignerSDK

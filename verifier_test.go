@@ -2,27 +2,29 @@
 package jwthelper
 
 import (
+	"context"
 	"testing"
 	"time"
 
-	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v4/exceptions"
 	"github.com/Golang-Tools/jwthelper/v4/signoptions"
 	"github.com/Golang-Tools/jwthelper/v4/verifyoptions"
 	"github.com/stretchr/testify/assert"
 )
 
-var token1 = jwt_pb.Token{AccessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoxLCJiIjoiQiIsImV4cCI6MTYzMjc0MTk5MCwiaWF0IjoxNjMyNzQxMzkwLCJpc3MiOiIxY2MtSFMyNTYiLCJqdGkiOiI4ODYyZjk4Mi02N2RiLTQ5MzEtYjM2NS01MmVmYWIxZjUxNzIifQ.OiIO6KPadx_oVzHRJLJyGg9SW5YRkHKCM_JTql62LV0"}
-var token2 = jwt_pb.Token{AccessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoxLCJiIjoiQiIsImV4cCI6MTYzMjc0MTk5MCwiaWF0IjoxNjMyNzQxMzkwLCJpc3MiOiIxY2MtSFMyNTYiLCJqdGkiOiJjMTNkMWQ1My1kYWY4LTQ4MDItOTY0Yy05ZjNlZGRmZTgwN2UifQ.ZuVi6vR5IxsM5rKTBmsvl9JPYrOBN0B0D86g2IurLq4"}
+var token1 = Token{AccessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoxLCJiIjoiQiIsImV4cCI6MTYzMjc0MTk5MCwiaWF0IjoxNjMyNzQxMzkwLCJpc3MiOiIxY2MtSFMyNTYiLCJqdGkiOiI4ODYyZjk4Mi02N2RiLTQ5MzEtYjM2NS01MmVmYWIxZjUxNzIifQ.OiIO6KPadx_oVzHRJLJyGg9SW5YRkHKCM_JTql62LV0"}
+var token2 = Token{AccessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoxLCJiIjoiQiIsImV4cCI6MTYzMjc0MTk5MCwiaWF0IjoxNjMyNzQxMzkwLCJpc3MiOiIxY2MtSFMyNTYiLCJqdGkiOiJjMTNkMWQ1My1kYWY4LTQ4MDItOTY0Yy05ZjNlZGRmZTgwN2UifQ.ZuVi6vR5IxsM5rKTBmsvl9JPYrOBN0B0D86g2IurLq4"}
 
 // mustTokenWithExpiredAccess 构造一个 access_token 已过期、伴生 refresh_token 未过期的 token,
 // 负载与 token1 一致({a:1,b:"B"}),用于过期场景的测试。用默认签名器(HS256)签出。
-func mustTokenWithExpiredAccess(t *testing.T) *jwt_pb.Token {
+func mustTokenWithExpiredAccess(t *testing.T) *Token {
 	t.Helper()
 	signer, err := NewSigner()
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
 	token, err := signer.Sign(
+		context.Background(),
 		map[string]interface{}{"a": 1, "b": "B"},
 		signoptions.WithSub("test"),
 		signoptions.WithExpAt(time.Now().Add(-time.Hour)),
@@ -40,9 +42,9 @@ func TestDefaultVerifierrMeta(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init verifier error")
 	}
-	res, _ := verifier.Meta()
+	res, _ := verifier.Meta(context.Background())
 	t.Log("get algo", res.Algo.String())
-	assert.Equal(t, jwt_pb.EncryptionAlgorithm_HS256, res.Algo)
+	assert.Equal(t, AlgoHS256, res.Algo)
 	t.Log("get defaultAUD", res.DefaultAUD)
 	assert.Equal(t, "", res.DefaultAUD)
 	t.Log("get DefaultISSRange", res.DefaultISSRange)
@@ -57,9 +59,9 @@ func TestNewHashVerifierrOpts(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init verifier error")
 	}
-	res, _ := verifier.Meta()
+	res, _ := verifier.Meta(context.Background())
 	t.Log("get algo", res.Algo.String())
-	assert.Equal(t, jwt_pb.EncryptionAlgorithm_HS256, res.Algo)
+	assert.Equal(t, AlgoHS256, res.Algo)
 	t.Log("get defaultAUD", res.DefaultAUD)
 	assert.Equal(t, "test", res.DefaultAUD)
 	t.Log("get DefaultISSRange", res.DefaultISSRange)
@@ -74,7 +76,9 @@ func TestNewHashVerifierWithNewKey(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init verifier error")
 	}
-	key := string(verifier.key.([]byte))
+	kp, ok := verifier.keyProvider.(staticVerifierKey)
+	assert.True(t, ok)
+	key := string(kp.key.([]byte))
 	t.Log("get key", key)
 	assert.Equal(t, "testkey", key)
 }
@@ -87,22 +91,17 @@ func TestNewHashVerifierWithNewKeyInFile(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init verifier error")
 	}
-	key := string(verifier.key.([]byte))
+	kp, ok := verifier.keyProvider.(staticVerifierKey)
+	assert.True(t, ok)
+	key := string(kp.key.([]byte))
 	t.Log("get key", key)
 	assert.Equal(t, "key in file", key)
 }
 
-// TestNewHashVerifierWithWrongKeyFilepath 测试从错误文件路径中读取秘钥
+// TestNewHashVerifierWithWrongKeyFilepath 测试从错误文件路径中读取秘钥,应直接返回错误而不是panic
 func TestNewHashVerifierWithWrongKeyFilepath(t *testing.T) {
-	func() {
-		defer func() {
-			if err := recover(); err != nil {
-				t.Log("get err", err.(error).Error())
-			}
-		}()
-		NewVerifier(WithVerifySecretKeyFromFile("key.txt1"))
-		assert.FailNow(t, "init signer should error")
-	}()
+	_, err := NewVerifier(WithVerifySecretKeyFromFile("key.txt1"))
+	assert.Error(t, err)
 }
 
 // TestHashVerifierVerify 测试hash类型的签名校验器校验token
@@ -116,8 +115,8 @@ func TestHashVerifierVerify(t *testing.T) {
 	payload1 := testPayLoad{}
 	payload2 := testPayLoad{}
 
-	verifier.Verify(&token1, &payload1)
-	verifier.Verify(&token2, &payload2)
+	verifier.Verify(context.Background(), &token1, &payload1)
+	verifier.Verify(context.Background(), &token2, &payload2)
 	t.Log("get payload1", payload1)
 	t.Log("get payload2", payload2)
 }
@@ -133,8 +132,8 @@ func TestHashVerifierVerifyWithRefreshToken(t *testing.T) {
 	payload1 := testPayLoad{}
 	payload2 := testPayLoad{}
 
-	verifier.Verify(&token1, &payload1)
-	verifier.Verify(mustTokenWithExpiredAccess(t), &payload2)
+	verifier.Verify(context.Background(), &token1, &payload1)
+	verifier.Verify(context.Background(), mustTokenWithExpiredAccess(t), &payload2)
 	t.Log("get payload1", payload1)
 	t.Log("get payload2", payload2)
 	assert.EqualValues(t, payload1, payload2)
@@ -148,7 +147,7 @@ func TestHashVerifierVerifyExpiredToken(t *testing.T) {
 	}
 
 	payload1 := testPayLoad{}
-	status, err := verifier.Verify(&token1, &payload1)
+	status, err := verifier.Verify(context.Background(), &token1, &payload1)
 	if err == nil {
 		assert.FailNow(t, "verifier Verify should get error")
 	}
@@ -166,7 +165,7 @@ func TestHashVerifierVerifyNotAccessToken(t *testing.T) {
 	}
 
 	payload1 := testPayLoad{}
-	status, err := verifier.Verify(&jwt_pb.Token{}, &payload1)
+	status, err := verifier.Verify(context.Background(), &Token{}, &payload1)
 	if err == nil {
 		assert.FailNow(t, "verifier Verify should get error")
 	}
@@ -183,7 +182,7 @@ func TestHashVerifierVerifyNotToken(t *testing.T) {
 	}
 
 	payload1 := testPayLoad{}
-	status, err := verifier.Verify(&jwt_pb.Token{AccessToken: "asfdasfsd"}, &payload1)
+	status, err := verifier.Verify(context.Background(), &Token{AccessToken: "asfdasfsd"}, &payload1)
 	if err == nil {
 		assert.FailNow(t, "verifier Verify should get error")
 	}
@@ -206,18 +205,18 @@ func TestHashVerifierVerifyOKAccessToken(t *testing.T) {
 	}
 	sub := "test"
 	payload := map[string]interface{}{"a": 1.0, "b": "B"}
-	token, err := signer.Sign(payload, signoptions.WithSub(sub))
+	token, err := signer.Sign(context.Background(), payload, signoptions.WithSub(sub))
 	if err != nil {
 		assert.FailNow(t, err.Error(), "signer.Sign get error")
 	}
 	payload1 := map[string]interface{}{}
-	status, err := verifier.Verify(token, &payload1)
+	status, err := verifier.Verify(context.Background(), token, &payload1)
 	if err != nil {
 		assert.FailNow(t, "verifier Verify should not get error")
 	}
 	t.Log("get status", status)
 	t.Log("get timeleft", status.TimeLeft)
-	signermeta, _ := signer.Meta()
+	signermeta, _ := signer.Meta(context.Background())
 	assert.LessOrEqual(t, time.Duration(status.TimeLeft), time.Second*time.Duration(signermeta.DefaultTTL))
 	t.Log("get payload", payload1)
 	assert.EqualValues(t, payload, payload1)
@@ -237,6 +236,7 @@ func TestHashVerifierVerifyCheckMatch(t *testing.T) {
 	aud := "test_aud"
 	payload := map[string]interface{}{"a": 1.0, "b": "B"}
 	token, err := signer.Sign(
+		context.Background(),
 		payload,
 		signoptions.WithSub(sub),
 		signoptions.WithAud(aud))
@@ -245,6 +245,7 @@ func TestHashVerifierVerifyCheckMatch(t *testing.T) {
 	}
 	payload1 := map[string]interface{}{}
 	status, err := verifier.Verify(
+		context.Background(),
 		token,
 		&payload1,
 		verifyoptions.WithSUBMustBe(sub),
@@ -254,7 +255,7 @@ func TestHashVerifierVerifyCheckMatch(t *testing.T) {
 		assert.FailNow(t, "verifier Verify should not get error")
 	}
 	t.Log("get timeleft", status.TimeLeft)
-	signermeta, _ := signer.Meta()
+	signermeta, _ := signer.Meta(context.Background())
 	assert.LessOrEqual(t, time.Duration(status.TimeLeft), time.Second*time.Duration(signermeta.DefaultTTL))
 	t.Log("get payload", payload1)
 	assert.EqualValues(t, payload, payload1)
@@ -274,6 +275,7 @@ func TestHashVerifierVerifyCheckSubNotMatch(t *testing.T) {
 	aud := "test_aud"
 	payload := map[string]interface{}{"a": 1.0, "b": "B"}
 	token, err := signer.Sign(
+		context.Background(),
 		payload,
 		signoptions.WithSub(sub),
 		signoptions.WithAud(aud))
@@ -282,6 +284,7 @@ func TestHashVerifierVerifyCheckSubNotMatch(t *testing.T) {
 	}
 	payload1 := map[string]interface{}{}
 	status, err := verifier.Verify(
+		context.Background(),
 		token,
 		&payload1,
 		verifyoptions.WithSUBMustBe(sub+"1"),
@@ -293,7 +296,7 @@ func TestHashVerifierVerifyCheckSubNotMatch(t *testing.T) {
 	t.Log("get status", status)
 	assert.Nil(t, status)
 	t.Log("get err", err)
-	assert.EqualError(t, err, "SUB validation failed")
+	assert.ErrorIs(t, err, exceptions.ErrValidationErrorSubject)
 }
 
 // TestHashVerifierVerifyCheckAudNotMatch 测试校验aud不匹配
@@ -310,6 +313,7 @@ func TestHashVerifierVerifyCheckAudNotMatch(t *testing.T) {
 	aud := []string{"aud1", "aud2", "aud3"}
 	payload := map[string]interface{}{"a": 1.0, "b": "B"}
 	token, err := signer.Sign(
+		context.Background(),
 		payload,
 		signoptions.WithSub(sub),
 		signoptions.WithAud(aud...))
@@ -318,6 +322,7 @@ func TestHashVerifierVerifyCheckAudNotMatch(t *testing.T) {
 	}
 	payload1 := map[string]interface{}{}
 	status, err := verifier.Verify(
+		context.Background(),
 		token,
 		&payload1,
 		verifyoptions.WithSUBMustBe(sub),
@@ -329,8 +334,9 @@ func TestHashVerifierVerifyCheckAudNotMatch(t *testing.T) {
 	t.Log("WithAUDMustHas get status", status)
 	assert.Nil(t, status)
 	t.Log("WithAUDMustHas get err", err)
-	assert.EqualError(t, err, "AUD validation failed")
+	assert.ErrorIs(t, err, exceptions.ErrValidationErrorAudience)
 	status, err2 := verifier.Verify(
+		context.Background(),
 		token,
 		&payload1,
 		verifyoptions.WithSUBMustBe(sub),
@@ -342,9 +348,10 @@ func TestHashVerifierVerifyCheckAudNotMatch(t *testing.T) {
 	t.Log("WithAUDMustNotHas get status", status)
 	assert.Nil(t, status)
 	t.Log("WithAUDMustNotHas get err", err2)
-	assert.EqualError(t, err2, "AUD validation failed")
+	assert.ErrorIs(t, err2, exceptions.ErrValidationErrorAudience)
 
 	status, err3 := verifier.Verify(
+		context.Background(),
 		token,
 		&payload1,
 		verifyoptions.WithSUBMustBe(sub),
@@ -356,9 +363,10 @@ func TestHashVerifierVerifyCheckAudNotMatch(t *testing.T) {
 	t.Log("WithAUDMustHasAny get status", status)
 	assert.Nil(t, status)
 	t.Log("WithAUDMustHasAny get err", err3)
-	assert.EqualError(t, err3, "AUD validation failed")
+	assert.ErrorIs(t, err3, exceptions.ErrValidationErrorAudience)
 
 	status, err4 := verifier.Verify(
+		context.Background(),
 		token,
 		&payload1,
 		verifyoptions.WithSUBMustBe(sub),
@@ -386,6 +394,7 @@ func TestHashVerifierVerifyCheckIssNotMatch(t *testing.T) {
 	aud := "test_aud"
 	payload := map[string]interface{}{"a": 1.0, "b": "B"}
 	token, err := signer.Sign(
+		context.Background(),
 		payload,
 		signoptions.WithSub(sub),
 		signoptions.WithAud(aud))
@@ -394,6 +403,7 @@ func TestHashVerifierVerifyCheckIssNotMatch(t *testing.T) {
 	}
 	payload1 := map[string]interface{}{}
 	status, err := verifier.Verify(
+		context.Background(),
 		token,
 		&payload1,
 		verifyoptions.WithSUBMustBe(sub),
@@ -405,11 +415,11 @@ func TestHashVerifierVerifyCheckIssNotMatch(t *testing.T) {
 	t.Log("get status", status)
 	assert.Nil(t, status)
 	t.Log("get err", err)
-	assert.EqualError(t, err, "ISS validation failed")
+	assert.ErrorIs(t, err, exceptions.ErrValidationErrorIssuer)
 }
 
 // TestHashVerifierVerifyCheckAllNotMatch 测试校验全部不匹配
-// 校验顺序为sub>aud>iss所以应该报`SUB validation failed`
+// 校验顺序为sub>iss>aud所以应该报`SUB validation failed`
 func TestHashVerifierVerifyCheckAllNotMatch(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -423,6 +433,7 @@ func TestHashVerifierVerifyCheckAllNotMatch(t *testing.T) {
 	aud := "test_aud"
 	payload := map[string]interface{}{"a": 1.0, "b": "B"}
 	token, err := signer.Sign(
+		context.Background(),
 		payload,
 		signoptions.WithSub(sub),
 		signoptions.WithAud(aud))
@@ -431,6 +442,7 @@ func TestHashVerifierVerifyCheckAllNotMatch(t *testing.T) {
 	}
 	payload1 := map[string]interface{}{}
 	status, err := verifier.Verify(
+		context.Background(),
 		token,
 		&payload1,
 		verifyoptions.WithSUBMustBe(sub+"1"),
@@ -442,10 +454,10 @@ func TestHashVerifierVerifyCheckAllNotMatch(t *testing.T) {
 	t.Log("get status", status)
 	assert.Nil(t, status)
 	t.Log("get err", err)
-	assert.EqualError(t, err, "SUB validation failed")
+	assert.ErrorIs(t, err, exceptions.ErrValidationErrorSubject)
 }
 
-// TestHashVerifierVerifyExpiredToken 测试解析有access_token且已经过期的token但有RefreshToken且没有过期的token
+// TestHashVerifierVerifyExpiredAccessTokenWithNotExpiredRefreshToken 测试解析有access_token且已经过期的token但有RefreshToken且没有过期的token
 func TestHashVerifierVerifyExpiredAccessTokenWithNotExpiredRefreshToken(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -453,7 +465,7 @@ func TestHashVerifierVerifyExpiredAccessTokenWithNotExpiredRefreshToken(t *testi
 	}
 
 	payload1 := testPayLoad{}
-	status, err := verifier.Verify(mustTokenWithExpiredAccess(t), &payload1)
+	status, err := verifier.Verify(context.Background(), mustTokenWithExpiredAccess(t), &payload1)
 	if err == nil {
 		assert.FailNow(t, "verifier Verify should get error")
 	}
@@ -463,7 +475,7 @@ func TestHashVerifierVerifyExpiredAccessTokenWithNotExpiredRefreshToken(t *testi
 	assert.EqualError(t, err, "EXP validation failed")
 }
 
-// TestHashVerifierVerifyNotToken 测试解析access_token过期,有refresh_token,但不是jwt的字符串的情况
+// TestHashVerifierVerifyNotRefreshTokenAccessTokenExpired 测试解析access_token过期,有refresh_token,但不是jwt的字符串的情况
 // 这种情况下应该可以解析出payload,但报错不是超时
 func TestHashVerifierVerifyNotRefreshTokenAccessTokenExpired(t *testing.T) {
 	verifier, err := NewVerifier()
@@ -471,7 +483,7 @@ func TestHashVerifierVerifyNotRefreshTokenAccessTokenExpired(t *testing.T) {
 		assert.FailNow(t, err.Error(), "init verifier error")
 	}
 	payload1 := testPayLoad{}
-	status, err := verifier.Verify(&jwt_pb.Token{AccessToken: token1.AccessToken, RefreshToken: "asfdasfsd"}, &payload1)
+	status, err := verifier.Verify(context.Background(), &Token{AccessToken: token1.AccessToken, RefreshToken: "asfdasfsd"}, &payload1)
 	if err == nil {
 		assert.FailNow(t, "verifier Verify should get error")
 	}
@@ -498,6 +510,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckMatch(t *testing.T) {
 	aud := "test_aud"
 	payload := map[string]interface{}{"a": 1.0, "b": "B"}
 	token, err := signer.Sign(
+		context.Background(),
 		payload,
 		signoptions.WithSub(sub),
 		signoptions.WithAud(aud),
@@ -509,6 +522,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckMatch(t *testing.T) {
 	}
 	payload1 := map[string]interface{}{}
 	status, err := verifier.Verify(
+		context.Background(),
 		token,
 		&payload1,
 		verifyoptions.WithSUBMustBe(sub),
@@ -536,6 +550,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckAllNotMatch(t *testing.T) {
 	aud := "test_aud"
 	payload := map[string]interface{}{"a": 1.0, "b": "B"}
 	token, err := signer.Sign(
+		context.Background(),
 		payload,
 		signoptions.WithSub(sub),
 		signoptions.WithAud(aud),
@@ -547,6 +562,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckAllNotMatch(t *testing.T) {
 	}
 	payload1 := map[string]interface{}{}
 	status, err := verifier.Verify(
+		context.Background(),
 		token,
 		&payload1,
 		verifyoptions.WithSUBMustBe(sub+"1"),
@@ -558,7 +574,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckAllNotMatch(t *testing.T) {
 	t.Log("get status", status)
 	assert.Nil(t, status)
 	t.Log("get err", err)
-	assert.EqualError(t, err, "SUB validation failed")
+	assert.ErrorIs(t, err, exceptions.ErrValidationErrorSubject)
 }
 
 // TestHashVerifierVerifyWithRefreshTokenCheckRTSubNotMatch 测试校验带RefreshToken的token的两个key的sub不匹配
@@ -574,6 +590,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTSubNotMatch(t *testing.T) {
 	sub := "test"
 	payload := map[string]interface{}{"a": 1.0, "b": "B"}
 	tokenacc, err := signer.Sign(
+		context.Background(),
 		payload,
 		signoptions.WithSub(sub),
 	)
@@ -581,6 +598,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTSubNotMatch(t *testing.T) {
 		assert.FailNow(t, err.Error(), "signer.Sign get error")
 	}
 	tokenfresh, err := signer.Sign(
+		context.Background(),
 		nil,
 		signoptions.WithSub(sub+"1"),
 		signoptions.WithTTL(time.Hour*2),
@@ -588,12 +606,13 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTSubNotMatch(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "signer.Sign get error")
 	}
-	token := &jwt_pb.Token{
+	token := &Token{
 		AccessToken:  tokenacc.AccessToken,
 		RefreshToken: tokenfresh.AccessToken,
 	}
 	payload1 := map[string]interface{}{}
 	status, err := verifier.Verify(
+		context.Background(),
 		token,
 		&payload1)
 	if err == nil {
@@ -602,7 +621,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTSubNotMatch(t *testing.T) {
 	t.Log("get status", status)
 	assert.Nil(t, status)
 	t.Log("get err", err)
-	assert.EqualError(t, err, "refresh token sub not match")
+	assert.ErrorIs(t, err, exceptions.ErrRefreshTokenSUBNotMatch)
 }
 
 // TestHashVerifierVerifyWithRefreshTokenCheckRTWithoutSub 测试校验带RefreshToken的token的RefreshToken没有sub
@@ -618,6 +637,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTWithoutSub(t *testing.T) {
 	sub := "test"
 	payload := map[string]interface{}{"a": 1.0, "b": "B"}
 	tokenacc, err := signer.Sign(
+		context.Background(),
 		payload,
 		signoptions.WithSub(sub),
 	)
@@ -625,18 +645,20 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTWithoutSub(t *testing.T) {
 		assert.FailNow(t, err.Error(), "signer.Sign get error")
 	}
 	tokenfresh, err := signer.Sign(
+		context.Background(),
 		nil,
 		signoptions.WithTTL(time.Hour*2),
 	)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "signer.Sign get error")
 	}
-	token := &jwt_pb.Token{
+	token := &Token{
 		AccessToken:  tokenacc.AccessToken,
 		RefreshToken: tokenfresh.AccessToken,
 	}
 	payload1 := map[string]interface{}{}
 	status, err := verifier.Verify(
+		context.Background(),
 		token,
 		&payload1)
 	if err == nil {
@@ -645,7 +667,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTWithoutSub(t *testing.T) {
 	t.Log("get status", status)
 	assert.Nil(t, status)
 	t.Log("get err", err)
-	assert.EqualError(t, err, "refresh token sub not match")
+	assert.ErrorIs(t, err, exceptions.ErrRefreshTokenSUBNotMatch)
 }
 
 // TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatchJti 校验jti不符的情况
@@ -662,6 +684,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatchJti(t *testing.T) {
 	aud := "test_aud"
 	payload := map[string]interface{}{"a": 1.0, "b": "B"}
 	tokenacc, err := signer.Sign(
+		context.Background(),
 		payload,
 		signoptions.WithSub(sub),
 		signoptions.WithAud(aud),
@@ -670,6 +693,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatchJti(t *testing.T) {
 		assert.FailNow(t, err.Error(), "signer.Sign get error")
 	}
 	tokenfresh, err := signer.Sign(
+		context.Background(),
 		nil,
 		signoptions.WithSub(sub),
 		signoptions.WithAud(aud),
@@ -678,12 +702,13 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatchJti(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "signer.Sign get error")
 	}
-	token := &jwt_pb.Token{
+	token := &Token{
 		AccessToken:  tokenacc.AccessToken,
 		RefreshToken: tokenfresh.AccessToken,
 	}
 	payload1 := map[string]interface{}{}
 	status, err := verifier.Verify(
+		context.Background(),
 		token,
 		&payload1,
 	)
@@ -693,7 +718,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatchJti(t *testing.T) {
 	t.Log("get status", status)
 	assert.Nil(t, status)
 	t.Log("get err", err)
-	assert.EqualError(t, err, "refresh token jti not match")
+	assert.ErrorIs(t, err, exceptions.ErrRefreshTokenJtiNotMatch)
 }
 
 // TestHashVerifierVerifyWithRefreshTokenCheckRTAUDNotMatch 测试校验带RefreshToken的token的两个key的aud不匹配
@@ -710,6 +735,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTAUDNotMatch(t *testing.T) {
 	aud := "test_aud"
 	payload := map[string]interface{}{"a": 1.0, "b": "B"}
 	tokenacc, err := signer.Sign(
+		context.Background(),
 		payload,
 		signoptions.WithSub(sub),
 		signoptions.WithAud(aud),
@@ -718,6 +744,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTAUDNotMatch(t *testing.T) {
 		assert.FailNow(t, err.Error(), "signer.Sign get error")
 	}
 	tokenfresh, err := signer.Sign(
+		context.Background(),
 		nil,
 		signoptions.WithSub(sub),
 		signoptions.WithAud(aud+"1"),
@@ -726,12 +753,13 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTAUDNotMatch(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "signer.Sign get error")
 	}
-	token := &jwt_pb.Token{
+	token := &Token{
 		AccessToken:  tokenacc.AccessToken,
 		RefreshToken: tokenfresh.AccessToken,
 	}
 	payload1 := map[string]interface{}{}
 	status, err := verifier.Verify(
+		context.Background(),
 		token,
 		&payload1,
 		verifyoptions.WithNotCheckRefreshTokenJTI())
@@ -741,7 +769,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTAUDNotMatch(t *testing.T) {
 	t.Log("get status", status)
 	assert.Nil(t, status)
 	t.Log("get err", err)
-	assert.EqualError(t, err, "refresh token aud not match")
+	assert.ErrorIs(t, err, exceptions.ErrRefreshTokenAudNotMatch)
 }
 
 // TestHashVerifierVerifyWithRefreshTokenCheckRTIssNotInRange 测试校验带RefreshToken的token的RefreshToken的签发人不在合法范围
@@ -763,6 +791,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTIssNotInRange(t *testing.T) {
 	aud := "test_aud"
 	payload := map[string]interface{}{"a": 1.0, "b": "B"}
 	tokenacc, err := signer.Sign(
+		context.Background(),
 		payload,
 		signoptions.WithSub(sub),
 		signoptions.WithAud(aud),
@@ -771,6 +800,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTIssNotInRange(t *testing.T) {
 		assert.FailNow(t, err.Error(), "signer.Sign get error")
 	}
 	tokenfresh, err := signer2.Sign(
+		context.Background(),
 		nil,
 		signoptions.WithSub(sub),
 		signoptions.WithAud(aud),
@@ -779,12 +809,13 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTIssNotInRange(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "signer.Sign get error")
 	}
-	token := &jwt_pb.Token{
+	token := &Token{
 		AccessToken:  tokenacc.AccessToken,
 		RefreshToken: tokenfresh.AccessToken,
 	}
 	payload1 := map[string]interface{}{}
 	status, err := verifier.Verify(
+		context.Background(),
 		token,
 		&payload1,
 		verifyoptions.WithIssMustIn(signer.opts.Iss),
@@ -796,7 +827,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTIssNotInRange(t *testing.T) {
 	t.Log("get status", status)
 	assert.Nil(t, status)
 	t.Log("get err", err)
-	assert.EqualError(t, err, "refresh token iss not in range")
+	assert.ErrorIs(t, err, exceptions.ErrRefreshTokenIssNotInRange)
 }
 
 // TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatch 测试校验带RefreshToken的token的两个key的sub不匹配
@@ -813,6 +844,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatch(t *testing.T) {
 	aud := "test_aud"
 	payload := map[string]interface{}{"a": 1.0, "b": "B"}
 	tokenacc, err := signer.Sign(
+		context.Background(),
 		payload,
 		signoptions.WithSub(sub),
 		signoptions.WithAud(aud),
@@ -821,6 +853,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatch(t *testing.T) {
 		assert.FailNow(t, err.Error(), "signer.Sign get error")
 	}
 	tokenfresh, err := signer.Sign(
+		context.Background(),
 		nil,
 		signoptions.WithSub(sub+"1"),
 		signoptions.WithAud(aud+"1"),
@@ -829,12 +862,13 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatch(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error(), "signer.Sign get error")
 	}
-	token := &jwt_pb.Token{
+	token := &Token{
 		AccessToken:  tokenacc.AccessToken,
 		RefreshToken: tokenfresh.AccessToken,
 	}
 	payload1 := map[string]interface{}{}
 	status, err := verifier.Verify(
+		context.Background(),
 		token,
 		&payload1)
 	if err == nil {
@@ -843,21 +877,21 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatch(t *testing.T) {
 	t.Log("get status", status)
 	assert.Nil(t, status)
 	t.Log("get err", err)
-	assert.EqualError(t, err, "refresh token sub not match")
+	assert.ErrorIs(t, err, exceptions.ErrRefreshTokenSUBNotMatch)
 }
 
 // TestNewRSAVerifierrOpts 测试创建一个rsa算法的签名器
 func TestNewRSAVerifierrOpts(t *testing.T) {
 	verifier, err := NewVerifier(
-		WithVerifyAlgo(jwt_pb.EncryptionAlgorithm_RS256),
+		WithVerifyAlgo(AlgoRS256),
 		WithPemPublicKeyFromFile("utils/keygener/newkey_rsa_pub.pem"),
 	)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init verifier error")
 	}
-	res, _ := verifier.Meta()
+	res, _ := verifier.Meta(context.Background())
 	t.Log("get algo", res.Algo.String())
-	assert.Equal(t, jwt_pb.EncryptionAlgorithm_RS256, res.Algo)
+	assert.Equal(t, AlgoRS256, res.Algo)
 	t.Log("get defaultAUD", res.DefaultAUD)
 	assert.Equal(t, "", res.DefaultAUD)
 	t.Log("get DefaultISSRange", res.DefaultISSRange)
@@ -867,15 +901,15 @@ func TestNewRSAVerifierrOpts(t *testing.T) {
 // TestNewESAVerifierrOpts  测试创建一个ecdsa算法的签名器
 func TestNewESAVerifierrOpts(t *testing.T) {
 	verifier, err := NewVerifier(
-		WithVerifyAlgo(jwt_pb.EncryptionAlgorithm_ES256),
+		WithVerifyAlgo(AlgoES256),
 		WithPemPublicKeyFromFile("utils/keygener/newkey_ecdsa_pub.pem"),
 	)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init verifier error")
 	}
-	res, _ := verifier.Meta()
+	res, _ := verifier.Meta(context.Background())
 	t.Log("get algo", res.Algo.String())
-	assert.Equal(t, jwt_pb.EncryptionAlgorithm_ES256, res.Algo)
+	assert.Equal(t, AlgoES256, res.Algo)
 	t.Log("get defaultAUD", res.DefaultAUD)
 	assert.Equal(t, "", res.DefaultAUD)
 	t.Log("get DefaultISSRange", res.DefaultISSRange)
@@ -885,15 +919,15 @@ func TestNewESAVerifierrOpts(t *testing.T) {
 // TestNewEdDSAAVerifierrOpts  测试创建一个ed25519算法的签名器
 func TestNewEdDSAAVerifierrOpts(t *testing.T) {
 	verifier, err := NewVerifier(
-		WithVerifyAlgo(jwt_pb.EncryptionAlgorithm_EdDSA),
+		WithVerifyAlgo(AlgoEdDSA),
 		WithPemPublicKeyFromFile("utils/keygener/newkey_ed25519_pub.pem"),
 	)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init verifier error")
 	}
-	res, _ := verifier.Meta()
+	res, _ := verifier.Meta(context.Background())
 	t.Log("get algo", res.Algo.String())
-	assert.Equal(t, jwt_pb.EncryptionAlgorithm_EdDSA, res.Algo)
+	assert.Equal(t, AlgoEdDSA, res.Algo)
 	t.Log("get defaultAUD", res.DefaultAUD)
 	assert.Equal(t, "", res.DefaultAUD)
 	t.Log("get DefaultISSRange", res.DefaultISSRange)
@@ -904,20 +938,21 @@ func TestNewEdDSAAVerifierrOpts(t *testing.T) {
 // 测试的两个token的负载一样,但签名时间不同,而且已经过期
 func TestRSAVerifierVerifyWithRefreshToken(t *testing.T) {
 	verifier, err := NewVerifier(
-		WithVerifyAlgo(jwt_pb.EncryptionAlgorithm_RS256),
+		WithVerifyAlgo(AlgoRS256),
 		WithPemPublicKeyFromFile("utils/keygener/newkey_rsa_pub.pem"),
 	)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init verifier error")
 	}
 	signer, err := NewSigner(
-		WithSignAlgo(jwt_pb.EncryptionAlgorithm_RS256),
+		WithSignAlgo(AlgoRS256),
 		WithPemPrivateKeyFromFile("utils/keygener/newkey_rsa.pem"),
 	)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
 	token, err := signer.Sign(
+		context.Background(),
 		nil,
 		signoptions.WithSub("test"),
 		signoptions.WithRefreshTTL(time.Hour*24),
@@ -926,7 +961,7 @@ func TestRSAVerifierVerifyWithRefreshToken(t *testing.T) {
 		assert.FailNow(t, err.Error(), "signer.Sign should not get error ", err.Error())
 	}
 	payload := map[string]interface{}{}
-	status, err := verifier.Verify(token, &payload)
+	status, err := verifier.Verify(context.Background(), token, &payload)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "verifier.Verify should not get error ", err.Error())
 	}
@@ -941,20 +976,21 @@ func TestRSAVerifierVerifyWithRefreshToken(t *testing.T) {
 // 测试的两个token的负载一样,但签名时间不同,而且已经过期
 func TestEcdsaVerifierVerifyWithRefreshToken(t *testing.T) {
 	verifier, err := NewVerifier(
-		WithVerifyAlgo(jwt_pb.EncryptionAlgorithm_ES256),
+		WithVerifyAlgo(AlgoES256),
 		WithPemPublicKeyFromFile("utils/keygener/newkey_ecdsa_pub.pem"),
 	)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init verifier error")
 	}
 	signer, err := NewSigner(
-		WithSignAlgo(jwt_pb.EncryptionAlgorithm_ES256),
+		WithSignAlgo(AlgoES256),
 		WithPemPrivateKeyFromFile("utils/keygener/newkey_ecdsa.pem"),
 	)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
 	token, err := signer.Sign(
+		context.Background(),
 		nil,
 		signoptions.WithSub("test"),
 		signoptions.WithRefreshTTL(time.Hour*24),
@@ -963,7 +999,7 @@ func TestEcdsaVerifierVerifyWithRefreshToken(t *testing.T) {
 		assert.FailNow(t, err.Error(), "signer.Sign should not get error ", err.Error())
 	}
 	payload := map[string]interface{}{}
-	status, err := verifier.Verify(token, &payload)
+	status, err := verifier.Verify(context.Background(), token, &payload)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "verifier.Verify should not get error ", err.Error())
 	}
@@ -978,20 +1014,21 @@ func TestEcdsaVerifierVerifyWithRefreshToken(t *testing.T) {
 // 测试的两个token的负载一样,但签名时间不同,而且已经过期
 func TestEDsaVerifierVerifyWithRefreshToken(t *testing.T) {
 	verifier, err := NewVerifier(
-		WithVerifyAlgo(jwt_pb.EncryptionAlgorithm_EdDSA),
+		WithVerifyAlgo(AlgoEdDSA),
 		WithPemPublicKeyFromFile("utils/keygener/newkey_ed25519_pub.pem"),
 	)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init verifier error")
 	}
 	signer, err := NewSigner(
-		WithSignAlgo(jwt_pb.EncryptionAlgorithm_EdDSA),
+		WithSignAlgo(AlgoEdDSA),
 		WithPemPrivateKeyFromFile("utils/keygener/newkey_ed25519.pem"),
 	)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "init signer error")
 	}
 	token, err := signer.Sign(
+		context.Background(),
 		nil,
 		signoptions.WithSub("test"),
 		signoptions.WithRefreshTTL(time.Hour*24),
@@ -1000,7 +1037,7 @@ func TestEDsaVerifierVerifyWithRefreshToken(t *testing.T) {
 		assert.FailNow(t, err.Error(), "signer.Sign should not get error ", err.Error())
 	}
 	payload := map[string]interface{}{}
-	status, err := verifier.Verify(token, &payload)
+	status, err := verifier.Verify(context.Background(), token, &payload)
 	if err != nil {
 		assert.FailNow(t, err.Error(), "verifier.Verify should not get error ", err.Error())
 	}

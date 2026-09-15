@@ -83,3 +83,93 @@ var (
 	// ErrRefreshTokenParseError refresh_token的解析错误
 	ErrRefreshTokenParseError = errors.New("refresh token can not parse")
 )
+
+/** 结构化校验错误
+ */
+
+// ValidationError 字段级校验错误,包装具体的哨兵错误,支持 errors.Is/As。
+type ValidationError struct {
+	//Field 校验失败的字段名(sub/aud/iss/exp/jti 等)
+	Field string
+	//Err 具体错误(可用 errors.Is 判断)
+	Err error
+}
+
+// Error 实现error接口
+func (e *ValidationError) Error() string {
+	if e == nil {
+		return ""
+	}
+	if e.Field == "" {
+		return e.Err.Error()
+	}
+	return e.Field + " : " + e.Err.Error()
+}
+
+// Unwrap 支持errors.Is/As
+func (e *ValidationError) Unwrap() error {
+	if e == nil {
+		return nil
+	}
+	return e.Err
+}
+
+// KindOf 返回错误的稳定分类名(供传输层映射错误码),nil 返回空串,未识别返回 "unknown"
+func KindOf(err error) string {
+	switch {
+	case err == nil:
+		return ""
+	case errors.Is(err, ErrValidationErrorExpired):
+		return "validation_expired"
+	case errors.Is(err, ErrValidationErrorMalformed):
+		return "validation_malformed"
+	case errors.Is(err, ErrValidationErrorUnverifiable):
+		return "validation_unverifiable"
+	case errors.Is(err, ErrValidationErrorSignatureInvalid):
+		return "validation_signature_invalid"
+	case errors.Is(err, ErrValidationErrorAudience):
+		return "validation_audience"
+	case errors.Is(err, ErrValidationErrorSubject):
+		return "validation_subject"
+	case errors.Is(err, ErrValidationErrorIssuedAt):
+		return "validation_issued_at"
+	case errors.Is(err, ErrValidationErrorIssuer):
+		return "validation_issuer"
+	case errors.Is(err, ErrValidationErrorNotValidYet):
+		return "validation_not_valid_yet"
+	case errors.Is(err, ErrValidationErrorId):
+		return "validation_id"
+	case errors.Is(err, ErrValidationErrorClaimsInvalid):
+		return "validation_claims_invalid"
+	case errors.Is(err, ErrValidationErrorCanNotHandle):
+		return "validation_can_not_handle"
+	case errors.Is(err, ErrValidationErrorUnknown):
+		return "validation_unknown"
+	case errors.Is(err, ErrAccessTokenNotFound):
+		return "access_token_not_found"
+	case errors.Is(err, ErrSignWithRefreshTokenNeedSUB):
+		return "sign_with_refresh_token_need_sub"
+	case errors.Is(err, ErrRefreshTokenNotHaveEXP):
+		return "refresh_token_not_have_exp"
+	case errors.Is(err, ErrRefreshTokenSUBNotMatch):
+		return "refresh_token_sub_not_match"
+	case errors.Is(err, ErrRefreshTokenAudNotMatch):
+		return "refresh_token_aud_not_match"
+	case errors.Is(err, ErrRefreshTokenJtiNotMatch):
+		return "refresh_token_jti_not_match"
+	case errors.Is(err, ErrRefreshTokenIssNotInRange):
+		return "refresh_token_iss_not_in_range"
+	case errors.Is(err, ErrRefreshTokenValidationError):
+		return "refresh_token_not_validate"
+	case errors.Is(err, ErrRefreshTokenParseError):
+		return "refresh_token_parse_error"
+	case errors.Is(err, ErrAlgoType):
+		return "algo_type_unknown"
+	case errors.Is(err, ErrUnsupportAlgoType):
+		return "algo_type_unsupport"
+	case errors.Is(err, ErrAlgoTypeNotMatch):
+		return "algo_type_not_match"
+	default:
+		return "unknown"
+	}
+}

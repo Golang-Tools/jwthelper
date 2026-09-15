@@ -13,9 +13,7 @@ import (
 
 	"github.com/Golang-Tools/idgener"
 	jwthelper "github.com/Golang-Tools/jwthelper/v4"
-	"github.com/Golang-Tools/jwthelper/v4/jwt_pb"
 	"github.com/Golang-Tools/jwthelper/v4/jwtsigner_pb"
-	"github.com/Golang-Tools/jwthelper/v4/utils"
 	log "github.com/Golang-Tools/loggerhelper/v4"
 	"github.com/Golang-Tools/optparams"
 
@@ -95,12 +93,12 @@ func (s *Server) Main() {
 	log.Info("grpc服务获得参数", log.Dict{"ServiceConfig": s})
 	// 创建签名器
 	opts := []optparams.Option[jwthelper.SignerOptions]{}
-	algo, err := utils.AlgoStrTOAlgoEnum(s.Algo_Name)
+	algo, err := jwthelper.ParseAlgo(s.Algo_Name)
 	if err != nil {
-		algo = jwt_pb.EncryptionAlgorithm_HS256
-		log.Warn("AlgoStrTOAlgoEnum error,use HS256 as default", log.Dict{"error": err.Error()})
+		algo = jwthelper.AlgoHS256
+		log.Warn("ParseAlgo error,use HS256 as default", log.Dict{"error": err.Error()})
 	}
-	if utils.IsAsymmetric(algo) {
+	if jwthelper.IsAsymmetric(algo) {
 		opts = append(opts, jwthelper.WithSignAlgo(algo), jwthelper.WithPemPrivateKeyFromFile(s.Key_Path))
 	} else {
 		opts = append(opts, jwthelper.WithSignAlgo(algo), jwthelper.WithSignSecretKeyFromFile(s.Key_Path))
