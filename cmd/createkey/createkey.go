@@ -3,8 +3,8 @@ package createkey
 import (
 	"os"
 
-	"github.com/Golang-Tools/jwthelper/v2/utils/keygener"
-	log "github.com/Golang-Tools/loggerhelper/v2"
+	"github.com/Golang-Tools/jwthelper/v3/utils/keygener"
+	log "github.com/Golang-Tools/loggerhelper/v4"
 )
 
 type CreateKey struct {
@@ -12,7 +12,7 @@ type CreateKey struct {
 	KeyName  string `json:"key_name" jsonschema:"required,description=创建的私钥公钥名"`
 }
 
-//Main 服务的入口函数
+// Main 服务的入口函数
 func (s *CreateKey) Main() {
 	algotype, err := keygener.StringTOAlgoType(s.AlgoName)
 	if err != nil {

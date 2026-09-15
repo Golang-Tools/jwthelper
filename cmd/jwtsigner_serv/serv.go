@@ -4,7 +4,6 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"fmt"
-	"io/ioutil"
 	"net"
 	"os"
 	"os/signal"
@@ -13,11 +12,11 @@ import (
 	"time"
 
 	"github.com/Golang-Tools/idgener"
-	jwthelper "github.com/Golang-Tools/jwthelper/v2"
-	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/v2/jwtsigner_pb"
-	"github.com/Golang-Tools/jwthelper/v2/utils"
-	log "github.com/Golang-Tools/loggerhelper/v2"
+	jwthelper "github.com/Golang-Tools/jwthelper/v3"
+	"github.com/Golang-Tools/jwthelper/v3/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v3/jwtsigner_pb"
+	"github.com/Golang-Tools/jwthelper/v3/utils"
+	log "github.com/Golang-Tools/loggerhelper/v4"
 	"github.com/Golang-Tools/optparams"
 
 	grpc "google.golang.org/grpc"
@@ -32,14 +31,14 @@ import (
 	"google.golang.org/grpc/xds"
 )
 
-//Server grpc的服务器结构体
-//服务集成了如下特性:
-//设置收发最大消息长度
-//健康检测
-//gzip做消息压缩
-//接口反射
-//TLS支持
-//keep alive 支持
+// Server grpc的服务器结构体
+// 服务集成了如下特性:
+// 设置收发最大消息长度
+// 健康检测
+// gzip做消息压缩
+// 接口反射
+// TLS支持
+// keep alive 支持
 type Server struct {
 	App_Name    string `json:"app_name,omitempty" jsonschema:"required,description=服务名,default=jwthelper_signerrpc"`
 	App_Version string `json:"app_version,omitempty" jsonschema:"description=服务版本,default=2.0.0"`
@@ -86,7 +85,7 @@ type Server struct {
 	signer                                    *jwthelper.Signer
 }
 
-//Main 服务的入口函数
+// Main 服务的入口函数
 func (s *Server) Main() {
 	// 初始化log
 	log.Set(log.WithLevel(s.Log_Level),
@@ -162,7 +161,7 @@ func (s *Server) Main() {
 	s.Run()
 }
 
-//PerformanceOpts 配置性能调优设置
+// PerformanceOpts 配置性能调优设置
 func (s *Server) PerformanceOpts() {
 	if s.opts == nil {
 		s.opts = []grpc.ServerOption{}
@@ -203,7 +202,7 @@ func (s *Server) PerformanceOpts() {
 	}
 }
 
-//TLSOpts 配置TLS设置
+// TLSOpts 配置TLS设置
 func (s *Server) TLSOpts() {
 	if s.opts == nil {
 		s.opts = []grpc.ServerOption{}
@@ -215,7 +214,7 @@ func (s *Server) TLSOpts() {
 			os.Exit(2)
 		}
 		capool := x509.NewCertPool()
-		caCrt, err := ioutil.ReadFile(s.Ca_Cert_Path)
+		caCrt, err := os.ReadFile(s.Ca_Cert_Path)
 		if err != nil {
 			log.Error("read ca pem file error:", log.Dict{"err": err.Error(), "path": s.Ca_Cert_Path})
 			os.Exit(2)
@@ -228,7 +227,7 @@ func (s *Server) TLSOpts() {
 		}
 		if s.Client_Crl_Path != "" {
 			clipool := x509.NewCertPool()
-			cliCrt, err := ioutil.ReadFile(s.Client_Crl_Path)
+			cliCrt, err := os.ReadFile(s.Client_Crl_Path)
 			if err != nil {
 				log.Error("read pem file error:", log.Dict{"err": err.Error(), "path": s.Client_Crl_Path})
 				os.Exit(2)
@@ -249,7 +248,7 @@ func (s *Server) TLSOpts() {
 	log.Info("server will start use TLS")
 }
 
-//RunServer 启动服务
+// RunServer 启动服务
 func (s *Server) RunServer() {
 	lis, err := net.Listen("tcp", s.Address)
 	if err != nil {
@@ -270,7 +269,11 @@ func (s *Server) RunServer() {
 		}
 		s.opts = append(s.opts, grpc.Creds(creds))
 		log.Info("server will start use XDS_CREDS")
-		gs := xds.NewGRPCServer(s.opts...)
+		gs, err := xds.NewGRPCServer(s.opts...)
+		if err != nil {
+			log.Error("failed to create xDS server", log.Dict{"error": err.Error()})
+			os.Exit(2)
+		}
 		defer gs.Stop()
 		jwtsigner_pb.RegisterJwtsignerServer(gs, s)
 		// 注册健康检查
@@ -339,7 +342,7 @@ func (s *Server) RunServer() {
 	}
 }
 
-//Run 执行grpc服务
+// Run 执行grpc服务
 func (s *Server) Run() {
 	s.RunServer()
 }

@@ -3,12 +3,13 @@
 package jwthelper
 
 import (
+	"encoding/json"
 	"time"
 
-	"github.com/Golang-Tools/jwthelper/v2/exceptions"
-	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/v2/signoptions"
-	utils "github.com/Golang-Tools/jwthelper/v2/utils"
+	"github.com/Golang-Tools/jwthelper/v3/exceptions"
+	"github.com/Golang-Tools/jwthelper/v3/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v3/signoptions"
+	utils "github.com/Golang-Tools/jwthelper/v3/utils"
 	"github.com/Golang-Tools/optparams"
 	jwt "github.com/golang-jwt/jwt/v4"
 )
@@ -23,7 +24,7 @@ type Signer struct {
 func NewSigner(opts ...optparams.Option[SignerOptions]) (*Signer, error) {
 	s := new(Signer)
 	s.opts = DefaultSignerOptions
-	optparams.GetOption(&s.opts, opts...)
+	s.opts = *optparams.GetOption(&s.opts, opts...)
 	if !utils.IsAsymmetric(s.opts.Algo) && !utils.IsSymmetric(s.opts.Algo) {
 		return nil, exceptions.ErrUnsupportAlgoType
 	}
@@ -57,7 +58,7 @@ func NewSigner(opts ...optparams.Option[SignerOptions]) (*Signer, error) {
 	return s, nil
 }
 
-//Meta 获取签名器元数据
+// Meta 获取签名器元数据
 func (signer *Signer) Meta() (*jwt_pb.SignerMeta, error) {
 	return &jwt_pb.SignerMeta{
 		Algo:                     signer.opts.Algo,
@@ -69,8 +70,7 @@ func (signer *Signer) Meta() (*jwt_pb.SignerMeta, error) {
 }
 
 func (signer *Signer) signany(claims jwt.MapClaims, opts ...optparams.Option[signoptions.SignOptions]) (*jwt_pb.Token, error) {
-	defaultopt := signoptions.DefaultSignOptions
-	optparams.GetOption(&defaultopt, opts...)
+	defaultopt := optparams.GetOption(&signoptions.DefaultSignOptions, opts...)
 	// 构造iss
 	iss := ""
 	result := jwt_pb.Token{}
@@ -110,27 +110,27 @@ func (signer *Signer) signany(claims jwt.MapClaims, opts ...optparams.Option[sig
 		claims["aud"] = aud
 	}
 
-	var nbr int64 = 0
+	var nbf int64 = 0
 	if defaultopt.Nbf != 0 {
-		nbr = defaultopt.Nbf
+		nbf = defaultopt.Nbf
 	} else {
 		if signer.opts.DefaultEffectiveInterval > 0 {
-			nbr = time.Now().Add(signer.opts.DefaultEffectiveInterval).Unix()
+			nbf = time.Now().Add(signer.opts.DefaultEffectiveInterval).Unix()
 		}
 	}
 	if defaultopt.Exp > 0 {
 		claims["exp"] = defaultopt.Exp
 	} else {
 		if signer.opts.DefaultTTL > 0 {
-			if nbr > 0 {
-				claims["exp"] = time.Unix(nbr, 0).Add(signer.opts.DefaultTTL).Unix()
+			if nbf > 0 {
+				claims["exp"] = time.Unix(nbf, 0).Add(signer.opts.DefaultTTL).Unix()
 			} else {
 				claims["exp"] = time.Now().Add(signer.opts.DefaultTTL).Unix()
 			}
 		}
 	}
-	if nbr > 0 {
-		claims["nbf"] = nbr
+	if nbf > 0 {
+		claims["nbf"] = nbf
 	}
 	accesstoken := jwt.NewWithClaims(signer.algo, claims)
 	accesstokenb, err := accesstoken.SignedString(signer.key)
@@ -153,8 +153,8 @@ func (signer *Signer) signany(claims jwt.MapClaims, opts ...optparams.Option[sig
 		if jti != "" {
 			refresh_claims["jti"] = jti
 		}
-		if nbr != 0 {
-			refresh_claims["nbr"] = nbr
+		if nbf != 0 {
+			refresh_claims["nbf"] = nbf
 		}
 		refresh_token := jwt.NewWithClaims(signer.algo, refresh_claims)
 		refresh_tokenb, err := refresh_token.SignedString(signer.key)
@@ -166,10 +166,10 @@ func (signer *Signer) signany(claims jwt.MapClaims, opts ...optparams.Option[sig
 	return &result, nil
 }
 
-//Sign 签名一个token
-//@Params payload interface{} 负载对象,需要是可以用json解析的对象
-//@Params opts ...signoptions.SignOption 签名的设置项,详见signoptions模块
-//@Returns *jwt_pb.Token jwt的token对象,其中AccessToken是jwt主体token,如果成功一定会有,如果设置了`WithRefreshExpAt`或者`WithRefreshTTL`则会创建一个伴生的RefreshToken用于自动刷新
+// Sign 签名一个token
+// @Params payload interface{} 负载对象,需要是可以用json解析的对象
+// @Params opts ...signoptions.SignOption 签名的设置项,详见signoptions模块
+// @Returns *jwt_pb.Token jwt的token对象,其中AccessToken是jwt主体token,如果成功一定会有,如果设置了`WithRefreshExpAt`或者`WithRefreshTTL`则会创建一个伴生的RefreshToken用于自动刷新
 func (signer *Signer) Sign(payload interface{}, opts ...optparams.Option[signoptions.SignOptions]) (*jwt_pb.Token, error) {
 	var payloadb []byte
 	var err error

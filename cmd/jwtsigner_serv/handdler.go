@@ -2,19 +2,17 @@ package jwtsigner_serv
 
 import (
 	"context"
+	"encoding/json"
 	"time"
 
-	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/v2/jwtsigner_pb"
-	"github.com/Golang-Tools/jwthelper/v2/signoptions"
-	log "github.com/Golang-Tools/loggerhelper/v2"
+	"github.com/Golang-Tools/jwthelper/v3/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v3/jwtsigner_pb"
+	"github.com/Golang-Tools/jwthelper/v3/signoptions"
+	log "github.com/Golang-Tools/loggerhelper/v4"
 	"github.com/Golang-Tools/optparams"
-	jsoniter "github.com/json-iterator/go"
 )
 
-var json = jsoniter.ConfigCompatibleWithStandardLibrary
-
-//Meta 查看签名器的元信息
+// Meta 查看签名器的元信息
 func (s *Server) Meta(ctx context.Context, in *jwtsigner_pb.MetaRequest) (*jwtsigner_pb.MetaResponse, error) {
 	log.Debug("Meta get message", log.Dict{"in": in})
 	meta, err := s.signer.Meta()
@@ -32,7 +30,7 @@ func (s *Server) Meta(ctx context.Context, in *jwtsigner_pb.MetaRequest) (*jwtsi
 	return res, nil
 }
 
-//Sign 用签名器签名
+// Sign 用签名器签名
 func (s *Server) Sign(ctx context.Context, in *jwtsigner_pb.SignRequest) (*jwtsigner_pb.SignResponse, error) {
 	log.Debug("Sign get message", log.Dict{"in": in})
 	payload := map[string]interface{}{}
@@ -48,7 +46,7 @@ func (s *Server) Sign(ctx context.Context, in *jwtsigner_pb.SignRequest) (*jwtsi
 		opts = append(opts, signoptions.WithExpAt(time.Unix(in.Exp, 0)))
 	}
 	if in.Nbf > 0 {
-		opts = append(opts, signoptions.WithExpAt(time.Unix(in.Nbf, 0)))
+		opts = append(opts, signoptions.WithNbf(in.Nbf))
 	}
 	if in.Refreshexp > 0 {
 		opts = append(opts, signoptions.WithRefreshExpAt(time.Unix(in.Refreshexp, 0)))

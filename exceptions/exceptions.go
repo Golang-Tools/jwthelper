@@ -1,20 +1,20 @@
-//exceptions 定义异常
+// exceptions 定义异常
 package exceptions
 
 import (
 	"errors"
 )
 
-//ErrAlgoType 算法类型不支持
+// ErrAlgoType 算法类型不支持
 var ErrAlgoType = errors.New("unknown algo type key")
 
-//ErrUnsupportAlgoType 算法类型在当前场景下不被支持
+// ErrUnsupportAlgoType 算法类型在当前场景下不被支持
 var ErrUnsupportAlgoType = errors.New("algo type not support in this satuation")
 
-//ErrAlgoTypeNotMatch 算法类型和验证器不匹配
+// ErrAlgoTypeNotMatch 算法类型和验证器不匹配
 var ErrAlgoTypeNotMatch = errors.New("algo type not match")
 
-//ErrLoadPrivateKey 私钥无法阅读
+// ErrLoadPrivateKey 私钥无法阅读
 var ErrLoadPrivateKey = errors.New("couldn't read private key")
 
 // ErrLoadPublicKey 公钥无法阅读

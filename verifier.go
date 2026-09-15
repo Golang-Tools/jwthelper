@@ -2,13 +2,13 @@
 package jwthelper
 
 import (
-	"reflect"
+	"encoding/json"
 	"regexp"
 
-	"github.com/Golang-Tools/jwthelper/v2/exceptions"
-	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
-	utils "github.com/Golang-Tools/jwthelper/v2/utils"
-	"github.com/Golang-Tools/jwthelper/v2/verifyoptions"
+	"github.com/Golang-Tools/jwthelper/v3/exceptions"
+	"github.com/Golang-Tools/jwthelper/v3/jwt_pb"
+	utils "github.com/Golang-Tools/jwthelper/v3/utils"
+	"github.com/Golang-Tools/jwthelper/v3/verifyoptions"
 	"github.com/Golang-Tools/optparams"
 	mapset "github.com/deckarep/golang-set/v2"
 	jwt "github.com/golang-jwt/jwt/v4"
@@ -20,11 +20,14 @@ type Verifier struct {
 	key        interface{}
 }
 
+// trailingSpacesRe 匹配 token 字符串末尾的空白字符,用于清理 PEM 解析时可能混入的尾随空白。
+var trailingSpacesRe = regexp.MustCompile(`\s*$`)
+
 // NewVerifier 创建一个签名校验器对象
 func NewVerifier(opts ...optparams.Option[VerifierOptions]) (*Verifier, error) {
 	s := new(Verifier)
 	s.opts = DefaultVerifierOptions
-	optparams.GetOption(&s.opts, opts...)
+	s.opts = *optparams.GetOption(&s.opts, opts...)
 	if !utils.IsAsymmetric(s.opts.Algo) && !utils.IsSymmetric(s.opts.Algo) {
 		return nil, exceptions.ErrUnsupportAlgoType
 	}
@@ -57,7 +60,7 @@ func NewVerifier(opts ...optparams.Option[VerifierOptions]) (*Verifier, error) {
 	return s, nil
 }
 
-//Meta 获取签名器元数据
+// Meta 获取签名器元数据
 func (verifier *Verifier) Meta() (*jwt_pb.VerifierMeta, error) {
 	return &jwt_pb.VerifierMeta{
 		Algo:            verifier.opts.Algo,
@@ -93,16 +96,26 @@ func checkClaims(claims jwt.MapClaims, payload interface{}, jwt_status *jwt_pb.J
 	audi, ok := claims["aud"]
 	if ok {
 		Aud := mapset.NewSet[string]()
-		switch reflect.TypeOf(audi).Kind() {
-		case reflect.Slice, reflect.Array:
-			s := reflect.ValueOf(audi)
-			for i := 0; i < s.Len(); i++ {
-				va := s.Index(i).Interface().(string)
+		valid := true
+		switch v := audi.(type) {
+		case string:
+			Aud.Add(v)
+		case []interface{}:
+			for _, item := range v {
+				va, ok := item.(string)
+				if !ok {
+					valid = false
+					break
+				}
 				Aud.Add(va)
 			}
-		case reflect.String:
-			s := reflect.ValueOf(audi)
-			Aud.Add(s.Interface().(string))
+		case []string:
+			Aud.Append(v...)
+		default:
+			valid = false
+		}
+		if !valid {
+			return exceptions.ErrValidationErrorMalformed
 		}
 		if opts.CheckMatchALLAUD != nil && len(opts.CheckMatchALLAUD) > 0 {
 			if !Aud.Contains(opts.CheckMatchALLAUD...) {
@@ -134,7 +147,11 @@ func checkClaims(claims jwt.MapClaims, payload interface{}, jwt_status *jwt_pb.J
 	}
 	jtii, ok := claims["jti"]
 	if ok {
-		jwt_status.Jti = jtii.(string)
+		jti, ok := jtii.(string)
+		if !ok {
+			return exceptions.ErrValidationErrorMalformed
+		}
+		jwt_status.Jti = jti
 		delete(claims, "jti")
 	}
 	_, ok = claims["iat"]
@@ -143,7 +160,11 @@ func checkClaims(claims jwt.MapClaims, payload interface{}, jwt_status *jwt_pb.J
 	}
 	issi, ok := claims["iss"]
 	if ok {
-		jwt_status.Iss = issi.(string)
+		iss, ok := issi.(string)
+		if !ok {
+			return exceptions.ErrValidationErrorMalformed
+		}
+		jwt_status.Iss = iss
 		delete(claims, "iss")
 	}
 	_, ok = claims["nbf"]
@@ -152,7 +173,11 @@ func checkClaims(claims jwt.MapClaims, payload interface{}, jwt_status *jwt_pb.J
 	}
 	subi, ok := claims["sub"]
 	if ok {
-		jwt_status.Sub = subi.(string)
+		sub, ok := subi.(string)
+		if !ok {
+			return exceptions.ErrValidationErrorMalformed
+		}
+		jwt_status.Sub = sub
 		delete(claims, "sub")
 	}
 	claimsb, err := json.Marshal(claims)
@@ -166,7 +191,7 @@ func checkClaims(claims jwt.MapClaims, payload interface{}, jwt_status *jwt_pb.J
 	return nil
 }
 
-//verifyAccessToken 如果只是超时一样会进入校验流程同时给payload赋值,返回第一位设置为sub
+// verifyAccessToken 如果只是超时一样会进入校验流程同时给payload赋值,返回第一位设置为sub
 func (verifier *Verifier) verifyAccessToken(accesstokenData string, payload interface{}, jwt_status *jwt_pb.JwtStatus, opts *verifyoptions.VerifyOptions) error {
 	var access_time_left int64
 	tok, err := jwt.Parse(
@@ -182,7 +207,11 @@ func (verifier *Verifier) verifyAccessToken(accesstokenData string, payload inte
 		if ok {
 			exp, ok := claims["exp"]
 			if ok {
-				access_time_left = int64(exp.(float64))
+				f, ok := exp.(float64)
+				if !ok {
+					return exceptions.ErrValidationErrorMalformed
+				}
+				access_time_left = int64(f)
 			}
 			err := checkClaims(claims, payload, jwt_status, opts)
 			if err != nil {
@@ -224,7 +253,7 @@ func (verifier *Verifier) verifyAccessToken(accesstokenData string, payload inte
 	}
 }
 
-//checkRefreshToken 校验伴生的refreshtoken是否相符
+// checkRefreshToken 校验伴生的refreshtoken是否相符
 func (verifier *Verifier) checkRefreshToken(refreshtokenData string, jwt_status *jwt_pb.JwtStatus, opts *verifyoptions.VerifyOptions) error {
 	tok, err := jwt.Parse(
 		refreshtokenData,
@@ -242,13 +271,21 @@ func (verifier *Verifier) checkRefreshToken(refreshtokenData string, jwt_status 
 			if !ok {
 				return exceptions.ErrRefreshTokenNotHaveEXP
 			}
-			access_time_left := int64(exp.(float64))
+			f, ok := exp.(float64)
+			if !ok {
+				return exceptions.ErrRefreshTokenValidationError
+			}
+			access_time_left := int64(f)
 			// RefreshToken的sub必须和主体一致
 			subi, ok := claims["sub"]
 			if !ok {
 				return exceptions.ErrRefreshTokenSUBNotMatch
 			}
-			if jwt_status.Sub != subi.(string) {
+			sub, ok := subi.(string)
+			if !ok {
+				return exceptions.ErrRefreshTokenSUBNotMatch
+			}
+			if jwt_status.Sub != sub {
 				return exceptions.ErrRefreshTokenSUBNotMatch
 			}
 			if !opts.NotCheckRefreshTokenJTI {
@@ -256,7 +293,10 @@ func (verifier *Verifier) checkRefreshToken(refreshtokenData string, jwt_status 
 				if !ok {
 					return exceptions.ErrRefreshTokenJtiNotMatch
 				}
-				jti := jtii.(string)
+				jti, ok := jtii.(string)
+				if !ok {
+					return exceptions.ErrRefreshTokenJtiNotMatch
+				}
 				if jwt_status.Jti == "" || jti == "" || jwt_status.Jti != jti {
 					return exceptions.ErrRefreshTokenJtiNotMatch
 				}
@@ -269,16 +309,26 @@ func (verifier *Verifier) checkRefreshToken(refreshtokenData string, jwt_status 
 				}
 				shareaudset := mapset.NewSet(jwt_status.Aud...)
 				refreshaudset := mapset.NewSet[string]()
-				switch reflect.TypeOf(audi).Kind() {
-				case reflect.Slice, reflect.Array:
-					s := reflect.ValueOf(audi)
-					for i := 0; i < s.Len(); i++ {
-						va := s.Index(i).Interface().(string)
+				valid := true
+				switch v := audi.(type) {
+				case string:
+					refreshaudset.Add(v)
+				case []interface{}:
+					for _, item := range v {
+						va, ok := item.(string)
+						if !ok {
+							valid = false
+							break
+						}
 						refreshaudset.Add(va)
 					}
-				case reflect.String:
-					s := reflect.ValueOf(audi)
-					refreshaudset.Add(s.Interface().(string))
+				case []string:
+					refreshaudset.Append(v...)
+				default:
+					valid = false
+				}
+				if !valid {
+					return exceptions.ErrRefreshTokenAudNotMatch
 				}
 				if !shareaudset.Equal(refreshaudset) {
 					return exceptions.ErrRefreshTokenAudNotMatch
@@ -311,7 +361,8 @@ func (verifier *Verifier) checkRefreshToken(refreshtokenData string, jwt_status 
 	}
 }
 
-/** Verify 用Verifier对象验签
+/*
+* Verify 用Verifier对象验签
 
 payload在有access且可以解析的情况下都会被解析出来
 只有在access_token校验通过或者access_token超时但有refresh_token且refresh_token校验通过时才会有jwt_pb.JwtStatus的结果.
@@ -331,7 +382,7 @@ payload在有access且可以解析的情况下都会被解析出来
 @Params token jwt.Token 待校验的token
 @Params payload interface{} 校验出结果的用户负载写入的内容,注意只能是指针
 @Params opts ...verifyoptions.VerifyOption
-@Returns *jwt_pb.JwtStatus jwt的状态信息,包括剩余时间,签发人,sub,aud等
+@Returns *jwt_pb.JwtStatus jwt的状态信息,包括过期时间戳(TimeLeft,Unix 秒,无 exp 时为 0),签发人,sub,aud等
 @Returns error 各种验证失败的错误,注意当access_token过期但有refresh_token且refresh_token未过期时一样会报错exceptions.ErrValidationErrorExpired
 */
 func (verifier *Verifier) Verify(token *jwt_pb.Token, payload interface{}, opts ...optparams.Option[verifyoptions.VerifyOptions]) (*jwt_pb.JwtStatus, error) {
@@ -342,7 +393,7 @@ func (verifier *Verifier) Verify(token *jwt_pb.Token, payload interface{}, opts 
 	if verifier.opts.DefaultISSRange != nil && len(verifier.opts.DefaultISSRange) > 0 {
 		defaultopt.CheckMatchISS = verifier.opts.DefaultISSRange
 	}
-	optparams.GetOption(&defaultopt, opts...)
+	defaultopt = *optparams.GetOption(&defaultopt, opts...)
 	jwt_status := jwt_pb.JwtStatus{}
 	if token.AccessToken == "" {
 		return nil, exceptions.ErrAccessTokenNotFound
@@ -351,11 +402,11 @@ func (verifier *Verifier) Verify(token *jwt_pb.Token, payload interface{}, opts 
 	refreshtokenData := ""
 	if verifier.asymmetric {
 		accesstokenb := []byte(token.AccessToken)
-		accesstokenDatab := regexp.MustCompile(`\s*$`).ReplaceAll(accesstokenb, []byte{})
+		accesstokenDatab := trailingSpacesRe.ReplaceAll(accesstokenb, []byte{})
 		accesstokenData = string(accesstokenDatab)
 		if token.RefreshToken != "" {
 			refreshtokenb := []byte(token.RefreshToken)
-			refreshtokenDatab := regexp.MustCompile(`\s*$`).ReplaceAll(refreshtokenb, []byte{})
+			refreshtokenDatab := trailingSpacesRe.ReplaceAll(refreshtokenb, []byte{})
 			refreshtokenData = string(refreshtokenDatab)
 		}
 	} else {

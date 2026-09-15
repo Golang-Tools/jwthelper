@@ -1,7 +1,6 @@
 # 构造可执行文件
-FROM --platform=$TARGETPLATFORM golang:alpine as build_bin
-ENV GO111MODULE=on
-ENV GOPROXY=https://goproxy.io
+FROM --platform=$TARGETPLATFORM golang:1.25-alpine as build_bin
+ENV GOPROXY=https://goproxy.cn,https://goproxy.io,direct
 # 停用cgo
 ENV CGO_ENABLED=0
 WORKDIR /code
@@ -25,7 +24,7 @@ COPY verifieroptions.go /code/verifieroptions.go
 RUN go build -ldflags "-s -w" -o jwthelper-go cmd/main.go
 
 # 使用upx压缩可执行文件
-FROM --platform=$TARGETPLATFORM alpine:3.11 as upx
+FROM --platform=$TARGETPLATFORM alpine:3.22 as upx
 WORKDIR /code
 # 安装upx
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
@@ -34,13 +33,12 @@ COPY --from=build_bin /code/jwthelper-go .
 RUN upx --best --lzma -o jwthelper jwthelper-go
 
 # 编译获得grpc-health-probe
-FROM --platform=$TARGETPLATFORM golang:buster as build_grpc-health-probe
-ENV GO111MODULE=on
-ENV GOPROXY=https://goproxy.io
+FROM --platform=$TARGETPLATFORM golang:1.25-bookworm as build_grpc-health-probe
+ENV GOPROXY=https://goproxy.cn,https://goproxy.io,direct
 # 停用cgo
 ENV CGO_ENABLED=0
 # 安装grpc-health-probe
-RUN go get github.com/grpc-ecosystem/grpc-health-probe
+RUN go install github.com/grpc-ecosystem/grpc-health-probe@latest
 
 # 使用压缩过的可执行文件构造镜像
 FROM --platform=$TARGETPLATFORM scratch as build_img

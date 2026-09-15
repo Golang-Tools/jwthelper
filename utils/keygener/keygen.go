@@ -9,15 +9,14 @@ import (
 	"crypto/x509"
 	"encoding/pem"
 	"errors"
-	mathrand "math/rand"
 	"os"
 	"strings"
 )
 
-//未知的算法错误
+// 未知的算法错误
 var ErrUnknownAlgoType = errors.New("unknown algo type")
 
-//支持的算法类型
+// 支持的算法类型
 type AlgoType int32
 
 const (
@@ -26,7 +25,7 @@ const (
 	AlgoType_ED25519
 )
 
-//StringTOAlgoType 将算法名转成算法枚举
+// StringTOAlgoType 将算法名转成算法枚举
 func StringTOAlgoType(algoname string) (AlgoType, error) {
 	switch strings.ToUpper(algoname) {
 	case "RSA":
@@ -141,11 +140,10 @@ func saveAsPem(key interface{}, keyname string) error {
 	return nil
 }
 
-// GenRsaKey 生成rsa公私钥对
+// GenRsaKey 生成rsa公私钥对,密钥长度 2048 位(Go 1.24+ 要求 RSA 密钥不少于 1024 位)
 func GenRsaKey(keyname string) error {
-	bits := int(mathrand.Int31n(1000-250) + 250)
 	//生成私钥文件
-	privateKey, err := rsa.GenerateKey(rand.Reader, bits)
+	privateKey, err := rsa.GenerateKey(rand.Reader, 2048)
 	if err != nil {
 		return err
 	}
@@ -199,7 +197,7 @@ func GenEd25519Key(keyname string) error {
 	return nil
 }
 
-//GenKey 随机生成指定类型的公私钥对
+// GenKey 随机生成指定类型的公私钥对
 func GenKey(algotype AlgoType, keyname string) error {
 	switch algotype {
 	case AlgoType_RSA:

@@ -3,15 +3,14 @@ package utils
 import (
 	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 	"strings"
 
-	"github.com/Golang-Tools/jwthelper/v2/exceptions"
-	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v3/exceptions"
+	"github.com/Golang-Tools/jwthelper/v3/jwt_pb"
 )
 
-//AlgoStrTOAlgoEnum 加密算法名转化为算法枚举值
+// AlgoStrTOAlgoEnum 加密算法名转化为算法枚举值
 func AlgoStrTOAlgoEnum(methodstr string) (jwt_pb.EncryptionAlgorithm, error) {
 	switch strings.ToUpper(methodstr) {
 	case "HS256":
@@ -38,6 +37,10 @@ func AlgoStrTOAlgoEnum(methodstr string) (jwt_pb.EncryptionAlgorithm, error) {
 		{
 			return jwt_pb.EncryptionAlgorithm_RS512, nil
 		}
+	case "ES256":
+		{
+			return jwt_pb.EncryptionAlgorithm_ES256, nil
+		}
 	case "ES384":
 		{
 			return jwt_pb.EncryptionAlgorithm_ES384, nil
@@ -46,7 +49,7 @@ func AlgoStrTOAlgoEnum(methodstr string) (jwt_pb.EncryptionAlgorithm, error) {
 		{
 			return jwt_pb.EncryptionAlgorithm_ES512, nil
 		}
-	case "EdDSA":
+	case "EDDSA":
 		{
 			return jwt_pb.EncryptionAlgorithm_EdDSA, nil
 		}
@@ -57,7 +60,7 @@ func AlgoStrTOAlgoEnum(methodstr string) (jwt_pb.EncryptionAlgorithm, error) {
 	}
 }
 
-//IsAsymmetric 算法在非对称加密支持的算法范围
+// IsAsymmetric 算法在非对称加密支持的算法范围
 func IsAsymmetric(method jwt_pb.EncryptionAlgorithm) bool {
 	if method == jwt_pb.EncryptionAlgorithm_RS256 || method == jwt_pb.EncryptionAlgorithm_RS384 || method == jwt_pb.EncryptionAlgorithm_RS512 || method == jwt_pb.EncryptionAlgorithm_ES256 || method == jwt_pb.EncryptionAlgorithm_ES384 || method == jwt_pb.EncryptionAlgorithm_ES512 || method == jwt_pb.EncryptionAlgorithm_EdDSA {
 		return true
@@ -65,7 +68,7 @@ func IsAsymmetric(method jwt_pb.EncryptionAlgorithm) bool {
 	return false
 }
 
-//IsSymmetric 算法在对称加密支持的算法范围
+// IsSymmetric 算法在对称加密支持的算法范围
 func IsSymmetric(method jwt_pb.EncryptionAlgorithm) bool {
 	if method == jwt_pb.EncryptionAlgorithm_HS256 || method == jwt_pb.EncryptionAlgorithm_HS384 || method == jwt_pb.EncryptionAlgorithm_HS512 {
 		return true
@@ -125,5 +128,5 @@ func LoadData(p string) ([]byte, error) {
 			return nil, err
 		}
 	}
-	return ioutil.ReadAll(rdr)
+	return io.ReadAll(rdr)
 }

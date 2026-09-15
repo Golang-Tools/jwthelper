@@ -2,19 +2,17 @@ package jwtverifier_serv
 
 import (
 	"context"
+	"encoding/json"
 
-	"github.com/Golang-Tools/jwthelper/v2/exceptions"
-	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/v2/jwtverifier_pb"
-	"github.com/Golang-Tools/jwthelper/v2/verifyoptions"
-	log "github.com/Golang-Tools/loggerhelper/v2"
+	"github.com/Golang-Tools/jwthelper/v3/exceptions"
+	"github.com/Golang-Tools/jwthelper/v3/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v3/jwtverifier_pb"
+	"github.com/Golang-Tools/jwthelper/v3/verifyoptions"
+	log "github.com/Golang-Tools/loggerhelper/v4"
 	"github.com/Golang-Tools/optparams"
-	jsoniter "github.com/json-iterator/go"
 )
 
-var json = jsoniter.ConfigCompatibleWithStandardLibrary
-
-//Meta 查看签名器的元信息
+// Meta 查看签名器的元信息
 func (s *Server) Meta(ctx context.Context, in *jwtverifier_pb.MetaRequest) (*jwtverifier_pb.MetaResponse, error) {
 	log.Debug("Meta get message", log.Dict{"in": in})
 	meta, err := s.verifier.Meta()
@@ -31,7 +29,7 @@ func (s *Server) Meta(ctx context.Context, in *jwtverifier_pb.MetaRequest) (*jwt
 	return res, nil
 }
 
-//Verify 校验签名
+// Verify 校验签名
 func (s *Server) Verify(ctx context.Context, in *jwtverifier_pb.VerifyRequest) (*jwtverifier_pb.VerifyResponse, error) {
 	res := &jwtverifier_pb.VerifyResponse{}
 	log.Debug("Sign get message", log.Dict{"in": in})

@@ -5,21 +5,36 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/v2/signoptions"
-	"github.com/Golang-Tools/jwthelper/v2/verifyoptions"
+	"github.com/Golang-Tools/jwthelper/v3/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v3/signoptions"
+	"github.com/Golang-Tools/jwthelper/v3/verifyoptions"
 	"github.com/stretchr/testify/assert"
 )
 
 var token1 = jwt_pb.Token{AccessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoxLCJiIjoiQiIsImV4cCI6MTYzMjc0MTk5MCwiaWF0IjoxNjMyNzQxMzkwLCJpc3MiOiIxY2MtSFMyNTYiLCJqdGkiOiI4ODYyZjk4Mi02N2RiLTQ5MzEtYjM2NS01MmVmYWIxZjUxNzIifQ.OiIO6KPadx_oVzHRJLJyGg9SW5YRkHKCM_JTql62LV0"}
 var token2 = jwt_pb.Token{AccessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoxLCJiIjoiQiIsImV4cCI6MTYzMjc0MTk5MCwiaWF0IjoxNjMyNzQxMzkwLCJpc3MiOiIxY2MtSFMyNTYiLCJqdGkiOiJjMTNkMWQ1My1kYWY4LTQ4MDItOTY0Yy05ZjNlZGRmZTgwN2UifQ.ZuVi6vR5IxsM5rKTBmsvl9JPYrOBN0B0D86g2IurLq4"}
 
-var tokenwithrefresh = jwt_pb.Token{
-	AccessToken:  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoxLCJiIjoiQiIsImV4cCI6MTYzMjg4MTY0MCwiaWF0IjoxNjMyODgxMDQwLCJpc3MiOiIxY2MtSFMyNTYiLCJqdGkiOiJhZTA4YjYxZC1jNTBhLTRjNGYtYjRjMy1jMzhkMjA2YTk0MmIiLCJzdWIiOiJ0ZXN0In0.1BoEasg3StpHdAe79pM2AiIFAaC6MdemQ-rqrwrz-CU",
-	RefreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzI5Njc0NDAsImlhdCI6MTYzMjg4MTA0MCwiaXNzIjoiMWNjLUhTMjU2IiwianRpIjoiYWUwOGI2MWQtYzUwYS00YzRmLWI0YzMtYzM4ZDIwNmE5NDJiIiwic3ViIjoidGVzdCJ9.ZDnWUvkePBYIK3Ydq9RtCmz09oVs4UxQ87jWKT4Mna8",
+// mustTokenWithExpiredAccess 构造一个 access_token 已过期、伴生 refresh_token 未过期的 token,
+// 负载与 token1 一致({a:1,b:"B"}),用于过期场景的测试。用默认签名器(HS256)签出。
+func mustTokenWithExpiredAccess(t *testing.T) *jwt_pb.Token {
+	t.Helper()
+	signer, err := NewSigner()
+	if err != nil {
+		assert.FailNow(t, err.Error(), "init signer error")
+	}
+	token, err := signer.Sign(
+		map[string]interface{}{"a": 1, "b": "B"},
+		signoptions.WithSub("test"),
+		signoptions.WithExpAt(time.Now().Add(-time.Hour)),
+		signoptions.WithRefreshExpAt(time.Now().Add(time.Hour*24)),
+	)
+	if err != nil {
+		assert.FailNow(t, err.Error(), "signer.Sign get error")
+	}
+	return token
 }
 
-//TestDefaultVerifierrMeta 测试默认校验器的元数据
+// TestDefaultVerifierrMeta 测试默认校验器的元数据
 func TestDefaultVerifierrMeta(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -34,8 +49,8 @@ func TestDefaultVerifierrMeta(t *testing.T) {
 	assert.Equal(t, []string{}, res.DefaultISSRange)
 }
 
-//TestNewHashVerifierWithOpts 测试带参数创建签名器
-//注意没有设置iss,但iss应该会随着设置算法更改
+// TestNewHashVerifierWithOpts 测试带参数创建签名器
+// 注意没有设置iss,但iss应该会随着设置算法更改
 func TestNewHashVerifierrOpts(t *testing.T) {
 	verifier, err := NewVerifier(WithDefaultAUD("test"), WithDefaultISSRange("1cc-HS256"))
 
@@ -51,7 +66,7 @@ func TestNewHashVerifierrOpts(t *testing.T) {
 	assert.Contains(t, res.DefaultISSRange, "1cc-HS256")
 }
 
-//TestNewHashVerifierWithNewKey 测试创建签名器,改变key并更改iss
+// TestNewHashVerifierWithNewKey 测试创建签名器,改变key并更改iss
 func TestNewHashVerifierWithNewKey(t *testing.T) {
 	verifier, err := NewVerifier(
 		WithVerifySecretKey([]byte("testkey")),
@@ -64,7 +79,7 @@ func TestNewHashVerifierWithNewKey(t *testing.T) {
 	assert.Equal(t, "testkey", key)
 }
 
-//TestNewHashVerifierWithNewKeyInFile 测试从文件中读取秘钥
+// TestNewHashVerifierWithNewKeyInFile 测试从文件中读取秘钥
 func TestNewHashVerifierWithNewKeyInFile(t *testing.T) {
 	verifier, err := NewVerifier(
 		WithVerifySecretKeyFromFile("key.txt"),
@@ -77,7 +92,7 @@ func TestNewHashVerifierWithNewKeyInFile(t *testing.T) {
 	assert.Equal(t, "key in file", key)
 }
 
-//TestNewHashVerifierWithWrongKeyFilepath 测试从错误文件路径中读取秘钥
+// TestNewHashVerifierWithWrongKeyFilepath 测试从错误文件路径中读取秘钥
 func TestNewHashVerifierWithWrongKeyFilepath(t *testing.T) {
 	func() {
 		defer func() {
@@ -90,8 +105,8 @@ func TestNewHashVerifierWithWrongKeyFilepath(t *testing.T) {
 	}()
 }
 
-//TestHashVerifierVerify 测试hash类型的签名校验器校验token
-//测试的两个token的负载一样,但签名时间不同,而且都已经过期
+// TestHashVerifierVerify 测试hash类型的签名校验器校验token
+// 测试的两个token的负载一样,但签名时间不同,而且都已经过期
 func TestHashVerifierVerify(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -107,8 +122,8 @@ func TestHashVerifierVerify(t *testing.T) {
 	t.Log("get payload2", payload2)
 }
 
-//TestHashVerifierVerifyWithRefreshToken 测试校验带RefreshToken的签名
-//测试的两个token的负载一样,但签名时间不同,而且已经过期
+// TestHashVerifierVerifyWithRefreshToken 测试校验带RefreshToken的签名
+// 测试的两个token的负载一样,但签名时间不同,而且已经过期
 func TestHashVerifierVerifyWithRefreshToken(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -119,13 +134,13 @@ func TestHashVerifierVerifyWithRefreshToken(t *testing.T) {
 	payload2 := testPayLoad{}
 
 	verifier.Verify(&token1, &payload1)
-	verifier.Verify(&tokenwithrefresh, &payload2)
+	verifier.Verify(mustTokenWithExpiredAccess(t), &payload2)
 	t.Log("get payload1", payload1)
 	t.Log("get payload2", payload2)
 	assert.EqualValues(t, payload1, payload2)
 }
 
-//TestHashVerifierVerifyExpiredToken 测试解析只有access_token且已经过期的token
+// TestHashVerifierVerifyExpiredToken 测试解析只有access_token且已经过期的token
 func TestHashVerifierVerifyExpiredToken(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -143,7 +158,7 @@ func TestHashVerifierVerifyExpiredToken(t *testing.T) {
 	assert.EqualError(t, err, "EXP validation failed")
 }
 
-//TestHashVerifierVerifyNotAccessToken 测试解析的token不含AccessToken
+// TestHashVerifierVerifyNotAccessToken 测试解析的token不含AccessToken
 func TestHashVerifierVerifyNotAccessToken(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -160,7 +175,7 @@ func TestHashVerifierVerifyNotAccessToken(t *testing.T) {
 	assert.EqualError(t, err, "access token not found")
 }
 
-//TestHashVerifierVerifyNotToken 测试解析不是jwt的字符串
+// TestHashVerifierVerifyNotToken 测试解析不是jwt的字符串
 func TestHashVerifierVerifyNotToken(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -178,8 +193,8 @@ func TestHashVerifierVerifyNotToken(t *testing.T) {
 	assert.EqualError(t, err, "token is malformed")
 }
 
-//TestHashVerifierVerifyOKAccessToken 测试校验一个access_token未过期的token
-//需要注意map[string]interface{}类型的负载中int类型的数据会被转成float64型
+// TestHashVerifierVerifyOKAccessToken 测试校验一个access_token未过期的token
+// 需要注意map[string]interface{}类型的负载中int类型的数据会被转成float64型
 func TestHashVerifierVerifyOKAccessToken(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -208,7 +223,7 @@ func TestHashVerifierVerifyOKAccessToken(t *testing.T) {
 	assert.EqualValues(t, payload, payload1)
 }
 
-//TestHashVerifierVerifyCheckMatch 测试校验的各种匹配情况
+// TestHashVerifierVerifyCheckMatch 测试校验的各种匹配情况
 func TestHashVerifierVerifyCheckMatch(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -245,7 +260,7 @@ func TestHashVerifierVerifyCheckMatch(t *testing.T) {
 	assert.EqualValues(t, payload, payload1)
 }
 
-//TestHashVerifierVerifyCheckSubNotMatch 测试校验sub不匹配
+// TestHashVerifierVerifyCheckSubNotMatch 测试校验sub不匹配
 func TestHashVerifierVerifyCheckSubNotMatch(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -281,7 +296,7 @@ func TestHashVerifierVerifyCheckSubNotMatch(t *testing.T) {
 	assert.EqualError(t, err, "SUB validation failed")
 }
 
-//TestHashVerifierVerifyCheckAudNotMatch 测试校验aud不匹配
+// TestHashVerifierVerifyCheckAudNotMatch 测试校验aud不匹配
 func TestHashVerifierVerifyCheckAudNotMatch(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -357,7 +372,7 @@ func TestHashVerifierVerifyCheckAudNotMatch(t *testing.T) {
 	assert.Nil(t, err4)
 }
 
-//TestHashVerifierVerifyCheckIssNotMatch 测试校验iss不匹配
+// TestHashVerifierVerifyCheckIssNotMatch 测试校验iss不匹配
 func TestHashVerifierVerifyCheckIssNotMatch(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -393,8 +408,8 @@ func TestHashVerifierVerifyCheckIssNotMatch(t *testing.T) {
 	assert.EqualError(t, err, "ISS validation failed")
 }
 
-//TestHashVerifierVerifyCheckAllNotMatch 测试校验全部不匹配
-//校验顺序为sub>aud>iss所以应该报`SUB validation failed`
+// TestHashVerifierVerifyCheckAllNotMatch 测试校验全部不匹配
+// 校验顺序为sub>aud>iss所以应该报`SUB validation failed`
 func TestHashVerifierVerifyCheckAllNotMatch(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -430,8 +445,7 @@ func TestHashVerifierVerifyCheckAllNotMatch(t *testing.T) {
 	assert.EqualError(t, err, "SUB validation failed")
 }
 
-//TestHashVerifierVerifyExpiredToken 测试解析有access_token且已经过期的token但有RefreshToken且没有过期的token
-//请自己设置下`tokenwithrefresh`的值让它满足这个要求
+// TestHashVerifierVerifyExpiredToken 测试解析有access_token且已经过期的token但有RefreshToken且没有过期的token
 func TestHashVerifierVerifyExpiredAccessTokenWithNotExpiredRefreshToken(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -439,7 +453,7 @@ func TestHashVerifierVerifyExpiredAccessTokenWithNotExpiredRefreshToken(t *testi
 	}
 
 	payload1 := testPayLoad{}
-	status, err := verifier.Verify(&tokenwithrefresh, &payload1)
+	status, err := verifier.Verify(mustTokenWithExpiredAccess(t), &payload1)
 	if err == nil {
 		assert.FailNow(t, "verifier Verify should get error")
 	}
@@ -449,7 +463,7 @@ func TestHashVerifierVerifyExpiredAccessTokenWithNotExpiredRefreshToken(t *testi
 	assert.EqualError(t, err, "EXP validation failed")
 }
 
-//TestHashVerifierVerifyNotToken 测试解析access_token过期,有refresh_token,但不是jwt的字符串的情况
+// TestHashVerifierVerifyNotToken 测试解析access_token过期,有refresh_token,但不是jwt的字符串的情况
 // 这种情况下应该可以解析出payload,但报错不是超时
 func TestHashVerifierVerifyNotRefreshTokenAccessTokenExpired(t *testing.T) {
 	verifier, err := NewVerifier()
@@ -470,7 +484,7 @@ func TestHashVerifierVerifyNotRefreshTokenAccessTokenExpired(t *testing.T) {
 	assert.EqualError(t, err, "token contains an invalid number of segments")
 }
 
-//TestHashVerifierVerifyWithRefreshTokenCheckMatch 测试校验带RefreshToken的token的各种匹配情况
+// TestHashVerifierVerifyWithRefreshTokenCheckMatch 测试校验带RefreshToken的token的各种匹配情况
 func TestHashVerifierVerifyWithRefreshTokenCheckMatch(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -508,7 +522,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckMatch(t *testing.T) {
 	t.Log("get payload", payload1)
 }
 
-//TestHashVerifierVerifyWithRefreshTokenCheckAllNotMatch 测试校验带RefreshToken的token的全部不匹配情况
+// TestHashVerifierVerifyWithRefreshTokenCheckAllNotMatch 测试校验带RefreshToken的token的全部不匹配情况
 func TestHashVerifierVerifyWithRefreshTokenCheckAllNotMatch(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -547,7 +561,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckAllNotMatch(t *testing.T) {
 	assert.EqualError(t, err, "SUB validation failed")
 }
 
-//TestHashVerifierVerifyWithRefreshTokenCheckRTSubNotMatch 测试校验带RefreshToken的token的两个key的sub不匹配
+// TestHashVerifierVerifyWithRefreshTokenCheckRTSubNotMatch 测试校验带RefreshToken的token的两个key的sub不匹配
 func TestHashVerifierVerifyWithRefreshTokenCheckRTSubNotMatch(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -591,7 +605,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTSubNotMatch(t *testing.T) {
 	assert.EqualError(t, err, "refresh token sub not match")
 }
 
-//TestHashVerifierVerifyWithRefreshTokenCheckRTWithoutSub 测试校验带RefreshToken的token的RefreshToken没有sub
+// TestHashVerifierVerifyWithRefreshTokenCheckRTWithoutSub 测试校验带RefreshToken的token的RefreshToken没有sub
 func TestHashVerifierVerifyWithRefreshTokenCheckRTWithoutSub(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -634,7 +648,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTWithoutSub(t *testing.T) {
 	assert.EqualError(t, err, "refresh token sub not match")
 }
 
-//TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatchJti 校验jti不符的情况
+// TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatchJti 校验jti不符的情况
 func TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatchJti(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -682,7 +696,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatchJti(t *testing.T) {
 	assert.EqualError(t, err, "refresh token jti not match")
 }
 
-//TestHashVerifierVerifyWithRefreshTokenCheckRTAUDNotMatch 测试校验带RefreshToken的token的两个key的aud不匹配
+// TestHashVerifierVerifyWithRefreshTokenCheckRTAUDNotMatch 测试校验带RefreshToken的token的两个key的aud不匹配
 func TestHashVerifierVerifyWithRefreshTokenCheckRTAUDNotMatch(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -730,7 +744,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTAUDNotMatch(t *testing.T) {
 	assert.EqualError(t, err, "refresh token aud not match")
 }
 
-//TestHashVerifierVerifyWithRefreshTokenCheckRTIssNotInRange 测试校验带RefreshToken的token的RefreshToken的签发人不在合法范围
+// TestHashVerifierVerifyWithRefreshTokenCheckRTIssNotInRange 测试校验带RefreshToken的token的RefreshToken的签发人不在合法范围
 func TestHashVerifierVerifyWithRefreshTokenCheckRTIssNotInRange(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -785,7 +799,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTIssNotInRange(t *testing.T) {
 	assert.EqualError(t, err, "refresh token iss not in range")
 }
 
-//TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatch 测试校验带RefreshToken的token的两个key的sub不匹配
+// TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatch 测试校验带RefreshToken的token的两个key的sub不匹配
 func TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatch(t *testing.T) {
 	verifier, err := NewVerifier()
 	if err != nil {
@@ -832,7 +846,7 @@ func TestHashVerifierVerifyWithRefreshTokenCheckRTNotMatch(t *testing.T) {
 	assert.EqualError(t, err, "refresh token sub not match")
 }
 
-//TestNewRSAVerifierrOpts 测试创建一个rsa算法的签名器
+// TestNewRSAVerifierrOpts 测试创建一个rsa算法的签名器
 func TestNewRSAVerifierrOpts(t *testing.T) {
 	verifier, err := NewVerifier(
 		WithVerifyAlgo(jwt_pb.EncryptionAlgorithm_RS256),
@@ -850,7 +864,7 @@ func TestNewRSAVerifierrOpts(t *testing.T) {
 	assert.Equal(t, []string{}, res.DefaultISSRange)
 }
 
-//TestNewESAVerifierrOpts  测试创建一个ecdsa算法的签名器
+// TestNewESAVerifierrOpts  测试创建一个ecdsa算法的签名器
 func TestNewESAVerifierrOpts(t *testing.T) {
 	verifier, err := NewVerifier(
 		WithVerifyAlgo(jwt_pb.EncryptionAlgorithm_ES256),
@@ -868,7 +882,7 @@ func TestNewESAVerifierrOpts(t *testing.T) {
 	assert.Equal(t, []string{}, res.DefaultISSRange)
 }
 
-//TestNewEdDSAAVerifierrOpts  测试创建一个ed25519算法的签名器
+// TestNewEdDSAAVerifierrOpts  测试创建一个ed25519算法的签名器
 func TestNewEdDSAAVerifierrOpts(t *testing.T) {
 	verifier, err := NewVerifier(
 		WithVerifyAlgo(jwt_pb.EncryptionAlgorithm_EdDSA),
@@ -886,8 +900,8 @@ func TestNewEdDSAAVerifierrOpts(t *testing.T) {
 	assert.Equal(t, []string{}, res.DefaultISSRange)
 }
 
-//TestRSAVerifierVerifyWithRefreshToken 测试校验rsa加密的带RefreshToken的签名
-//测试的两个token的负载一样,但签名时间不同,而且已经过期
+// TestRSAVerifierVerifyWithRefreshToken 测试校验rsa加密的带RefreshToken的签名
+// 测试的两个token的负载一样,但签名时间不同,而且已经过期
 func TestRSAVerifierVerifyWithRefreshToken(t *testing.T) {
 	verifier, err := NewVerifier(
 		WithVerifyAlgo(jwt_pb.EncryptionAlgorithm_RS256),
@@ -923,8 +937,8 @@ func TestRSAVerifierVerifyWithRefreshToken(t *testing.T) {
 	assert.NotEqual(t, "", status.Jti)
 }
 
-//TestEcdsaVerifierVerifyWithRefreshToken 测试校验ecdsa加密的带RefreshToken的签名
-//测试的两个token的负载一样,但签名时间不同,而且已经过期
+// TestEcdsaVerifierVerifyWithRefreshToken 测试校验ecdsa加密的带RefreshToken的签名
+// 测试的两个token的负载一样,但签名时间不同,而且已经过期
 func TestEcdsaVerifierVerifyWithRefreshToken(t *testing.T) {
 	verifier, err := NewVerifier(
 		WithVerifyAlgo(jwt_pb.EncryptionAlgorithm_ES256),
@@ -960,8 +974,8 @@ func TestEcdsaVerifierVerifyWithRefreshToken(t *testing.T) {
 	assert.NotEqual(t, "", status.Jti)
 }
 
-//TestEDsaVerifierVerifyWithRefreshToken 测试校验ed25519加密的带RefreshToken的签名
-//测试的两个token的负载一样,但签名时间不同,而且已经过期
+// TestEDsaVerifierVerifyWithRefreshToken 测试校验ed25519加密的带RefreshToken的签名
+// 测试的两个token的负载一样,但签名时间不同,而且已经过期
 func TestEDsaVerifierVerifyWithRefreshToken(t *testing.T) {
 	verifier, err := NewVerifier(
 		WithVerifyAlgo(jwt_pb.EncryptionAlgorithm_EdDSA),

@@ -3,14 +3,14 @@ package sdk
 import (
 	"encoding/json"
 	"errors"
+	"log/slog"
 	"strings"
 
-	"github.com/Golang-Tools/grpcsdk"
-	"github.com/Golang-Tools/jwthelper/v2/exceptions"
-	"github.com/Golang-Tools/jwthelper/v2/jwt_pb"
-	"github.com/Golang-Tools/jwthelper/v2/jwtverifier_pb"
-	"github.com/Golang-Tools/jwthelper/v2/verifyoptions"
-	"github.com/Golang-Tools/loggerhelper/v2"
+	"github.com/Golang-Tools/grpcsdk/v2"
+	"github.com/Golang-Tools/jwthelper/v3/exceptions"
+	"github.com/Golang-Tools/jwthelper/v3/jwt_pb"
+	"github.com/Golang-Tools/jwthelper/v3/jwtverifier_pb"
+	"github.com/Golang-Tools/jwthelper/v3/verifyoptions"
 	"github.com/Golang-Tools/optparams"
 )
 
@@ -24,20 +24,20 @@ func NewVerifierSDK() *VerifierSDK {
 	return s
 }
 
-func (s *VerifierSDK) Init(opts ...optparams.Option[grpcsdk.SDKConfig]) {
-	s.client.Init(opts...)
+func (s *VerifierSDK) Init(opts ...optparams.Option[grpcsdk.SDKConfig]) error {
+	return s.client.Init(opts...)
 }
 
-func (s *VerifierSDK) GetLogger() *loggerhelper.Log {
+func (s *VerifierSDK) GetLogger() *slog.Logger {
 	return s.client.Logger
 }
 
-//Close 断开连接
+// Close 断开连接
 func (c *VerifierSDK) Close() error {
 	return c.client.Close()
 }
 
-//Meta 查看远端签名器的元信息
+// Meta 查看远端签名器的元信息
 func (c *VerifierSDK) Meta() (*jwt_pb.VerifierMeta, error) {
 	ctx, cancel := c.client.NewCtx()
 	defer cancel()
@@ -47,14 +47,14 @@ func (c *VerifierSDK) Meta() (*jwt_pb.VerifierMeta, error) {
 	if err != nil {
 		return nil, err
 	}
-	if res.Status == nil || res.Status.Status == jwt_pb.ResponseStatus_FAILED {
-		var err error
+	if res.Status == nil {
+		return nil, ErrRpcResponseError
+	}
+	if res.Status.Status == jwt_pb.ResponseStatus_FAILED {
 		if res.Status.Message != "" {
-			err = errors.New(res.Status.Message)
-		} else {
-			err = ErrRpcResponseError
+			return nil, errors.New(res.Status.Message)
 		}
-		return nil, err
+		return nil, ErrRpcResponseError
 	}
 	return res.Data, nil
 }
@@ -62,10 +62,7 @@ func (c *VerifierSDK) Meta() (*jwt_pb.VerifierMeta, error) {
 // Verify 校验一个token
 func (c *VerifierSDK) Verify(token *jwt_pb.Token, payload interface{}, opts ...optparams.Option[verifyoptions.VerifyOptions]) (*jwt_pb.JwtStatus, error) {
 	var jwt_status *jwt_pb.JwtStatus
-	defaultopt := verifyoptions.VerifyOptions{}
-	for _, opt := range opts {
-		opt.Apply(&defaultopt)
-	}
+	defaultopt := optparams.GetOption(new(verifyoptions.VerifyOptions), opts...)
 	query := jwtverifier_pb.VerifyRequest{
 		Token:                   token,
 		CheckMatchSub:           defaultopt.CheckMatchSUB,
@@ -88,24 +85,19 @@ func (c *VerifierSDK) Verify(token *jwt_pb.Token, payload interface{}, opts ...o
 				return nil, err
 			}
 		}
-		if res.JwtStatus != nil || res.JwtStatus.Jti != "" {
-			jwt_status = res.JwtStatus
-		} else {
-			jwt_status = nil
-		}
+		jwt_status = res.JwtStatus
 	}
 	if err == nil {
-		if res.Status == nil || res.Status.Status == jwt_pb.ResponseStatus_FAILED {
-			var err error
-			if res.Status.Message != "" {
-				err = errors.New(res.Status.Message)
-			} else {
-				err = ErrRpcResponseError
-			}
-			return jwt_status, err
-		} else {
-			return jwt_status, nil
+		if res == nil || res.Status == nil {
+			return jwt_status, ErrRpcResponseError
 		}
+		if res.Status.Status == jwt_pb.ResponseStatus_FAILED {
+			if res.Status.Message != "" {
+				return jwt_status, errors.New(res.Status.Message)
+			}
+			return jwt_status, ErrRpcResponseError
+		}
+		return jwt_status, nil
 	} else {
 		errmsg := err.Error()
 		switch {

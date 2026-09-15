@@ -1,3 +1,48 @@
+# v3.0.0
+
+模块路径变更为 `github.com/Golang-Tools/jwthelper/v3`,最低 go 版本提升到 1.25。
+
+## 破坏性变更
+
++ 模块路径由 `/v2` 变更为 `/v3`
++ 最低 go 版本提升到 1.25
++ `sdk.Init` 现在返回 `error`;`sdk.GetLogger` 的返回类型改为 `*slog.Logger`
++ 命令行工具跟随 `schema-entry-go/v4`:长参数名使用小写 json 字段名(如 `--algo_name`),环境变量名规则为`前缀_字段名全大写`
+
+## 依赖迁移
+
++ `github.com/Golang-Tools/grpcsdk` v0.0.2 -> `github.com/Golang-Tools/grpcsdk/v2` v2.2.0(随 grpc v1.83.2)
++ `github.com/Golang-Tools/loggerhelper/v2` -> `github.com/Golang-Tools/loggerhelper/v4`(slog)
++ `github.com/Golang-Tools/optparams` v0.0.1 -> v1.0.0(GetOption 改为纯函数语义,调用处已适配)
++ `github.com/Golang-Tools/idgener` v0.0.3 -> v1.0.0
++ `github.com/Golang-Tools/schema-entry-go/v2` -> `github.com/Golang-Tools/schema-entry-go/v4`
++ `github.com/golang-jwt/jwt/v4` v4.1.0 -> v4.5.2
++ `github.com/gin-gonic/gin` v1.7.4 -> v1.12.0
++ `github.com/deckarep/golang-set/v2` v2.1.0 -> v2.9.0
++ `github.com/stretchr/testify` v1.7.1 -> v1.12.1
++ `google.golang.org/grpc` v1.46.2 -> v1.83.2、`google.golang.org/protobuf` v1.27.1 -> v1.36.12
++ 移除 `github.com/json-iterator/go`,改用标准库 `encoding/json`
+
+## bug修复
+
++ 修复 `utils.AlgoStrTOAlgoEnum` 缺少 ES256 分支、EdDSA 因大小写转换无法命中的问题
++ 修复校验器对畸形 claims(exp/aud/jti/iss/sub 类型非法)的断言 panic,现在返回错误而不是崩溃
++ 修复 `sdk` 中响应状态为空时访问 `Status.Message` 的空指针崩溃,以及 `JwtStatus` 判空条件写反的问题
++ 修复伴生 refresh_token 中 `nbf` 被误写为 `nbr` 的问题
++ 修复签名服务端将 `SignRequest.Nbf` 错误应用到 `exp` 的笔误
++ 修复 `gin_middleware` 中 SelfFinder 出错后未终止后续处理的问题;日志与响应的状态码保持一致
++ 修复 `utils/keygener` RSA 密钥长度不足的问题(Go 1.24+ 要求不少于 1024 位),现在固定生成 2048 位
++ 修复 `verifier.Verify` 中正则重复编译的问题(改为包级预编译)
+
+## 其它
+
++ `signoptions.WithAud/AddAud` 改为保序去重(替换随机顺序实现,输出更确定)
++ `JwtStatus.TimeLeft` 的文档更正为“过期时间戳(Unix 秒)”
++ 补充测试:算法名解析、畸形 claims 回归、gin 中间件、refresh nbf 回归、aud 保序
++ 修正测试中过期于 2021 年的手工 token(改为动态生成),消除时间敏感的用例
++ 全仓库注释格式规范化;删除 `docs/` 静态站产物与 `pmfprc.json`
++ dockerfile 使用 go1.25 基础镜像与 `go install` 方式安装 grpc-health-probe;镜像 tag 更新为 3.0.0
+
 # v2.0.2
 
 ## 优化实现

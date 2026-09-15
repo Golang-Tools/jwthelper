@@ -1,12 +1,15 @@
-package main //import "github.com/Golang-Tools/jwthelper/v2/rsa-generator"
+package main //import "github.com/Golang-Tools/jwthelper/v3/rsa-generator"
+
 import (
+	"errors"
+	"fmt"
 	"os"
 
-	"github.com/Golang-Tools/jwthelper/v2/cmd/createkey"
-	"github.com/Golang-Tools/jwthelper/v2/cmd/jwtsigner_serv"
-	"github.com/Golang-Tools/jwthelper/v2/cmd/jwtverifier_serv"
-	log "github.com/Golang-Tools/loggerhelper/v2"
-	s "github.com/Golang-Tools/schema-entry-go/v2"
+	"github.com/Golang-Tools/jwthelper/v3/cmd/createkey"
+	"github.com/Golang-Tools/jwthelper/v3/cmd/jwtsigner_serv"
+	"github.com/Golang-Tools/jwthelper/v3/cmd/jwtverifier_serv"
+	log "github.com/Golang-Tools/loggerhelper/v4"
+	s "github.com/Golang-Tools/schema-entry-go/v4"
 )
 
 func main() {
@@ -33,5 +36,11 @@ func main() {
 	verifier.SetParent(root)
 	createkey.SetParent(root)
 	signer.SetParent(root)
-	root.Parse(os.Args)
+	err = root.Parse(os.Args)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		if !errors.Is(err, s.ErrHelp) {
+			os.Exit(1)
+		}
+	}
 }
